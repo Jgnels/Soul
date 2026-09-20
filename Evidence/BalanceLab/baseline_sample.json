@@ -1,0 +1,2421 @@
+[
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 2,
+        "DEFEND": 1,
+        "HOLD": 44,
+        "RECOVER": 2,
+        "SEIZE": 12,
+        "SIEGE": 4
+      },
+      "f1": {
+        "ATTACK": 3,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 3,
+        "HOLD": 37,
+        "RECOVER": 2,
+        "SEIZE": 12,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 6,
+        "DEFEND": 3,
+        "HOLD": 31,
+        "RECOVER": 2,
+        "SEIZE": 19,
+        "SIEGE": 4
+      },
+      "f3": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 6,
+        "DEFEND": 1,
+        "HOLD": 25,
+        "RECOVER": 7,
+        "SEIZE": 14,
+        "SIEGE": 1
+      }
+    },
+    "battle_count": 19,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.22630966239813738,
+    "factions": [
+      {
+        "army": 105,
+        "gold": 1329,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1944,
+        "territory": 2
+      },
+      {
+        "army": 0,
+        "gold": 1494,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 36,
+        "rank": "Recruit",
+        "resources": 2,
+        "score": 2334,
+        "territory": 4
+      },
+      {
+        "army": 105,
+        "gold": 1566,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 2331,
+        "territory": 4
+      },
+      {
+        "army": 148,
+        "gold": 1323,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1981,
+        "territory": 2
+      }
+    ],
+    "gini": 0.0442374854481955,
+    "leader_share": 0.2717112922002328,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260920,
+    "shock": "",
+    "top_second_ratio": 1.0012870012870012
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 2,
+        "HOLD": 29,
+        "RECOVER": 5,
+        "SEIZE": 8,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 2,
+        "DEFEND": 6,
+        "HOLD": 40,
+        "RECOVER": 3,
+        "SEIZE": 11,
+        "SIEGE": 3
+      },
+      "f2": {
+        "ATTACK": 3,
+        "DEFEND": 3,
+        "HOLD": 43,
+        "RECOVER": 2,
+        "SEIZE": 10,
+        "SIEGE": 4
+      },
+      "f3": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 3,
+        "DEFEND": 2,
+        "HOLD": 30,
+        "RECOVER": 6,
+        "SEIZE": 14,
+        "SIEGE": 1
+      }
+    },
+    "battle_count": 19,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.20428392389199043,
+    "factions": [
+      {
+        "army": 103,
+        "gold": 1180,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1793,
+        "territory": 2
+      },
+      {
+        "army": 163,
+        "gold": 1569,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2602,
+        "territory": 5
+      },
+      {
+        "army": 220,
+        "gold": 1572,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2422,
+        "territory": 3
+      },
+      {
+        "army": 154,
+        "gold": 1296,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1960,
+        "territory": 2
+      }
+    ],
+    "gini": 0.0822889369944173,
+    "leader_share": 0.29645664805742283,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260921,
+    "shock": "",
+    "top_second_ratio": 1.0743187448389762
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 3,
+        "HOLD": 40,
+        "RECOVER": 3,
+        "SEIZE": 12,
+        "SIEGE": 3
+      },
+      "f1": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 10,
+        "DEFEND": 1,
+        "HOLD": 17,
+        "RECOVER": 7,
+        "SEIZE": 16,
+        "SIEGE": 1
+      },
+      "f2": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 8,
+        "DEFEND": 6,
+        "HOLD": 24,
+        "RECOVER": 5,
+        "SEIZE": 15,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 2,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 8,
+        "HOLD": 40,
+        "RECOVER": 3,
+        "SEIZE": 10,
+        "SIEGE": 4
+      }
+    },
+    "battle_count": 22,
+    "days": 56,
+    "f0_is_leader": true,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.30451351673216626,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1587,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2557,
+        "territory": 4
+      },
+      {
+        "army": 148,
+        "gold": 1254,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1912,
+        "territory": 2
+      },
+      {
+        "army": 0,
+        "gold": 1257,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1767,
+        "territory": 2
+      },
+      {
+        "army": 292,
+        "gold": 1119,
+        "hero_level": 1,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2161,
+        "territory": 4
+      }
+    ],
+    "gini": 0.07797427652733124,
+    "leader_share": 0.30451351673216626,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260922,
+    "shock": "",
+    "top_second_ratio": 1.1832484960666358
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 8,
+        "DEFEND": 3,
+        "HOLD": 20,
+        "RECOVER": 6,
+        "SEIZE": 14,
+        "SIEGE": 2
+      },
+      "f1": {
+        "ATTACK": 2,
+        "DEFEND": 1,
+        "HOLD": 37,
+        "RECOVER": 5,
+        "SEIZE": 13,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 5,
+        "DEFEND": 2,
+        "HOLD": 30,
+        "RECOVER": 7,
+        "SEIZE": 18,
+        "SIEGE": 4
+      },
+      "f3": {
+        "ATTACK": 9,
+        "DEFEND": 3,
+        "HOLD": 26,
+        "RECOVER": 3,
+        "SEIZE": 9,
+        "SIEGE": 2
+      }
+    },
+    "battle_count": 25,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.22074040009197515,
+    "factions": [
+      {
+        "army": 102,
+        "gold": 1308,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1920,
+        "territory": 2
+      },
+      {
+        "army": 108,
+        "gold": 1449,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2067,
+        "territory": 2
+      },
+      {
+        "army": 151,
+        "gold": 1296,
+        "hero_level": 4,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2317,
+        "territory": 5
+      },
+      {
+        "army": 0,
+        "gold": 1764,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2394,
+        "territory": 3
+      }
+    ],
+    "gini": 0.048057024603357146,
+    "leader_share": 0.27523568636468154,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260923,
+    "shock": "",
+    "top_second_ratio": 1.0332326283987916
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 1,
+        "DEFEND": 4,
+        "HOLD": 44,
+        "RECOVER": 3,
+        "SEIZE": 5
+      },
+      "f1": {
+        "ATTACK": 9,
+        "DEFEND": 2,
+        "HOLD": 16,
+        "RECOVER": 8,
+        "SEIZE": 10,
+        "SIEGE": 1
+      },
+      "f2": {
+        "ATTACK": 13,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 7,
+        "HOLD": 17,
+        "RECOVER": 1,
+        "SEIZE": 14,
+        "SIEGE": 3
+      },
+      "f3": {
+        "ATTACK": 3,
+        "DEFEND": 2,
+        "HOLD": 39,
+        "RECOVER": 4,
+        "SEIZE": 9,
+        "SIEGE": 4
+      }
+    },
+    "battle_count": 26,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.19223439733206288,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1434,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 1614,
+        "territory": 0
+      },
+      {
+        "army": 0,
+        "gold": 1174,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 1354,
+        "territory": 0
+      },
+      {
+        "army": 22,
+        "gold": 1677,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 45,
+        "rank": "Seasoned",
+        "resources": 3,
+        "score": 3109,
+        "territory": 8
+      },
+      {
+        "army": 162,
+        "gold": 1407,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2319,
+        "territory": 4
+      }
+    ],
+    "gini": 0.17776322058122918,
+    "leader_share": 0.3702953787517866,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260924,
+    "shock": "",
+    "top_second_ratio": 1.340664079344545
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 4,
+        "DEFEND": 1,
+        "HOLD": 39,
+        "RECOVER": 3,
+        "SEIZE": 15,
+        "SIEGE": 4
+      },
+      "f1": {
+        "ATTACK": 1,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 1,
+        "HOLD": 44,
+        "RECOVER": 3,
+        "SEIZE": 8,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 6,
+        "DEFEND": 2,
+        "HOLD": 24,
+        "RECOVER": 6,
+        "SEIZE": 14,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 2,
+        "DEFEND": 1,
+        "HOLD": 43,
+        "RECOVER": 3,
+        "SEIZE": 10,
+        "SIEGE": 2
+      }
+    },
+    "battle_count": 14,
+    "days": 56,
+    "f0_is_leader": true,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.2650203946643149,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1314,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2404,
+        "territory": 5
+      },
+      {
+        "army": 147,
+        "gold": 1710,
+        "hero_level": 1,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2367,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1344,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2074,
+        "territory": 2
+      },
+      {
+        "army": 147,
+        "gold": 1449,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2226,
+        "territory": 3
+      }
+    ],
+    "gini": 0.031170763973101145,
+    "leader_share": 0.2650203946643149,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260925,
+    "shock": "",
+    "top_second_ratio": 1.015631601182932
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 11,
+        "DEFEND": 3,
+        "HOLD": 9,
+        "RECOVER": 9,
+        "SEIZE": 19,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 12,
+        "DEFEND": 11,
+        "HOLD": 26,
+        "RECOVER": 4,
+        "SEIZE": 22,
+        "SIEGE": 5
+      },
+      "f2": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 10,
+        "DEFEND": 4,
+        "HOLD": 12,
+        "RECOVER": 11,
+        "SEIZE": 14
+      },
+      "f3": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 9,
+        "DEFEND": 6,
+        "HOLD": 17,
+        "RECOVER": 3,
+        "SEIZE": 21,
+        "SIEGE": 6
+      }
+    },
+    "battle_count": 35,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.24125320004876266,
+    "factions": [
+      {
+        "army": 149,
+        "gold": 1200,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1979,
+        "territory": 3
+      },
+      {
+        "army": 0,
+        "gold": 1612,
+        "hero_level": 4,
+        "id": "f1",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2602,
+        "territory": 6
+      },
+      {
+        "army": 0,
+        "gold": 1191,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 1371,
+        "territory": 0
+      },
+      {
+        "army": 152,
+        "gold": 1379,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 36,
+        "rank": "Recruit",
+        "resources": 2,
+        "score": 2251,
+        "territory": 3
+      }
+    ],
+    "gini": 0.12083993660855774,
+    "leader_share": 0.31720102401560407,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260926,
+    "shock": "",
+    "top_second_ratio": 1.155930697467792
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 13,
+        "HOLD": 4,
+        "RECOVER": 9,
+        "SEIZE": 18,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 9,
+        "DEFEND": 1,
+        "HOLD": 34,
+        "RECOVER": 4,
+        "SEIZE": 15,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 10,
+        "DEFEND": 1,
+        "HOLD": 16,
+        "RECOVER": 11,
+        "SEIZE": 16,
+        "SIEGE": 1
+      },
+      "f3": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 8,
+        "HOLD": 43,
+        "RECOVER": 1,
+        "SEIZE": 11,
+        "SIEGE": 2
+      }
+    },
+    "battle_count": 30,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.1894017094017094,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1152,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1662,
+        "territory": 2
+      },
+      {
+        "army": 65,
+        "gold": 1695,
+        "hero_level": 4,
+        "id": "f1",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 2180,
+        "territory": 2
+      },
+      {
+        "army": 150,
+        "gold": 1233,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1893,
+        "territory": 2
+      },
+      {
+        "army": 148,
+        "gold": 1812,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 36,
+        "rank": "Recruit",
+        "resources": 2,
+        "score": 3040,
+        "territory": 6
+      }
+    ],
+    "gini": 0.12595441595441592,
+    "leader_share": 0.34643874643874645,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260927,
+    "shock": "",
+    "top_second_ratio": 1.3944954128440368
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 1,
+        "HOLD": 49,
+        "RECOVER": 2,
+        "SEIZE": 4,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 1,
+        "CAPTURE_RESOURCE": 2,
+        "DEFEND": 2,
+        "HOLD": 30,
+        "RECOVER": 10,
+        "SEIZE": 13,
+        "SIEGE": 1
+      },
+      "f2": {
+        "ATTACK": 3,
+        "CAPTURE_RESOURCE": 3,
+        "DEFEND": 6,
+        "HOLD": 34,
+        "RECOVER": 2,
+        "SEIZE": 12,
+        "SIEGE": 4
+      },
+      "f3": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 7,
+        "HOLD": 46,
+        "SEIZE": 10,
+        "SIEGE": 3
+      }
+    },
+    "battle_count": 11,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.23723487824037706,
+    "factions": [
+      {
+        "army": 152,
+        "gold": 1452,
+        "hero_level": 1,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2114,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1359,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2089,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1267,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2117,
+        "territory": 3
+      },
+      {
+        "army": 152,
+        "gold": 1569,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Veteran",
+        "resources": 1,
+        "score": 2591,
+        "territory": 5
+      }
+    ],
+    "gini": 0.04233531590169459,
+    "leader_share": 0.29076422399281787,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260928,
+    "shock": "",
+    "top_second_ratio": 1.2239017477562588
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 5,
+        "DEFEND": 1,
+        "HOLD": 17,
+        "RECOVER": 7,
+        "SEIZE": 12,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 10,
+        "DEFEND": 2,
+        "HOLD": 16,
+        "RECOVER": 10,
+        "SEIZE": 16,
+        "SIEGE": 1
+      },
+      "f2": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 7,
+        "DEFEND": 5,
+        "HOLD": 18,
+        "RECOVER": 5,
+        "SEIZE": 17,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 13,
+        "CAPTURE_RESOURCE": 8,
+        "DEFEND": 8,
+        "HOLD": 17,
+        "RECOVER": 4,
+        "SEIZE": 9,
+        "SIEGE": 2
+      }
+    },
+    "battle_count": 38,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.22874913614374567,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1476,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1986,
+        "territory": 2
+      },
+      {
+        "army": 148,
+        "gold": 1233,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1891,
+        "territory": 2
+      },
+      {
+        "army": 0,
+        "gold": 1692,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2202,
+        "territory": 2
+      },
+      {
+        "army": 152,
+        "gold": 1461,
+        "hero_level": 4,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2603,
+        "territory": 6
+      }
+    ],
+    "gini": 0.06772633033863174,
+    "leader_share": 0.2998157106657452,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260929,
+    "shock": "",
+    "top_second_ratio": 1.1821071752951862
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 1,
+        "DEFEND": 1,
+        "HOLD": 45,
+        "RECOVER": 3,
+        "SEIZE": 9,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 1,
+        "HOLD": 40,
+        "RECOVER": 6,
+        "SEIZE": 12,
+        "SIEGE": 3
+      },
+      "f2": {
+        "ATTACK": 15,
+        "CAPTURE_RESOURCE": 4,
+        "DEFEND": 9,
+        "HOLD": 17,
+        "RECOVER": 1,
+        "SEIZE": 17,
+        "SIEGE": 3
+      },
+      "f3": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 5,
+        "DEFEND": 1,
+        "HOLD": 27,
+        "RECOVER": 6,
+        "SEIZE": 10
+      }
+    },
+    "battle_count": 23,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.2334399269072636,
+    "factions": [
+      {
+        "army": 121,
+        "gold": 1413,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2044,
+        "territory": 2
+      },
+      {
+        "army": 100,
+        "gold": 1545,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2275,
+        "territory": 3
+      },
+      {
+        "army": 0,
+        "gold": 1587,
+        "hero_level": 4,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2457,
+        "territory": 5
+      },
+      {
+        "army": 153,
+        "gold": 1317,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1980,
+        "territory": 2
+      }
+    ],
+    "gini": 0.047453174965737865,
+    "leader_share": 0.28060758337140246,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260930,
+    "shock": "",
+    "top_second_ratio": 1.08
+  },
+  {
+    "actions": {
+      "f0": {
+        "DEFEND": 1,
+        "HOLD": 46,
+        "RECOVER": 4,
+        "SEIZE": 6
+      },
+      "f1": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 5,
+        "DEFEND": 5,
+        "HOLD": 35,
+        "RECOVER": 1,
+        "SEIZE": 8,
+        "SIEGE": 3
+      },
+      "f2": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 5,
+        "DEFEND": 1,
+        "HOLD": 27,
+        "RECOVER": 5,
+        "SEIZE": 11,
+        "SIEGE": 1
+      },
+      "f3": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 4,
+        "DEFEND": 6,
+        "HOLD": 31,
+        "RECOVER": 3,
+        "SEIZE": 11,
+        "SIEGE": 3
+      }
+    },
+    "battle_count": 17,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.23671023965141613,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1443,
+        "hero_level": 1,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2173,
+        "territory": 2
+      },
+      {
+        "army": 149,
+        "gold": 1389,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2288,
+        "territory": 4
+      },
+      {
+        "army": 220,
+        "gold": 1296,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2026,
+        "territory": 2
+      },
+      {
+        "army": 149,
+        "gold": 1794,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2693,
+        "territory": 4
+      }
+    ],
+    "gini": 0.057625272331154775,
+    "leader_share": 0.29335511982570806,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260931,
+    "shock": "",
+    "top_second_ratio": 1.1770104895104896
+  },
+  {
+    "actions": {
+      "f0": {
+        "DEFEND": 1,
+        "HOLD": 48,
+        "RECOVER": 2,
+        "SEIZE": 10,
+        "SIEGE": 3
+      },
+      "f1": {
+        "HOLD": 50,
+        "RECOVER": 2,
+        "SEIZE": 8,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 3,
+        "DEFEND": 2,
+        "HOLD": 50,
+        "SEIZE": 7,
+        "SIEGE": 3
+      },
+      "f3": {
+        "DEFEND": 1,
+        "HOLD": 50,
+        "RECOVER": 2,
+        "SEIZE": 6,
+        "SIEGE": 1
+      }
+    },
+    "battle_count": 3,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.22969217614365114,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1419,
+        "hero_level": 1,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2149,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1440,
+        "hero_level": 1,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2170,
+        "territory": 2
+      },
+      {
+        "army": 344,
+        "gold": 1515,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2849,
+        "territory": 6
+      },
+      {
+        "army": 220,
+        "gold": 1458,
+        "hero_level": 1,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2188,
+        "territory": 2
+      }
+    ],
+    "gini": 0.05659469858914057,
+    "leader_share": 0.30451047456177854,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260932,
+    "shock": "",
+    "top_second_ratio": 1.3021023765996345
+  },
+  {
+    "actions": {
+      "f0": {
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 4,
+        "HOLD": 44,
+        "RECOVER": 4,
+        "SEIZE": 11,
+        "SIEGE": 1
+      },
+      "f1": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 8,
+        "DEFEND": 9,
+        "HOLD": 19,
+        "SEIZE": 21,
+        "SIEGE": 3
+      },
+      "f2": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 7,
+        "DEFEND": 2,
+        "HOLD": 22,
+        "RECOVER": 6,
+        "SEIZE": 13,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 2,
+        "DEFEND": 1,
+        "HOLD": 43,
+        "RECOVER": 4,
+        "SEIZE": 7,
+        "SIEGE": 2
+      }
+    },
+    "battle_count": 20,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.24656757063429025,
+    "factions": [
+      {
+        "army": 100,
+        "gold": 1443,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2173,
+        "territory": 3
+      },
+      {
+        "army": 0,
+        "gold": 1776,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2526,
+        "territory": 4
+      },
+      {
+        "army": 99,
+        "gold": 1308,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1917,
+        "territory": 2
+      },
+      {
+        "army": 142,
+        "gold": 1425,
+        "hero_level": 1,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2197,
+        "territory": 3
+      }
+    ],
+    "gini": 0.05250765913990696,
+    "leader_share": 0.28662203562918415,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260933,
+    "shock": "",
+    "top_second_ratio": 1.1497496586253984
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 4,
+        "DEFEND": 5,
+        "HOLD": 39,
+        "RECOVER": 2,
+        "SEIZE": 14,
+        "SIEGE": 3
+      },
+      "f1": {
+        "ATTACK": 1,
+        "DEFEND": 3,
+        "HOLD": 42,
+        "RECOVER": 4,
+        "SEIZE": 10,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 4,
+        "DEFEND": 4,
+        "HOLD": 23,
+        "RECOVER": 7,
+        "SEIZE": 16,
+        "SIEGE": 1
+      },
+      "f3": {
+        "ATTACK": 4,
+        "HOLD": 34,
+        "RECOVER": 4,
+        "SEIZE": 12,
+        "SIEGE": 3
+      }
+    },
+    "battle_count": 18,
+    "days": 56,
+    "f0_is_leader": true,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.2855401662049861,
+    "factions": [
+      {
+        "army": 156,
+        "gold": 1551,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2577,
+        "territory": 5
+      },
+      {
+        "army": 220,
+        "gold": 1701,
+        "hero_level": 1,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2551,
+        "territory": 3
+      },
+      {
+        "army": 159,
+        "gold": 1278,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1947,
+        "territory": 2
+      },
+      {
+        "army": 108,
+        "gold": 1332,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1950,
+        "territory": 2
+      }
+    ],
+    "gini": 0.0690027700831024,
+    "leader_share": 0.2855401662049861,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260934,
+    "shock": "",
+    "top_second_ratio": 1.0101920815366523
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 13,
+        "DEFEND": 4,
+        "HOLD": 8,
+        "RECOVER": 9,
+        "SEIZE": 21,
+        "SIEGE": 3
+      },
+      "f1": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 10,
+        "DEFEND": 6,
+        "HOLD": 25,
+        "RECOVER": 4,
+        "SEIZE": 21,
+        "SIEGE": 5
+      },
+      "f2": {
+        "ATTACK": 11,
+        "CAPTURE_RESOURCE": 11,
+        "DEFEND": 2,
+        "HOLD": 5,
+        "RECOVER": 12,
+        "SEIZE": 18
+      },
+      "f3": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 12,
+        "DEFEND": 6,
+        "HOLD": 26,
+        "RECOVER": 4,
+        "SEIZE": 20,
+        "SIEGE": 5
+      }
+    },
+    "battle_count": 34,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.161601716124419,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1176,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 1356,
+        "territory": 0
+      },
+      {
+        "army": 165,
+        "gold": 1552,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 36,
+        "rank": "Recruit",
+        "resources": 2,
+        "score": 2797,
+        "territory": 6
+      },
+      {
+        "army": 149,
+        "gold": 1191,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1850,
+        "territory": 2
+      },
+      {
+        "army": 0,
+        "gold": 1638,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2388,
+        "territory": 4
+      }
+    ],
+    "gini": 0.14482779168156368,
+    "leader_share": 0.3333333333333333,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260935,
+    "shock": "",
+    "top_second_ratio": 1.1712730318257956
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 9,
+        "DEFEND": 1,
+        "HOLD": 9,
+        "RECOVER": 11,
+        "SEIZE": 18
+      },
+      "f1": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 6,
+        "DEFEND": 11,
+        "HOLD": 33,
+        "RECOVER": 2,
+        "SEIZE": 15,
+        "SIEGE": 5
+      },
+      "f2": {
+        "ATTACK": 3,
+        "CAPTURE_RESOURCE": 3,
+        "DEFEND": 4,
+        "HOLD": 28,
+        "RECOVER": 6,
+        "SEIZE": 14,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 6,
+        "DEFEND": 2,
+        "HOLD": 29,
+        "RECOVER": 4,
+        "SEIZE": 20,
+        "SIEGE": 6
+      }
+    },
+    "battle_count": 25,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.188590943587149,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1191,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 18,
+        "rank": "Seasoned",
+        "resources": 0,
+        "score": 1491,
+        "territory": 1
+      },
+      {
+        "army": 220,
+        "gold": 1290,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2020,
+        "territory": 2
+      },
+      {
+        "army": 110,
+        "gold": 1422,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 36,
+        "rank": "Recruit",
+        "resources": 2,
+        "score": 2492,
+        "territory": 5
+      },
+      {
+        "army": 149,
+        "gold": 1004,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1903,
+        "territory": 4
+      }
+    ],
+    "gini": 0.09865924614217048,
+    "leader_share": 0.3152036428029345,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260936,
+    "shock": "",
+    "top_second_ratio": 1.2336633663366336
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 11,
+        "CAPTURE_RESOURCE": 8,
+        "DEFEND": 5,
+        "HOLD": 18,
+        "RECOVER": 5,
+        "SEIZE": 20,
+        "SIEGE": 6
+      },
+      "f1": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 2,
+        "DEFEND": 1,
+        "HOLD": 31,
+        "RECOVER": 6,
+        "SEIZE": 11,
+        "SIEGE": 1
+      },
+      "f2": {
+        "DEFEND": 4,
+        "HOLD": 37,
+        "RECOVER": 7,
+        "SEIZE": 14,
+        "SIEGE": 1
+      },
+      "f3": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 7,
+        "DEFEND": 11,
+        "HOLD": 28,
+        "RECOVER": 2,
+        "SEIZE": 19,
+        "SIEGE": 3
+      }
+    },
+    "battle_count": 23,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.20759338640538885,
+    "factions": [
+      {
+        "army": 103,
+        "gold": 602,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Veteran",
+        "resources": 1,
+        "score": 1695,
+        "territory": 6
+      },
+      {
+        "army": 0,
+        "gold": 1353,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1863,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1416,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2146,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1731,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2461,
+        "territory": 2
+      }
+    ],
+    "gini": 0.07902633190447039,
+    "leader_share": 0.30140845070422534,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260937,
+    "shock": "",
+    "top_second_ratio": 1.1467847157502329
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 1,
+        "DEFEND": 1,
+        "HOLD": 40,
+        "RECOVER": 4,
+        "SEIZE": 10,
+        "SIEGE": 2
+      },
+      "f1": {
+        "ATTACK": 4,
+        "HOLD": 38,
+        "RECOVER": 2,
+        "SEIZE": 9,
+        "SIEGE": 3
+      },
+      "f2": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 5,
+        "HOLD": 41,
+        "RECOVER": 2,
+        "SEIZE": 10,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 2,
+        "CAPTURE_RESOURCE": 3,
+        "DEFEND": 1,
+        "HOLD": 38,
+        "RECOVER": 4,
+        "SEIZE": 9
+      }
+    },
+    "battle_count": 14,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.24546553808948005,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1383,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2233,
+        "territory": 3
+      },
+      {
+        "army": 153,
+        "gold": 1617,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2400,
+        "territory": 3
+      },
+      {
+        "army": 220,
+        "gold": 1416,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2386,
+        "territory": 4
+      },
+      {
+        "army": 152,
+        "gold": 1416,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2078,
+        "territory": 2
+      }
+    ],
+    "gini": 0.03075189622952612,
+    "leader_share": 0.26382323843025174,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260938,
+    "shock": "",
+    "top_second_ratio": 1.0058675607711651
+  },
+  {
+    "actions": {
+      "f0": {
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 4,
+        "HOLD": 40,
+        "RECOVER": 4,
+        "SEIZE": 16,
+        "SIEGE": 4
+      },
+      "f1": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 6,
+        "DEFEND": 9,
+        "HOLD": 27,
+        "RECOVER": 2,
+        "SEIZE": 22,
+        "SIEGE": 5
+      },
+      "f2": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 5,
+        "DEFEND": 1,
+        "HOLD": 24,
+        "RECOVER": 4,
+        "SEIZE": 15,
+        "SIEGE": 5
+      },
+      "f3": {
+        "ATTACK": 3,
+        "DEFEND": 3,
+        "HOLD": 38,
+        "RECOVER": 4,
+        "SEIZE": 13,
+        "SIEGE": 4
+      }
+    },
+    "battle_count": 16,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.2533586969444775,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1401,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2131,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1590,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2320,
+        "territory": 2
+      },
+      {
+        "army": 394,
+        "gold": 517,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1901,
+        "territory": 6
+      },
+      {
+        "army": 220,
+        "gold": 1329,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2059,
+        "territory": 2
+      }
+    ],
+    "gini": 0.039501842824872124,
+    "leader_share": 0.275829271192486,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260939,
+    "shock": "",
+    "top_second_ratio": 1.0886907555138432
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 5,
+        "HOLD": 27,
+        "RECOVER": 3,
+        "SEIZE": 15,
+        "SIEGE": 2
+      },
+      "f1": {
+        "ATTACK": 7,
+        "DEFEND": 7,
+        "HOLD": 33,
+        "RECOVER": 4,
+        "SEIZE": 16,
+        "SIEGE": 4
+      },
+      "f2": {
+        "ATTACK": 9,
+        "DEFEND": 3,
+        "HOLD": 21,
+        "RECOVER": 6,
+        "SEIZE": 15,
+        "SIEGE": 3
+      },
+      "f3": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 2,
+        "DEFEND": 5,
+        "HOLD": 26,
+        "RECOVER": 9,
+        "SEIZE": 12
+      }
+    },
+    "battle_count": 25,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.22812643151626202,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1482,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1992,
+        "territory": 2
+      },
+      {
+        "army": 108,
+        "gold": 1437,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2295,
+        "territory": 4
+      },
+      {
+        "army": 142,
+        "gold": 1488,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2380,
+        "territory": 4
+      },
+      {
+        "army": 220,
+        "gold": 1335,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2065,
+        "territory": 2
+      }
+    ],
+    "gini": 0.03991067338524967,
+    "leader_share": 0.27256069628950985,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260940,
+    "shock": "",
+    "top_second_ratio": 1.037037037037037
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 7,
+        "DEFEND": 6,
+        "HOLD": 42,
+        "RECOVER": 2,
+        "SEIZE": 10,
+        "SIEGE": 2
+      },
+      "f1": {
+        "ATTACK": 5,
+        "CAPTURE_RESOURCE": 8,
+        "DEFEND": 1,
+        "HOLD": 27,
+        "RECOVER": 5,
+        "SEIZE": 12,
+        "SIEGE": 2
+      },
+      "f2": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 7,
+        "DEFEND": 6,
+        "HOLD": 3,
+        "RECOVER": 11,
+        "SEIZE": 27,
+        "SIEGE": 1
+      },
+      "f3": {
+        "ATTACK": 10,
+        "CAPTURE_RESOURCE": 13,
+        "DEFEND": 1,
+        "HOLD": 32,
+        "RECOVER": 1,
+        "SEIZE": 13,
+        "SIEGE": 10
+      }
+    },
+    "battle_count": 26,
+    "days": 56,
+    "f0_is_leader": true,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.3067357512953368,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1398,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2368,
+        "territory": 4
+      },
+      {
+        "army": 148,
+        "gold": 1287,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1945,
+        "territory": 2
+      },
+      {
+        "army": 0,
+        "gold": 1104,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 18,
+        "rank": "Recruit",
+        "resources": 0,
+        "score": 1284,
+        "territory": 0
+      },
+      {
+        "army": 105,
+        "gold": 938,
+        "hero_level": 4,
+        "id": "f3",
+        "income": 36,
+        "rank": "Seasoned",
+        "resources": 2,
+        "score": 2123,
+        "territory": 6
+      }
+    ],
+    "gini": 0.11107512953367871,
+    "leader_share": 0.3067357512953368,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260941,
+    "shock": "",
+    "top_second_ratio": 1.1154027319830428
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 9,
+        "CAPTURE_RESOURCE": 10,
+        "HOLD": 35,
+        "RECOVER": 1,
+        "SEIZE": 13,
+        "SIEGE": 2
+      },
+      "f1": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 11,
+        "HOLD": 12,
+        "RECOVER": 11,
+        "SEIZE": 18,
+        "SIEGE": 1
+      },
+      "f2": {
+        "ATTACK": 9,
+        "CAPTURE_RESOURCE": 9,
+        "HOLD": 39,
+        "RECOVER": 1,
+        "SEIZE": 12,
+        "SIEGE": 2
+      },
+      "f3": {
+        "ATTACK": 7,
+        "CAPTURE_RESOURCE": 13,
+        "DEFEND": 2,
+        "HOLD": 8,
+        "RECOVER": 12,
+        "SEIZE": 17,
+        "SIEGE": 1
+      }
+    },
+    "battle_count": 31,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.23982310919605399,
+    "factions": [
+      {
+        "army": 0,
+        "gold": 1695,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 18,
+        "rank": "Recruit",
+        "resources": 0,
+        "score": 2115,
+        "territory": 2
+      },
+      {
+        "army": 153,
+        "gold": 1215,
+        "hero_level": 2,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1878,
+        "territory": 2
+      },
+      {
+        "army": 154,
+        "gold": 1776,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 36,
+        "rank": "Recruit",
+        "resources": 2,
+        "score": 3010,
+        "territory": 6
+      },
+      {
+        "army": 100,
+        "gold": 1206,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 1816,
+        "territory": 2
+      }
+    ],
+    "gini": 0.10826057376119747,
+    "leader_share": 0.34130853838303665,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260942,
+    "shock": "",
+    "top_second_ratio": 1.4231678486997636
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 3,
+        "HOLD": 35,
+        "RECOVER": 5,
+        "SEIZE": 10,
+        "SIEGE": 3
+      },
+      "f1": {
+        "ATTACK": 8,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 9,
+        "HOLD": 34,
+        "RECOVER": 3,
+        "SEIZE": 10,
+        "SIEGE": 3
+      },
+      "f2": {
+        "ATTACK": 3,
+        "DEFEND": 1,
+        "HOLD": 35,
+        "RECOVER": 4,
+        "SEIZE": 8
+      },
+      "f3": {
+        "ATTACK": 1,
+        "DEFEND": 1,
+        "HOLD": 39,
+        "RECOVER": 6,
+        "SEIZE": 11,
+        "SIEGE": 1
+      }
+    },
+    "battle_count": 16,
+    "days": 56,
+    "f0_is_leader": false,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.254985754985755,
+    "factions": [
+      {
+        "army": 152,
+        "gold": 1545,
+        "hero_level": 2,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2327,
+        "territory": 3
+      },
+      {
+        "army": 220,
+        "gold": 1416,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2506,
+        "territory": 5
+      },
+      {
+        "army": 152,
+        "gold": 1506,
+        "hero_level": 2,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2168,
+        "territory": 2
+      },
+      {
+        "army": 220,
+        "gold": 1395,
+        "hero_level": 2,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2125,
+        "territory": 2
+      }
+    ],
+    "gini": 0.03566732412886253,
+    "leader_share": 0.27460004383081305,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260943,
+    "shock": "",
+    "top_second_ratio": 1.0769230769230769
+  },
+  {
+    "actions": {
+      "f0": {
+        "ATTACK": 6,
+        "CAPTURE_RESOURCE": 11,
+        "DEFEND": 4,
+        "HOLD": 33,
+        "RECOVER": 2,
+        "SEIZE": 17,
+        "SIEGE": 2
+      },
+      "f1": {
+        "ATTACK": 4,
+        "CAPTURE_RESOURCE": 3,
+        "DEFEND": 3,
+        "HOLD": 40,
+        "RECOVER": 3,
+        "SEIZE": 6,
+        "SIEGE": 1
+      },
+      "f2": {
+        "ATTACK": 12,
+        "CAPTURE_RESOURCE": 1,
+        "DEFEND": 3,
+        "HOLD": 15,
+        "RECOVER": 6,
+        "SEIZE": 7,
+        "SIEGE": 1
+      },
+      "f3": {
+        "ATTACK": 11,
+        "CAPTURE_RESOURCE": 13,
+        "DEFEND": 3,
+        "HOLD": 7,
+        "RECOVER": 10,
+        "SEIZE": 19,
+        "SIEGE": 1
+      }
+    },
+    "battle_count": 33,
+    "days": 56,
+    "f0_is_leader": true,
+    "f0_recovery70_days": null,
+    "f0_recovery_ratio": null,
+    "f0_score_share": 0.33170493404982904,
+    "factions": [
+      {
+        "army": 220,
+        "gold": 1746,
+        "hero_level": 3,
+        "id": "f0",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 2716,
+        "territory": 4
+      },
+      {
+        "army": 104,
+        "gold": 1434,
+        "hero_level": 3,
+        "id": "f1",
+        "income": 27,
+        "rank": "Seasoned",
+        "resources": 1,
+        "score": 2408,
+        "territory": 5
+      },
+      {
+        "army": 0,
+        "gold": 847,
+        "hero_level": 3,
+        "id": "f2",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1237,
+        "territory": 1
+      },
+      {
+        "army": 147,
+        "gold": 1170,
+        "hero_level": 3,
+        "id": "f3",
+        "income": 27,
+        "rank": "Recruit",
+        "resources": 1,
+        "score": 1827,
+        "territory": 2
+      }
+    ],
+    "gini": 0.1532120175867122,
+    "leader_share": 0.33170493404982904,
+    "runaway": false,
+    "scale": 2,
+    "seed": 20260944,
+    "shock": "",
+    "top_second_ratio": 1.127906976744186
+  }
+]
