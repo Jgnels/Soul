@@ -18,6 +18,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Siege")
     FName SegmentId;
 
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Siege")
+    FName BreachScarId;
+
     UFUNCTION(BlueprintCallable, Category="Soul|Siege")
     void ApplyWallState(int32 IntegrityPermille, bool bRepairing);
 

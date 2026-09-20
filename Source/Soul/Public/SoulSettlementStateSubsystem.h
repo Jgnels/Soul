@@ -47,6 +47,16 @@ public:
         FName SettlementId,
         FName BuildingId) const;
 
+    UFUNCTION(BlueprintPure, Category="Soul|Settlement")
+    int32 GetBuildingIntegrity(
+        FName SettlementId,
+        FName BuildingId) const;
+
+    UFUNCTION(BlueprintPure, Category="Soul|Settlement")
+    bool HasSettlementScar(
+        FName SettlementId,
+        FName ScarId) const;
+
 private:
     TMap<FName, FSoulSettlementState> Settlements;
     TWeakObjectPtr<class URBSaveSubsystem> SaveSubsystem;

@@ -141,6 +141,33 @@ FName USoulSettlementStateSubsystem::GetBuildingConditionName(
     return Building ? ConditionName(Building->Condition) : NAME_None;
 }
 
+int32 USoulSettlementStateSubsystem::GetBuildingIntegrity(
+    FName SettlementId,
+    FName BuildingId) const
+{
+    const FSoulSettlementState* Settlement = Settlements.Find(SettlementId);
+    if (!Settlement)
+    {
+        return -1;
+    }
+
+    const FSoulBuildingState* Building = Settlement->Buildings.Find(BuildingId);
+    return Building ? Building->IntegrityPermille : -1;
+}
+
+bool USoulSettlementStateSubsystem::HasSettlementScar(
+    FName SettlementId,
+    FName ScarId) const
+{
+    if (ScarId.IsNone())
+    {
+        return false;
+    }
+
+    const FSoulSettlementState* Settlement = Settlements.Find(SettlementId);
+    return Settlement && Settlement->PermanentScars.Contains(ScarId);
+}
+
 bool USoulSettlementStateSubsystem::SerializeToJson(
     FString& OutJson,
     FString& OutError) const

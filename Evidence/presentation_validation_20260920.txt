@@ -1,0 +1,14 @@
+SOUL PRESENTATION RECOVERY VALIDATION 2026-09-20
+canonical_repo=D:\RefinedBadger\Games\Soul
+validation_copy=C:\RBSoulValidation
+engine=UE 5.8.2
+compile=PASS
+compile_actions=160/160
+compile_result=Succeeded
+automation_filter=Soul
+automation_found=27
+automation_success=27
+automation_fail=0
+automation_exit_code=0
+validated_additions=settlement presentation controller; town view anchor; siege objective actor; battlefield layout actor; settlement integrity/scar presentation API
+notes=TargetInfo.json was pre-generated directly with UnrealBuildTool to bypass a stale Build.bat lock. No Soul test had started before that bootstrap fix.
