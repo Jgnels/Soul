@@ -1,0 +1,6 @@
+SOUL_CARD_UX_VALIDATION: PASS
+- unit jobs: 35
+- faction distribution: {'human': 7, 'dwarf': 7, 'viking': 7, 'orc': 7, 'dark': 7}
+- rank frames: ['recruit', 'seasoned', 'veteran', 'elite', 'legendary']
+- hero job template present and authority-blocked
+- no UE/render work performed by this lane

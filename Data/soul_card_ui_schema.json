@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "generated": "2026-09-20",
+  "authority": {
+    "source_docs": [
+      "Docs/MECHANICS_V01.md",
+      "Docs/SETTLEMENT_RECRUITMENT_MATRIX_20260920.md",
+      "Docs/FACTION_CITY_AND_SIEGE_PLAN_20260920.md"
+    ],
+    "numeric_tier_rule": "family slots are stable; numeric tier remains null until roster authority assigns it"
+  },
+  "visual_direction": {
+    "target": "late-90s/early-2000s serious fantasy strategy",
+    "readability_reference": "HOMM3 portrait identity/readability without copying proprietary art",
+    "source_style": "realistic UE character/creature source",
+    "avoid": [
+      "anime/JRPG",
+      "modern mobile-game gloss",
+      "rarity gradients",
+      "Total War chevrons",
+      "spreadsheet-density battlefield cards"
+    ]
+  },
+  "sizes": {
+    "battlefield_small": [
+      192,
+      256
+    ],
+    "hover_expanded": [
+      360,
+      480
+    ],
+    "regiment_detail": [
+      720,
+      900
+    ],
+    "hero": [
+      420,
+      560
+    ]
+  },
+  "battlefield_small_fields": [
+    {
+      "id": "portrait",
+      "always": true,
+      "placement": "core"
+    },
+    {
+      "id": "count",
+      "always": true,
+      "placement": "upper_left",
+      "rule": "largest numeric element"
+    },
+    {
+      "id": "hp_state",
+      "always": true,
+      "placement": "bottom_bar",
+      "rule": "aggregate group HP/state"
+    },
+    {
+      "id": "initiative",
+      "always": true,
+      "placement": "upper_right",
+      "rule": "same token as initiative timeline"
+    },
+    {
+      "id": "veterancy_rank",
+      "always": true,
+      "placement": "frame",
+      "rule": "material/engraving evolution; not color-only"
+    },
+    {
+      "id": "role_range",
+      "always": true,
+      "placement": "lower_left",
+      "rule": "single role glyph; range pip only when useful"
+    },
+    {
+      "id": "retaliation",
+      "always": true,
+      "placement": "lower_right",
+      "rule": "ready/spent glyph"
+    },
+    {
+      "id": "morale",
+      "always": false,
+      "rule": "surface only when non-neutral/changed/pending"
+    },
+    {
+      "id": "luck",
+      "always": false,
+      "rule": "surface only when non-neutral/changed/pending"
+    },
+    {
+      "id": "statuses",
+      "always": false,
+      "rule": "max 3 icons plus +N overflow"
+    },
+    {
+      "id": "signature_ability",
+      "always": false,
+      "rule": "max 1 marker"
+    }
+  ],
+  "hover_expanded_fields": [
+    "unit_name",
+    "faction",
+    "family_slot",
+    "numeric_tier_if_assigned",
+    "veterancy_rank",
+    "count",
+    "hp_current_total",
+    "hp_per_member",
+    "initiative",
+    "morale",
+    "luck",
+    "retaliation_state",
+    "movement_mode",
+    "range",
+    "role",
+    "attack_defense_summary",
+    "major_abilities_max_4",
+    "buffs_debuffs_all",
+    "terrain_context_if_material"
+  ],
+  "regiment_detail_fields": [
+    "all_hover_fields",
+    "regiment_name",
+    "veterancy_xp_progress",
+    "bounded_rank_bonuses",
+    "casualty_history",
+    "replenishment_state",
+    "equipment_or_upgrade_state",
+    "growth_source",
+    "home_settlement",
+    "major_battles",
+    "commander_link",
+    "full_ability_text"
+  ],
+  "hero_card_fields": [
+    "portrait",
+    "hero_name",
+    "epithet_optional",
+    "faction",
+    "command_role",
+    "spell_schools",
+    "progression",
+    "signature_traits_max_3",
+    "major_abilities_max_4",
+    "equipment_summary",
+    "recruitment_cost",
+    "recruitment_conditions",
+    "history_hooks"
+  ],
+  "ranks": [
+    {
+      "id": "recruit",
+      "name": "Recruit",
+      "frame": "dark iron/aged wood; plain inner bevel"
+    },
+    {
+      "id": "seasoned",
+      "name": "Seasoned",
+      "frame": "clean iron/bronze edge; one engraved corner motif"
+    },
+    {
+      "id": "veteran",
+      "name": "Veteran",
+      "frame": "reinforced bronze/brass corners; heraldic badge"
+    },
+    {
+      "id": "elite",
+      "name": "Elite",
+      "frame": "silvered/blackened steel with faction inlay; restrained crest"
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "frame": "antique gilt over dark base; full restrained heraldic treatment"
+    }
+  ],
+  "rank_accessibility": {
+    "rule": "rank cannot be color-only",
+    "fallbacks": [
+      "frame detail/silhouette",
+      "rank label on focus/hover",
+      "text token"
+    ]
+  },
+  "hero_portrait": {
+    "camera": {
+      "lens_mm": 70,
+      "view": "direct_or_max_5deg_3q",
+      "crop": "chest_up",
+      "eyes": "upper_third"
+    },
+    "lighting": {
+      "key": "large_soft_45deg",
+      "fill": "low_neutral",
+      "rim": "subtle",
+      "exposure": "locked_batch",
+      "white_balance": "locked_batch"
+    },
+    "cleanup": [
+      "remove_noncanon_modern_gear",
+      "fix_weapon/scabbard_clipping",
+      "suppress_large_vfx",
+      "remove_debug_accessories",
+      "retain_at_most_one_identity_weapon"
+    ]
+  },
+  "tavern_recruitment": {
+    "steps": [
+      "enter venue",
+      "see 2-4 available heroes physically present",
+      "approach/interact",
+      "inspect identity/history/traits/cost/conditions",
+      "recruit or decline",
+      "remove recruited hero from canonical pool/venue"
+    ],
+    "optimization": [
+      "recruitable heroes are real NPC actors",
+      "ordinary clutter static/merged/instanced",
+      "background patrons may be low-cost representation",
+      "no full civilian/RPG simulation required"
+    ],
+    "venues": {
+      "human": {
+        "name": "Tavern / Inn",
+        "presentation": "timber/stone common room; hearth; notice board; mercenary corner"
+      },
+      "viking": {
+        "name": "Mead Hall",
+        "presentation": "long hearth hall; static benches/shields; recruits near fire/high-seat edge"
+      },
+      "dwarf": {
+        "name": "Ale & Caravan Hall",
+        "presentation": "stone trading/tap hall; casks/ledgers; contract table"
+      },
+      "orc": {
+        "name": "War & Spoils Hall",
+        "presentation": "occupied hall/camp pavilion; static trophies/spoils; challenge/contract space"
+      },
+      "dark": {
+        "name": "Court of Oaths",
+        "presentation": "crypt/sanctum antechamber; oath-bound champions; restrained ritual dressing"
+      }
+    }
+  },
+  "town_view": {
+    "required": [
+      "settlement name/faction",
+      "relevant income/resources",
+      "construction/repair state",
+      "seven recruitment dwellings with growth/stock/disabled state",
+      "hero venue candidate count",
+      "wall/gate/siege damage",
+      "garrison summary",
+      "active settlement effects"
+    ],
+    "rule": "fast strategy surface; live 3D remains optional except when player chooses in-world recruitment"
+  },
+  "tactical_rules": [
+    "count and HP remain distinct",
+    "neutral morale/luck suppressed",
+    "retaliation always visible",
+    "status cap 3 + overflow",
+    "exact math on hover/detail",
+    "range only when tactically useful",
+    "small card max one signature ability"
+  ],
+  "unit_binding_fields": [
+    "id",
+    "faction",
+    "family_slot",
+    "display_name",
+    "role",
+    "numeric_tier",
+    "portrait_source",
+    "render_profile",
+    "rank_frame_set"
+  ]
+}

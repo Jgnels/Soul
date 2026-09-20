@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "lane": "astra/soul-card-ux-20260920",
+  "inspected": [
+    "D:/RefinedBadger/Games/Soul/AGENTS.md",
+    "D:/RefinedBadger/Games/Soul/Docs/MECHANICS_V01.md",
+    "D:/RefinedBadger/Games/Soul/Docs/FACTION_CITY_AND_SIEGE_PLAN_20260920.md",
+    "D:/RefinedBadger/Games/Soul/Docs/SETTLEMENT_RECRUITMENT_MATRIX_20260920.md",
+    "D:/RefinedBadger/Games/Soul/Docs/STACK_DECISIONS.md",
+    "D:/RefinedBadger/Games/Soul/Data/settlement_blueprints.json",
+    "D:/RefinedBadger/Games/Soul/Data/environment_asset_bindings.json",
+    "D:/RefinedBadger/Vendor/Copperlight-Asset-Catalog/ai_index/products/fab-22547638a52e441e82bb5f842b60b788-hyper-mesh-to-icon-creator-v4.md",
+    "D:/RefinedBadger/Vendor/Copperlight-Asset-Catalog/ai_index/products/launcher-fab-91bc555a891903d9773f-hyper-mesh-to-icon-creator-v4.md"
+  ],
+  "findings": [
+    {
+      "item": "RB UI/Input 1.0",
+      "status": "ADMITTED_BY_STACK_DECISIONS",
+      "reuse_score_5": 5,
+      "decision": "future card/town/tavern navigation must use RB input/focus/remap/accessibility authority"
+    },
+    {
+      "item": "Hyper Mesh to Icon Creator v4",
+      "ownership": "CONFIRMED_OWNED",
+      "local_status": "NOT_DISCOVERABLE_UPSTAIRS_PER_STACK_DECISIONS_AND_NOT_PRESENT_IN_SOUL_PLUGINS",
+      "reuse_score_5": 4,
+      "decision": "preferred specialist capture path after local qualification"
+    },
+    {
+      "item": "Prior Soul unit/hero card renders",
+      "status": "NONE_FOUND_IN_SOUL_OR_TARGETED_REFINEDBADGER_SCAN",
+      "reuse_score_5": null,
+      "decision": "no legacy render dependency"
+    },
+    {
+      "item": "Generic Kenney/game-icons semantic icons",
+      "status": "PRESENT_IN_REFINEDBADGER_MOBILE_ASSETS",
+      "reuse_score_5": 2,
+      "decision": "prototype semantics only; visual style rejected for Soul"
+    },
+    {
+      "item": "Tiny Swords Tactics UI icons",
+      "status": "PRESENT",
+      "reuse_score_5": 1,
+      "decision": "do not inherit mobile visual language"
+    },
+    {
+      "item": "Owned fantasy spell icon pack",
+      "status": "CATALOG_EVIDENCE_PRESENT_LOCAL_RUNTIME_UNVERIFIED",
+      "reuse_score_5": 3,
+      "decision": "candidate spell/ability glyph source after qualification"
+    }
+  ],
+  "protected_paths_touched": [],
+  "rendered_new_assets": false
+}
