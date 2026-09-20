@@ -168,3 +168,66 @@ bows/targets for ranged, shields/weapons for fighters, cages/pens/groves for bea
 
 Do not force identical layouts or identical building counts beyond the seven core recruitment hooks.
 Shared systems should be symmetrical; the cities themselves should not be.
+
+## Interior interaction scope — locked 2026-09-20
+Soul city interiors are tactical spaces, not object-simulation spaces.
+
+Required for siege-relevant buildings:
+- navigable entry/exit routes;
+- usable stairs/upper floors where the donor supports them;
+- reliable collision;
+- doorways/windows/corners that create defensible positions;
+- enough interior room for Soul combat groups that are allowed indoors;
+- optional building-control / hold-point anchors where tactically useful.
+
+Not required:
+- individual interaction with furniture, food, bottles, crates, cups or decorative clutter;
+- per-prop destruction or physics;
+- bespoke civilian-use logic for every room.
+
+Optimization implication:
+- preserve architectural shells/interiors and tactical openings;
+- simplify or remove pathological micro-props;
+- use Nanite/instancing/static presentation where appropriate without sacrificing collision/nav;
+- only objects with gameplay consequences need separate interactive actors.
+
+The Hivemind town can therefore remain visually dense and fully enterable while Soul strips the extremely expensive diner-detail meshes that add no siege gameplay.
+
+## Global environment interaction rule — locked 2026-09-20
+Apply this across all Soul settlements, interiors, battlefields and adventure-map locations.
+
+### Keep individually interactive
+- heroes/companions and other gameplay-relevant NPCs;
+- doors, gates, ladders, siege mechanisms and tactical traversal pieces when gameplay uses them;
+- settlement buildings and fortification segments whose state persists;
+- siege objectives, destructible/breachable structures and explicitly authored hazards;
+- rare props only when they have a concrete gameplay action or consequence.
+
+### Keep tactically solid but not individually interactive
+- walls, floors, stairs, windows, balconies, counters and large furniture that shape movement/cover;
+- room-scale obstacles that soldiers must path around or use defensively.
+
+### Merge / instance / bake as non-interactive dressing
+- table + chairs + dishes;
+- shelf + books/jars;
+- market stall + goods;
+- bed + bedside clutter;
+- forge corner + loose tools;
+- barrels/crates grouped as scenery;
+- food, cups, plates, bottles, cutlery and other micro-props;
+- distant or unreachable interior dressing.
+
+The default implementation is one static/instanced/merged 3D clutter cluster rather than a literal 2D card when units can see it from multiple angles.
+A flat impostor/image is appropriate only for distant/unreachable presentation where parallax will not expose it.
+
+### Tavern exception
+Taverns may support Bannerlord-style in-world hero/companion recruitment.
+Recruitable heroes remain real NPC actors with dialogue/identity/recruitment state.
+The tavern's furniture and decorative clutter still follows the normal non-interactive clustering rule.
+A companion does not require the mug, chair, table and shelf around them to become individually simulated.
+
+### Optimization authority
+Use RB Optimization first for eligible repeated/simple static representations.
+Do not duplicate RB Optimization with a bespoke city-wide representation system.
+Author-level cleanup still applies to pathological source assets whose raw geometry/build cost is unreasonable.
+

@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "generated": "2026-09-20",
+  "human_hivemind": {
+    "policy": "Use modular architecture and selected dressing; do not ship the full showcase prop population unchanged.",
+    "exclude_or_replace_first": [
+      {
+        "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_Cheese/Meshes/FBX/SM_Cheese_Var1",
+        "required_memory_mb": 5193.1,
+        "reason": "Pathological Nanite/build footprint for inconsequential decoration."
+      },
+      {
+        "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_WoodCup/Meshes/FBX/SM_WoodCup_SM_WoodCup",
+        "required_memory_mb": 4454.9,
+        "reason": "Pathological decorative mesh."
+      },
+      {
+        "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_WineBottles/Meshes/FBX/SM_WineBottles_Var3",
+        "required_memory_mb": 3403,
+        "reason": "Pathological decorative mesh."
+      },
+      {
+        "asset": "SM_SilverCandle",
+        "required_memory_mb": 3256.1,
+        "reason": "Pathological decorative mesh; exact full path recorded by UE audit when available."
+      },
+      {
+        "asset": "SM_SilverCup",
+        "required_memory_mb": 2158.7,
+        "reason": "Pathological decorative mesh."
+      },
+      {
+        "asset": "SM_Cheese_Board",
+        "required_memory_mb": 1534.3,
+        "reason": "Pathological decorative mesh."
+      }
+    ],
+    "architecture_keep": [
+      "walls",
+      "gatehouse",
+      "towers",
+      "Building_A",
+      "Building_A_02",
+      "Building_B",
+      "Building_C",
+      "Building_D",
+      "Forge",
+      "Tavern",
+      "scaffolding",
+      "market forms"
+    ],
+    "optimization_stack": [
+      "RB Optimization representation/culling/HLOD where applicable",
+      "author-level removal of pathological micro-props",
+      "retain full detail only on camera-important structures"
+    ]
+  },
+  "global": {
+    "rule": "Asset demo richness is a donor, not a shipping requirement. City readability and tactical function outrank prop count.",
+    "do_not_destructively_modify_donor": true,
+    "interaction_policy": {
+      "principle": "Interactive space and gameplay actors; non-interactive clutter.",
+      "interactive": [
+        "heroes_and_gameplay_npcs",
+        "doors_gates_siege_mechanisms_when_used",
+        "persistent_buildings_and_fortifications",
+        "siege_objectives",
+        "explicit_gameplay_props_hazards"
+      ],
+      "tactical_static": [
+        "walls_floors_stairs_windows_balconies",
+        "large_furniture_and_counters_that_shape_cover_or_pathing"
+      ],
+      "cluster_or_instance": [
+        "table_chairs_dishes",
+        "shelves_books_jars",
+        "market_stall_goods",
+        "beds_and_small_clutter",
+        "forge_tools",
+        "barrels_crates",
+        "food_cups_plates_bottles_cutlery",
+        "distant_unreachable_dressing"
+      ],
+      "tavern_exception": {
+        "hero_recruitment": "in_world_bannerlord_style_allowed",
+        "recruitable_heroes": "real_persistent_npc_actors",
+        "environment_clutter": "still_clustered_or_static"
+      },
+      "rendering_note": "Prefer merged/instanced 3D clutter for spaces viewed from multiple angles; use flat impostors only where parallax is irrelevant.",
+      "optimization_priority": "RB Optimization first, then author cleanup for pathological source assets."
+    }
+  }
+}

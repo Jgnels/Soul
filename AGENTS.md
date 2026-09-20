@@ -35,3 +35,11 @@ Heroes/commanders may have subjective memory. Ordinary unit groups have veteranc
 - strategic day/action commitment;
 - layered sieges prepared before combat;
 - adventure-map geography must causally select battlefield recipes.
+
+## Environment interaction budget
+Default to **interactive space, non-interactive clutter**.
+Preserve tactical architecture, traversal, persistent structures, siege objectives and gameplay-relevant NPCs as separate interactive entities.
+Merge/instance/bake decorative prop clusters instead of simulating individual furniture/tableware/shelf contents.
+Taverns may host physically present recruitable heroes/companions; those NPCs remain interactive while surrounding clutter stays static unless a prop has explicit gameplay purpose.
+Use RB Optimization before bespoke representation/culling systems.
+
