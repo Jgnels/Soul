@@ -1,0 +1,14 @@
+﻿SOUL RECOVERY VALIDATION 2026-09-20
+canonical_repo=D:\RefinedBadger\Games\Soul
+validation_copy=C:\RBSoulValidation
+engine=UE 5.8.2
+compile=PASS
+compile_result=Succeeded
+compile_incremental_seconds=38.11
+[2026.09.20-14.41.57:218][305]LogAutomationCommandLine: Display: Found 27 automation tests based on 'Soul'
+automation_success=27
+automation_fail=0
+automation_exit_code=0
+integration_save_roundtrip=PASS
+ruined_building_requires_repair=PASS
+notes=Validation copy included RBWeather plugin Content and used explicit local Zen/DDC paths.

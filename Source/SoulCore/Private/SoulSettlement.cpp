@@ -13,22 +13,37 @@ bool FSoulSettlementRules::PrerequisitesMet(const FSoulSettlementState& Settleme
     return true;
 }
 
-bool FSoulSettlementRules::BeginConstruction(FSoulSettlementState& Settlement, const FSoulBuildingDefinition& Definition)
+bool FSoulSettlementRules::CanBeginConstruction(const FSoulSettlementState& Settlement, const FSoulBuildingDefinition& Definition)
 {
     if (!PrerequisitesMet(Settlement, Definition))
     {
         return false;
     }
 
+    const FSoulBuildingState* Existing = Settlement.Buildings.Find(Definition.Id);
+    if (!Existing)
+    {
+        return Definition.MaxLevel > 0;
+    }
+    if (Existing->Condition == ESoulBuildingCondition::Building)
+    {
+        return false;
+    }
+    if (Existing->Condition == ESoulBuildingCondition::Ruined)
+    {
+        return false;
+    }
+    return Existing->Level < Definition.MaxLevel;
+}
+
+bool FSoulSettlementRules::BeginConstruction(FSoulSettlementState& Settlement, const FSoulBuildingDefinition& Definition)
+{
+    if (!CanBeginConstruction(Settlement, Definition))
+    {
+        return false;
+    }
+
     FSoulBuildingState& State = Settlement.Buildings.FindOrAdd(Definition.Id);
-    if (State.Condition == ESoulBuildingCondition::Building)
-    {
-        return false;
-    }
-    if (State.Level >= Definition.MaxLevel && State.Condition != ESoulBuildingCondition::Ruined)
-    {
-        return false;
-    }
 
     State.Id = Definition.Id;
     State.ConstructionDaysRemaining = FMath::Max(1, Definition.BuildDays);
@@ -38,6 +53,20 @@ bool FSoulSettlementRules::BeginConstruction(FSoulSettlementState& Settlement, c
         State.IntegrityPermille = 0;
     }
     return true;
+}
+
+bool FSoulSettlementRules::IsOperational(const FSoulSettlementState& Settlement, FName BuildingId, int32 MinimumIntegrityPermille)
+{
+    const FSoulBuildingState* State = Settlement.Buildings.Find(BuildingId);
+    if (!State || State->Level <= 0)
+    {
+        return false;
+    }
+    if (State->Condition != ESoulBuildingCondition::Intact && State->Condition != ESoulBuildingCondition::Damaged)
+    {
+        return false;
+    }
+    return State->IntegrityPermille >= FMath::Clamp(MinimumIntegrityPermille, 1, 1000);
 }
 
 void FSoulSettlementRules::AdvanceDay(FSoulSettlementState& Settlement)

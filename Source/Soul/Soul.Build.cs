@@ -7,7 +7,7 @@ public class Soul : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicDependencyModuleNames.AddRange(new[]
         {
-            "Core", "CoreUObject", "Engine", "SoulCore", "RBFoundation"
+            "Core", "CoreUObject", "Engine", "SoulCore", "RBFoundation", "RBSave", "Json"
         });
     }
 }

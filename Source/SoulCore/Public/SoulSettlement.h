@@ -55,7 +55,9 @@ class SOULCORE_API FSoulSettlementRules
 {
 public:
     static bool PrerequisitesMet(const FSoulSettlementState& Settlement, const FSoulBuildingDefinition& Definition);
+    static bool CanBeginConstruction(const FSoulSettlementState& Settlement, const FSoulBuildingDefinition& Definition);
     static bool BeginConstruction(FSoulSettlementState& Settlement, const FSoulBuildingDefinition& Definition);
+    static bool IsOperational(const FSoulSettlementState& Settlement, FName BuildingId, int32 MinimumIntegrityPermille = 500);
     static void AdvanceDay(FSoulSettlementState& Settlement);
     static bool DamageBuilding(FSoulSettlementState& Settlement, FName BuildingId, int32 DamagePermille, FName ScarId = NAME_None);
     static bool RepairBuilding(FSoulSettlementState& Settlement, FName BuildingId, int32 RepairPermille);

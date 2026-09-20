@@ -575,3 +575,102 @@ bool FSoulSiegeAftermathTest::RunTest(const FString&)
 }
 
 #endif
+
+#if WITH_DEV_AUTOMATION_TESTS
+
+#include "SoulTown.h"
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulTownConstructionCostTest, "Soul.Core.Town.ConstructionCostAtomic", EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulTownConstructionCostTest::RunTest(const FString&)
+{
+    FSoulCampaignEconomy Economy;
+    Economy.Resources.Add(TEXT("gold"), 500);
+
+    FSoulSettlementState Town;
+    FSoulBuildingDefinition Barracks;
+    Barracks.Id = TEXT("barracks");
+    Barracks.BuildDays = 2;
+    Barracks.BuildCost.Add(TEXT("gold"), 200);
+
+    TestTrue(TEXT("affordable construction begins"), FSoulTownRules::BeginConstruction(Economy, Town, Barracks));
+    TestEqual(TEXT("construction spends once"), Economy.Resources[TEXT("gold")], 300);
+    TestFalse(TEXT("duplicate active construction rejected"), FSoulTownRules::BeginConstruction(Economy, Town, Barracks));
+    TestEqual(TEXT("rejected duplicate spends nothing"), Economy.Resources[TEXT("gold")], 300);
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulRuinedBuildingRepairBoundaryTest, "Soul.Core.Town.RuinedBuildingRequiresRepair", EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulRuinedBuildingRepairBoundaryTest::RunTest(const FString&)
+{
+    FSoulSettlementState Town;
+    FSoulBuildingDefinition Hall;
+    Hall.Id = TEXT("royal_hall");
+    Hall.MaxLevel = 3;
+    Hall.BuildDays = 1;
+
+    FSoulBuildingState State;
+    State.Id = Hall.Id;
+    State.Level = 3;
+    State.IntegrityPermille = 0;
+    State.Condition = ESoulBuildingCondition::Ruined;
+    Town.Buildings.Add(State.Id, State);
+
+    TestFalse(TEXT("ruined max-level building cannot be reconstructed as an upgrade"),
+        FSoulSettlementRules::BeginConstruction(Town, Hall));
+    TestEqual(TEXT("rejected reconstruction does not increase level"),
+        Town.Buildings[Hall.Id].Level, 3);
+
+    TestTrue(TEXT("repair restores ruined building"),
+        FSoulSettlementRules::RepairBuilding(Town, Hall.Id, 1000));
+    TestEqual(TEXT("repair preserves building level"),
+        Town.Buildings[Hall.Id].Level, 3);
+    TestTrue(TEXT("repair restores intact condition"),
+        Town.Buildings[Hall.Id].Condition == ESoulBuildingCondition::Intact);
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulTownRecruitmentBuildingTest, "Soul.Core.Town.RecruitmentRequiresBuilding", EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulTownRecruitmentBuildingTest::RunTest(const FString&)
+{
+    FSoulCampaignEconomy Economy;
+    Economy.Resources.Add(TEXT("gold"), 1000);
+
+    FSoulRecruitmentPool Pool;
+    Pool.UnitId = TEXT("archer");
+    Pool.Available = 5;
+    Pool.WeeklyGrowth = 4;
+    Pool.Capacity = 10;
+    Pool.CostPerUnit.Add(TEXT("gold"), 100);
+    Economy.RecruitmentPools.Add(Pool.UnitId, Pool);
+
+    FSoulSettlementState Town;
+    FSoulBuildingState Range;
+    Range.Id = TEXT("archery_range");
+    Range.Level = 1;
+    Range.IntegrityPermille = 1000;
+    Range.Condition = ESoulBuildingCondition::Intact;
+    Town.Buildings.Add(Range.Id, Range);
+
+    TestTrue(TEXT("operational range allows recruitment"),
+        FSoulTownRules::RecruitFromBuilding(Economy, Town, Range.Id, Pool.UnitId, 2));
+    TestEqual(TEXT("two recruits spend exact resources"), Economy.Resources[TEXT("gold")], 800);
+    TestEqual(TEXT("two recruits leave three in pool"), Economy.RecruitmentPools[Pool.UnitId].Available, 3);
+
+    FSoulSettlementRules::DamageBuilding(Town, Range.Id, 1000, TEXT("burned_range"));
+    const int32 GoldBefore = Economy.Resources[TEXT("gold")];
+    const int32 PoolBefore = Economy.RecruitmentPools[Pool.UnitId].Available;
+
+    TestFalse(TEXT("ruined range blocks recruitment"),
+        FSoulTownRules::RecruitFromBuilding(Economy, Town, Range.Id, Pool.UnitId, 1));
+    TestEqual(TEXT("blocked recruitment spends nothing"), Economy.Resources[TEXT("gold")], GoldBefore);
+    TestEqual(TEXT("blocked recruitment consumes no pool"), Economy.RecruitmentPools[Pool.UnitId].Available, PoolBefore);
+    TestEqual(TEXT("ruined range has zero growth"),
+        FSoulTownRules::EffectiveWeeklyGrowth(Economy, Town, Range.Id, Pool.UnitId), 0);
+
+    FSoulSettlementRules::RepairBuilding(Town, Range.Id, 750);
+    TestTrue(TEXT("sufficient repair restores recruitment"),
+        FSoulTownRules::RecruitFromBuilding(Economy, Town, Range.Id, Pool.UnitId, 1));
+    return true;
+}
+
+#endif
