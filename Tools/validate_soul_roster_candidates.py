@@ -18,16 +18,20 @@ for f in factions:
     units=[x for x in roster["preferred_roster"] if x["faction"]==f]
     heroes=[x for x in roster["hero_candidates"] if x["faction"]==f]
     if len(units)!=7: errors.append(f"{f}: expected 7 units, got {len(units)}")
-    if len(heroes)<5: errors.append(f"{f}: expected >=5 heroes, got {len(heroes)}")
+    if not (5 <= len(heroes) <= 10): errors.append(f"{f}: expected 5-10 heroes, got {len(heroes)}")
     if {x["building"] for x in units} != expected_buildings[f]: errors.append(f"{f}: building set mismatch")
     if any("Paragon:" in x["asset"] for x in units): errors.append(f"{f}: Paragon used as regular unit")
     if any(not x["listing_id"] for x in units): errors.append(f"{f}: missing listing/catalog id")
 
-if len(paragon["candidates"]) < 7:
-    errors.append("Paragon audit unexpectedly lost known candidates")
+if len(paragon["candidates"]) != 20:
+    errors.append(f"Paragon audit expected 20 character packs, got {len(paragon['candidates'])}")
+if sum(1 for x in paragon["candidates"] if x.get("hero_eligible", True)) != 19:
+    errors.append("Paragon audit expected 19 hero-eligible character packs")
+if not any(x["name"]=="Minions" and not x.get("hero_eligible", True) for x in paragon["candidates"]):
+    errors.append("Minions non-hero classification missing")
 if not any(x["name"]=="Countess" and x["ownership"]=="ACQUIRED_AND_LOCAL" for x in paragon["candidates"]):
     errors.append("Countess local acquisition evidence missing")
 if errors:
     print("\n".join("ERROR: "+x for x in errors))
     raise SystemExit(1)
-print("PASS: 5 factions x 7 units, hero floors met, buildings preserved, no Paragon regular troops")
+print("PASS: 5 factions x 7 units, 5-10 heroes/faction, 20 Paragon character packs/19 hero-eligible, buildings preserved, no Paragon regular troops")

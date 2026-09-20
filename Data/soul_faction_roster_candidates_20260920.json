@@ -695,6 +695,33 @@
       "qualification": "UE_VISUAL_CONFIRM"
     },
     {
+      "faction": "Humans",
+      "candidate": "Terra",
+      "source": "Paragon: Terra",
+      "role": "martial",
+      "grounded_fit": "high",
+      "notes": "Shield/armor tank silhouette fits Castle with minimal conversion",
+      "qualification": "UE_VISUAL_CONFIRM"
+    },
+    {
+      "faction": "Humans",
+      "candidate": "Aurora",
+      "source": "Paragon: Aurora",
+      "role": "caster/hybrid",
+      "grounded_fit": "high",
+      "notes": "Armored frost hero; keep ice FX ability-bound rather than constantly emissive",
+      "qualification": "UE_VISUAL_CONFIRM"
+    },
+    {
+      "faction": "Humans",
+      "candidate": "Kwang",
+      "source": "Paragon: Kwang",
+      "role": "martial/hybrid",
+      "grounded_fit": "medium-high",
+      "notes": "Grounded warrior body; cultural silhouette is foreign to Castle but not technological",
+      "qualification": "UE_VISUAL_CONFIRM"
+    },
+    {
       "faction": "Dwarves",
       "candidate": "Dwarf King",
       "source": "Dwarfs Pack",
@@ -840,11 +867,11 @@
     },
     {
       "faction": "Orcs",
-      "candidate": "Girra",
-      "source": "14 Orcs Pack",
+      "candidate": "Grux",
+      "source": "Paragon: Grux",
       "role": "martial",
       "grounded_fit": "high",
-      "notes": "Named owned-pack orc; candidate raider commander",
+      "notes": "Heavy creature-warrior commander with strong faction read",
       "qualification": "UE_VISUAL_CONFIRM"
     },
     {
@@ -858,11 +885,11 @@
     },
     {
       "faction": "Orcs",
-      "candidate": "Kanit",
-      "source": "14 Orcs Pack",
-      "role": "martial",
-      "grounded_fit": "high",
-      "notes": "Named owned-pack orc; candidate disciplined warleader",
+      "candidate": "Iggy & Scorch",
+      "source": "Paragon: Iggy & Scorch",
+      "role": "hybrid",
+      "grounded_fit": "medium-high",
+      "notes": "Goblin beast-rider duo; strip scrapyard/industrial props",
       "qualification": "UE_VISUAL_CONFIRM"
     },
     {
@@ -894,11 +921,11 @@
     },
     {
       "faction": "Orcs",
-      "candidate": "Khaimera",
-      "source": "Paragon: Khaimera",
-      "role": "martial/hybrid",
-      "grounded_fit": "medium",
-      "notes": "Tribal hunter silhouette can work as exceptional outsider hero, not regular Orc",
+      "candidate": "Narbash",
+      "source": "Paragon: Narbash",
+      "role": "support/martial",
+      "grounded_fit": "high",
+      "notes": "Excellent tribal drummer/morale commander; stronger support identity than inventing a shaman hero",
       "qualification": "UE_VISUAL_CONFIRM"
     },
     {
@@ -957,20 +984,20 @@
     },
     {
       "faction": "Dark",
-      "candidate": "Devil",
-      "source": "Fantasy Enemies Pack",
-      "role": "caster/hybrid",
-      "grounded_fit": "medium",
-      "notes": "Good magical commander only if VFX/emissive treatment is subdued",
+      "candidate": "Morigesh",
+      "source": "Paragon: Morigesh",
+      "role": "caster",
+      "grounded_fit": "high",
+      "notes": "Swamp-witch/curse commander is a direct Dark fit",
       "qualification": "UE_VISUAL_CONFIRM"
     },
     {
       "faction": "Dark",
-      "candidate": "Demon",
-      "source": "Fantasy Enemies Pack",
+      "candidate": "Sevarog",
+      "source": "Paragon: Sevarog",
       "role": "martial/hybrid",
-      "grounded_fit": "medium",
-      "notes": "Creature-leaning hero; reserve for clearly non-human commander identity",
+      "grounded_fit": "high",
+      "notes": "Spectral reaper gives Dark a distinct non-human commander silhouette",
       "qualification": "UE_VISUAL_CONFIRM"
     },
     {
@@ -984,11 +1011,11 @@
     },
     {
       "faction": "Dark",
-      "candidate": "Khaimera",
-      "source": "Paragon: Khaimera",
-      "role": "martial/hybrid",
-      "grounded_fit": "medium",
-      "notes": "Can read cursed wilderness champion; overlaps Viking tribal use, so do not use in both factions",
+      "candidate": "Aurora",
+      "source": "Paragon: Aurora",
+      "role": "caster/hybrid",
+      "grounded_fit": "high",
+      "notes": "Armored frost queen/knight; ability-bound ice FX only",
       "qualification": "UE_VISUAL_CONFIRM"
     }
   ]

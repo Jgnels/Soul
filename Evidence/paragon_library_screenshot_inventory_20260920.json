@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "observed_date": "2026-09-20",
+  "source": "user-supplied Fab My Library screenshots in ChatGPT conversation",
+  "query": "Paragon",
+  "visible_result_count": 21,
+  "hero_character_packs": [
+    "Narbash",
+    "Sparrow",
+    "Kwang",
+    "Countess",
+    "Terra",
+    "Wukong",
+    "Khaimera",
+    "The Fey",
+    "Phase",
+    "Grux",
+    "Rampage",
+    "Serath",
+    "Aurora",
+    "Greystone",
+    "Yin",
+    "Iggy & Scorch",
+    "Sevarog",
+    "Feng Mao",
+    "Morigesh"
+  ],
+  "nonhero_character_packs": [
+    "Minions"
+  ],
+  "environment_packs": [
+    "Paragon: Agora and Monolith Environment"
+  ],
+  "notes": [
+    "Screenshot evidence is positive ownership evidence because every item is shown in My Library.",
+    "The local Fab cache scan still exposes only Countess as downloaded; download is not required for hero casting.",
+    "Exact package paths and skeleton compatibility remain payload-pending for undownloaded packs."
+  ]
+}

@@ -63,15 +63,15 @@ def main():
         rows.append([
             x["name"], x["ownership"], x["fab_listing_id"], ", ".join(x["likely_factions"]),
             x["archetype"], x["grounded_fantasy"], x["hide_replace"], x["skeleton_animation"],
-            x["redundancy"], x["hero_role"], x["qualification"],
+            x["redundancy"], x["hero_role"], "yes" if x.get("hero_eligible", True) else "no", x["qualification"],
         ])
-    lines += [table(["Paragon","Ownership/local state","Fab listing","Faction fit","Class","Grounded fit","Hide/replace","Skeleton/animation evidence","Redundancy","Best hero role","Status"],rows),""]
+    lines += [table(["Paragon","Ownership/local state","Fab listing","Faction fit","Class","Grounded fit","Hide/replace","Skeleton/animation evidence","Redundancy","Best hero role","Hero eligible","Status"],rows),""]
     lines += [
-        "### Paragon ownership delta",
+        "### Paragon ownership resolved from screenshots",
         "",
-        "The founder reports additional fantasy/non-technological Paragons have recently been added to My Library without being downloaded.",
-        "That is not a blocker: those characters can be cast once their identities are visible in machine-readable ownership evidence.",
-        "Do not invent names from the broader free Paragon catalog. Until then they remain `OWNED_RECENT_IDENTITY_PENDING` rather than being silently excluded or falsely asserted.",
+        "The supplied Fab My Library screenshots resolve 21 Paragon search results: 19 named hero-character packs, the Minions troop pack, and the Agora/Monolith environment pack.",
+        "Download is not required for casting. Countess is the only payload currently machine-visible locally; every other named hero remains PAYLOAD_PENDING for exact package/skeleton paths.",
+        "Minions and Agora/Monolith are owned but excluded from the hero pool because they are not named hero characters.",
         "",
     ]
 
@@ -89,7 +89,6 @@ def main():
         "2. **Exact Witch Adventurer identity:** no exact owned/local product named `Witch Adventurer` was found. `Fantasy Witch` from the owned Fantasy Warriors pack is the strongest evidence-backed substitute and should not be silently renamed into a proven asset.",
         "3. **Viking Shaman identity:** no exact owned Shaman character was verified. A grounded Customized Viking or Primitive elder redress is viable, but remains casting rather than asset proof.",
         "4. **Orc Shaman identity:** 14 Orcs provides a deep shared-skeleton family, but no source metadata labels a shaman. Magur is only a visual-casting hypothesis.",
-        "5. **Recent Paragon ownership delta:** additional recently-added Paragons are known to exist but are not individually named in the offline/current catalog evidence yet. Download is not required; identity evidence is.",
         "",
     ]
     lines += ["## UE visual qualification queue",""]
@@ -107,6 +106,7 @@ def main():
     lines += ["## Evidence files and source notes",""]
     lines += [
         "- `Evidence/soul_roster_asset_inventory_20260920.json` — ownership rows, live Fab listing DB matches, downloaded manifest summaries and exact cached package paths where readable.",
+        "- `Evidence/paragon_library_screenshot_inventory_20260920.json` — the 21-product My Library screenshot inventory resolving the previously unknown Paragon identities.",
         "- `Data/soul_faction_roster_candidates_20260920.json` — machine-readable 35-unit roster, alternates and hero board.",
         "- `Data/soul_paragon_casting_candidates_20260920.json` — Paragon ownership/local-state and casting classifications.",
         "- `D:/Animations/_Catalog/CAPABILITY_GAPS.md` + `SEARCH-ANIMATIONS.cmd bow` — local animation capability evidence.",
