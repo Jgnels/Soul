@@ -1,0 +1,46 @@
+{
+  "observed_canonical_checkout": "D:\\RefinedBadger\\Games\\Soul",
+  "observation_note": "Read-only observation of the live dirty working tree; no Source files were edited by this lane.",
+  "defect_candidates": [
+    {
+      "id": "repair_free_instant",
+      "source": "Source/SoulCore/Private/SoulSettlement.cpp",
+      "finding": "RepairBuilding changes integrity/condition immediately with no campaign resource, action, or time cost."
+    },
+    {
+      "id": "repair_zero_changes_condition",
+      "source": "Source/SoulCore/Private/SoulSettlement.cpp",
+      "finding": "A zero-permille repair on a Ruined building can change condition to Damaged while integrity remains zero."
+    },
+    {
+      "id": "town_advance_global_day_per_settlement",
+      "source": "Source/SoulCore/Private/SoulTown.cpp",
+      "finding": "FSoulTownRules::AdvanceDay takes one settlement but calls global campaign AdvanceDay; naïve multi-town iteration can advance day/income more than once."
+    },
+    {
+      "id": "recruit_pool_global_by_unit",
+      "source": "Source/SoulCore/Public/SoulCampaign.h",
+      "finding": "RecruitmentPools are keyed globally by UnitId rather than settlement+unit, conflicting with independent local finite pools in a multi-town campaign."
+    },
+    {
+      "id": "siege_starvation_inert",
+      "source": "Source/SoulCore/Private/SoulSiege.cpp",
+      "finding": "Encirclement reduces defender supply to a floor of 200, but current siege rules do not connect low supply to surrender, attrition, combat power, readiness, or attacker upkeep."
+    },
+    {
+      "id": "seize_missing_recovery_penalty",
+      "source": "Source/SoulCore/Private/SoulStrategyAI.cpp",
+      "finding": "SeizeExposedRegion has no readiness/recovery penalty, unlike capture/attack and unlike the Living Strategy donor seam."
+    },
+    {
+      "id": "siege_economic_aftermath_missing",
+      "source": "Source/SoulCore/Private/SoulSiegeAftermath.cpp",
+      "finding": "Siege aftermath persists wall/building damage and scars but currently defines no attacker upkeep, occupation transfer cost, income disruption, or repair-resource consequence."
+    },
+    {
+      "id": "damaged_prerequisite_can_be_nonoperational",
+      "source": "Source/SoulCore/Private/SoulSettlement.cpp",
+      "finding": "PrerequisitesMet rejects Ruined prerequisites but does not require the prerequisite to meet the operational integrity threshold; a Damaged near-zero-integrity prerequisite can still unlock construction."
+    }
+  ]
+}

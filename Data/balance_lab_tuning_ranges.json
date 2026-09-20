@@ -1,0 +1,74 @@
+{
+  "status": "PROPOSAL_ONLY_NOT_RUNTIME",
+  "campaign_action_points_per_day": {
+    "recommended_test_range": [2, 4],
+    "current_mirror": 3,
+    "note": "AP count was less sensitive than map spacing in the lab; keep 3 as the center until real map path lengths exist."
+  },
+  "normal_travel_movement_cost": {
+    "recommended_test_range": [6, 10],
+    "current_mirror": 8,
+    "note": "A harsher tested value of 12 reduced conflict frequency and runaway behavior; do not use travel cost to hide map-layout problems."
+  },
+  "recruitment_building_repair_days": {
+    "recommended_test_range": [3, 7],
+    "current_runtime": 0
+  },
+  "recruitment_building_repair_cost_fraction_of_replacement_value": {
+    "recommended_test_range": [0.25, 0.60],
+    "current_runtime": 0.0
+  },
+  "building_operational_integrity_permille": {
+    "recommended_test_range": [500, 700],
+    "current_runtime_default": 500
+  },
+  "simultaneous_major_town_construction_slots": {
+    "recommended_test_range": [1, 2],
+    "current_runtime": "unbounded_by_rule"
+  },
+  "resource_region_daily_income_as_fraction_of_base_income": {
+    "recommended_test_range": [0.33, 0.67],
+    "lab_center": 0.50
+  },
+  "defeated_army_replacement_delay_days": {
+    "recommended_test_range": [2, 4],
+    "current_runtime": "undefined"
+  },
+  "defeated_army_replacement_retinue_fraction_of_starting_strength": {
+    "recommended_test_range": [0.15, 0.25],
+    "current_runtime": "undefined"
+  },
+  "defeated_army_replacement_readiness_permille": {
+    "recommended_test_range": [450, 700],
+    "current_runtime": "undefined",
+    "note": "Replacement semantics are first-order balance authority. Do not preserve annihilated regiment veterancy by default."
+  },
+  "rival_defeat_caution_cap": {
+    "recommended_test_range": [-800, -500],
+    "current_runtime": -800
+  },
+  "rival_memory_decay_turns": {
+    "recommended_test_range": [5, 8],
+    "current_runtime": 7
+  },
+  "siege_defender_supply_loss_permille_per_day": {
+    "recommended_test_range": [50, 90],
+    "current_runtime": 70
+  },
+  "siege_pressure_threshold_supply_permille": {
+    "recommended_test_range": [300, 500],
+    "current_runtime": "missing"
+  },
+  "siege_attacker_supply_cost_permille_per_day": {
+    "recommended_test_range": [30, 80],
+    "current_runtime": 0
+  },
+  "siege_attacker_readiness_cost_permille_per_day": {
+    "recommended_test_range": [10, 40],
+    "current_runtime": 0
+  },
+  "veterancy_total_effective_power_premium": {
+    "recommended_test_range": [0.05, 0.20],
+    "note": "Bound includes morale-driven extra-action effects, not just direct damage. Current Legendary conditional index can reach 1.32 at base morale zero if a morale proc yields a full extra action."
+  }
+}
