@@ -1,0 +1,33 @@
+"""Validate the non-runtime Soul roster/casting outputs."""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+roster = json.loads((ROOT/"Data"/"soul_faction_roster_candidates_20260920.json").read_text())
+paragon = json.loads((ROOT/"Data"/"soul_paragon_casting_candidates_20260920.json").read_text())
+factions = ["Humans","Dwarves","Vikings","Orcs","Dark"]
+expected_buildings = {
+    "Humans":{"Muster Yard","Archery Range","Spear Guardhouse","Man-at-Arms Barracks","Witch Collegium","Royal Chapterhouse","Griffon Roost"},
+    "Dwarves":{"Stoneguard Hall","Crossbow Workshop","Hammer Hall","Rune Forge","Construct Foundry","King's Guard Hall","Mountain Dragon Eyrie"},
+    "Vikings":{"Raider Longhouse","Hunter Range","Shield Hall","Berserker Mead Hall","Shaman Lodge","Huscarl Hall","Wolf Kennels"},
+    "Orcs":{"Grunt Barracks","Hunter Range","Shield Pit","Berserker Pit","Brute Hall","Shaman Totem Court","War Elephant Yard"},
+    "Dark":{"Black Guard Bastion","Dread Gallery","Execution Court","Demon Gate","Fallen Hall","Befouler Sanctum","Apex Dragon Roost"},
+}
+errors=[]
+for f in factions:
+    units=[x for x in roster["preferred_roster"] if x["faction"]==f]
+    heroes=[x for x in roster["hero_candidates"] if x["faction"]==f]
+    if len(units)!=7: errors.append(f"{f}: expected 7 units, got {len(units)}")
+    if len(heroes)<5: errors.append(f"{f}: expected >=5 heroes, got {len(heroes)}")
+    if {x["building"] for x in units} != expected_buildings[f]: errors.append(f"{f}: building set mismatch")
+    if any("Paragon:" in x["asset"] for x in units): errors.append(f"{f}: Paragon used as regular unit")
+    if any(not x["listing_id"] for x in units): errors.append(f"{f}: missing listing/catalog id")
+
+if len(paragon["candidates"]) < 7:
+    errors.append("Paragon audit unexpectedly lost known candidates")
+if not any(x["name"]=="Countess" and x["ownership"]=="ACQUIRED_AND_LOCAL" for x in paragon["candidates"]):
+    errors.append("Countess local acquisition evidence missing")
+if errors:
+    print("\n".join("ERROR: "+x for x in errors))
+    raise SystemExit(1)
+print("PASS: 5 factions x 7 units, hero floors met, buildings preserved, no Paragon regular troops")

@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "generated": "2026-09-20",
+  "rules": {
+    "paragons_are_heroes_not_regular_units": true,
+    "undownloaded_owned_candidates_are_valid": true,
+    "exact_package_paths_require_local_payload": true,
+    "recent_unnamed_library_additions": "OWNERSHIP_STATED_BY_USER_BUT_INDIVIDUAL_IDENTITIES_NOT_MACHINE_VERIFIED"
+  },
+  "candidates": [
+    {
+      "name": "Countess",
+      "ownership": "ACQUIRED_AND_LOCAL",
+      "catalog_id": null,
+      "fab_listing_id": "0bf014eb-f2ed-4029-adda-81a855eb5220",
+      "local_cache": "C:/Users/Jeff/Desktop/VaultCache/ParagonCountess",
+      "likely_factions": [
+        "Dark"
+      ],
+      "archetype": "martial/hybrid",
+      "grounded_fantasy": "HIGH",
+      "hide_replace": "Prefer restrained skin; suppress bright ability FX. Keep blades only if proportions read as normal weapons.",
+      "skeleton_animation": "Local payload present; binary manifest prevented exact package-path/skeleton inventory. Official pack includes animations and AnimBP.",
+      "redundancy": "Overlaps Dark assassin/caster space with Serath and Fantasy Witch, but has the strongest gothic court identity.",
+      "hero_role": "vampire noble / assassin commander",
+      "qualification": "UE_VISUAL_CONFIRM"
+    },
+    {
+      "name": "Greystone",
+      "ownership": "CATALOG_CONFIRMED_OWNED_NOT_LOCAL",
+      "catalog_id": "09d228e91ed1422f8a4c76ac29dfa76a",
+      "fab_listing_id": "122fd7bf-6f12-4304-a930-cccbbacdaebc",
+      "local_cache": null,
+      "likely_factions": [
+        "Humans"
+      ],
+      "archetype": "martial",
+      "grounded_fantasy": "HIGH",
+      "hide_replace": "Prefer least-luminous knight skin; remove supernatural resurrection/ability FX; keep normal sword/armor silhouette.",
+      "skeleton_animation": "Official pack includes model, animations, AnimBP, skins and FX; cross-retarget compatibility remains payload-pending.",
+      "redundancy": "Overlaps Knight_01/Fantasy Hero commander space; strongest use is a named Human Paragon rather than a regular unit.",
+      "hero_role": "knight-lord / frontline commander",
+      "qualification": "PAYLOAD_PENDING"
+    },
+    {
+      "name": "Sparrow",
+      "ownership": "CATALOG_CONFIRMED_OWNED_NOT_LOCAL",
+      "catalog_id": "13df842f013b4c07b385c106ea3c3219",
+      "fab_listing_id": "7d76ddf0-d9ce-4d00-939e-d72793534d01",
+      "local_cache": null,
+      "likely_factions": [
+        "Humans"
+      ],
+      "archetype": "ranged",
+      "grounded_fantasy": "HIGH",
+      "hide_replace": "Use grounded archer skin; suppress magical arrow/ability FX and any overly ornate bow treatment if present.",
+      "skeleton_animation": "Official pack includes model, animations, AnimBP, skins and FX; exact skeleton/package paths await payload.",
+      "redundancy": "Unique among verified Paragons because she cleanly fills a ranged hero role.",
+      "hero_role": "ranger / outlaw noble commander",
+      "qualification": "PAYLOAD_PENDING"
+    },
+    {
+      "name": "Feng Mao",
+      "ownership": "CATALOG_CONFIRMED_OWNED_NOT_LOCAL",
+      "catalog_id": "3a64f09695da441390d17b8ffee378b1",
+      "fab_listing_id": "af344d79-eca6-4b6c-aae9-87c617a27ba1",
+      "local_cache": null,
+      "likely_factions": [
+        "Humans",
+        "Vikings"
+      ],
+      "archetype": "martial",
+      "grounded_fantasy": "MEDIUM_HIGH",
+      "hide_replace": "Keep spear and practical armor; suppress supernatural FX. Cultural silhouette is the main mismatch, not technology.",
+      "skeleton_animation": "Official pack includes model, animations, skins, FX and Animation Blueprints; cross-retarget remains payload-pending.",
+      "redundancy": "Competes with Greystone as Human martial hero and with Viking spear heroes; use only where cultural fit works.",
+      "hero_role": "veteran spear-master / guardian",
+      "qualification": "PAYLOAD_PENDING"
+    },
+    {
+      "name": "Khaimera",
+      "ownership": "CATALOG_CONFIRMED_OWNED_NOT_LOCAL",
+      "catalog_id": "4ad9272a5f6541d2b4d321e492ffb6b4",
+      "fab_listing_id": "e7c665c1-8c13-42f0-9152-0753008853d7",
+      "local_cache": null,
+      "likely_factions": [
+        "Vikings",
+        "Orcs"
+      ],
+      "archetype": "martial/hybrid",
+      "grounded_fantasy": "MEDIUM_HIGH",
+      "hide_replace": "Keep tribal armor/skull motif if scale is restrained; remove glowing ability FX. Do not modernize him.",
+      "skeleton_animation": "Official pack includes model, animations, skins, FX and Animation Blueprints; exact skeleton awaits payload.",
+      "redundancy": "Strong tribal identity overlaps Viking Ulf/Orc berserker space. Use in one faction only.",
+      "hero_role": "cursed hunter / berserker commander",
+      "qualification": "PAYLOAD_PENDING"
+    },
+    {
+      "name": "Serath",
+      "ownership": "CATALOG_CONFIRMED_OWNED_NOT_LOCAL",
+      "catalog_id": "94ba5126b8ba46a5a65d22b549abde9d",
+      "fab_listing_id": "522b6160-15ab-492b-a2b0-c09f9bb5f6e6",
+      "local_cache": null,
+      "likely_factions": [
+        "Dark",
+        "Humans"
+      ],
+      "archetype": "martial/hybrid",
+      "grounded_fantasy": "HIGH_WITH_FX_TRIM",
+      "hide_replace": "Keep grounded knight body; suppress wings/bright angelic or demonic transformation FX unless used as rare ability presentation.",
+      "skeleton_animation": "Official pack includes model, animations, skins, FX and Animation Blueprints; exact skeleton/package paths await payload.",
+      "redundancy": "Overlaps Greystone as fallen/ritual knight and Countess as Dark female hero; distinct only if duality is used carefully.",
+      "hero_role": "fallen knight / cursed champion",
+      "qualification": "PAYLOAD_PENDING"
+    },
+    {
+      "name": "Phase",
+      "ownership": "CATALOG_CONFIRMED_OWNED_NOT_LOCAL",
+      "catalog_id": "2b129fd7db4b45559d32344575420b58",
+      "fab_listing_id": "b2c95d5c-a805-460b-a01b-db6da3a778f0",
+      "local_cache": null,
+      "likely_factions": [
+        "Dark"
+      ],
+      "archetype": "caster/support",
+      "grounded_fantasy": "LOW_TO_MEDIUM",
+      "hide_replace": "Requires the heaviest conversion: remove cyberpunk clothing/details, modern accessories and sci-fi reads; replace with period-fantasy garment set.",
+      "skeleton_animation": "Official pack includes model, animations, skins, FX and Animation Blueprints; exact skeleton/package paths await payload.",
+      "redundancy": "Caster/support niche overlaps Fantasy Witch/Befouler with much higher conversion cost.",
+      "hero_role": "psychic/occult support only after full fantasy redress",
+      "qualification": "UE_VISUAL_CONFIRM"
+    }
+  ]
+}
