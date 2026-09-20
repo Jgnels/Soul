@@ -3,6 +3,8 @@
   "runs_per_scenario": 1000,
   "baseline_convergence_runs": 2000,
   "soul_base_commit": "05597a337f06bb1b01de3fc9dbe829b95b4e9e6a",
+  "canonical_head_at_final_verification": "8d9f879e5eb131048bb2e0774f8524771ab30bb0",
+  "canonical_drift_verified": true,
   "living_strategy_reference_commit": "d82ddcfdf8f76795909934a9983b43025c34f4c2",
   "branch": "astra/soul-strategy-balance-lab-20260920",
   "default_recovery_profile": {
