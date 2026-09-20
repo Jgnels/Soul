@@ -1,0 +1,17 @@
+SOUL ENVIRONMENT PLAN VALIDATION
+active_factions=5
+recruit_structures=35
+battlefield_recipes=27
+city_siege_blueprints=6
+errors=0 warnings=10
+WARN: dwarves: primary environment payload still needs UE/cache qualification
+WARN: orcs: primary environment payload still needs UE/cache qualification
+WARN: dark: primary environment payload still needs UE/cache qualification
+WARN: dwarf.forge_approach: source payload pending local UE qualification
+WARN: orc.ruined_field: source payload pending local UE qualification
+WARN: dark.castle_approach: source payload pending local UE qualification
+WARN: nature.forest_clearing: source payload pending local UE qualification
+WARN: nature.river_woodland: source payload pending local UE qualification
+WARN: nature.ancient_shrine: source payload pending local UE qualification
+WARN: neutral.mountain_shrine: source payload pending local UE qualification
+STATUS=PASS
