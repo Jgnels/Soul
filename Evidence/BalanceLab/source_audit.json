@@ -1,6 +1,9 @@
 {
   "observed_canonical_checkout": "D:\\RefinedBadger\\Games\\Soul",
-  "observation_note": "Read-only observation of the live dirty working tree; no Source files were edited by this lane.",
+  "observation_note": "Read-only observation of the live working tree; no Source files were edited by this lane.",
+  "canonical_head_at_final_verification": "8d9f879e5eb131048bb2e0774f8524771ab30bb0",
+  "canonical_delta_note": "main advanced during the lab. The committed SoulCore delta formalized RequiredBuildingId and town weekly-growth behavior already observed from the live working tree; it did not remove the global UnitId pool identity or per-town global AdvanceDay seam.",
+  "concurrent_untracked_source_note": "SoulHeroRecruitment.{h,cpp} and tests appeared concurrently and were read-only inspected. They add venue/reputation/cost/window hero hiring but are not canonical at final verification and do not alter the existing hero XP curve, so they are excluded from simulation authority.",
   "defect_candidates": [
     {
       "id": "repair_free_instant",

@@ -23,6 +23,10 @@ The current commander-memory model is comparatively healthy: it is bounded, deca
 
 **Living Strategy reference:** revival/week-one-20260918 at d82ddcfdf8f76795909934a9983b43025c34f4c2.
 
+**Final canonical verification:** main advanced during this lane to 8d9f879e5eb131048bb2e0774f8524771ab30bb0. Its SoulCore delta committed the RequiredBuildingId / town weekly-growth work that had already been present in the live working tree when the lab was built. The two structural findings remain: recruitment pool identity is still global by UnitId, and FSoulTownRules::AdvanceDay still advances the global campaign clock.
+
+A concurrent untracked SoulHeroRecruitment lane was also read read-only at final verification. It adds physical-venue/reputation/cost/availability-window hero hiring but is not yet canonical and does not change the existing hero XP curve; it is therefore recorded but excluded from simulation authority.
+
 The lab intentionally separates LIVE MIRROR (SoulCore integer rules), DONOR REFERENCE (Living Strategy strategic reasoning/memory), and LAB GLUE (generated maps, generic unit economics, aggregate battle resolution, provisional defeated-army recovery).
 
 No production C++ was modified.
