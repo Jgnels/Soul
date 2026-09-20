@@ -1,0 +1,802 @@
+{
+  "top_memory": [
+    {
+      "mesh": "SM_Cheese_Var1",
+      "required_mb": 5193.059051
+    },
+    {
+      "mesh": "SM_WoodCup_SM_WoodCup",
+      "required_mb": 4454.879231
+    },
+    {
+      "mesh": "SM_WineBottles_Var3",
+      "required_mb": 3403.006138
+    },
+    {
+      "mesh": "SM_SilverCandle",
+      "required_mb": 3256.110019
+    },
+    {
+      "mesh": "SM_SilverCup",
+      "required_mb": 2158.668466
+    },
+    {
+      "mesh": "SM_Cheese_Board",
+      "required_mb": 1534.314356
+    },
+    {
+      "mesh": "SM_Tower_WalkWay_01",
+      "required_mb": 355.436246
+    },
+    {
+      "mesh": "SM_Tower_WalkWay_03",
+      "required_mb": 355.329247
+    },
+    {
+      "mesh": "SM_Cauldron_SM_Cauldron",
+      "required_mb": 313.632525
+    },
+    {
+      "mesh": "SM_Tower_Bottom_02",
+      "required_mb": 241.56629
+    },
+    {
+      "mesh": "SM_WoodPlate",
+      "required_mb": 153.632976
+    },
+    {
+      "mesh": "SM_cart2",
+      "required_mb": 101.478277
+    },
+    {
+      "mesh": "SM_trianglebarrels",
+      "required_mb": 101.146627
+    },
+    {
+      "mesh": "SM_EuropeanBeech_XL_02",
+      "required_mb": 70.536841
+    },
+    {
+      "mesh": "SM_SilverFir_03",
+      "required_mb": 65.900647
+    },
+    {
+      "mesh": "SM_Carriage_02",
+      "required_mb": 58.435156
+    },
+    {
+      "mesh": "SM_SilverFir_04",
+      "required_mb": 54.307578
+    },
+    {
+      "mesh": "SM_cart1",
+      "required_mb": 54.237196
+    },
+    {
+      "mesh": "SM_EuropeanBeech_L_01",
+      "required_mb": 48.147017
+    },
+    {
+      "mesh": "SM_Tower_BrickCaps",
+      "required_mb": 45.821015
+    },
+    {
+      "mesh": "SM_bottlesforcrate",
+      "required_mb": 41.137504
+    },
+    {
+      "mesh": "SM_EuropeanBeech_XL_01",
+      "required_mb": 39.5765
+    },
+    {
+      "mesh": "SM_EuropeanBeech_XL_03",
+      "required_mb": 38.55175
+    },
+    {
+      "mesh": "SM_EuropeanBeech_Dead_XL_01",
+      "required_mb": 37.904653
+    },
+    {
+      "mesh": "SM_EuropeanBeech_L_02",
+      "required_mb": 33.946638
+    },
+    {
+      "mesh": "SM_EuropeanBeech_Log_01",
+      "required_mb": 33.37529
+    },
+    {
+      "mesh": "SM_Brick_Displace_A",
+      "required_mb": 27.706682
+    },
+    {
+      "mesh": "SM_Tower_Top_01",
+      "required_mb": 25.374887
+    },
+    {
+      "mesh": "SM_SilverFir_05",
+      "required_mb": 24.64276
+    },
+    {
+      "mesh": "SM_EuropeanBeech_Stump_01",
+      "required_mb": 23.773168
+    },
+    {
+      "mesh": "SM_EuropeanBeech_M_01",
+      "required_mb": 22.900237
+    },
+    {
+      "mesh": "SM_Ladder_B",
+      "required_mb": 22.667301
+    },
+    {
+      "mesh": "SM_market_box_03",
+      "required_mb": 18.222653
+    },
+    {
+      "mesh": "SM_EuropeanBeech_L_03",
+      "required_mb": 17.595036
+    },
+    {
+      "mesh": "SM_Brick_Displace_B",
+      "required_mb": 16.135583
+    },
+    {
+      "mesh": "SM_market_box_02",
+      "required_mb": 15.343909
+    },
+    {
+      "mesh": "SM_SilverFir_06",
+      "required_mb": 14.805119
+    },
+    {
+      "mesh": "SM_crateofpumpkins",
+      "required_mb": 12.1318
+    },
+    {
+      "mesh": "SM_PotatoSack",
+      "required_mb": 11.376769
+    },
+    {
+      "mesh": "SM_EuropeanBeech_Dead_M_01",
+      "required_mb": 10.095872
+    },
+    {
+      "mesh": "SM_Tower_Middle_02",
+      "required_mb": 9.77967
+    },
+    {
+      "mesh": "SM_Barrel_01",
+      "required_mb": 9.722506
+    },
+    {
+      "mesh": "SM_box_01",
+      "required_mb": 7.99806
+    },
+    {
+      "mesh": "SM_market_box_01",
+      "required_mb": 7.99806
+    },
+    {
+      "mesh": "SM_EuropeanBeech_S_01",
+      "required_mb": 5.769444
+    },
+    {
+      "mesh": "SM_Tower_Middle_01",
+      "required_mb": 5.185072
+    },
+    {
+      "mesh": "SM_SlabF",
+      "required_mb": 4.32309
+    },
+    {
+      "mesh": "SM_EuropeanBeech_Dead_M_02",
+      "required_mb": 4.256332
+    },
+    {
+      "mesh": "SM_Wall_9M",
+      "required_mb": 3.988643
+    },
+    {
+      "mesh": "SM_market_01",
+      "required_mb": 3.487143
+    },
+    {
+      "mesh": "SM_table_01",
+      "required_mb": 3.040156
+    },
+    {
+      "mesh": "SM_Wall_6M",
+      "required_mb": 2.851107
+    },
+    {
+      "mesh": "SM_Corner_Out",
+      "required_mb": 2.776746
+    },
+    {
+      "mesh": "SM_Ropes_2",
+      "required_mb": 2.760517
+    },
+    {
+      "mesh": "SM_EagleFern_02",
+      "required_mb": 2.608972
+    },
+    {
+      "mesh": "SM_EuropeanBeech_S_02",
+      "required_mb": 2.390255
+    },
+    {
+      "mesh": "SM_Wall_Slope_3M",
+      "required_mb": 2.369126
+    },
+    {
+      "mesh": "SM_SlabC",
+      "required_mb": 2.195698
+    },
+    {
+      "mesh": "SM_EuropeanBeech_02",
+      "required_mb": 1.948689
+    },
+    {
+      "mesh": "SM_EagleFern_03",
+      "required_mb": 1.910404
+    },
+    {
+      "mesh": "SM_Wall_3M",
+      "required_mb": 1.818119
+    },
+    {
+      "mesh": "SM_BannerPole_01",
+      "required_mb": 1.779467
+    },
+    {
+      "mesh": "SM_Wooden_Support",
+      "required_mb": 1.76956
+    },
+    {
+      "mesh": "SM_EuropeanBeech_XS_01",
+      "required_mb": 1.686113
+    },
+    {
+      "mesh": "SM_FlagPole",
+      "required_mb": 1.610871
+    },
+    {
+      "mesh": "SM_Wooden_Plank_4",
+      "required_mb": 1.545322
+    },
+    {
+      "mesh": "SM_Wooden_Plank_2",
+      "required_mb": 1.545322
+    },
+    {
+      "mesh": "SM_Wooden_Post_2",
+      "required_mb": 1.545322
+    },
+    {
+      "mesh": "Torches_SM_Sconce",
+      "required_mb": 1.544294
+    },
+    {
+      "mesh": "SM_SlabB",
+      "required_mb": 1.455133
+    },
+    {
+      "mesh": "SM_LeaveDerbis_M_01",
+      "required_mb": 1.433237
+    },
+    {
+      "mesh": "SM_Pumpkin",
+      "required_mb": 1.427222
+    },
+    {
+      "mesh": "SM_EagleFern_01",
+      "required_mb": 1.377161
+    },
+    {
+      "mesh": "SM_BlockB",
+      "required_mb": 1.345705
+    },
+    {
+      "mesh": "SM_Wooden_Bar1",
+      "required_mb": 1.337627
+    },
+    {
+      "mesh": "SM_Crenellation_Damaged_B",
+      "required_mb": 1.246097
+    },
+    {
+      "mesh": "SM_SlabD",
+      "required_mb": 1.219227
+    },
+    {
+      "mesh": "SM_Corner_In",
+      "required_mb": 1.187884
+    },
+    {
+      "mesh": "SM_Crenellation_Damaged_A",
+      "required_mb": 1.186235
+    },
+    {
+      "mesh": "SM_box_cap_01",
+      "required_mb": 1.113143
+    },
+    {
+      "mesh": "SM_Wooden_Post_3",
+      "required_mb": 1.041045
+    },
+    {
+      "mesh": "SM_Wooden_Plank_3",
+      "required_mb": 1.041045
+    },
+    {
+      "mesh": "SM_Carrot",
+      "required_mb": 1.006558
+    },
+    {
+      "mesh": "SM_BlockA",
+      "required_mb": 0.979155
+    },
+    {
+      "mesh": "SM_Wood_Debris_01",
+      "required_mb": 0.932191
+    },
+    {
+      "mesh": "SM_Crenellation",
+      "required_mb": 0.89185
+    },
+    {
+      "mesh": "SM_LeaveDerbis_S_01",
+      "required_mb": 0.862443
+    },
+    {
+      "mesh": "SM_Wood_Debris_02",
+      "required_mb": 0.861528
+    },
+    {
+      "mesh": "SM_Gate_SM_Wall_Upright_01",
+      "required_mb": 0.827963
+    },
+    {
+      "mesh": "SM_Potato",
+      "required_mb": 0.786393
+    },
+    {
+      "mesh": "Torches_SM_Torch",
+      "required_mb": 0.746065
+    },
+    {
+      "mesh": "SM_shelf_02",
+      "required_mb": 0.740097
+    },
+    {
+      "mesh": "SM_bench_01",
+      "required_mb": 0.725377
+    },
+    {
+      "mesh": "SM_Wood_Debris_03",
+      "required_mb": 0.54072
+    },
+    {
+      "mesh": "SM_LeaveDerbis_S_02",
+      "required_mb": 0.367458
+    },
+    {
+      "mesh": "SM_LeaveDerbis_M_02",
+      "required_mb": 0.344914
+    },
+    {
+      "mesh": "SM_BrickD",
+      "required_mb": 0.321082
+    },
+    {
+      "mesh": "SM_SlabE",
+      "required_mb": 0.25034
+    },
+    {
+      "mesh": "SM_EuropeanBeech_XS_02",
+      "required_mb": 0.188108
+    },
+    {
+      "mesh": "SM_Tower_Top",
+      "required_mb": 0.069207
+    }
+  ],
+  "top_build_time": [
+    {
+      "seconds": 185.74,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_WoodCup/Meshes/FBX/SM_WoodCup_SM_WoodCup.SM_WoodCup_SM_WoodCup"
+    },
+    {
+      "seconds": 157.19,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_WineBottles/Meshes/FBX/SM_WineBottles_Var3.SM_WineBottles_Var3"
+    },
+    {
+      "seconds": 133.51,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_Cheese/Meshes/FBX/SM_Cheese_Var1.SM_Cheese_Var1"
+    },
+    {
+      "seconds": 84.59,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_SilverCup/Meshes/FBX/SM_SilverCup.SM_SilverCup"
+    },
+    {
+      "seconds": 54.58,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_Cheese/Meshes/FBX/SM_Cheese_Board.SM_Cheese_Board"
+    },
+    {
+      "seconds": 24.0,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_WalkWay_03.SM_Tower_WalkWay_03"
+    },
+    {
+      "seconds": 20.43,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_Cauldron/Meshes/FBX/SM_Cauldron_SM_Cauldron.SM_Cauldron_SM_Cauldron"
+    },
+    {
+      "seconds": 16.58,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_WalkWay_01.SM_Tower_WalkWay_01"
+    },
+    {
+      "seconds": 16.03,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_Bottom_02.SM_Tower_Bottom_02"
+    },
+    {
+      "seconds": 5.48,
+      "asset": "/Game/Medieval_Megapack/Diner_Colection/Props/SM_WoodPlate/Meshes/FBX/SM_WoodPlate.SM_WoodPlate"
+    },
+    {
+      "seconds": 3.81,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_Carriage_02.SM_Carriage_02"
+    },
+    {
+      "seconds": 3.3,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_BrickCaps.SM_Tower_BrickCaps"
+    },
+    {
+      "seconds": 3.14,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_SilverFir_03.SM_SilverFir_03"
+    },
+    {
+      "seconds": 3.0,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_market_box_02.SM_market_box_02"
+    },
+    {
+      "seconds": 2.87,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_XL_02.SM_EuropeanBeech_XL_02"
+    },
+    {
+      "seconds": 2.45,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_SilverFir_04.SM_SilverFir_04"
+    },
+    {
+      "seconds": 2.01,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_Dead_XL_01.SM_EuropeanBeech_Dead_XL_01"
+    },
+    {
+      "seconds": 1.88,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_L_01.SM_EuropeanBeech_L_01"
+    },
+    {
+      "seconds": 1.79,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_XL_01.SM_EuropeanBeech_XL_01"
+    },
+    {
+      "seconds": 1.71,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_XL_03.SM_EuropeanBeech_XL_03"
+    },
+    {
+      "seconds": 1.61,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_Stump_01.SM_EuropeanBeech_Stump_01"
+    },
+    {
+      "seconds": 1.56,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Ladder_B.SM_Ladder_B"
+    },
+    {
+      "seconds": 1.4,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_market_box_03.SM_market_box_03"
+    },
+    {
+      "seconds": 1.33,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_L_02.SM_EuropeanBeech_L_02"
+    },
+    {
+      "seconds": 1.32,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Brick_Displace_A.SM_Brick_Displace_A"
+    },
+    {
+      "seconds": 1.11,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_M_01.SM_EuropeanBeech_M_01"
+    },
+    {
+      "seconds": 1.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Misc/SM_trianglebarrels.SM_trianglebarrels"
+    },
+    {
+      "seconds": 0.98,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Brick_Displace_B.SM_Brick_Displace_B"
+    },
+    {
+      "seconds": 0.97,
+      "asset": "/Game/Medieval_Megapack/Meshes/Misc/SM_cart2.SM_cart2"
+    },
+    {
+      "seconds": 0.95,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_SilverFir_05.SM_SilverFir_05"
+    },
+    {
+      "seconds": 0.86,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_L_03.SM_EuropeanBeech_L_03"
+    },
+    {
+      "seconds": 0.64,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_box_01.SM_box_01"
+    },
+    {
+      "seconds": 0.64,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_market_box_01.SM_market_box_01"
+    },
+    {
+      "seconds": 0.62,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_Middle_02.SM_Tower_Middle_02"
+    },
+    {
+      "seconds": 0.6,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_Barrel_01.SM_Barrel_01"
+    },
+    {
+      "seconds": 0.58,
+      "asset": "/Game/Medieval_Megapack/Meshes/Misc/SM_cart1.SM_cart1"
+    },
+    {
+      "seconds": 0.52,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_SilverFir_06.SM_SilverFir_06"
+    },
+    {
+      "seconds": 0.45,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_Dead_M_01.SM_EuropeanBeech_Dead_M_01"
+    },
+    {
+      "seconds": 0.41,
+      "asset": "/Game/Medieval_Megapack/Meshes/Misc/SM_bottlesforcrate.SM_bottlesforcrate"
+    },
+    {
+      "seconds": 0.39,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_Top_01.SM_Tower_Top_01"
+    },
+    {
+      "seconds": 0.38,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_Middle_01.SM_Tower_Middle_01"
+    },
+    {
+      "seconds": 0.31,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_S_01.SM_EuropeanBeech_S_01"
+    },
+    {
+      "seconds": 0.29,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_SlabF.SM_SlabF"
+    },
+    {
+      "seconds": 0.25,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_Log_01.SM_EuropeanBeech_Log_01"
+    },
+    {
+      "seconds": 0.25,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_Dead_M_02.SM_EuropeanBeech_Dead_M_02"
+    },
+    {
+      "seconds": 0.23,
+      "asset": "/Game/Medieval_Megapack/Meshes/SM_market_01.SM_market_01"
+    },
+    {
+      "seconds": 0.22,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_table_01.SM_table_01"
+    },
+    {
+      "seconds": 0.21,
+      "asset": "/Game/Medieval_Megapack/Meshes/Misc/SM_crateofpumpkins.SM_crateofpumpkins"
+    },
+    {
+      "seconds": 0.2,
+      "asset": "/Game/Medieval_Megapack/Meshes/SM_Wood_Debris_01.SM_Wood_Debris_01"
+    },
+    {
+      "seconds": 0.18,
+      "asset": "/Game/Medieval_Megapack/Meshes/SM_Wood_Debris_02.SM_Wood_Debris_02"
+    },
+    {
+      "seconds": 0.18,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Ropes_2.SM_Ropes_2"
+    },
+    {
+      "seconds": 0.16,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_SlabC.SM_SlabC"
+    },
+    {
+      "seconds": 0.15,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Support.SM_Wooden_Support"
+    },
+    {
+      "seconds": 0.13,
+      "asset": "/Game/Medieval_Megapack/Meshes/Misc/SM_PotatoSack.SM_PotatoSack"
+    },
+    {
+      "seconds": 0.12,
+      "asset": "/Game/Medieval_Megapack/Meshes/Flags/SM_BannerPole_01.SM_BannerPole_01"
+    },
+    {
+      "seconds": 0.11,
+      "asset": "/Game/Medieval_Megapack/Meshes/SM_Wood_Debris_03.SM_Wood_Debris_03"
+    },
+    {
+      "seconds": 0.11,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_S_02.SM_EuropeanBeech_S_02"
+    },
+    {
+      "seconds": 0.11,
+      "asset": "/Game/Medieval_Megapack/Meshes/Flags/SM_FlagPole.SM_FlagPole"
+    },
+    {
+      "seconds": 0.1,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_SlabB.SM_SlabB"
+    },
+    {
+      "seconds": 0.1,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Plank_4.SM_Wooden_Plank_4"
+    },
+    {
+      "seconds": 0.1,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Post_2.SM_Wooden_Post_2"
+    },
+    {
+      "seconds": 0.09,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_XS_01.SM_EuropeanBeech_XS_01"
+    },
+    {
+      "seconds": 0.09,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_EuropeanBeech_02.SM_EuropeanBeech_02"
+    },
+    {
+      "seconds": 0.09,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_EagleFern_02.SM_EagleFern_02"
+    },
+    {
+      "seconds": 0.09,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/Torches_SM_Sconce.Torches_SM_Sconce"
+    },
+    {
+      "seconds": 0.09,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_BlockB.SM_BlockB"
+    },
+    {
+      "seconds": 0.09,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Plank_2.SM_Wooden_Plank_2"
+    },
+    {
+      "seconds": 0.08,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_EagleFern_03.SM_EagleFern_03"
+    },
+    {
+      "seconds": 0.08,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_box_cap_01.SM_box_cap_01"
+    },
+    {
+      "seconds": 0.08,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Bar1.SM_Wooden_Bar1"
+    },
+    {
+      "seconds": 0.08,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_Pumpkin.SM_Pumpkin"
+    },
+    {
+      "seconds": 0.07,
+      "asset": "/Game/Medieval_Megapack/Meshes/Foliage/SM_EagleFern_01.SM_EagleFern_01"
+    },
+    {
+      "seconds": 0.07,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_BlockA.SM_BlockA"
+    },
+    {
+      "seconds": 0.07,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_SlabD.SM_SlabD"
+    },
+    {
+      "seconds": 0.07,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Post_3.SM_Wooden_Post_3"
+    },
+    {
+      "seconds": 0.07,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/SM_Wooden_Plank_3.SM_Wooden_Plank_3"
+    },
+    {
+      "seconds": 0.05,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_LeaveDerbis_M_01.SM_LeaveDerbis_M_01"
+    },
+    {
+      "seconds": 0.05,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_Carrot.SM_Carrot"
+    },
+    {
+      "seconds": 0.05,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_shelf_02.SM_shelf_02"
+    },
+    {
+      "seconds": 0.04,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Corner_Out.SM_Corner_Out"
+    },
+    {
+      "seconds": 0.04,
+      "asset": "/Game/Medieval_Megapack/Meshes/Scaffolding/Torches_SM_Torch.Torches_SM_Torch"
+    },
+    {
+      "seconds": 0.04,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Wall_9M.SM_Wall_9M"
+    },
+    {
+      "seconds": 0.04,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_bench_01.SM_bench_01"
+    },
+    {
+      "seconds": 0.04,
+      "asset": "/Game/Medieval_Megapack/Meshes/Props/SM_Potato.SM_Potato"
+    },
+    {
+      "seconds": 0.03,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Wall_6M.SM_Wall_6M"
+    },
+    {
+      "seconds": 0.03,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_LeaveDerbis_S_01.SM_LeaveDerbis_S_01"
+    },
+    {
+      "seconds": 0.03,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Wall_Slope_3M.SM_Wall_Slope_3M"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Gate_SM_Wall_Upright_01.SM_Gate_SM_Wall_Upright_01"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Crenellation.SM_Crenellation"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Crenellation_Damaged_A.SM_Crenellation_Damaged_A"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Crenellation_Damaged_B.SM_Crenellation_Damaged_B"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_BrickD.SM_BrickD"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Wall_3M.SM_Wall_3M"
+    },
+    {
+      "seconds": 0.02,
+      "asset": "/Game/Medieval_Megapack/Meshes/Walls/SM_Corner_In.SM_Corner_In"
+    },
+    {
+      "seconds": 0.01,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_LeaveDerbis_M_02.SM_LeaveDerbis_M_02"
+    },
+    {
+      "seconds": 0.01,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_LeaveDerbis_S_02.SM_LeaveDerbis_S_02"
+    },
+    {
+      "seconds": 0.01,
+      "asset": "/Game/Medieval_Megapack/Meshes/Brick_Kit/SM_SlabE.SM_SlabE"
+    },
+    {
+      "seconds": 0.0,
+      "asset": "/Game/Medieval_Megapack/Scanned_Foliage/Objects/Foliage/EuropeanBeech/SM_EuropeanBeech_XS_02.SM_EuropeanBeech_XS_02"
+    },
+    {
+      "seconds": 0.0,
+      "asset": "/Game/Medieval_Megapack/Meshes/Towers/SM_Tower_Top.SM_Tower_Top"
+    }
+  ]
+}

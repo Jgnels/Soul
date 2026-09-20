@@ -31,11 +31,38 @@ void ASoulFortificationSegmentActor::SetBranchVisible(USceneComponent* Branch, b
     Branch->SetHiddenInGame(!bVisible, true);
 }
 
+void ASoulFortificationSegmentActor::SetActorGroupVisible(
+    const TArray<TObjectPtr<AActor>>& Group,
+    bool bVisible)
+{
+    for (AActor* Actor : Group)
+    {
+        if (!IsValid(Actor) || Actor == this)
+        {
+            continue;
+        }
+        Actor->SetActorHiddenInGame(!bVisible);
+#if WITH_EDITOR
+        Actor->SetIsTemporarilyHiddenInEditor(!bVisible);
+#endif
+        Actor->SetActorEnableCollision(bVisible);
+    }
+}
+
 void ASoulFortificationSegmentActor::ApplyWallState(int32 IntegrityPermille, bool bRepairing)
 {
     const int32 Integrity = FMath::Clamp(IntegrityPermille, 0, 1000);
-    SetBranchVisible(IntactRoot, Integrity >= 1000 && !bRepairing);
-    SetBranchVisible(DamagedRoot, Integrity > 0 && Integrity < 1000 && !bRepairing);
-    SetBranchVisible(BreachedRoot, Integrity <= 0 && !bRepairing);
+    const bool bIntact = Integrity >= 1000 && !bRepairing;
+    const bool bDamaged = Integrity > 0 && Integrity < 1000 && !bRepairing;
+    const bool bBreached = Integrity <= 0 && !bRepairing;
+
+    SetBranchVisible(IntactRoot, bIntact);
+    SetBranchVisible(DamagedRoot, bDamaged);
+    SetBranchVisible(BreachedRoot, bBreached);
     SetBranchVisible(RepairRoot, bRepairing);
+
+    SetActorGroupVisible(IntactActors, bIntact);
+    SetActorGroupVisible(DamagedActors, bDamaged);
+    SetActorGroupVisible(BreachedActors, bBreached);
+    SetActorGroupVisible(RepairActors, bRepairing);
 }

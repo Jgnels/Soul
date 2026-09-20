@@ -12,6 +12,11 @@ public:
         FSoulSettlementState& Settlement,
         const FSoulBuildingDefinition& Definition);
 
+    static void AdvanceDay(
+        FSoulCampaignEconomy& Economy,
+        const FSoulSettlementState& Settlement,
+        int32 MinimumIntegrityPermille = 500);
+
     static bool RecruitFromBuilding(
         FSoulCampaignEconomy& Economy,
         const FSoulSettlementState& Settlement,

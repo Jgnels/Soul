@@ -124,3 +124,20 @@ Ancient Mountain/Shrine is acquired and is best treated as a landmark/shrine don
 There is no broad terrain-shopping problem left.
 The remaining environment risk is composition/qualification, not asset scarcity.
 The one plausible biome gap to keep an eye on is a convincing marsh/swamp if no owned map already covers it.
+
+## Hivemind UE qualification update
+The full PL_Fortress_Day map loads and passes MapCheck, but its first DDC build exposed several pathological diner-decoration meshes that are inappropriate for Soul's production capital.
+
+Largest observed required-memory estimates during the real UE load included:
+- SM_Cheese_Var1: ~5193 MB.
+- SM_WoodCup_SM_WoodCup: ~4455 MB.
+- SM_WineBottles_Var3: ~3403 MB.
+- SM_SilverCandle: ~3256 MB.
+- SM_SilverCup: ~2159 MB.
+- SM_Cheese_Board: ~1534 MB.
+
+Observed one-time build times included ~186 s for the wood cup, ~157 s for wine bottles and ~134 s for the cheese prop.
+
+Conclusion: the castle architecture remains a strong Human-capital donor, but Soul should not inherit the showcase's full micro-prop population. Keep walls/gates/towers/prefab buildings/Forge/Tavern and selectively redress. Remove or replace pathological micro-props and let RB Optimization handle representation/HLOD for the retained architecture.
+
+The alternate PL_Fortress_Day1 package is locally corrupt/unloadable (failed package name-table seek) and should not be used. PL_Fortress_Day is the qualified source map.

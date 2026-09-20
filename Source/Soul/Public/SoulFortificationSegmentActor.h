@@ -24,6 +24,18 @@ public:
     UFUNCTION(BlueprintCallable, Category="Soul|Siege")
     void ApplyWallState(int32 IntegrityPermille, bool bRepairing);
 
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Siege|External Presentation")
+    TArray<TObjectPtr<AActor>> IntactActors;
+
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Siege|External Presentation")
+    TArray<TObjectPtr<AActor>> DamagedActors;
+
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Siege|External Presentation")
+    TArray<TObjectPtr<AActor>> BreachedActors;
+
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Siege|External Presentation")
+    TArray<TObjectPtr<AActor>> RepairActors;
+
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Soul|Siege")
     TObjectPtr<USceneComponent> SceneRoot;
@@ -42,4 +54,5 @@ protected:
 
 private:
     void SetBranchVisible(USceneComponent* Branch, bool bVisible);
+    void SetActorGroupVisible(const TArray<TObjectPtr<AActor>>& Group, bool bVisible);
 };

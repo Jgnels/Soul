@@ -26,7 +26,15 @@ void FSoulCampaignRules::AdvanceDay(FSoulCampaignEconomy& Campaign)
         for (TPair<FName, FSoulRecruitmentPool>& Pair : Campaign.RecruitmentPools)
         {
             FSoulRecruitmentPool& Pool = Pair.Value;
-            Pool.Available = FMath::Min(Pool.Capacity, Pool.Available + FMath::Max(0, Pool.WeeklyGrowth));
+            // Settlement-linked pools are advanced by FSoulTownRules so destroyed
+            // recruitment dwellings cannot silently generate new units.
+            if (!Pool.RequiredBuildingId.IsNone())
+            {
+                continue;
+            }
+            Pool.Available = FMath::Min(
+                Pool.Capacity,
+                Pool.Available + FMath::Max(0, Pool.WeeklyGrowth));
         }
     }
 }

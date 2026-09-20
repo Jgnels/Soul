@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "generated": "2026-09-20",
+  "confidence_levels": [
+    "LOCAL_EVIDENCE_DEFAULT",
+    "UE_VISUAL_CONFIRM",
+    "COMPOSITE",
+    "PAYLOAD_PENDING"
+  ],
+  "factions": {
+    "humans": {
+      "base_map": "/Game/Medieval_Megapack/Levels/PL_Fortress_Day",
+      "bindings": [
+        {
+          "structure": "human.witch_collegium",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Building_A",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT",
+          "reason": "Building_A external-actor refs are unusually potion/wine/interior heavy; strongest existing arcane/adventurer shell."
+        },
+        {
+          "structure": "human.muster_yard",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Building_B",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Smaller prefab with market/barrel/table dressing; plausible basic muster/utility court after military dressing."
+        },
+        {
+          "structure": "human.archery_range",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Building_C",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Clean generic shell; pair with outdoor targets/racks so function reads from town camera."
+        },
+        {
+          "structure": "human.barracks",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Building_D",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Largest clean generic building candidate; reserve for substantial military dwelling unless visual pass contradicts."
+        },
+        {
+          "structure": "human.royal_chapterhouse",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Building_A_02",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Large furnished alternate; may instead swap with Collegium after side-by-side render."
+        },
+        {
+          "structure": "human.forge",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Forge",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT",
+          "reason": "Explicit authored Forge prefab."
+        },
+        {
+          "structure": "human.tavern",
+          "asset": "/Game/Medieval_Megapack/Levels/Prefabs/Tavern",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT",
+          "reason": "Explicit authored Tavern prefab."
+        },
+        {
+          "structure": "human.market",
+          "asset": "/Game/Medieval_Megapack/Meshes/Props/BP_MarketStand",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Existing market assets; exact path/name requires registry confirm."
+        },
+        {
+          "structure": "human.griffon_roost",
+          "asset": "Hivemind courtyard tower/wall-walk composition",
+          "confidence": "COMPOSITE",
+          "reason": "Use high silhouette instead of creating a new modeled building."
+        },
+        {
+          "structure": "human.guardhouse",
+          "asset": "Hivemind gatehouse/courtyard tower composition",
+          "confidence": "COMPOSITE",
+          "reason": "Function should be physically tied to gate defense."
+        }
+      ]
+    },
+    "vikings": {
+      "base_maps": [
+        "/Game/JustBStudios/Water_City/Levels/LV_WaterVillage",
+        "/Game/Viking_Village/Levels/MainVillage/LV_MainVillage"
+      ],
+      "bindings": [
+        {
+          "structure": "viking.huscarl_hall",
+          "asset": "/Game/Viking_Village/.../BP_HouseBuilding_003",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT",
+          "reason": "Inventory has the strongest military references of the three Viking authored houses."
+        },
+        {
+          "structure": "viking.market",
+          "asset": "/Game/Viking_Village/.../BP_HouseBuilding_001",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT",
+          "reason": "Inventory is strongly market/storage-oriented."
+        },
+        {
+          "structure": "viking.raider_longhouse",
+          "asset": "/Game/Viking_Village/.../BP_HouseBuilding_002",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Cleaner general house candidate after 001 market and 003 military roles are separated."
+        },
+        {
+          "structure": "viking.great_hall",
+          "asset": "/Game/JustBStudios/Water_City/.../BP_Big_house_05",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Largest/most detailed furnished big-house candidate by asset/ref footprint; compare 01/03/05 visually."
+        },
+        {
+          "structure": "viking.shield_hall",
+          "asset": "/Game/JustBStudios/Water_City/.../BP_Big_house_03",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Large furnished shell; apply Viking shield/banner dressing."
+        },
+        {
+          "structure": "viking.berserker_mead_hall",
+          "asset": "/Game/JustBStudios/Water_City/.../BP_Big_house_01",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Large bed/table-heavy hall, good social/mead-hall base after Viking redress."
+        },
+        {
+          "structure": "viking.shaman_lodge",
+          "asset": "/Game/JustBStudios/Water_City/.../BP_Small_House_V04",
+          "confidence": "UE_VISUAL_CONFIRM",
+          "reason": "Small furnished shell; relocate to secluded ritual edge and redress."
+        },
+        {
+          "structure": "viking.hunter_range",
+          "asset": "VikingVillage BP_StrawArcheryTarget_01a/01b + lodge",
+          "confidence": "COMPOSITE",
+          "reason": "Explicit archery targets make role immediately legible."
+        },
+        {
+          "structure": "viking.wolf_kennels",
+          "asset": "VikingVillage fenced hay/cage yard",
+          "confidence": "COMPOSITE",
+          "reason": "Open yard better than forcing wolves into a house."
+        },
+        {
+          "structure": "viking.shipyard",
+          "asset": "Water City piers/bridge + Viking boats",
+          "confidence": "COMPOSITE",
+          "reason": "Maritime identity comes from geography plus Viking-specific boats."
+        }
+      ]
+    },
+    "ravenhold": {
+      "role": "siege_damage_and_legendary_fortress_donor",
+      "bindings": [
+        {
+          "purpose": "stone_wall_intact_to_ruined",
+          "asset_family": "CurtainWall_10m / CurtainWall_10m_Ruined",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT"
+        },
+        {
+          "purpose": "large_wall_intact_to_ruined",
+          "asset_family": "Lrg_Wall_10m / Lrg_Wall_10m_Ruined",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT"
+        },
+        {
+          "purpose": "bridge_damage",
+          "asset_family": "ruined bridge variants",
+          "confidence": "LOCAL_EVIDENCE_DEFAULT"
+        }
+      ]
+    }
+  }
+}

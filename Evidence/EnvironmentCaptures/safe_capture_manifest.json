@@ -1,0 +1,16 @@
+[
+  {
+    "key": "human_hivemind",
+    "map": "/Game/Medieval_Megapack/Levels/PL_Fortress_Day",
+    "load_ok": true,
+    "anchor_source": "LandscapeBounds",
+    "center": [
+      -0.985946212142153,
+      0.0,
+      -770.390625
+    ],
+    "span": 50400.0,
+    "overview": "human_hivemind_overview.png",
+    "perspective": "human_hivemind_perspective.png"
+  }
+]

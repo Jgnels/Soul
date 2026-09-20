@@ -24,6 +24,20 @@ public:
     UFUNCTION(BlueprintCallable, Category="Soul|Settlement")
     void ApplyIntegrity(int32 IntegrityPermille, bool bBuilt, bool bConstructing);
 
+    // Level-instance / donor geometry already placed in the city map can be assigned here.
+    // Soul toggles it from canonical settlement state; geometry does not own gameplay truth.
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Settlement|External Presentation")
+    TArray<TObjectPtr<AActor>> ConstructionActors;
+
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Settlement|External Presentation")
+    TArray<TObjectPtr<AActor>> IntactActors;
+
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Settlement|External Presentation")
+    TArray<TObjectPtr<AActor>> DamagedActors;
+
+    UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Soul|Settlement|External Presentation")
+    TArray<TObjectPtr<AActor>> RuinedActors;
+
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Soul|Settlement")
     TObjectPtr<USceneComponent> SceneRoot;
@@ -43,4 +57,5 @@ protected:
 private:
     void ShowOnly(USceneComponent* VisibleRoot);
     void SetBranchVisible(USceneComponent* Branch, bool bVisible);
+    void SetActorGroupVisible(const TArray<TObjectPtr<AActor>>& Group, bool bVisible);
 };

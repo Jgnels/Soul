@@ -635,8 +635,11 @@ bool FSoulTownRecruitmentBuildingTest::RunTest(const FString&)
     FSoulCampaignEconomy Economy;
     Economy.Resources.Add(TEXT("gold"), 1000);
 
+    const FName RangeId = TEXT("archery_range");
+
     FSoulRecruitmentPool Pool;
     Pool.UnitId = TEXT("archer");
+    Pool.RequiredBuildingId = RangeId;
     Pool.Available = 5;
     Pool.WeeklyGrowth = 4;
     Pool.Capacity = 10;
@@ -645,11 +648,22 @@ bool FSoulTownRecruitmentBuildingTest::RunTest(const FString&)
 
     FSoulSettlementState Town;
     FSoulBuildingState Range;
-    Range.Id = TEXT("archery_range");
+    Range.Id = RangeId;
     Range.Level = 1;
     Range.IntegrityPermille = 1000;
     Range.Condition = ESoulBuildingCondition::Intact;
     Town.Buildings.Add(Range.Id, Range);
+
+    FSoulBuildingState Tavern;
+    Tavern.Id = TEXT("tavern");
+    Tavern.Level = 1;
+    Tavern.IntegrityPermille = 1000;
+    Tavern.Condition = ESoulBuildingCondition::Intact;
+    Town.Buildings.Add(Tavern.Id, Tavern);
+
+    TestFalse(TEXT("wrong operational building cannot recruit archer pool"),
+        FSoulTownRules::RecruitFromBuilding(
+            Economy, Town, Tavern.Id, Pool.UnitId, 1));
 
     TestTrue(TEXT("operational range allows recruitment"),
         FSoulTownRules::RecruitFromBuilding(Economy, Town, Range.Id, Pool.UnitId, 2));
@@ -665,11 +679,32 @@ bool FSoulTownRecruitmentBuildingTest::RunTest(const FString&)
     TestEqual(TEXT("blocked recruitment spends nothing"), Economy.Resources[TEXT("gold")], GoldBefore);
     TestEqual(TEXT("blocked recruitment consumes no pool"), Economy.RecruitmentPools[Pool.UnitId].Available, PoolBefore);
     TestEqual(TEXT("ruined range has zero growth"),
-        FSoulTownRules::EffectiveWeeklyGrowth(Economy, Town, Range.Id, Pool.UnitId), 0);
+        FSoulTownRules::EffectiveWeeklyGrowth(
+            Economy, Town, Range.Id, Pool.UnitId), 0);
+
+    Economy.RecruitmentPools[Pool.UnitId].Available = 0;
+    for (int32 Day = 0; Day < 7; ++Day)
+    {
+        FSoulTownRules::AdvanceDay(Economy, Town);
+    }
+    TestEqual(TEXT("ruined required dwelling blocks weekly pool growth"),
+        Economy.RecruitmentPools[Pool.UnitId].Available, 0);
 
     FSoulSettlementRules::RepairBuilding(Town, Range.Id, 750);
+    TestEqual(TEXT("partially repaired range scales weekly growth"),
+        FSoulTownRules::EffectiveWeeklyGrowth(
+            Economy, Town, Range.Id, Pool.UnitId), 3);
+
+    for (int32 Day = 0; Day < 7; ++Day)
+    {
+        FSoulTownRules::AdvanceDay(Economy, Town);
+    }
+    TestEqual(TEXT("repaired required dwelling restores weekly pool growth"),
+        Economy.RecruitmentPools[Pool.UnitId].Available, 3);
+
     TestTrue(TEXT("sufficient repair restores recruitment"),
-        FSoulTownRules::RecruitFromBuilding(Economy, Town, Range.Id, Pool.UnitId, 1));
+        FSoulTownRules::RecruitFromBuilding(
+            Economy, Town, Range.Id, Pool.UnitId, 1));
     return true;
 }
 

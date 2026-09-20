@@ -26,6 +26,40 @@ bool FSoulTownRules::BeginConstruction(
     return true;
 }
 
+
+void FSoulTownRules::AdvanceDay(
+    FSoulCampaignEconomy& Economy,
+    const FSoulSettlementState& Settlement,
+    int32 MinimumIntegrityPermille)
+{
+    FSoulCampaignRules::AdvanceDay(Economy);
+
+    if ((Economy.Day - 1) % 7 != 0)
+    {
+        return;
+    }
+
+    for (TPair<FName, FSoulRecruitmentPool>& Pair : Economy.RecruitmentPools)
+    {
+        FSoulRecruitmentPool& Pool = Pair.Value;
+        if (Pool.RequiredBuildingId.IsNone())
+        {
+            continue; // Generic campaign growth was already applied above.
+        }
+
+        const int32 Growth = EffectiveWeeklyGrowth(
+            Economy,
+            Settlement,
+            Pool.RequiredBuildingId,
+            Pair.Key,
+            MinimumIntegrityPermille);
+
+        Pool.Available = FMath::Min(
+            Pool.Capacity,
+            Pool.Available + FMath::Max(0, Growth));
+    }
+}
+
 bool FSoulTownRules::RecruitFromBuilding(
     FSoulCampaignEconomy& Economy,
     const FSoulSettlementState& Settlement,
@@ -34,7 +68,18 @@ bool FSoulTownRules::RecruitFromBuilding(
     int32 Quantity,
     int32 MinimumIntegrityPermille)
 {
-    if (!FSoulSettlementRules::IsOperational(Settlement, BuildingId, MinimumIntegrityPermille))
+    const FSoulRecruitmentPool* Pool = Economy.RecruitmentPools.Find(UnitId);
+    if (!Pool)
+    {
+        return false;
+    }
+    if (!Pool->RequiredBuildingId.IsNone()
+        && Pool->RequiredBuildingId != BuildingId)
+    {
+        return false;
+    }
+    if (!FSoulSettlementRules::IsOperational(
+            Settlement, BuildingId, MinimumIntegrityPermille))
     {
         return false;
     }
@@ -53,7 +98,13 @@ int32 FSoulTownRules::EffectiveWeeklyGrowth(
     {
         return 0;
     }
-    if (!FSoulSettlementRules::IsOperational(Settlement, BuildingId, MinimumIntegrityPermille))
+    if (!Pool->RequiredBuildingId.IsNone()
+        && Pool->RequiredBuildingId != BuildingId)
+    {
+        return 0;
+    }
+    if (!FSoulSettlementRules::IsOperational(
+            Settlement, BuildingId, MinimumIntegrityPermille))
     {
         return 0;
     }

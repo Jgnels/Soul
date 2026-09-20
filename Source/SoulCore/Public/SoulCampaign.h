@@ -8,6 +8,8 @@ struct FSoulRecruitmentPool
     int32 Available = 0;
     int32 WeeklyGrowth = 0;
     int32 Capacity = 0;
+    // If set, this pool only grows/recruits while the linked settlement building is operational.
+    FName RequiredBuildingId;
     TMap<FName, int32> CostPerUnit;
 };
 

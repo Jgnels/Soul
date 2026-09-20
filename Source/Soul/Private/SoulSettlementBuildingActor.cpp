@@ -31,12 +31,40 @@ void ASoulSettlementBuildingActor::SetBranchVisible(USceneComponent* Branch, boo
     Branch->SetHiddenInGame(!bVisible, true);
 }
 
+void ASoulSettlementBuildingActor::SetActorGroupVisible(
+    const TArray<TObjectPtr<AActor>>& Group,
+    bool bVisible)
+{
+    for (AActor* Actor : Group)
+    {
+        if (!IsValid(Actor) || Actor == this)
+        {
+            continue;
+        }
+        Actor->SetActorHiddenInGame(!bVisible);
+#if WITH_EDITOR
+        Actor->SetIsTemporarilyHiddenInEditor(!bVisible);
+#endif
+        Actor->SetActorEnableCollision(bVisible);
+    }
+}
+
 void ASoulSettlementBuildingActor::ShowOnly(USceneComponent* VisibleRoot)
 {
-    SetBranchVisible(ConstructionRoot, VisibleRoot == ConstructionRoot);
-    SetBranchVisible(IntactRoot, VisibleRoot == IntactRoot);
-    SetBranchVisible(DamagedRoot, VisibleRoot == DamagedRoot);
-    SetBranchVisible(RuinedRoot, VisibleRoot == RuinedRoot);
+    const bool bConstruction = VisibleRoot == ConstructionRoot;
+    const bool bIntact = VisibleRoot == IntactRoot;
+    const bool bDamaged = VisibleRoot == DamagedRoot;
+    const bool bRuined = VisibleRoot == RuinedRoot;
+
+    SetBranchVisible(ConstructionRoot, bConstruction);
+    SetBranchVisible(IntactRoot, bIntact);
+    SetBranchVisible(DamagedRoot, bDamaged);
+    SetBranchVisible(RuinedRoot, bRuined);
+
+    SetActorGroupVisible(ConstructionActors, bConstruction);
+    SetActorGroupVisible(IntactActors, bIntact);
+    SetActorGroupVisible(DamagedActors, bDamaged);
+    SetActorGroupVisible(RuinedActors, bRuined);
 }
 
 void ASoulSettlementBuildingActor::ApplyConditionName(FName ConditionName)

@@ -14,3 +14,4 @@ Saved/
 *.log
 Plugins/*/Binaries/
 Plugins/*/Intermediate/
+Evidence/EnvironmentCaptures/*.log
