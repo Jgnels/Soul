@@ -1,0 +1,15 @@
+{
+  "FileVersion": 3,
+  "Version": 20000,
+  "VersionName": "2.0.0-dev",
+  "FriendlyName": "RB Foundation",
+  "Description": "Standalone integration SDK, capability registry, authority governance, lifecycle orchestration, transactions, diagnostics and compatibility contracts for Unreal Engine ecosystems.",
+  "Category": "RefinedBadger",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "Modules": [
+    { "Name": "RBFoundation", "Type": "Runtime", "LoadingPhase": "Default" }
+  ]
+}

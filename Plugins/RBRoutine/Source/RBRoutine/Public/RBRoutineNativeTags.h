@@ -1,0 +1,9 @@
+#pragma once
+
+#include "NativeGameplayTags.h"
+
+RBROUTINE_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_RBRoutine_Activity_Social);
+RBROUTINE_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_RBRoutine_Event_Perception_Saw);
+RBROUTINE_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_RBRoutine_Event_Perception_Heard);
+RBROUTINE_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_RBRoutine_Event_Perception_Threat);
+RBROUTINE_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_RBRoutine_Event_Perception_Lost);

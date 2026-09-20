@@ -1,0 +1,67 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.8",
+  "Category": "RefinedBadger",
+  "Description": "Soul - PC-first hero-led faction strategy game.",
+  "Modules": [
+    {
+      "Name": "SoulCore",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "Soul",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "TargetPlatforms": [
+    "Windows"
+  ],
+  "Plugins": [
+    {
+      "Name": "RBFoundation",
+      "Enabled": true
+    },
+    {
+      "Name": "RBFoundationLegacyAdapters",
+      "Enabled": true
+    },
+    {
+      "Name": "RBSave",
+      "Enabled": true
+    },
+    {
+      "Name": "RBItemEconomy",
+      "Enabled": true
+    },
+    {
+      "Name": "RBRoutine",
+      "Enabled": true
+    },
+    {
+      "Name": "RBWeather",
+      "Enabled": true
+    },
+    {
+      "Name": "RBOptimization",
+      "Enabled": true
+    },
+    {
+      "Name": "RefinedBadgerCombat",
+      "Enabled": true
+    },
+    {
+      "Name": "CommonUI",
+      "Enabled": true
+    },
+    {
+      "Name": "EnhancedInput",
+      "Enabled": true
+    },
+    {
+      "Name": "RBUIInput",
+      "Enabled": true
+    }
+  ]
+}

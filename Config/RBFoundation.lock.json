@@ -1,0 +1,82 @@
+{
+  "schema": 2,
+  "foundation_version": "2.0.0-dev",
+  "engine": "5.8.2",
+  "profile": "core",
+  "manifest_sha256": "87ba4faf4fe15e3751b38aad673f5fff6a7096f28e8adc11bfebe11ea02c3f56",
+  "selected_products": [
+    "RBItemEconomy",
+    "RBOptimization",
+    "RBRoutine",
+    "RBSave",
+    "RBWeather",
+    "RefinedBadgerCombat"
+  ],
+  "components": [
+    {
+      "id": "RBFoundation",
+      "plugin": "RBFoundation",
+      "version": "2.0.0-dev",
+      "commit": "af9444fbf68fa3f64a1b3c570ab5e71d64949e15",
+      "payload_hash": "81e96c6a6cd5b6c3af934b11d2d44e01d332098caa76029204f57995c7620ea5",
+      "source_kind": "foundation"
+    },
+    {
+      "id": "RBFoundationLegacyAdapters",
+      "plugin": "RBFoundationLegacyAdapters",
+      "version": "2.0.0-dev",
+      "commit": "af9444fbf68fa3f64a1b3c570ab5e71d64949e15",
+      "payload_hash": "54a20f281b2df56c6631d9eacdf565d8e60620af2e455eb30093ad53fd6c1474",
+      "source_kind": "foundation-legacy"
+    },
+    {
+      "id": "RBItemEconomy",
+      "plugin": "RBItemEconomy",
+      "version": "1.0.0",
+      "commit": "a52ed027bfdf9ec4af3913f58077d04256e3daa3",
+      "payload_hash": "c0c48ca9cd71f87b75d91a149e64f7a98523cccb1303983be8181f1040c9ec38",
+      "source_kind": "manifest"
+    },
+    {
+      "id": "RBOptimization",
+      "plugin": "RBOptimization",
+      "version": "1.0.0",
+      "commit": "294a819878bac508f4abba521913ab5c8efb3a77",
+      "payload_hash": "3a2a221d5d198f5f7840ffeffa760a76ff40a2b6e11c830d49c3b4f1856eeb52",
+      "source_kind": "manifest"
+    },
+    {
+      "id": "RBRoutine",
+      "plugin": "RBRoutine",
+      "version": "1.0.0",
+      "commit": "eba37c2991f6b2407ab34abc41c6a3c29c430ca1",
+      "payload_hash": "7a10cef8b6a4e5bbb6528c81b0a471cc2c6c7a3e001b919e0d5623609159b442",
+      "source_kind": "manifest"
+    },
+    {
+      "id": "RBSave",
+      "plugin": "RBSave",
+      "version": "1.0.0",
+      "commit": "43ac149e40c925983de907d97a72aaa6195e16b0",
+      "payload_hash": "1e317dc7a2ed5201184080ede7d9a3a0251852efe97c9d3fe44aa944a3307aa7",
+      "source_kind": "manifest"
+    },
+    {
+      "id": "RBWeather",
+      "plugin": "RBWeather",
+      "version": "1.0.1",
+      "commit": "cd610f867eff271046c266e56ac53a8bd3e92272",
+      "payload_hash": "de2289bb71f27f92a33a606320b7b4951b8b13d511821f54e7e9023571d2f072",
+      "source_kind": "manifest"
+    },
+    {
+      "id": "RefinedBadgerCombat",
+      "plugin": "RefinedBadgerCombat",
+      "version": "1.0.0",
+      "commit": "55a3123d1395fdaedaa10b9cd113b73dfa9e2a83",
+      "payload_hash": "b0b798c89bb9687641a3dc87f752d19ab505f5efd2177ae34fb1e96746aa5a50",
+      "source_kind": "manifest"
+    }
+  ],
+  "installer": "Soul Python manifest staging fallback; PowerShell policy unchanged"
+}

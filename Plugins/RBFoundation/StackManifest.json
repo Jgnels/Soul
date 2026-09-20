@@ -1,0 +1,336 @@
+﻿{
+  "schema": 2,
+  "adapter_api": 1,
+  "foundation": {
+    "product": "RBFoundation",
+    "version": "2.0.0-dev",
+    "engine": "5.8.2",
+    "engine_range": ">=5.8.2 <5.9.0"
+  },
+  "profiles": {
+    "core": [
+      "RBSave",
+      "RBItemEconomy",
+      "RBRoutine",
+      "RBWeather",
+      "RBOptimization",
+      "RefinedBadgerCombat"
+    ],
+    "recommended": [
+      "RBSave",
+      "RBItemEconomy",
+      "RBRoutine",
+      "RBWeather",
+      "RBOptimization",
+      "RefinedBadgerCombat",
+      "RBAI"
+    ]
+  },
+  "products": [
+    {
+      "id": "RBSave",
+      "plugin": "RBSave",
+      "repo": "https://github.com/Jgnels/RefinedBadger-Save.git",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "43ac149e40c925983de907d97a72aaa6195e16b0",
+      "payload_sha256": "c428696d5f3d1051f387ef3bef47d4cb3952ce7098aa549a7afd5eda52148dd9",
+      "source_path": "Plugins/RBSave",
+      "runtime_adapter": "legacy",
+      "runtime_required": true,
+      "authorities": [
+        "Persistence"
+      ],
+      "capabilities": [
+        {
+          "id": "Persistence",
+          "domain": "Persistence",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [],
+      "events": {
+        "emits": [],
+        "consumes": []
+      },
+      "persistence_domains": []
+    },
+    {
+      "id": "RBItemEconomy",
+      "plugin": "RBItemEconomy",
+      "repo": "https://github.com/Jgnels/RefinedBadger-ItemEconomy.git",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "a52ed027bfdf9ec4af3913f58077d04256e3daa3",
+      "payload_sha256": "294ff9dd97f96c3ad921399c792a665f640434cfbdfcc555f899645d9c16b05e",
+      "source_path": "Plugins/RBItemEconomy",
+      "runtime_adapter": "legacy",
+      "runtime_required": true,
+      "authorities": [
+        "ItemEconomy"
+      ],
+      "capabilities": [
+        {
+          "id": "ItemEconomy",
+          "domain": "ItemEconomy",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [],
+      "events": {
+        "emits": [
+          "ProductionAwardCommitted"
+        ],
+        "consumes": []
+      },
+      "persistence_domains": [
+        "RBItemEconomy"
+      ]
+    },
+    {
+      "id": "RBRoutine",
+      "plugin": "RBRoutine",
+      "repo": "https://github.com/Jgnels/RefinedBadger-Routine.git",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "eba37c2991f6b2407ab34abc41c6a3c29c430ca1",
+      "payload_sha256": "2f520a1c5a20367af62715332e0bd170845aaaeda178e404254edcfec431015a",
+      "source_path": "Plugins/RBRoutine",
+      "runtime_adapter": "legacy",
+      "runtime_required": true,
+      "authorities": [
+        "Routine"
+      ],
+      "capabilities": [
+        {
+          "id": "Routine",
+          "domain": "Routine",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [],
+      "events": {
+        "emits": [
+          "Routine.StateChanged"
+        ],
+        "consumes": []
+      },
+      "persistence_domains": [
+        "RBRoutine"
+      ]
+    },
+    {
+      "id": "RBWeather",
+      "plugin": "RBWeather",
+      "repo": "https://github.com/Jgnels/RBWeather.git",
+      "version": "1.0.1",
+      "tag": "v1.0.1",
+      "commit": "cd610f867eff271046c266e56ac53a8bd3e92272",
+      "payload_sha256": "29e261688b6f8555f40fa25e04289556b62811c6062d5bef81cccd572eaa37c0",
+      "source_path": ".",
+      "payload_paths": [
+        "RBWeather.uplugin",
+        "Source",
+        "Content",
+        "Config"
+      ],
+      "runtime_adapter": "legacy",
+      "runtime_required": true,
+      "authorities": [
+        "Weather"
+      ],
+      "capabilities": [
+        {
+          "id": "Weather",
+          "domain": "Weather",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [],
+      "events": {
+        "emits": [
+          "Weather.StateChanged"
+        ],
+        "consumes": []
+      },
+      "persistence_domains": [
+        "RBWeather"
+      ]
+    },
+    {
+      "id": "RBOptimization",
+      "plugin": "RBOptimization",
+      "repo": "https://github.com/Jgnels/RefinedBadger-Optimization.git",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "294a819878bac508f4abba521913ab5c8efb3a77",
+      "payload_sha256": "e8f8bcc9a6f1972b2fc43d172f3ee4afd8a584110f7ac8ef5b268740ab91d46a",
+      "source_path": "Plugins/RBOptimization",
+      "runtime_adapter": "legacy",
+      "runtime_required": true,
+      "authorities": [
+        "Optimization"
+      ],
+      "capabilities": [
+        {
+          "id": "Optimization",
+          "domain": "Optimization",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [],
+      "events": {
+        "emits": [],
+        "consumes": []
+      },
+      "persistence_domains": [
+        "RBOptimization"
+      ]
+    },
+    {
+      "id": "RefinedBadgerCombat",
+      "plugin": "RefinedBadgerCombat",
+      "repo": "https://github.com/Jgnels/RefinedBadger-Combat.git",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "55a3123d1395fdaedaa10b9cd113b73dfa9e2a83",
+      "payload_sha256": "89ba3caca52803bf8976a26eb1049703fd8d576a0a87c89950f415ab2f78929c",
+      "source_path": "Plugins/RefinedBadgerCombat",
+      "runtime_adapter": "legacy",
+      "runtime_required": true,
+      "authorities": [
+        "Combat"
+      ],
+      "capabilities": [
+        {
+          "id": "Combat",
+          "domain": "Combat",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [],
+      "events": {
+        "emits": [
+          "Combat.Result"
+        ],
+        "consumes": []
+      },
+      "persistence_domains": []
+    },
+    {
+      "id": "RBAI",
+      "plugin": "RBAI",
+      "repo": "https://github.com/Jgnels/RefinedBadger-AI.git",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "7ef9df3ade754b9fdd53e21f045604a795ddf832",
+      "artifact_sha256": "f099d1a7385484623931f1a85e4d4edf773b65f9021c245e2f4cb85ce0e9e7ab",
+      "payload_sha256": "149c157d52ca703c03d9d58206c184805889f8e7582de11b1c2eb4c53246d196",
+      "source_path": "Plugins/RBAI",
+      "runtime_adapter": "declarative",
+      "runtime_required": false,
+      "adapter_api": 1,
+      "authorities": [
+        "AI.Decision"
+      ],
+      "capabilities": [
+        {
+          "id": "AI.Decision",
+          "domain": "AI.Decision",
+          "exclusive": true
+        },
+        {
+          "id": "AI.Tactical",
+          "domain": "AI.Decision",
+          "exclusive": true
+        },
+        {
+          "id": "AI.Creatures",
+          "domain": "AI.Decision",
+          "exclusive": true
+        },
+        {
+          "id": "AI.Groups",
+          "domain": "AI.Decision",
+          "exclusive": true
+        },
+        {
+          "id": "AI.Boss",
+          "domain": "AI.Decision",
+          "exclusive": true
+        },
+        {
+          "id": "AI.CombatRequests",
+          "domain": "AI.Decision",
+          "exclusive": true
+        }
+      ],
+      "dependencies": [
+        {
+          "product": "RefinedBadgerCombat",
+          "version": "=1.0.0",
+          "optional": true
+        },
+        {
+          "product": "RBRoutine",
+          "version": "=1.0.0",
+          "optional": true
+        }
+      ],
+      "events": {
+        "emits": [
+          "AI.DecisionMade",
+          "AI.CombatRequest"
+        ],
+        "consumes": [
+          "Combat.Result",
+          "Routine.Interrupt"
+        ]
+      },
+      "persistence_domains": []
+    }
+  ],
+  "integration_seams": [
+    {
+      "product": "RBUIInput",
+      "status": "released",
+      "capability_prefix": "UI",
+      "note": "Released optional UI/input seam; Foundation coordinates capability discovery but does not own presentation or input truth.",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "497b887dd04b7503498fe7e38538c52b70a67ff4",
+      "repo": "https://github.com/Jgnels/RefinedBadger-UIInput.git"
+    },
+    {
+      "product": "RBDialogue",
+      "status": "released",
+      "capability_prefix": "Dialogue",
+      "note": "Released optional dialogue seam; Foundation coordinates capability discovery but does not own dialogue or quest truth.",
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "2c6132320da8e64821cd7c89ffb81155f6e9503c",
+      "repo": "https://github.com/Jgnels/RefinedBadger-Dialogue.git"
+    }
+  ],
+  "diagnostics": {
+    "multiplayer_assumptions": [
+      "Foundation orchestrates authority and does not replicate domain gameplay truth.",
+      "Domain products own replication, authoritative state, and late-join convergence for their domains.",
+      "A selected stack is not network-qualified until its host/client/late-join integration proof passes."
+    ],
+    "known_warnings": [
+      {
+        "code": "RBOptimization.RC1PresentationSignature",
+        "product": "RBOptimization",
+        "severity": "warning",
+        "message": "RB Optimization RC1 includes Unreal transient ECC_OverlapAll_Deprecated in its presentation signature, which can vary across processes.",
+        "remediation": "Keep RBFoundationLegacyAdapters compatibility normalization enabled or move to a future qualified RB Optimization release that removes the transient token."
+      }
+    ],
+    "runtime_probes": [
+      "adapter_registry",
+      "event_router",
+      "transaction_router"
+    ]
+  }
+}

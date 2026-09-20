@@ -1,0 +1,24 @@
+{
+  "FileVersion": 3,
+  "Version": 10000,
+  "VersionName": "1.0.0",
+  "FriendlyName": "RefinedBadger Combat",
+  "Description": "Combat actions, projectiles, guarding, group commands, and host-authoritative consequence routing. Hosts own durable gameplay truth and network replication.",
+  "Category": "Gameplay",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "Modules": [
+    {
+      "Name": "RefinedBadgerCombatCore",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "RefinedBadgerCombatVariant",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Installed": false
+}

@@ -1,0 +1,19 @@
+{
+  "FileVersion": 3,
+  "Version": 10000,
+  "VersionName": "1.0.0",
+  "FriendlyName": "RefinedBadger Routine",
+  "Description": "Clean-room, server-authoritative NPC routine/planning foundation with durable continuity state and host-owned execution.",
+  "Category": "AI",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": true,
+  "IsBetaVersion": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "RBRoutine",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

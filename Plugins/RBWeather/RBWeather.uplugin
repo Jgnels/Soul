@@ -1,0 +1,26 @@
+﻿{
+    "FileVersion":  3,
+    "Version":  10001,
+    "VersionName":  "1.0.1",
+    "FriendlyName":  "RB Weather",
+    "Description":  "Deterministic, server-authoritative, biome-aware weather, climate, environmental exposure, and presentation integration for Unreal Engine 5.",
+    "Category":  "RefinedBadger",
+    "CreatedBy":  "RefinedBadger Studios",
+    "CanContainContent":  true,
+    "IsBetaVersion":  false,
+    "Installed":  false,
+    "Modules":  [
+                    {
+                        "Name":  "RBWeather",
+                        "Type":  "Runtime",
+                        "LoadingPhase":  "Default"
+                    }
+                ],
+    "Plugins":  [
+                    {
+                        "Name":  "Niagara",
+                        "Enabled":  true
+                    }
+                ]
+}
+

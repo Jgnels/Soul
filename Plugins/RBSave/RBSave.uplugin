@@ -1,0 +1,15 @@
+{
+  "FileVersion": 3,
+  "Version": 10000,
+  "VersionName": "1.0.0",
+  "FriendlyName": "RB Save",
+  "Description": "Versioned, repairable persistence governance for RefinedBadger Unreal Engine projects.",
+  "Category": "RefinedBadger",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "Modules": [
+    { "Name": "RBSaveCore", "Type": "Runtime", "LoadingPhase": "Default" },
+    { "Name": "RBSave", "Type": "Runtime", "LoadingPhase": "Default" }
+  ]
+}

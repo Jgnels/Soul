@@ -1,0 +1,19 @@
+{
+  "FileVersion": 3,
+  "Version": 10000,
+  "VersionName": "1.0.0",
+  "FriendlyName": "RefinedBadger Item Economy",
+  "Description": "Authoritative transactional item economy for Unreal Engine 5.8: inventory, equipment, crafting, vendors, loot, persistence and integration-safe host APIs.",
+  "Category": "Gameplay",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "RBItemEconomy",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

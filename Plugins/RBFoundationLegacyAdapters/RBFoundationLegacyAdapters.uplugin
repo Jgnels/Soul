@@ -1,0 +1,24 @@
+{
+  "FileVersion": 3,
+  "Version": 20000,
+  "VersionName": "2.0.0-dev",
+  "FriendlyName": "RB Foundation Legacy Adapters",
+  "Description": "Optional compatibility adapters that connect RB Foundation 2.x to the qualified 1.0-era RefinedBadger gameplay products.",
+  "Category": "RefinedBadger",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "Modules": [
+    { "Name": "RBFoundationAdapters", "Type": "Runtime", "LoadingPhase": "PostDefault" }
+  ],
+  "Plugins": [
+    { "Name": "RBFoundation", "Enabled": true },
+    { "Name": "RBSave", "Enabled": true },
+    { "Name": "RBItemEconomy", "Enabled": true },
+    { "Name": "RBRoutine", "Enabled": true },
+    { "Name": "RBWeather", "Enabled": true },
+    { "Name": "RBOptimization", "Enabled": true },
+    { "Name": "RefinedBadgerCombat", "Enabled": true }
+  ]
+}

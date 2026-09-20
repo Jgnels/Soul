@@ -1,0 +1,19 @@
+{
+    "FileVersion":  3,
+    "Version":  10000,
+    "VersionName":  "1.0.0",
+    "FriendlyName":  "RB Optimization",
+    "Description":  "Opt-in instance/actor virtualization, bounded actor pooling, read-only world audit, and evidence-first optimization. UE 5.8.2 Win64 qualified release; no automatic graphics changes.",
+    "Category":  "Performance",
+    "CreatedBy":  "RefinedBadger Studios",
+    "CanContainContent":  false,
+    "EnabledByDefault":  false,
+    "IsBetaVersion":  false,
+    "Modules":  [
+                    {
+                        "Name":  "RBOptimization",
+                        "Type":  "Runtime",
+                        "LoadingPhase":  "Default"
+                    }
+                ]
+}
