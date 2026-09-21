@@ -174,9 +174,9 @@
 
 ## Future faction candidate — Nature
 
-**Identity:** four martial animal-warrior families + one magic/support animal-warrior family + Centaur Archer + one elephant/dragon-tier Apex Beast.
+**Identity:** asset-driven roster from the owned animal-warrior/hybrid packs: four martial animal warriors + hooded Cheetah magic/support + Centaur Archer + one elephant/dragon-tier Apex Beast.
 **Hero direction:** The Fey and Wukong are Nature heroes; human/animal hybrids expand the hero pool.
-**Support structure:** one of the five animal-warrior families is a hybrid magic/support fighter, preserving the seven-family roster without adding a pure caster family.
+**Support structure:** the hooded Cheetah Warrior is the magic/support fighter; its existing silhouette is the reason for the role assignment.
 
 | Slot | Unit | Owned/source evidence | Recruitment site | Combat role | Footprint | Flying | Status | Risk |
 |---|---|---|---|---|---|---|---|---|
@@ -184,7 +184,7 @@
 | fighter_2 | Bull Warrior | Animals Warrior Pack | Bull Ring | spear fighter / reach / anti-large | 1 hex | no | UE_VISUAL_CONFIRM | Role is locked to spear-family melee; confirm weapon reach and formation spacing in UE. |
 | fighter_3 | Crocodile Warrior | Animals Warrior Pack | Marsh Lodge | flex melee/control fighter / shield-cleaver candidate | 1 hex | no | UE_VISUAL_CONFIRM | Flexible fifth martial role; keep weapon choice subordinate to visual fit and avoid overlapping Sword/Spear/Heavy identities. |
 | fighter_4 | Elephant Warrior (anthropomorphic) | Animals Warrior Pack | Ivory Guard Hall | heavy-weapon fighter / armor breaker / anchor | 1 hex | no | UE_VISUAL_CONFIRM | Heavy-weapon role is locked; prefer maul/hammer/other heavy weapon. This is the humanoid Elephant Warrior, not the Apex Beast. |
-| fighter_5_support_magic | Spirit Warrior (Warrior2 body preferred) | Animals Warrior Pack | Druid Circle | magic/support fighter / buffs / debuffs / control | 1 hex | no | UE_VISUAL_CONFIRM | Support role is locked but body is not: prefer the ambiguous fifth Warrior2 body; Crocodile Warrior is fallback if visual casting reads better. Retarget local Mixamo magic set in UE. |
+| fighter_5_support_magic | Cheetah Warrior | Animals Warrior Pack | Druid Circle | magic/support fighter / buffs / debuffs / control | 1 hex | no | UE_VISUAL_CONFIRM | Founder-selected hooded Cheetah is the magic/support body. Retarget the local Mixamo magic set in UE; exact spell palette remains a balance/design choice. |
 | ranged | Centaur Archer | Quadruped Fantasy Creatures / Centaur | Centaur Range | mobile ranged pressure / repositioning | 1 hex | no | UE_VISUAL_CONFIRM | Owned model has bow/arrow and 85 animations; exact package path and Soul-scale group read still need qualification. |
 | beast | Apex Beast (species TBD) | OWNED_LIBRARY_SELECTION_PENDING | Apex Beast Grove | elephant/dragon-tier capstone creature | 3 hex | TBD | ROSTER_PENDING | Do not lock Elephant or Dragon yet. Reusing Orc Fantasy Elephant or Dark/Dwarf dragons would reduce faction distinctiveness. |
 
@@ -199,7 +199,7 @@
 | Werewolf Gerl | Bugrimov Maksim | martial/hybrid | MEDIUM_HIGH | UE_VISUAL_CONFIRM | Owned hybrid candidate; keep only if it reads as a nature champion rather than horror monster. |
 | Khaimera | Paragon: Khaimera | martial/hybrid | MEDIUM_HIGH | PAYLOAD_PENDING | Optional tribal beast-champion alternate; do not cast him simultaneously as a Viking/Orc/Nature hero. |
 
-**Locked design decisions:** Centaur is the ranged family; Elephant Warrior is the heavy-weapon fighter; one animal-warrior family is magic/support; Apex Beast is elephant/dragon power tier but species remains open.
+**Locked design decisions:** Centaur is the ranged family; Elephant Warrior is the heavy-weapon fighter; hooded Cheetah is magic/support; Apex Beast is elephant/dragon power tier but species remains open.
 **Owned Centaur evidence:** Quadruped Fantasy Creatures already contains the PROTOFACTOR Centaur with 85 animations; the matching Centaur model supports both archery and close combat.
 **Magic-animation evidence:** the local Mixamo catalog reports 61 magic/casting candidates; Pro Magic Pack covers one- and two-handed casts, attacks, area attacks, blocks and locomotion.
 **Capstone caution:** reusing the same Fantasy Elephant or Dragon already earmarked for Orc/Dark/Dwarf would weaken faction silhouette separation. Prefer a distinct owned apex creature if the library supports one.

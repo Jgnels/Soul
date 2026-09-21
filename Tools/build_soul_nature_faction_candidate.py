@@ -50,10 +50,10 @@ ROSTER = [
         "risk":"Heavy-weapon role is locked; prefer maul/hammer/other heavy weapon. This is the humanoid Elephant Warrior, not the Apex Beast."
     },
     {
-        "slot":"fighter_5_support_magic","unit":"Spirit Warrior (Warrior2 body preferred)","source":"Animals Warrior Pack",
+        "slot":"fighter_5_support_magic","unit":"Cheetah Warrior","source":"Animals Warrior Pack",
         "recruitment_site":"Druid Circle","combat_role":"magic/support fighter / buffs / debuffs / control",
         "footprint_hexes":1,"flying":False,"qualification":"UE_VISUAL_CONFIRM",
-        "risk":"Support role is locked but body is not: prefer the ambiguous fifth Warrior2 body; Crocodile Warrior is fallback if visual casting reads better. Retarget local Mixamo magic set in UE."
+        "risk":"Founder-selected hooded Cheetah is the magic/support body. Retarget the local Mixamo magic set in UE; exact spell palette remains a balance/design choice."
     },
     {
         "slot":"ranged","unit":"Centaur Archer","source":"Quadruped Fantasy Creatures / Centaur",
@@ -108,7 +108,7 @@ def main():
         "generated": "2026-09-21",
         "faction": "Nature",
         "status": "FUTURE_FACTION_CANDIDATE_NOT_CURRENT_FIVE",
-        "identity": "Animal-warrior / centaur / human-animal-hybrid faction",
+        "identity": "Asset-driven animal-warrior / centaur / human-animal-hybrid faction",
         "roster_rule": {
             "core_families": 7,
             "shape": "4 martial animal warriors + 1 magic/support animal warrior + Centaur Archer + Apex Beast",
@@ -117,8 +117,8 @@ def main():
             "apex_species_locked": False,
             "dedicated_pure_support_magic_family": False,
             "fighter_support_magic_family": True,
-            "support_body_locked": False,
-            "support_note": "Magic/support is embedded in one of the five animal-warrior families rather than added as an eighth visual family.",
+            "support_body_locked": True,
+            "support_note": "The hooded Cheetah Warrior is the magic/support family; the role comes directly from the owned asset pack silhouette rather than adding a separate caster species.",
             "martial_role_locks": ["sword", "spear", "heavy weapon", "flex melee/control"],
             "magic_animation_evidence": "Local Mixamo catalog has 61 magic/casting candidates; Pro Magic Pack includes 1H/2H casts, magic attacks, area attacks, block reactions and supporting locomotion."
         },
