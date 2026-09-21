@@ -7,6 +7,6 @@ public class SoulEditorTarget : TargetRules
         Type = TargetType.Editor;
         DefaultBuildSettings = BuildSettingsVersion.Latest;
         IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-        ExtraModuleNames.AddRange(new[] { "SoulCore", "Soul" });
+        ExtraModuleNames.AddRange(new[] { "SoulCore", "Soul", "SoulRealtimeBattle" });
     }
 }

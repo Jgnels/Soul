@@ -7,6 +7,6 @@ public class SoulTarget : TargetRules
         Type = TargetType.Game;
         DefaultBuildSettings = BuildSettingsVersion.Latest;
         IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-        ExtraModuleNames.AddRange(new[] { "SoulCore", "Soul" });
+        ExtraModuleNames.AddRange(new[] { "SoulCore", "Soul", "SoulRealtimeBattle" });
     }
 }

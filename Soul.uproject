@@ -13,6 +13,11 @@
       "Name": "Soul",
       "Type": "Runtime",
       "LoadingPhase": "Default"
+    },
+    {
+      "Name": "SoulRealtimeBattle",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
     }
   ],
   "TargetPlatforms": [
