@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "generated": "2026-09-21",
+  "faction": "Nature",
+  "status": "FUTURE_FACTION_CANDIDATE_NOT_CURRENT_FIVE",
+  "identity": "Animal-warrior / centaur / human-animal-hybrid faction",
+  "roster_rule": {
+    "core_families": 7,
+    "shape": "5 animal warriors + Centaur Archer + Apex Beast",
+    "centaur_role_locked": "ranged",
+    "apex_power_tier_locked": "elephant/dragon tier",
+    "apex_species_locked": false,
+    "dedicated_support_magic_unit": false,
+    "support_note": "At least one warrior should receive secondary utility/support behavior in balance design, without changing the seven visual families."
+  },
+  "owned_sources": [
+    {
+      "title": "Animals Warrior Pack",
+      "publisher": "Bugrimov Maksim",
+      "catalog_id": "fab_8e6ead04e16e4df9a5c6dc37da108273",
+      "current_fab_listing": "be0d1014-cd06-4fc8-a442-b107ee75b81f",
+      "ownership": "CONFIRMED_OWNED",
+      "payload": "PAYLOAD_PENDING",
+      "evidence": "Five armored/weapon-equipped animal warriors; Epic-skeleton rig; 92 animations."
+    },
+    {
+      "title": "Quadruped Fantasy Creatures",
+      "publisher": "PROTOFACTOR INC",
+      "catalog_id": "fab_07090abbac404769a5ce7e6b071d874f",
+      "current_fab_listing": "52d686b6-1180-4f26-901f-ce3c69a14767",
+      "ownership": "CONFIRMED_OWNED",
+      "payload": "CATALOG_LOCAL_EVIDENCE_ONLY",
+      "evidence": "Includes Centaur with 85 animations; matching Centaur product includes bow/arrow and melee capability."
+    }
+  ],
+  "roster": [
+    {
+      "slot": "fighter_1",
+      "unit": "Bear Warrior",
+      "source": "Animals Warrior Pack",
+      "recruitment_site": "Bear Lodge",
+      "combat_role": "durable bruiser / line holder",
+      "footprint_hexes": 1,
+      "flying": false,
+      "qualification": "UE_VISUAL_CONFIRM",
+      "risk": "Exact mesh/package path awaits payload; confirm weapon scale and armor cohesion."
+    },
+    {
+      "slot": "fighter_2",
+      "unit": "Bull Warrior",
+      "source": "Animals Warrior Pack",
+      "recruitment_site": "Bull Ring",
+      "combat_role": "charge / linebreaker",
+      "footprint_hexes": 1,
+      "flying": false,
+      "qualification": "UE_VISUAL_CONFIRM",
+      "risk": "Exact mesh/package path awaits payload; charge readability must not imply mounted cavalry."
+    },
+    {
+      "slot": "fighter_3",
+      "unit": "Crocodile Warrior",
+      "source": "Animals Warrior Pack",
+      "recruitment_site": "Marsh Lodge",
+      "combat_role": "control bruiser / ambush fighter",
+      "footprint_hexes": 1,
+      "flying": false,
+      "qualification": "UE_VISUAL_CONFIRM",
+      "risk": "Exact mesh/package path awaits payload; tail/cloth physics need visual qualification."
+    },
+    {
+      "slot": "fighter_4",
+      "unit": "Elephant Warrior (anthropomorphic)",
+      "source": "Animals Warrior Pack",
+      "recruitment_site": "Ivory Guard Hall",
+      "combat_role": "heavy guardian / anchor",
+      "footprint_hexes": 1,
+      "flying": false,
+      "qualification": "UE_VISUAL_CONFIRM",
+      "risk": "This is the humanoid Elephant Warrior, not the apex-beast slot; verify it remains normal-unit scale."
+    },
+    {
+      "slot": "fighter_5",
+      "unit": "Warrior2 animal warrior",
+      "source": "Animals Warrior Pack",
+      "recruitment_site": "Prowler Platform",
+      "combat_role": "fast melee skirmisher / flanker",
+      "footprint_hexes": 1,
+      "flying": false,
+      "qualification": "UE_VISUAL_CONFIRM",
+      "risk": "Older pack metadata calls this character Warrior2; species/name remains visual-confirm rather than guessed."
+    },
+    {
+      "slot": "ranged",
+      "unit": "Centaur Archer",
+      "source": "Quadruped Fantasy Creatures / Centaur",
+      "recruitment_site": "Centaur Range",
+      "combat_role": "mobile ranged pressure / repositioning",
+      "footprint_hexes": 1,
+      "flying": false,
+      "qualification": "UE_VISUAL_CONFIRM",
+      "risk": "Owned model has bow/arrow and 85 animations; exact package path and Soul-scale group read still need qualification."
+    },
+    {
+      "slot": "beast",
+      "unit": "Apex Beast (species TBD)",
+      "source": "OWNED_LIBRARY_SELECTION_PENDING",
+      "recruitment_site": "Apex Beast Grove",
+      "combat_role": "elephant/dragon-tier capstone creature",
+      "footprint_hexes": 3,
+      "flying": null,
+      "qualification": "ROSTER_PENDING",
+      "risk": "Do not lock Elephant or Dragon yet. Reusing Orc Fantasy Elephant or Dark/Dwarf dragons would reduce faction distinctiveness."
+    }
+  ],
+  "hero_candidates": [
+    {
+      "candidate": "The Fey",
+      "source": "Paragon: The Fey",
+      "role": "caster/support",
+      "fit": "HIGH",
+      "qualification": "PAYLOAD_PENDING",
+      "note": "Direct Nature-faction hero. Preserve spirit/nature presentation and keep magic restrained."
+    },
+    {
+      "candidate": "Wukong",
+      "source": "Paragon: Wukong",
+      "role": "martial/trickster",
+      "fit": "HIGH",
+      "qualification": "PAYLOAD_PENDING",
+      "note": "Nature hero by founder direction; staff fighter/trickster gives the faction a non-European mythic hybrid identity."
+    },
+    {
+      "candidate": "Leopard Hybrid_A1",
+      "source": "Animated3D",
+      "role": "martial/hybrid",
+      "fit": "HIGH",
+      "qualification": "LOCAL_NON_UE_EVIDENCE",
+      "note": "Owned and locally downloaded FBX hybrid candidate; 8 combat/locomotion motions in source listing."
+    },
+    {
+      "candidate": "Leopard Hybrid_A2",
+      "source": "Animated3D",
+      "role": "martial/hybrid",
+      "fit": "HIGH",
+      "qualification": "PAYLOAD_PENDING",
+      "note": "Owned current-library hybrid alternate; useful only if visually distinct from A1."
+    },
+    {
+      "candidate": "Werewolf Gerl",
+      "source": "Bugrimov Maksim",
+      "role": "martial/hybrid",
+      "fit": "MEDIUM_HIGH",
+      "qualification": "UE_VISUAL_CONFIRM",
+      "note": "Owned hybrid candidate; keep only if it reads as a nature champion rather than horror monster."
+    },
+    {
+      "candidate": "Khaimera",
+      "source": "Paragon: Khaimera",
+      "role": "martial/hybrid",
+      "fit": "MEDIUM_HIGH",
+      "qualification": "PAYLOAD_PENDING",
+      "note": "Optional tribal beast-champion alternate; do not cast him simultaneously as a Viking/Orc/Nature hero."
+    }
+  ],
+  "city_plan_revision_needed": true,
+  "city_plan_note": "Previous Nature building matrix assumed four fighters + ranged + support + beast. Revise only if/when Nature is admitted as a full faction."
+}

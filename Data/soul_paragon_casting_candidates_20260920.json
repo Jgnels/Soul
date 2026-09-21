@@ -234,16 +234,18 @@
       "catalog_id": null,
       "fab_listing_id": "9afbcde6-4a14-4018-95c3-2f3a2e1da858",
       "local_cache": null,
-      "likely_factions": [],
+      "likely_factions": [
+        "Nature"
+      ],
       "archetype": "caster",
       "grounded_fantasy": "HIGH",
       "hide_replace": "No major technology removal needed; keep nature/spirit styling and restrained magic.",
       "skeleton_animation": "Official Fab pack includes character model plus animations/AnimBP or equivalent animation content. Exact package and skeleton paths remain PAYLOAD_PENDING until downloaded.",
-      "redundancy": "Poor fit for current five; excellent future Nature-faction commander candidate.",
+      "redundancy": "Direct Nature-faction commander by founder direction.",
       "hero_role": "nature spirit / druidic commander",
       "hero_eligible": true,
       "qualification": "PAYLOAD_PENDING",
-      "notes": "Hold for optional Nature faction rather than forcing into Dark."
+      "notes": "Nature hero; do not force into the current five."
     },
     {
       "name": "Narbash",
@@ -349,16 +351,16 @@
       "fab_listing_id": "27054d0c-c26e-4fe3-b6f9-fa778dfcb8b6",
       "local_cache": null,
       "likely_factions": [
-        "Orcs"
+        "Nature"
       ],
       "archetype": "martial",
-      "grounded_fantasy": "MEDIUM",
-      "hide_replace": "Keep staff/warrior silhouette; suppress magical clone/ability FX. Cultural/species fit remains unusual.",
+      "grounded_fantasy": "HIGH",
+      "hide_replace": "Keep staff/warrior silhouette; suppress magical clone/ability FX. Nature-faction fit is intentional; retain staff-warrior/trickster identity.",
       "skeleton_animation": "Official Fab pack includes character model plus animations/AnimBP or equivalent animation content. Exact package and skeleton paths remain PAYLOAD_PENDING until downloaded.",
-      "redundancy": "Useful only as an exceptional outsider; not a core Orc visual anchor.",
-      "hero_role": "trickster warrior / mobile commander",
+      "redundancy": "Direct Nature hero by founder direction; complements animal/hybrid regular army.",
+      "hero_role": "nature trickster / mobile martial commander",
       "hero_eligible": true,
-      "qualification": "UE_VISUAL_CONFIRM",
+      "qualification": "PAYLOAD_PENDING",
       "notes": null
     },
     {

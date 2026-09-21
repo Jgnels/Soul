@@ -6,6 +6,7 @@ from collections import defaultdict
 ROOT = Path(__file__).resolve().parents[1]
 ROSTER = json.loads((ROOT/"Data"/"soul_faction_roster_candidates_20260920.json").read_text())
 PARAGON = json.loads((ROOT/"Data"/"soul_paragon_casting_candidates_20260920.json").read_text())
+NATURE = json.loads((ROOT/"Data"/"soul_nature_faction_candidate_20260921.json").read_text())
 OUT = ROOT/"Docs"/"SOUL_FACTION_ROSTER_AND_HERO_CASTING_20260920.md"
 FACTIONS = ["Humans","Dwarves","Vikings","Orcs","Dark"]
 
@@ -57,6 +58,30 @@ def main():
             if x["faction"] != faction: continue
             rows.append([x["candidate"],x["source"],x["role"],x["grounded_fit"],x["qualification"],x["notes"]])
         lines += [table(["Candidate","Owned source","Role","Grounded fit","Status","Casting note"],rows),""]
+    lines += ["## Future faction candidate — Nature",""]
+    lines += [
+        "**Identity:** five animal-warrior families + Centaur Archer + one elephant/dragon-tier Apex Beast.",
+        "**Hero direction:** The Fey and Wukong are Nature heroes; human/animal hybrids expand the hero pool.",
+        "**Asymmetry:** no dedicated support/magic regular family. Preserve this unless balance testing proves it untenable; give one warrior secondary utility rather than adding an eighth family.",
+        "",
+    ]
+    rows=[]
+    for x in NATURE["roster"]:
+        fly = "TBD" if x["flying"] is None else ("yes" if x["flying"] else "no")
+        rows.append([x["slot"],x["unit"],x["source"],x["recruitment_site"],x["combat_role"],f'{x["footprint_hexes"]} hex',fly,x["qualification"],x["risk"]])
+    lines += [table(["Slot","Unit","Owned/source evidence","Recruitment site","Combat role","Footprint","Flying","Status","Risk"],rows),""]
+    lines += ["### Nature hero candidates",""]
+    rows=[]
+    for x in NATURE["hero_candidates"]:
+        rows.append([x["candidate"],x["source"],x["role"],x["fit"],x["qualification"],x["note"]])
+    lines += [table(["Candidate","Source","Role","Fit","Status","Note"],rows),""]
+    lines += [
+        "**Locked design decisions:** Centaur is the ranged family; Apex Beast is elephant/dragon power tier but species remains open.",
+        "**Owned Centaur evidence:** Quadruped Fantasy Creatures already contains the PROTOFACTOR Centaur with 85 animations; the matching Centaur model supports both archery and close combat.",
+        "**Capstone caution:** reusing the same Fantasy Elephant or Dragon already earmarked for Orc/Dark/Dwarf would weaken faction silhouette separation. Prefer a distinct owned apex creature if the library supports one.",
+        "",
+    ]
+
     lines += ["## Paragon-specific casting audit",""]
     rows=[]
     for x in PARAGON["candidates"]:
