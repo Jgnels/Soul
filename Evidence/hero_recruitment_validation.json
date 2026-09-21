@@ -1,0 +1,45 @@
+﻿{
+    "generated_at":  "2026-09-20T23:59:58.0282325-06:00",
+    "production_branch":  "astra/soul-primary-continuation-20260920",
+    "production_head":  "98e6456ebd196bd1e16692657e3aa13e6ba2132c",
+    "production_compile":  {
+                               "target":  "SoulEditor Win64 Development",
+                               "result":  "Succeeded",
+                               "actions":  59,
+                               "production_soulcore_dll_sha256":  "2E02E0C33861C830DA07EC9805635CD608F2BA3C64CDF7CC94DAD4569811787C",
+                               "production_soulcore_dll_last_write":  "2026-09-20T23:43:00.7789320-06:00"
+                           },
+    "automation":  {
+                       "log":  "C:\\RBSoulValidation\\Saved\\Logs\\SoulHeroRecruitmentValidation.log",
+                       "log_sha256":  "E951B8BD3691951E65BAD37E67D588D43BEE79401F6DD48C62D03940E956D7B4",
+                       "succeeded":  30,
+                       "failed":  0,
+                       "exit_code":  0,
+                       "hero_recruitment_tests":  [
+                                                      "Soul.Core.HeroRecruitment.CandidatesCanDepart",
+                                                      "Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring"
+                                                  ]
+                   },
+    "source_hashes":  [
+                          {
+                              "file":  "Source\\SoulCore\\Public\\SoulHeroRecruitment.h",
+                              "production_sha256":  "1C9E06366B971F5E497BD498311644075B8957B077C0DD8E9A6600ED3B8BE26E",
+                              "mirror_sha256":  "1C9E06366B971F5E497BD498311644075B8957B077C0DD8E9A6600ED3B8BE26E",
+                              "match":  true
+                          },
+                          {
+                              "file":  "Source\\SoulCore\\Private\\SoulHeroRecruitment.cpp",
+                              "production_sha256":  "863E0FB66671864DA1585ED4F4652B7103921F879842D16C47AFFF4373C6AC79",
+                              "mirror_sha256":  "863E0FB66671864DA1585ED4F4652B7103921F879842D16C47AFFF4373C6AC79",
+                              "match":  true
+                          },
+                          {
+                              "file":  "Source\\SoulCore\\Private\\Tests\\SoulHeroRecruitmentTests.cpp",
+                              "production_sha256":  "201B62037118AA46838FA7878F8CA4C8990C080811336AD52282250BE42223D5",
+                              "mirror_sha256":  "201B62037118AA46838FA7878F8CA4C8990C080811336AD52282250BE42223D5",
+                              "match":  true
+                          }
+                      ],
+    "mirror_soulcore_dll_sha256":  "123897807A12EF29A737D3E9353C66716CB4564C3906ABBBF3266642426F7A1A",
+    "mirror_soulcore_dll_last_write":  "2026-09-20T22:23:30.0633258-06:00"
+}
