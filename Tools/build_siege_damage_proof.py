@@ -50,3 +50,4 @@ def main():
 try:main()
 except Exception:
     e=traceback.format_exc();unreal.log_error("SOUL_SIEGE_PROOF_ERROR\n"+e);open(os.path.join(OUT,"siege_damage_proof_error.txt"),"w",encoding="utf-8").write(e)
+    raise
