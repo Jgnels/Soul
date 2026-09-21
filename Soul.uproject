@@ -67,6 +67,10 @@
     {
       "Name": "RBUIInput",
       "Enabled": true
+    },
+    {
+      "Name": "RBAI",
+      "Enabled": true
     }
   ]
 }

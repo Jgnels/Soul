@@ -13,7 +13,11 @@ public class SoulRealtimeBattle : ModuleRules
             "Engine",
             "SoulCore",
             "RefinedBadgerCombatCore",
-            "RefinedBadgerCombatVariant"
+            "RefinedBadgerCombatVariant",
+            "RBAICore",
+            "RBAICombat",
+            "RBAICreatures",
+            "RBAIGroups"
         });
     }
 }

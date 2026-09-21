@@ -1,0 +1,21 @@
+{
+  "FileVersion": 3,
+  "Version": 10000,
+  "VersionName": "1.0.0",
+  "FriendlyName": "RB AI",
+  "Description": "Modular tactical, creature, group and boss decision framework for Unreal Engine 5.8.",
+  "Category": "RefinedBadger",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "Installed": false,
+  "Modules": [
+    { "Name": "AITokenCore", "Type": "Runtime", "LoadingPhase": "Default" },
+    { "Name": "AITokenCoreEditor", "Type": "Editor", "LoadingPhase": "Default" },
+    { "Name": "RBAICore", "Type": "Runtime", "LoadingPhase": "Default" },
+    { "Name": "RBAICombat", "Type": "Runtime", "LoadingPhase": "Default" },
+    { "Name": "RBAICreatures", "Type": "Runtime", "LoadingPhase": "Default" },
+    { "Name": "RBAIGroups", "Type": "Runtime", "LoadingPhase": "Default" },
+    { "Name": "RBAIBoss", "Type": "Runtime", "LoadingPhase": "Default" }
+  ]
+}
