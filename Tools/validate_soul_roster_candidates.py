@@ -41,6 +41,18 @@ if not centaur or centaur["slot"] != "ranged":
 apex = next((x for x in nature["roster"] if x["slot"]=="beast"), None)
 if not apex or apex["unit"] != "Apex Beast (species TBD)" or apex["footprint_hexes"] != 3:
     errors.append("Nature: apex beast must remain species-open at 3-hex elephant/dragon tier")
+support = next((x for x in nature["roster"] if x["slot"]=="fighter_5_support_magic"), None)
+if not support or "magic/support" not in support["combat_role"] or support["recruitment_site"]!="Druid Circle":
+    errors.append("Nature: one animal-warrior family must be the Druid Circle magic/support fighter")
+bear = next((x for x in nature["roster"] if x["unit"]=="Bear Warrior"), None)
+bull = next((x for x in nature["roster"] if x["unit"]=="Bull Warrior"), None)
+elephant = next((x for x in nature["roster"] if x["unit"]=="Elephant Warrior (anthropomorphic)"), None)
+if not bear or "sword" not in bear["combat_role"]:
+    errors.append("Nature: Bear Warrior must carry the sword-family role")
+if not bull or "spear" not in bull["combat_role"]:
+    errors.append("Nature: Bull Warrior must carry the spear-family role")
+if not elephant or "heavy-weapon" not in elephant["combat_role"]:
+    errors.append("Nature: Elephant Warrior must carry the heavy-weapon role")
 nature_heroes = {x["candidate"] for x in nature["hero_candidates"]}
 if not {"The Fey","Wukong"}.issubset(nature_heroes):
     errors.append("Nature: The Fey and Wukong hero assignments missing")
@@ -52,4 +64,4 @@ for name in ["The Fey","Wukong"]:
 if errors:
     print("\n".join("ERROR: "+x for x in errors))
     raise SystemExit(1)
-print("PASS: current five validated; Nature candidate 7 units with Centaur Archer + species-open Apex Beast; Fey/Wukong mapped to Nature; no Paragon regular troops")
+print("PASS: current five validated; Nature has Sword/Spear/Heavy/Magic-Support/Flex + Centaur Archer + species-open Apex Beast; Fey/Wukong mapped to Nature; no Paragon regular troops")

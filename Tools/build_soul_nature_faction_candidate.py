@@ -27,33 +27,33 @@ CENTAUR_PACK = {
 ROSTER = [
     {
         "slot":"fighter_1","unit":"Bear Warrior","source":"Animals Warrior Pack",
-        "recruitment_site":"Bear Lodge","combat_role":"durable bruiser / line holder",
+        "recruitment_site":"Bear Lodge","combat_role":"sword fighter / balanced frontline",
         "footprint_hexes":1,"flying":False,"qualification":"UE_VISUAL_CONFIRM",
-        "risk":"Exact mesh/package path awaits payload; confirm weapon scale and armor cohesion."
+        "risk":"Role is locked to sword-family melee, but exact sword/body configuration still needs UE visual qualification."
     },
     {
         "slot":"fighter_2","unit":"Bull Warrior","source":"Animals Warrior Pack",
-        "recruitment_site":"Bull Ring","combat_role":"charge / linebreaker",
+        "recruitment_site":"Bull Ring","combat_role":"spear fighter / reach / anti-large",
         "footprint_hexes":1,"flying":False,"qualification":"UE_VISUAL_CONFIRM",
-        "risk":"Exact mesh/package path awaits payload; charge readability must not imply mounted cavalry."
+        "risk":"Role is locked to spear-family melee; confirm weapon reach and formation spacing in UE."
     },
     {
         "slot":"fighter_3","unit":"Crocodile Warrior","source":"Animals Warrior Pack",
-        "recruitment_site":"Marsh Lodge","combat_role":"control bruiser / ambush fighter",
+        "recruitment_site":"Marsh Lodge","combat_role":"flex melee/control fighter / shield-cleaver candidate",
         "footprint_hexes":1,"flying":False,"qualification":"UE_VISUAL_CONFIRM",
-        "risk":"Exact mesh/package path awaits payload; tail/cloth physics need visual qualification."
+        "risk":"Flexible fifth martial role; keep weapon choice subordinate to visual fit and avoid overlapping Sword/Spear/Heavy identities."
     },
     {
         "slot":"fighter_4","unit":"Elephant Warrior (anthropomorphic)","source":"Animals Warrior Pack",
-        "recruitment_site":"Ivory Guard Hall","combat_role":"heavy guardian / anchor",
+        "recruitment_site":"Ivory Guard Hall","combat_role":"heavy-weapon fighter / armor breaker / anchor",
         "footprint_hexes":1,"flying":False,"qualification":"UE_VISUAL_CONFIRM",
-        "risk":"This is the humanoid Elephant Warrior, not the apex-beast slot; verify it remains normal-unit scale."
+        "risk":"Heavy-weapon role is locked; prefer maul/hammer/other heavy weapon. This is the humanoid Elephant Warrior, not the Apex Beast."
     },
     {
-        "slot":"fighter_5","unit":"Warrior2 animal warrior","source":"Animals Warrior Pack",
-        "recruitment_site":"Prowler Platform","combat_role":"fast melee skirmisher / flanker",
+        "slot":"fighter_5_support_magic","unit":"Spirit Warrior (Warrior2 body preferred)","source":"Animals Warrior Pack",
+        "recruitment_site":"Druid Circle","combat_role":"magic/support fighter / buffs / debuffs / control",
         "footprint_hexes":1,"flying":False,"qualification":"UE_VISUAL_CONFIRM",
-        "risk":"Older pack metadata calls this character Warrior2; species/name remains visual-confirm rather than guessed."
+        "risk":"Support role is locked but body is not: prefer the ambiguous fifth Warrior2 body; Crocodile Warrior is fallback if visual casting reads better. Retarget local Mixamo magic set in UE."
     },
     {
         "slot":"ranged","unit":"Centaur Archer","source":"Quadruped Fantasy Creatures / Centaur",
@@ -111,18 +111,22 @@ def main():
         "identity": "Animal-warrior / centaur / human-animal-hybrid faction",
         "roster_rule": {
             "core_families": 7,
-            "shape": "5 animal warriors + Centaur Archer + Apex Beast",
+            "shape": "4 martial animal warriors + 1 magic/support animal warrior + Centaur Archer + Apex Beast",
             "centaur_role_locked": "ranged",
             "apex_power_tier_locked": "elephant/dragon tier",
             "apex_species_locked": False,
-            "dedicated_support_magic_unit": False,
-            "support_note": "At least one warrior should receive secondary utility/support behavior in balance design, without changing the seven visual families."
+            "dedicated_pure_support_magic_family": False,
+            "fighter_support_magic_family": True,
+            "support_body_locked": False,
+            "support_note": "Magic/support is embedded in one of the five animal-warrior families rather than added as an eighth visual family.",
+            "martial_role_locks": ["sword", "spear", "heavy weapon", "flex melee/control"],
+            "magic_animation_evidence": "Local Mixamo catalog has 61 magic/casting candidates; Pro Magic Pack includes 1H/2H casts, magic attacks, area attacks, block reactions and supporting locomotion."
         },
         "owned_sources": [ANIMAL_WARRIOR_PACK, CENTAUR_PACK],
         "roster": ROSTER,
         "hero_candidates": HEROES,
-        "city_plan_revision_needed": True,
-        "city_plan_note": "Previous Nature building matrix assumed four fighters + ranged + support + beast. Revise only if/when Nature is admitted as a full faction."
+        "city_plan_revision_needed": False,
+        "city_plan_note": "The existing four-fighter + ranged + support + beast city shape now aligns: Druid Circle recruits the hybrid Spirit Warrior; only exact dwelling art/names remain visual candidates."
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")

@@ -174,17 +174,17 @@
 
 ## Future faction candidate — Nature
 
-**Identity:** five animal-warrior families + Centaur Archer + one elephant/dragon-tier Apex Beast.
+**Identity:** four martial animal-warrior families + one magic/support animal-warrior family + Centaur Archer + one elephant/dragon-tier Apex Beast.
 **Hero direction:** The Fey and Wukong are Nature heroes; human/animal hybrids expand the hero pool.
-**Asymmetry:** no dedicated support/magic regular family. Preserve this unless balance testing proves it untenable; give one warrior secondary utility rather than adding an eighth family.
+**Support structure:** one of the five animal-warrior families is a hybrid magic/support fighter, preserving the seven-family roster without adding a pure caster family.
 
 | Slot | Unit | Owned/source evidence | Recruitment site | Combat role | Footprint | Flying | Status | Risk |
 |---|---|---|---|---|---|---|---|---|
-| fighter_1 | Bear Warrior | Animals Warrior Pack | Bear Lodge | durable bruiser / line holder | 1 hex | no | UE_VISUAL_CONFIRM | Exact mesh/package path awaits payload; confirm weapon scale and armor cohesion. |
-| fighter_2 | Bull Warrior | Animals Warrior Pack | Bull Ring | charge / linebreaker | 1 hex | no | UE_VISUAL_CONFIRM | Exact mesh/package path awaits payload; charge readability must not imply mounted cavalry. |
-| fighter_3 | Crocodile Warrior | Animals Warrior Pack | Marsh Lodge | control bruiser / ambush fighter | 1 hex | no | UE_VISUAL_CONFIRM | Exact mesh/package path awaits payload; tail/cloth physics need visual qualification. |
-| fighter_4 | Elephant Warrior (anthropomorphic) | Animals Warrior Pack | Ivory Guard Hall | heavy guardian / anchor | 1 hex | no | UE_VISUAL_CONFIRM | This is the humanoid Elephant Warrior, not the apex-beast slot; verify it remains normal-unit scale. |
-| fighter_5 | Warrior2 animal warrior | Animals Warrior Pack | Prowler Platform | fast melee skirmisher / flanker | 1 hex | no | UE_VISUAL_CONFIRM | Older pack metadata calls this character Warrior2; species/name remains visual-confirm rather than guessed. |
+| fighter_1 | Bear Warrior | Animals Warrior Pack | Bear Lodge | sword fighter / balanced frontline | 1 hex | no | UE_VISUAL_CONFIRM | Role is locked to sword-family melee, but exact sword/body configuration still needs UE visual qualification. |
+| fighter_2 | Bull Warrior | Animals Warrior Pack | Bull Ring | spear fighter / reach / anti-large | 1 hex | no | UE_VISUAL_CONFIRM | Role is locked to spear-family melee; confirm weapon reach and formation spacing in UE. |
+| fighter_3 | Crocodile Warrior | Animals Warrior Pack | Marsh Lodge | flex melee/control fighter / shield-cleaver candidate | 1 hex | no | UE_VISUAL_CONFIRM | Flexible fifth martial role; keep weapon choice subordinate to visual fit and avoid overlapping Sword/Spear/Heavy identities. |
+| fighter_4 | Elephant Warrior (anthropomorphic) | Animals Warrior Pack | Ivory Guard Hall | heavy-weapon fighter / armor breaker / anchor | 1 hex | no | UE_VISUAL_CONFIRM | Heavy-weapon role is locked; prefer maul/hammer/other heavy weapon. This is the humanoid Elephant Warrior, not the Apex Beast. |
+| fighter_5_support_magic | Spirit Warrior (Warrior2 body preferred) | Animals Warrior Pack | Druid Circle | magic/support fighter / buffs / debuffs / control | 1 hex | no | UE_VISUAL_CONFIRM | Support role is locked but body is not: prefer the ambiguous fifth Warrior2 body; Crocodile Warrior is fallback if visual casting reads better. Retarget local Mixamo magic set in UE. |
 | ranged | Centaur Archer | Quadruped Fantasy Creatures / Centaur | Centaur Range | mobile ranged pressure / repositioning | 1 hex | no | UE_VISUAL_CONFIRM | Owned model has bow/arrow and 85 animations; exact package path and Soul-scale group read still need qualification. |
 | beast | Apex Beast (species TBD) | OWNED_LIBRARY_SELECTION_PENDING | Apex Beast Grove | elephant/dragon-tier capstone creature | 3 hex | TBD | ROSTER_PENDING | Do not lock Elephant or Dragon yet. Reusing Orc Fantasy Elephant or Dark/Dwarf dragons would reduce faction distinctiveness. |
 
@@ -199,8 +199,9 @@
 | Werewolf Gerl | Bugrimov Maksim | martial/hybrid | MEDIUM_HIGH | UE_VISUAL_CONFIRM | Owned hybrid candidate; keep only if it reads as a nature champion rather than horror monster. |
 | Khaimera | Paragon: Khaimera | martial/hybrid | MEDIUM_HIGH | PAYLOAD_PENDING | Optional tribal beast-champion alternate; do not cast him simultaneously as a Viking/Orc/Nature hero. |
 
-**Locked design decisions:** Centaur is the ranged family; Apex Beast is elephant/dragon power tier but species remains open.
+**Locked design decisions:** Centaur is the ranged family; Elephant Warrior is the heavy-weapon fighter; one animal-warrior family is magic/support; Apex Beast is elephant/dragon power tier but species remains open.
 **Owned Centaur evidence:** Quadruped Fantasy Creatures already contains the PROTOFACTOR Centaur with 85 animations; the matching Centaur model supports both archery and close combat.
+**Magic-animation evidence:** the local Mixamo catalog reports 61 magic/casting candidates; Pro Magic Pack covers one- and two-handed casts, attacks, area attacks, blocks and locomotion.
 **Capstone caution:** reusing the same Fantasy Elephant or Dragon already earmarked for Orc/Dark/Dwarf would weaken faction silhouette separation. Prefer a distinct owned apex creature if the library supports one.
 
 ## Paragon-specific casting audit

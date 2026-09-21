@@ -60,9 +60,9 @@ def main():
         lines += [table(["Candidate","Owned source","Role","Grounded fit","Status","Casting note"],rows),""]
     lines += ["## Future faction candidate — Nature",""]
     lines += [
-        "**Identity:** five animal-warrior families + Centaur Archer + one elephant/dragon-tier Apex Beast.",
+        "**Identity:** four martial animal-warrior families + one magic/support animal-warrior family + Centaur Archer + one elephant/dragon-tier Apex Beast.",
         "**Hero direction:** The Fey and Wukong are Nature heroes; human/animal hybrids expand the hero pool.",
-        "**Asymmetry:** no dedicated support/magic regular family. Preserve this unless balance testing proves it untenable; give one warrior secondary utility rather than adding an eighth family.",
+        "**Support structure:** one of the five animal-warrior families is a hybrid magic/support fighter, preserving the seven-family roster without adding a pure caster family.",
         "",
     ]
     rows=[]
@@ -76,8 +76,9 @@ def main():
         rows.append([x["candidate"],x["source"],x["role"],x["fit"],x["qualification"],x["note"]])
     lines += [table(["Candidate","Source","Role","Fit","Status","Note"],rows),""]
     lines += [
-        "**Locked design decisions:** Centaur is the ranged family; Apex Beast is elephant/dragon power tier but species remains open.",
+        "**Locked design decisions:** Centaur is the ranged family; Elephant Warrior is the heavy-weapon fighter; one animal-warrior family is magic/support; Apex Beast is elephant/dragon power tier but species remains open.",
         "**Owned Centaur evidence:** Quadruped Fantasy Creatures already contains the PROTOFACTOR Centaur with 85 animations; the matching Centaur model supports both archery and close combat.",
+        "**Magic-animation evidence:** the local Mixamo catalog reports 61 magic/casting candidates; Pro Magic Pack covers one- and two-handed casts, attacks, area attacks, blocks and locomotion.",
         "**Capstone caution:** reusing the same Fantasy Elephant or Dragon already earmarked for Orc/Dark/Dwarf would weaken faction silhouette separation. Prefer a distinct owned apex creature if the library supports one.",
         "",
     ]
