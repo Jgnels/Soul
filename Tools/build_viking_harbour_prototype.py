@@ -47,7 +47,7 @@ def scenario():
 def main():
     if not levels.load_level(MAP_SOURCE):raise RuntimeError("Water City map failed to load")
     base,src=anchor()
-    if not unreal.EditorLevelLibrary.save_current_level_as(MAP_DEST):raise RuntimeError("Could not save Viking prototype map")
+    if not unreal.EditorLoadingAndSavingUtils.save_map(unreal.EditorLevelLibrary.get_editor_world(), MAP_DEST):raise RuntimeError("Could not save Viking prototype map")
     sc=scenario()
     c=spawn(unreal.SoulSettlementPresentationController,base,"Soul_VikingHarbour_Presentation");c.set_editor_property("settlement_id",n(SETTLEMENT))
     b=spawn(unreal.SoulSettlementBootstrapActor,base,"Soul_VikingHarbour_Bootstrap");b.set_editor_property("scenario",sc);b.set_editor_property("only_create_if_missing",True)
@@ -94,7 +94,7 @@ def main():
     for oid,bid,scar,effect,primary,(x,y,z) in objs:
         a=spawn(unreal.SoulSiegeObjectiveActor,unreal.Vector(base.x+x,base.y+y,base.z+z),"Soul_Objective_"+oid);a.set_editor_property("settlement_id",n(SETTLEMENT));a.set_editor_property("objective_id",n(oid));a.set_editor_property("linked_building_id",n(bid));a.set_editor_property("effect_tag",n(effect));a.set_editor_property("primary_victory_objective",primary)
         if scar:a.set_editor_property("linked_breach_scar_id",n(scar))
-    unreal.EditorLevelLibrary.save_current_level()
+    unreal.EditorLoadingAndSavingUtils.save_current_level()
     with open(os.path.join(OUT,"viking_harbour_prototype_manifest.json"),"w",encoding="utf-8") as f:json.dump({"map":MAP_DEST,"anchor_source":src,"anchor":[base.x,base.y,base.z],"visible_buildings":list(visible),"objectives":[x[0] for x in objs]},f,indent=2)
     log("DONE "+MAP_DEST)
 

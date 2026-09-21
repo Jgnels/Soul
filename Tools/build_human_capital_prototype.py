@@ -100,7 +100,7 @@ def main():
         raise RuntimeError("Failed to load donor Hivemind fortress")
     base,anchor_source=find_anchor()
     log("ANCHOR "+anchor_source+" "+str(base))
-    if not unreal.EditorLevelLibrary.save_current_level_as(MAP_DEST):
+    if not unreal.EditorLoadingAndSavingUtils.save_map(unreal.EditorLevelLibrary.get_editor_world(), MAP_DEST):
         raise RuntimeError("Failed to duplicate donor map to "+MAP_DEST)
     scenario=ensure_scenario()
 
@@ -176,7 +176,7 @@ def main():
         a.set_editor_property("effect_tag",n(effect))
         a.set_editor_property("primary_victory_objective",primary)
 
-    unreal.EditorLevelLibrary.save_current_level()
+    unreal.EditorLoadingAndSavingUtils.save_current_level()
     manifest={
       "map":MAP_DEST,"anchor_source":anchor_source,
       "anchor":[base.x,base.y,base.z],
