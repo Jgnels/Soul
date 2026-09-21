@@ -22,6 +22,12 @@ def level_paths(world):
             paths.append(str(level))
     return paths
 
+def actor_level_path(actor):
+    try:
+        return actor.get_level().get_outer().get_path_name()
+    except Exception:
+        return None
+
 rows = []
 errors = []
 for map_path, donor_path, expected_buildings, expected_objectives in CONFIGS:
@@ -42,12 +48,30 @@ for map_path, donor_path, expected_buildings, expected_objectives in CONFIGS:
                     streaming_paths.append(str(streaming))
         except Exception:
             pass
+        classes = [
+            unreal.SoulSettlementPresentationController,
+            unreal.SoulSettlementBootstrapActor,
+            unreal.SoulTownViewAnchor,
+            unreal.SoulBattlefieldLayoutActor,
+            unreal.SoulSettlementBuildingActor,
+            unreal.SoulFortificationSegmentActor,
+            unreal.SoulSiegeObjectiveActor,
+        ]
+        soul_actor_levels = []
+        for cls in classes:
+            for actor in all_of(world, cls):
+                soul_actor_levels.append({
+                    "label": actor.get_actor_label(),
+                    "class": cls.get_name(),
+                    "level": actor_level_path(actor),
+                })
         row = {
             "map": map_path,
             "donor": donor_path,
             "load_ok": True,
             "level_paths": paths,
             "streaming_paths": streaming_paths,
+            "soul_actor_levels": soul_actor_levels,
             "presentation_count": len(all_of(world, unreal.SoulSettlementPresentationController)),
             "bootstrap_count": len(all_of(world, unreal.SoulSettlementBootstrapActor)),
             "town_view_count": len(all_of(world, unreal.SoulTownViewAnchor)),
@@ -61,6 +85,11 @@ for map_path, donor_path, expected_buildings, expected_objectives in CONFIGS:
             donor_leaf.lower() in x.lower()
             for x in (row["level_paths"] + row["streaming_paths"])
         )
+        map_leaf = map_path.rsplit("/", 1)[-1].lower()
+        row["misplaced_soul_actors"] = [
+            item for item in row["soul_actor_levels"]
+            if not item["level"] or map_leaf not in item["level"].lower()
+        ]
         required = {
             "presentation_count": 1,
             "bootstrap_count": 1,
@@ -73,6 +102,11 @@ for map_path, donor_path, expected_buildings, expected_objectives in CONFIGS:
         mismatches = {k: {"expected": v, "actual": row[k]} for k, v in required.items() if row[k] != v}
         if not row["donor_loaded"]:
             mismatches["donor_loaded"] = {"expected": True, "actual": False}
+        if row["misplaced_soul_actors"]:
+            mismatches["soul_actor_ownership"] = {
+                "expected": "all Soul actors owned by " + map_path,
+                "actual": row["misplaced_soul_actors"],
+            }
         row["mismatches"] = mismatches
         row["pass"] = not mismatches
         rows.append(row)

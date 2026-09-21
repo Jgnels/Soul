@@ -10,6 +10,7 @@ STEPS = [
     "verify_siege_damage_proof.py",
     "build_city_overlays.py",
     "verify_city_overlays.py",
+    "verify_donor_clean.py",
 ]
 
 results = []

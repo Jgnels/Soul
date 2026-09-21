@@ -59,3 +59,10 @@
 ## Current live-lane status update
 - RB Magic still owns upstairs UE.
 - Current RB Magic build is actively producing `RBMagicBuildProbe2` (AutomationTool/UBT), so Soul must continue to wait rather than contend for UE.
+
+## Generated content / Git footprint
+- The seven old copied battlefield prototype maps are untracked and extremely large: approximately 469 MB to 797 MB each.
+- `LV_Soul_HumanCapital_Prototype.umap` is approximately 232 MB; the Viking prototype is approximately 14 MB.
+- These copied-donor prototypes must not be blindly staged. The lightweight streamed overlays are the intended replacement architecture.
+- Keep the large prototypes locally until overlay acceptance completes; do not delete them as part of recovery.
+- The vendor donor path `Content/Medieval_Megapack/` is already locally excluded from Git. Continue to stage only explicit Soul-owned paths.
