@@ -1,0 +1,10 @@
+{
+  "map": "/Game/Soul/Maps/Battlefields/BF_Human_GrasslandCrossroads",
+  "load_ok": true,
+  "world_name": "BF_Human_GrasslandCrossroads",
+  "world_path": "/Game/Soul/Maps/Battlefields/BF_Human_GrasslandCrossroads.BF_Human_GrasslandCrossroads",
+  "actor_count": 16,
+  "soul_actors": [],
+  "streaming_levels": [],
+  "error": "Traceback (most recent call last):\n  File \"D:/RefinedBadger/Games/Soul/Tools/inspect_battlefield_persistence.py\", line 21, in <module>\n    for s in world.get_streaming_levels():\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'World' object has no attribute 'get_streaming_levels'\n"
+}

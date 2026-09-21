@@ -1,0 +1,128 @@
+[
+  {
+    "id": "human.grassland_crossroads",
+    "src": "/Game/LandscapePackTwo/Maps/Grassland_01",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Human_GrasslandCrossroads",
+    "biome": "temperate",
+    "landform": "rolling_plain",
+    "feature": "crossroads",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      0.0,
+      0.0,
+      -53413.671875
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "human.rolling_ridge",
+    "src": "/Game/LandscapePackTwo/Maps/Grassland_02",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Human_RollingRidge",
+    "biome": "temperate",
+    "landform": "ridge",
+    "feature": "high_ground",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      81600.03112792969,
+      81600.03112792969,
+      -55816.015625
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "viking.snow_pass",
+    "src": "/Game/LandscapePackOne/Maps/SnowyMountain_01",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Viking_SnowPass",
+    "biome": "snow",
+    "landform": "mountain_pass",
+    "feature": "narrow_pass",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      0.0,
+      0.0,
+      -5973.4375
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "dwarf.mountain_pass",
+    "src": "/Game/LandscapePackOne/Maps/Mountain_01",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Dwarf_MountainPass",
+    "biome": "mountain",
+    "landform": "pass",
+    "feature": "switchback",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      0.0,
+      0.0,
+      -12527.9296875
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "orc.badlands",
+    "src": "/Game/LandscapePackTwo/Maps/Mesa_01",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Orc_Badlands",
+    "biome": "badlands",
+    "landform": "mesa",
+    "feature": "dry_gully",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      0.0,
+      0.0,
+      1520.8984375
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "dark.ash_plain",
+    "src": "/Game/LandscapePackTwo/Maps/Desert_01",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Dark_AshPlain",
+    "biome": "ash_waste",
+    "landform": "open_plain",
+    "feature": "dead_ground",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      0.0,
+      0.0,
+      -23024.0234375
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "neutral.coastal_ruins",
+    "src": "/Game/Elite_CoastalRuins/Maps/CoastalRuins_01",
+    "dst": "/Game/Soul/Maps/Battlefields/BF_Neutral_CoastalRuins",
+    "biome": "coast",
+    "landform": "valley_hill",
+    "feature": "ruins",
+    "load_ok": true,
+    "anchor_source": "Landscape",
+    "anchor": [
+      0.0,
+      0.0,
+      99.7265625
+    ],
+    "save_ok": true,
+    "baked_cells": 217,
+    "expected_cells": 217
+  }
+]

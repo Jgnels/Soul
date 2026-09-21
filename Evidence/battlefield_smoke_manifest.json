@@ -1,0 +1,65 @@
+[
+  {
+    "id": "human.grassland_crossroads",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Human_GrasslandCrossroads",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "human.rolling_ridge",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Human_RollingRidge",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "viking.snow_pass",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Viking_SnowPass",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "dwarf.mountain_pass",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Dwarf_MountainPass",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "orc.badlands",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Orc_Badlands",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "dark.ash_plain",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Dark_AshPlain",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  },
+  {
+    "id": "neutral.coastal_ruins",
+    "map": "/Game/Soul/Maps/Battlefields/BF_Neutral_CoastalRuins",
+    "load_ok": true,
+    "grid_count": 1,
+    "layout_count": 1,
+    "baked_cells": 217,
+    "expected_cells": 217
+  }
+]
