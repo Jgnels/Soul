@@ -51,7 +51,7 @@ The presentation contract remains explicit:
 The validator fails if those RB authority bindings drift in the generated bundle.
 ## Acceptance evidence
 
-`Evidence/WorldOvermap/nonue_acceptance_manifest.json` records 15 deterministic non-UE checks covering topology, runtime import, settlements, approaches, start state, founder traversal, settlement coverage, battlefield fidelity, opening pressure, visual-anchor generation/validation, route-cue generation/validation, bundle generation, and bundle validation.
+`Evidence/WorldOvermap/nonue_acceptance_manifest.json` records 17 deterministic non-UE checks covering topology, runtime import, settlements, approaches, start state, founder traversal, settlement coverage, battlefield fidelity, opening pressure, visual-anchor generation/validation, route-cue generation/validation, bundle generation/validation, and founder-presentation package generation/validation.
 
 `Evidence/WorldOvermap/integrated_import_validation.json` additionally verifies:
 - all ten source-artifact SHA-256 hashes;
@@ -69,3 +69,6 @@ The current hard structural contract is green. The main open work is presentatio
 Eight destinations need deliberate geography-to-battlefield fidelity review: Ancient Shrine, Forest Edge, North Pass, Northwest March, Old Quarry, Orc Watch, River Ford, and Southern Crossing. These are not topology failures; they are places where the selected battlefield recipe transforms campaign context enough that the UE lane must prove the visible route decision still matters.
 
 The visual-anchor question is now closed at non-UE level: all 36 regions have explicit physical navigation targets. Route communication is also explicit: all 51 links preserve their 15 semantic route classes instead of collapsing into generic road/trail styling, and the three founder approaches have distinct visual signatures. Remaining gates are mesh/proxy and terrain-blend qualification, readability at strategic camera distance, fog/weather legibility, and performance in the bounded UE founder-slice proof.
+## Founder presentation import
+
+`Data/soul_founder_slice_presentation_import_v1_20260922.json` is the compact next-lane payload for the bounded nine-region Unreal proof. It derives from this integrated bundle and preserves the 9 regions, 10 routes, 20 directed approaches, exact blockout positions, route splines/cues, visual anchors, initial fog state, battlefield recipes and the six founder fidelity-review destinations.

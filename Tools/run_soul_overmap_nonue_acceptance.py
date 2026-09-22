@@ -24,6 +24,8 @@ STEPS = [
     ("route_visual_validation", "Tools/validate_soul_overmap_route_visual_cues.py"),
     ("integrated_bundle_build", "Tools/build_soul_overmap_integrated_import.py"),
     ("integrated_bundle_validation", "Tools/validate_soul_overmap_integrated_import.py"),
+    ("founder_presentation_build", "Tools/build_soul_founder_presentation_import.py"),
+    ("founder_presentation_validation", "Tools/validate_soul_founder_presentation_import.py"),
 ]
 results = []
 for name, script in STEPS:
