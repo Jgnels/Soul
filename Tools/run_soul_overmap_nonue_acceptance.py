@@ -29,6 +29,8 @@ STEPS = [
     ("founder_presentation_geometry", "Tools/analyze_soul_founder_presentation_geometry.py"),
     ("founder_state_vectors_build", "Tools/build_soul_founder_presentation_state_vectors.py"),
     ("founder_state_vectors_validation", "Tools/validate_soul_founder_presentation_state_vectors.py"),
+    ("founder_ue_staging_export", "Tools/export_soul_founder_ue_staging.py"),
+    ("founder_ue_staging_validation", "Tools/validate_soul_founder_ue_staging.py"),
 ]
 results = []
 for name, script in STEPS:

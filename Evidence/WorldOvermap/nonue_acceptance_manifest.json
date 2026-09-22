@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 20,
-  "steps_passed": 20,
+  "steps_total": 22,
+  "steps_passed": 22,
   "steps_failed": 0,
   "steps": [
     {
@@ -220,6 +220,28 @@
       "script": "Tools/validate_soul_founder_presentation_state_vectors.py",
       "exit_code": 0,
       "stdout_sha256": "69c411436ff4fee30e181d8a7792f0e9e3e6d8d61d622d9fa9939b77769590dc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_ue_staging_export",
+      "script": "Tools/export_soul_founder_ue_staging.py",
+      "exit_code": 0,
+      "stdout_sha256": "9ba90556bb01456958d7b8101dbfbf8a047d04d222b0f8a1970ef529ac00e7f9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-founder-statevectors-20260922\\Data\\UEImport\\soul_founder_ue_import_manifest_v1_20260922.json"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_ue_staging_validation",
+      "script": "Tools/validate_soul_founder_ue_staging.py",
+      "exit_code": 0,
+      "stdout_sha256": "c35025a66c276ace8582f6918f97acad7cc4e8a940b5ad76d0de7ddae3cef292",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
