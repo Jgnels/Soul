@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+<defs>
+      <pattern id="forestPattern" width="34" height="30" patternUnits="userSpaceOnUse">
+        <path d="M17 4 L25 18 L21 18 L27 27 L7 27 L13 18 L9 18 Z" fill="#5f7f55" opacity="0.22"/>
+      </pattern>
+      <pattern id="mountainPattern" width="48" height="38" patternUnits="userSpaceOnUse">
+        <path d="M2 34 L17 10 L27 25 L36 7 L47 34 Z" fill="none" stroke="#756b62" stroke-width="2" opacity="0.23"/>
+      </pattern>
+      <pattern id="badlandsPattern" width="50" height="32" patternUnits="userSpaceOnUse">
+        <path d="M5 24 Q15 8 25 24 T45 24" fill="none" stroke="#9b6b47" stroke-width="3" opacity="0.20"/>
+      </pattern>
+      <pattern id="ashPattern" width="26" height="26" patternUnits="userSpaceOnUse">
+        <circle cx="5" cy="8" r="2" fill="#66516f" opacity="0.15"/>
+        <circle cx="18" cy="18" r="2.5" fill="#66516f" opacity="0.12"/>
+      </pattern>
+      <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#332d25" flood-opacity="0.28"/>
+      </filter>
+    </defs>
+<rect width="1400" height="980" fill="#f2ead8"/>
+<rect x="36" y="36" width="1328" height="908" rx="18" fill="#e9dfc8" stroke="#4b463b" stroke-width="3"/>
+<text x="700" y="72" text-anchor="middle" font-family="Georgia" font-size="32" font-weight="700" fill="#2d2a25">Soul Founder Slice — Human–Orc Frontier</text>
+<text x="700" y="99" text-anchor="middle" font-family="Arial" font-size="15" fill="#5a544a">9-region micro-campaign topology recovered from the current founder-playtest prototype</text>
+<line x1="153.7" y1="587.7" x2="402.2" y2="587.7" stroke="#6b5130" stroke-width="5" stroke-linecap="round" opacity="0.88"/>
+<line x1="402.2" y1="587.7" x2="561.9" y2="312.1" stroke="#6b5130" stroke-width="5" stroke-linecap="round" opacity="0.88"/>
+<line x1="402.2" y1="587.7" x2="650.6" y2="808.1" stroke="#6b5130" stroke-width="5" stroke-linecap="round" opacity="0.88"/>
+<line x1="402.2" y1="587.7" x2="721.6" y2="495.8" stroke="#786d5d" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 7" opacity="0.88"/>
+<line x1="561.9" y1="312.1" x2="810.4" y2="201.9" stroke="#786d5d" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 7" opacity="0.88"/>
+<line x1="650.6" y1="808.1" x2="970.1" y2="734.7" stroke="#6b5130" stroke-width="5" stroke-linecap="round" opacity="0.88"/>
+<circle cx="810.4" cy="771.4" r="7" fill="#f2ead8" stroke="#6b5130" stroke-width="3"/>
+<line x1="721.6" y1="495.8" x2="970.1" y2="734.7" stroke="#786d5d" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 7" opacity="0.88"/>
+<line x1="721.6" y1="495.8" x2="987.8" y2="348.8" stroke="#786d5d" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 7" opacity="0.88"/>
+<circle cx="854.7" cy="422.3" r="7" fill="#f2ead8" stroke="#6b5130" stroke-width="3"/>
+<line x1="987.8" y1="348.8" x2="1236.3" y2="587.7" stroke="#786d5d" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 7" opacity="0.88"/>
+<circle cx="1112.0" cy="468.3" r="7" fill="#f2ead8" stroke="#6b5130" stroke-width="3"/>
+<line x1="970.1" y1="734.7" x2="1236.3" y2="587.7" stroke="#6b5130" stroke-width="5" stroke-linecap="round" opacity="0.88"/>
+<rect x="136.7" y="570.7" width="34" height="34" rx="4" fill="#dce9f8" stroke="#5d88c7" stroke-width="5"/>
+<path d="M138.7,572.7 L153.7,561.7 L168.7,572.7" fill="#5d88c7" opacity="0.9"/>
+<text x="153.7" y="565.7" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Human Capital</text>
+<circle cx="402.2" cy="587.7" r="11" fill="#dce9f8" stroke="#5d88c7" stroke-width="4"/>
+<text x="402.2" y="571.7" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Crossroads</text>
+<circle cx="561.9" cy="312.1" r="11" fill="#e3e3df" stroke="#6c706f" stroke-width="4"/>
+<circle cx="573.9" cy="300.1" r="5" fill="#d2a733" stroke="#6f5620" stroke-width="2"/>
+<text x="561.9" y="296.1" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Old Quarry</text>
+<circle cx="650.6" cy="808.1" r="11" fill="#e3e3df" stroke="#6c706f" stroke-width="4"/>
+<text x="650.6" y="792.1" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">River Ford</text>
+<circle cx="721.6" cy="495.8" r="11" fill="#e3e3df" stroke="#6c706f" stroke-width="4"/>
+<circle cx="733.6" cy="483.8" r="5" fill="#d2a733" stroke="#6f5620" stroke-width="2"/>
+<text x="721.6" y="479.8" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Forest Edge</text>
+<polygon points="810.4,190.9 820.4,209.9 800.4,209.9" fill="#e3e3df" stroke="#6c706f" stroke-width="4"/>
+<text x="810.4" y="185.9" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Ancient Shrine</text>
+<circle cx="970.1" cy="734.7" r="11" fill="#ead1c8" stroke="#8a4a37" stroke-width="4"/>
+<text x="970.1" y="718.7" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Orc Watch</text>
+<circle cx="987.8" cy="348.8" r="11" fill="#e3e3df" stroke="#6c706f" stroke-width="4"/>
+<text x="987.8" y="332.8" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">North Pass</text>
+<rect x="1219.3" y="570.7" width="34" height="34" rx="4" fill="#ead1c8" stroke="#8a4a37" stroke-width="5"/>
+<path d="M1221.3,572.7 L1236.3,561.7 L1251.3,572.7" fill="#8a4a37" opacity="0.9"/>
+<text x="1236.3" y="565.7" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#2e2a24" paint-order="stroke" stroke="#f2ead8" stroke-width="4">Orc Stronghold</text>
+</svg>

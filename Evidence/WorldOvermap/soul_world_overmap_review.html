@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Soul World Overmap Review</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#171a1d;color:#e7e2d8}
+header{padding:16px 24px;background:#20252a;position:sticky;top:0;z-index:2}
+h1{margin:0 0 6px;font-size:24px} p{margin:4px 0;color:#bfc6ca}
+main{padding:18px;max-width:1500px;margin:auto}
+.card{background:#22282d;border:1px solid #394149;border-radius:12px;padding:14px;margin-bottom:18px}
+img{width:100%;height:auto;background:#eee5d3;border-radius:8px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px;border-bottom:1px solid #3b444c;text-align:left}
+th{position:sticky;top:76px;background:#22282d}
+a{color:#9ecaf1}
+@media(max-width:950px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>Soul World Overmap — Structural Review</h1>
+<p>Non-UE campaign geography. Macro-region and place names remain editable; topology is the current review target.</p></header>
+<main>
+<div class="card"><img src="soul_world_overmap_v1.svg"></div>
+<div class="grid">
+<div class="card"><h2>Founder slice</h2><img src="soul_founder_slice_overmap_v1.svg"></div>
+<div class="card"><h2>Current gates</h2>
+<p><b>36 strategic regions · 51 links · six faction seats.</b></p>
+<p>Founder slice: nine regions and three short Human→Orc approaches.</p>
+<p>One campaign-region move is one AP. Edge cost 6–10 is logistics/readiness/supply pressure, not AP.</p>
+<p><a href="route_analysis.md">Route analysis</a> · <a href="validation.json">Validation</a></p>
+</div></div>
+<div class="card"><h2>Region catalogue</h2><table>
+<tr><th>Region</th><th>Macro region</th><th>Owner</th><th>Feature</th><th>Battle recipe</th></tr>
+<tr><td>Ash Plain</td><td>ashen_south</td><td>dark</td><td>dead_ground</td><td>dark.ash_plain</td></tr><tr><td>Castle Approach</td><td>ashen_south</td><td>dark</td><td>alien_castle</td><td>dark.castle_approach</td></tr><tr><td>Corrupted Valley</td><td>ashen_south</td><td>dark</td><td>mist</td><td>dark.corrupted_valley</td></tr><tr><td>Dark Fortress</td><td>ashen_south</td><td>dark</td><td>throne_sanctum</td><td>dark.castle_approach</td></tr><tr><td>Ruined Causeway</td><td>ashen_south</td><td>dark</td><td>ruined_bridge</td><td>dark.ruined_causeway</td></tr><tr><td>Dwarf Hold</td><td>crownspine</td><td>dwarves</td><td>great_forge</td><td>dwarf.forge_approach</td></tr><tr><td>Forge Approach</td><td>crownspine</td><td>dwarves</td><td>forge_gate</td><td>dwarf.forge_approach</td></tr><tr><td>High Quarry</td><td>crownspine</td><td>dwarves</td><td>quarry</td><td>dwarf.high_quarry</td></tr><tr><td>Mountain Pass</td><td>crownspine</td><td>neutral</td><td>switchback</td><td>dwarf.mountain_pass</td></tr><tr><td>Mountain Shrine</td><td>crownspine</td><td>neutral</td><td>shrine</td><td>neutral.mountain_shrine</td></tr><tr><td>Snow Basin</td><td>crownspine</td><td>dwarves</td><td>bowl</td><td>dwarf.snow_basin</td></tr><tr><td>Badlands</td><td>eastern_badlands</td><td>orcs</td><td>dry_gully</td><td>orc.badlands</td></tr><tr><td>Broken Bridge</td><td>eastern_badlands</td><td>neutral</td><td>broken_bridge</td><td>orc.broken_bridge</td></tr><tr><td>North Pass</td><td>eastern_badlands</td><td>neutral</td><td>narrow_pass</td><td>dwarf.mountain_pass</td></tr><tr><td>Orc Stronghold</td><td>eastern_badlands</td><td>orcs</td><td>stronghold</td><td>orc.war_camp</td></tr><tr><td>Orc Watch</td><td>eastern_badlands</td><td>orcs</td><td>watch</td><td>orc.badlands</td></tr><tr><td>Ruined Field</td><td>eastern_badlands</td><td>orcs</td><td>ruins</td><td>orc.ruined_field</td></tr><tr><td>War Camp</td><td>eastern_badlands</td><td>orcs</td><td>camp</td><td>orc.war_camp</td></tr><tr><td>Coastal Ruins</td><td>greenwood</td><td>neutral</td><td>ruins</td><td>neutral.coastal_ruins</td></tr><tr><td>Forest Clearing</td><td>greenwood</td><td>nature</td><td>dense_treeline</td><td>nature.forest_clearing</td></tr><tr><td>Forest Shrine</td><td>greenwood</td><td>nature</td><td>ancient_shrine</td><td>nature.ancient_shrine</td></tr><tr><td>Grassland Edge</td><td>greenwood</td><td>neutral</td><td>forest_edge</td><td>nature.grassland_edge</td></tr><tr><td>Nature Treehold</td><td>greenwood</td><td>nature</td><td>great_tree</td><td>nature.forest_clearing</td></tr><tr><td>River Woodland</td><td>greenwood</td><td>nature</td><td>river</td><td>nature.river_woodland</td></tr><tr><td>Southern Crossing</td><td>greenwood</td><td>neutral</td><td>road_crossing</td><td>neutral.open_grassland</td></tr><tr><td>Ancient Shrine</td><td>heartland</td><td>neutral</td><td>ancient_shrine</td><td>neutral.mountain_shrine</td></tr><tr><td>Crossroads</td><td>heartland</td><td>humans</td><td>crossroads</td><td>human.grassland_crossroads</td></tr><tr><td>Forest Edge</td><td>heartland</td><td>neutral</td><td>grove</td><td>nature.grassland_edge</td></tr><tr><td>Human Capital</td><td>heartland</td><td>humans</td><td>capital</td><td>human.fortress_outskirts</td></tr><tr><td>Northwest March</td><td>heartland</td><td>neutral</td><td>trade_road</td><td>human.rolling_ridge</td></tr><tr><td>Old Quarry</td><td>heartland</td><td>neutral</td><td>resource</td><td>human.rolling_ridge</td></tr><tr><td>River Ford</td><td>heartland</td><td>neutral</td><td>river_crossing</td><td>human.river_road</td></tr><tr><td>Fjord Ridge</td><td>northern_fjords</td><td>vikings</td><td>water_edge</td><td>viking.fjord_ridge</td></tr><tr><td>Forest Track</td><td>northern_fjords</td><td>vikings</td><td>village_edge</td><td>viking.forest_track</td></tr><tr><td>Snow Pass</td><td>northern_fjords</td><td>neutral</td><td>narrow_pass</td><td>viking.snow_pass</td></tr><tr><td>Viking Harbour</td><td>northern_fjords</td><td>vikings</td><td>shore_bridge</td><td>viking.harbour_edge</td></tr></table></div>
+</main></body></html>

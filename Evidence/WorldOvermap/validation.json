@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "nodes": 36,
+  "edges": 51,
+  "founder_slice_regions": 9,
+  "founder_slice_edges": 10,
+  "capitals": 6,
+  "capital_hops_from_human": {
+    "viking_harbour": 3,
+    "dwarf_hold": 5,
+    "human_capital": 0,
+    "orc_camp": 4,
+    "nature_treehold": 4,
+    "dark_fortress": 6
+  },
+  "road_edges": 26,
+  "chokepoints": 11,
+  "errors": []
+}

@@ -15,3 +15,6 @@ Saved/
 Plugins/*/Binaries/
 Plugins/*/Intermediate/
 Evidence/EnvironmentCaptures/*.log
+
+__pycache__/
+*.pyc

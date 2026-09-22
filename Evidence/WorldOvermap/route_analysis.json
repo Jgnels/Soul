@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "capital_matrix": {
+    "vikings": {
+      "vikings": {
+        "hops": 0,
+        "logistics_cost": 0
+      },
+      "dwarves": {
+        "hops": 7,
+        "logistics_cost": 52
+      },
+      "humans": {
+        "hops": 3,
+        "logistics_cost": 20
+      },
+      "orcs": {
+        "hops": 6,
+        "logistics_cost": 44
+      },
+      "nature": {
+        "hops": 7,
+        "logistics_cost": 50
+      },
+      "dark": {
+        "hops": 9,
+        "logistics_cost": 60
+      }
+    },
+    "dwarves": {
+      "vikings": {
+        "hops": 7,
+        "logistics_cost": 52
+      },
+      "dwarves": {
+        "hops": 0,
+        "logistics_cost": 0
+      },
+      "humans": {
+        "hops": 5,
+        "logistics_cost": 37
+      },
+      "orcs": {
+        "hops": 3,
+        "logistics_cost": 25
+      },
+      "nature": {
+        "hops": 8,
+        "logistics_cost": 59
+      },
+      "dark": {
+        "hops": 9,
+        "logistics_cost": 65
+      }
+    },
+    "humans": {
+      "vikings": {
+        "hops": 3,
+        "logistics_cost": 20
+      },
+      "dwarves": {
+        "hops": 5,
+        "logistics_cost": 37
+      },
+      "humans": {
+        "hops": 0,
+        "logistics_cost": 0
+      },
+      "orcs": {
+        "hops": 4,
+        "logistics_cost": 24
+      },
+      "nature": {
+        "hops": 4,
+        "logistics_cost": 30
+      },
+      "dark": {
+        "hops": 6,
+        "logistics_cost": 40
+      }
+    },
+    "orcs": {
+      "vikings": {
+        "hops": 6,
+        "logistics_cost": 44
+      },
+      "dwarves": {
+        "hops": 3,
+        "logistics_cost": 25
+      },
+      "humans": {
+        "hops": 4,
+        "logistics_cost": 24
+      },
+      "orcs": {
+        "hops": 0,
+        "logistics_cost": 0
+      },
+      "nature": {
+        "hops": 5,
+        "logistics_cost": 34
+      },
+      "dark": {
+        "hops": 6,
+        "logistics_cost": 40
+      }
+    },
+    "nature": {
+      "vikings": {
+        "hops": 7,
+        "logistics_cost": 50
+      },
+      "dwarves": {
+        "hops": 8,
+        "logistics_cost": 59
+      },
+      "humans": {
+        "hops": 4,
+        "logistics_cost": 30
+      },
+      "orcs": {
+        "hops": 5,
+        "logistics_cost": 34
+      },
+      "nature": {
+        "hops": 0,
+        "logistics_cost": 0
+      },
+      "dark": {
+        "hops": 6,
+        "logistics_cost": 44
+      }
+    },
+    "dark": {
+      "vikings": {
+        "hops": 9,
+        "logistics_cost": 60
+      },
+      "dwarves": {
+        "hops": 9,
+        "logistics_cost": 65
+      },
+      "humans": {
+        "hops": 6,
+        "logistics_cost": 40
+      },
+      "orcs": {
+        "hops": 6,
+        "logistics_cost": 40
+      },
+      "nature": {
+        "hops": 6,
+        "logistics_cost": 44
+      },
+      "dark": {
+        "hops": 0,
+        "logistics_cost": 0
+      }
+    }
+  },
+  "founder_human_to_orc_short_paths": [
+    [
+      "human_capital",
+      "crossroads",
+      "forest_edge",
+      "north_pass",
+      "orc_camp"
+    ],
+    [
+      "human_capital",
+      "crossroads",
+      "forest_edge",
+      "orc_watch",
+      "orc_camp"
+    ],
+    [
+      "human_capital",
+      "crossroads",
+      "river_ford",
+      "orc_watch",
+      "orc_camp"
+    ]
+  ],
+  "founder_short_route_count": 3,
+  "articulation_points": [],
+  "bridge_edges": [],
+  "undesignated_bridge_edges": [],
+  "degree": {
+    "human_capital": 3,
+    "crossroads": 4,
+    "old_quarry": 2,
+    "river_ford": 4,
+    "forest_edge": 3,
+    "ancient_shrine": 2,
+    "orc_watch": 4,
+    "north_pass": 5,
+    "orc_camp": 4,
+    "viking_harbour": 2,
+    "viking_forest_track": 3,
+    "viking_fjord_ridge": 2,
+    "viking_snow_pass": 3,
+    "northwest_march": 2,
+    "mountain_shrine": 3,
+    "dwarf_mountain_pass": 3,
+    "dwarf_high_quarry": 3,
+    "dwarf_snow_basin": 2,
+    "dwarf_forge_approach": 3,
+    "dwarf_hold": 2,
+    "orc_war_camp": 2,
+    "orc_badlands": 2,
+    "orc_ruined_field": 3,
+    "orc_broken_bridge": 3,
+    "coastal_ruins": 2,
+    "nature_shrine": 3,
+    "nature_forest_clearing": 3,
+    "nature_grassland_edge": 4,
+    "nature_treehold": 2,
+    "nature_river_woodland": 3,
+    "southern_crossing": 4,
+    "dark_corrupted_valley": 3,
+    "dark_ruined_causeway": 3,
+    "dark_ash_plain": 2,
+    "dark_castle_approach": 2,
+    "dark_fortress": 2
+  },
+  "notes": [
+    "Hops model one AP per region move in the current founder slice.",
+    "Logistics cost is independent of AP and uses the initial 6-10 edge band.",
+    "Bridges are graph bridges, not necessarily physical bridges."
+  ]
+}
