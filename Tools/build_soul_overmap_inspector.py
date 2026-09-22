@@ -32,7 +32,7 @@ head += """
 .k{color:#9eaaaf}.v{color:#f0ece2;word-break:break-word}a{color:#9bc9ef}
 @media(max-width:1000px){main{grid-template-columns:1fr}}
 </style></head><body><header><h1>Soul World Overmap Inspector</h1>
-<div class="sub">Continuous-world campaign structure — local non-UE review</div>
+<div class="sub">Continuous-world campaign structure â€” local non-UE review</div>
 <div class="controls">
 <label>Faction <select id="owner"><option value="all">All</option><option>humans</option><option>vikings</option>
 <option>dwarves</option><option>orcs</option><option>nature</option><option>dark</option><option value="neutral">neutral</option></select></label>
@@ -43,8 +43,8 @@ head += """
 </div></header><main><section class="panel"><svg id="map" viewBox="0 0 1020 950"></svg></section>
 <aside class="panel"><h2 style="margin-top:0">Selection</h2><div id="detail" class="small">Click a region.</div>
 <hr><h3>Founder gate</h3><div id="sim" class="small"></div>
-<hr><div class="small"><a href="founder_slice_simulation.md">Traversal report</a> ·
-<a href="route_analysis.md">Route analysis</a> · <a href="runtime_import_validation.json">Runtime validation</a></div>
+<hr><div class="small"><a href="founder_slice_simulation.md">Traversal report</a> Â·
+<a href="route_analysis.md">Route analysis</a> | <a href="frontier_analysis.md">Frontier audit</a> | <a href="runtime_import_validation.json">Runtime validation</a></div>
 </aside></main><script>const D="""
 tail = """;
 const world=D.world,runtime=D.runtime,sim=D.simulation,svg=document.getElementById('map'),NS='http://www.w3.org/2000/svg';
@@ -82,7 +82,7 @@ function drawNodes(){
 }
 function showDetail(id){
  const n=runtime.regions[id];
- const pairs=[['Region',n.display_name],['ID',id],['Faction',n.owner||'neutral'],['Macro',n.macro_region],['Biome',n.biome],['Landform',n.landform],['Feature',n.feature],['Resource',n.resource||'—'],['Settlement',n.settlement_id||'—'],['Battle recipe',n.battle_recipe_hint],['Neighbors',n.neighbors.join(', ')],['UE cm',n.ue_position_cm.join(', ')]];
+ const pairs=[['Region',n.display_name],['ID',id],['Faction',n.owner||'neutral'],['Macro',n.macro_region],['Biome',n.biome],['Landform',n.landform],['Feature',n.feature],['Resource',n.resource||'â€”'],['Settlement',n.settlement_id||'â€”'],['Battle recipe',n.battle_recipe_hint],['Neighbors',n.neighbors.join(', ')],['UE cm',n.ue_position_cm.join(', ')]];
  let h='<div class="kv">';pairs.forEach(function(p){h+='<div class="k">'+p[0]+'</div><div class="v">'+p[1]+'</div>';});h+='</div>';
  document.getElementById('detail').innerHTML=h;
 }
@@ -112,4 +112,4 @@ document.getElementById('sim').innerHTML=
 </script></body></html>
 """
 OUT.write_text(head + payload + tail, encoding="utf-8")
-print("WROTE", OUT)
+print("WROTE", OUT)\n

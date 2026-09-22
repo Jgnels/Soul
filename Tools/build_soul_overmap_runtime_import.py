@@ -50,6 +50,7 @@ def anchor_type(node):
 
 d = json.loads(SRC.read_text(encoding="utf-8"))
 nodes = {n["id"]: n for n in d["nodes"]}
+founder_ids = set(d["founder_slice"]["region_ids"])
 runtime_regions = {}
 for rid, node in nodes.items():
     pos = ue_xy(node)
@@ -61,6 +62,7 @@ for rid, node in nodes.items():
         "selection_radius_cm": 18000 if node["kind"] == "capital" else 12000,
         "macro_region": node["macro_region"],
         "owner": node["owner"],
+        "ownership_semantics": "INITIAL_OWNER" if rid in founder_ids else "HOMELAND_AFFINITY",
         "biome": node["biome"],
         "landform": node["landform"],
         "feature": node["feature"],
@@ -110,4 +112,4 @@ payload = {
 }
 OUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 print(f"WROTE {OUT}")
-print(f"regions={len(runtime_regions)} routes={len(runtime_routes)}")
+print(f"regions={len(runtime_regions)} routes={len(runtime_routes)}")\n

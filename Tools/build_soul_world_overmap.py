@@ -331,6 +331,7 @@ def payload():
         "authority": {
             "founder_slice_topology": "current Soul founder-playtest prototype",
             "settlement_seats": "current city/siege plans",
+            "full_world_owner_semantics": "homeland affinity candidate outside founder slice; not canonical campaign-start ownership",
             "battle_recipe_hints": "Data/battlefield_recipes.json",
             "balance_center": {"action_points_per_day": 3, "normal_travel_cost": 8},
             "travel_semantics": {

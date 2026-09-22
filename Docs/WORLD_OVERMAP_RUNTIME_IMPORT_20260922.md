@@ -66,3 +66,15 @@ Evidence:
 4. Draw route highlighting from the exported spline data; do not derive movement legality from the spline.
 5. Prove River Ford / Forest Edge / North Pass predict their tactical battle context.
 6. Expand toward the full 36-region world only after the founder loop survives a full battle-return cycle.
+
+## Ownership semantics
+
+The founder slice's populated Human and Orc ownership is scenario-start state.
+Outside that nine-region slice, faction color is only a **homeland affinity / visual identity candidate**.
+
+Do not initialize a full six-faction campaign by counting or copying those affinity regions.
+A separate campaign-start-state pass must explicitly choose starting possessions, neutral expansion targets, army spawns and diplomacy.
+
+Supporting audit:
+- `Evidence/WorldOvermap/frontier_analysis.json`
+- `Evidence/WorldOvermap/frontier_analysis.md`

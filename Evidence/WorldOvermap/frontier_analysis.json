@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "ownership_semantics": {
+    "founder_slice": "initial scenario ownership where explicitly populated",
+    "full_world": "homeland affinity / art-direction candidate only"
+  },
+  "homeland_affinity_counts": {
+    "dark": 5,
+    "dwarves": 4,
+    "humans": 2,
+    "nature": 4,
+    "neutral": 13,
+    "orcs": 5,
+    "vikings": 3
+  },
+  "factions": {
+    "humans": {
+      "homeland_affinity_regions": 2,
+      "frontier_edges": 5,
+      "neutral_frontier_regions": [
+        "coastal_ruins",
+        "forest_edge",
+        "northwest_march",
+        "old_quarry",
+        "river_ford"
+      ],
+      "direct_foreign_frontiers": []
+    },
+    "vikings": {
+      "homeland_affinity_regions": 3,
+      "frontier_edges": 3,
+      "neutral_frontier_regions": [
+        "northwest_march",
+        "viking_snow_pass"
+      ],
+      "direct_foreign_frontiers": []
+    },
+    "dwarves": {
+      "homeland_affinity_regions": 4,
+      "frontier_edges": 2,
+      "neutral_frontier_regions": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "direct_foreign_frontiers": []
+    },
+    "orcs": {
+      "homeland_affinity_regions": 5,
+      "frontier_edges": 5,
+      "neutral_frontier_regions": [
+        "forest_edge",
+        "north_pass",
+        "orc_broken_bridge",
+        "river_ford"
+      ],
+      "direct_foreign_frontiers": []
+    },
+    "nature": {
+      "homeland_affinity_regions": 4,
+      "frontier_edges": 3,
+      "neutral_frontier_regions": [
+        "coastal_ruins",
+        "nature_grassland_edge"
+      ],
+      "direct_foreign_frontiers": []
+    },
+    "dark": {
+      "homeland_affinity_regions": 5,
+      "frontier_edges": 2,
+      "neutral_frontier_regions": [
+        "orc_broken_bridge",
+        "southern_crossing"
+      ],
+      "direct_foreign_frontiers": []
+    }
+  },
+  "founder_locked_owner_regions": {
+    "crossroads": "humans",
+    "orc_camp": "orcs",
+    "orc_watch": "orcs",
+    "human_capital": "humans"
+  },
+  "notes": [
+    "Do not balance full-campaign starts from current owner counts.",
+    "Humans having fewer affinity-colored regions is not yet a balance defect.",
+    "A separate campaign-start-state pass should assign possessions, neutral sites and army spawns."
+  ]
+}
