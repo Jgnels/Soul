@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "fixture_count": 6,
+  "fixture_ids": [
+    "ue.fixture.broken_bridge_chokepoint",
+    "ue.fixture.dragon_graveyard_special_site",
+    "ue.fixture.founder_forest_contact",
+    "ue.fixture.human_capital_east_assault",
+    "ue.fixture.river_ford_context",
+    "ue.fixture.stronghold_reinforcement_retreat"
+  ],
+  "source_check_count": 14,
+  "known_asset_gates": {
+    "river_ford": "UE_CROP_REQUIRED",
+    "orc_stronghold": "UE_COMPOSITE",
+    "dragon_graveyard": "separate proof-lane payload binding required"
+  },
+  "warnings": [],
+  "errors": []
+}
