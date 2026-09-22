@@ -1,0 +1,13 @@
+﻿{
+  "schema": 1,
+  "status": "pass",
+  "engine": "UE 5.8.2",
+  "rb_pbil_automation": {"passed": 3, "total": 3},
+  "soul_realtime_battle_automation": {"passed": 8, "total": 8},
+  "integration": {
+    "soul_module_depends_on_rbpbil": true,
+    "formation_spatial_policy": true,
+    "roles": ["Line","Shock","Ranged","Support","Apex","Hero"],
+    "magic_hazard_avoidance": true
+  }
+}

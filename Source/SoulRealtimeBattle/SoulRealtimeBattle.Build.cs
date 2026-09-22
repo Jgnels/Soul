@@ -17,7 +17,8 @@ public class SoulRealtimeBattle : ModuleRules
             "RBAICore",
             "RBAICombat",
             "RBAICreatures",
-            "RBAIGroups"
+            "RBAIGroups",
+            "RBPBIL"
         });
     }
 }
