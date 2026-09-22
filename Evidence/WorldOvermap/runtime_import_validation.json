@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "regions": 36,
+  "routes": 51,
+  "settlement_proxies": 6,
+  "actual_anchor_extent_km": [
+    8.0,
+    7.5
+  ],
+  "declared_world_extent_km": [
+    9.35,
+    8.55
+  ],
+  "founder_shortest_approaches": 3,
+  "founder_min_actions_to_battle": 4,
+  "errors": []
+}

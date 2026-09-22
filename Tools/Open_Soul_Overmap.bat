@@ -1,9 +1,9 @@
 @echo off
 setlocal
 set "ROOT=%~dp0.."
-set "REVIEW=%ROOT%\Evidence\WorldOvermap\soul_world_overmap_review.html"
+set "REVIEW=%ROOT%\Evidence\WorldOvermap\soul_world_overmap_inspector.html"
 if not exist "%REVIEW%" (
-  echo Soul overmap review not found:
+  echo Soul overmap inspector not found:
   echo %REVIEW%
   pause
   exit /b 1

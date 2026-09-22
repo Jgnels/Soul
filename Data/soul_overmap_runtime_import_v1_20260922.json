@@ -1,0 +1,2845 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "source": "soul_world_overmap_v1_20260922.json",
+  "world_space": {
+    "map_origin": [
+      500,
+      475
+    ],
+    "map_unit_to_cm": 1000,
+    "approx_world_extent_km": [
+      9.35,
+      8.55
+    ],
+    "y_axis": "map south -> UE negative Y",
+    "elevation_z_cm": {
+      "low": 0,
+      "mid": 12000,
+      "high": 30000
+    }
+  },
+  "founder_slice": {
+    "region_ids": [
+      "human_capital",
+      "crossroads",
+      "old_quarry",
+      "river_ford",
+      "forest_edge",
+      "ancient_shrine",
+      "orc_watch",
+      "north_pass",
+      "orc_camp"
+    ],
+    "start": "human_capital",
+    "enemy_objective": "orc_camp",
+    "purpose": "30-60 minute Human-vs-Orc founder micro-campaign"
+  },
+  "terrain_features": {
+    "seas": [
+      {
+        "id": "western_sea",
+        "kind": "sea",
+        "edge": "west",
+        "notes": [
+          "Viking and Nature coast access"
+        ]
+      }
+    ],
+    "rivers": [
+      {
+        "id": "heart_river",
+        "kind": "river",
+        "points": [
+          [
+            505,
+            235
+          ],
+          [
+            470,
+            360
+          ],
+          [
+            455,
+            500
+          ],
+          [
+            420,
+            560
+          ],
+          [
+            365,
+            720
+          ],
+          [
+            330,
+            840
+          ]
+        ],
+        "crossings": [
+          "river_ford",
+          "southern_crossing"
+        ]
+      },
+      {
+        "id": "eastern_run",
+        "kind": "river",
+        "points": [
+          [
+            640,
+            265
+          ],
+          [
+            680,
+            400
+          ],
+          [
+            690,
+            560
+          ],
+          [
+            720,
+            660
+          ]
+        ],
+        "crossings": [
+          "orc_broken_bridge"
+        ]
+      }
+    ],
+    "mountain_belts": [
+      {
+        "id": "crownspine_range",
+        "kind": "mountains",
+        "points": [
+          [
+            440,
+            85
+          ],
+          [
+            520,
+            180
+          ],
+          [
+            610,
+            250
+          ],
+          [
+            700,
+            250
+          ],
+          [
+            850,
+            150
+          ],
+          [
+            930,
+            110
+          ]
+        ],
+        "passes": [
+          "viking_snow_pass",
+          "mountain_shrine",
+          "dwarf_mountain_pass",
+          "north_pass"
+        ]
+      }
+    ],
+    "forest_belts": [
+      {
+        "id": "greenwood_forest",
+        "kind": "forest",
+        "polygon": [
+          [
+            50,
+            570
+          ],
+          [
+            450,
+            585
+          ],
+          [
+            500,
+            880
+          ],
+          [
+            60,
+            900
+          ]
+        ],
+        "gates": [
+          "coastal_ruins",
+          "nature_grassland_edge",
+          "southern_crossing"
+        ]
+      }
+    ]
+  },
+  "regions": {
+    "viking_harbour": {
+      "id": "viking_harbour",
+      "display_name": "Viking Harbour",
+      "ue_position_cm": [
+        -380000,
+        335000,
+        0
+      ],
+      "anchor_type": "settlement_proxy",
+      "selection_radius_cm": 18000,
+      "macro_region": "northern_fjords",
+      "owner": "vikings",
+      "biome": "cold_coast",
+      "landform": "cliff_harbour",
+      "feature": "shore_bridge",
+      "elevation_band": "low",
+      "settlement_id": "city.viking_harbour",
+      "resource": null,
+      "battle_recipe_hint": "viking.harbour_edge",
+      "neighbors": [
+        "viking_fjord_ridge",
+        "viking_forest_track"
+      ],
+      "road_neighbors": [
+        "viking_fjord_ridge",
+        "viking_forest_track"
+      ],
+      "approach_from_neighbor": {
+        "viking_forest_track": "south_east",
+        "viking_fjord_ridge": "east"
+      }
+    },
+    "viking_fjord_ridge": {
+      "id": "viking_fjord_ridge",
+      "display_name": "Fjord Ridge",
+      "ue_position_cm": [
+        -250000,
+        375000,
+        30000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "northern_fjords",
+      "owner": "vikings",
+      "biome": "snow_coast",
+      "landform": "ridge",
+      "feature": "water_edge",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "viking.fjord_ridge",
+      "neighbors": [
+        "viking_harbour",
+        "viking_snow_pass"
+      ],
+      "road_neighbors": [
+        "viking_harbour"
+      ],
+      "approach_from_neighbor": {
+        "viking_harbour": "west",
+        "viking_snow_pass": "east"
+      }
+    },
+    "viking_forest_track": {
+      "id": "viking_forest_track",
+      "display_name": "Forest Track",
+      "ue_position_cm": [
+        -240000,
+        255000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "northern_fjords",
+      "owner": "vikings",
+      "biome": "boreal",
+      "landform": "wooded_track",
+      "feature": "village_edge",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "viking.forest_track",
+      "neighbors": [
+        "northwest_march",
+        "viking_harbour",
+        "viking_snow_pass"
+      ],
+      "road_neighbors": [
+        "northwest_march",
+        "viking_harbour"
+      ],
+      "approach_from_neighbor": {
+        "viking_harbour": "north_west",
+        "viking_snow_pass": "east",
+        "northwest_march": "south"
+      }
+    },
+    "viking_snow_pass": {
+      "id": "viking_snow_pass",
+      "display_name": "Snow Pass",
+      "ue_position_cm": [
+        -100000,
+        305000,
+        30000
+      ],
+      "anchor_type": "strategic_chokepoint",
+      "selection_radius_cm": 12000,
+      "macro_region": "northern_fjords",
+      "owner": null,
+      "biome": "snow",
+      "landform": "mountain_pass",
+      "feature": "narrow_pass",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "viking.snow_pass",
+      "neighbors": [
+        "mountain_shrine",
+        "viking_fjord_ridge",
+        "viking_forest_track"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "viking_forest_track": "west",
+        "viking_fjord_ridge": "west",
+        "mountain_shrine": "south_east"
+      }
+    },
+    "mountain_shrine": {
+      "id": "mountain_shrine",
+      "display_name": "Mountain Shrine",
+      "ue_position_cm": [
+        0,
+        245000,
+        30000
+      ],
+      "anchor_type": "landmark",
+      "selection_radius_cm": 12000,
+      "macro_region": "crownspine",
+      "owner": null,
+      "biome": "mountain",
+      "landform": "terrace",
+      "feature": "shrine",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "neutral.mountain_shrine",
+      "neighbors": [
+        "ancient_shrine",
+        "dwarf_mountain_pass",
+        "viking_snow_pass"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "viking_snow_pass": "north_west",
+        "ancient_shrine": "south",
+        "dwarf_mountain_pass": "east"
+      }
+    },
+    "northwest_march": {
+      "id": "northwest_march",
+      "display_name": "Northwest March",
+      "ue_position_cm": [
+        -285000,
+        160000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "heartland",
+      "owner": null,
+      "biome": "temperate",
+      "landform": "rolling_plain",
+      "feature": "trade_road",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "human.rolling_ridge",
+      "neighbors": [
+        "human_capital",
+        "viking_forest_track"
+      ],
+      "road_neighbors": [
+        "human_capital",
+        "viking_forest_track"
+      ],
+      "approach_from_neighbor": {
+        "viking_forest_track": "north",
+        "human_capital": "south"
+      }
+    },
+    "dwarf_high_quarry": {
+      "id": "dwarf_high_quarry",
+      "display_name": "High Quarry",
+      "ue_position_cm": [
+        140000,
+        345000,
+        30000
+      ],
+      "anchor_type": "resource_site",
+      "selection_radius_cm": 12000,
+      "macro_region": "crownspine",
+      "owner": "dwarves",
+      "biome": "mountain",
+      "landform": "terraced_slope",
+      "feature": "quarry",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": "ore",
+      "battle_recipe_hint": "dwarf.high_quarry",
+      "neighbors": [
+        "dwarf_forge_approach",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin"
+      ],
+      "road_neighbors": [
+        "dwarf_forge_approach",
+        "dwarf_mountain_pass"
+      ],
+      "approach_from_neighbor": {
+        "dwarf_mountain_pass": "south",
+        "dwarf_snow_basin": "east",
+        "dwarf_forge_approach": "south_east"
+      }
+    },
+    "dwarf_snow_basin": {
+      "id": "dwarf_snow_basin",
+      "display_name": "Snow Basin",
+      "ue_position_cm": [
+        260000,
+        385000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "crownspine",
+      "owner": "dwarves",
+      "biome": "snow_mountain",
+      "landform": "basin",
+      "feature": "bowl",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dwarf.snow_basin",
+      "neighbors": [
+        "dwarf_high_quarry",
+        "dwarf_hold"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "dwarf_high_quarry": "west",
+        "dwarf_hold": "south_east"
+      }
+    },
+    "dwarf_forge_approach": {
+      "id": "dwarf_forge_approach",
+      "display_name": "Forge Approach",
+      "ue_position_cm": [
+        240000,
+        275000,
+        30000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "crownspine",
+      "owner": "dwarves",
+      "biome": "mountain",
+      "landform": "industrial_approach",
+      "feature": "forge_gate",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dwarf.forge_approach",
+      "neighbors": [
+        "dwarf_high_quarry",
+        "dwarf_hold",
+        "north_pass"
+      ],
+      "road_neighbors": [
+        "dwarf_high_quarry",
+        "dwarf_hold"
+      ],
+      "approach_from_neighbor": {
+        "dwarf_high_quarry": "north_west",
+        "dwarf_hold": "east",
+        "north_pass": "south_west"
+      }
+    },
+    "dwarf_hold": {
+      "id": "dwarf_hold",
+      "display_name": "Dwarf Hold",
+      "ue_position_cm": [
+        350000,
+        325000,
+        30000
+      ],
+      "anchor_type": "settlement_proxy",
+      "selection_radius_cm": 18000,
+      "macro_region": "crownspine",
+      "owner": "dwarves",
+      "biome": "mountain",
+      "landform": "fortified_hold",
+      "feature": "great_forge",
+      "elevation_band": "high",
+      "settlement_id": "city.dwarf_hold",
+      "resource": null,
+      "battle_recipe_hint": "dwarf.forge_approach",
+      "neighbors": [
+        "dwarf_forge_approach",
+        "dwarf_snow_basin"
+      ],
+      "road_neighbors": [
+        "dwarf_forge_approach"
+      ],
+      "approach_from_neighbor": {
+        "dwarf_forge_approach": "west",
+        "dwarf_snow_basin": "north_west"
+      }
+    },
+    "dwarf_mountain_pass": {
+      "id": "dwarf_mountain_pass",
+      "display_name": "Mountain Pass",
+      "ue_position_cm": [
+        120000,
+        215000,
+        30000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "crownspine",
+      "owner": null,
+      "biome": "mountain",
+      "landform": "pass",
+      "feature": "switchback",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dwarf.mountain_pass",
+      "neighbors": [
+        "dwarf_high_quarry",
+        "mountain_shrine",
+        "north_pass"
+      ],
+      "road_neighbors": [
+        "dwarf_high_quarry"
+      ],
+      "approach_from_neighbor": {
+        "mountain_shrine": "west",
+        "dwarf_high_quarry": "north",
+        "north_pass": "south"
+      }
+    },
+    "human_capital": {
+      "id": "human_capital",
+      "display_name": "Human Capital",
+      "ue_position_cm": [
+        -320000,
+        25000,
+        12000
+      ],
+      "anchor_type": "settlement_proxy",
+      "selection_radius_cm": 18000,
+      "macro_region": "heartland",
+      "owner": "humans",
+      "biome": "temperate",
+      "landform": "fortified",
+      "feature": "capital",
+      "elevation_band": "mid",
+      "settlement_id": "city.human_capital",
+      "resource": null,
+      "battle_recipe_hint": "human.fortress_outskirts",
+      "neighbors": [
+        "coastal_ruins",
+        "crossroads",
+        "northwest_march"
+      ],
+      "road_neighbors": [
+        "coastal_ruins",
+        "crossroads",
+        "northwest_march"
+      ],
+      "approach_from_neighbor": {
+        "crossroads": "east",
+        "northwest_march": "north",
+        "coastal_ruins": "south"
+      }
+    },
+    "crossroads": {
+      "id": "crossroads",
+      "display_name": "Crossroads",
+      "ue_position_cm": [
+        -180000,
+        25000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "heartland",
+      "owner": "humans",
+      "biome": "temperate",
+      "landform": "rolling_plain",
+      "feature": "crossroads",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "human.grassland_crossroads",
+      "neighbors": [
+        "forest_edge",
+        "human_capital",
+        "old_quarry",
+        "river_ford"
+      ],
+      "road_neighbors": [
+        "human_capital",
+        "old_quarry",
+        "river_ford"
+      ],
+      "approach_from_neighbor": {
+        "human_capital": "west",
+        "old_quarry": "north_east",
+        "river_ford": "south_east",
+        "forest_edge": "east"
+      }
+    },
+    "old_quarry": {
+      "id": "old_quarry",
+      "display_name": "Old Quarry",
+      "ue_position_cm": [
+        -110000,
+        145000,
+        30000
+      ],
+      "anchor_type": "resource_site",
+      "selection_radius_cm": 12000,
+      "macro_region": "heartland",
+      "owner": null,
+      "biome": "temperate",
+      "landform": "ridge",
+      "feature": "resource",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": "ore",
+      "battle_recipe_hint": "human.rolling_ridge",
+      "neighbors": [
+        "ancient_shrine",
+        "crossroads"
+      ],
+      "road_neighbors": [
+        "crossroads"
+      ],
+      "approach_from_neighbor": {
+        "crossroads": "south_west",
+        "ancient_shrine": "east"
+      }
+    },
+    "river_ford": {
+      "id": "river_ford",
+      "display_name": "River Ford",
+      "ue_position_cm": [
+        -80000,
+        -85000,
+        0
+      ],
+      "anchor_type": "strategic_chokepoint",
+      "selection_radius_cm": 12000,
+      "macro_region": "heartland",
+      "owner": null,
+      "biome": "temperate",
+      "landform": "valley",
+      "feature": "river_crossing",
+      "elevation_band": "low",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "human.river_road",
+      "neighbors": [
+        "crossroads",
+        "nature_grassland_edge",
+        "orc_watch",
+        "southern_crossing"
+      ],
+      "road_neighbors": [
+        "crossroads",
+        "nature_grassland_edge",
+        "orc_watch",
+        "southern_crossing"
+      ],
+      "approach_from_neighbor": {
+        "crossroads": "north_west",
+        "orc_watch": "east",
+        "nature_grassland_edge": "south",
+        "southern_crossing": "south_east"
+      }
+    },
+    "forest_edge": {
+      "id": "forest_edge",
+      "display_name": "Forest Edge",
+      "ue_position_cm": [
+        -20000,
+        55000,
+        12000
+      ],
+      "anchor_type": "resource_site",
+      "selection_radius_cm": 12000,
+      "macro_region": "heartland",
+      "owner": null,
+      "biome": "forest",
+      "landform": "woodland",
+      "feature": "grove",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": "wood",
+      "battle_recipe_hint": "nature.grassland_edge",
+      "neighbors": [
+        "crossroads",
+        "north_pass",
+        "orc_watch"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "crossroads": "west",
+        "orc_watch": "south_east",
+        "north_pass": "east"
+      }
+    },
+    "ancient_shrine": {
+      "id": "ancient_shrine",
+      "display_name": "Ancient Shrine",
+      "ue_position_cm": [
+        20000,
+        175000,
+        30000
+      ],
+      "anchor_type": "landmark",
+      "selection_radius_cm": 12000,
+      "macro_region": "heartland",
+      "owner": null,
+      "biome": "mountain_forest",
+      "landform": "shrine_terrace",
+      "feature": "ancient_shrine",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "neutral.mountain_shrine",
+      "neighbors": [
+        "mountain_shrine",
+        "old_quarry"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "old_quarry": "west",
+        "mountain_shrine": "north"
+      }
+    },
+    "orc_watch": {
+      "id": "orc_watch",
+      "display_name": "Orc Watch",
+      "ue_position_cm": [
+        120000,
+        -65000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "biome": "badlands",
+      "landform": "mesa",
+      "feature": "watch",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "orc.badlands",
+      "neighbors": [
+        "forest_edge",
+        "orc_camp",
+        "orc_ruined_field",
+        "river_ford"
+      ],
+      "road_neighbors": [
+        "orc_camp",
+        "river_ford"
+      ],
+      "approach_from_neighbor": {
+        "river_ford": "west",
+        "forest_edge": "north_west",
+        "orc_camp": "east",
+        "orc_ruined_field": "east"
+      }
+    },
+    "north_pass": {
+      "id": "north_pass",
+      "display_name": "North Pass",
+      "ue_position_cm": [
+        140000,
+        115000,
+        30000
+      ],
+      "anchor_type": "strategic_chokepoint",
+      "selection_radius_cm": 12000,
+      "macro_region": "eastern_badlands",
+      "owner": null,
+      "biome": "mountain",
+      "landform": "pass",
+      "feature": "narrow_pass",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dwarf.mountain_pass",
+      "neighbors": [
+        "dwarf_forge_approach",
+        "dwarf_mountain_pass",
+        "forest_edge",
+        "orc_camp",
+        "orc_war_camp"
+      ],
+      "road_neighbors": [
+        "orc_war_camp"
+      ],
+      "approach_from_neighbor": {
+        "forest_edge": "west",
+        "orc_camp": "south_east",
+        "dwarf_mountain_pass": "north",
+        "dwarf_forge_approach": "north_east",
+        "orc_war_camp": "east"
+      }
+    },
+    "orc_camp": {
+      "id": "orc_camp",
+      "display_name": "Orc Stronghold",
+      "ue_position_cm": [
+        280000,
+        15000,
+        12000
+      ],
+      "anchor_type": "settlement_proxy",
+      "selection_radius_cm": 18000,
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "biome": "badlands",
+      "landform": "ruined_city_edge",
+      "feature": "stronghold",
+      "elevation_band": "mid",
+      "settlement_id": "city.orc_ruinhold",
+      "resource": null,
+      "battle_recipe_hint": "orc.war_camp",
+      "neighbors": [
+        "north_pass",
+        "orc_badlands",
+        "orc_war_camp",
+        "orc_watch"
+      ],
+      "road_neighbors": [
+        "orc_badlands",
+        "orc_war_camp",
+        "orc_watch"
+      ],
+      "approach_from_neighbor": {
+        "north_pass": "north_west",
+        "orc_watch": "west",
+        "orc_badlands": "east",
+        "orc_war_camp": "north_east"
+      }
+    },
+    "orc_badlands": {
+      "id": "orc_badlands",
+      "display_name": "Badlands",
+      "ue_position_cm": [
+        380000,
+        -35000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "biome": "badlands",
+      "landform": "mesa",
+      "feature": "dry_gully",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "orc.badlands",
+      "neighbors": [
+        "orc_camp",
+        "orc_ruined_field"
+      ],
+      "road_neighbors": [
+        "orc_camp"
+      ],
+      "approach_from_neighbor": {
+        "orc_camp": "west",
+        "orc_ruined_field": "south_west"
+      }
+    },
+    "orc_war_camp": {
+      "id": "orc_war_camp",
+      "display_name": "War Camp",
+      "ue_position_cm": [
+        360000,
+        75000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "biome": "ruined_lowland",
+      "landform": "open_ruin",
+      "feature": "camp",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "orc.war_camp",
+      "neighbors": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "road_neighbors": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "approach_from_neighbor": {
+        "north_pass": "west",
+        "orc_camp": "south_west"
+      }
+    },
+    "orc_ruined_field": {
+      "id": "orc_ruined_field",
+      "display_name": "Ruined Field",
+      "ue_position_cm": [
+        240000,
+        -125000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "biome": "temperate_ruins",
+      "landform": "broken_city_edge",
+      "feature": "ruins",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "orc.ruined_field",
+      "neighbors": [
+        "orc_badlands",
+        "orc_broken_bridge",
+        "orc_watch"
+      ],
+      "road_neighbors": [
+        "orc_broken_bridge"
+      ],
+      "approach_from_neighbor": {
+        "orc_watch": "west",
+        "orc_badlands": "north_east",
+        "orc_broken_bridge": "south"
+      }
+    },
+    "orc_broken_bridge": {
+      "id": "orc_broken_bridge",
+      "display_name": "Broken Bridge",
+      "ue_position_cm": [
+        220000,
+        -185000,
+        12000
+      ],
+      "anchor_type": "strategic_chokepoint",
+      "selection_radius_cm": 12000,
+      "macro_region": "eastern_badlands",
+      "owner": null,
+      "biome": "ruined_valley",
+      "landform": "ravine",
+      "feature": "broken_bridge",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "orc.broken_bridge",
+      "neighbors": [
+        "dark_ruined_causeway",
+        "orc_ruined_field",
+        "southern_crossing"
+      ],
+      "road_neighbors": [
+        "dark_ruined_causeway",
+        "orc_ruined_field"
+      ],
+      "approach_from_neighbor": {
+        "orc_ruined_field": "north",
+        "southern_crossing": "west",
+        "dark_ruined_causeway": "south"
+      }
+    },
+    "coastal_ruins": {
+      "id": "coastal_ruins",
+      "display_name": "Coastal Ruins",
+      "ue_position_cm": [
+        -400000,
+        -125000,
+        0
+      ],
+      "anchor_type": "landmark",
+      "selection_radius_cm": 12000,
+      "macro_region": "greenwood",
+      "owner": null,
+      "biome": "coast",
+      "landform": "valley_hill",
+      "feature": "ruins",
+      "elevation_band": "low",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "neutral.coastal_ruins",
+      "neighbors": [
+        "human_capital",
+        "nature_shrine"
+      ],
+      "road_neighbors": [
+        "human_capital",
+        "nature_shrine"
+      ],
+      "approach_from_neighbor": {
+        "human_capital": "north",
+        "nature_shrine": "east"
+      }
+    },
+    "nature_shrine": {
+      "id": "nature_shrine",
+      "display_name": "Forest Shrine",
+      "ue_position_cm": [
+        -240000,
+        -165000,
+        30000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "greenwood",
+      "owner": "nature",
+      "biome": "mountain_forest",
+      "landform": "shrine_terrace",
+      "feature": "ancient_shrine",
+      "elevation_band": "high",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "nature.ancient_shrine",
+      "neighbors": [
+        "coastal_ruins",
+        "nature_forest_clearing",
+        "nature_grassland_edge"
+      ],
+      "road_neighbors": [
+        "coastal_ruins"
+      ],
+      "approach_from_neighbor": {
+        "coastal_ruins": "west",
+        "nature_forest_clearing": "south",
+        "nature_grassland_edge": "east"
+      }
+    },
+    "nature_forest_clearing": {
+      "id": "nature_forest_clearing",
+      "display_name": "Forest Clearing",
+      "ue_position_cm": [
+        -220000,
+        -275000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "greenwood",
+      "owner": "nature",
+      "biome": "forest",
+      "landform": "clearing",
+      "feature": "dense_treeline",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "nature.forest_clearing",
+      "neighbors": [
+        "nature_river_woodland",
+        "nature_shrine",
+        "nature_treehold"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "nature_shrine": "north",
+        "nature_treehold": "west",
+        "nature_river_woodland": "south_east"
+      }
+    },
+    "nature_treehold": {
+      "id": "nature_treehold",
+      "display_name": "Nature Treehold",
+      "ue_position_cm": [
+        -350000,
+        -325000,
+        12000
+      ],
+      "anchor_type": "settlement_proxy",
+      "selection_radius_cm": 18000,
+      "macro_region": "greenwood",
+      "owner": "nature",
+      "biome": "forest",
+      "landform": "treehold",
+      "feature": "great_tree",
+      "elevation_band": "mid",
+      "settlement_id": "city.nature_treehold",
+      "resource": null,
+      "battle_recipe_hint": "nature.forest_clearing",
+      "neighbors": [
+        "nature_forest_clearing",
+        "nature_river_woodland"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "nature_forest_clearing": "east",
+        "nature_river_woodland": "east"
+      }
+    },
+    "nature_river_woodland": {
+      "id": "nature_river_woodland",
+      "display_name": "River Woodland",
+      "ue_position_cm": [
+        -170000,
+        -365000,
+        0
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "greenwood",
+      "owner": "nature",
+      "biome": "forest",
+      "landform": "river_valley",
+      "feature": "river",
+      "elevation_band": "low",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "nature.river_woodland",
+      "neighbors": [
+        "nature_forest_clearing",
+        "nature_grassland_edge",
+        "nature_treehold"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "nature_forest_clearing": "north_west",
+        "nature_treehold": "west",
+        "nature_grassland_edge": "north"
+      }
+    },
+    "nature_grassland_edge": {
+      "id": "nature_grassland_edge",
+      "display_name": "Grassland Edge",
+      "ue_position_cm": [
+        -100000,
+        -215000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "greenwood",
+      "owner": null,
+      "biome": "meadow_edge",
+      "landform": "rolling_plain",
+      "feature": "forest_edge",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "nature.grassland_edge",
+      "neighbors": [
+        "nature_river_woodland",
+        "nature_shrine",
+        "river_ford",
+        "southern_crossing"
+      ],
+      "road_neighbors": [
+        "river_ford",
+        "southern_crossing"
+      ],
+      "approach_from_neighbor": {
+        "nature_shrine": "west",
+        "nature_river_woodland": "south",
+        "river_ford": "north",
+        "southern_crossing": "east"
+      }
+    },
+    "southern_crossing": {
+      "id": "southern_crossing",
+      "display_name": "Southern Crossing",
+      "ue_position_cm": [
+        20000,
+        -225000,
+        0
+      ],
+      "anchor_type": "strategic_chokepoint",
+      "selection_radius_cm": 12000,
+      "macro_region": "greenwood",
+      "owner": null,
+      "biome": "temperate",
+      "landform": "river_valley",
+      "feature": "road_crossing",
+      "elevation_band": "low",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "neutral.open_grassland",
+      "neighbors": [
+        "dark_corrupted_valley",
+        "nature_grassland_edge",
+        "orc_broken_bridge",
+        "river_ford"
+      ],
+      "road_neighbors": [
+        "dark_corrupted_valley",
+        "nature_grassland_edge",
+        "river_ford"
+      ],
+      "approach_from_neighbor": {
+        "nature_grassland_edge": "west",
+        "river_ford": "north_west",
+        "orc_broken_bridge": "east",
+        "dark_corrupted_valley": "east"
+      }
+    },
+    "dark_corrupted_valley": {
+      "id": "dark_corrupted_valley",
+      "display_name": "Corrupted Valley",
+      "ue_position_cm": [
+        120000,
+        -265000,
+        0
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "ashen_south",
+      "owner": "dark",
+      "biome": "corrupted_mountain",
+      "landform": "valley",
+      "feature": "mist",
+      "elevation_band": "low",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dark.corrupted_valley",
+      "neighbors": [
+        "dark_ash_plain",
+        "dark_ruined_causeway",
+        "southern_crossing"
+      ],
+      "road_neighbors": [
+        "southern_crossing"
+      ],
+      "approach_from_neighbor": {
+        "southern_crossing": "west",
+        "dark_ruined_causeway": "east",
+        "dark_ash_plain": "south_east"
+      }
+    },
+    "dark_ruined_causeway": {
+      "id": "dark_ruined_causeway",
+      "display_name": "Ruined Causeway",
+      "ue_position_cm": [
+        230000,
+        -245000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "ashen_south",
+      "owner": "dark",
+      "biome": "corrupted_ruins",
+      "landform": "causeway",
+      "feature": "ruined_bridge",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dark.ruined_causeway",
+      "neighbors": [
+        "dark_castle_approach",
+        "dark_corrupted_valley",
+        "orc_broken_bridge"
+      ],
+      "road_neighbors": [
+        "dark_castle_approach",
+        "orc_broken_bridge"
+      ],
+      "approach_from_neighbor": {
+        "orc_broken_bridge": "north",
+        "dark_corrupted_valley": "west",
+        "dark_castle_approach": "east"
+      }
+    },
+    "dark_ash_plain": {
+      "id": "dark_ash_plain",
+      "display_name": "Ash Plain",
+      "ue_position_cm": [
+        230000,
+        -365000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "ashen_south",
+      "owner": "dark",
+      "biome": "ash_waste",
+      "landform": "open_plain",
+      "feature": "dead_ground",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dark.ash_plain",
+      "neighbors": [
+        "dark_corrupted_valley",
+        "dark_fortress"
+      ],
+      "road_neighbors": [
+        "dark_fortress"
+      ],
+      "approach_from_neighbor": {
+        "dark_corrupted_valley": "north_west",
+        "dark_fortress": "east"
+      }
+    },
+    "dark_castle_approach": {
+      "id": "dark_castle_approach",
+      "display_name": "Castle Approach",
+      "ue_position_cm": [
+        340000,
+        -285000,
+        12000
+      ],
+      "anchor_type": "terrain_region",
+      "selection_radius_cm": 12000,
+      "macro_region": "ashen_south",
+      "owner": "dark",
+      "biome": "corrupted",
+      "landform": "fortress_approach",
+      "feature": "alien_castle",
+      "elevation_band": "mid",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dark.castle_approach",
+      "neighbors": [
+        "dark_fortress",
+        "dark_ruined_causeway"
+      ],
+      "road_neighbors": [
+        "dark_fortress",
+        "dark_ruined_causeway"
+      ],
+      "approach_from_neighbor": {
+        "dark_ruined_causeway": "west",
+        "dark_fortress": "south_east"
+      }
+    },
+    "dark_fortress": {
+      "id": "dark_fortress",
+      "display_name": "Dark Fortress",
+      "ue_position_cm": [
+        400000,
+        -365000,
+        12000
+      ],
+      "anchor_type": "settlement_proxy",
+      "selection_radius_cm": 18000,
+      "macro_region": "ashen_south",
+      "owner": "dark",
+      "biome": "corrupted",
+      "landform": "fortress",
+      "feature": "throne_sanctum",
+      "elevation_band": "mid",
+      "settlement_id": "city.dark_fortress",
+      "resource": null,
+      "battle_recipe_hint": "dark.castle_approach",
+      "neighbors": [
+        "dark_ash_plain",
+        "dark_castle_approach"
+      ],
+      "road_neighbors": [
+        "dark_ash_plain",
+        "dark_castle_approach"
+      ],
+      "approach_from_neighbor": {
+        "dark_ash_plain": "west",
+        "dark_castle_approach": "north_west"
+      }
+    }
+  },
+  "routes": {
+    "route.crossroads_human_capital": {
+      "id": "route.crossroads_human_capital",
+      "a": "human_capital",
+      "b": "crossroads",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -320000,
+          25000,
+          12000
+        ],
+        [
+          -250000,
+          13000,
+          12000
+        ],
+        [
+          -180000,
+          25000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.crossroads_old_quarry": {
+      "id": "route.crossroads_old_quarry",
+      "a": "crossroads",
+      "b": "old_quarry",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -180000,
+          25000,
+          12000
+        ],
+        [
+          -134634,
+          78953,
+          21000
+        ],
+        [
+          -110000,
+          145000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.crossroads_river_ford": {
+      "id": "route.crossroads_river_ford",
+      "a": "crossroads",
+      "b": "river_ford",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -180000,
+          25000,
+          12000
+        ],
+        [
+          -121120,
+          -21927,
+          6000
+        ],
+        [
+          -80000,
+          -85000,
+          0
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.crossroads_forest_edge": {
+      "id": "route.crossroads_forest_edge",
+      "a": "crossroads",
+      "b": "forest_edge",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -180000,
+          25000,
+          12000
+        ],
+        [
+          -97300,
+          25600,
+          12000
+        ],
+        [
+          -20000,
+          55000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.ancient_shrine_old_quarry": {
+      "id": "route.ancient_shrine_old_quarry",
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -110000,
+          145000,
+          30000
+        ],
+        [
+          -42300,
+          148300,
+          30000
+        ],
+        [
+          20000,
+          175000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.orc_watch_river_ford": {
+      "id": "route.orc_watch_river_ford",
+      "a": "river_ford",
+      "b": "orc_watch",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -80000,
+          -85000,
+          0
+        ],
+        [
+          21194,
+          -86940,
+          6000
+        ],
+        [
+          120000,
+          -65000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.forest_edge_orc_watch": {
+      "id": "route.forest_edge_orc_watch",
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -20000,
+          55000,
+          12000
+        ],
+        [
+          39200,
+          -17600,
+          12000
+        ],
+        [
+          120000,
+          -65000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.forest_edge_north_pass": {
+      "id": "route.forest_edge_north_pass",
+      "a": "forest_edge",
+      "b": "north_pass",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -20000,
+          55000,
+          12000
+        ],
+        [
+          54600,
+          99400,
+          21000
+        ],
+        [
+          140000,
+          115000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.north_pass_orc_camp": {
+      "id": "route.north_pass_orc_camp",
+      "a": "north_pass",
+      "b": "orc_camp",
+      "route_class": "pass",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "ue_spline_points_cm": [
+        [
+          140000,
+          115000,
+          30000
+        ],
+        [
+          201000,
+          52400,
+          21000
+        ],
+        [
+          280000,
+          15000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.orc_camp_orc_watch": {
+      "id": "route.orc_camp_orc_watch",
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          -65000,
+          12000
+        ],
+        [
+          205366,
+          -35733,
+          12000
+        ],
+        [
+          280000,
+          15000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.viking_forest_track_viking_harbour": {
+      "id": "route.viking_forest_track_viking_harbour",
+      "a": "viking_harbour",
+      "b": "viking_forest_track",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -380000,
+          335000,
+          0
+        ],
+        [
+          -315953,
+          284581,
+          6000
+        ],
+        [
+          -240000,
+          255000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.viking_fjord_ridge_viking_harbour": {
+      "id": "route.viking_fjord_ridge_viking_harbour",
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "route_class": "coast_road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          -380000,
+          335000,
+          0
+        ],
+        [
+          -318529,
+          366469,
+          15000
+        ],
+        [
+          -250000,
+          375000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.viking_forest_track_viking_snow_pass": {
+      "id": "route.viking_forest_track_viking_snow_pass",
+      "a": "viking_forest_track",
+      "b": "viking_snow_pass",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -240000,
+          255000,
+          12000
+        ],
+        [
+          -174500,
+          292600,
+          21000
+        ],
+        [
+          -100000,
+          305000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.viking_fjord_ridge_viking_snow_pass": {
+      "id": "route.viking_fjord_ridge_viking_snow_pass",
+      "a": "viking_fjord_ridge",
+      "b": "viking_snow_pass",
+      "route_class": "ridge_trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 9,
+      "ue_spline_points_cm": [
+        [
+          -250000,
+          375000,
+          30000
+        ],
+        [
+          -181300,
+          326500,
+          30000
+        ],
+        [
+          -100000,
+          305000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.northwest_march_viking_forest_track": {
+      "id": "route.northwest_march_viking_forest_track",
+      "a": "viking_forest_track",
+      "b": "northwest_march",
+      "route_class": "trade_road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          -240000,
+          255000,
+          12000
+        ],
+        [
+          -273344,
+          212637,
+          12000
+        ],
+        [
+          -285000,
+          160000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.human_capital_northwest_march": {
+      "id": "route.human_capital_northwest_march",
+      "a": "northwest_march",
+      "b": "human_capital",
+      "route_class": "trade_road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          -285000,
+          160000,
+          12000
+        ],
+        [
+          -290884,
+          89488,
+          12000
+        ],
+        [
+          -320000,
+          25000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.mountain_shrine_viking_snow_pass": {
+      "id": "route.mountain_shrine_viking_snow_pass",
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "route_class": "pass",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "ue_spline_points_cm": [
+        [
+          -100000,
+          305000,
+          30000
+        ],
+        [
+          -56173,
+          264710,
+          30000
+        ],
+        [
+          0,
+          245000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.ancient_shrine_mountain_shrine": {
+      "id": "route.ancient_shrine_mountain_shrine",
+      "a": "mountain_shrine",
+      "b": "ancient_shrine",
+      "route_class": "mountain_trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 9,
+      "ue_spline_points_cm": [
+        [
+          0,
+          245000,
+          30000
+        ],
+        [
+          21538,
+          213296,
+          30000
+        ],
+        [
+          20000,
+          175000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dwarf_mountain_pass_mountain_shrine": {
+      "id": "route.dwarf_mountain_pass_mountain_shrine",
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "route_class": "pass",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "ue_spline_points_cm": [
+        [
+          0,
+          245000,
+          30000
+        ],
+        [
+          62910,
+          241641,
+          30000
+        ],
+        [
+          120000,
+          215000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dwarf_high_quarry_dwarf_mountain_pass": {
+      "id": "route.dwarf_high_quarry_dwarf_mountain_pass",
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          215000,
+          30000
+        ],
+        [
+          118139,
+          281824,
+          30000
+        ],
+        [
+          140000,
+          345000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dwarf_high_quarry_dwarf_snow_basin": {
+      "id": "route.dwarf_high_quarry_dwarf_snow_basin",
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          140000,
+          345000,
+          30000
+        ],
+        [
+          203794,
+          353615,
+          21000
+        ],
+        [
+          260000,
+          385000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dwarf_forge_approach_dwarf_high_quarry": {
+      "id": "route.dwarf_forge_approach_dwarf_high_quarry",
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          140000,
+          345000,
+          30000
+        ],
+        [
+          183118,
+          300169,
+          30000
+        ],
+        [
+          240000,
+          275000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dwarf_forge_approach_dwarf_hold": {
+      "id": "route.dwarf_forge_approach_dwarf_hold",
+      "a": "dwarf_forge_approach",
+      "b": "dwarf_hold",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          240000,
+          275000,
+          30000
+        ],
+        [
+          290034,
+          310924,
+          30000
+        ],
+        [
+          350000,
+          325000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dwarf_hold_dwarf_snow_basin": {
+      "id": "route.dwarf_hold_dwarf_snow_basin",
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "route_class": "high_pass",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "ue_spline_points_cm": [
+        [
+          260000,
+          385000,
+          12000
+        ],
+        [
+          311656,
+          364984,
+          21000
+        ],
+        [
+          350000,
+          325000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dwarf_mountain_pass_north_pass": {
+      "id": "route.dwarf_mountain_pass_north_pass",
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "route_class": "pass",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          215000,
+          30000
+        ],
+        [
+          118233,
+          162646,
+          30000
+        ],
+        [
+          140000,
+          115000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dwarf_forge_approach_north_pass": {
+      "id": "route.dwarf_forge_approach_north_pass",
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "route_class": "old_dwarf_road",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 9,
+      "ue_spline_points_cm": [
+        [
+          240000,
+          275000,
+          30000
+        ],
+        [
+          175600,
+          204000,
+          30000
+        ],
+        [
+          140000,
+          115000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.north_pass_orc_war_camp": {
+      "id": "route.north_pass_orc_war_camp",
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "route_class": "ridge_road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          140000,
+          115000,
+          30000
+        ],
+        [
+          247800,
+          82900,
+          21000
+        ],
+        [
+          360000,
+          75000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.orc_badlands_orc_camp": {
+      "id": "route.orc_badlands_orc_camp",
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          280000,
+          15000,
+          12000
+        ],
+        [
+          335366,
+          733,
+          12000
+        ],
+        [
+          380000,
+          -35000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.orc_camp_orc_war_camp": {
+      "id": "route.orc_camp_orc_war_camp",
+      "a": "orc_camp",
+      "b": "orc_war_camp",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          280000,
+          15000,
+          12000
+        ],
+        [
+          312800,
+          54600,
+          12000
+        ],
+        [
+          360000,
+          75000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.orc_ruined_field_orc_watch": {
+      "id": "route.orc_ruined_field_orc_watch",
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          -65000,
+          12000
+        ],
+        [
+          185400,
+          -84200,
+          12000
+        ],
+        [
+          240000,
+          -125000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.orc_badlands_orc_ruined_field": {
+      "id": "route.orc_badlands_orc_ruined_field",
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "route_class": "gully_trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          380000,
+          -35000,
+          12000
+        ],
+        [
+          301900,
+          -67400,
+          12000
+        ],
+        [
+          240000,
+          -125000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.orc_broken_bridge_orc_ruined_field": {
+      "id": "route.orc_broken_bridge_orc_ruined_field",
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          240000,
+          -125000,
+          12000
+        ],
+        [
+          241384,
+          -158794,
+          12000
+        ],
+        [
+          220000,
+          -185000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.coastal_ruins_human_capital": {
+      "id": "route.coastal_ruins_human_capital",
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "route_class": "coast_road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          -320000,
+          25000,
+          12000
+        ],
+        [
+          -370588,
+          -44352,
+          6000
+        ],
+        [
+          -400000,
+          -125000,
+          0
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.coastal_ruins_nature_shrine": {
+      "id": "route.coastal_ruins_nature_shrine",
+      "a": "coastal_ruins",
+      "b": "nature_shrine",
+      "route_class": "forest_road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          -400000,
+          -125000,
+          0
+        ],
+        [
+          -322910,
+          -156641,
+          15000
+        ],
+        [
+          -240000,
+          -165000,
+          30000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.nature_forest_clearing_nature_shrine": {
+      "id": "route.nature_forest_clearing_nature_shrine",
+      "a": "nature_shrine",
+      "b": "nature_forest_clearing",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -240000,
+          -165000,
+          30000
+        ],
+        [
+          -218193,
+          -217853,
+          21000
+        ],
+        [
+          -220000,
+          -275000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.nature_grassland_edge_nature_shrine": {
+      "id": "route.nature_grassland_edge_nature_shrine",
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -240000,
+          -165000,
+          30000
+        ],
+        [
+          -165500,
+          -177400,
+          21000
+        ],
+        [
+          -100000,
+          -215000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.nature_forest_clearing_nature_treehold": {
+      "id": "route.nature_forest_clearing_nature_treehold",
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -220000,
+          -275000,
+          12000
+        ],
+        [
+          -289500,
+          -288300,
+          12000
+        ],
+        [
+          -350000,
+          -325000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.nature_forest_clearing_nature_river_woodland": {
+      "id": "route.nature_forest_clearing_nature_river_woodland",
+      "a": "nature_forest_clearing",
+      "b": "nature_river_woodland",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -220000,
+          -275000,
+          12000
+        ],
+        [
+          -184510,
+          -314172,
+          6000
+        ],
+        [
+          -170000,
+          -365000,
+          0
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.nature_river_woodland_nature_treehold": {
+      "id": "route.nature_river_woodland_nature_treehold",
+      "a": "nature_river_woodland",
+      "b": "nature_treehold",
+      "route_class": "river_trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -170000,
+          -365000,
+          0
+        ],
+        [
+          -256400,
+          -328800,
+          6000
+        ],
+        [
+          -350000,
+          -325000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.nature_grassland_edge_nature_river_woodland": {
+      "id": "route.nature_grassland_edge_nature_river_woodland",
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "route_class": "meadow_trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -100000,
+          -215000,
+          12000
+        ],
+        [
+          -121500,
+          -296300,
+          6000
+        ],
+        [
+          -170000,
+          -365000,
+          0
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.nature_grassland_edge_river_ford": {
+      "id": "route.nature_grassland_edge_river_ford",
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -100000,
+          -215000,
+          12000
+        ],
+        [
+          -78139,
+          -151824,
+          6000
+        ],
+        [
+          -80000,
+          -85000,
+          0
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.nature_grassland_edge_southern_crossing": {
+      "id": "route.nature_grassland_edge_southern_crossing",
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -100000,
+          -215000,
+          12000
+        ],
+        [
+          -39003,
+          -208041,
+          6000
+        ],
+        [
+          20000,
+          -225000,
+          0
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.river_ford_southern_crossing": {
+      "id": "route.river_ford_southern_crossing",
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -80000,
+          -85000,
+          0
+        ],
+        [
+          -20235,
+          -148025,
+          0
+        ],
+        [
+          20000,
+          -225000,
+          0
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.orc_broken_bridge_southern_crossing": {
+      "id": "route.orc_broken_bridge_southern_crossing",
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          20000,
+          -225000,
+          0
+        ],
+        [
+          116400,
+          -187000,
+          6000
+        ],
+        [
+          220000,
+          -185000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dark_corrupted_valley_southern_crossing": {
+      "id": "route.dark_corrupted_valley_southern_crossing",
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          20000,
+          -225000,
+          0
+        ],
+        [
+          65543,
+          -256141,
+          0
+        ],
+        [
+          120000,
+          -265000,
+          0
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dark_ruined_causeway_orc_broken_bridge": {
+      "id": "route.dark_ruined_causeway_orc_broken_bridge",
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "route_class": "causeway",
+      "road": true,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          220000,
+          -185000,
+          12000
+        ],
+        [
+          236836,
+          -213027,
+          12000
+        ],
+        [
+          230000,
+          -245000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dark_corrupted_valley_dark_ruined_causeway": {
+      "id": "route.dark_corrupted_valley_dark_ruined_causeway",
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          -265000,
+          0
+        ],
+        [
+          177146,
+          -266806,
+          6000
+        ],
+        [
+          230000,
+          -245000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dark_ash_plain_dark_corrupted_valley": {
+      "id": "route.dark_ash_plain_dark_corrupted_valley",
+      "a": "dark_corrupted_valley",
+      "b": "dark_ash_plain",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          -265000,
+          0
+        ],
+        [
+          184000,
+          -305100,
+          6000
+        ],
+        [
+          230000,
+          -365000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 420,
+      "presentation": "trail"
+    },
+    "route.dark_castle_approach_dark_ruined_causeway": {
+      "id": "route.dark_castle_approach_dark_ruined_causeway",
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          230000,
+          -245000,
+          12000
+        ],
+        [
+          289100,
+          -253722,
+          12000
+        ],
+        [
+          340000,
+          -285000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dark_ash_plain_dark_fortress": {
+      "id": "route.dark_ash_plain_dark_fortress",
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 7,
+      "ue_spline_points_cm": [
+        [
+          230000,
+          -365000,
+          12000
+        ],
+        [
+          315000,
+          -353000,
+          12000
+        ],
+        [
+          400000,
+          -365000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    },
+    "route.dark_castle_approach_dark_fortress": {
+      "id": "route.dark_castle_approach_dark_fortress",
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          340000,
+          -285000,
+          12000
+        ],
+        [
+          360400,
+          -332200,
+          12000
+        ],
+        [
+          400000,
+          -365000,
+          12000
+        ]
+      ],
+      "spline_width_cm": 850,
+      "presentation": "road"
+    }
+  }
+}
