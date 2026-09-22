@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "date": "2026-09-22",
+  "branch": "astra/soul-realtime-battle-prototype-20260921",
+  "build": {
+    "target": "SoulEditor Win64 Development",
+    "result": "Succeeded"
+  },
+  "rb_pbil_automation": {
+    "filter": "RB.PBIL",
+    "passed": 3,
+    "failed": 0,
+    "log": "Evidence/rb_pbil_automation.log"
+  },
+  "soul_realtime_automation": {
+    "filter": "Soul.RealtimeBattle",
+    "passed": 10,
+    "failed": 0,
+    "log": "Evidence/realtime_battle_automation_postmagic.log"
+  },
+  "magic_proof": {
+    "result": "SOUL_RT_MAGIC_PASS",
+    "casts": 3,
+    "mana_remaining": 40.0,
+    "active_areas": 1,
+    "accepted_contacts": 212,
+    "spells": ["Magic.Spell.Fire.Firebolt", "Magic.Spell.Electric.ChainLightning", "Magic.Spell.Ice.Blizzard"],
+    "log": "Evidence/realtime_magic_player_proof3.log"
+  },
+  "vendor_presentation_content": "Content/MagicSpells is locally excluded from Git"
+}

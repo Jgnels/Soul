@@ -5,11 +5,25 @@
 #include "GameFramework/HUD.h"
 #include "RBCombatBlueprintBinding.h"
 #include "RBCombatGroupDriver.h"
+#include "RBMagicAuthority.h"
 #include "SoulRealtimeBattleRules.h"
 #include "SoulRealtimeBattleArena.generated.h"
 
 class ACharacter;
 class URBCombatRangedComponent;
+class URBMagicPresentationProfile;
+class URBMagicSpellDefinition;
+
+struct FSoulRealtimeArenaMagicArea
+{
+    FVector Center = FVector::ZeroVector;
+    float Radius = 0.0f;
+    float RemainingSeconds = 0.0f;
+    float TickAccumulator = 0.0f;
+    float DamagePerTick = 0.0f;
+    float SlowFraction = 0.0f;
+    int32 SourceSide = 0;
+};
 
 struct FSoulRealtimeArenaCombatant
 {
@@ -85,7 +99,7 @@ public:
 
 UCLASS()
 class SOULREALTIMEBATTLE_API ASoulRealtimeArenaGameMode
-    : public AGameModeBase
+    : public AGameModeBase, public IRBMagicAuthority
 {
     GENERATED_BODY()
 public:
@@ -119,11 +133,23 @@ public:
         FRBHostIdentity Identity,
         const FRBHostDecision& Decision);
 
+    virtual bool CanCastMagic(
+        const URBMagicSpellDefinition& Spell,
+        const FRBMagicCastRequest& Request,
+        FString& OutError) const override;
+    virtual bool TryCommitMagicCast(
+        const URBMagicSpellDefinition& Spell,
+        const FRBMagicCastRequest& Request,
+        TConstArrayView<FRBMagicEffectIntent> Effects,
+        FString& OutError) override;
+
     int32 AliveForSide(int32 Side) const;
     int32 CasualtiesForSide(int32 Side) const;
     int32 TotalAlliedTargets() const;
     int32 AcceptedContactCount() const;
     float PlayerHealth() const;
+    float PlayerManaValue() const { return PlayerMana; }
+    int32 MagicCastCount() const { return MagicCasts; }
     FString Status;
     UPROPERTY() TArray<TObjectPtr<ACharacter>> Actors;
     UPROPERTY() TArray<TObjectPtr<USoulRealtimeArenaBinding>> Bindings;
@@ -147,6 +173,15 @@ private:
         bool bPlayerHero);
     bool SetupDrivers();
     void PlayerTick(float Seconds);
+    void TickMagic(float Seconds);
+    bool CastPlayerSpell(
+        const TCHAR* SpellPath,
+        const TCHAR* PresentationPath);
+    int32 FindPlayerSpellTarget(float Range) const;
+    bool ApplyMagicDamage(int32 TargetIndex, float Damage);
+    void SpawnSpellPresentation(
+        const URBMagicPresentationProfile* Profile,
+        const FVector& Location);
     bool PerformMelee(
         int32 AttackerIndex, FRBHostIdentity IntendedTarget);
     void ToggleAlliedOrders();
@@ -155,16 +190,24 @@ private:
     static FString RoleLabel(ESoulRealtimeFormationRole Role);
     static float RoleDamage(ESoulRealtimeFormationRole Role);
     static float RoleHealth(ESoulRealtimeFormationRole Role);
+    static float RoleWalkSpeed(ESoulRealtimeFormationRole Role);
 
     TArray<FSoulRealtimeArenaCombatant> Combatants;
+    TArray<FSoulRealtimeArenaMagicArea> ActiveMagicAreas;
     TArray<FRBHostGroup> Groups;
     TSet<FGuid> AcceptedContacts;
     TSet<int32> DefeatedRepresentations;
     bool bProof = false;
+    bool bMagicProof = false;
     bool bFinished = false;
     bool bAttackHeld = false;
     bool bAlliedCharge = true;
     float ProofElapsed = 0.0f;
+    float MagicProofElapsed = 0.0f;
+    int32 MagicProofStage = 0;
+    float PlayerMana = 80.0f;
+    TMap<FName, float> SpellCooldowns;
+    int32 MagicCasts = 0;
     int32 InitialAlive[2] = {0, 0};
 };
 

@@ -1,5 +1,6 @@
 {
-  "created": [
+  "created": [],
+  "updated": [
     "/Game/Soul/Magic/Spells/DA_Soul_Firebolt",
     "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt",
     "/Game/Soul/Magic/Spells/DA_Soul_ChainLightning",
@@ -13,7 +14,6 @@
     "/Game/Soul/Magic/Spells/DA_Soul_Tailwind",
     "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Tailwind"
   ],
-  "updated": [],
   "errors": [],
   "pass": true
 }

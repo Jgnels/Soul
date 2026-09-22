@@ -19,10 +19,16 @@
 #include "Misc/OutputDeviceRedirector.h"
 #include "Misc/Parse.h"
 #include "RBCombatRangedComponent.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
+#include "RBMagicLibrary.h"
+#include "RBMagicPresentationProfile.h"
+#include "RBMagicSpellDefinition.h"
 
 namespace
 {
     const FName ArenaDomain(TEXT("Soul.Battle"));
+    const FName MagicArenaDomain(TEXT("Soul.Arena"));
     ASoulRealtimeArenaGameMode* ArenaHost(const UObject* Object)
     {
         return Object && Object->GetWorld()
@@ -221,6 +227,20 @@ float ASoulRealtimeArenaGameMode::RoleHealth(
         case ESoulRealtimeFormationRole::Apex: return 190.0f;
         case ESoulRealtimeFormationRole::Hero: return 165.0f;
         default: return 105.0f;
+    }
+}
+
+float ASoulRealtimeArenaGameMode::RoleWalkSpeed(
+    ESoulRealtimeFormationRole Role)
+{
+    switch (Role)
+    {
+        case ESoulRealtimeFormationRole::Shock: return 330.0f;
+        case ESoulRealtimeFormationRole::Hero: return 320.0f;
+        case ESoulRealtimeFormationRole::Guard: return 240.0f;
+        case ESoulRealtimeFormationRole::Breaker: return 275.0f;
+        case ESoulRealtimeFormationRole::Apex: return 285.0f;
+        default: return 270.0f;
     }
 }
 
@@ -435,11 +455,246 @@ float ASoulRealtimeArenaGameMode::PlayerHealth() const
         : INDEX_NONE;
     return I == INDEX_NONE ? 0.0f : Combatants[I].Health;
 }
+
+bool ASoulRealtimeArenaGameMode::CanCastMagic(
+    const URBMagicSpellDefinition& Spell,
+    const FRBMagicCastRequest& Request,
+    FString& OutError) const
+{
+    OutError.Reset();
+    if (!PlayerHero || Spell.bStrategicOnly)
+    {
+        OutError = TEXT("Battle caster or battle spell unavailable.");
+        return false;
+    }
+
+    const auto* Binding =
+        PlayerHero->FindComponentByClass<USoulRealtimeArenaBinding>();
+    const int32 CasterIndex = Binding
+        ? Index(FRBHostIdentity::From(Binding->GetCombatant()))
+        : INDEX_NONE;
+    if (CasterIndex == INDEX_NONE ||
+        Request.Caster.Domain != MagicArenaDomain ||
+        Request.Caster.Id != Combatants[CasterIndex].Id)
+    {
+        OutError = TEXT("Cast request does not match the player hero.");
+        return false;
+    }
+
+    const FName SpellName = Spell.SpellTag.GetTagName();
+    if (SpellCooldowns.FindRef(SpellName) > 0.0f)
+    {
+        OutError = TEXT("Spell is on cooldown.");
+        return false;
+    }
+
+    float ManaCost = 0.0f;
+    for (const FRBMagicResourceCost& Cost : Spell.Costs)
+    {
+        if (Cost.ResourceTag.ToString() == TEXT("Magic.Resource.Mana"))
+            ManaCost += Cost.Amount;
+    }
+    if (PlayerMana + KINDA_SMALL_NUMBER < ManaCost)
+    {
+        OutError = TEXT("Not enough mana.");
+        return false;
+    }
+
+    if (Spell.TargetMode == ERBMagicTargetMode::Unit)
+    {
+        const int32 TargetIndex = Combatants.IndexOfByPredicate(
+            [&Request](const FSoulRealtimeArenaCombatant& C)
+            {
+                return C.Id == Request.Target.Entity.Id;
+            });
+        if (TargetIndex == INDEX_NONE ||
+            Combatants[TargetIndex].Health <= 0.0f ||
+            Combatants[TargetIndex].Side == Combatants[CasterIndex].Side ||
+            !Actors.IsValidIndex(TargetIndex) || !Actors[TargetIndex])
+        {
+            OutError = TEXT("Unit spell requires a living enemy target.");
+            return false;
+        }
+        if (Spell.Range > 0.0f &&
+            FVector::Dist2D(
+                PlayerHero->GetActorLocation(),
+                Actors[TargetIndex]->GetActorLocation()) > Spell.Range)
+        {
+            OutError = TEXT("Magic target is out of range.");
+            return false;
+        }
+    }
+    else if (Spell.TargetMode == ERBMagicTargetMode::Ground &&
+             Spell.Range > 0.0f &&
+             FVector::Dist2D(
+                 PlayerHero->GetActorLocation(),
+                 Request.Target.WorldLocation) > Spell.Range)
+    {
+        OutError = TEXT("Ground target is out of range.");
+        return false;
+    }
+    return true;
+}
+
+bool ASoulRealtimeArenaGameMode::ApplyMagicDamage(
+    int32 TargetIndex, float Damage)
+{
+    if (!Combatants.IsValidIndex(TargetIndex) ||
+        Damage <= 0.0f || Combatants[TargetIndex].Health <= 0.0f)
+        return false;
+
+    const float Before = Combatants[TargetIndex].Health;
+    Combatants[TargetIndex].Health =
+        FMath::Max(0.0f, Before - Damage);
+    if (Before > 0.0f && Combatants[TargetIndex].Health <= 0.0f)
+    {
+        UE_LOG(LogTemp, Display,
+            TEXT("RB_MAGIC_DEFEAT: side=%d role=%s"),
+            Combatants[TargetIndex].Side,
+            *RoleLabel(Combatants[TargetIndex].Role));
+    }
+    return true;
+}
+
+bool ASoulRealtimeArenaGameMode::TryCommitMagicCast(
+    const URBMagicSpellDefinition& Spell,
+    const FRBMagicCastRequest& Request,
+    TConstArrayView<FRBMagicEffectIntent> Effects,
+    FString& OutError)
+{
+    if (!CanCastMagic(Spell, Request, OutError) || Effects.IsEmpty())
+    {
+        if (OutError.IsEmpty())
+            OutError = TEXT("Spell produced no effect intents.");
+        return false;
+    }
+
+    const auto* Binding =
+        PlayerHero->FindComponentByClass<USoulRealtimeArenaBinding>();
+    const int32 CasterIndex = Binding
+        ? Index(FRBHostIdentity::From(Binding->GetCombatant()))
+        : INDEX_NONE;
+    if (CasterIndex == INDEX_NONE)
+    {
+        OutError = TEXT("Player caster disappeared before commit.");
+        return false;
+    }
+
+    float ManaCost = 0.0f;
+    for (const FRBMagicResourceCost& Cost : Spell.Costs)
+    {
+        if (Cost.ResourceTag.ToString() == TEXT("Magic.Resource.Mana"))
+            ManaCost += Cost.Amount;
+    }
+
+    int32 PrimaryTarget = INDEX_NONE;
+    if (Spell.TargetMode == ERBMagicTargetMode::Unit)
+    {
+        PrimaryTarget = Combatants.IndexOfByPredicate(
+            [&Request](const FSoulRealtimeArenaCombatant& C)
+            {
+                return C.Id == Request.Target.Entity.Id;
+            });
+        if (PrimaryTarget == INDEX_NONE)
+        {
+            OutError = TEXT("Primary magic target no longer exists.");
+            return false;
+        }
+    }
+
+    FSoulRealtimeArenaMagicArea Area;
+    Area.Center = Request.Target.WorldLocation;
+    Area.SourceSide = Combatants[CasterIndex].Side;
+    bool bHasArea = false;
+
+    for (const FRBMagicEffectIntent& Intent : Effects)
+    {
+        const FString EffectTag = Intent.Effect.EffectTag.ToString();
+        if (EffectTag == TEXT("Magic.Effect.Damage") &&
+            PrimaryTarget != INDEX_NONE)
+        {
+            TArray<int32> Targets;
+            Targets.Add(PrimaryTarget);
+            if (Spell.DeliveryMode == ERBMagicDeliveryMode::Chain &&
+                Intent.Effect.Radius > 0.0f)
+            {
+                const FVector Center = Actors[PrimaryTarget]->GetActorLocation();
+                for (int32 I = 0; I < Combatants.Num(); ++I)
+                {
+                    if (I == PrimaryTarget ||
+                        Combatants[I].Side == Combatants[CasterIndex].Side ||
+                        Combatants[I].Health <= 0.0f ||
+                        !Actors.IsValidIndex(I) || !Actors[I])
+                        continue;
+                    if (FVector::DistSquared2D(
+                            Center, Actors[I]->GetActorLocation()) <=
+                        FMath::Square(Intent.Effect.Radius))
+                        Targets.Add(I);
+                }
+                Targets.Sort([this, Center](int32 A, int32 B)
+                {
+                    return FVector::DistSquared2D(
+                        Center, Actors[A]->GetActorLocation()) <
+                        FVector::DistSquared2D(
+                        Center, Actors[B]->GetActorLocation());
+                });
+            }
+
+            const int32 Limit = FMath::Clamp(
+                Intent.Effect.MaxTargets, 1, Targets.Num());
+            for (int32 I = 0; I < Limit; ++I)
+                ApplyMagicDamage(Targets[I], Intent.Effect.Magnitude);
+        }
+        else if (EffectTag == TEXT("Magic.Effect.Burning") &&
+                 PrimaryTarget != INDEX_NONE)
+        {
+            ApplyMagicDamage(PrimaryTarget, Intent.Effect.Magnitude);
+        }
+        else if (EffectTag == TEXT("Magic.Effect.DamagePeriodic"))
+        {
+            Area.DamagePerTick =
+                FMath::Max(Area.DamagePerTick, Intent.Effect.Magnitude);
+            Area.Radius = FMath::Max(Area.Radius, Intent.Effect.Radius);
+            Area.RemainingSeconds =
+                FMath::Max(Area.RemainingSeconds, Intent.Effect.DurationSeconds);
+            bHasArea = true;
+        }
+        else if (EffectTag == TEXT("Magic.Effect.Slow"))
+        {
+            Area.SlowFraction = FMath::Clamp(
+                Intent.Effect.Magnitude, 0.0f, 0.85f);
+            Area.Radius = FMath::Max(Area.Radius, Intent.Effect.Radius);
+            Area.RemainingSeconds =
+                FMath::Max(Area.RemainingSeconds, Intent.Effect.DurationSeconds);
+            bHasArea = true;
+        }
+    }
+
+    if (bHasArea && Area.Radius > 0.0f &&
+        Area.RemainingSeconds > 0.0f)
+        ActiveMagicAreas.Add(Area);
+
+    PlayerMana = FMath::Max(0.0f, PlayerMana - ManaCost);
+    SpellCooldowns.Add(
+        Spell.SpellTag.GetTagName(), Spell.CooldownSeconds);
+    ++MagicCasts;
+    Status = FString::Printf(
+        TEXT("Cast %s | Mana %.0f"),
+        *Spell.DisplayName.ToString(), PlayerMana);
+    UE_LOG(LogTemp, Display,
+        TEXT("RB_MAGIC_CAST: spell=%s mana=%.1f activeAreas=%d"),
+        *Spell.SpellTag.ToString(), PlayerMana, ActiveMagicAreas.Num());
+    OutError.Reset();
+    return true;
+}
+
 void ASoulRealtimeArenaGameMode::BeginPlay()
 {
     Super::BeginPlay();
     bProof = FParse::Param(
         FCommandLine::Get(), TEXT("SoulRealtimeArenaProof"));
+    bMagicProof = FParse::Param(
+        FCommandLine::Get(), TEXT("SoulRealtimeMagicProof"));
 
     if (!SetupArena())
     {
@@ -478,6 +733,7 @@ bool ASoulRealtimeArenaGameMode::SetupArena()
         GetWorld()->SpawnActor<ADirectionalLight>();
     if (Light)
     {
+        Light->GetLightComponent()->SetMobility(EComponentMobility::Movable);
         Light->SetActorRotation(FRotator(-55, -35, 0));
         Light->GetLightComponent()->SetIntensity(5.0f);
     }
@@ -603,12 +859,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
         ECC_Visibility, ECR_Block);
     Actor->GetCharacterMovement()->MaxWalkSpeed =
-        FormationRole == ESoulRealtimeFormationRole::Shock ? 330.0f :
-        FormationRole == ESoulRealtimeFormationRole::Hero ? 320.0f :
-        FormationRole == ESoulRealtimeFormationRole::Guard ? 240.0f :
-        FormationRole == ESoulRealtimeFormationRole::Breaker ? 275.0f :
-        FormationRole == ESoulRealtimeFormationRole::Apex ? 285.0f :
-        270.0f;
+        RoleWalkSpeed(FormationRole);
     Actor->GetCharacterMovement()->bOrientRotationToMovement = !bPlayer;
 
     UStaticMeshComponent* Body =
@@ -882,6 +1133,195 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
             AI->StopMovement();
     }
 }
+int32 ASoulRealtimeArenaGameMode::FindPlayerSpellTarget(
+    float Range) const
+{
+    if (!PlayerHero || Range <= 0.0f) return INDEX_NONE;
+    const FVector Origin = PlayerHero->GetActorLocation();
+    const FVector Aim =
+        PlayerHero->GetActorForwardVector().GetSafeNormal2D();
+    int32 Best = INDEX_NONE;
+    double BestScore = -TNumericLimits<double>::Max();
+
+    for (int32 I = 0; I < Combatants.Num(); ++I)
+    {
+        if (Combatants[I].Side == 0 ||
+            Combatants[I].Health <= 0.0f ||
+            !Actors.IsValidIndex(I) || !Actors[I])
+            continue;
+        const FVector Delta = Actors[I]->GetActorLocation() - Origin;
+        const double Distance = Delta.Size2D();
+        if (Distance > Range || Distance <= KINDA_SMALL_NUMBER)
+            continue;
+        const double Facing = FVector::DotProduct(
+            Aim, Delta.GetSafeNormal2D());
+        if (Facing < 0.15) continue;
+        const double Score =
+            Facing * 2.0 + (1.0 - Distance / Range) * 0.5;
+        if (Score > BestScore)
+        {
+            Best = I;
+            BestScore = Score;
+        }
+    }
+    return Best;
+}
+
+void ASoulRealtimeArenaGameMode::SpawnSpellPresentation(
+    const URBMagicPresentationProfile* Profile,
+    const FVector& Location)
+{
+    if (!Profile || !GetWorld()) return;
+    UNiagaraSystem* System = nullptr;
+    if (!Profile->PersistentSystem.IsNull())
+        System = Profile->PersistentSystem.LoadSynchronous();
+    if (!System && !Profile->ImpactSystem.IsNull())
+        System = Profile->ImpactSystem.LoadSynchronous();
+    if (!System && !Profile->CastSystem.IsNull())
+        System = Profile->CastSystem.LoadSynchronous();
+    if (!System && !Profile->ProjectileSystem.IsNull())
+        System = Profile->ProjectileSystem.LoadSynchronous();
+    if (System)
+        UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+            GetWorld(), System, Location);
+}
+
+bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
+    const TCHAR* SpellPath,
+    const TCHAR* PresentationPath)
+{
+    auto* Spell = LoadObject<URBMagicSpellDefinition>(
+        nullptr, SpellPath);
+    auto* Profile = LoadObject<URBMagicPresentationProfile>(
+        nullptr, PresentationPath);
+    if (!Spell || !Profile || !PlayerHero)
+    {
+        Status = TEXT("Magic asset failed to load");
+        return false;
+    }
+
+    const auto* Binding =
+        PlayerHero->FindComponentByClass<USoulRealtimeArenaBinding>();
+    const int32 CasterIndex = Binding
+        ? Index(FRBHostIdentity::From(Binding->GetCombatant()))
+        : INDEX_NONE;
+    if (CasterIndex == INDEX_NONE)
+    {
+        Status = TEXT("Player caster unavailable");
+        return false;
+    }
+
+    FRBMagicCastRequest Request;
+    Request.CastId = FGuid::NewGuid();
+    Request.SpellTag = Spell->SpellTag;
+    Request.Caster.Domain = MagicArenaDomain;
+    Request.Caster.Id = Combatants[CasterIndex].Id;
+
+    FVector PresentationLocation = PlayerHero->GetActorLocation();
+    if (Spell->TargetMode == ERBMagicTargetMode::Unit)
+    {
+        const int32 TargetIndex = FindPlayerSpellTarget(Spell->Range);
+        if (TargetIndex == INDEX_NONE)
+        {
+            Status = TEXT("No enemy in spell targeting arc");
+            return false;
+        }
+        Request.Target.Entity.Domain = MagicArenaDomain;
+        Request.Target.Entity.Id = Combatants[TargetIndex].Id;
+        Request.Target.WorldLocation = Actors[TargetIndex]->GetActorLocation();
+        PresentationLocation = Request.Target.WorldLocation;
+    }
+    else if (Spell->TargetMode == ERBMagicTargetMode::Ground)
+    {
+        const float Distance =
+            FMath::Min(1600.0f, FMath::Max(600.0f, Spell->Range * 0.65f));
+        Request.Target.WorldLocation =
+            PlayerHero->GetActorLocation() +
+            PlayerHero->GetActorForwardVector().GetSafeNormal2D() * Distance;
+        Request.Target.WorldLocation.Z = 10.0f;
+        PresentationLocation = Request.Target.WorldLocation;
+    }
+    else if (Spell->TargetMode == ERBMagicTargetMode::Direction)
+    {
+        Request.Target.Direction =
+            PlayerHero->GetActorForwardVector().GetSafeNormal();
+    }
+
+    TArray<FRBMagicEffectIntent> Effects;
+    FString Error;
+    if (!URBMagicLibrary::BuildEffectIntents(
+            Spell, Request, Effects, Error) ||
+        !TryCommitMagicCast(*Spell, Request, Effects, Error))
+    {
+        Status = Error.IsEmpty() ? TEXT("Magic cast rejected") : Error;
+        return false;
+    }
+
+    SpawnSpellPresentation(Profile, PresentationLocation);
+    return true;
+}
+
+void ASoulRealtimeArenaGameMode::TickMagic(float Seconds)
+{
+    for (auto& Pair : SpellCooldowns)
+        Pair.Value = FMath::Max(0.0f, Pair.Value - Seconds);
+
+    for (int32 I = 0; I < Combatants.Num(); ++I)
+    {
+        if (Combatants[I].Health <= 0.0f ||
+            !Actors.IsValidIndex(I) || !Actors[I])
+            continue;
+        Actors[I]->GetCharacterMovement()->MaxWalkSpeed =
+            RoleWalkSpeed(Combatants[I].Role);
+    }
+
+    for (int32 AreaIndex = ActiveMagicAreas.Num() - 1;
+         AreaIndex >= 0; --AreaIndex)
+    {
+        FSoulRealtimeArenaMagicArea& Area =
+            ActiveMagicAreas[AreaIndex];
+        Area.RemainingSeconds -= Seconds;
+        Area.TickAccumulator += Seconds;
+
+        for (int32 I = 0; I < Combatants.Num(); ++I)
+        {
+            if (Combatants[I].Side == Area.SourceSide ||
+                Combatants[I].Health <= 0.0f ||
+                !Actors.IsValidIndex(I) || !Actors[I])
+                continue;
+            if (FVector::DistSquared2D(
+                    Area.Center, Actors[I]->GetActorLocation()) >
+                FMath::Square(Area.Radius))
+                continue;
+            if (Area.SlowFraction > 0.0f)
+            {
+                Actors[I]->GetCharacterMovement()->MaxWalkSpeed =
+                    RoleWalkSpeed(Combatants[I].Role) *
+                    (1.0f - Area.SlowFraction);
+            }
+        }
+
+        while (Area.TickAccumulator >= 1.0f)
+        {
+            Area.TickAccumulator -= 1.0f;
+            for (int32 I = 0; I < Combatants.Num(); ++I)
+            {
+                if (Combatants[I].Side == Area.SourceSide ||
+                    Combatants[I].Health <= 0.0f ||
+                    !Actors.IsValidIndex(I) || !Actors[I])
+                    continue;
+                if (FVector::DistSquared2D(
+                        Area.Center, Actors[I]->GetActorLocation()) <=
+                    FMath::Square(Area.Radius))
+                    ApplyMagicDamage(I, Area.DamagePerTick);
+            }
+        }
+
+        if (Area.RemainingSeconds <= 0.0f)
+            ActiveMagicAreas.RemoveAtSwap(AreaIndex);
+    }
+}
+
 void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
 {
     if (!PlayerHero || PlayerHealth() <= 0.0f) return;
@@ -947,6 +1387,19 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
             Status = TEXT("No enemy in melee arc");
     }
 
+    if (PC->WasInputKeyJustPressed(EKeys::One))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
+    if (PC->WasInputKeyJustPressed(EKeys::Two))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_ChainLightning.DA_Soul_ChainLightning"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning.DA_SoulPresentation_ChainLightning"));
+    if (PC->WasInputKeyJustPressed(EKeys::Three))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_Blizzard.DA_Soul_Blizzard"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard.DA_SoulPresentation_Blizzard"));
+
     if (PC->WasInputKeyJustPressed(EKeys::G))
         ToggleAlliedOrders();
     if (PC->WasInputKeyJustPressed(EKeys::Escape))
@@ -961,11 +1414,59 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
         C.MeleeCooldown =
             FMath::Max(0.0f, C.MeleeCooldown - Seconds);
 
+    TickMagic(Seconds);
     UpdateDefeatedRepresentations();
 
     if (!bProof)
     {
-        PlayerTick(Seconds);
+        if (bMagicProof)
+        {
+            MagicProofElapsed += Seconds;
+
+            if (MagicProofStage == 0 && MagicProofElapsed >= 4.0f)
+            {
+                if (CastPlayerSpell(
+                    TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
+                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt")))
+                    MagicProofStage = 1;
+            }
+            if (MagicProofStage == 1 && MagicProofElapsed >= 5.0f)
+            {
+                if (CastPlayerSpell(
+                    TEXT("/Game/Soul/Magic/Spells/DA_Soul_ChainLightning.DA_Soul_ChainLightning"),
+                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning.DA_SoulPresentation_ChainLightning")))
+                    MagicProofStage = 2;
+            }
+            if (MagicProofStage == 2 && MagicProofElapsed >= 6.0f)
+            {
+                if (CastPlayerSpell(
+                    TEXT("/Game/Soul/Magic/Spells/DA_Soul_Blizzard.DA_Soul_Blizzard"),
+                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard.DA_SoulPresentation_Blizzard")))
+                    MagicProofStage = 3;
+            }
+
+            if (MagicProofElapsed >= 10.0f)
+            {
+                const bool bPassed =
+                    MagicCasts >= 3 &&
+                    PlayerMana <= 40.01f &&
+                    ActiveMagicAreas.Num() > 0;
+                UE_LOG(LogTemp, Display,
+                    TEXT("SOUL_RT_MAGIC_%s: casts=%d mana=%.1f areas=%d contacts=%d"),
+                    bPassed ? TEXT("PASS") : TEXT("FAIL"),
+                    MagicCasts, PlayerMana, ActiveMagicAreas.Num(),
+                    AcceptedContactCount());
+                bFinished = true;
+                FPlatformMisc::RequestExitWithStatus(
+                    true, bPassed ? 0 : 1);
+                return;
+            }
+        }
+        else
+        {
+            PlayerTick(Seconds);
+        }
+
         if (AliveForSide(1) == 0)
             Status = TEXT("VICTORY - enemy force defeated");
         else if (AliveForSide(0) == 0)
@@ -1028,7 +1529,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     if (!Host) return;
 
     DrawRect(FLinearColor(0, 0, 0, 0.80f),
-        12, 12, 1120, 132);
+        12, 12, 1120, 158);
     DrawText(
         TEXT("SOUL | REAL-TIME FANTASY BATTLE PROTOTYPE | 24v24"),
         FColor::White, 24, 20);
@@ -1048,9 +1549,14 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             Host->AcceptedContactCount()),
         FColor::White, 24, 70);
     DrawText(
-        TEXT("RB Combat physical execution | RBAI + RB PBIL formation policy qualified"),
+        FString::Printf(
+            TEXT("Mana %.0f | 1 Firebolt | 2 Chain Lightning | 3 Blizzard | casts %d"),
+            Host->PlayerManaValue(), Host->MagicCastCount()),
         FColor::Cyan, 24, 95);
     DrawText(
+        TEXT("RB Combat physical execution | RBAI + RB PBIL spatial policy | RB Magic authority"),
+        FColor::Cyan, 24, 118);
+    DrawText(
         Host->Status,
-        FColor::Yellow, 24, 118);
+        FColor::Yellow, 24, 141);
 }

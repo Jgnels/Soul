@@ -55,7 +55,7 @@ spells = [
          slot="projectile_system"),
 
     dict(name="DA_Soul_ChainLightning", display="Chain Lightning",
-         spell="Magic.Spell.Storm.ChainLightning", school="Magic.School.Storm",
+         spell="Magic.Spell.Electric.ChainLightning", school="Magic.School.Electric",
          target="UNIT", delivery="CHAIN", cost=14.0, range=2200.0,
          effects=[("Magic.Effect.Damage",28.0,0.0,900.0,4)],
          system="/Game/MagicSpells/Electric/FX/NS_ChainLightning",

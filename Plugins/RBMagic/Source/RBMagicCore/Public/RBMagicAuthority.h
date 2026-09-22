@@ -8,7 +8,8 @@ class URBMagicSpellDefinition;
 class RBMAGICCORE_API IRBMagicAuthority
 {
 public:
-    virtual ~IRBMagicAuthority() = default;
+    IRBMagicAuthority();
+    virtual ~IRBMagicAuthority();
 
     virtual bool CanCastMagic(
         const URBMagicSpellDefinition& Spell,
