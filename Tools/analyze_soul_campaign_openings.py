@@ -106,7 +106,7 @@ for faction in sorted(analysis):
     lines.append("")
 if errors:
     lines += ["## Errors",""] + ["- "+e for e in errors]
-OUT_MD.write_text("\n".join(lines)+"\n",encoding="utf-8")
+OUT_MD.write_text("\n".join(lines).rstrip()+"\n",encoding="utf-8")
 print(json.dumps(result,indent=2))
 if errors:
     raise SystemExit(1)
