@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "baseline_action_points_per_day": 3,
+  "factions": {
+    "humans": {
+      "capital": "human_capital",
+      "minor": "crossroads",
+      "neutral_frontier_choices": [
+        "coastal_ruins",
+        "forest_edge",
+        "northwest_march",
+        "old_quarry",
+        "river_ford"
+      ],
+      "neutral_frontier_count": 5,
+      "value_sites_within_2_moves": [
+        "forest_edge",
+        "old_quarry"
+      ],
+      "nearest_enemy_owned_region": [
+        "viking_forest_track",
+        2,
+        "vikings"
+      ],
+      "nearest_enemy_capital": [
+        "vikings",
+        3
+      ],
+      "enemy_capital_distances": {
+        "vikings": 3,
+        "nature": 4,
+        "orcs": 4,
+        "dwarves": 5,
+        "dark": 6
+      }
+    },
+    "vikings": {
+      "capital": "viking_harbour",
+      "minor": "viking_forest_track",
+      "neutral_frontier_choices": [
+        "northwest_march",
+        "viking_fjord_ridge",
+        "viking_snow_pass"
+      ],
+      "neutral_frontier_count": 3,
+      "value_sites_within_2_moves": [
+        "viking_fjord_ridge"
+      ],
+      "nearest_enemy_owned_region": [
+        "human_capital",
+        3,
+        "humans"
+      ],
+      "nearest_enemy_capital": [
+        "humans",
+        3
+      ],
+      "enemy_capital_distances": {
+        "humans": 3,
+        "orcs": 6,
+        "dwarves": 7,
+        "nature": 7,
+        "dark": 9
+      }
+    },
+    "dwarves": {
+      "capital": "dwarf_hold",
+      "minor": "dwarf_forge_approach",
+      "neutral_frontier_choices": [
+        "dwarf_high_quarry",
+        "dwarf_snow_basin",
+        "north_pass"
+      ],
+      "neutral_frontier_count": 3,
+      "value_sites_within_2_moves": [
+        "dwarf_high_quarry"
+      ],
+      "nearest_enemy_owned_region": [
+        "orc_camp",
+        3,
+        "orcs"
+      ],
+      "nearest_enemy_capital": [
+        "orcs",
+        3
+      ],
+      "enemy_capital_distances": {
+        "orcs": 3,
+        "humans": 5,
+        "vikings": 7,
+        "nature": 8,
+        "dark": 9
+      }
+    },
+    "orcs": {
+      "capital": "orc_camp",
+      "minor": "orc_war_camp",
+      "neutral_frontier_choices": [
+        "north_pass",
+        "orc_badlands",
+        "orc_watch"
+      ],
+      "neutral_frontier_count": 3,
+      "value_sites_within_2_moves": [
+        "forest_edge",
+        "orc_badlands"
+      ],
+      "nearest_enemy_owned_region": [
+        "dwarf_forge_approach",
+        2,
+        "dwarves"
+      ],
+      "nearest_enemy_capital": [
+        "dwarves",
+        3
+      ],
+      "enemy_capital_distances": {
+        "dwarves": 3,
+        "humans": 4,
+        "nature": 5,
+        "dark": 6,
+        "vikings": 6
+      }
+    },
+    "nature": {
+      "capital": "nature_treehold",
+      "minor": "nature_forest_clearing",
+      "neutral_frontier_choices": [
+        "nature_river_woodland",
+        "nature_shrine"
+      ],
+      "neutral_frontier_count": 2,
+      "value_sites_within_2_moves": [
+        "nature_river_woodland"
+      ],
+      "nearest_enemy_owned_region": [
+        "crossroads",
+        4,
+        "humans"
+      ],
+      "nearest_enemy_capital": [
+        "humans",
+        4
+      ],
+      "enemy_capital_distances": {
+        "humans": 4,
+        "orcs": 5,
+        "dark": 6,
+        "vikings": 7,
+        "dwarves": 8
+      }
+    },
+    "dark": {
+      "capital": "dark_fortress",
+      "minor": "dark_castle_approach",
+      "neutral_frontier_choices": [
+        "dark_ash_plain",
+        "dark_ruined_causeway"
+      ],
+      "neutral_frontier_count": 2,
+      "value_sites_within_2_moves": [
+        "dark_ash_plain"
+      ],
+      "nearest_enemy_owned_region": [
+        "crossroads",
+        5,
+        "humans"
+      ],
+      "nearest_enemy_capital": [
+        "humans",
+        6
+      ],
+      "enemy_capital_distances": {
+        "humans": 6,
+        "nature": 6,
+        "orcs": 6,
+        "dwarves": 9,
+        "vikings": 9
+      }
+    }
+  },
+  "errors": [],
+  "notes": [
+    "Hostile-region traversal is assumed to stop for battle/occupation; the current world graph itself does not enforce that.",
+    "Value sites are thematic opening targets only; numeric economy mapping remains balance-owned.",
+    "Three-region capital distance can still create early war, but owned minor settlements and neutral buffers prevent direct starting borders."
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "DERIVED_COMPATIBILITY_PROJECTION",
+  "source": "soul_campaign_start_states_v1_20260922.json",
+  "authority": {
+    "authoritative_start_state_set": "soul_campaign_start_states_v1_20260922.json",
+    "scenario": "six_faction_sandbox_candidate",
+    "founder_micro_remains_separate": true,
+    "diplomacy": "OUT_OF_SCOPE_UNSET"
+  },
+  "rules": [
+    "This file is derived; do not edit it independently.",
+    "Full-world owner/homeland coloring is not campaign-start ownership.",
+    "The six-faction sandbox uses one major seat plus one aligned minor settlement per faction.",
+    "Human-Orc war is locked only in the founder micro scenario, not in this sandbox projection.",
+    "Army composition and garrison numbers remain balance-owned."
+  ],
+  "factions": {
+    "humans": {
+      "seat_region": "human_capital",
+      "starting_regions": [
+        "human_capital",
+        "crossroads"
+      ],
+      "safe_expansion_targets": [
+        "old_quarry"
+      ],
+      "army_spawn_anchors": [
+        {
+          "region_id": "human_capital",
+          "role": "primary_field_army",
+          "default_active": true
+        },
+        {
+          "region_id": "crossroads",
+          "role": "frontier_reserve_or_second_hero",
+          "default_active": false
+        }
+      ]
+    },
+    "vikings": {
+      "seat_region": "viking_harbour",
+      "starting_regions": [
+        "viking_harbour",
+        "viking_forest_track"
+      ],
+      "safe_expansion_targets": [
+        "viking_fjord_ridge"
+      ],
+      "army_spawn_anchors": [
+        {
+          "region_id": "viking_harbour",
+          "role": "primary_field_army",
+          "default_active": true
+        },
+        {
+          "region_id": "viking_forest_track",
+          "role": "frontier_reserve_or_second_hero",
+          "default_active": false
+        }
+      ]
+    },
+    "dwarves": {
+      "seat_region": "dwarf_hold",
+      "starting_regions": [
+        "dwarf_hold",
+        "dwarf_forge_approach"
+      ],
+      "safe_expansion_targets": [
+        "dwarf_high_quarry"
+      ],
+      "army_spawn_anchors": [
+        {
+          "region_id": "dwarf_hold",
+          "role": "primary_field_army",
+          "default_active": true
+        },
+        {
+          "region_id": "dwarf_forge_approach",
+          "role": "frontier_reserve_or_second_hero",
+          "default_active": false
+        }
+      ]
+    },
+    "orcs": {
+      "seat_region": "orc_camp",
+      "starting_regions": [
+        "orc_camp",
+        "orc_war_camp"
+      ],
+      "safe_expansion_targets": [
+        "orc_badlands"
+      ],
+      "army_spawn_anchors": [
+        {
+          "region_id": "orc_camp",
+          "role": "primary_field_army",
+          "default_active": true
+        },
+        {
+          "region_id": "orc_war_camp",
+          "role": "frontier_reserve_or_second_hero",
+          "default_active": false
+        }
+      ]
+    },
+    "nature": {
+      "seat_region": "nature_treehold",
+      "starting_regions": [
+        "nature_treehold",
+        "nature_forest_clearing"
+      ],
+      "safe_expansion_targets": [
+        "nature_river_woodland"
+      ],
+      "army_spawn_anchors": [
+        {
+          "region_id": "nature_treehold",
+          "role": "primary_field_army",
+          "default_active": true
+        },
+        {
+          "region_id": "nature_forest_clearing",
+          "role": "frontier_reserve_or_second_hero",
+          "default_active": false
+        }
+      ]
+    },
+    "dark": {
+      "seat_region": "dark_fortress",
+      "starting_regions": [
+        "dark_fortress",
+        "dark_castle_approach"
+      ],
+      "safe_expansion_targets": [
+        "dark_ash_plain"
+      ],
+      "army_spawn_anchors": [
+        {
+          "region_id": "dark_fortress",
+          "role": "primary_field_army",
+          "default_active": true
+        },
+        {
+          "region_id": "dark_castle_approach",
+          "role": "frontier_reserve_or_second_hero",
+          "default_active": false
+        }
+      ]
+    }
+  },
+  "region_control": {
+    "viking_harbour": {
+      "start_owner": "vikings",
+      "control_class": "starting_possession",
+      "homeland_affinity": "vikings"
+    },
+    "viking_fjord_ridge": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "vikings"
+    },
+    "viking_forest_track": {
+      "start_owner": "vikings",
+      "control_class": "starting_possession",
+      "homeland_affinity": "vikings"
+    },
+    "viking_snow_pass": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "mountain_shrine": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "northwest_march": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "dwarf_high_quarry": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "dwarves"
+    },
+    "dwarf_snow_basin": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "dwarves"
+    },
+    "dwarf_forge_approach": {
+      "start_owner": "dwarves",
+      "control_class": "starting_possession",
+      "homeland_affinity": "dwarves"
+    },
+    "dwarf_hold": {
+      "start_owner": "dwarves",
+      "control_class": "starting_possession",
+      "homeland_affinity": "dwarves"
+    },
+    "dwarf_mountain_pass": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "human_capital": {
+      "start_owner": "humans",
+      "control_class": "starting_possession",
+      "homeland_affinity": "humans"
+    },
+    "crossroads": {
+      "start_owner": "humans",
+      "control_class": "starting_possession",
+      "homeland_affinity": "humans"
+    },
+    "old_quarry": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "river_ford": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "forest_edge": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "ancient_shrine": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "orc_watch": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "orcs"
+    },
+    "north_pass": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "orc_camp": {
+      "start_owner": "orcs",
+      "control_class": "starting_possession",
+      "homeland_affinity": "orcs"
+    },
+    "orc_badlands": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "orcs"
+    },
+    "orc_war_camp": {
+      "start_owner": "orcs",
+      "control_class": "starting_possession",
+      "homeland_affinity": "orcs"
+    },
+    "orc_ruined_field": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "orcs"
+    },
+    "orc_broken_bridge": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "coastal_ruins": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "nature_shrine": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "nature"
+    },
+    "nature_forest_clearing": {
+      "start_owner": "nature",
+      "control_class": "starting_possession",
+      "homeland_affinity": "nature"
+    },
+    "nature_treehold": {
+      "start_owner": "nature",
+      "control_class": "starting_possession",
+      "homeland_affinity": "nature"
+    },
+    "nature_river_woodland": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "nature"
+    },
+    "nature_grassland_edge": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "southern_crossing": {
+      "start_owner": null,
+      "control_class": "frontier_neutral",
+      "homeland_affinity": null
+    },
+    "dark_corrupted_valley": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "dark"
+    },
+    "dark_ruined_causeway": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "dark"
+    },
+    "dark_ash_plain": {
+      "start_owner": null,
+      "control_class": "homeland_neutral",
+      "homeland_affinity": "dark"
+    },
+    "dark_castle_approach": {
+      "start_owner": "dark",
+      "control_class": "starting_possession",
+      "homeland_affinity": "dark"
+    },
+    "dark_fortress": {
+      "start_owner": "dark",
+      "control_class": "starting_possession",
+      "homeland_affinity": "dark"
+    }
+  },
+  "neutral_minor_settlements": [
+    "northwest_march",
+    "coastal_ruins"
+  ],
+  "counts": {
+    "factions": 6,
+    "starting_possessions": 12,
+    "neutral_regions": 24,
+    "neutral_minor_settlements": 2
+  }
+}

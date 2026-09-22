@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "factions": 6,
+  "owned_regions": 12,
+  "neutral_regions": 24,
+  "starting_settlements_per_faction": 2,
+  "direct_hostile_start_borders": 0,
+  "value_site_candidates": 7,
+  "projection_consistent": true,
+  "errors": []
+}
