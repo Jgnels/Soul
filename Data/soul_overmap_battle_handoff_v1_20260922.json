@@ -1,0 +1,2457 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "FOUNDER_HANDOFF_CONTRACT_V1",
+  "authority": {
+    "geography": "Data/soul_world_overmap_v1_20260922.json",
+    "directed_approaches": "Data/soul_overmap_approach_profiles_v1_20260922.json",
+    "scenario_ownership": "Data/soul_campaign_start_states_v1_20260922.json",
+    "battlefield_recipes": "Data/battlefield_recipes.json",
+    "weather": "RBWeather",
+    "settlement_siege": "Soul runtime state",
+    "seed": "handoff contract below"
+  },
+  "rules": [
+    "Strategic geography selects battle context; battle presentation must not invent campaign geography.",
+    "Every founder-directed edge has exactly one handoff record.",
+    "Weather/time and settlement/siege condition are runtime snapshots, not static map authoring.",
+    "Reinforcement entry slots come only from valid adjacent strategic routes.",
+    "Candidate special sites require explicit activation and never rewrite topology.",
+    "Encounter seed is stable for identical canonical inputs."
+  ],
+  "counts": {
+    "founder_regions": 9,
+    "founder_directed_edges": 20,
+    "handoffs": 20,
+    "handoffs_with_settlement": 3,
+    "handoffs_with_special_site_candidate": 1
+  },
+  "handoffs": [
+    {
+      "id": "battle_handoff.ancient_shrine.old_quarry",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "ancient_shrine",
+      "destination_region": "old_quarry",
+      "encounter_kind": "resource_site_contest_if_occupied",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "east"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "ridge",
+        "feature": "resource",
+        "elevation_band": "high",
+        "resource": "ore",
+        "site_roles": [
+          "ore",
+          "resource_site"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.rolling_ridge",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "wind-bent ridge tree or watchtower",
+        "recipe_tactics": [
+          "central high ground",
+          "ranged sightlines",
+          "reverse-slope approach"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "crossroads",
+            "entry_direction": "south_west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "ancient_shrine",
+          "old_quarry",
+          "0"
+        ],
+        "sample_seed_u64": 6765082793910289818
+      },
+      "context_tags": [
+        "biome.temperate",
+        "destination.resource.ore",
+        "elevation.high",
+        "encounter.resource_site_contest_if_occupied",
+        "entry.east",
+        "feature.resource",
+        "landform.ridge",
+        "owner.neutral",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.crossroads.forest_edge",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "crossroads",
+      "destination_region": "forest_edge",
+      "encounter_kind": "resource_site_contest_if_occupied",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "west"
+      },
+      "terrain_context": {
+        "biome": "forest",
+        "landform": "woodland",
+        "feature": "grove",
+        "elevation_band": "mid",
+        "resource": "wood",
+        "site_roles": [
+          "ambush_route",
+          "resource_site",
+          "wood"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "stone circle / solitary great tree",
+        "recipe_tactics": [
+          "open center",
+          "forest-protected flank",
+          "beast mobility lane"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "north_pass",
+            "entry_direction": "east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "orc_watch",
+            "entry_direction": "south_east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "crossroads",
+          "forest_edge",
+          "0"
+        ],
+        "sample_seed_u64": 13460651321168616669
+      },
+      "context_tags": [
+        "biome.forest",
+        "destination.resource.wood",
+        "elevation.mid",
+        "encounter.resource_site_contest_if_occupied",
+        "entry.west",
+        "feature.grove",
+        "landform.woodland",
+        "owner.neutral",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.crossroads.human_capital",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "crossroads",
+      "destination_region": "human_capital",
+      "encounter_kind": "settlement_defense_or_entry",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "humans",
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "east"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "fortified",
+        "feature": "capital",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "hero_services",
+          "recruitment",
+          "settlement",
+          "tavern"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.fortress_outskirts",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "visible gatehouse",
+        "recipe_tactics": [
+          "wall-side protected flank",
+          "open outer approach",
+          "road choke"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": true,
+        "settlement_id": "city.human_capital",
+        "controller_at_scenario_start": "humans",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [
+          "settlement_condition",
+          "wall_integrity_permille",
+          "gate_state",
+          "breach_ids",
+          "siege_preparation_state",
+          "defender_supply_permille"
+        ],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "east",
+        "alternate_adjacent_entry_slots": [],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "crossroads",
+          "human_capital",
+          "0"
+        ],
+        "sample_seed_u64": 2048394253875339528
+      },
+      "context_tags": [
+        "biome.temperate",
+        "destination.settlement",
+        "elevation.mid",
+        "encounter.settlement_defense_or_entry",
+        "entry.east",
+        "feature.capital",
+        "landform.fortified",
+        "owner.humans",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.crossroads.old_quarry",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "crossroads",
+      "destination_region": "old_quarry",
+      "encounter_kind": "resource_site_contest_if_occupied",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "south_west"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "ridge",
+        "feature": "resource",
+        "elevation_band": "high",
+        "resource": "ore",
+        "site_roles": [
+          "ore",
+          "resource_site"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.rolling_ridge",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "wind-bent ridge tree or watchtower",
+        "recipe_tactics": [
+          "central high ground",
+          "ranged sightlines",
+          "reverse-slope approach"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "south_west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "ancient_shrine",
+            "entry_direction": "east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "crossroads",
+          "old_quarry",
+          "0"
+        ],
+        "sample_seed_u64": 4820831223181719538
+      },
+      "context_tags": [
+        "biome.temperate",
+        "destination.resource.ore",
+        "elevation.high",
+        "encounter.resource_site_contest_if_occupied",
+        "entry.south_west",
+        "feature.resource",
+        "landform.ridge",
+        "owner.neutral",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.crossroads.river_ford",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "crossroads",
+      "destination_region": "river_ford",
+      "encounter_kind": "conditional_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "north_west"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "valley",
+        "feature": "river_crossing",
+        "elevation_band": "low",
+        "resource": null,
+        "site_roles": [
+          "crossing",
+          "encounter",
+          "road_gate"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.river_road",
+        "recipe_status": "UE_CROP_REQUIRED",
+        "recipe_landmark": "stone crossing/ruined roadside structure",
+        "recipe_tactics": [
+          "water limits one flank",
+          "road speed",
+          "high bank firing positions"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "north_west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "orc_watch",
+            "entry_direction": "east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "crossroads",
+          "river_ford",
+          "0"
+        ],
+        "sample_seed_u64": 5369470375646864441
+      },
+      "context_tags": [
+        "biome.temperate",
+        "elevation.low",
+        "encounter.conditional_field_encounter",
+        "entry.north_west",
+        "feature.river_crossing",
+        "landform.valley",
+        "owner.neutral",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.forest_edge.crossroads",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "forest_edge",
+      "destination_region": "crossroads",
+      "encounter_kind": "field_battle_if_contested",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "humans",
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "east"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "travel_hub"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "roadside shrine/watch marker",
+        "recipe_tactics": [
+          "broad cavalry/large-unit lanes",
+          "road movement advantage",
+          "two flanking fields"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "humans",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "human_capital",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "old_quarry",
+            "entry_direction": "north_east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "river_ford",
+            "entry_direction": "south_east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "forest_edge",
+          "crossroads",
+          "0"
+        ],
+        "sample_seed_u64": 12210773406461947008
+      },
+      "context_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "encounter.field_battle_if_contested",
+        "entry.east",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "owner.humans",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.forest_edge.north_pass",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "forest_edge",
+      "destination_region": "north_pass",
+      "encounter_kind": "conditional_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "west"
+      },
+      "terrain_context": {
+        "biome": "mountain",
+        "landform": "pass",
+        "feature": "narrow_pass",
+        "elevation_band": "high",
+        "resource": null,
+        "site_roles": [
+          "chokepoint",
+          "encounter"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "dwarf.mountain_pass",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "stone gateway/quarry cut",
+        "recipe_tactics": [
+          "vertical high ground",
+          "narrow heavy-unit lanes",
+          "alternate ledge route"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "orc_camp",
+            "entry_direction": "south_east",
+            "route_type": "pass",
+            "road": false,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "forest_edge",
+          "north_pass",
+          "0"
+        ],
+        "sample_seed_u64": 4551615610494797140
+      },
+      "context_tags": [
+        "biome.mountain",
+        "elevation.high",
+        "encounter.conditional_field_encounter",
+        "entry.west",
+        "feature.narrow_pass",
+        "landform.pass",
+        "owner.neutral",
+        "route.chokepoint",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.forest_edge.orc_watch",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "forest_edge",
+      "destination_region": "orc_watch",
+      "encounter_kind": "hostile_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "orcs",
+        "hostile_at_start": true
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "north_west"
+      },
+      "terrain_context": {
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "watch",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "encounter",
+          "enemy_outpost"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "mesa pillar",
+        "recipe_tactics": [
+          "open elephant lane",
+          "gully cover",
+          "high shelf ranged position"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "orcs",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "north_west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "orc_camp",
+            "entry_direction": "east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "river_ford",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "forest_edge",
+          "orc_watch",
+          "0"
+        ],
+        "sample_seed_u64": 13990270306605212113
+      },
+      "context_tags": [
+        "biome.badlands",
+        "elevation.mid",
+        "encounter.hostile_field_encounter",
+        "entry.north_west",
+        "feature.watch",
+        "landform.mesa",
+        "owner.orcs",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.human_capital.crossroads",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "human_capital",
+      "destination_region": "crossroads",
+      "encounter_kind": "field_battle_if_contested",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "humans",
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "west"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "travel_hub"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "roadside shrine/watch marker",
+        "recipe_tactics": [
+          "broad cavalry/large-unit lanes",
+          "road movement advantage",
+          "two flanking fields"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "humans",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "forest_edge",
+            "entry_direction": "east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "old_quarry",
+            "entry_direction": "north_east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "river_ford",
+            "entry_direction": "south_east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "human_capital",
+          "crossroads",
+          "0"
+        ],
+        "sample_seed_u64": 9753992304575363356
+      },
+      "context_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "encounter.field_battle_if_contested",
+        "entry.west",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "owner.humans",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.north_pass.forest_edge",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "north_pass",
+      "destination_region": "forest_edge",
+      "encounter_kind": "resource_site_contest_if_occupied",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "east"
+      },
+      "terrain_context": {
+        "biome": "forest",
+        "landform": "woodland",
+        "feature": "grove",
+        "elevation_band": "mid",
+        "resource": "wood",
+        "site_roles": [
+          "ambush_route",
+          "resource_site",
+          "wood"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "stone circle / solitary great tree",
+        "recipe_tactics": [
+          "open center",
+          "forest-protected flank",
+          "beast mobility lane"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "crossroads",
+            "entry_direction": "west",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "orc_watch",
+            "entry_direction": "south_east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "north_pass",
+          "forest_edge",
+          "0"
+        ],
+        "sample_seed_u64": 3688993013102972258
+      },
+      "context_tags": [
+        "biome.forest",
+        "destination.resource.wood",
+        "elevation.mid",
+        "encounter.resource_site_contest_if_occupied",
+        "entry.east",
+        "feature.grove",
+        "landform.woodland",
+        "owner.neutral",
+        "route.chokepoint",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.north_pass.orc_camp",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "north_pass",
+      "destination_region": "orc_camp",
+      "encounter_kind": "siege_or_settlement_assault",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "orcs",
+        "hostile_at_start": true
+      },
+      "strategic_route": {
+        "type": "pass",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 10,
+        "entry_direction": "north_west"
+      },
+      "terrain_context": {
+        "biome": "badlands",
+        "landform": "ruined_city_edge",
+        "feature": "stronghold",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "enemy_stronghold",
+          "siege"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "orc.war_camp",
+        "recipe_status": "UE_COMPOSITE",
+        "recipe_landmark": "captured ruin with war banner",
+        "recipe_tactics": [
+          "camp obstacles",
+          "wide beast lane",
+          "flank through ruins"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": true,
+        "settlement_id": "city.orc_ruinhold",
+        "controller_at_scenario_start": "orcs",
+        "pre_battle_siege_phase_required": true,
+        "runtime_fields": [
+          "settlement_condition",
+          "wall_integrity_permille",
+          "gate_state",
+          "breach_ids",
+          "siege_preparation_state",
+          "defender_supply_permille"
+        ],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "north_west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "orc_watch",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "north_pass",
+          "orc_camp",
+          "0"
+        ],
+        "sample_seed_u64": 4289837175943613692
+      },
+      "context_tags": [
+        "biome.badlands",
+        "destination.settlement",
+        "elevation.mid",
+        "encounter.siege_or_settlement_assault",
+        "entry.north_west",
+        "feature.stronghold",
+        "landform.ruined_city_edge",
+        "owner.orcs",
+        "route.chokepoint",
+        "route.pass"
+      ]
+    },
+    {
+      "id": "battle_handoff.old_quarry.ancient_shrine",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "old_quarry",
+      "destination_region": "ancient_shrine",
+      "encounter_kind": "special_site_encounter_if_activated",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "west"
+      },
+      "terrain_context": {
+        "biome": "mountain_forest",
+        "landform": "shrine_terrace",
+        "feature": "ancient_shrine",
+        "elevation_band": "high",
+        "resource": null,
+        "site_roles": [
+          "hero_progression",
+          "magic_landmark"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "neutral.mountain_shrine",
+        "recipe_status": "PAYLOAD_PENDING",
+        "recipe_landmark": "ancient sanctuary",
+        "recipe_tactics": [
+          "height",
+          "objective fight",
+          "constrained approach"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "west",
+        "alternate_adjacent_entry_slots": [],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [
+        {
+          "site_id": "lost_shrine",
+          "title": "Lost Shrine",
+          "integration_class": "direct_battlefield",
+          "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+          "candidate_status": "CANDIDATE",
+          "topology_change": false,
+          "active_by_default": false,
+          "activation_rule": "explicit scenario/event/site selection only",
+          "topology_policy": "never changes overmap topology"
+        }
+      ],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "old_quarry",
+          "ancient_shrine",
+          "0"
+        ],
+        "sample_seed_u64": 7761833554715764459
+      },
+      "context_tags": [
+        "biome.mountain_forest",
+        "elevation.high",
+        "encounter.special_site_encounter_if_activated",
+        "entry.west",
+        "feature.ancient_shrine",
+        "landform.shrine_terrace",
+        "owner.neutral",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.old_quarry.crossroads",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "old_quarry",
+      "destination_region": "crossroads",
+      "encounter_kind": "field_battle_if_contested",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "humans",
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "north_east"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "travel_hub"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "roadside shrine/watch marker",
+        "recipe_tactics": [
+          "broad cavalry/large-unit lanes",
+          "road movement advantage",
+          "two flanking fields"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "humans",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "north_east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "forest_edge",
+            "entry_direction": "east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "human_capital",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "river_ford",
+            "entry_direction": "south_east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "old_quarry",
+          "crossroads",
+          "0"
+        ],
+        "sample_seed_u64": 14415751141100936874
+      },
+      "context_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "encounter.field_battle_if_contested",
+        "entry.north_east",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "owner.humans",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.orc_camp.north_pass",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "orc_camp",
+      "destination_region": "north_pass",
+      "encounter_kind": "conditional_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "pass",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 10,
+        "entry_direction": "south_east"
+      },
+      "terrain_context": {
+        "biome": "mountain",
+        "landform": "pass",
+        "feature": "narrow_pass",
+        "elevation_band": "high",
+        "resource": null,
+        "site_roles": [
+          "chokepoint",
+          "encounter"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "dwarf.mountain_pass",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "stone gateway/quarry cut",
+        "recipe_tactics": [
+          "vertical high ground",
+          "narrow heavy-unit lanes",
+          "alternate ledge route"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "south_east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "forest_edge",
+            "entry_direction": "west",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "orc_camp",
+          "north_pass",
+          "0"
+        ],
+        "sample_seed_u64": 5658159424809845609
+      },
+      "context_tags": [
+        "biome.mountain",
+        "elevation.high",
+        "encounter.conditional_field_encounter",
+        "entry.south_east",
+        "feature.narrow_pass",
+        "landform.pass",
+        "owner.neutral",
+        "route.chokepoint",
+        "route.pass"
+      ]
+    },
+    {
+      "id": "battle_handoff.orc_camp.orc_watch",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "orc_camp",
+      "destination_region": "orc_watch",
+      "encounter_kind": "hostile_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "orcs",
+        "hostile_at_start": true
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "east"
+      },
+      "terrain_context": {
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "watch",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "encounter",
+          "enemy_outpost"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "mesa pillar",
+        "recipe_tactics": [
+          "open elephant lane",
+          "gully cover",
+          "high shelf ranged position"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "orcs",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "forest_edge",
+            "entry_direction": "north_west",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "river_ford",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "orc_camp",
+          "orc_watch",
+          "0"
+        ],
+        "sample_seed_u64": 5902029543729027324
+      },
+      "context_tags": [
+        "biome.badlands",
+        "elevation.mid",
+        "encounter.hostile_field_encounter",
+        "entry.east",
+        "feature.watch",
+        "landform.mesa",
+        "owner.orcs",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.orc_watch.forest_edge",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "orc_watch",
+      "destination_region": "forest_edge",
+      "encounter_kind": "resource_site_contest_if_occupied",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8,
+        "entry_direction": "south_east"
+      },
+      "terrain_context": {
+        "biome": "forest",
+        "landform": "woodland",
+        "feature": "grove",
+        "elevation_band": "mid",
+        "resource": "wood",
+        "site_roles": [
+          "ambush_route",
+          "resource_site",
+          "wood"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "stone circle / solitary great tree",
+        "recipe_tactics": [
+          "open center",
+          "forest-protected flank",
+          "beast mobility lane"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "south_east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "crossroads",
+            "entry_direction": "west",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "north_pass",
+            "entry_direction": "east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "orc_watch",
+          "forest_edge",
+          "0"
+        ],
+        "sample_seed_u64": 4602835249665185376
+      },
+      "context_tags": [
+        "biome.forest",
+        "destination.resource.wood",
+        "elevation.mid",
+        "encounter.resource_site_contest_if_occupied",
+        "entry.south_east",
+        "feature.grove",
+        "landform.woodland",
+        "owner.neutral",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "battle_handoff.orc_watch.orc_camp",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "orc_watch",
+      "destination_region": "orc_camp",
+      "encounter_kind": "siege_or_settlement_assault",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "orcs",
+        "hostile_at_start": true
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "west"
+      },
+      "terrain_context": {
+        "biome": "badlands",
+        "landform": "ruined_city_edge",
+        "feature": "stronghold",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "enemy_stronghold",
+          "siege"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "orc.war_camp",
+        "recipe_status": "UE_COMPOSITE",
+        "recipe_landmark": "captured ruin with war banner",
+        "recipe_tactics": [
+          "camp obstacles",
+          "wide beast lane",
+          "flank through ruins"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": true,
+        "settlement_id": "city.orc_ruinhold",
+        "controller_at_scenario_start": "orcs",
+        "pre_battle_siege_phase_required": true,
+        "runtime_fields": [
+          "settlement_condition",
+          "wall_integrity_permille",
+          "gate_state",
+          "breach_ids",
+          "siege_preparation_state",
+          "defender_supply_permille"
+        ],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "north_pass",
+            "entry_direction": "north_west",
+            "route_type": "pass",
+            "road": false,
+            "chokepoint": true,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "orc_watch",
+          "orc_camp",
+          "0"
+        ],
+        "sample_seed_u64": 9831261971234789908
+      },
+      "context_tags": [
+        "biome.badlands",
+        "destination.settlement",
+        "elevation.mid",
+        "encounter.siege_or_settlement_assault",
+        "entry.west",
+        "feature.stronghold",
+        "landform.ruined_city_edge",
+        "owner.orcs",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.orc_watch.river_ford",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "orc_watch",
+      "destination_region": "river_ford",
+      "encounter_kind": "conditional_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": null,
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "east"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "valley",
+        "feature": "river_crossing",
+        "elevation_band": "low",
+        "resource": null,
+        "site_roles": [
+          "crossing",
+          "encounter",
+          "road_gate"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.river_road",
+        "recipe_status": "UE_CROP_REQUIRED",
+        "recipe_landmark": "stone crossing/ruined roadside structure",
+        "recipe_tactics": [
+          "water limits one flank",
+          "road speed",
+          "high bank firing positions"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": null,
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "crossroads",
+            "entry_direction": "north_west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "orc_watch",
+          "river_ford",
+          "0"
+        ],
+        "sample_seed_u64": 4978230173709730063
+      },
+      "context_tags": [
+        "biome.temperate",
+        "elevation.low",
+        "encounter.conditional_field_encounter",
+        "entry.east",
+        "feature.river_crossing",
+        "landform.valley",
+        "owner.neutral",
+        "route.chokepoint",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.river_ford.crossroads",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "river_ford",
+      "destination_region": "crossroads",
+      "encounter_kind": "field_battle_if_contested",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "humans",
+        "hostile_at_start": false
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "south_east"
+      },
+      "terrain_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "travel_hub"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "roadside shrine/watch marker",
+        "recipe_tactics": [
+          "broad cavalry/large-unit lanes",
+          "road movement advantage",
+          "two flanking fields"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "humans",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "south_east",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "forest_edge",
+            "entry_direction": "east",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "human_capital",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "old_quarry",
+            "entry_direction": "north_east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "river_ford",
+          "crossroads",
+          "0"
+        ],
+        "sample_seed_u64": 2459713725582348369
+      },
+      "context_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "encounter.field_battle_if_contested",
+        "entry.south_east",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "owner.humans",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "battle_handoff.river_ford.orc_watch",
+      "scenario_id": "founder_human_orc_micro",
+      "source_region": "river_ford",
+      "destination_region": "orc_watch",
+      "encounter_kind": "hostile_field_encounter",
+      "scenario_start_control": {
+        "player_faction": "humans",
+        "destination_owner": "orcs",
+        "hostile_at_start": true
+      },
+      "strategic_route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 6,
+        "entry_direction": "west"
+      },
+      "terrain_context": {
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "watch",
+        "elevation_band": "mid",
+        "resource": null,
+        "site_roles": [
+          "encounter",
+          "enemy_outpost"
+        ]
+      },
+      "battlefield_selection": {
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "recipe_landmark": "mesa pillar",
+        "recipe_tactics": [
+          "open elephant lane",
+          "gully cover",
+          "high shelf ranged position"
+        ],
+        "selection_order": [
+          "explicit_activated_special_site_override",
+          "destination_region_recipe",
+          "deterministic_fallback_with_matching biome/landform/feature"
+        ]
+      },
+      "settlement_and_siege_context": {
+        "is_settlement": false,
+        "settlement_id": null,
+        "controller_at_scenario_start": "orcs",
+        "pre_battle_siege_phase_required": false,
+        "runtime_fields": [],
+        "authority": "Soul settlement/siege runtime; handoff transports state and does not invent it"
+      },
+      "weather_time_context": {
+        "weather_authority": "RBWeather",
+        "time_authority": "Soul campaign clock",
+        "snapshot_fields": [
+          "weather_profile_id",
+          "wind_permille",
+          "precipitation_permille",
+          "visibility_permille",
+          "time_of_day_minutes"
+        ],
+        "policy": "snapshot at encounter commitment; battle presentation consumes snapshot without changing strategic authority"
+      },
+      "reinforcement_context": {
+        "primary_attacker_entry_direction": "west",
+        "alternate_adjacent_entry_slots": [
+          {
+            "source_region": "forest_edge",
+            "entry_direction": "north_west",
+            "route_type": "trail",
+            "road": false,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          },
+          {
+            "source_region": "orc_camp",
+            "entry_direction": "east",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "strategic_action_distance_to_battle": 1,
+            "eligibility": "runtime army presence + alliance/control + reinforcement timing"
+          }
+        ],
+        "timing_authority": "campaign action/time distance; battle runtime only admits arrivals that satisfy strategic timing"
+      },
+      "special_site_overrides": [],
+      "seed_contract": {
+        "algorithm": "sha256_first_64_bits_big_endian",
+        "canonical_inputs": [
+          "scenario_id",
+          "campaign_seed",
+          "campaign_turn",
+          "source_region",
+          "destination_region",
+          "encounter_ordinal"
+        ],
+        "separator": "|",
+        "sample_inputs": [
+          "founder_human_orc_micro",
+          "20260922",
+          "1",
+          "river_ford",
+          "orc_watch",
+          "0"
+        ],
+        "sample_seed_u64": 17250010176155459992
+      },
+      "context_tags": [
+        "biome.badlands",
+        "elevation.mid",
+        "encounter.hostile_field_encounter",
+        "entry.west",
+        "feature.watch",
+        "landform.mesa",
+        "owner.orcs",
+        "route.chokepoint",
+        "route.road",
+        "route.road_network"
+      ]
+    }
+  ]
+}
