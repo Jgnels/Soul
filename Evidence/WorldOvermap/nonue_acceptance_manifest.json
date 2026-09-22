@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 39,
-  "steps_passed": 39,
+  "steps_total": 41,
+  "steps_passed": 41,
   "steps_failed": 0,
   "steps": [
     {
@@ -99,6 +99,28 @@
       "script": "Tools/validate_soul_founder_campaign_stress.py",
       "exit_code": 0,
       "stdout_sha256": "3bf1f8fc951885a6aa6407008d6dc003b6f2c331c6c7a07411ac0929670ee75c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_assault_stress",
+      "script": "Tools/stress_soul_founder_assault_balance.py",
+      "exit_code": 0,
+      "stdout_sha256": "c13f4747426335eb2b30a60fd9f20bce7cdf61d449ec86f1cc53af1c9e55d061",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_assault_stress_validation",
+      "script": "Tools/validate_soul_founder_assault_balance.py",
+      "exit_code": 0,
+      "stdout_sha256": "b4577b32da98910b19ce871d8a5c8488402c4595616176c87f4a399180d6f30d",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"

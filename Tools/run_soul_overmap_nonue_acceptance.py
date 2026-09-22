@@ -18,6 +18,8 @@ STEPS = [
     ("battle_handoff_validation", "Tools/validate_soul_overmap_battle_handoff.py"),
     ("founder_campaign_stress", "Tools/analyze_soul_founder_campaign_stress.py"),
     ("founder_campaign_stress_validation", "Tools/validate_soul_founder_campaign_stress.py"),
+    ("founder_assault_stress", "Tools/stress_soul_founder_assault_balance.py"),
+    ("founder_assault_stress_validation", "Tools/validate_soul_founder_assault_balance.py"),
     ("founder_reaction_window_analysis", "Tools/analyze_soul_founder_reaction_windows.py"),
     ("founder_reaction_window_validation", "Tools/validate_soul_founder_reaction_windows.py"),
     ("founder_traversal", "Tools/simulate_soul_founder_overmap.py"),
