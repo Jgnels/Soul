@@ -1,4 +1,4 @@
-# Soul Overmap — Homeland / Frontier Audit
+# Soul Overmap - Homeland / Frontier Audit
 
 Current full-world faction coloring is **homeland affinity**, not locked campaign-start ownership.
 

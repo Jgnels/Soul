@@ -42,7 +42,7 @@ for faction in factions:
 
 founder = set(d["founder_slice"]["region_ids"])
 founder_locked = {
-    rid: nodes[rid]["owner"] for rid in founder
+    rid: nodes[rid]["owner"] for rid in sorted(founder)
     if nodes[rid]["owner"] is not None
 }
 result = {
@@ -63,7 +63,7 @@ result = {
 }
 OUT_JSON.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
 lines = [
-    "# Soul Overmap — Homeland / Frontier Audit","",
+    "# Soul Overmap - Homeland / Frontier Audit","",
     "Current full-world faction coloring is **homeland affinity**, not locked campaign-start ownership.","",
     "| Faction | Affinity regions | Frontier edges | Neutral frontier regions |",
     "|---|---:|---:|---:|",

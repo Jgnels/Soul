@@ -77,9 +77,9 @@
   },
   "founder_locked_owner_regions": {
     "crossroads": "humans",
+    "human_capital": "humans",
     "orc_camp": "orcs",
-    "orc_watch": "orcs",
-    "human_capital": "humans"
+    "orc_watch": "orcs"
   },
   "notes": [
     "Do not balance full-campaign starts from current owner counts.",
