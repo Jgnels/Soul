@@ -1,0 +1,52 @@
+﻿route_id,a,b,a_x,a_y,b_x,b_y,route_class,render_family,surface,navigation_cue,spline_width_cm,road,chokepoint,chokepoint_cue,action_cost,logistics_movement_cost,founder_slice
+route.ancient_shrine_mountain_shrine,mountain_shrine,ancient_shrine,500,230,520,300,mountain_trail,mountain_trail,rough stone/earth path,cairns and grade change,420,False,False,,1,9,False
+route.ancient_shrine_old_quarry,old_quarry,ancient_shrine,390,330,520,300,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,True
+route.coastal_ruins_human_capital,human_capital,coastal_ruins,180,450,100,600,coast_road,coastal_road,packed coastal road,"water/cliff exposure, posts",850,True,False,,1,7,False
+route.coastal_ruins_nature_shrine,coastal_ruins,nature_shrine,100,600,260,640,forest_road,forest_road,packed woodland road,"tree tunnel, cut verge, signpost",850,True,False,,1,7,False
+route.crossroads_forest_edge,crossroads,forest_edge,320,450,480,420,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,True
+route.crossroads_human_capital,human_capital,crossroads,180,450,320,450,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,True
+route.crossroads_old_quarry,crossroads,old_quarry,320,450,390,330,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,True
+route.crossroads_river_ford,crossroads,river_ford,320,450,420,560,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,True
+route.dark_ash_plain_dark_corrupted_valley,dark_corrupted_valley,dark_ash_plain,620,740,730,840,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.dark_ash_plain_dark_fortress,dark_ash_plain,dark_fortress,730,840,900,840,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,7,False
+route.dark_castle_approach_dark_fortress,dark_castle_approach,dark_fortress,840,760,900,840,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,True,"ruts, verge, sparse waymarkers",1,6,False
+route.dark_castle_approach_dark_ruined_causeway,dark_ruined_causeway,dark_castle_approach,730,720,840,760,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,7,False
+route.dark_corrupted_valley_dark_ruined_causeway,dark_corrupted_valley,dark_ruined_causeway,620,740,730,720,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.dark_corrupted_valley_southern_crossing,southern_crossing,dark_corrupted_valley,520,700,620,740,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,7,False
+route.dark_ruined_causeway_orc_broken_bridge,orc_broken_bridge,dark_ruined_causeway,720,660,730,720,causeway,causeway,stone causeway,"raised edges, bridge masonry, broken span cues",850,True,True,"raised edges, bridge masonry, broken span cues",1,8,False
+route.dwarf_forge_approach_dwarf_high_quarry,dwarf_high_quarry,dwarf_forge_approach,640,130,740,200,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.dwarf_forge_approach_dwarf_hold,dwarf_forge_approach,dwarf_hold,740,200,850,150,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.dwarf_forge_approach_north_pass,dwarf_forge_approach,north_pass,740,200,640,360,old_dwarf_road,engineered_old_road,worn fitted stone,dwarf retaining walls / broken milestones,420,False,True,dwarf retaining walls / broken milestones,1,9,False
+route.dwarf_high_quarry_dwarf_mountain_pass,dwarf_mountain_pass,dwarf_high_quarry,620,260,640,130,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.dwarf_high_quarry_dwarf_snow_basin,dwarf_high_quarry,dwarf_snow_basin,640,130,760,90,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.dwarf_hold_dwarf_snow_basin,dwarf_snow_basin,dwarf_hold,760,90,850,150,high_pass,high_pass,snow/rock pass,"snow banks, rock gate, exposed summit",420,False,True,"snow banks, rock gate, exposed summit",1,10,False
+route.dwarf_mountain_pass_mountain_shrine,mountain_shrine,dwarf_mountain_pass,500,230,620,260,pass,mountain_pass,rock-cut mountain path,"rock walls, cairn or gate",420,False,True,"rock walls, cairn or gate",1,10,False
+route.dwarf_mountain_pass_north_pass,dwarf_mountain_pass,north_pass,620,260,640,360,pass,mountain_pass,rock-cut mountain path,"rock walls, cairn or gate",420,False,True,"rock walls, cairn or gate",1,10,False
+route.forest_edge_north_pass,forest_edge,north_pass,480,420,640,360,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,True,"worn ground, minimal signage",1,8,True
+route.forest_edge_orc_watch,forest_edge,orc_watch,480,420,620,540,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,True
+route.human_capital_northwest_march,northwest_march,human_capital,215,315,180,450,trade_road,trade_road,broad maintained road,"signpost, cart wear, roadside stop",850,True,False,,1,7,False
+route.mountain_shrine_viking_snow_pass,viking_snow_pass,mountain_shrine,400,170,500,230,pass,mountain_pass,rock-cut mountain path,"rock walls, cairn or gate",420,False,True,"rock walls, cairn or gate",1,10,False
+route.nature_forest_clearing_nature_river_woodland,nature_forest_clearing,nature_river_woodland,280,750,330,840,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.nature_forest_clearing_nature_shrine,nature_shrine,nature_forest_clearing,260,640,280,750,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.nature_forest_clearing_nature_treehold,nature_forest_clearing,nature_treehold,280,750,150,800,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.nature_grassland_edge_nature_river_woodland,nature_grassland_edge,nature_river_woodland,400,690,330,840,meadow_trail,meadow_trail,grass-worn path,"flower/grass edge, sparse stones",420,False,False,,1,8,False
+route.nature_grassland_edge_nature_shrine,nature_shrine,nature_grassland_edge,260,640,400,690,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.nature_grassland_edge_river_ford,nature_grassland_edge,river_ford,400,690,420,560,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.nature_grassland_edge_southern_crossing,nature_grassland_edge,southern_crossing,400,690,520,700,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.nature_river_woodland_nature_treehold,nature_river_woodland,nature_treehold,330,840,150,800,river_trail,river_trail,damp riverside path,"visible water edge, roots, bank markers",420,False,False,,1,8,False
+route.north_pass_orc_camp,north_pass,orc_camp,640,360,780,460,pass,mountain_pass,rock-cut mountain path,"rock walls, cairn or gate",420,False,True,"rock walls, cairn or gate",1,10,True
+route.north_pass_orc_war_camp,north_pass,orc_war_camp,640,360,860,400,ridge_road,ridge_road,rough maintained road,"ridge edge, stakes, war traffic",850,True,False,,1,8,False
+route.northwest_march_viking_forest_track,viking_forest_track,northwest_march,260,220,215,315,trade_road,trade_road,broad maintained road,"signpost, cart wear, roadside stop",850,True,False,,1,7,False
+route.orc_badlands_orc_camp,orc_camp,orc_badlands,780,460,880,510,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.orc_badlands_orc_ruined_field,orc_badlands,orc_ruined_field,880,510,740,600,gully_trail,gully_trail,dry badlands track,"gully walls, dust, bone/rock markers",420,False,False,,1,8,False
+route.orc_broken_bridge_orc_ruined_field,orc_ruined_field,orc_broken_bridge,740,600,720,660,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,True,"ruts, verge, sparse waymarkers",1,6,False
+route.orc_broken_bridge_southern_crossing,southern_crossing,orc_broken_bridge,520,700,720,660,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.orc_camp_orc_war_camp,orc_camp,orc_war_camp,780,460,860,400,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.orc_camp_orc_watch,orc_watch,orc_camp,620,540,780,460,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,True
+route.orc_ruined_field_orc_watch,orc_watch,orc_ruined_field,620,540,740,600,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False
+route.orc_watch_river_ford,river_ford,orc_watch,420,560,620,540,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,True,"ruts, verge, sparse waymarkers",1,6,True
+route.river_ford_southern_crossing,river_ford,southern_crossing,420,560,520,700,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.viking_fjord_ridge_viking_harbour,viking_harbour,viking_fjord_ridge,120,140,250,100,coast_road,coastal_road,packed coastal road,"water/cliff exposure, posts",850,True,False,,1,7,False
+route.viking_fjord_ridge_viking_snow_pass,viking_fjord_ridge,viking_snow_pass,250,100,400,170,ridge_trail,ridge_trail,narrow exposed path,ridge edge and drop-off,420,False,False,,1,9,False
+route.viking_forest_track_viking_harbour,viking_harbour,viking_forest_track,120,140,260,220,road,road,packed earth / local stone,"ruts, verge, sparse waymarkers",850,True,False,,1,6,False
+route.viking_forest_track_viking_snow_pass,viking_forest_track,viking_snow_pass,260,220,400,170,trail,trail,narrow earth path,"worn ground, minimal signage",420,False,False,,1,8,False

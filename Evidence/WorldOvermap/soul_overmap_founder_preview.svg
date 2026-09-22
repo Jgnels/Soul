@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="95 215 810 435" role="img">
+<title>Soul founder slice planning preview - 9 regions</title>
+<style>text{font-family:Segoe UI,Arial,sans-serif}.label{font-size:16px;font-weight:600;paint-order:stroke;stroke:#fff;stroke-width:4px}.small{font-size:11px}.candidate{font-size:9px;font-weight:700}</style>
+<rect x="0" y="0" width="100%" height="100%" fill="#f3f0e8"/>
+<polygon points="45,45 455,45 520,245 390,305 80,285" fill="#dce8ee" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="455,45 950,50 955,340 685,365 520,245" fill="#d8d5cf" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="55,280 595,275 610,610 175,660 45,555" fill="#dfe8c8" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="575,320 960,320 970,665 710,700 585,560" fill="#e6cfb5" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="45,560 530,585 555,900 45,900" fill="#c9dfc1" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="505,590 970,615 980,900 520,900" fill="#d2c7c3" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="50,570 450,585 500,880 60,900" fill="#5f8a55" fill-opacity="0.20" stroke="#4f7348" stroke-width="2" stroke-dasharray="6 5"/>
+<polyline points="505,235 470,360 455,500 420,560 365,720 330,840" fill="none" stroke="#4d88a8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+<polyline points="640,265 680,400 690,560 720,660" fill="none" stroke="#4d88a8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+<polyline points="440,85 520,180 610,250 700,250 850,150 930,110" fill="none" stroke="#726e69" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.22"/>
+<polyline points="440,85 520,180 610,250 700,250 850,150 930,110" fill="none" stroke="#66615d" stroke-width="3" stroke-dasharray="5 8" opacity="0.65"/>
+<line id="route.ancient_shrine_old_quarry" x1="390" y1="330" x2="520" y2="300" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.crossroads_forest_edge" x1="320" y1="450" x2="480" y2="420" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.crossroads_human_capital" x1="180" y1="450" x2="320" y2="450" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.crossroads_old_quarry" x1="320" y1="450" x2="390" y2="330" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.crossroads_river_ford" x1="320" y1="450" x2="420" y2="560" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.forest_edge_north_pass" x1="480" y1="420" x2="640" y2="360" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<circle cx="560.0" cy="390.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.forest_edge_orc_watch" x1="480" y1="420" x2="620" y2="540" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.north_pass_orc_camp" x1="640" y1="360" x2="780" y2="460" stroke="#60584d" stroke-width="5" stroke-linecap="round" opacity="0.72" stroke-dasharray="5 4"/>
+<circle cx="710.0" cy="410.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.orc_camp_orc_watch" x1="620" y1="540" x2="780" y2="460" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.orc_watch_river_ford" x1="420" y1="560" x2="620" y2="540" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<circle cx="520.0" cy="550.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<circle id="region-ancient_shrine" cx="520" cy="300" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="520" cy="300" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="534" y="292" text-anchor="start" class="label">Ancient Shrine</text>
+<text x="534" y="308" text-anchor="start" class="small">ancient shrine / altar</text>
+<circle cx="520" cy="300" r="20" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="538" y="323" text-anchor="start" class="candidate" fill="#704817">+LS candidate</text>
+<circle id="region-old_quarry" cx="390" cy="330" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="390" cy="330" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="404" y="322" text-anchor="start" class="label">Old Quarry</text>
+<text x="404" y="338" text-anchor="start" class="small">quarry cut, ore carts and exposed stone</text>
+<polygon id="region-north_pass" points="640,349 651,360 640,371 629,360" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="640" cy="360" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="654" y="352" text-anchor="start" class="label">North Pass</text>
+<text x="654" y="368" text-anchor="start" class="small">rock needle, cairn or pass gate</text>
+<circle id="region-forest_edge" cx="480" cy="420" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="480" cy="420" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="494" y="412" text-anchor="start" class="label">Forest Edge</text>
+<text x="494" y="428" text-anchor="start" class="small">distinct treeline / woodland resource edge</text>
+<rect id="region-human_capital" x="166" y="436" width="28" height="28" rx="3" fill="#fffdf7" stroke="#315b8a" stroke-width="4"/>
+<circle cx="180" cy="450" r="21" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="194" y="442" text-anchor="start" class="label">Human Capital</text>
+<text x="194" y="458" text-anchor="start" class="small">Human Capital</text>
+<circle id="region-crossroads" cx="320" cy="450" r="11" fill="#fffdf7" stroke="#315b8a" stroke-width="4"/>
+<circle cx="320" cy="450" r="18" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="334" y="442" text-anchor="start" class="label">Crossroads</text>
+<text x="334" y="458" text-anchor="start" class="small">market_town</text>
+<rect id="region-orc_camp" x="766" y="446" width="28" height="28" rx="3" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<circle cx="780" cy="460" r="21" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="766" y="452" text-anchor="end" class="label">Orc Stronghold</text>
+<text x="766" y="468" text-anchor="end" class="small">Orc Stronghold</text>
+<circle id="region-orc_watch" cx="620" cy="540" r="8" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<circle cx="620" cy="540" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="634" y="532" text-anchor="start" class="label">Orc Watch</text>
+<text x="634" y="548" text-anchor="start" class="small">mesa pillar</text>
+<circle id="region-river_ford" cx="420" cy="560" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="420" cy="560" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="434" y="552" text-anchor="start" class="label">River Ford</text>
+<text x="434" y="568" text-anchor="start" class="small">visible ford / crossing geometry</text>
+<text x="95" y="215" opacity="0">Soul founder slice planning preview - 9 regions</text>
+</svg>
