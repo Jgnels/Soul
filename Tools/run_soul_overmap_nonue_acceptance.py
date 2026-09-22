@@ -31,6 +31,8 @@ STEPS = [
     ("founder_state_vectors_validation", "Tools/validate_soul_founder_presentation_state_vectors.py"),
     ("founder_ue_staging_export", "Tools/export_soul_founder_ue_staging.py"),
     ("founder_ue_staging_validation", "Tools/validate_soul_founder_ue_staging.py"),
+    ("battlefield_environment_expansion_build", "Tools/build_soul_battlefield_environment_expansion.py"),
+    ("battlefield_environment_expansion_validation", "Tools/validate_soul_battlefield_environment_expansion.py"),
 ]
 results = []
 for name, script in STEPS:

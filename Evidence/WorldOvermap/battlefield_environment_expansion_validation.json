@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "active_assets": 12,
+  "integration_classes": {
+    "atmosphere_palette": 3,
+    "direct_battlefield": 7,
+    "special_venue": 1,
+    "tactical_overlay": 1
+  },
+  "arena_region": "southern_crossing",
+  "arena_region_is_neutral": true,
+  "founder_slice_unchanged": true,
+  "dragon_graveyard_maps_present": 2,
+  "human_mesh_candidates_found": 42,
+  "dwarf_mesh_candidates_found": 5,
+  "first_playtest_target": "dragon_graveyard_humans_vs_dwarves",
+  "errors": []
+}
