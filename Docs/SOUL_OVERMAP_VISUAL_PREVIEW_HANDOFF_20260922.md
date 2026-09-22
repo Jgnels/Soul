@@ -29,3 +29,8 @@ The full-world preview surfaced one non-blocking presentation risk: `orc_broken_
 Use the CSVs as staging/data-table inputs, not as authority for campaign outcomes. SoulCore remains authoritative for state and movement; RB Weather owns weather/sky selection; RB Optimization is the first performance layer; RB Save owns persistence.
 
 The cheapest next overmap test in UE is the existing 9-region founder slice: reproduce the positions, roads/trails, visible ford/pass constraints, settlement silhouettes and Lost Shrine candidate, then exercise fog and movement from canonical state before scaling presentation to all 36 regions.
+## Interactive founder-state preview
+
+`Evidence/WorldOvermap/soul_founder_state_preview.html` is a self-contained interactive QA view of all three founder attack corridors and all 12 pre-battle presentation states. It visualizes visible / explored-memory / unexplored regions, known and selectable routes, the active region, and the planned target without introducing new campaign logic.
+
+A headless Chrome smoke pass executed the page successfully: all three corridor options were created, the initial Human Capital summary rendered, and the 10 founder routes plus region shapes were materialized in the DOM.
