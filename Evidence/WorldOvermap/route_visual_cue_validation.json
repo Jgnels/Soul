@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "route_cues": 51,
+  "route_classes": 15,
+  "render_families": 15,
+  "founder_route_cues": 10,
+  "chokepoint_route_cues": 11,
+  "road_routes": 26,
+  "nonroad_routes": 25,
+  "route_class_counts": {
+    "causeway": 1,
+    "coast_road": 2,
+    "forest_road": 1,
+    "gully_trail": 1,
+    "high_pass": 1,
+    "meadow_trail": 1,
+    "mountain_trail": 1,
+    "old_dwarf_road": 1,
+    "pass": 4,
+    "ridge_road": 1,
+    "ridge_trail": 1,
+    "river_trail": 1,
+    "road": 19,
+    "trade_road": 2,
+    "trail": 14
+  },
+  "render_family_counts": {
+    "causeway": 1,
+    "coastal_road": 2,
+    "engineered_old_road": 1,
+    "forest_road": 1,
+    "gully_trail": 1,
+    "high_pass": 1,
+    "meadow_trail": 1,
+    "mountain_pass": 4,
+    "mountain_trail": 1,
+    "ridge_road": 1,
+    "ridge_trail": 1,
+    "river_trail": 1,
+    "road": 19,
+    "trade_road": 2,
+    "trail": 14
+  },
+  "founder_approach_signatures": {
+    "road_ford_watch": [
+      "road",
+      "road",
+      "road",
+      "road"
+    ],
+    "forest_pass": [
+      "road",
+      "trail",
+      "trail",
+      "mountain_pass"
+    ],
+    "forest_watch": [
+      "road",
+      "trail",
+      "trail",
+      "road"
+    ]
+  },
+  "errors": []
+}
