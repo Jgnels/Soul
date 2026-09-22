@@ -9,6 +9,8 @@ Exercise Human Capital -> forest corridor -> hostile Orc Watch contact without a
 Pass conditions:
 - The campaign pawn reaches Orc Watch through the authored road/trail graph with no teleport or disconnected spline.
 - Entering hostile Orc Watch launches the orc.badlands context from the north-west entry.
+- Before battle resolution, the campaign player remains at Forest Edge and Orc Watch remains Orc-controlled; hostile entry cannot silently become occupation.
+- Victory resolves and captures Orc Watch itself; it must not award or capture Orc Stronghold/orc_camp.
 - The tactical launch consumes the strategic handoff rather than choosing an unrelated generic arena.
 
 ## ue.fixture.human_capital_east_assault

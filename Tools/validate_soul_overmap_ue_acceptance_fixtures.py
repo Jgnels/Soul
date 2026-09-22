@@ -137,8 +137,20 @@ for fixture in fixtures:
 
 fixture_by_id = {x["id"]: x for x in fixtures}
 forest = fixture_by_id.get("ue.fixture.founder_forest_contact")
-if forest and forest["runtime_expectations"]["route_visual_sequence"] != ["road","trail","trail"]:
-    errors.append("forest-contact route signature changed")
+if forest:
+    if forest["runtime_expectations"]["route_visual_sequence"] != ["road","trail","trail"]:
+        errors.append("forest-contact route signature changed")
+    forest_expect = forest["runtime_expectations"]
+    if forest_expect.get("pre_battle_player_region") != "forest_edge":
+        errors.append("forest-contact must retain Forest Edge as strategic origin until hostile battle resolves")
+    if forest_expect.get("hostile_destination_occupation_before_battle") is not False:
+        errors.append("forest-contact must forbid pre-battle occupation of Orc Watch")
+    if forest_expect.get("battle_result_region") != "orc_watch":
+        errors.append("forest-contact victory must resolve Orc Watch, not another strategic region")
+    required_observations = set(forest.get("required_runtime_observations", []))
+    for observation in ("pre_battle_player_region_id","battle_result_region_id","destination_owner_after_victory"):
+        if observation not in required_observations:
+            errors.append(f"forest-contact missing runtime observation {observation}")
 
 capital = fixture_by_id.get("ue.fixture.human_capital_east_assault")
 founder_owners = starts["scenarios"]["founder_human_orc_micro"]["owners"]

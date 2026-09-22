@@ -52,19 +52,28 @@
         "destination_owner_at_founder_start": "orcs",
         "entry_direction": "north_west",
         "battle_recipe_id": "orc.badlands",
-        "encounter_kind": "hostile_field_encounter"
+        "encounter_kind": "hostile_field_encounter",
+        "pre_battle_player_region": "forest_edge",
+        "hostile_destination_occupation_before_battle": false,
+        "battle_result_region": "orc_watch"
       },
       "required_runtime_observations": [
         "active_region_id",
         "selected_route_id",
+        "pre_battle_player_region_id",
+        "hostile_destination_owner_before_battle",
         "battle_approach_id",
         "battle_handoff_id",
         "battle_recipe_id",
-        "battle_entry_direction"
+        "battle_entry_direction",
+        "battle_result_region_id",
+        "destination_owner_after_victory"
       ],
       "pass_conditions": [
         "The campaign pawn reaches Orc Watch through the authored road/trail graph with no teleport or disconnected spline.",
         "Entering hostile Orc Watch launches the orc.badlands context from the north-west entry.",
+        "Before battle resolution, the campaign player remains at Forest Edge and Orc Watch remains Orc-controlled; hostile entry cannot silently become occupation.",
+        "Victory resolves and captures Orc Watch itself; it must not award or capture Orc Stronghold/orc_camp.",
         "The tactical launch consumes the strategic handoff rather than choosing an unrelated generic arena."
       ],
       "source_checks": [
