@@ -51,7 +51,7 @@ The presentation contract remains explicit:
 The validator fails if those RB authority bindings drift in the generated bundle.
 ## Acceptance evidence
 
-`Evidence/WorldOvermap/nonue_acceptance_manifest.json` records 17 deterministic non-UE checks covering topology, runtime import, settlements, approaches, start state, founder traversal, settlement coverage, battlefield fidelity, opening pressure, visual-anchor generation/validation, route-cue generation/validation, bundle generation/validation, and founder-presentation package generation/validation.
+`Evidence/WorldOvermap/nonue_acceptance_manifest.json` records 18 deterministic non-UE checks covering topology, runtime import, settlements, approaches, start state, founder traversal, settlement coverage, battlefield fidelity, opening pressure, visual-anchor generation/validation, route-cue generation/validation, bundle generation/validation, and founder-presentation package generation/validation, and founder geometry/readability checks.
 
 `Evidence/WorldOvermap/integrated_import_validation.json` additionally verifies:
 - all ten source-artifact SHA-256 hashes;

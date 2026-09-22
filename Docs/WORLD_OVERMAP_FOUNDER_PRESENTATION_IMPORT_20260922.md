@@ -70,3 +70,11 @@ These require visual proof that the tactical transition preserves the campaign-m
 ## Next gate
 
 When a UE lane is explicitly available, import this package into a bounded nine-region presentation proof. Measure route/anchor readability at strategic camera distance, verify fog state transitions, and exercise the six fidelity-risk transitions before expanding toward the 36-region world.
+
+## Headless geometry result
+
+The founder blockout spans 600,000 x 260,000 cm. No region selection radii overlap, every route spline starts/ends on its region anchors, and the ten founder routes have no non-node spline crossings. The closest pair is Forest Edge / Ancient Shrine at ~126,491 cm, versus 24,000 cm combined selection radius.
+
+Evidence:
+- `Evidence/WorldOvermap/founder_presentation_geometry.json`
+- `Evidence/WorldOvermap/founder_presentation_geometry.md`

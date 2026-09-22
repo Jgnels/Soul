@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 17,
-  "steps_passed": 17,
+  "steps_total": 18,
+  "steps_passed": 18,
   "steps_failed": 0,
   "steps": [
     {
@@ -187,6 +187,17 @@
       "script": "Tools/validate_soul_founder_presentation_import.py",
       "exit_code": 0,
       "stdout_sha256": "ca782b069f4643da40085c9f627d88fee62e6459860d02c62ecb8994735cc909",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_presentation_geometry",
+      "script": "Tools/analyze_soul_founder_presentation_geometry.py",
+      "exit_code": 0,
+      "stdout_sha256": "e7baa1bbbd0a4248e484b6f5eea630fd610dddafd9eba966e48b98e80cd42573",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
