@@ -6,8 +6,9 @@ Status: **PASS**
 - Routes: **51**
 - Directed approaches: **102**
 - Settlement slots: **14**
+- Visual anchors: **36** (9 founder-slice)
 - Founder slice: **9 regions / 10 routes / 20 approaches**
-- Source hashes verified: **8**
+- Source hashes verified: **9**
 
 ## Authority checks
 

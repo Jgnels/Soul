@@ -24,6 +24,8 @@ regions = bundle["world"]["regions"]
 routes = bundle["world"]["routes"]
 approaches = bundle["directed_approaches"]
 slots = bundle["settlement_slots"]
+anchors = bundle["visual_anchors"]
+anchor_by_region = {item["region_id"]: item for item in anchors}
 recipes = {item["id"]: item for item in bundle["battlefield_recipes"]}
 region_ids = set(regions)
 if len(region_ids) != 36:
@@ -34,6 +36,18 @@ if len(approaches) != 102:
     errors.append(f"expected 102 directed approaches, got {len(approaches)}")
 if len(slots) != 14:
     errors.append(f"expected 14 settlement slots, got {len(slots)}")
+if len(anchors) != 36:
+    errors.append(f"expected 36 visual anchors, got {len(anchors)}")
+if set(anchor_by_region) != region_ids:
+    errors.append(
+        f"visual-anchor coverage drift: missing={sorted(region_ids-set(anchor_by_region))} "
+        f"extra={sorted(set(anchor_by_region)-region_ids)}"
+    )
+for region_id, anchor in anchor_by_region.items():
+    if not anchor.get("source"):
+        errors.append(f"visual anchor lacks source: {region_id}")
+    if anchor.get("battle_recipe") != regions[region_id]["battle_recipe_hint"]:
+        errors.append(f"visual-anchor battlefield binding drift: {region_id}")
 
 route_pairs = set()
 for route_id, route in routes.items():
@@ -78,6 +92,12 @@ if len(founder_ids) != 9:
     errors.append(f"expected 9 founder regions, got {len(founder_ids)}")
 if set(founder["regions"]) != founder_ids:
     errors.append("founder region projection does not match scenario region ids")
+for region_id in founder_ids:
+    projected_anchor = founder["regions"][region_id].get("visual_anchor", {})
+    if projected_anchor.get("region_id") != region_id:
+        errors.append(f"founder visual-anchor projection drift: {region_id}")
+    elif projected_anchor != anchor_by_region.get(region_id):
+        errors.append(f"founder visual-anchor content drift: {region_id}")
 if len(founder["routes"]) != 10:
     errors.append(f"expected 10 founder routes, got {len(founder['routes'])}")
 if len(founder["directed_approaches"]) != 20:
@@ -134,6 +154,8 @@ expected_counts = {
     "founder_regions": 9,
     "founder_routes": 10,
     "founder_directed_approaches": 20,
+    "visual_anchors": 36,
+    "founder_visual_anchors": 9,
 }
 for key, expected in expected_counts.items():
     if counts.get(key) != expected:
@@ -146,6 +168,8 @@ result = {
     "routes": len(routes),
     "directed_approaches": len(approaches),
     "settlement_slots": len(slots),
+    "visual_anchors": len(anchors),
+    "founder_visual_anchors": sum(1 for item in anchors if item["founder_slice"]),
     "founder_regions": len(founder_ids),
     "founder_routes": len(founder["routes"]),
     "founder_directed_approaches": len(founder["directed_approaches"]),
@@ -164,6 +188,7 @@ lines = [
     f"- Routes: **{result['routes']}**",
     f"- Directed approaches: **{result['directed_approaches']}**",
     f"- Settlement slots: **{result['settlement_slots']}**",
+    f"- Visual anchors: **{result['visual_anchors']}** ({result['founder_visual_anchors']} founder-slice)",
     f"- Founder slice: **{result['founder_regions']} regions / {result['founder_routes']} routes / {result['founder_directed_approaches']} approaches**",
     f"- Source hashes verified: **{result['source_hashes_verified']}**",
     "",

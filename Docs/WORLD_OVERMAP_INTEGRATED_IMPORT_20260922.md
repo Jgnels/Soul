@@ -21,6 +21,7 @@ The bundle is generated data, not a new gameplay authority. Its job is to give t
 - 6 factions in the candidate full-world opening overlay.
 - 12 starting-owned regions and 24 neutral regions in that candidate overlay.
 - Founder slice: 9 regions, 10 routes, 20 directed approaches.
+- 36 strategic-map visual anchors, including all 9 founder regions.
 - 27 battlefield recipes referenced by the world.
 ## Import order
 
@@ -32,7 +33,8 @@ The integrated artifact declares this import sequence:
 5. directed approach profiles;
 6. battlefield recipe bindings;
 7. presentation contract;
-8. macro-region surface bindings.
+8. strategic-map visual anchors;
+9. macro-region surface bindings.
 
 This order keeps deterministic campaign state ahead of Unreal presentation. Weather and time are still injected dynamically at battle commitment rather than authored into geography.
 
@@ -48,10 +50,10 @@ The presentation contract remains explicit:
 The validator fails if those RB authority bindings drift in the generated bundle.
 ## Acceptance evidence
 
-`Evidence/WorldOvermap/nonue_acceptance_manifest.json` records 11 deterministic non-UE checks covering topology, runtime import, settlements, approaches, start state, founder traversal, settlement coverage, battlefield fidelity, opening pressure, bundle generation, and bundle validation.
+`Evidence/WorldOvermap/nonue_acceptance_manifest.json` records 13 deterministic non-UE checks covering topology, runtime import, settlements, approaches, start state, founder traversal, settlement coverage, battlefield fidelity, opening pressure, visual-anchor generation/validation, bundle generation, and bundle validation.
 
 `Evidence/WorldOvermap/integrated_import_validation.json` additionally verifies:
-- all eight source-artifact SHA-256 hashes;
+- all nine source-artifact SHA-256 hashes;
 - route and approach referential integrity;
 - settlement-region references;
 - macro-region surface-binding coverage;
@@ -65,4 +67,4 @@ The current hard structural contract is green. The main open work is presentatio
 
 Eight destinations need deliberate geography-to-battlefield fidelity review: Ancient Shrine, Forest Edge, North Pass, Northwest March, Old Quarry, Orc Watch, River Ford, and Southern Crossing. These are not topology failures; they are places where the selected battlefield recipe transforms campaign context enough that the UE lane must prove the visible route decision still matters.
 
-A separate active lane has an uncommitted visual-anchor builder. It is intentionally excluded here until that work is committed and can be reconciled without taking ownership of another chat's worktree.
+The visual-anchor question is now closed at non-UE level: all 36 regions have explicit physical navigation targets. Remaining visual-anchor gates are mesh/proxy qualification, readability at strategic camera distance, fog/weather legibility, and performance in the bounded UE founder-slice proof.

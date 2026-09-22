@@ -14,6 +14,7 @@ SOURCES = {
     "presentation": "Data/soul_overmap_presentation_contract_v1_20260922.json",
     "surfaces": "Data/soul_overmap_surface_bindings_v1_20260922.json",
     "start_states": "Data/soul_campaign_start_states_v1_20260922.json",
+    "visual_anchors": "Data/soul_overmap_visual_anchors_v1_20260922.json",
     "battlefields": "Data/battlefield_recipes.json",
 }
 
@@ -30,10 +31,12 @@ settlements = loaded["settlements"]
 presentation = loaded["presentation"]
 surfaces = loaded["surfaces"]
 start_states = loaded["start_states"]
+visual_anchors = loaded["visual_anchors"]
 battlefields = loaded["battlefields"]
 
 node_by_id = {node["id"]: node for node in world["nodes"]}
 slot_by_region = {slot["region_id"]: slot for slot in settlements["slots"]}
+anchor_by_region = {item["region_id"]: item for item in visual_anchors["anchors"]}
 recipe_by_id = {recipe["id"]: recipe for recipe in battlefields["recipes"]}
 founder_ids = list(world["founder_slice"]["region_ids"])
 founder_set = set(founder_ids)
@@ -56,6 +59,7 @@ for region_id in founder_ids:
         "runtime": runtime["regions"][region_id],
         "start_owner": founder_scenario["owners"].get(region_id),
         "settlement_slot": slot_by_region.get(region_id),
+        "visual_anchor": anchor_by_region[region_id],
         "battlefield_recipe": recipe_by_id[recipe_id],
     }
 
@@ -76,6 +80,7 @@ bundle = {
         "world_graph": SOURCES["world"],
         "runtime_positions_routes": SOURCES["runtime"],
         "start_state_overlay": SOURCES["start_states"],
+        "visual_anchor_plan": SOURCES["visual_anchors"],
         "directed_approaches": SOURCES["approaches"],
         "settlement_density": SOURCES["settlements"],
         "battlefield_selection": SOURCES["battlefields"],
@@ -91,6 +96,7 @@ bundle = {
         "directed_approaches",
         "battlefield_recipe_bindings",
         "presentation_contract",
+        "visual_anchors",
         "surface_bindings",
     ],
     "world": {
@@ -103,6 +109,7 @@ bundle = {
     "settlement_slots": settlements["slots"],
     "start_states": start_states["scenarios"],
     "directed_approaches": approaches["approaches"],
+    "visual_anchors": visual_anchors["anchors"],
     "battlefield_recipes": battlefields["recipes"],
     "presentation_contract": presentation,
     "surface_bindings": surfaces,
@@ -124,6 +131,8 @@ bundle = {
         "founder_regions": len(founder_ids),
         "founder_routes": len(founder_routes),
         "founder_directed_approaches": len(founder_approaches),
+        "visual_anchors": len(visual_anchors["anchors"]),
+        "founder_visual_anchors": sum(1 for item in visual_anchors["anchors"] if item["founder_slice"]),
         "battlefield_recipes": len(battlefields["recipes"]),
     },
 }
