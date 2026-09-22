@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "READ_ONLY_RUNTIME_TEST_GAP_AUDIT",
+  "authority": {
+    "candidate_test_file": "D:\\RefinedBadger\\Games\\Soul\\Source\\Soul\\Private\\Tests\\SoulFounderPlaytestTests.cpp",
+    "candidate_test_authority": "UNTRACKED_DIRTY_PRIMARY_PROTOTYPE_NOT_CANONICAL",
+    "acceptance_fixtures": "Data/soul_overmap_ue_acceptance_fixtures_v1_20260922.json",
+    "runtime_drift_audit": "Evidence/WorldOvermap/founder_runtime_candidate_drift.json"
+  },
+  "candidate_test_sha256": "6b59f2af25dba553c3b6a0162c830dd8fccb1df05d6129b5775dfe5f4bdcddc2",
+  "existing_test_names": [
+    "Soul.Playtest.FounderSlice.StateLoop"
+  ],
+  "existing_assertion_count": 16,
+  "existing_assertion_labels": [
+    "starts in capital",
+    "human_capital",
+    "starts with three AP",
+    "six proof spells known",
+    "seven roster pools",
+    "capital can recruit",
+    "human_militia",
+    "recruit enters army",
+    "human_militia",
+    "first move legal",
+    "crossroads",
+    "move spends AP",
+    "starting skill point can be spent",
+    "Adventure",
+    "adventure rank one",
+    "Adventure",
+    "adventure visibly raises max AP",
+    "gold",
+    "day advances",
+    "new max AP applied",
+    "daily income applied",
+    "gold",
+    "orc_camp",
+    "orc_camp",
+    "battle victory captured stronghold",
+    "humans",
+    "battle victory grants hero progression"
+  ],
+  "hardcoded_stronghold_award_test_present": true,
+  "coverage": {
+    "required_behaviors": 6,
+    "covered": 0,
+    "missing": 6,
+    "critical_missing": [
+      "hostile_nonsettlement_entry_blocks_occupation",
+      "battle_result_applies_actual_destination"
+    ]
+  },
+  "checks": [
+    {
+      "id": "hostile_nonsettlement_entry_blocks_occupation",
+      "fixture_id": "ue.fixture.founder_forest_contact",
+      "required_behavior": "Attempting Forest Edge -> Orc Watch must enter battle commitment without setting PlayerRegion or changing Orc Watch ownership before victory.",
+      "covered": false,
+      "severity": "critical"
+    },
+    {
+      "id": "battle_result_applies_actual_destination",
+      "fixture_id": "ue.fixture.founder_forest_contact",
+      "required_behavior": "A victory launched for Orc Watch must resolve/capture Orc Watch; battle result code must not hardcode orc_camp.",
+      "covered": false,
+      "severity": "critical"
+    },
+    {
+      "id": "directed_handoff_selects_recipe",
+      "fixture_id": "ue.fixture.founder_forest_contact",
+      "required_behavior": "Battle launch must carry directed approach/handoff and verify Orc Watch selects orc.badlands while Stronghold selects orc.war_camp.",
+      "covered": false,
+      "severity": "high"
+    },
+    {
+      "id": "settlement_assault_carries_siege_context",
+      "fixture_id": "ue.fixture.human_capital_east_assault",
+      "required_behavior": "Hostile Human Capital entry must preserve settlement ID, approach direction, and siege-context fields.",
+      "covered": false,
+      "severity": "high"
+    },
+    {
+      "id": "stronghold_reinforcement_uses_real_adjacent_route",
+      "fixture_id": "ue.fixture.stronghold_reinforcement_retreat",
+      "required_behavior": "Any Orc Watch reinforcement must be tied to the actual Orc Watch -> Orc Stronghold edge and timing; no duplicated reserve should appear.",
+      "covered": false,
+      "severity": "decision_blocked"
+    },
+    {
+      "id": "river_ford_recipe_gate_is_explicit",
+      "fixture_id": "ue.fixture.river_ford_context",
+      "required_behavior": "River Ford must report human.river_road and UE_CROP_REQUIRED until the crop is qualified.",
+      "covered": false,
+      "severity": "medium"
+    }
+  ],
+  "interpretation": [
+    "The candidate has a useful basic state-loop test, but it does not cover the accepted hostile-entry or directed battle-return contracts.",
+    "The existing AwardBattleVictory(orc_camp) assertion validates a stronghold victory in isolation but cannot detect the current battle actor hardcoding every victory to orc_camp.",
+    "The acceptance fixtures now provide concrete future runtime assertions; they should be exercised in committed C++/functional tests when the candidate is admitted.",
+    "No candidate test or runtime file was modified by this audit."
+  ],
+  "minimum_tests_before_runtime_admission": [
+    "Orc Watch hostile entry does not change strategic location/ownership before battle victory.",
+    "Battle result applies to the actual destination region carried by the handoff.",
+    "Orc Watch and Orc Stronghold launch distinct accepted battlefield recipe contexts.",
+    "Settlement attack preserves settlement/siege context.",
+    "Reinforcement/retreat test follows actual adjacent routes after the founder chooses the reaction policy."
+  ]
+}
