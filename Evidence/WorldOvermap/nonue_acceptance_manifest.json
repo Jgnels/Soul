@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 28,
-  "steps_passed": 28,
+  "steps_total": 32,
+  "steps_passed": 32,
   "steps_failed": 0,
   "steps": [
     {
@@ -62,6 +62,50 @@
       "stderr_tail": []
     },
     {
+      "name": "battle_handoff_build",
+      "script": "Tools/build_soul_overmap_battle_handoff.py",
+      "exit_code": 0,
+      "stdout_sha256": "c91badea1c38e11f8ce377656033ba07e6e03e9a7550536873ec474236cdd90f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "Wrote D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Docs\\WORLD_OVERMAP_BATTLE_HANDOFF_20260922.md"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "battle_handoff_validation",
+      "script": "Tools/validate_soul_overmap_battle_handoff.py",
+      "exit_code": 0,
+      "stdout_sha256": "1fcea77188331135715d0b27ace6c5196dd082ec49775539a2f2503256a84b5e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_campaign_stress",
+      "script": "Tools/analyze_soul_founder_campaign_stress.py",
+      "exit_code": 0,
+      "stdout_sha256": "72cc38b67ad32f6fdbea173f641d95478cc648fc366edcd5630804a4ecea876d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_campaign_stress_validation",
+      "script": "Tools/validate_soul_founder_campaign_stress.py",
+      "exit_code": 0,
+      "stdout_sha256": "3bf1f8fc951885a6aa6407008d6dc003b6f2c331c6c7a07411ac0929670ee75c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
       "name": "founder_traversal",
       "script": "Tools/simulate_soul_founder_overmap.py",
       "exit_code": 0,
@@ -76,10 +120,10 @@
       "name": "settlement_coverage",
       "script": "Tools/analyze_soul_overmap_settlement_coverage.py",
       "exit_code": 0,
-      "stdout_sha256": "439debcebc632534c6023d2626eca4a6c7cc6acf83b5e32bae54e491035d2b6d",
+      "stdout_sha256": "55374a62b6ab08eb49ddf5ce51e06b7e8b9281c8b620cebdc00e9b490492397a",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
-        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-preview-20260922\\Evidence\\WorldOvermap\\settlement_coverage_analysis.md"
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Evidence\\WorldOvermap\\settlement_coverage_analysis.md"
       ],
       "stderr_tail": []
     },
@@ -87,10 +131,10 @@
       "name": "battlefield_fidelity",
       "script": "Tools/analyze_soul_overmap_battlefield_coverage.py",
       "exit_code": 0,
-      "stdout_sha256": "95efb4b0d3b9f3c945d50b116174032609f5d0797807faba68f7a956a019fb48",
+      "stdout_sha256": "081aa9a618b2af321eafc4d090b4f49dd3e03caa0919a66c8d1523a406f19f4d",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
-        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-preview-20260922\\Evidence\\WorldOvermap\\battlefield_coverage_analysis.md"
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Evidence\\WorldOvermap\\battlefield_coverage_analysis.md"
       ],
       "stderr_tail": []
     },
@@ -109,10 +153,10 @@
       "name": "visual_anchor_build",
       "script": "Tools/build_soul_overmap_visual_anchors.py",
       "exit_code": 0,
-      "stdout_sha256": "0258887300755dc7dffec3884c006f202494d0d2ae9a954fbfa3d69e7913294a",
+      "stdout_sha256": "123355102b7c3f84e52ea5af39859e7652c2d3bc707aac78d5e696e10d2ccb6c",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
-        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-preview-20260922\\Data\\soul_overmap_visual_anchors_v1_20260922.json anchors=36"
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Data\\soul_overmap_visual_anchors_v1_20260922.json anchors=36"
       ],
       "stderr_tail": []
     },
@@ -131,10 +175,10 @@
       "name": "route_visual_build",
       "script": "Tools/build_soul_overmap_route_visual_cues.py",
       "exit_code": 0,
-      "stdout_sha256": "d0dc8031587b54b12d63c9feb118333b4869b47261fd51a36d0e237caddac1d6",
+      "stdout_sha256": "37ae21f8c9fed3bb3cf82a4fdf099a29a27a73ea6c8b3d167e961534b39f6663",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
-        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-preview-20260922\\Data\\soul_overmap_route_visual_cues_v1_20260922.json cues=51 classes=15"
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Data\\soul_overmap_route_visual_cues_v1_20260922.json cues=51 classes=15"
       ],
       "stderr_tail": []
     },
@@ -153,7 +197,7 @@
       "name": "integrated_bundle_build",
       "script": "Tools/build_soul_overmap_integrated_import.py",
       "exit_code": 0,
-      "stdout_sha256": "5c7451c9924d599e94b3404d3902c6914434f5764c350f20f855c366b9249436",
+      "stdout_sha256": "030da9e22cb72ad1873942e6eae93c6c927cfc3804fcc8ebc2bdd24a8da8e4a3",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
@@ -175,7 +219,7 @@
       "name": "founder_presentation_build",
       "script": "Tools/build_soul_founder_presentation_import.py",
       "exit_code": 0,
-      "stdout_sha256": "9797ff28d1e244baa916194b39e3a202e1b0bad98c340ca9caeaa0fc77090d3f",
+      "stdout_sha256": "4b0fe4b89cfd3db010635a18989700d4bde0cbb522f9cca6c3e149042ed2057f",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
@@ -208,7 +252,7 @@
       "name": "founder_state_vectors_build",
       "script": "Tools/build_soul_founder_presentation_state_vectors.py",
       "exit_code": 0,
-      "stdout_sha256": "ff3ab438d9b9eb90519457655759c4b5ba13365428443ad0e369364b555d68cd",
+      "stdout_sha256": "65e002dc7659c4db07a86cc07e41212602830ec969ab38cf133d415784e79004",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
@@ -230,10 +274,10 @@
       "name": "founder_ue_staging_export",
       "script": "Tools/export_soul_founder_ue_staging.py",
       "exit_code": 0,
-      "stdout_sha256": "021703c65e51e2f8b42c7c30f548bea5dae16dc065de1b53a01c32e8392f14cb",
+      "stdout_sha256": "890e278ead75d04435613f924ce51bb725ebd44cc2f167ed7d942d675476e704",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
-        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-preview-20260922\\Data\\UEImport\\soul_founder_ue_import_manifest_v1_20260922.json"
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Data\\UEImport\\soul_founder_ue_import_manifest_v1_20260922.json"
       ],
       "stderr_tail": []
     },
@@ -252,7 +296,7 @@
       "name": "battlefield_environment_expansion_build",
       "script": "Tools/build_soul_battlefield_environment_expansion.py",
       "exit_code": 0,
-      "stdout_sha256": "938f52183f147662dde4f094795f8107fcb168554c2bc92cd933f7d7409b8045",
+      "stdout_sha256": "86505317773c1e8ed6b43ff39fcf6a8d3551c976fb88244f7a733a69ca2cfb5d",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
