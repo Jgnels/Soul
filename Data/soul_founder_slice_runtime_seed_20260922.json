@@ -25,24 +25,24 @@
         "Human faction seat"
       ],
       "neighbors": [
-        "coastal_ruins",
-        "crossroads",
-        "northwest_march"
+        "crossroads"
       ],
       "road_neighbors": [
-        "coastal_ruins",
-        "crossroads",
-        "northwest_march"
+        "crossroads"
       ],
       "approach_from_neighbor": {
-        "crossroads": "east",
-        "northwest_march": "north",
-        "coastal_ruins": "south"
+        "crossroads": "east"
       },
       "founder_ue_position": [
         -3000,
         0,
         50
+      ],
+      "site_roles": [
+        "settlement",
+        "recruitment",
+        "tavern",
+        "hero_services"
       ]
     },
     "crossroads": {
@@ -84,6 +84,9 @@
         -1600,
         0,
         50
+      ],
+      "site_roles": [
+        "travel_hub"
       ]
     },
     "old_quarry": {
@@ -119,6 +122,10 @@
         -700,
         -1500,
         50
+      ],
+      "site_roles": [
+        "resource_site",
+        "ore"
       ]
     },
     "river_ford": {
@@ -141,26 +148,25 @@
       ],
       "neighbors": [
         "crossroads",
-        "nature_grassland_edge",
-        "orc_watch",
-        "southern_crossing"
+        "orc_watch"
       ],
       "road_neighbors": [
         "crossroads",
-        "nature_grassland_edge",
-        "orc_watch",
-        "southern_crossing"
+        "orc_watch"
       ],
       "approach_from_neighbor": {
         "crossroads": "north_west",
-        "orc_watch": "east",
-        "nature_grassland_edge": "south",
-        "southern_crossing": "south_east"
+        "orc_watch": "east"
       },
       "founder_ue_position": [
         -200,
         1200,
         50
+      ],
+      "site_roles": [
+        "crossing",
+        "road_gate",
+        "encounter"
       ]
     },
     "forest_edge": {
@@ -196,6 +202,11 @@
         200,
         -500,
         50
+      ],
+      "site_roles": [
+        "resource_site",
+        "wood",
+        "ambush_route"
       ]
     },
     "ancient_shrine": {
@@ -217,18 +228,20 @@
         "Founder slice magic landmark"
       ],
       "neighbors": [
-        "mountain_shrine",
         "old_quarry"
       ],
       "road_neighbors": [],
       "approach_from_neighbor": {
-        "old_quarry": "west",
-        "mountain_shrine": "north"
+        "old_quarry": "west"
       },
       "founder_ue_position": [
         700,
         -2100,
         50
+      ],
+      "site_roles": [
+        "magic_landmark",
+        "hero_progression"
       ]
     },
     "orc_watch": {
@@ -252,7 +265,6 @@
       "neighbors": [
         "forest_edge",
         "orc_camp",
-        "orc_ruined_field",
         "river_ford"
       ],
       "road_neighbors": [
@@ -262,13 +274,16 @@
       "approach_from_neighbor": {
         "river_ford": "west",
         "forest_edge": "north_west",
-        "orc_camp": "east",
-        "orc_ruined_field": "east"
+        "orc_camp": "east"
       },
       "founder_ue_position": [
         1600,
         800,
         50
+      ],
+      "site_roles": [
+        "enemy_outpost",
+        "encounter"
       ]
     },
     "north_pass": {
@@ -290,26 +305,22 @@
         "Founder slice alternate stronghold approach"
       ],
       "neighbors": [
-        "dwarf_forge_approach",
-        "dwarf_mountain_pass",
         "forest_edge",
-        "orc_camp",
-        "orc_war_camp"
+        "orc_camp"
       ],
-      "road_neighbors": [
-        "orc_war_camp"
-      ],
+      "road_neighbors": [],
       "approach_from_neighbor": {
         "forest_edge": "west",
-        "orc_camp": "south_east",
-        "dwarf_mountain_pass": "north",
-        "dwarf_forge_approach": "north_east",
-        "orc_war_camp": "east"
+        "orc_camp": "south_east"
       },
       "founder_ue_position": [
         1700,
         -1300,
         50
+      ],
+      "site_roles": [
+        "chokepoint",
+        "encounter"
       ]
     },
     "orc_camp": {
@@ -333,25 +344,23 @@
       ],
       "neighbors": [
         "north_pass",
-        "orc_badlands",
-        "orc_war_camp",
         "orc_watch"
       ],
       "road_neighbors": [
-        "orc_badlands",
-        "orc_war_camp",
         "orc_watch"
       ],
       "approach_from_neighbor": {
         "north_pass": "north_west",
-        "orc_watch": "west",
-        "orc_badlands": "east",
-        "orc_war_camp": "north_east"
+        "orc_watch": "west"
       },
       "founder_ue_position": [
         3100,
         0,
         50
+      ],
+      "site_roles": [
+        "enemy_stronghold",
+        "siege"
       ]
     }
   },

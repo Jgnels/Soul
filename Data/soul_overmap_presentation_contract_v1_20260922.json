@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "presentation_model": "continuous_compressed_3d_world_over_hidden_region_graph",
+  "reference_mix": {
+    "heroes_3": [
+      "clear roads/resources/landmarks",
+      "fog/exploration",
+      "hero movement choices"
+    ],
+    "total_war_warhammer": [
+      "terrain-constrained fronts",
+      "exaggerated readable settlement landmarks",
+      "strategic chokepoints"
+    ],
+    "bannerlord": [
+      "continuous physical geography",
+      "moving world parties",
+      "settlements visually embedded in terrain"
+    ]
+  },
+  "authority": {
+    "world_state": "SoulCore FSoulWorldState / FSoulWorldRules",
+    "weather": "RB Weather",
+    "optimization": "RB Optimization",
+    "save": "RB Save",
+    "presentation": "Unreal overmap actors/materials only; presentation does not invent campaign outcomes"
+  },
+  "camera": {
+    "default": "elevated three-quarter strategic view",
+    "zoom_levels": [
+      "world",
+      "regional",
+      "settlement_approach"
+    ],
+    "requirements": [
+      "terrain readable without labels",
+      "settlement silhouette readable at regional zoom",
+      "route/chokepoint readability survives fog/weather"
+    ]
+  },
+  "terrain": {
+    "rule": "purpose-built continuous terrain; donor landscapes are source vocabulary, not stitched levels",
+    "scale": "compressed strategic geography; absolute kilometres deferred",
+    "hard_barriers": [
+      "coast",
+      "major river unless crossing",
+      "mountain belt unless pass"
+    ],
+    "soft_costs": [
+      "forest",
+      "rough slope",
+      "badlands",
+      "snow"
+    ],
+    "final_region_nodes_visible": false,
+    "final_province_borders_visible": false
+  },
+  "roads": {
+    "presentation": "terrain-following roads/trails with destination highlight only when selected",
+    "canonical_semantics": "one adjacent-region action in founder slice; independent logistics movement cost",
+    "selected_route_overlay": "temporary readable highlight, never permanent board lines"
+  },
+  "settlements": {
+    "rule": "overmap landmark proxy must resemble the actual visitable settlement donor",
+    "states": [
+      "intact",
+      "damaged",
+      "ruined",
+      "repairing"
+    ],
+    "state_cues": [
+      "silhouette damage",
+      "smoke/fire when appropriate",
+      "scaffolding/patching",
+      "faction banner"
+    ],
+    "interaction": "select for details; enter/visit transitions to the physical town presentation"
+  },
+  "heroes_and_armies": {
+    "presentation": "world party actor with readable hero/banner identity; modest scale exaggeration allowed",
+    "movement": "animate along validated route after canonical move succeeds",
+    "enemy_visibility": "respect Soul exploration/current-visibility state",
+    "regiment_detail": "do not render every soldier on the campaign map"
+  },
+  "fog": {
+    "unexplored": "obscure geography and objects",
+    "explored_not_visible": "terrain memory remains; current armies/changes are hidden",
+    "visible": "show current armies, settlement condition and relevant interactables"
+  },
+  "territory": {
+    "default": "terrain and faction occupation communicate ownership without permanent hard province borders",
+    "selection": "subtle temporary ownership wash/outline is allowed on demand"
+  },
+  "battle_handshake": {
+    "inputs": [
+      "defender biome",
+      "landform",
+      "feature",
+      "attacker approach",
+      "road presence",
+      "settlement proximity",
+      "weather",
+      "time of day",
+      "siege flag"
+    ],
+    "promise": "campaign geography visible to the player must be honored by tactical battlefield selection"
+  },
+  "performance": {
+    "first": [
+      "RB Optimization",
+      "HLOD/instancing/static representation",
+      "bounded foliage density"
+    ],
+    "settlements": "use simplified overmap proxies; load full visitable town only when entering it",
+    "armies": "party-level representation only",
+    "micro_props": "do not carry town-showcase clutter onto the overmap"
+  },
+  "founder_slice_gate": [
+    "nine founder regions use current exact IDs and UE blockout positions",
+    "three distinct short approaches to Orc Stronghold remain legible",
+    "Old Quarry and Forest Edge read as resource opportunities",
+    "River Ford and North Pass visibly read as crossing/chokepoint geography",
+    "Human Capital and Orc Stronghold are recognizable from their visitable-city silhouettes",
+    "fog, AP spending, region selection and AI movement remain driven by existing canonical state"
+  ]
+}

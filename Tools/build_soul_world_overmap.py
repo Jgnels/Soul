@@ -27,6 +27,18 @@ FOUNDER_UE_POSITIONS = {
     "orc_camp": [3100, 0, 50],
 }
 
+FOUNDER_GAMEPLAY = {
+    "human_capital": ["settlement","recruitment","tavern","hero_services"],
+    "crossroads": ["travel_hub"],
+    "old_quarry": ["resource_site","ore"],
+    "river_ford": ["crossing","road_gate","encounter"],
+    "forest_edge": ["resource_site","wood","ambush_route"],
+    "ancient_shrine": ["magic_landmark","hero_progression"],
+    "orc_watch": ["enemy_outpost","encounter"],
+    "north_pass": ["chokepoint","encounter"],
+    "orc_camp": ["enemy_stronghold","siege"],
+}
+
 TERRAIN_FEATURES = {
     "seas": [
         {"id":"western_sea","kind":"sea","edge":"west","notes":["Viking and Nature coast access"]},
@@ -480,7 +492,19 @@ def main():
     data=payload()
     DATA_OUT.write_text(json.dumps(data,indent=2)+"\n",encoding="utf-8")
     founder_ids=set(FOUNDER_SLICE)
-    founder_regions={k:v for k,v in data["runtime_regions"].items() if k in founder_ids}
+    founder_regions={}
+    for k,v in data["runtime_regions"].items():
+        if k not in founder_ids:
+            continue
+        region=dict(v)
+        region["neighbors"]=[x for x in v["neighbors"] if x in founder_ids]
+        region["road_neighbors"]=[x for x in v["road_neighbors"] if x in founder_ids]
+        region["approach_from_neighbor"]={
+            x:direction for x,direction in v["approach_from_neighbor"].items()
+            if x in founder_ids
+        }
+        region["site_roles"]=FOUNDER_GAMEPLAY[k]
+        founder_regions[k]=region
     founder_routes={
         k:v for k,v in data["runtime_routes"].items()
         if v["a"] in founder_ids and v["b"] in founder_ids

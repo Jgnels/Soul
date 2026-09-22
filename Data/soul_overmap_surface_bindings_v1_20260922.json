@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "NON_UE_OWNED_ASSET_BINDING_PLAN",
+  "rules": [
+    "Author one purpose-built campaign terrain; do not stitch donor showcase levels together literally.",
+    "Use donor landscapes for height/material/landform vocabulary and source data, not for arbitrary world borders.",
+    "Settlement silhouettes must correspond to the actual visitable settlement donor used by that faction.",
+    "Roads, rivers, passes and forest belts are gameplay communication first and decoration second.",
+    "Use RB Weather for weather presentation and RB Optimization for repeated/static representation before bespoke systems.",
+    "Overmap geography must preserve the same biome/landform/feature promise used to select tactical battlefield recipes."
+  ],
+  "macro_regions": {
+    "northern_fjords": {
+      "terrain": [
+        "LandscapePack413 SnowyMountain_01/02",
+        "Water City cliffs/water"
+      ],
+      "settlement": [
+        "Water City LV_WaterVillage",
+        "Modular Viking Village LV_MainVillage"
+      ],
+      "identity": "cold coast, fjords, boreal routes, snow pass",
+      "status": "LOCAL_VERIFIED"
+    },
+    "crownspine": {
+      "terrain": [
+        "LandscapePack413 Mountain_01/04",
+        "LandscapePack413 SnowyMountain_03"
+      ],
+      "settlement": [
+        "Modular Legendary Forge"
+      ],
+      "identity": "continuous mountain spine, quarry terraces, engineered passes",
+      "status": "TERRAIN_LOCAL_FORGE_PAYLOAD_PENDING"
+    },
+    "heartland": {
+      "terrain": [
+        "LandscapePack413 Grassland_01/02",
+        "Elite Coastal Ruins river terrain"
+      ],
+      "settlement": [
+        "Medieval_Megapack PL_Fortress_Day"
+      ],
+      "identity": "temperate roads, farms/grassland, river approaches, fortified capital",
+      "status": "LOCAL_VERIFIED"
+    },
+    "eastern_badlands": {
+      "terrain": [
+        "LandscapePack413 Mesa_01/02",
+        "Elite Coastal Ruins",
+        "Ravenhold ruined bridge pieces"
+      ],
+      "settlement": [
+        "Medieval Ruins",
+        "YI_BanditCamp support dressing"
+      ],
+      "identity": "mesa shelves, gullies, occupied ruins, broad War Elephant lanes",
+      "status": "TERRAIN_LOCAL_CITY_PAYLOAD_PENDING"
+    },
+    "greenwood": {
+      "terrain": [
+        "LandscapePack413 Grassland_02",
+        "Fantasy Forest Village",
+        "Ancient Mountain/Shrine",
+        "Elite Coastal Ruins water"
+      ],
+      "settlement": [
+        "Fantasy Forest Village",
+        "Treefort/Nature donor to locate"
+      ],
+      "identity": "deep forest, river woodland, meadow edges, shrine terraces",
+      "status": "MIXED_PAYLOAD_PENDING"
+    },
+    "ashen_south": {
+      "terrain": [
+        "LandscapePack413 Desert_01/02",
+        "LandscapePack413 Mountain_05",
+        "Elite Coastal Ruins/Ravenhold causeway pieces"
+      ],
+      "settlement": [
+        "Fantasy Alien Castle"
+      ],
+      "identity": "ash plain, corrupted valley, broken causeways, oppressive fortress horizon",
+      "status": "TERRAIN_LOCAL_CASTLE_PAYLOAD_PENDING"
+    }
+  },
+  "overmap_scale": "RELATIVE_TOPOLOGY_LOCKED_ABSOLUTE_KM_DEFERRED",
+  "ue_gate": "Purpose-built terrain + settlement proxies only after the active realtime-battle lane releases UE."
+}
