@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 36,
-  "steps_passed": 36,
+  "steps_total": 37,
+  "steps_passed": 37,
   "steps_failed": 0,
   "steps": [
     {
@@ -330,6 +330,17 @@
       "script": "Tools/validate_soul_overmap_ue_acceptance_fixtures.py",
       "exit_code": 0,
       "stdout_sha256": "6ff86ec6077385bb669176a5885f4bfb07c5481661f9b22d2d96cf22bf87f398",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_structural_stage_static_validation",
+      "script": "Tools/validate_soul_founder_overmap_structural_stage.py",
+      "exit_code": 0,
+      "stdout_sha256": "4e517187401f9233beef02f513d74b67ed778b583c6ca1d01a666c5d9f4c75bd",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"

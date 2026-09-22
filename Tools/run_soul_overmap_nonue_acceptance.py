@@ -39,6 +39,7 @@ STEPS = [
     ("founder_import_bundle_v2_validation", "Tools/validate_soul_founder_import_bundle_v2.py"),
     ("ue_acceptance_fixtures_build", "Tools/build_soul_overmap_ue_acceptance_fixtures.py"),
     ("ue_acceptance_fixtures_validation", "Tools/validate_soul_overmap_ue_acceptance_fixtures.py"),
+    ("founder_structural_stage_static_validation", "Tools/validate_soul_founder_overmap_structural_stage.py"),
     ("battlefield_environment_expansion_build", "Tools/build_soul_battlefield_environment_expansion.py"),
     ("battlefield_environment_expansion_validation", "Tools/validate_soul_battlefield_environment_expansion.py"),
     ("overmap_preview_build", "Tools/build_soul_overmap_preview_bundle.py"),
