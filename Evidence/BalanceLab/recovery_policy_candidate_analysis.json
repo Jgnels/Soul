@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "analyzed",
+  "runs_per_profile_per_scenario": 250,
+  "seed_base": 20260922,
+  "authority": "LAB_ONLY_CANDIDATE_ANALYSIS",
+  "profiles": [
+    {
+      "profile": "bounded_center",
+      "params": {
+        "respawn_days": 3,
+        "respawn_strength": 220,
+        "respawn_supply": 700,
+        "respawn_readiness": 550,
+        "respawn_fatigue": 150,
+        "preserve_veterancy": false,
+        "recruit_same_day": false
+      },
+      "baseline": {
+        "runaway_rate": 0.0,
+        "mean_gini": 0.08565398296296028,
+        "mean_leader_share": 0.30478685626995056,
+        "mean_battles": 24.88
+      },
+      "forced_loss": {
+        "median_recovery70_days": 6,
+        "median_final_recovery_ratio": 0.4863636363636364,
+        "f0_leader_rate": 0.216,
+        "mean_f0_score_share": 0.2465062735559055,
+        "mean_f0_territory": 2.928,
+        "mean_battles": 24.416
+      }
+    },
+    {
+      "profile": "fast_fragile",
+      "params": {
+        "respawn_days": 2,
+        "respawn_strength": 160,
+        "respawn_supply": 600,
+        "respawn_readiness": 450,
+        "respawn_fatigue": 200,
+        "preserve_veterancy": false,
+        "recruit_same_day": false
+      },
+      "baseline": {
+        "runaway_rate": 0.016,
+        "mean_gini": 0.11526985645737033,
+        "mean_leader_share": 0.3242142105944961,
+        "mean_battles": 32.724
+      },
+      "forced_loss": {
+        "median_recovery70_days": 4.0,
+        "median_final_recovery_ratio": 1.0,
+        "f0_leader_rate": 0.256,
+        "mean_f0_score_share": 0.24711380232097296,
+        "mean_f0_territory": 3.212,
+        "mean_battles": 31.692
+      }
+    },
+    {
+      "profile": "fast_bounded",
+      "params": {
+        "respawn_days": 2,
+        "respawn_strength": 220,
+        "respawn_supply": 650,
+        "respawn_readiness": 550,
+        "respawn_fatigue": 150,
+        "preserve_veterancy": false,
+        "recruit_same_day": false
+      },
+      "baseline": {
+        "runaway_rate": 0.008,
+        "mean_gini": 0.10659308110825436,
+        "mean_leader_share": 0.31621962236222445,
+        "mean_battles": 35.26
+      },
+      "forced_loss": {
+        "median_recovery70_days": 4.5,
+        "median_final_recovery_ratio": 0.9933774834437086,
+        "f0_leader_rate": 0.244,
+        "mean_f0_score_share": 0.24807616233353058,
+        "mean_f0_territory": 3.052,
+        "mean_battles": 35.04
+      }
+    },
+    {
+      "profile": "slow_bounded",
+      "params": {
+        "respawn_days": 4,
+        "respawn_strength": 220,
+        "respawn_supply": 700,
+        "respawn_readiness": 550,
+        "respawn_fatigue": 150,
+        "preserve_veterancy": false,
+        "recruit_same_day": false
+      },
+      "baseline": {
+        "runaway_rate": 0.0,
+        "mean_gini": 0.0856187379118735,
+        "mean_leader_share": 0.306941831490383,
+        "mean_battles": 17.764
+      },
+      "forced_loss": {
+        "median_recovery70_days": 8.0,
+        "median_final_recovery_ratio": 0.682681242807825,
+        "f0_leader_rate": 0.276,
+        "mean_f0_score_share": 0.2530231328996294,
+        "mean_f0_territory": 3.232,
+        "mean_battles": 17.668
+      }
+    },
+    {
+      "profile": "slow_stronger",
+      "params": {
+        "respawn_days": 4,
+        "respawn_strength": 260,
+        "respawn_supply": 700,
+        "respawn_readiness": 650,
+        "respawn_fatigue": 100,
+        "preserve_veterancy": false,
+        "recruit_same_day": false
+      },
+      "baseline": {
+        "runaway_rate": 0.0,
+        "mean_gini": 0.10141035004504186,
+        "mean_leader_share": 0.3148548388476949,
+        "mean_battles": 21.296
+      },
+      "forced_loss": {
+        "median_recovery70_days": 8,
+        "median_final_recovery_ratio": 0.4673076923076923,
+        "f0_leader_rate": 0.232,
+        "mean_f0_score_share": 0.2521658960593191,
+        "mean_f0_territory": 3.28,
+        "mean_battles": 21.076
+      }
+    },
+    {
+      "profile": "exploit_sentinel",
+      "params": {
+        "respawn_days": 2,
+        "respawn_strength": 220,
+        "respawn_supply": 1000,
+        "respawn_readiness": 1000,
+        "respawn_fatigue": 0,
+        "preserve_veterancy": true,
+        "recruit_same_day": true
+      },
+      "baseline": {
+        "runaway_rate": 0.208,
+        "mean_gini": 0.2050861174737079,
+        "mean_leader_share": 0.3735617927768943,
+        "mean_battles": 28.184
+      },
+      "forced_loss": {
+        "median_recovery70_days": 2,
+        "median_final_recovery_ratio": 1.4015578470701153,
+        "f0_leader_rate": 0.244,
+        "mean_f0_score_share": 0.24593512436712567,
+        "mean_f0_territory": 2.944,
+        "mean_battles": 29.028
+      }
+    }
+  ],
+  "guardrails": [
+    "Candidate profiles do not change Soul production runtime rules.",
+    "The exploit sentinel intentionally preserves veterancy/full logistics/same-day recruiting as a regression warning.",
+    "Prefer visible symmetric replacement rules over hidden comeback subsidies."
+  ]
+}
