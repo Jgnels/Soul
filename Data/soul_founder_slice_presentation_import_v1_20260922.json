@@ -1,0 +1,2128 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "FOUNDER_PRESENTATION_IMPORT_NON_UE",
+  "source_integrated_import": "soul_overmap_integrated_import_v1_20260922.json",
+  "source_integrated_import_sha256": "192e3d0b9c9576dea2e5a9c1dd2508c2df87d2a71b86f3272b6112ff259389e1",
+  "authority": {
+    "campaign_state": "SoulCore / integrated overmap contracts",
+    "weather": "RB Weather",
+    "optimization": "RB Optimization",
+    "save": "RB Save",
+    "presentation": "Unreal consumes this artifact; it does not invent campaign state"
+  },
+  "scenario": {
+    "status": "LOCKED_TO_CURRENT_FOUNDER_PROTOTYPE",
+    "region_ids": [
+      "human_capital",
+      "crossroads",
+      "old_quarry",
+      "river_ford",
+      "forest_edge",
+      "ancient_shrine",
+      "orc_watch",
+      "north_pass",
+      "orc_camp"
+    ],
+    "owners": {
+      "human_capital": "humans",
+      "crossroads": "humans",
+      "orc_watch": "orcs",
+      "orc_camp": "orcs"
+    },
+    "player_faction": "humans",
+    "player_start_region": "human_capital",
+    "enemy_primary_region": "orc_camp",
+    "initial_knowledge": {
+      "humans": {
+        "visible_regions": [
+          "human_capital",
+          "crossroads"
+        ],
+        "explored_regions": [
+          "human_capital",
+          "crossroads"
+        ]
+      }
+    },
+    "diplomacy": {
+      "humans_vs_orcs": "war"
+    }
+  },
+  "camera": {
+    "default": "elevated three-quarter strategic view",
+    "zoom_levels": [
+      "world",
+      "regional",
+      "settlement_approach"
+    ],
+    "requirements": [
+      "terrain readable without labels",
+      "settlement silhouette readable at regional zoom",
+      "route/chokepoint readability survives fog/weather"
+    ]
+  },
+  "fog_contract": {
+    "unexplored": "obscure geography and objects",
+    "explored_not_visible": "terrain memory remains; current armies/changes are hidden",
+    "visible": "show current armies, settlement condition and relevant interactables"
+  },
+  "regions": [
+    {
+      "region_id": "human_capital",
+      "display_name": "Human Capital",
+      "ue_position_cm": [
+        -320000,
+        25000,
+        12000
+      ],
+      "selection_radius_cm": 18000,
+      "initial_owner": "humans",
+      "initial_fog_state": "visible",
+      "biome": "temperate",
+      "landform": "fortified",
+      "feature": "capital",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "human_capital",
+        "display_name": "Human Capital",
+        "macro_region": "heartland",
+        "battle_recipe": "human.fortress_outskirts",
+        "battle_recipe_landmark": "visible gatehouse",
+        "battle_recipe_donor": "Medieval_Megapack/Levels/PL_Fortress_Day.umap exterior zone",
+        "founder_slice": true,
+        "anchor_type": "major_settlement_silhouette",
+        "anchor_label": "Human Capital",
+        "source": "Medieval_Megapack/Levels/PL_Fortress_Day.umap",
+        "scale_class": "major",
+        "interactive": true,
+        "interaction_scope": "enter_settlement",
+        "persistent_state_projection": true
+      },
+      "battlefield_recipe": {
+        "id": "human.fortress_outskirts",
+        "faction": "humans",
+        "status": "READY_FOR_UE",
+        "donor": "Medieval_Megapack/Levels/PL_Fortress_Day.umap exterior zone",
+        "biome": "temperate",
+        "landform": "fortified_outskirts",
+        "feature": "castle_edge",
+        "landmark": "visible gatehouse",
+        "tactics": [
+          "wall-side protected flank",
+          "open outer approach",
+          "road choke"
+        ],
+        "dressing": [
+          "market carts",
+          "scaffolding",
+          "outer farms",
+          "flags"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "human_capital",
+        "display_name": "Human Capital",
+        "founder_slice": true,
+        "recipe_id": "human.fortress_outskirts",
+        "recipe_status": "READY_FOR_UE",
+        "fidelity_class": "settlement_approach_transform",
+        "identity_sensitive_feature": false,
+        "exact_context_fields": [
+          "biome"
+        ],
+        "context_differences": {
+          "landform": {
+            "campaign": "fortified",
+            "battlefield": "fortified_outskirts"
+          },
+          "feature": {
+            "campaign": "capital",
+            "battlefield": "castle_edge"
+          }
+        },
+        "incoming_approach_count": 3
+      }
+    },
+    {
+      "region_id": "crossroads",
+      "display_name": "Crossroads",
+      "ue_position_cm": [
+        -180000,
+        25000,
+        12000
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": "humans",
+      "initial_fog_state": "visible",
+      "biome": "temperate",
+      "landform": "rolling_plain",
+      "feature": "crossroads",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "crossroads",
+        "display_name": "Crossroads",
+        "macro_region": "heartland",
+        "battle_recipe": "human.grassland_crossroads",
+        "battle_recipe_landmark": "roadside shrine/watch marker",
+        "battle_recipe_donor": "LandscapePackTwo/Maps/Grassland_01.umap",
+        "founder_slice": true,
+        "anchor_type": "minor_settlement_proxy",
+        "anchor_label": "market_town",
+        "source": "Medieval Megapack market/civic cluster",
+        "scale_class": "medium",
+        "interactive": true,
+        "interaction_scope": "bounded_minor_site",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "human.grassland_crossroads",
+        "faction": "humans",
+        "status": "READY_FOR_UE",
+        "donor": "LandscapePackTwo/Maps/Grassland_01.umap",
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "landmark": "roadside shrine/watch marker",
+        "tactics": [
+          "broad cavalry/large-unit lanes",
+          "road movement advantage",
+          "two flanking fields"
+        ],
+        "dressing": [
+          "road",
+          "fences/stone edges",
+          "sparse trees",
+          "human banners"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "crossroads",
+        "display_name": "Crossroads",
+        "founder_slice": true,
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "fidelity_class": "exact_context",
+        "identity_sensitive_feature": false,
+        "exact_context_fields": [
+          "biome",
+          "landform",
+          "feature"
+        ],
+        "context_differences": {},
+        "incoming_approach_count": 4
+      }
+    },
+    {
+      "region_id": "old_quarry",
+      "display_name": "Old Quarry",
+      "ue_position_cm": [
+        -110000,
+        145000,
+        30000
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": null,
+      "initial_fog_state": "unexplored",
+      "biome": "temperate",
+      "landform": "ridge",
+      "feature": "resource",
+      "resource": "ore",
+      "visual_anchor": {
+        "region_id": "old_quarry",
+        "display_name": "Old Quarry",
+        "macro_region": "heartland",
+        "battle_recipe": "human.rolling_ridge",
+        "battle_recipe_landmark": "wind-bent ridge tree or watchtower",
+        "battle_recipe_donor": "LandscapePackTwo/Maps/Grassland_02.umap",
+        "founder_slice": true,
+        "anchor_type": "resource_infrastructure",
+        "anchor_label": "quarry cut, ore carts and exposed stone",
+        "source": "LandscapePackTwo/Maps/Grassland_02.umap",
+        "scale_class": "small",
+        "interactive": true,
+        "interaction_scope": "site_or_encounter",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "human.rolling_ridge",
+        "faction": "humans",
+        "status": "READY_FOR_UE",
+        "donor": "LandscapePackTwo/Maps/Grassland_02.umap",
+        "biome": "temperate",
+        "landform": "ridge",
+        "feature": "high_ground",
+        "landmark": "wind-bent ridge tree or watchtower",
+        "tactics": [
+          "central high ground",
+          "ranged sightlines",
+          "reverse-slope approach"
+        ],
+        "dressing": [
+          "road spur",
+          "low walls",
+          "sparse farms"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "old_quarry",
+        "display_name": "Old Quarry",
+        "founder_slice": true,
+        "recipe_id": "human.rolling_ridge",
+        "recipe_status": "READY_FOR_UE",
+        "fidelity_class": "context_transform_review",
+        "identity_sensitive_feature": false,
+        "exact_context_fields": [
+          "biome",
+          "landform"
+        ],
+        "context_differences": {
+          "feature": {
+            "campaign": "resource",
+            "battlefield": "high_ground"
+          }
+        },
+        "incoming_approach_count": 2
+      }
+    },
+    {
+      "region_id": "river_ford",
+      "display_name": "River Ford",
+      "ue_position_cm": [
+        -80000,
+        -85000,
+        0
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": null,
+      "initial_fog_state": "unexplored",
+      "biome": "temperate",
+      "landform": "valley",
+      "feature": "river_crossing",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "river_ford",
+        "display_name": "River Ford",
+        "macro_region": "heartland",
+        "battle_recipe": "human.river_road",
+        "battle_recipe_landmark": "stone crossing/ruined roadside structure",
+        "battle_recipe_donor": "Elite_CoastalRuins/Maps/CoastalRuins_01.umap",
+        "founder_slice": true,
+        "anchor_type": "crossing",
+        "anchor_label": "visible ford / crossing geometry",
+        "source": "Elite_CoastalRuins/Maps/CoastalRuins_01.umap",
+        "scale_class": "small",
+        "interactive": false,
+        "interaction_scope": "visual_navigation",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "human.river_road",
+        "faction": "humans",
+        "status": "UE_CROP_REQUIRED",
+        "donor": "Elite_CoastalRuins/Maps/CoastalRuins_01.umap",
+        "biome": "temperate",
+        "landform": "valley",
+        "feature": "river_or_lake_road",
+        "landmark": "stone crossing/ruined roadside structure",
+        "tactics": [
+          "water limits one flank",
+          "road speed",
+          "high bank firing positions"
+        ],
+        "dressing": [
+          "human road furniture",
+          "bridge/causeway if geometry fits"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "river_ford",
+        "display_name": "River Ford",
+        "founder_slice": true,
+        "recipe_id": "human.river_road",
+        "recipe_status": "UE_CROP_REQUIRED",
+        "fidelity_class": "context_transform_review",
+        "identity_sensitive_feature": true,
+        "exact_context_fields": [
+          "biome",
+          "landform"
+        ],
+        "context_differences": {
+          "feature": {
+            "campaign": "river_crossing",
+            "battlefield": "river_or_lake_road"
+          }
+        },
+        "incoming_approach_count": 4
+      }
+    },
+    {
+      "region_id": "forest_edge",
+      "display_name": "Forest Edge",
+      "ue_position_cm": [
+        -20000,
+        55000,
+        12000
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": null,
+      "initial_fog_state": "unexplored",
+      "biome": "forest",
+      "landform": "woodland",
+      "feature": "grove",
+      "resource": "wood",
+      "visual_anchor": {
+        "region_id": "forest_edge",
+        "display_name": "Forest Edge",
+        "macro_region": "heartland",
+        "battle_recipe": "nature.grassland_edge",
+        "battle_recipe_landmark": "stone circle / solitary great tree",
+        "battle_recipe_donor": "LandscapePackTwo/Maps/Grassland_02.umap",
+        "founder_slice": true,
+        "anchor_type": "resource_landscape",
+        "anchor_label": "distinct treeline / woodland resource edge",
+        "source": "LandscapePackTwo/Maps/Grassland_02.umap",
+        "scale_class": "small",
+        "interactive": true,
+        "interaction_scope": "site_or_encounter",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "nature.grassland_edge",
+        "faction": "nature_candidate",
+        "status": "READY_FOR_UE",
+        "donor": "LandscapePackTwo/Maps/Grassland_02.umap",
+        "biome": "meadow_edge",
+        "landform": "rolling_plain",
+        "feature": "forest_edge",
+        "landmark": "stone circle / solitary great tree",
+        "tactics": [
+          "open center",
+          "forest-protected flank",
+          "beast mobility lane"
+        ],
+        "dressing": [
+          "flowers",
+          "groves",
+          "primitive markers"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "forest_edge",
+        "display_name": "Forest Edge",
+        "founder_slice": true,
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "fidelity_class": "context_transform_review",
+        "identity_sensitive_feature": true,
+        "exact_context_fields": [],
+        "context_differences": {
+          "biome": {
+            "campaign": "forest",
+            "battlefield": "meadow_edge"
+          },
+          "landform": {
+            "campaign": "woodland",
+            "battlefield": "rolling_plain"
+          },
+          "feature": {
+            "campaign": "grove",
+            "battlefield": "forest_edge"
+          }
+        },
+        "incoming_approach_count": 3
+      }
+    },
+    {
+      "region_id": "ancient_shrine",
+      "display_name": "Ancient Shrine",
+      "ue_position_cm": [
+        20000,
+        175000,
+        30000
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": null,
+      "initial_fog_state": "unexplored",
+      "biome": "mountain_forest",
+      "landform": "shrine_terrace",
+      "feature": "ancient_shrine",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "ancient_shrine",
+        "display_name": "Ancient Shrine",
+        "macro_region": "heartland",
+        "battle_recipe": "neutral.mountain_shrine",
+        "battle_recipe_landmark": "ancient sanctuary",
+        "battle_recipe_donor": "Ancient Mountain/Shrine",
+        "founder_slice": true,
+        "anchor_type": "landmark",
+        "anchor_label": "ancient shrine / altar",
+        "source": "Ancient Mountain/Shrine",
+        "scale_class": "small",
+        "interactive": true,
+        "interaction_scope": "site_or_encounter",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "neutral.mountain_shrine",
+        "faction": "neutral",
+        "status": "PAYLOAD_PENDING",
+        "donor": "Ancient Mountain/Shrine",
+        "biome": "mountain",
+        "landform": "terrace",
+        "feature": "shrine",
+        "landmark": "ancient sanctuary",
+        "tactics": [
+          "height",
+          "objective fight",
+          "constrained approach"
+        ],
+        "dressing": [
+          "scenario-specific flags/faction traces"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "ancient_shrine",
+        "display_name": "Ancient Shrine",
+        "founder_slice": true,
+        "recipe_id": "neutral.mountain_shrine",
+        "recipe_status": "PAYLOAD_PENDING",
+        "fidelity_class": "context_transform_review",
+        "identity_sensitive_feature": true,
+        "exact_context_fields": [],
+        "context_differences": {
+          "biome": {
+            "campaign": "mountain_forest",
+            "battlefield": "mountain"
+          },
+          "landform": {
+            "campaign": "shrine_terrace",
+            "battlefield": "terrace"
+          },
+          "feature": {
+            "campaign": "ancient_shrine",
+            "battlefield": "shrine"
+          }
+        },
+        "incoming_approach_count": 2
+      }
+    },
+    {
+      "region_id": "orc_watch",
+      "display_name": "Orc Watch",
+      "ue_position_cm": [
+        120000,
+        -65000,
+        12000
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": "orcs",
+      "initial_fog_state": "unexplored",
+      "biome": "badlands",
+      "landform": "mesa",
+      "feature": "watch",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "orc_watch",
+        "display_name": "Orc Watch",
+        "macro_region": "eastern_badlands",
+        "battle_recipe": "orc.badlands",
+        "battle_recipe_landmark": "mesa pillar",
+        "battle_recipe_donor": "LandscapePackTwo/Maps/Mesa_01.umap",
+        "founder_slice": true,
+        "anchor_type": "terrain_landmark",
+        "anchor_label": "mesa pillar",
+        "source": "LandscapePackTwo/Maps/Mesa_01.umap",
+        "scale_class": "small",
+        "interactive": false,
+        "interaction_scope": "visual_navigation",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "orc.badlands",
+        "faction": "orcs",
+        "status": "READY_FOR_UE",
+        "donor": "LandscapePackTwo/Maps/Mesa_01.umap",
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "dry_gully",
+        "landmark": "mesa pillar",
+        "tactics": [
+          "open elephant lane",
+          "gully cover",
+          "high shelf ranged position"
+        ],
+        "dressing": [
+          "war camp",
+          "bones",
+          "rough palisade"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "orc_watch",
+        "display_name": "Orc Watch",
+        "founder_slice": true,
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "fidelity_class": "context_transform_review",
+        "identity_sensitive_feature": true,
+        "exact_context_fields": [
+          "biome",
+          "landform"
+        ],
+        "context_differences": {
+          "feature": {
+            "campaign": "watch",
+            "battlefield": "dry_gully"
+          }
+        },
+        "incoming_approach_count": 4
+      }
+    },
+    {
+      "region_id": "north_pass",
+      "display_name": "North Pass",
+      "ue_position_cm": [
+        140000,
+        115000,
+        30000
+      ],
+      "selection_radius_cm": 12000,
+      "initial_owner": null,
+      "initial_fog_state": "unexplored",
+      "biome": "mountain",
+      "landform": "pass",
+      "feature": "narrow_pass",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "north_pass",
+        "display_name": "North Pass",
+        "macro_region": "eastern_badlands",
+        "battle_recipe": "dwarf.mountain_pass",
+        "battle_recipe_landmark": "stone gateway/quarry cut",
+        "battle_recipe_donor": "LandscapePackOne/Maps/Mountain_01.umap",
+        "founder_slice": true,
+        "anchor_type": "chokepoint",
+        "anchor_label": "rock needle, cairn or pass gate",
+        "source": "LandscapePackOne/Maps/Mountain_01.umap",
+        "scale_class": "small",
+        "interactive": false,
+        "interaction_scope": "visual_navigation",
+        "persistent_state_projection": false
+      },
+      "battlefield_recipe": {
+        "id": "dwarf.mountain_pass",
+        "faction": "dwarves",
+        "status": "READY_FOR_UE",
+        "donor": "LandscapePackOne/Maps/Mountain_01.umap",
+        "biome": "mountain",
+        "landform": "pass",
+        "feature": "switchback",
+        "landmark": "stone gateway/quarry cut",
+        "tactics": [
+          "vertical high ground",
+          "narrow heavy-unit lanes",
+          "alternate ledge route"
+        ],
+        "dressing": [
+          "dwarf stonework",
+          "ore carts",
+          "rune markers"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "north_pass",
+        "display_name": "North Pass",
+        "founder_slice": true,
+        "recipe_id": "dwarf.mountain_pass",
+        "recipe_status": "READY_FOR_UE",
+        "fidelity_class": "context_transform_review",
+        "identity_sensitive_feature": true,
+        "exact_context_fields": [
+          "biome",
+          "landform"
+        ],
+        "context_differences": {
+          "feature": {
+            "campaign": "narrow_pass",
+            "battlefield": "switchback"
+          }
+        },
+        "incoming_approach_count": 5
+      }
+    },
+    {
+      "region_id": "orc_camp",
+      "display_name": "Orc Stronghold",
+      "ue_position_cm": [
+        280000,
+        15000,
+        12000
+      ],
+      "selection_radius_cm": 18000,
+      "initial_owner": "orcs",
+      "initial_fog_state": "unexplored",
+      "biome": "badlands",
+      "landform": "ruined_city_edge",
+      "feature": "stronghold",
+      "resource": null,
+      "visual_anchor": {
+        "region_id": "orc_camp",
+        "display_name": "Orc Stronghold",
+        "macro_region": "eastern_badlands",
+        "battle_recipe": "orc.war_camp",
+        "battle_recipe_landmark": "captured ruin with war banner",
+        "battle_recipe_donor": "Elite_CoastalRuins/Maps/CoastalRuins_02.umap or Medieval Ruins + YI_BanditCamp tents",
+        "founder_slice": true,
+        "anchor_type": "major_settlement_silhouette",
+        "anchor_label": "Orc Stronghold",
+        "source": "Medieval Ruins showcase to qualify",
+        "scale_class": "major",
+        "interactive": true,
+        "interaction_scope": "enter_settlement",
+        "persistent_state_projection": true
+      },
+      "battlefield_recipe": {
+        "id": "orc.war_camp",
+        "faction": "orcs",
+        "status": "UE_COMPOSITE",
+        "donor": "Elite_CoastalRuins/Maps/CoastalRuins_02.umap or Medieval Ruins + YI_BanditCamp tents",
+        "biome": "ruined_lowland",
+        "landform": "open_ruin",
+        "feature": "camp",
+        "landmark": "captured ruin with war banner",
+        "tactics": [
+          "camp obstacles",
+          "wide beast lane",
+          "flank through ruins"
+        ],
+        "dressing": [
+          "tents",
+          "weapon racks",
+          "elephant pen",
+          "fires"
+        ]
+      },
+      "battlefield_fidelity": {
+        "region_id": "orc_camp",
+        "display_name": "Orc Stronghold",
+        "founder_slice": true,
+        "recipe_id": "orc.war_camp",
+        "recipe_status": "UE_COMPOSITE",
+        "fidelity_class": "settlement_approach_transform",
+        "identity_sensitive_feature": false,
+        "exact_context_fields": [],
+        "context_differences": {
+          "biome": {
+            "campaign": "badlands",
+            "battlefield": "ruined_lowland"
+          },
+          "landform": {
+            "campaign": "ruined_city_edge",
+            "battlefield": "open_ruin"
+          },
+          "feature": {
+            "campaign": "stronghold",
+            "battlefield": "camp"
+          }
+        },
+        "incoming_approach_count": 4
+      }
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "route.ancient_shrine_old_quarry",
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -110000,
+          145000,
+          30000
+        ],
+        [
+          -42300,
+          148300,
+          30000
+        ],
+        [
+          20000,
+          175000,
+          30000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.ancient_shrine_old_quarry",
+        "a": "old_quarry",
+        "b": "ancient_shrine",
+        "route_class": "trail",
+        "render_family": "trail",
+        "surface": "narrow earth path",
+        "navigation_cue": "worn ground, minimal signage",
+        "spline_width_cm": 420,
+        "road": false,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      }
+    },
+    {
+      "route_id": "route.crossroads_forest_edge",
+      "a": "crossroads",
+      "b": "forest_edge",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -180000,
+          25000,
+          12000
+        ],
+        [
+          -97300,
+          25600,
+          12000
+        ],
+        [
+          -20000,
+          55000,
+          12000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.crossroads_forest_edge",
+        "a": "crossroads",
+        "b": "forest_edge",
+        "route_class": "trail",
+        "render_family": "trail",
+        "surface": "narrow earth path",
+        "navigation_cue": "worn ground, minimal signage",
+        "spline_width_cm": 420,
+        "road": false,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      }
+    },
+    {
+      "route_id": "route.crossroads_human_capital",
+      "a": "human_capital",
+      "b": "crossroads",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -320000,
+          25000,
+          12000
+        ],
+        [
+          -250000,
+          13000,
+          12000
+        ],
+        [
+          -180000,
+          25000,
+          12000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.crossroads_human_capital",
+        "a": "human_capital",
+        "b": "crossroads",
+        "route_class": "road",
+        "render_family": "road",
+        "surface": "packed earth / local stone",
+        "navigation_cue": "ruts, verge, sparse waymarkers",
+        "spline_width_cm": 850,
+        "road": true,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      }
+    },
+    {
+      "route_id": "route.crossroads_old_quarry",
+      "a": "crossroads",
+      "b": "old_quarry",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -180000,
+          25000,
+          12000
+        ],
+        [
+          -134634,
+          78953,
+          21000
+        ],
+        [
+          -110000,
+          145000,
+          30000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.crossroads_old_quarry",
+        "a": "crossroads",
+        "b": "old_quarry",
+        "route_class": "road",
+        "render_family": "road",
+        "surface": "packed earth / local stone",
+        "navigation_cue": "ruts, verge, sparse waymarkers",
+        "spline_width_cm": 850,
+        "road": true,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      }
+    },
+    {
+      "route_id": "route.crossroads_river_ford",
+      "a": "crossroads",
+      "b": "river_ford",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -180000,
+          25000,
+          12000
+        ],
+        [
+          -121120,
+          -21927,
+          6000
+        ],
+        [
+          -80000,
+          -85000,
+          0
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.crossroads_river_ford",
+        "a": "crossroads",
+        "b": "river_ford",
+        "route_class": "road",
+        "render_family": "road",
+        "surface": "packed earth / local stone",
+        "navigation_cue": "ruts, verge, sparse waymarkers",
+        "spline_width_cm": 850,
+        "road": true,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      }
+    },
+    {
+      "route_id": "route.forest_edge_north_pass",
+      "a": "forest_edge",
+      "b": "north_pass",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -20000,
+          55000,
+          12000
+        ],
+        [
+          54600,
+          99400,
+          21000
+        ],
+        [
+          140000,
+          115000,
+          30000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.forest_edge_north_pass",
+        "a": "forest_edge",
+        "b": "north_pass",
+        "route_class": "trail",
+        "render_family": "trail",
+        "surface": "narrow earth path",
+        "navigation_cue": "worn ground, minimal signage",
+        "spline_width_cm": 420,
+        "road": false,
+        "chokepoint": true,
+        "chokepoint_cue": "worn ground, minimal signage",
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      }
+    },
+    {
+      "route_id": "route.forest_edge_orc_watch",
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "route_class": "trail",
+      "road": false,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "ue_spline_points_cm": [
+        [
+          -20000,
+          55000,
+          12000
+        ],
+        [
+          39200,
+          -17600,
+          12000
+        ],
+        [
+          120000,
+          -65000,
+          12000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.forest_edge_orc_watch",
+        "a": "forest_edge",
+        "b": "orc_watch",
+        "route_class": "trail",
+        "render_family": "trail",
+        "surface": "narrow earth path",
+        "navigation_cue": "worn ground, minimal signage",
+        "spline_width_cm": 420,
+        "road": false,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      }
+    },
+    {
+      "route_id": "route.north_pass_orc_camp",
+      "a": "north_pass",
+      "b": "orc_camp",
+      "route_class": "pass",
+      "road": false,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "ue_spline_points_cm": [
+        [
+          140000,
+          115000,
+          30000
+        ],
+        [
+          201000,
+          52400,
+          21000
+        ],
+        [
+          280000,
+          15000,
+          12000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.north_pass_orc_camp",
+        "a": "north_pass",
+        "b": "orc_camp",
+        "route_class": "pass",
+        "render_family": "mountain_pass",
+        "surface": "rock-cut mountain path",
+        "navigation_cue": "rock walls, cairn or gate",
+        "spline_width_cm": 420,
+        "road": false,
+        "chokepoint": true,
+        "chokepoint_cue": "rock walls, cairn or gate",
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 10
+      }
+    },
+    {
+      "route_id": "route.orc_camp_orc_watch",
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": false,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          120000,
+          -65000,
+          12000
+        ],
+        [
+          205366,
+          -35733,
+          12000
+        ],
+        [
+          280000,
+          15000,
+          12000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.orc_camp_orc_watch",
+        "a": "orc_watch",
+        "b": "orc_camp",
+        "route_class": "road",
+        "render_family": "road",
+        "surface": "packed earth / local stone",
+        "navigation_cue": "ruts, verge, sparse waymarkers",
+        "spline_width_cm": 850,
+        "road": true,
+        "chokepoint": false,
+        "chokepoint_cue": null,
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      }
+    },
+    {
+      "route_id": "route.orc_watch_river_ford",
+      "a": "river_ford",
+      "b": "orc_watch",
+      "route_class": "road",
+      "road": true,
+      "chokepoint": true,
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "ue_spline_points_cm": [
+        [
+          -80000,
+          -85000,
+          0
+        ],
+        [
+          21194,
+          -86940,
+          6000
+        ],
+        [
+          120000,
+          -65000,
+          12000
+        ]
+      ],
+      "visual_cue": {
+        "route_id": "route.orc_watch_river_ford",
+        "a": "river_ford",
+        "b": "orc_watch",
+        "route_class": "road",
+        "render_family": "road",
+        "surface": "packed earth / local stone",
+        "navigation_cue": "ruts, verge, sparse waymarkers",
+        "spline_width_cm": 850,
+        "road": true,
+        "chokepoint": true,
+        "chokepoint_cue": "ruts, verge, sparse waymarkers",
+        "founder_slice": true,
+        "selection_overlay": "brighten / edge-highlight existing surface only",
+        "permanent_map_line": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      }
+    }
+  ],
+  "directed_approaches": [
+    {
+      "id": "approach.ancient_shrine.old_quarry",
+      "source_region": "ancient_shrine",
+      "destination_region": "old_quarry",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "east",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "ridge",
+        "feature": "resource",
+        "elevation_band": "high",
+        "transition_kind": "resource_site",
+        "settlement_id": null,
+        "resource": "ore"
+      },
+      "battlefield": {
+        "recipe_id": "human.rolling_ridge",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "destination.resource.ore",
+        "elevation.high",
+        "entry.east",
+        "feature.resource",
+        "landform.ridge",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.crossroads.forest_edge",
+      "source_region": "crossroads",
+      "destination_region": "forest_edge",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "west",
+      "destination_context": {
+        "biome": "forest",
+        "landform": "woodland",
+        "feature": "grove",
+        "elevation_band": "mid",
+        "transition_kind": "resource_site",
+        "settlement_id": null,
+        "resource": "wood"
+      },
+      "battlefield": {
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.forest",
+        "destination.resource.wood",
+        "elevation.mid",
+        "entry.west",
+        "feature.grove",
+        "landform.woodland",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.crossroads.human_capital",
+      "source_region": "crossroads",
+      "destination_region": "human_capital",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "east",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "fortified",
+        "feature": "capital",
+        "elevation_band": "mid",
+        "transition_kind": "settlement_approach",
+        "settlement_id": "city.human_capital",
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.fortress_outskirts",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "destination.settlement",
+        "elevation.mid",
+        "entry.east",
+        "feature.capital",
+        "landform.fortified",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.crossroads.old_quarry",
+      "source_region": "crossroads",
+      "destination_region": "old_quarry",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "south_west",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "ridge",
+        "feature": "resource",
+        "elevation_band": "high",
+        "transition_kind": "resource_site",
+        "settlement_id": null,
+        "resource": "ore"
+      },
+      "battlefield": {
+        "recipe_id": "human.rolling_ridge",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "destination.resource.ore",
+        "elevation.high",
+        "entry.south_west",
+        "feature.resource",
+        "landform.ridge",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.crossroads.river_ford",
+      "source_region": "crossroads",
+      "destination_region": "river_ford",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "north_west",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "valley",
+        "feature": "river_crossing",
+        "elevation_band": "low",
+        "transition_kind": "strategic_chokepoint",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.river_road",
+        "recipe_status": "UE_CROP_REQUIRED",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "elevation.low",
+        "entry.north_west",
+        "feature.river_crossing",
+        "landform.valley",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.forest_edge.crossroads",
+      "source_region": "forest_edge",
+      "destination_region": "crossroads",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "east",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "entry.east",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.forest_edge.north_pass",
+      "source_region": "forest_edge",
+      "destination_region": "north_pass",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "west",
+      "destination_context": {
+        "biome": "mountain",
+        "landform": "pass",
+        "feature": "narrow_pass",
+        "elevation_band": "high",
+        "transition_kind": "strategic_chokepoint",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "dwarf.mountain_pass",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.mountain",
+        "elevation.high",
+        "entry.west",
+        "feature.narrow_pass",
+        "landform.pass",
+        "route.chokepoint",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.forest_edge.orc_watch",
+      "source_region": "forest_edge",
+      "destination_region": "orc_watch",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "north_west",
+      "destination_context": {
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "watch",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.badlands",
+        "elevation.mid",
+        "entry.north_west",
+        "feature.watch",
+        "landform.mesa",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.human_capital.crossroads",
+      "source_region": "human_capital",
+      "destination_region": "crossroads",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "west",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "entry.west",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.north_pass.forest_edge",
+      "source_region": "north_pass",
+      "destination_region": "forest_edge",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "east",
+      "destination_context": {
+        "biome": "forest",
+        "landform": "woodland",
+        "feature": "grove",
+        "elevation_band": "mid",
+        "transition_kind": "resource_site",
+        "settlement_id": null,
+        "resource": "wood"
+      },
+      "battlefield": {
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.forest",
+        "destination.resource.wood",
+        "elevation.mid",
+        "entry.east",
+        "feature.grove",
+        "landform.woodland",
+        "route.chokepoint",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.north_pass.orc_camp",
+      "source_region": "north_pass",
+      "destination_region": "orc_camp",
+      "founder_internal": true,
+      "route": {
+        "type": "pass",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 10
+      },
+      "entry_direction": "north_west",
+      "destination_context": {
+        "biome": "badlands",
+        "landform": "ruined_city_edge",
+        "feature": "stronghold",
+        "elevation_band": "mid",
+        "transition_kind": "settlement_approach",
+        "settlement_id": "city.orc_ruinhold",
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "orc.war_camp",
+        "recipe_status": "UE_COMPOSITE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.badlands",
+        "destination.settlement",
+        "elevation.mid",
+        "entry.north_west",
+        "feature.stronghold",
+        "landform.ruined_city_edge",
+        "route.chokepoint",
+        "route.pass"
+      ]
+    },
+    {
+      "id": "approach.old_quarry.ancient_shrine",
+      "source_region": "old_quarry",
+      "destination_region": "ancient_shrine",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "west",
+      "destination_context": {
+        "biome": "mountain_forest",
+        "landform": "shrine_terrace",
+        "feature": "ancient_shrine",
+        "elevation_band": "high",
+        "transition_kind": "landmark",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "neutral.mountain_shrine",
+        "recipe_status": "PAYLOAD_PENDING",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.mountain_forest",
+        "elevation.high",
+        "entry.west",
+        "feature.ancient_shrine",
+        "landform.shrine_terrace",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.old_quarry.crossroads",
+      "source_region": "old_quarry",
+      "destination_region": "crossroads",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "north_east",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "entry.north_east",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.orc_camp.north_pass",
+      "source_region": "orc_camp",
+      "destination_region": "north_pass",
+      "founder_internal": true,
+      "route": {
+        "type": "pass",
+        "road": false,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 10
+      },
+      "entry_direction": "south_east",
+      "destination_context": {
+        "biome": "mountain",
+        "landform": "pass",
+        "feature": "narrow_pass",
+        "elevation_band": "high",
+        "transition_kind": "strategic_chokepoint",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "dwarf.mountain_pass",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.mountain",
+        "elevation.high",
+        "entry.south_east",
+        "feature.narrow_pass",
+        "landform.pass",
+        "route.chokepoint",
+        "route.pass"
+      ]
+    },
+    {
+      "id": "approach.orc_camp.orc_watch",
+      "source_region": "orc_camp",
+      "destination_region": "orc_watch",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "east",
+      "destination_context": {
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "watch",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.badlands",
+        "elevation.mid",
+        "entry.east",
+        "feature.watch",
+        "landform.mesa",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.orc_watch.forest_edge",
+      "source_region": "orc_watch",
+      "destination_region": "forest_edge",
+      "founder_internal": true,
+      "route": {
+        "type": "trail",
+        "road": false,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 8
+      },
+      "entry_direction": "south_east",
+      "destination_context": {
+        "biome": "forest",
+        "landform": "woodland",
+        "feature": "grove",
+        "elevation_band": "mid",
+        "transition_kind": "resource_site",
+        "settlement_id": null,
+        "resource": "wood"
+      },
+      "battlefield": {
+        "recipe_id": "nature.grassland_edge",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.forest",
+        "destination.resource.wood",
+        "elevation.mid",
+        "entry.south_east",
+        "feature.grove",
+        "landform.woodland",
+        "route.trail"
+      ]
+    },
+    {
+      "id": "approach.orc_watch.orc_camp",
+      "source_region": "orc_watch",
+      "destination_region": "orc_camp",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "west",
+      "destination_context": {
+        "biome": "badlands",
+        "landform": "ruined_city_edge",
+        "feature": "stronghold",
+        "elevation_band": "mid",
+        "transition_kind": "settlement_approach",
+        "settlement_id": "city.orc_ruinhold",
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "orc.war_camp",
+        "recipe_status": "UE_COMPOSITE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.badlands",
+        "destination.settlement",
+        "elevation.mid",
+        "entry.west",
+        "feature.stronghold",
+        "landform.ruined_city_edge",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.orc_watch.river_ford",
+      "source_region": "orc_watch",
+      "destination_region": "river_ford",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "east",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "valley",
+        "feature": "river_crossing",
+        "elevation_band": "low",
+        "transition_kind": "strategic_chokepoint",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.river_road",
+        "recipe_status": "UE_CROP_REQUIRED",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "elevation.low",
+        "entry.east",
+        "feature.river_crossing",
+        "landform.valley",
+        "route.chokepoint",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.river_ford.crossroads",
+      "source_region": "river_ford",
+      "destination_region": "crossroads",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": false,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "south_east",
+      "destination_context": {
+        "biome": "temperate",
+        "landform": "rolling_plain",
+        "feature": "crossroads",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "human.grassland_crossroads",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.temperate",
+        "elevation.mid",
+        "entry.south_east",
+        "feature.crossroads",
+        "landform.rolling_plain",
+        "route.road",
+        "route.road_network"
+      ]
+    },
+    {
+      "id": "approach.river_ford.orc_watch",
+      "source_region": "river_ford",
+      "destination_region": "orc_watch",
+      "founder_internal": true,
+      "route": {
+        "type": "road",
+        "road": true,
+        "chokepoint": true,
+        "action_cost": 1,
+        "logistics_movement_cost": 6
+      },
+      "entry_direction": "west",
+      "destination_context": {
+        "biome": "badlands",
+        "landform": "mesa",
+        "feature": "watch",
+        "elevation_band": "mid",
+        "transition_kind": "field_encounter",
+        "settlement_id": null,
+        "resource": null
+      },
+      "battlefield": {
+        "recipe_id": "orc.badlands",
+        "recipe_status": "READY_FOR_UE",
+        "dynamic_context_required": [
+          "weather",
+          "time"
+        ]
+      },
+      "approach_tags": [
+        "biome.badlands",
+        "elevation.mid",
+        "entry.west",
+        "feature.watch",
+        "landform.mesa",
+        "route.chokepoint",
+        "route.road",
+        "route.road_network"
+      ]
+    }
+  ],
+  "shortest_attack_corridors": [
+    {
+      "id": "founder_corridor_1",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "final_approach": "orc_watch",
+      "route_ids": [
+        "route.crossroads_human_capital",
+        "route.crossroads_river_ford",
+        "route.orc_watch_river_ford",
+        "route.orc_camp_orc_watch"
+      ],
+      "route_classes": [
+        "road",
+        "road",
+        "road",
+        "road"
+      ],
+      "visual_signature": "road -> road -> road -> road",
+      "total_actions_to_battle": 4,
+      "logistics_cost_to_approach": 18,
+      "road_edges_to_approach": 3,
+      "chokepoints_to_approach": 1
+    },
+    {
+      "id": "founder_corridor_2",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "final_approach": "north_pass",
+      "route_ids": [
+        "route.crossroads_human_capital",
+        "route.crossroads_forest_edge",
+        "route.forest_edge_north_pass",
+        "route.north_pass_orc_camp"
+      ],
+      "route_classes": [
+        "road",
+        "trail",
+        "trail",
+        "pass"
+      ],
+      "visual_signature": "road -> trail -> trail -> pass",
+      "total_actions_to_battle": 4,
+      "logistics_cost_to_approach": 22,
+      "road_edges_to_approach": 1,
+      "chokepoints_to_approach": 1
+    },
+    {
+      "id": "founder_corridor_3",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "final_approach": "orc_watch",
+      "route_ids": [
+        "route.crossroads_human_capital",
+        "route.crossroads_forest_edge",
+        "route.forest_edge_orc_watch",
+        "route.orc_camp_orc_watch"
+      ],
+      "route_classes": [
+        "road",
+        "trail",
+        "trail",
+        "road"
+      ],
+      "visual_signature": "road -> trail -> trail -> road",
+      "total_actions_to_battle": 4,
+      "logistics_cost_to_approach": 22,
+      "road_edges_to_approach": 1,
+      "chokepoints_to_approach": 0
+    }
+  ],
+  "representative_reveal_sequence": [
+    {
+      "step": 0,
+      "region": "human_capital",
+      "newly_explored": [],
+      "explored_total": 2
+    },
+    {
+      "step": 1,
+      "region": "crossroads",
+      "newly_explored": [
+        "forest_edge",
+        "old_quarry",
+        "river_ford"
+      ],
+      "explored_total": 5
+    },
+    {
+      "step": 2,
+      "region": "river_ford",
+      "newly_explored": [
+        "orc_watch"
+      ],
+      "explored_total": 6
+    },
+    {
+      "step": 3,
+      "region": "orc_watch",
+      "newly_explored": [
+        "orc_camp"
+      ],
+      "explored_total": 7
+    }
+  ],
+  "battlefield_fidelity_review_regions": [
+    "old_quarry",
+    "river_ford",
+    "forest_edge",
+    "ancient_shrine",
+    "orc_watch",
+    "north_pass"
+  ],
+  "acceptance_targets": {
+    "regions": 9,
+    "routes": 10,
+    "directed_approaches": 20,
+    "distinct_shortest_attack_corridors": 3,
+    "initial_visible_regions": 2,
+    "initial_explored_regions": 2
+  }
+}
