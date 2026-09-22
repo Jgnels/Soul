@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 37,
-  "steps_passed": 37,
+  "steps_total": 39,
+  "steps_passed": 39,
   "steps_failed": 0,
   "steps": [
     {
@@ -99,6 +99,28 @@
       "script": "Tools/validate_soul_founder_campaign_stress.py",
       "exit_code": 0,
       "stdout_sha256": "3bf1f8fc951885a6aa6407008d6dc003b6f2c331c6c7a07411ac0929670ee75c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_reaction_window_analysis",
+      "script": "Tools/analyze_soul_founder_reaction_windows.py",
+      "exit_code": 0,
+      "stdout_sha256": "569832a7887c928ff3c54f12be858cee52b3bbdd043c16ca7c795db9a6c9af43",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_reaction_window_validation",
+      "script": "Tools/validate_soul_founder_reaction_windows.py",
+      "exit_code": 0,
+      "stdout_sha256": "645cf4dc1aa99a35222591fc67f4bb2dfa78ce2e900a6bd3e4a7d56575747fee",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"

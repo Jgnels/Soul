@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "POLICY_NEUTRAL_REACTION_EVIDENCE",
+  "authority": {
+    "topology_and_action_cost": "Data/soul_founder_slice_runtime_seed_20260922.json",
+    "previous_sensitivity": "Evidence/BalanceLab/founder_assault_balance.json",
+    "canonical_reinforcement_policy": "UNDECIDED_REQUIRES_FOUNDER_APPROVAL"
+  },
+  "assumptions": [
+    "Movement into a hostile region resolves contact/battle on that movement action, matching the current founder stress model.",
+    "North Pass is the adjacent threat-reveal point for the bypass corridor.",
+    "Orc Watch -> Orc Stronghold is one strategic movement action on the current road edge.",
+    "No policy below is canonical; the matrix exists to expose consequences before a product decision."
+  ],
+  "north_pass_path": [
+    "human_capital",
+    "crossroads",
+    "forest_edge",
+    "north_pass",
+    "orc_camp"
+  ],
+  "reserve_route": {
+    "source": "orc_watch",
+    "destination": "orc_camp",
+    "action_cost": 1,
+    "logistics_movement_cost": 6,
+    "road": true
+  },
+  "reaction_windows": [
+    {
+      "ap_per_day": 2,
+      "threat_reveal": {
+        "region": "north_pass",
+        "cumulative_action": 3,
+        "day": 2,
+        "action_slot": 1
+      },
+      "stronghold_contact": {
+        "region": "orc_camp",
+        "cumulative_action": 4,
+        "day": 2,
+        "action_slot": 2
+      },
+      "reaction_gap": {
+        "campaign_day_boundary": false,
+        "same_day_later_action_slot": true,
+        "reserve_move_actions": 1,
+        "reserve_logistics_cost": 6,
+        "reserve_road": true
+      },
+      "policy_outcomes": {
+        "no_relocation": {
+          "eligible": false,
+          "certainty": "no",
+          "reason": "Reserve is not allowed to leave Orc Watch."
+        },
+        "overnight_physical_relocation": {
+          "eligible": false,
+          "certainty": "no",
+          "reason": "Stronghold contact occurs without a campaign-day boundary after North Pass reveals the threat."
+        },
+        "same_day_interleaved_reaction": {
+          "eligible": true,
+          "certainty": "order_dependent",
+          "reason": "Only a same-day action slot exists; outcome depends on faction/action ordering or an explicit reaction phase."
+        },
+        "automatic_adjacent_support": {
+          "eligible": true,
+          "certainty": "yes",
+          "reason": "An intact adjacent reserve is admitted at battle commit without prior strategic relocation."
+        }
+      }
+    },
+    {
+      "ap_per_day": 3,
+      "threat_reveal": {
+        "region": "north_pass",
+        "cumulative_action": 3,
+        "day": 1,
+        "action_slot": 3
+      },
+      "stronghold_contact": {
+        "region": "orc_camp",
+        "cumulative_action": 4,
+        "day": 2,
+        "action_slot": 1
+      },
+      "reaction_gap": {
+        "campaign_day_boundary": true,
+        "same_day_later_action_slot": false,
+        "reserve_move_actions": 1,
+        "reserve_logistics_cost": 6,
+        "reserve_road": true
+      },
+      "policy_outcomes": {
+        "no_relocation": {
+          "eligible": false,
+          "certainty": "no",
+          "reason": "Reserve is not allowed to leave Orc Watch."
+        },
+        "overnight_physical_relocation": {
+          "eligible": true,
+          "certainty": "yes",
+          "reason": "At least one campaign-day boundary exists after North Pass reveals the threat."
+        },
+        "same_day_interleaved_reaction": {
+          "eligible": true,
+          "certainty": "yes",
+          "reason": "Overnight window exists."
+        },
+        "automatic_adjacent_support": {
+          "eligible": true,
+          "certainty": "yes",
+          "reason": "An intact adjacent reserve is admitted at battle commit without prior strategic relocation."
+        }
+      }
+    },
+    {
+      "ap_per_day": 4,
+      "threat_reveal": {
+        "region": "north_pass",
+        "cumulative_action": 3,
+        "day": 1,
+        "action_slot": 3
+      },
+      "stronghold_contact": {
+        "region": "orc_camp",
+        "cumulative_action": 4,
+        "day": 1,
+        "action_slot": 4
+      },
+      "reaction_gap": {
+        "campaign_day_boundary": false,
+        "same_day_later_action_slot": true,
+        "reserve_move_actions": 1,
+        "reserve_logistics_cost": 6,
+        "reserve_road": true
+      },
+      "policy_outcomes": {
+        "no_relocation": {
+          "eligible": false,
+          "certainty": "no",
+          "reason": "Reserve is not allowed to leave Orc Watch."
+        },
+        "overnight_physical_relocation": {
+          "eligible": false,
+          "certainty": "no",
+          "reason": "Stronghold contact occurs without a campaign-day boundary after North Pass reveals the threat."
+        },
+        "same_day_interleaved_reaction": {
+          "eligible": true,
+          "certainty": "order_dependent",
+          "reason": "Only a same-day action slot exists; outcome depends on faction/action ordering or an explicit reaction phase."
+        },
+        "automatic_adjacent_support": {
+          "eligible": true,
+          "certainty": "yes",
+          "reason": "An intact adjacent reserve is admitted at battle commit without prior strategic relocation."
+        }
+      }
+    }
+  ],
+  "previous_coarse_comparison": [
+    {
+      "ap_per_day": 2,
+      "previous_coarse_reserve_arrival_rate": 1.0,
+      "overnight_physical_relocation_eligibility": 0.0,
+      "coarse_overstates_overnight_reaction": true
+    },
+    {
+      "ap_per_day": 3,
+      "previous_coarse_reserve_arrival_rate": 1.0,
+      "overnight_physical_relocation_eligibility": 1.0,
+      "coarse_overstates_overnight_reaction": false
+    },
+    {
+      "ap_per_day": 4,
+      "previous_coarse_reserve_arrival_rate": 0.0,
+      "overnight_physical_relocation_eligibility": 0.0,
+      "coarse_overstates_overnight_reaction": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "ap2_coarse_overstatement",
+      "severity": "correction",
+      "finding": "At 2 AP/day the attacker reveals North Pass on day 2 action 1 and reaches the Stronghold on day 2 action 2. The prior day>1 shortcut therefore overstates an overnight reinforcement window: there is no day boundary between threat reveal and contact."
+    },
+    {
+      "id": "ap3_true_overnight_window",
+      "severity": "info",
+      "finding": "At 3 AP/day the attacker reaches North Pass on day 1 action 3 and the Stronghold on day 2 action 1. This is the only tested AP value with an unambiguous overnight physical-reaction window."
+    },
+    {
+      "id": "ap4_same_day_rush",
+      "severity": "info",
+      "finding": "At 4 AP/day North Pass is reached on day 1 action 3 and the Stronghold on day 1 action 4. An Orc Watch reinforcement requires an explicit same-day reaction/interleaving rule or automatic adjacent support."
+    },
+    {
+      "id": "physical_relocation_opportunity_cost",
+      "severity": "design_test",
+      "finding": "If Orc Watch reinforcement is modeled as physical strategic relocation, the reserve cannot simultaneously remain at the outpost. That makes bypassing the Watch a meaningful trade: the defender may reinforce the Stronghold by vacating the forward position instead of duplicating strength."
+    }
+  ],
+  "candidate_for_next_prototype": {
+    "status": "PROPOSAL_ONLY_REQUIRES_FOUNDER_DECISION",
+    "rule_shape": "Physical relocation over the real Orc Watch -> Stronghold edge; no reserve duplication. Overnight reaction is unambiguous; same-day reaction requires an explicit reaction/order rule.",
+    "why_test_first": "It preserves graph causality and opportunity cost without granting teleport support, while making the remaining ambiguity small and directly testable in the campaign turn model."
+  }
+}
