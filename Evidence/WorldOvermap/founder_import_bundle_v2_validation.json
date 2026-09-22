@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "counts": {
+    "regions": 9,
+    "routes": 10,
+    "directed_approaches": 20,
+    "presentation_states": 30,
+    "settlement_slots": 3
+  },
+  "complete_region_metadata": true,
+  "complete_route_metadata": true,
+  "complete_approach_metadata": true,
+  "state_battle_linkage_valid": true,
+  "warnings": [],
+  "errors": []
+}
