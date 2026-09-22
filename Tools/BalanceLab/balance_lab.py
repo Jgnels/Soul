@@ -586,6 +586,42 @@ def siege_stress()->dict:
             "current_resolves_from_supply_alone":False,
             "current_trace":trace,"threshold_sensitivity":sensitivity}
 
+def siege_commitment_trace(defender_loss:int, defender_threshold:int,
+                           attacker_supply_loss:int, attacker_readiness_loss:int,
+                           defender_floor:int=200, max_days:int=30)->dict:
+    defender_supply=1000; attacker_supply=1000; attacker_readiness=1000
+    pressure_day=None; supply_exhausted_day=None; below_assault_readiness_day=None
+    trace=[]
+    for day in range(1,max_days+1):
+        defender_supply=max(defender_floor,defender_supply-defender_loss)
+        attacker_supply=max(0,attacker_supply-attacker_supply_loss)
+        attacker_readiness=max(0,attacker_readiness-attacker_readiness_loss)
+        if supply_exhausted_day is None and attacker_supply==0:
+            supply_exhausted_day=day
+        if below_assault_readiness_day is None and attacker_readiness<600:
+            below_assault_readiness_day=day
+        trace.append({"day":day,"defender_supply":defender_supply,
+                      "attacker_supply":attacker_supply,"attacker_readiness":attacker_readiness})
+        if defender_supply<=defender_threshold:
+            pressure_day=day
+            break
+    return {"defender_loss":defender_loss,"defender_threshold":defender_threshold,
+            "attacker_supply_loss":attacker_supply_loss,
+            "attacker_readiness_loss":attacker_readiness_loss,
+            "pressure_day":pressure_day,"supply_exhausted_day":supply_exhausted_day,
+            "below_assault_readiness_day":below_assault_readiness_day,
+            "state_at_pressure":trace[-1] if pressure_day else None}
+
+def siege_commitment_stress()->list[dict]:
+    rows=[]
+    for defender_loss in (50,70,90):
+        for defender_threshold in (300,400,500):
+            for label,supply_loss,readiness_loss in (("light",30,10),("medium",50,25),("heavy",80,40)):
+                row=siege_commitment_trace(defender_loss,defender_threshold,supply_loss,readiness_loss)
+                row["attacker_sustainment_profile"]=label
+                rows.append(row)
+    return rows
+
 def building_loss_stress(unit_id:str)->list[dict]:
     out=[]
     for mode in ("current_free","costed"):
@@ -754,6 +790,7 @@ def focused_results()->dict:
         "seize_policy_candidates":seize_policy_stress(),
         "veterancy":veterancy_stress(),
         "siege_starvation":siege_stress(),
+        "siege_commitment_candidates":siege_commitment_stress(),
         "ranged_building_loss":building_loss_stress("ranged"),
         "elephant_building_loss":building_loss_stress("beast"),
         "dwarf_capstone_construction":capstone_stress(),

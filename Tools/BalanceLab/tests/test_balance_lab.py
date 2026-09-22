@@ -5,6 +5,7 @@ from Tools.BalanceLab.balance_lab import (
     xp_for_level, rank_stats, rival_bias, simulate, siege_stress,
     building_loss_stress, memory_stress, capstone_completion_day,
     make_campaign, restore_army_if_due, choose_action, mkparams,
+    siege_commitment_trace,
 )
 
 class LiveMirrorTests(unittest.TestCase):
@@ -47,6 +48,18 @@ class LiveMirrorTests(unittest.TestCase):
         s=siege_stress()
         self.assertEqual(s["current_day30_supply"],200)
         self.assertFalse(s["current_resolves_from_supply_alone"])
+
+    def test_candidate_siege_waiting_costs_attacker(self):
+        r=siege_commitment_trace(70,450,50,25)
+        self.assertEqual(r["pressure_day"],8)
+        self.assertEqual(r["state_at_pressure"],
+                         {"day":8,"defender_supply":440,"attacker_supply":600,"attacker_readiness":800})
+
+    def test_heavy_sustainment_can_force_decision_before_deep_starvation(self):
+        r=siege_commitment_trace(50,300,80,40)
+        self.assertEqual(r["pressure_day"],14)
+        self.assertEqual(r["supply_exhausted_day"],13)
+        self.assertEqual(r["below_assault_readiness_day"],11)
 
     def test_destroyed_dwelling_current_repair_erases_growth_loss(self):
         ranged={r["repair_mode"]:r for r in building_loss_stress("ranged")}

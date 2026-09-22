@@ -1,0 +1,542 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "authority": "LAB_ONLY_CANDIDATES_NOT_PRODUCTION_RULES",
+  "assumptions": {
+    "attacker_assault_readiness_reference": 600,
+    "defender_floor": 200,
+    "starting_supply_and_readiness": 1000
+  },
+  "profile_summary": {
+    "light": {
+      "cases": 9,
+      "supply_exhausted_before_pressure": 0,
+      "below_assault_readiness_before_pressure": 0,
+      "pressure_days": {
+        "6": 1,
+        "7": 1,
+        "8": 2,
+        "9": 1,
+        "10": 2,
+        "12": 1,
+        "14": 1
+      }
+    },
+    "medium": {
+      "cases": 9,
+      "supply_exhausted_before_pressure": 0,
+      "below_assault_readiness_before_pressure": 0,
+      "pressure_days": {
+        "6": 1,
+        "7": 1,
+        "8": 2,
+        "9": 1,
+        "10": 2,
+        "12": 1,
+        "14": 1
+      }
+    },
+    "heavy": {
+      "cases": 9,
+      "supply_exhausted_before_pressure": 1,
+      "below_assault_readiness_before_pressure": 2,
+      "pressure_days": {
+        "6": 1,
+        "7": 1,
+        "8": 2,
+        "9": 1,
+        "10": 2,
+        "12": 1,
+        "14": 1
+      }
+    }
+  },
+  "cases": [
+    {
+      "defender_loss": 50,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 14,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 14,
+        "defender_supply": 300,
+        "attacker_supply": 580,
+        "attacker_readiness": 860
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 14,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 14,
+        "defender_supply": 300,
+        "attacker_supply": 300,
+        "attacker_readiness": 650
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 14,
+      "supply_exhausted_day": 13,
+      "below_assault_readiness_day": 11,
+      "state_at_pressure": {
+        "day": 14,
+        "defender_supply": 300,
+        "attacker_supply": 0,
+        "attacker_readiness": 440
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": true,
+      "below_assault_readiness_before_pressure": true
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 12,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 12,
+        "defender_supply": 400,
+        "attacker_supply": 640,
+        "attacker_readiness": 880
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 12,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 12,
+        "defender_supply": 400,
+        "attacker_supply": 400,
+        "attacker_readiness": 700
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 12,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": 11,
+      "state_at_pressure": {
+        "day": 12,
+        "defender_supply": 400,
+        "attacker_supply": 40,
+        "attacker_readiness": 520
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": true
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 10,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 10,
+        "defender_supply": 500,
+        "attacker_supply": 700,
+        "attacker_readiness": 900
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 10,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 10,
+        "defender_supply": 500,
+        "attacker_supply": 500,
+        "attacker_readiness": 750
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 50,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 10,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 10,
+        "defender_supply": 500,
+        "attacker_supply": 200,
+        "attacker_readiness": 600
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 10,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 10,
+        "defender_supply": 300,
+        "attacker_supply": 700,
+        "attacker_readiness": 900
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 10,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 10,
+        "defender_supply": 300,
+        "attacker_supply": 500,
+        "attacker_readiness": 750
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 10,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 10,
+        "defender_supply": 300,
+        "attacker_supply": 200,
+        "attacker_readiness": 600
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 9,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 9,
+        "defender_supply": 370,
+        "attacker_supply": 730,
+        "attacker_readiness": 910
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 9,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 9,
+        "defender_supply": 370,
+        "attacker_supply": 550,
+        "attacker_readiness": 775
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 9,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 9,
+        "defender_supply": 370,
+        "attacker_supply": 280,
+        "attacker_readiness": 640
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 8,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 8,
+        "defender_supply": 440,
+        "attacker_supply": 760,
+        "attacker_readiness": 920
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 8,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 8,
+        "defender_supply": 440,
+        "attacker_supply": 600,
+        "attacker_readiness": 800
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 70,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 8,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 8,
+        "defender_supply": 440,
+        "attacker_supply": 360,
+        "attacker_readiness": 680
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 8,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 8,
+        "defender_supply": 280,
+        "attacker_supply": 760,
+        "attacker_readiness": 920
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 8,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 8,
+        "defender_supply": 280,
+        "attacker_supply": 600,
+        "attacker_readiness": 800
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 300,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 8,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 8,
+        "defender_supply": 280,
+        "attacker_supply": 360,
+        "attacker_readiness": 680
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 7,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 7,
+        "defender_supply": 370,
+        "attacker_supply": 790,
+        "attacker_readiness": 930
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 7,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 7,
+        "defender_supply": 370,
+        "attacker_supply": 650,
+        "attacker_readiness": 825
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 400,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 7,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 7,
+        "defender_supply": 370,
+        "attacker_supply": 440,
+        "attacker_readiness": 720
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 30,
+      "attacker_readiness_loss": 10,
+      "pressure_day": 6,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 6,
+        "defender_supply": 460,
+        "attacker_supply": 820,
+        "attacker_readiness": 940
+      },
+      "attacker_sustainment_profile": "light",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 50,
+      "attacker_readiness_loss": 25,
+      "pressure_day": 6,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 6,
+        "defender_supply": 460,
+        "attacker_supply": 700,
+        "attacker_readiness": 850
+      },
+      "attacker_sustainment_profile": "medium",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    },
+    {
+      "defender_loss": 90,
+      "defender_threshold": 500,
+      "attacker_supply_loss": 80,
+      "attacker_readiness_loss": 40,
+      "pressure_day": 6,
+      "supply_exhausted_day": null,
+      "below_assault_readiness_day": null,
+      "state_at_pressure": {
+        "day": 6,
+        "defender_supply": 460,
+        "attacker_supply": 520,
+        "attacker_readiness": 760
+      },
+      "attacker_sustainment_profile": "heavy",
+      "supply_exhausted_before_pressure": false,
+      "below_assault_readiness_before_pressure": false
+    }
+  ]
+}
