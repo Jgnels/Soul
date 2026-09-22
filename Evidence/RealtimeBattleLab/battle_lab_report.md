@@ -10,4 +10,4 @@ The lab exercises the current Soul reinforcement rules, the released RB AI deter
 | waves_32_active | 400 | 106 | 294 | 0 | 23.35 | 8.48 | 61 | 62.4% |
 | waves_48_active | 400 | 81 | 319 | 0 | 23.00 | 5.48 | 93 | 69.6% |
 | all_at_once | 400 | 36 | 364 | 0 | 21.80 | 0.00 | 127 | 76.0% |
-| volcanic_fire_vs_ice_32 | 400 | 357 | 43 | 0 | 23.27 | 8.13 | 61 | 82.0% |
+| volcanic_fire_vs_ice_32 | 400 | 295 | 105 | 0 | 23.82 | 8.56 | 61 | 78.6% |
