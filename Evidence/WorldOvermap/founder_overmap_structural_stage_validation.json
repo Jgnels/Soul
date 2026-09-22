@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "execution_status": "NOT_RUN_UE_LANE_BUSY",
+  "map_destination": "/Game/Soul/Maps/Overmap/LV_Soul_FounderOvermap_Structural",
+  "regions_planned": 9,
+  "routes_planned": 10,
+  "route_segments_planned": 20,
+  "core_actor_minimum_excluding_optional_labels": 32,
+  "acceptance_fixtures_carried": 6,
+  "proof_asset_policy": "Engine BasicShapes only; no donor or shipping-art claim",
+  "guarded_launcher": "Tools/Run_Soul_Founder_Overmap_Structural.bat",
+  "warnings": [],
+  "errors": []
+}
