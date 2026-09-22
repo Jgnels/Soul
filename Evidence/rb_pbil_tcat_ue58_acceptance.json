@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "qualified_engine": "UE 5.8.2",
+  "tcat": {
+    "upstream_commit": "3aa18c2139bc5b6b6faa01da5adc34e035655041",
+    "upstream_version": "1.0.2",
+    "original_engine": "5.7.0",
+    "ue58_build": "succeeded",
+    "runtime_editor_modules": "succeeded",
+    "project_copy_mib_after_example_trim": 2.17
+  },
+  "rb_pbil": {
+    "version": "0.1.0",
+    "build": "succeeded",
+    "automation_passed": 3,
+    "automation_total": 3
+  },
+  "soul_realtime_battle_regression": {
+    "automation_passed": 7,
+    "automation_total": 7
+  },
+  "known_ue58_deprecations": [
+    "TCATInfluenceDispatcher.cpp: RDG_GPU_STAT_SCOPE",
+    "TCATSubsystem.cpp: RHICreateTexture implied immediate command list"
+  ],
+  "notes": [
+    "TCAT example content removed from project copy; upstream donor retains it.",
+    "Curated TCAT curve content retained.",
+    "PBIL provides the studio-facing semantic API; games should avoid direct TCAT coupling."
+  ]
+}

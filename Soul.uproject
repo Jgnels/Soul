@@ -71,6 +71,14 @@
     {
       "Name": "RBAI",
       "Enabled": true
+    },
+    {
+      "Name": "TCAT",
+      "Enabled": true
+    },
+    {
+      "Name": "RBPBIL",
+      "Enabled": true
     }
   ]
 }
