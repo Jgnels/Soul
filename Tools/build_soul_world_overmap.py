@@ -515,6 +515,17 @@ def main():
         "source":"Soul world overmap structural v1",
         "start_region":"human_capital",
         "enemy_region":"orc_camp",
+        "initial_knowledge":{
+            "humans":{
+                "visible_regions":["human_capital","crossroads"],
+                "explored_regions":["human_capital","crossroads"],
+            }
+        },
+        "acceptance_targets":{
+            "resource_sites":2,
+            "encounter_regions":3,
+            "tavern_venues":1,
+        },
         "regions":founder_regions,
         "routes":founder_routes,
     }

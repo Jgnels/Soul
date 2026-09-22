@@ -62,6 +62,24 @@ for rid,region in seed_regions.items():
         errors.append(f"founder runtime approach seed leaks outside region: {rid}")
     if not region.get("site_roles"):
         errors.append(f"founder runtime site roles missing: {rid}")
+
+site_role_sets={rid:set(region.get("site_roles",[])) for rid,region in seed_regions.items()}
+resource_count=sum("resource_site" in roles for roles in site_role_sets.values())
+encounter_count=sum("encounter" in roles for roles in site_role_sets.values())
+tavern_count=sum("tavern" in roles for roles in site_role_sets.values())
+targets=founder_seed.get("acceptance_targets",{})
+if resource_count != targets.get("resource_sites"):
+    errors.append(f"founder resource-site count mismatch: {resource_count}")
+if encounter_count != targets.get("encounter_regions"):
+    errors.append(f"founder encounter-region count mismatch: {encounter_count}")
+if tavern_count != targets.get("tavern_venues"):
+    errors.append(f"founder tavern-venue count mismatch: {tavern_count}")
+initial=founder_seed.get("initial_knowledge",{}).get("humans",{})
+expected_initial={"human_capital","crossroads"}
+if set(initial.get("visible_regions",[])) != expected_initial:
+    errors.append("founder initial visible-region seed drift")
+if set(initial.get("explored_regions",[])) != expected_initial:
+    errors.append("founder initial explored-region seed drift")
 for n in founder:
     if n not in nodes:
         errors.append(f"founder node missing: {n}")
