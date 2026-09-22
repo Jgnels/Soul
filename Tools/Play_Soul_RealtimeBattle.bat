@@ -1,5 +1,6 @@
 @echo off
 setlocal
+set "UE_SKIP_UBT_SDK_SETUP=1"
 set "UE=C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe"
 set "PROJECT=D:\RefinedBadger\Worktrees\Soul-realtime-battle-20260921\Soul.uproject"
 set "MAP=/Game/Soul/Maps/Playtest/LV_Soul_RealtimeBattleArena"
