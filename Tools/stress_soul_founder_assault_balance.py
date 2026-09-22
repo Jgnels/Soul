@@ -607,6 +607,7 @@ def main() -> None:
             "numeric_army_garrison": "BALANCE_LAB_GLUE_NOT_CANONICAL",
             "neutral_region_capture_on_entry": "LAB_GLUE",
             "battle_ends_remaining_daily_actions": "current BalanceLab/Soul strategy integration assumption",
+            "reserve_arrival_model": "COARSE_SENSITIVITY_day_gt_1; exact timing superseded by Evidence/WorldOvermap/founder_reaction_window_analysis.json",
         },
         "lab_parameters": {
             "runs_per_cell": RUNS,
@@ -651,6 +652,7 @@ def main() -> None:
         "# Soul Founder Slice Stress Test — 2026-09-22",
         "",
         "This uses the actual 9-region founder graph plus live-mirrored Soul logistics, veterancy, hero thresholds, finite recruitment, and campaign-economy rules. Numeric army/garrison combat values remain BalanceLab glue, so percentages below are comparative diagnostics rather than shipping win-rate predictions.",
+        "Reserve-arrival percentages in this report use the original coarse day>1 sensitivity shortcut; exact AP/day reaction windows are now reported separately in SOUL_FOUNDER_REACTION_WINDOWS_20260922.md.",
         "",
         "## Baseline: 3 AP/day, Orc Watch can reinforce the stronghold",
         "",
@@ -684,6 +686,8 @@ def main() -> None:
                 f"{cid}: day {x['median_camp_day']}, reserve {x['reserve_arrival_rate']:.0%}, win {x['camp_victory_rate_all_runs']:.1%}"
             )
         lines.append(f"- **{ap} AP/day:** " + "; ".join(parts) + ".")
+
+    lines.append("- **Timing correction:** AP2 reserve=100% above is a coarse sensitivity artifact; exact graph timing has no overnight window between North Pass reveal and Stronghold contact at 2 AP/day. See SOUL_FOUNDER_REACTION_WINDOWS_20260922.md.")
 
     lines += [
         "",

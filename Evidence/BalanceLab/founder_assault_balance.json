@@ -9,7 +9,8 @@
     "veterancy_hero_thresholds": "live SoulCore mirror via BalanceLab",
     "numeric_army_garrison": "BALANCE_LAB_GLUE_NOT_CANONICAL",
     "neutral_region_capture_on_entry": "LAB_GLUE",
-    "battle_ends_remaining_daily_actions": "current BalanceLab/Soul strategy integration assumption"
+    "battle_ends_remaining_daily_actions": "current BalanceLab/Soul strategy integration assumption",
+    "reserve_arrival_model": "COARSE_SENSITIVITY_day_gt_1; exact timing superseded by Evidence/WorldOvermap/founder_reaction_window_analysis.json"
   },
   "lab_parameters": {
     "runs_per_cell": 1000,

@@ -1,6 +1,7 @@
 # Soul Founder Slice Stress Test — 2026-09-22
 
 This uses the actual 9-region founder graph plus live-mirrored Soul logistics, veterancy, hero thresholds, finite recruitment, and campaign-economy rules. Numeric army/garrison combat values remain BalanceLab glue, so percentages below are comparative diagnostics rather than shipping win-rate predictions.
+Reserve-arrival percentages in this report use the original coarse day>1 sensitivity shortcut; exact AP/day reaction windows are now reported separately in SOUL_FOUNDER_REACTION_WINDOWS_20260922.md.
 
 ## Baseline: 3 AP/day, Orc Watch can reinforce the stronghold
 
@@ -28,6 +29,7 @@ This uses the actual 9-region founder graph plus live-mirrored Soul logistics, v
 - **2 AP/day:** river_watch: day 3, reserve 0%, win 0.0%; forest_watch: day 3, reserve 0%, win 0.0%; north_pass: day 2, reserve 100%, win 0.0%.
 - **3 AP/day:** river_watch: day 2, reserve 0%, win 0.0%; forest_watch: day 2, reserve 0%, win 0.0%; north_pass: day 2, reserve 100%, win 0.0%.
 - **4 AP/day:** river_watch: day 2, reserve 0%, win 0.0%; forest_watch: day 2, reserve 0%, win 0.0%; north_pass: day 1, reserve 0%, win 0.0%.
+- **Timing correction:** AP2 reserve=100% above is a coarse sensitivity artifact; exact graph timing has no overnight window between North Pass reveal and Stronghold contact at 2 AP/day. See SOUL_FOUNDER_REACTION_WINDOWS_20260922.md.
 
 ## Stronghold / reinforcement sensitivity
 
