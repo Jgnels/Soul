@@ -17,6 +17,8 @@ Under `Data/UEImport/`:
 
 - `soul_founder_regions_v1_20260922.csv` — 9 region rows.
 - `soul_founder_routes_v1_20260922.csv` — 10 route/spline rows.
+- `soul_founder_settlements_v1_20260922.csv` — 3 founder settlement/proxy placements.
+- `soul_founder_surface_zones_v1_20260922.csv` — 9 region-to-surface-zone bindings.
 - `soul_founder_approaches_v1_20260922.csv` — 20 directed approach rows.
 - `soul_founder_presentation_states_v1_20260922.csv` — 30 corridor/detour QA states.
 - `soul_founder_ue_import_manifest_v1_20260922.json` — source/output hashes and counts.
@@ -26,8 +28,10 @@ Every CSV uses stable `Name` as its first column for Unreal DataTable-style row 
 
 1. Regions: position, selection radius, starting fog/ownership, anchor and battlefield identity.
 2. Routes: endpoints, semantic route class, AP/logistics metadata, three-point spline and visual width/family.
-3. Directed approaches: entry direction and battlefield handoff context.
-4. Presentation states: expected fog, memory, selection and battle-commit QA fixtures.
+3. Settlement placements: major seats plus explicitly noncanonical minor proxy candidates, preserving tier/status.
+4. Surface zones: region macro-region, biome, landform, feature, elevation and donor-vocabulary candidates.
+5. Directed approaches: entry direction and battlefield handoff context.
+6. Presentation states: expected fog, memory, selection and battle-commit QA fixtures.
 
 Pipe-delimited values inside a field represent arrays of stable IDs. They are staging encodings only; do not make gameplay parse these CSV strings at runtime if the canonical structures are already available.
 ## RB / Soul authority
@@ -46,6 +50,8 @@ The validator checks:
 - exact row counts and stable unique DataTable names;
 - region, route and directed-approach referential integrity;
 - route spline endpoint presence;
+- founder settlement placement/status integrity;
+- one surface-zone binding for every founder region, including terrain vocabulary/status;
 - planned route adjacency in every presentation state;
 - target visibility before every planned move/commit;
 - battle-only fields appear only on battle-commit rows.

@@ -5,15 +5,19 @@
     "regions": 9,
     "routes": 10,
     "approaches": 20,
-    "presentation_states": 30
+    "presentation_states": 30,
+    "settlements": 3,
+    "surface_zones": 9
   },
   "battle_commit_rows": 6,
-  "manifest_sha256": "187366ad620cb74d7c592b4537f155de621bc6b628b55cfb8d7f60719b2c1951",
+  "manifest_sha256": "55b2d7567c00da471f9d375262a8440afcb2f14d7d14b65be18aec45c9494a51",
   "csv_sha256": {
     "soul_founder_regions_v1_20260922.csv": "f5e1eb780c850a530ad490c37f1e32c4c189b78f94ff624924cc93864010e8c9",
     "soul_founder_routes_v1_20260922.csv": "7ca3fe92b91ec09471aad66e3bd83d5b337583fe28d8b2ba61d92f6c0404aa2c",
     "soul_founder_approaches_v1_20260922.csv": "688c2cbfa64b1f5c48f428700fe486f07cd3c3e26afbabc0812d7f7e4b7a737b",
-    "soul_founder_presentation_states_v1_20260922.csv": "4a985f5627fd61f9cfa2726aaffc9c66a1f3a9ddb2481056f1f4636855d2dfbe"
+    "soul_founder_presentation_states_v1_20260922.csv": "4a985f5627fd61f9cfa2726aaffc9c66a1f3a9ddb2481056f1f4636855d2dfbe",
+    "soul_founder_settlements_v1_20260922.csv": "a32da4c726cb58c3d78e9e83629288efc79af865e7ecab965b6eb15ff3db4645",
+    "soul_founder_surface_zones_v1_20260922.csv": "002c7e97e67a68a754c941295a7c6ef319b55f8595a7eab964117e412873e614"
   },
   "errors": []
 }

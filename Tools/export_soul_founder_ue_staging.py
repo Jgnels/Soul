@@ -7,11 +7,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PRESENTATION = ROOT / "Data" / "soul_founder_slice_presentation_import_v1_20260922.json"
 STATES = ROOT / "Data" / "soul_founder_presentation_state_vectors_v1_20260922.json"
+WORLD = ROOT / "Data" / "soul_world_overmap_v1_20260922.json"
+SETTLEMENTS = ROOT / "Data" / "soul_overmap_settlement_slots_v1_20260922.json"
+SURFACES = ROOT / "Data" / "soul_overmap_surface_bindings_v1_20260922.json"
 OUT_DIR = ROOT / "Data" / "UEImport"
 MANIFEST = OUT_DIR / "soul_founder_ue_import_manifest_v1_20260922.json"
 
 p = json.loads(PRESENTATION.read_text(encoding="utf-8"))
 s = json.loads(STATES.read_text(encoding="utf-8"))
+w = json.loads(WORLD.read_text(encoding="utf-8"))
+settlements = json.loads(SETTLEMENTS.read_text(encoding="utf-8"))
+surfaces = json.loads(SURFACES.read_text(encoding="utf-8"))
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def row_name(prefix, value):
@@ -168,7 +174,60 @@ state_fields = [
 state_path = OUT_DIR / "soul_founder_presentation_states_v1_20260922.csv"
 write_csv(state_path, state_fields, state_rows)
 
-files = [region_path, route_path, approach_path, state_path]
+founder_ids = {region["region_id"] for region in p["regions"]}
+region_by_id = {region["region_id"]: region for region in p["regions"]}
+world_by_id = {node["id"]: node for node in w["nodes"]}
+
+settlement_rows = []
+for slot in settlements["slots"]:
+    if slot["region_id"] not in founder_ids:
+        continue
+    region = region_by_id[slot["region_id"]]
+    x, y, z = region["ue_position_cm"]
+    anchor = region["visual_anchor"]
+    settlement_rows.append({
+        "Name": row_name("settlement", slot["region_id"]),
+        "RegionId": slot["region_id"], "DisplayName": slot["display_name"],
+        "Tier": slot["tier"], "MinorKind": slot.get("minor_kind", ""),
+        "FactionAffinity": slot["faction_affinity"] or "",
+        "SettlementId": slot["settlement_id"] or "", "Status": slot["status"],
+        "VisitScope": slot["visit_scope"], "ProxyPriority": slot["proxy_priority"],
+        "Services": join(slot["services"]), "Donor": slot["donor"],
+        "X": x, "Y": y, "Z": z, "AnchorType": anchor["anchor_type"],
+        "AnchorScaleClass": anchor["scale_class"],
+    })
+
+settlement_fields = [
+    "Name","RegionId","DisplayName","Tier","MinorKind","FactionAffinity","SettlementId",
+    "Status","VisitScope","ProxyPriority","Services","Donor","X","Y","Z","AnchorType",
+    "AnchorScaleClass",
+]
+settlement_path = OUT_DIR / "soul_founder_settlements_v1_20260922.csv"
+write_csv(settlement_path, settlement_fields, settlement_rows)
+
+surface_rows = []
+for region in p["regions"]:
+    node = world_by_id[region["region_id"]]
+    binding = surfaces["macro_regions"][node["macro_region"]]
+    surface_rows.append({
+        "Name": row_name("surface", region["region_id"]),
+        "RegionId": region["region_id"], "MacroRegion": node["macro_region"],
+        "Biome": region["biome"], "Landform": region["landform"],
+        "Feature": region["feature"], "ElevationBand": node["elevation_band"],
+        "SurfaceIdentity": binding["identity"], "SurfaceStatus": binding["status"],
+        "TerrainCandidates": join(binding["terrain"]),
+        "SettlementCandidates": join(binding["settlement"]),
+        "AnchorSource": region["visual_anchor"]["source"],
+    })
+
+surface_fields = [
+    "Name","RegionId","MacroRegion","Biome","Landform","Feature","ElevationBand",
+    "SurfaceIdentity","SurfaceStatus","TerrainCandidates","SettlementCandidates","AnchorSource",
+]
+surface_path = OUT_DIR / "soul_founder_surface_zones_v1_20260922.csv"
+write_csv(surface_path, surface_fields, surface_rows)
+
+files = [region_path, route_path, approach_path, state_path, settlement_path, surface_path]
 manifest = {
     "schema": 1,
     "generated": "2026-09-22",
@@ -177,13 +236,18 @@ manifest = {
     "sources": {
         PRESENTATION.name: hashlib.sha256(PRESENTATION.read_bytes()).hexdigest(),
         STATES.name: hashlib.sha256(STATES.read_bytes()).hexdigest(),
+        WORLD.name: hashlib.sha256(WORLD.read_bytes()).hexdigest(),
+        SETTLEMENTS.name: hashlib.sha256(SETTLEMENTS.read_bytes()).hexdigest(),
+        SURFACES.name: hashlib.sha256(SURFACES.read_bytes()).hexdigest(),
     },
-    "import_order": ["regions", "routes", "approaches", "presentation_states"],
+    "import_order": ["regions", "routes", "settlements", "surface_zones", "approaches", "presentation_states"],
     "counts": {
         "regions": len(region_rows),
         "routes": len(route_rows),
         "approaches": len(approach_rows),
         "presentation_states": len(state_rows),
+        "settlements": len(settlement_rows),
+        "surface_zones": len(surface_rows),
     },
     "files": {
         path.name: hashlib.sha256(path.read_bytes()).hexdigest()

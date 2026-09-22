@@ -1,0 +1,4 @@
+Name,RegionId,DisplayName,Tier,MinorKind,FactionAffinity,SettlementId,Status,VisitScope,ProxyPriority,Services,Donor,X,Y,Z,AnchorType,AnchorScaleClass
+settlement_human_capital,human_capital,Human Capital,major,,humans,city.human_capital,LOCKED_MAJOR_SEAT,full_visit_scene,high,recruitment|hero_services|market|siege,city.human_capital,-320000,25000,12000,major_settlement_silhouette,major
+settlement_orc_camp,orc_camp,Orc Stronghold,major,,orcs,city.orc_ruinhold,LOCKED_MAJOR_SEAT,full_visit_scene,high,recruitment|hero_services|market|siege,city.orc_ruinhold,280000,15000,12000,major_settlement_silhouette,major
+settlement_crossroads,crossroads,Crossroads,minor,market_town,humans,,CANDIDATE_NONCANONICAL,bounded_scene_or_proxy,medium,market|rest|caravan,Medieval Megapack market/civic cluster,-180000,25000,12000,minor_settlement_proxy,medium
