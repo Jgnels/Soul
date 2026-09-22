@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "audit_snapshot_valid": true,
+  "candidate_snapshot_unchanged": true,
+  "candidate_is_external_volatile_input": true,
+  "master_gate_eligible": false,
+  "critical_failures_confirmed": [
+    "battle_victory_returns_to_actual_region",
+    "hostile_nonsettlement_entry_gated_before_occupation"
+  ],
+  "current_candidate_hashes": {
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp": "6bd2ff2d9f9016c53abe3dfba722e3345fb0e2b28a136ec72fa39019825eba66",
+    "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp": "1e6d5637418b2e0350cbfdb7b847f4a73acb445723a078d27064f3ec95da2746",
+    "Source/Soul/Private/SoulFounderPlaytestBattleActor.cpp": "44041bd0b82c1e2749bd057e5c29095bbcf480507b4066ef184c359c2eea3f1e"
+  },
+  "warnings": [],
+  "errors": []
+}

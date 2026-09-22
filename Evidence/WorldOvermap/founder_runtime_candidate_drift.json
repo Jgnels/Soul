@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "READ_ONLY_RUNTIME_CANDIDATE_DRIFT_AUDIT",
+  "authority": {
+    "accepted_geography": "Data/soul_world_overmap_v1_20260922.json",
+    "accepted_start_state": "Data/soul_campaign_start_states_v1_20260922.json",
+    "accepted_battle_handoff": "Data/soul_overmap_battle_handoff_v1_20260922.json",
+    "candidate_root": "D:\\RefinedBadger\\Games\\Soul",
+    "candidate_authority": "UNTRACKED_DIRTY_PRIMARY_PROTOTYPE_NOT_CANONICAL"
+  },
+  "candidate_hashes": {
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp": "6bd2ff2d9f9016c53abe3dfba722e3345fb0e2b28a136ec72fa39019825eba66",
+    "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp": "1e6d5637418b2e0350cbfdb7b847f4a73acb445723a078d27064f3ec95da2746",
+    "Source/Soul/Private/SoulFounderPlaytestBattleActor.cpp": "44041bd0b82c1e2749bd057e5c29095bbcf480507b4066ef184c359c2eea3f1e"
+  },
+  "counts": {
+    "accepted_regions": 9,
+    "candidate_regions": 9,
+    "accepted_edges": 10,
+    "candidate_edges": 10,
+    "metadata_drift_items": 4,
+    "edge_drift_items": 0
+  },
+  "checks": [
+    {
+      "id": "candidate_is_uncommitted",
+      "severity": "boundary",
+      "pass": true,
+      "evidence": {
+        "SoulFounderPlaytestStateSubsystem.cpp": "?? Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+        "SoulFounderPlaytestCampaignActor.cpp": "?? Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+        "SoulFounderPlaytestBattleActor.cpp": "?? Source/Soul/Private/SoulFounderPlaytestBattleActor.cpp"
+      },
+      "finding": "Founder playtest runtime is untracked in the dirty primary and has no committed Git authority."
+    },
+    {
+      "id": "topology_matches_current_founder_ids",
+      "severity": "pass",
+      "pass": true,
+      "evidence": {
+        "accepted_regions": [
+          "ancient_shrine",
+          "crossroads",
+          "forest_edge",
+          "human_capital",
+          "north_pass",
+          "old_quarry",
+          "orc_camp",
+          "orc_watch",
+          "river_ford"
+        ],
+        "candidate_regions": [
+          "ancient_shrine",
+          "crossroads",
+          "forest_edge",
+          "human_capital",
+          "north_pass",
+          "old_quarry",
+          "orc_camp",
+          "orc_watch",
+          "river_ford"
+        ]
+      },
+      "finding": "The candidate currently uses the same nine region IDs."
+    },
+    {
+      "id": "edge_graph_matches",
+      "severity": "pass",
+      "pass": true,
+      "evidence": [],
+      "finding": "Adjacency/road flags should converge on the accepted graph rather than remain separately hardcoded."
+    },
+    {
+      "id": "region_metadata_matches",
+      "severity": "medium",
+      "pass": false,
+      "evidence": [
+        {
+          "region_id": "ancient_shrine",
+          "field": "biome",
+          "accepted": "mountain_forest",
+          "candidate": "temperate"
+        },
+        {
+          "region_id": "ancient_shrine",
+          "field": "landform",
+          "accepted": "shrine_terrace",
+          "candidate": "ridge"
+        },
+        {
+          "region_id": "ancient_shrine",
+          "field": "feature",
+          "accepted": "ancient_shrine",
+          "candidate": "shrine"
+        },
+        {
+          "region_id": "orc_camp",
+          "field": "landform",
+          "accepted": "ruined_city_edge",
+          "candidate": "mesa"
+        }
+      ],
+      "finding": "The candidate has region biome/landform/feature/owner drift from accepted overmap data."
+    },
+    {
+      "id": "hostile_nonsettlement_entry_gated_before_occupation",
+      "severity": "critical",
+      "pass": false,
+      "evidence": {
+        "move_sets_player_region_before_owner_gate": true,
+        "orc_owner_excluded_from_capture_only": true,
+        "pre_move_battle_prompt_only_for_hostile_settlement": true
+      },
+      "finding": "Current candidate can move the player into an Orc-owned non-settlement such as Orc Watch before battle. Accepted start-state policy requires hostile entry to resolve encounter/battle before occupation or traversal."
+    },
+    {
+      "id": "battle_recipe_uses_directed_handoff",
+      "severity": "high",
+      "pass": false,
+      "evidence": {
+        "hardcoded_level": "/Game/Soul/Maps/Battlefields/Overlays/BF_Orc_Badlands_Overlay",
+        "hardcoded_present": true,
+        "accepted_stronghold_recipes": [
+          "orc.war_camp"
+        ]
+      },
+      "finding": "StartBattle opens one hardcoded Orc Badlands overlay instead of consuming the directed battle handoff. The accepted Stronghold destination currently resolves to orc.war_camp."
+    },
+    {
+      "id": "battle_victory_returns_to_actual_region",
+      "severity": "critical",
+      "pass": false,
+      "evidence": {
+        "hardcoded_award": true
+      },
+      "finding": "Every candidate battle victory currently awards/captures orc_camp. A battle launched from Orc Watch can therefore resolve the wrong strategic region."
+    },
+    {
+      "id": "neutral_rewards_are_data_driven",
+      "severity": "decision_required",
+      "pass": false,
+      "evidence": {
+        "generic_gold_reward_250": true,
+        "generic_hero_xp_140": true
+      },
+      "finding": "The candidate grants the same first-capture gold/XP reward to generic neutral regions. Accepted overmap data distinguishes resource, landmark, crossing and pass roles and does not authorize a universal reward."
+    },
+    {
+      "id": "enemy_force_model_matches_reinforcement_analysis",
+      "severity": "model_gap",
+      "pass": false,
+      "evidence": {
+        "single_enemy_region_starts_at_camp": true,
+        "separate_orc_watch_reserve_defined": false
+      },
+      "finding": "The current candidate models one movable Orc field army, not an Orc Watch reserve plus Stronghold force. Reserve strength in the balance lab remains synthetic sensitivity glue and must not be mistaken for runtime state."
+    }
+  ],
+  "convergence_order": [
+    "Preserve the candidate files; do not reset or overwrite the dirty primary.",
+    "Use accepted overmap/import data for region IDs, positions, adjacency, metadata and directed battle context.",
+    "Gate hostile non-settlement entry before changing PlayerRegion or ownership.",
+    "Carry actual source/destination/approach/handoff into battle launch and return.",
+    "Remove hardcoded orc_camp victory attribution; persist the battle's actual strategic destination.",
+    "Keep reserve/garrison numbers outside runtime until a founder-approved force/reaction rule exists.",
+    "Only then decide explicit rewards for resource sites, landmarks and neutral captures."
+  ]
+}
