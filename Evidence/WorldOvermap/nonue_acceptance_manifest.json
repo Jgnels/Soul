@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 13,
-  "steps_passed": 13,
+  "steps_total": 15,
+  "steps_passed": 15,
   "steps_failed": 0,
   "steps": [
     {
@@ -128,10 +128,32 @@
       "stderr_tail": []
     },
     {
+      "name": "route_visual_build",
+      "script": "Tools/build_soul_overmap_route_visual_cues.py",
+      "exit_code": 0,
+      "stdout_sha256": "858afce406ca67a3cfe7628d4135efaa1c4149bd2983d5390f83b2186e0786f4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-visual-anchors-20260922\\Data\\soul_overmap_route_visual_cues_v1_20260922.json cues=51 classes=15"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "route_visual_validation",
+      "script": "Tools/validate_soul_overmap_route_visual_cues.py",
+      "exit_code": 0,
+      "stdout_sha256": "d800c5dfbc2566e7d7c7f92ce6506c7336050831b9e7aef0c0e265740aaa3817",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
       "name": "integrated_bundle_build",
       "script": "Tools/build_soul_overmap_integrated_import.py",
       "exit_code": 0,
-      "stdout_sha256": "d4a199a415f6655cf2c1abc286494ea03f806b993c5d7f28cdb670157e24ddd3",
+      "stdout_sha256": "cc70cd002d7f2b83ff17035f48fc80f50a05d88f6b5d9435b174b969f9153a61",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
@@ -142,7 +164,7 @@
       "name": "integrated_bundle_validation",
       "script": "Tools/validate_soul_overmap_integrated_import.py",
       "exit_code": 0,
-      "stdout_sha256": "048dce8ef5970b36096bbf0fc8236527d924ca70e1114f4f86fbcf75b15f3b31",
+      "stdout_sha256": "c3bc536c82c55f4d1071bf90067b28f3fef9a8069807d8f93445ceb781c9de22",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"

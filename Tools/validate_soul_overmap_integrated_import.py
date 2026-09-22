@@ -24,6 +24,8 @@ regions = bundle["world"]["regions"]
 routes = bundle["world"]["routes"]
 approaches = bundle["directed_approaches"]
 slots = bundle["settlement_slots"]
+route_visual_cues = bundle["route_visual_cues"]
+route_cue_by_id = {item["route_id"]: item for item in route_visual_cues}
 anchors = bundle["visual_anchors"]
 anchor_by_region = {item["region_id"]: item for item in anchors}
 recipes = {item["id"]: item for item in bundle["battlefield_recipes"]}
@@ -36,6 +38,18 @@ if len(approaches) != 102:
     errors.append(f"expected 102 directed approaches, got {len(approaches)}")
 if len(slots) != 14:
     errors.append(f"expected 14 settlement slots, got {len(slots)}")
+if len(route_visual_cues) != 51:
+    errors.append(f"expected 51 route visual cues, got {len(route_visual_cues)}")
+if set(route_cue_by_id) != set(routes):
+    errors.append(
+        f"route visual cue coverage drift: missing={sorted(set(routes)-set(route_cue_by_id))} "
+        f"extra={sorted(set(route_cue_by_id)-set(routes))}"
+    )
+for route_id, route in routes.items():
+    cue = route_cue_by_id.get(route_id, {})
+    for key in ("route_class", "road", "chokepoint", "action_cost", "logistics_movement_cost", "spline_width_cm"):
+        if cue.get(key) != route.get(key):
+            errors.append(f"route visual cue semantic drift: {route_id} field={key}")
 if len(anchors) != 36:
     errors.append(f"expected 36 visual anchors, got {len(anchors)}")
 if set(anchor_by_region) != region_ids:
@@ -100,6 +114,12 @@ for region_id in founder_ids:
         errors.append(f"founder visual-anchor content drift: {region_id}")
 if len(founder["routes"]) != 10:
     errors.append(f"expected 10 founder routes, got {len(founder['routes'])}")
+if len(founder.get("route_visual_cues", {})) != 10:
+    errors.append(f"expected 10 founder route visual cues, got {len(founder.get('route_visual_cues', {}))}")
+for route_id in founder["routes"]:
+    projected_cue = founder.get("route_visual_cues", {}).get(route_id)
+    if projected_cue != route_cue_by_id.get(route_id):
+        errors.append(f"founder route visual cue drift: {route_id}")
 if len(founder["directed_approaches"]) != 20:
     errors.append(
         f"expected 20 founder directed approaches, got {len(founder['directed_approaches'])}"
@@ -153,6 +173,8 @@ expected_counts = {
     "starting_owned_regions": 12,
     "founder_regions": 9,
     "founder_routes": 10,
+    "route_visual_cues": 51,
+    "founder_route_visual_cues": 10,
     "founder_directed_approaches": 20,
     "visual_anchors": 36,
     "founder_visual_anchors": 9,
@@ -168,6 +190,8 @@ result = {
     "routes": len(routes),
     "directed_approaches": len(approaches),
     "settlement_slots": len(slots),
+    "route_visual_cues": len(route_visual_cues),
+    "founder_route_visual_cues": len(founder.get("route_visual_cues", {})),
     "visual_anchors": len(anchors),
     "founder_visual_anchors": sum(1 for item in anchors if item["founder_slice"]),
     "founder_regions": len(founder_ids),
@@ -188,6 +212,7 @@ lines = [
     f"- Routes: **{result['routes']}**",
     f"- Directed approaches: **{result['directed_approaches']}**",
     f"- Settlement slots: **{result['settlement_slots']}**",
+    f"- Route visual cues: **{result['route_visual_cues']}** ({result['founder_route_visual_cues']} founder-slice)",
     f"- Visual anchors: **{result['visual_anchors']}** ({result['founder_visual_anchors']} founder-slice)",
     f"- Founder slice: **{result['founder_regions']} regions / {result['founder_routes']} routes / {result['founder_directed_approaches']} approaches**",
     f"- Source hashes verified: **{result['source_hashes_verified']}**",

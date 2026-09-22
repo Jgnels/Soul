@@ -20,6 +20,8 @@ STEPS = [
     ("opening_pressure", "Tools/analyze_soul_campaign_openings.py"),
     ("visual_anchor_build", "Tools/build_soul_overmap_visual_anchors.py"),
     ("visual_anchor_validation", "Tools/validate_soul_overmap_visual_anchors.py"),
+    ("route_visual_build", "Tools/build_soul_overmap_route_visual_cues.py"),
+    ("route_visual_validation", "Tools/validate_soul_overmap_route_visual_cues.py"),
     ("integrated_bundle_build", "Tools/build_soul_overmap_integrated_import.py"),
     ("integrated_bundle_validation", "Tools/validate_soul_overmap_integrated_import.py"),
 ]
