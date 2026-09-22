@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 32,
-  "steps_passed": 32,
+  "steps_total": 36,
+  "steps_passed": 36,
   "steps_failed": 0,
   "steps": [
     {
@@ -286,6 +286,50 @@
       "script": "Tools/validate_soul_founder_ue_staging.py",
       "exit_code": 0,
       "stdout_sha256": "a6e211bcf022c0da09bdbe4686343e2c0226125620a5893881eb7ca228b97e60",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_import_bundle_v2_build",
+      "script": "Tools/build_soul_founder_import_bundle_v2.py",
+      "exit_code": 0,
+      "stdout_sha256": "7a95e1cd2751e3fb2696157dbca7f8b9e0e3f694a74074b5b01b87ac7da02138",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "D:\\RefinedBadger\\Worktrees\\Soul-overmap-battle-handoff-20260922\\Data\\UEImport\\soul_founder_import_bundle_v2_20260922.json"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_import_bundle_v2_validation",
+      "script": "Tools/validate_soul_founder_import_bundle_v2.py",
+      "exit_code": 0,
+      "stdout_sha256": "7fce6052ac727b1c467fa641368121317e19ced25999911c4f8352808c6037cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "ue_acceptance_fixtures_build",
+      "script": "Tools/build_soul_overmap_ue_acceptance_fixtures.py",
+      "exit_code": 0,
+      "stdout_sha256": "a64c2f1a9dde236972eec0efa84e6a97bc15eb1fd6cedc5e5b905d657b4d6181",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "ue_acceptance_fixtures_validation",
+      "script": "Tools/validate_soul_overmap_ue_acceptance_fixtures.py",
+      "exit_code": 0,
+      "stdout_sha256": "6ff86ec6077385bb669176a5885f4bfb07c5481661f9b22d2d96cf22bf87f398",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
