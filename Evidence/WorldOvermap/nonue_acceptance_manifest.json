@@ -2,8 +2,8 @@
   "schema": 1,
   "generated": "2026-09-22",
   "status": "pass",
-  "steps_total": 26,
-  "steps_passed": 26,
+  "steps_total": 28,
+  "steps_passed": 28,
   "steps_failed": 0,
   "steps": [
     {
@@ -286,6 +286,28 @@
       "script": "Tools/validate_soul_overmap_preview_bundle.py",
       "exit_code": 0,
       "stdout_sha256": "f6461133a9e79af5f04b36876a6d85eeb150890faf3e85b71d314619acb14606",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_state_preview_build",
+      "script": "Tools/build_soul_founder_state_preview.py",
+      "exit_code": 0,
+      "stdout_sha256": "41e849fd6026856f82400ae9f79944eeeaf5006b4b66b5ecd18ccd52cf931509",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_state_preview_validation",
+      "script": "Tools/validate_soul_founder_state_preview.py",
+      "exit_code": 0,
+      "stdout_sha256": "6b0bd584a456ed1cd5513d47dfc4e86617bafafa8aaa56e304609e8f6075980e",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": [
         "}"
