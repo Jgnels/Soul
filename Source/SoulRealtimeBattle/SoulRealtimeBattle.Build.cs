@@ -11,6 +11,8 @@ public class SoulRealtimeBattle : ModuleRules
             "Core",
             "CoreUObject",
             "Engine",
+            "AIModule",
+            "InputCore",
             "SoulCore",
             "RefinedBadgerCombatCore",
             "RefinedBadgerCombatVariant",
@@ -18,7 +20,10 @@ public class SoulRealtimeBattle : ModuleRules
             "RBAICombat",
             "RBAICreatures",
             "RBAIGroups",
-            "RBPBIL"
+            "RBPBIL",
+            "RBMagicCore",
+            "RBMagicPresentation",
+            "Niagara"
         });
     }
 }

@@ -4,10 +4,10 @@
   "purpose": "architecture and sensitivity testing, not predicted shipping win rates",
   "uses": ["SoulRealtimeBattleRules", "RBAI utility selection", "RB Combat group cap"],
   "scenarios": [
-    {"name":"waves_24_active","seeds":400,"player_wins":169,"enemy_wins":231,"deadlocks":0,"mean_steps":22.663,"mean_waves":9.318,"max_peak_active":48,"player_attack_share":0.65108},
-    {"name":"waves_32_active","seeds":400,"player_wins":166,"enemy_wins":234,"deadlocks":0,"mean_steps":22.837,"mean_waves":8.070,"max_peak_active":60,"player_attack_share":0.69163},
-    {"name":"waves_48_active","seeds":400,"player_wins":168,"enemy_wins":232,"deadlocks":0,"mean_steps":22.565,"mean_waves":4.895,"max_peak_active":92,"player_attack_share":0.79326},
-    {"name":"all_at_once","seeds":400,"player_wins":213,"enemy_wins":187,"deadlocks":0,"mean_steps":22.043,"mean_waves":0.000,"max_peak_active":124,"player_attack_share":0.89588},
-    {"name":"volcanic_fire_vs_ice_32","seeds":400,"player_wins":373,"enemy_wins":27,"deadlocks":0,"mean_steps":21.980,"mean_waves":6.957,"max_peak_active":61,"player_attack_share":0.85601}
+    {"name":"waves_24_active","seeds":400,"player_wins":118,"enemy_wins":282,"deadlocks":0,"mean_steps":23.297,"mean_waves":9.797,"max_peak_active":48,"player_attack_share":0.58966},
+    {"name":"waves_32_active","seeds":400,"player_wins":106,"enemy_wins":294,"deadlocks":0,"mean_steps":23.352,"mean_waves":8.477,"max_peak_active":61,"player_attack_share":0.62381},
+    {"name":"waves_48_active","seeds":400,"player_wins":81,"enemy_wins":319,"deadlocks":0,"mean_steps":22.995,"mean_waves":5.478,"max_peak_active":93,"player_attack_share":0.69613},
+    {"name":"all_at_once","seeds":400,"player_wins":36,"enemy_wins":364,"deadlocks":0,"mean_steps":21.805,"mean_waves":0.000,"max_peak_active":127,"player_attack_share":0.76026},
+    {"name":"volcanic_fire_vs_ice_32","seeds":400,"player_wins":357,"enemy_wins":43,"deadlocks":0,"mean_steps":23.270,"mean_waves":8.133,"max_peak_active":61,"player_attack_share":0.81994}
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "project": "Soul",
+  "prototype": "RealtimeBattleArena",
+  "map": "/Game/Soul/Maps/Playtest/LV_Soul_RealtimeBattleArena",
+  "verified_utc": "2026-09-22T05:04:39Z",
+  "result": "PASS",
+  "actors": 48,
+  "active_per_side": 24,
+  "rb_combat_groups": 16,
+  "accepted_contacts": 424,
+  "human_casualties": 19,
+  "enemy_casualties": 20,
+  "allied_target_errors": 0,
+  "arrows_remaining": 32,
+  "player_controls": {
+    "move": "WASD",
+    "turn": "mouse",
+    "melee": "LMB",
+    "guard": "RMB",
+    "allied_order_toggle": "G",
+    "exit": "Esc"
+  },
+  "notes": [
+    "Physical ACharacter representatives use RB Combat execution.",
+    "RBAI and RB PBIL formation policy tests pass.",
+    "Visuals are functional blockout placeholders; final unit art is not yet integrated."
+  ]
+}

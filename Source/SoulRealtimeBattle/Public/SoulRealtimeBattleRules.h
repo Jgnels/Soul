@@ -6,6 +6,8 @@
 enum class ESoulRealtimeFormationRole : uint8
 {
     Line,
+    Guard,
+    Breaker,
     Shock,
     Ranged,
     Support,

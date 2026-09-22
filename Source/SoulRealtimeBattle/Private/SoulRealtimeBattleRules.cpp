@@ -240,8 +240,8 @@ FSoulTerrainMagicProfile FSoulRealtimeBattleRules::MakeVolcanicMagicProfile()
 {
     FSoulTerrainMagicProfile Profile;
     Profile.ProfileId = TEXT("TerrainMagic.Volcanic");
-    Profile.SchoolPowerPermille.Add(TEXT("Magic.School.Fire"), 1200);
-    Profile.SchoolPowerPermille.Add(TEXT("Magic.School.Ice"), 800);
-    Profile.SchoolPowerPermille.Add(TEXT("Magic.School.Water"), 850);
+    Profile.SchoolPowerPermille.Add(TEXT("Magic.School.Fire"), 1100);
+    Profile.SchoolPowerPermille.Add(TEXT("Magic.School.Ice"), 900);
+    Profile.SchoolPowerPermille.Add(TEXT("Magic.School.Water"), 950);
     return Profile;
 }

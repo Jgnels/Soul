@@ -6,8 +6,8 @@ The lab exercises the current Soul reinforcement rules, the released RB AI deter
 
 | Scenario | Seeds | P wins | E wins | Deadlocks | Mean steps | Mean waves | Peak active | P attack share |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| waves_24_active | 400 | 169 | 231 | 0 | 22.66 | 9.32 | 48 | 65.1% |
-| waves_32_active | 400 | 166 | 234 | 0 | 22.84 | 8.07 | 60 | 69.2% |
-| waves_48_active | 400 | 168 | 232 | 0 | 22.57 | 4.89 | 92 | 79.3% |
-| all_at_once | 400 | 213 | 187 | 0 | 22.04 | 0.00 | 124 | 89.6% |
-| volcanic_fire_vs_ice_32 | 400 | 373 | 27 | 0 | 21.98 | 6.96 | 61 | 85.6% |
+| waves_24_active | 400 | 118 | 282 | 0 | 23.30 | 9.80 | 48 | 59.0% |
+| waves_32_active | 400 | 106 | 294 | 0 | 23.35 | 8.48 | 61 | 62.4% |
+| waves_48_active | 400 | 81 | 319 | 0 | 23.00 | 5.48 | 93 | 69.6% |
+| all_at_once | 400 | 36 | 364 | 0 | 21.80 | 0.00 | 127 | 76.0% |
+| volcanic_fire_vs_ice_32 | 400 | 357 | 43 | 0 | 23.27 | 8.13 | 61 | 82.0% |

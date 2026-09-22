@@ -1,0 +1,19 @@
+{
+  "created": [
+    "/Game/Soul/Magic/Spells/DA_Soul_Firebolt",
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt",
+    "/Game/Soul/Magic/Spells/DA_Soul_ChainLightning",
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning",
+    "/Game/Soul/Magic/Spells/DA_Soul_Blizzard",
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard",
+    "/Game/Soul/Magic/Spells/DA_Soul_TidalWard",
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_TidalWard",
+    "/Game/Soul/Magic/Spells/DA_Soul_StoneSentinel",
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_StoneSentinel",
+    "/Game/Soul/Magic/Spells/DA_Soul_Tailwind",
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Tailwind"
+  ],
+  "updated": [],
+  "errors": [],
+  "pass": true
+}

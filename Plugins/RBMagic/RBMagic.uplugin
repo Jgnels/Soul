@@ -1,0 +1,27 @@
+{
+  "FileVersion": 3,
+  "Version": 100,
+  "VersionName": "0.1.0-dev",
+  "FriendlyName": "RefinedBadger Magic",
+  "Description": "Reusable data-driven casting, targeting, effect-intent and presentation-binding foundation. Hosts own durable gameplay truth.",
+  "Category": "Gameplay",
+  "CreatedBy": "RefinedBadger Studios",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "Plugins": [
+    { "Name": "Niagara", "Enabled": true }
+  ],
+  "Modules": [
+    {
+      "Name": "RBMagicCore",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "RBMagicPresentation",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

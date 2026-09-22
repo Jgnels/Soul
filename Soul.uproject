@@ -79,6 +79,10 @@
     {
       "Name": "RBPBIL",
       "Enabled": true
+    },
+    {
+      "Name": "RBMagic",
+      "Enabled": true
     }
   ]
 }

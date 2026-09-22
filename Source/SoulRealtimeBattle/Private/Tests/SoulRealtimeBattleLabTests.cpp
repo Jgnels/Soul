@@ -55,15 +55,17 @@ namespace
         Battle.ReinforcementTriggerPermille = 700;
         Battle.bReinforcementsEnabled = bWaves;
         Battle.Formations = {
-            MakeLabFormation(TEXT("P_Line"), TEXT("P"), 18, ESoulRealtimeFormationRole::Line, 100),
-            MakeLabFormation(TEXT("P_Spear"), TEXT("P"), 16, ESoulRealtimeFormationRole::Line, 115),
+            MakeLabFormation(TEXT("P_Line"), TEXT("P"), 10, ESoulRealtimeFormationRole::Line, 100),
+            MakeLabFormation(TEXT("P_Guard"), TEXT("P"), 8, ESoulRealtimeFormationRole::Guard, 105),
+            MakeLabFormation(TEXT("P_Spear"), TEXT("P"), 16, ESoulRealtimeFormationRole::Breaker, 115),
             MakeLabFormation(TEXT("P_Heavy"), TEXT("P"), 10, ESoulRealtimeFormationRole::Shock, 150),
             MakeLabFormation(TEXT("P_Archers"), TEXT("P"), 14, ESoulRealtimeFormationRole::Ranged, 110),
             MakeLabFormation(TEXT("P_Support"), TEXT("P"), 5, ESoulRealtimeFormationRole::Support, 145, 50),
             MakeLabFormation(TEXT("P_Hero"), TEXT("P"), 1, ESoulRealtimeFormationRole::Hero, 700, 200),
             MakeLabFormation(TEXT("P_Griffon"), TEXT("P"), 1, ESoulRealtimeFormationRole::Apex, 850, 150),
-            MakeLabFormation(TEXT("E_Grunts"), TEXT("E"), 18, ESoulRealtimeFormationRole::Line, 105),
-            MakeLabFormation(TEXT("E_Shields"), TEXT("E"), 14, ESoulRealtimeFormationRole::Line, 120),
+            MakeLabFormation(TEXT("E_Grunts"), TEXT("E"), 10, ESoulRealtimeFormationRole::Line, 105),
+            MakeLabFormation(TEXT("E_Shields"), TEXT("E"), 8, ESoulRealtimeFormationRole::Guard, 120),
+            MakeLabFormation(TEXT("E_Brutes"), TEXT("E"), 16, ESoulRealtimeFormationRole::Breaker, 125),
             MakeLabFormation(TEXT("E_Berserkers"), TEXT("E"), 10, ESoulRealtimeFormationRole::Shock, 150),
             MakeLabFormation(TEXT("E_Hunters"), TEXT("E"), 14, ESoulRealtimeFormationRole::Ranged, 110),
             MakeLabFormation(TEXT("E_Shamans"), TEXT("E"), 5, ESoulRealtimeFormationRole::Support, 145, 50),

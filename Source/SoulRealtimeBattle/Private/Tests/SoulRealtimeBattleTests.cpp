@@ -55,8 +55,9 @@ bool FSoulRealtimeBoundedDeploymentTest::RunTest(const FString&)
     FSoulRealtimeBattleState Battle;
     Battle.MaxActivePerSide = 32;
     Battle.Formations = {
-        MakeFormation(TEXT("swords"), TEXT("P"), 18, ESoulRealtimeFormationRole::Line),
-        MakeFormation(TEXT("spears"), TEXT("P"), 16, ESoulRealtimeFormationRole::Line),
+        MakeFormation(TEXT("swords"), TEXT("P"), 10, ESoulRealtimeFormationRole::Line),
+        MakeFormation(TEXT("guards"), TEXT("P"), 8, ESoulRealtimeFormationRole::Guard),
+        MakeFormation(TEXT("spears"), TEXT("P"), 16, ESoulRealtimeFormationRole::Breaker),
         MakeFormation(TEXT("heavy"), TEXT("P"), 10, ESoulRealtimeFormationRole::Shock),
         MakeFormation(TEXT("archers"), TEXT("P"), 14, ESoulRealtimeFormationRole::Ranged),
         MakeFormation(TEXT("support"), TEXT("P"), 5, ESoulRealtimeFormationRole::Support, 160),
@@ -136,9 +137,9 @@ bool FSoulRealtimeVolcanicMagicTest::RunTest(const FString&)
     const FSoulTerrainMagicProfile Profile =
         FSoulRealtimeBattleRules::MakeVolcanicMagicProfile();
 
-    TestEqual(TEXT("fire empowered"), Profile.MultiplierFor(TEXT("Magic.School.Fire")), 1200);
-    TestEqual(TEXT("ice weakened"), Profile.MultiplierFor(TEXT("Magic.School.Ice")), 800);
-    TestEqual(TEXT("water weakened"), Profile.MultiplierFor(TEXT("Magic.School.Water")), 850);
+    TestEqual(TEXT("fire empowered"), Profile.MultiplierFor(TEXT("Magic.School.Fire")), 1100);
+    TestEqual(TEXT("ice weakened"), Profile.MultiplierFor(TEXT("Magic.School.Ice")), 900);
+    TestEqual(TEXT("water weakened"), Profile.MultiplierFor(TEXT("Magic.School.Water")), 950);
     TestEqual(TEXT("electric unchanged"), Profile.MultiplierFor(TEXT("Magic.School.Electric")), 1000);
     return true;
 }
