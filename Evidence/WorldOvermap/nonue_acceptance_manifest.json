@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "steps_total": 11,
+  "steps_passed": 11,
+  "steps_failed": 0,
+  "steps": [
+    {
+      "name": "world_graph",
+      "script": "Tools/validate_soul_world_overmap.py",
+      "exit_code": 0,
+      "stdout_sha256": "11fd6c1c487442166e36ba433424cff41b1a37ef461dd9348e9c02eb491a0274",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "runtime_import",
+      "script": "Tools/validate_soul_overmap_runtime_import.py",
+      "exit_code": 0,
+      "stdout_sha256": "8f4d9917ee1490699bd86b269f95af08119cc2ffa3c2eb7948bb50d0037a1577",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "settlement_slots",
+      "script": "Tools/validate_soul_overmap_settlement_slots.py",
+      "exit_code": 0,
+      "stdout_sha256": "a6dad79c3f76f398cc931d2615695a2fd7a6b8e156b328d6ebd729ff1f3f8b86",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "directed_approaches",
+      "script": "Tools/validate_soul_overmap_approach_profiles.py",
+      "exit_code": 0,
+      "stdout_sha256": "3adcdca2e61f35018464bacfa92a6fe2f47caddf1c8ad109be40b37cda7b9035",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "campaign_start_state",
+      "script": "Tools/validate_soul_campaign_start_states.py",
+      "exit_code": 0,
+      "stdout_sha256": "285852b729ce570b8137670d24c3309dc9fa743c7464e94f41682e3ae9388c50",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "founder_traversal",
+      "script": "Tools/simulate_soul_founder_overmap.py",
+      "exit_code": 0,
+      "stdout_sha256": "fa7a6a787278007d4e3a3420078c4e69933d2c2f4249ece91d68aeead8d37c9b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "settlement_coverage",
+      "script": "Tools/analyze_soul_overmap_settlement_coverage.py",
+      "exit_code": 0,
+      "stdout_sha256": "a7731a20b2c1252eb2e6e3ed4f28032811c65ad2cde2dad39c20d737bb04cb4f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-integrated-20260922\\Evidence\\WorldOvermap\\settlement_coverage_analysis.md"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "battlefield_fidelity",
+      "script": "Tools/analyze_soul_overmap_battlefield_coverage.py",
+      "exit_code": 0,
+      "stdout_sha256": "00cb9b068fc46a641e13b37a290703fb0b0974b3527a717bc9f8a73c7d10fd79",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "WROTE D:\\RefinedBadger\\Worktrees\\Soul-overmap-integrated-20260922\\Evidence\\WorldOvermap\\battlefield_coverage_analysis.md"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "opening_pressure",
+      "script": "Tools/analyze_soul_campaign_openings.py",
+      "exit_code": 0,
+      "stdout_sha256": "3d4b1d7d2e40469a13de9b926dcafa2b70640b72fbb95e168a5654bd0638f7cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "integrated_bundle_build",
+      "script": "Tools/build_soul_overmap_integrated_import.py",
+      "exit_code": 0,
+      "stdout_sha256": "00e68ba7c57abf4f36a6559638525b7a1083a94846be526596d3b93c6ade5583",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "integrated_bundle_validation",
+      "script": "Tools/validate_soul_overmap_integrated_import.py",
+      "exit_code": 0,
+      "stdout_sha256": "dcc35d18978ae508749820a82d924e3323b9fd1cf64d3733711100d5bf5f6749",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "}"
+      ],
+      "stderr_tail": []
+    }
+  ]
+}

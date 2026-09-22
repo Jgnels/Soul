@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "bundle": "soul_overmap_integrated_import_v1_20260922.json",
+  "regions": 36,
+  "routes": 51,
+  "directed_approaches": 102,
+  "settlement_slots": 14,
+  "founder_regions": 9,
+  "founder_routes": 10,
+  "founder_directed_approaches": 20,
+  "source_hashes_verified": 8,
+  "rb_authorities_verified": [
+    "optimization",
+    "save",
+    "weather"
+  ],
+  "errors": []
+}
