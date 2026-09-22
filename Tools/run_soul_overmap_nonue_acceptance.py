@@ -33,6 +33,8 @@ STEPS = [
     ("founder_ue_staging_validation", "Tools/validate_soul_founder_ue_staging.py"),
     ("battlefield_environment_expansion_build", "Tools/build_soul_battlefield_environment_expansion.py"),
     ("battlefield_environment_expansion_validation", "Tools/validate_soul_battlefield_environment_expansion.py"),
+    ("overmap_preview_build", "Tools/build_soul_overmap_preview_bundle.py"),
+    ("overmap_preview_validation", "Tools/validate_soul_overmap_preview_bundle.py"),
 ]
 results = []
 for name, script in STEPS:
