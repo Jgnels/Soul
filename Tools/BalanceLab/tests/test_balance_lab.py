@@ -4,7 +4,7 @@ from Tools.BalanceLab.balance_lab import (
     Params, Hero, Memory, Logistics, apply_travel, force_march, end_day_logistics,
     xp_for_level, rank_stats, rival_bias, simulate, siege_stress,
     building_loss_stress, memory_stress, capstone_completion_day,
-    make_campaign, restore_army_if_due,
+    make_campaign, restore_army_if_due, choose_action, mkparams,
 )
 
 class LiveMirrorTests(unittest.TestCase):
@@ -72,6 +72,23 @@ class LiveMirrorTests(unittest.TestCase):
 
     def test_default_has_no_invented_comeback_subsidy(self):
         self.assertEqual(Params().comeback_floor,0.0)
+
+    def test_live_mirror_still_seizes_at_zero_readiness(self):
+        p=Params(); c=make_campaign(2,p); f=c.factions["f0"]
+        f.army.logistics.readiness=0
+        self.assertEqual(choose_action(c,f,p)[1],"SEIZE")
+
+    def test_candidate_seize_penalty_makes_zero_readiness_recover(self):
+        p=mkparams(seize_readiness_penalty=True)
+        c=make_campaign(2,p); f=c.factions["f0"]; f.army.logistics.readiness=0
+        self.assertEqual(choose_action(c,f,p)[1],"RECOVER")
+
+    def test_candidate_readiness_floor_blocks_low_readiness_seize(self):
+        p=mkparams(seize_min_readiness=400)
+        c=make_campaign(2,p); f=c.factions["f0"]; f.army.logistics.readiness=250
+        self.assertEqual(choose_action(c,f,p)[1],"RECOVER")
+        f.army.logistics.readiness=400
+        self.assertEqual(choose_action(c,f,p)[1],"SEIZE")
 
 class CampaignStressSmokeTests(unittest.TestCase):
     def test_medium_map_reaches_conflict(self):

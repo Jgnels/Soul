@@ -25,6 +25,7 @@ class Params:
     repair_mode:str="current_free"; repair_cost_fraction:float=.45; repair_days:int=4
     siege_floor:int=200; siege_loss:int=70; siege_threshold:int=450
     battle_variance:int=100; comeback_floor:float=0.0; construction_slots:int=999
+    seize_readiness_penalty:bool=False; seize_min_readiness:int=0
 
 @dataclass
 class Memory:
@@ -233,8 +234,11 @@ def candidate_rows(c:Campaign,f:Faction,p:Params)->list[tuple[int,str,str]]:
             score=2000+edge-max(0,700-a.logistics.readiness)
             score+=rival_bias(f.hero,enemy.commander_id,c.day)
             rows.append((score,"ATTACK",rid))
-        if exposed(c,r,f.faction_id):
-            rows.append((900+region_value(r)+650-strategic_travel+100,"SEIZE",rid))
+        if exposed(c,r,f.faction_id) and a.logistics.readiness >= p.seize_min_readiness:
+            score=900+region_value(r)+650-strategic_travel+100
+            if p.seize_readiness_penalty:
+                score-=max(0,700-a.logistics.readiness)
+            rows.append((score,"SEIZE",rid))
         if r.capital and r.owner and r.owner!=f.faction_id and a.logistics.readiness>=600:
             defender=c.factions[r.owner].army
             garrison=max(250,defender.strength if defender.region_id==rid else 500)
@@ -536,6 +540,24 @@ def readiness_stress()->list[dict]:
                      "chosen_between_recover_and_seize":"SEIZE" if seize_score>=recover else "RECOVER"})
     return rows
 
+def seize_policy_stress()->list[dict]:
+    policies = [
+        ("current_live_mirror", Params()),
+        ("floor250_only", mkparams(seize_min_readiness=250)),
+        ("floor400_only", mkparams(seize_min_readiness=400)),
+        ("readiness_penalty", mkparams(seize_readiness_penalty=True)),
+        ("penalty_plus_floor400", mkparams(seize_readiness_penalty=True,seize_min_readiness=400)),
+    ]
+    rows=[]
+    for name,p in policies:
+        for readiness in (0,100,250,400,550,650,700):
+            c=make_campaign(2,p); f=c.factions["f0"]
+            f.army.logistics.readiness=readiness
+            score,action,target=choose_action(c,f,p)
+            rows.append({"policy":name,"readiness":readiness,"choice":action,
+                         "target":target,"score":score})
+    return rows
+
 def veterancy_stress()->list[dict]:
     rows=[]
     for name,xp,combat,morale in RANKS[::-1]:
@@ -729,6 +751,7 @@ def focused_results()->dict:
     return {
         "memory_repeated_rival_defeats":memory_stress(),
         "low_readiness_choices":readiness_stress(),
+        "seize_policy_candidates":seize_policy_stress(),
         "veterancy":veterancy_stress(),
         "siege_starvation":siege_stress(),
         "ranged_building_loss":building_loss_stress("ranged"),

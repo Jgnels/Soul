@@ -1,0 +1,329 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "runs_per_policy": 1000,
+  "seed_base": 20260922,
+  "authority": "LAB_ONLY_CANDIDATES_NOT_PRODUCTION_RULES",
+  "focused_choice_matrix": [
+    {
+      "policy": "current_live_mirror",
+      "readiness": 0,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "current_live_mirror",
+      "readiness": 100,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "current_live_mirror",
+      "readiness": 250,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "current_live_mirror",
+      "readiness": 400,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "current_live_mirror",
+      "readiness": 550,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "current_live_mirror",
+      "readiness": 650,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "current_live_mirror",
+      "readiness": 700,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 0,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1700
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 100,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1600
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 250,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 400,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 550,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 650,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor250_only",
+      "readiness": 700,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 0,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1700
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 100,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1600
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 250,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1450
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 400,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 550,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 650,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "floor400_only",
+      "readiness": 700,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 0,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1700
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 100,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1600
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 250,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 1680
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 400,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 1830
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 550,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 1980
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 650,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2080
+    },
+    {
+      "policy": "readiness_penalty",
+      "readiness": 700,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 0,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1700
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 100,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1600
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 250,
+      "choice": "RECOVER",
+      "target": "",
+      "score": 1450
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 400,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 1830
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 550,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 1980
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 650,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2080
+    },
+    {
+      "policy": "penalty_plus_floor400",
+      "readiness": 700,
+      "choice": "SEIZE",
+      "target": "route_0_1",
+      "score": 2130
+    }
+  ],
+  "summaries": {
+    "current_live_mirror": {
+      "runaway_rate": 0.001,
+      "mean_gini": 0.08847762343773981,
+      "mean_leader_share": 0.3058167375692777,
+      "mean_battles": 24.81,
+      "action_share": {
+        "HOLD": 0.4479743480051336,
+        "RECOVER": 0.0798666224207071,
+        "DEFEND": 0.05499426268506339,
+        "CAPTURE_RESOURCE": 0.06134728946852873,
+        "ATTACK": 0.0991935774057741,
+        "SEIZE": 0.21723833246040852,
+        "SIEGE": 0.03938556755438455
+      }
+    },
+    "floor400_only": {
+      "runaway_rate": 0.001,
+      "mean_gini": 0.08842317721155003,
+      "mean_leader_share": 0.30576740622241555,
+      "mean_battles": 24.825,
+      "action_share": {
+        "HOLD": 0.4477117258308912,
+        "RECOVER": 0.07993267312482259,
+        "DEFEND": 0.05504891593336079,
+        "CAPTURE_RESOURCE": 0.06140179031916297,
+        "ATTACK": 0.09925116842513483,
+        "SEIZE": 0.21728109769993165,
+        "SIEGE": 0.03937262866669598
+      }
+    },
+    "readiness_penalty": {
+      "runaway_rate": 0.0,
+      "mean_gini": 0.1044256798914001,
+      "mean_leader_share": 0.3131314023331408,
+      "mean_battles": 29.121,
+      "action_share": {
+        "HOLD": 0.379942813031697,
+        "RECOVER": 0.08742674396622345,
+        "DEFEND": 0.05882932131829353,
+        "CAPTURE_RESOURCE": 0.09451209906106245,
+        "ATTACK": 0.11469295481756885,
+        "SEIZE": 0.2267471170206062,
+        "SIEGE": 0.03784895078454849
+      }
+    }
+  },
+  "deltas_vs_live_mirror": {
+    "current_live_mirror": {
+      "runaway_rate": 0.0,
+      "mean_gini": 0.0,
+      "mean_leader_share": 0.0,
+      "mean_battles": 0.0,
+      "seize_action_share": 0.0
+    },
+    "floor400_only": {
+      "runaway_rate": 0.0,
+      "mean_gini": -5.4446226189774904e-05,
+      "mean_leader_share": -4.9331346862135916e-05,
+      "mean_battles": 0.015000000000000568,
+      "seize_action_share": 4.276523952312372e-05
+    },
+    "readiness_penalty": {
+      "runaway_rate": -0.001,
+      "mean_gini": 0.015948056453660292,
+      "mean_leader_share": 0.00731466476386311,
+      "mean_battles": 4.311,
+      "seize_action_share": 0.009508784560197686
+    }
+  },
+  "interpretation": [
+    "The readiness floor is the narrower intervention: it blocks opportunistic seizure below the floor without changing scores above it.",
+    "The full readiness penalty changes strategic behavior beyond the zero-readiness defect and therefore requires broader balance review.",
+    "These aggregates are synthetic comparative diagnostics, not shipping win-rate predictions."
+  ]
+}
