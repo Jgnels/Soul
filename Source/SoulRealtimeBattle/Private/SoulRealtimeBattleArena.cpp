@@ -29,6 +29,23 @@ namespace
 {
     const FName ArenaDomain(TEXT("Soul.Battle"));
     const FName MagicArenaDomain(TEXT("Soul.Arena"));
+
+    FName RealtimeSideId(int32 Side)
+    {
+        return Side == 0 ? FName(TEXT("Human")) : FName(TEXT("Enemy"));
+    }
+
+    FName GroupFormationId(int32 Side, int32 GroupIndex)
+    {
+        return FName(*FString::Printf(
+            TEXT("Realtime.Side%d.Group%d"), Side, GroupIndex));
+    }
+
+    FName ReserveFormationId(int32 Side)
+    {
+        return FName(*FString::Printf(
+            TEXT("Realtime.Side%d.Reserve.Line"), Side));
+    }
     ASoulRealtimeArenaGameMode* ArenaHost(const UObject* Object)
     {
         return Object && Object->GetWorld()
@@ -434,7 +451,29 @@ int32 ASoulRealtimeArenaGameMode::AliveForSide(int32 Side) const
 int32 ASoulRealtimeArenaGameMode::CasualtiesForSide(
     int32 Side) const
 {
-    return InitialAlive[Side] - AliveForSide(Side);
+    if (Side < 0 || Side > 1) return 0;
+    if (!ReinforcementBattle.Formations.IsEmpty())
+    {
+        return FMath::Max(
+            0,
+            InitialStrategic[Side] -
+            AliveForSide(Side) -
+            ReserveBodiesForSide(Side));
+    }
+    return FMath::Max(0, InitialAlive[Side] - AliveForSide(Side));
+}
+
+int32 ASoulRealtimeArenaGameMode::ReserveBodiesForSide(int32 Side) const
+{
+    if (Side < 0 || Side > 1 || ReinforcementBattle.Formations.IsEmpty())
+        return 0;
+    return FSoulRealtimeBattleRules::ReserveBodies(
+        ReinforcementBattle, RealtimeSideId(Side));
+}
+
+int32 ASoulRealtimeArenaGameMode::ReinforcementWavesForSide(int32 Side) const
+{
+    return Side >= 0 && Side <= 1 ? ReinforcementWaves[Side] : 0;
 }
 
 int32 ASoulRealtimeArenaGameMode::TotalAlliedTargets() const
@@ -707,6 +746,8 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
 
     InitialAlive[0] = AliveForSide(0);
     InitialAlive[1] = AliveForSide(1);
+    if (!bProof && !bMagicProof)
+        SetupReinforcementState();
     UE_LOG(LogTemp, Display,
         TEXT("SOUL_RT_ARENA_SETUP: actors=%d groups=%d proof=%d"),
         Combatants.Num(), Groups.Num(), bProof);
@@ -958,26 +999,166 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
 
 bool ASoulRealtimeArenaGameMode::SetupDrivers()
 {
-    TArray<URBVariantCombatBindingComponent*> Reps;
-    Reps.Reserve(Bindings.Num());
-    for (USoulRealtimeArenaBinding* Binding : Bindings)
-        Reps.Add(Binding);
-
     for (int32 I = 0; I < Groups.Num(); ++I)
     {
         USoulRealtimeArenaGroupDriver* Driver =
             NewObject<USoulRealtimeArenaGroupDriver>(this);
+        if (!Driver) return false;
         AddInstanceComponent(Driver);
         Driver->GroupIndex = I;
         Driver->FormationSpacing = 105.0f;
         Driver->SightDistance = 6200.0f;
         Driver->bAllowDirectSteering = true;
         Driver->RegisterComponent();
-        if (!Driver->SetRepresentations(Reps))
-            return false;
         Drivers.Add(Driver);
     }
-    return Drivers.Num() == Groups.Num();
+    return Drivers.Num() == Groups.Num() &&
+        RefreshDriverRepresentations();
+}
+
+bool ASoulRealtimeArenaGameMode::RefreshDriverRepresentations()
+{
+    TArray<URBVariantCombatBindingComponent*> Reps;
+    Reps.Reserve(Bindings.Num());
+    for (USoulRealtimeArenaBinding* Binding : Bindings)
+        Reps.Add(Binding);
+
+    for (USoulRealtimeArenaGroupDriver* Driver : Drivers)
+    {
+        if (!Driver || !Driver->SetRepresentations(Reps))
+            return false;
+    }
+    return true;
+}
+
+void ASoulRealtimeArenaGameMode::SetupReinforcementState()
+{
+    ReinforcementBattle = FSoulRealtimeBattleState();
+    ReinforcementBattle.MaxActivePerSide = 24;
+    ReinforcementBattle.ReinforcementTriggerPermille = 700;
+    ReinforcementBattle.MaxWaveSize = 4;
+    ReinforcementBattle.bReinforcementsEnabled = true;
+
+    for (int32 GroupIndex = 0; GroupIndex < Groups.Num(); ++GroupIndex)
+    {
+        const int32 LeaderIndex = Index(Groups[GroupIndex].Leader);
+        if (LeaderIndex == INDEX_NONE) continue;
+
+        const int32 Side = Combatants[LeaderIndex].Side;
+        FSoulRealtimeFormation Formation;
+        Formation.FormationId = GroupFormationId(Side, GroupIndex);
+        Formation.SideId = RealtimeSideId(Side);
+        Formation.UnitId = FName(*RoleLabel(Combatants[LeaderIndex].Role));
+        Formation.Role = Combatants[LeaderIndex].Role;
+        Formation.StrategicCount = Groups[GroupIndex].Members.Num();
+        Formation.ActiveCount = Formation.StrategicCount;
+        Formation.ReserveCount = 0;
+        Formation.MaxActiveRepresentations =
+            FMath::Max(1, Formation.ActiveCount);
+        ReinforcementBattle.Formations.Add(Formation);
+
+        for (const FRBHostIdentity& Member : Groups[GroupIndex].Members)
+        {
+            const int32 MemberIndex = Index(Member);
+            if (MemberIndex != INDEX_NONE)
+                Combatants[MemberIndex].FormationId = Formation.FormationId;
+        }
+    }
+
+    for (int32 Side = 0; Side < 2; ++Side)
+    {
+        FSoulRealtimeFormation Reserve;
+        Reserve.FormationId = ReserveFormationId(Side);
+        Reserve.SideId = RealtimeSideId(Side);
+        Reserve.UnitId = TEXT("Soul.Reserve.Line");
+        Reserve.Role = ESoulRealtimeFormationRole::Line;
+        Reserve.StrategicCount = 4;
+        Reserve.ActiveCount = 0;
+        Reserve.ReserveCount = 4;
+        Reserve.MaxActiveRepresentations = 4;
+        ReinforcementBattle.Formations.Add(Reserve);
+        InitialStrategic[Side] = AliveForSide(Side) + 4;
+    }
+
+    Status = TEXT("24v24 active + 4-body formation reserve per side");
+    UE_LOG(LogTemp, Display,
+        TEXT("SOUL_RT_RESERVES_READY: human=%d enemy=%d"),
+        ReserveBodiesForSide(0), ReserveBodiesForSide(1));
+}
+
+bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
+    int32 Side, int32 Count)
+{
+    if (Side < 0 || Side > 1 ||
+        Count <= 0 || Count > FRBCombatGroup::MaximumMembers)
+        return false;
+
+    const int32 FirstCombatant = Combatants.Num();
+    const int32 NewGroupIndex = Groups.Num();
+    const float X = Side == 0 ? -2300.0f : 2300.0f;
+    if (!SpawnFormation(
+            Side,
+            ESoulRealtimeFormationRole::Line,
+            Count,
+            FVector(X, 0.0f, 100.0f)))
+        return false;
+
+    const FName FormationId = ReserveFormationId(Side);
+    for (int32 I = FirstCombatant; I < Combatants.Num(); ++I)
+        Combatants[I].FormationId = FormationId;
+
+    USoulRealtimeArenaGroupDriver* Driver =
+        NewObject<USoulRealtimeArenaGroupDriver>(this);
+    if (!Driver) return false;
+    AddInstanceComponent(Driver);
+    Driver->GroupIndex = NewGroupIndex;
+    Driver->FormationSpacing = 105.0f;
+    Driver->SightDistance = 6200.0f;
+    Driver->bAllowDirectSteering = true;
+    Driver->RegisterComponent();
+    Drivers.Add(Driver);
+    return RefreshDriverRepresentations();
+}
+
+void ASoulRealtimeArenaGameMode::TickReinforcements()
+{
+    if (ReinforcementBattle.Formations.IsEmpty()) return;
+
+    for (int32 Side = 0; Side < 2; ++Side)
+    {
+        const FName SideId = RealtimeSideId(Side);
+        if (!FSoulRealtimeBattleRules::ShouldReinforce(
+                ReinforcementBattle, SideId))
+            continue;
+
+        FSoulRealtimeBattleState Candidate = ReinforcementBattle;
+        const FSoulReinforcementWave Wave =
+            FSoulRealtimeBattleRules::BuildAndApplyWave(
+                Candidate, SideId);
+        const int32 Count =
+            Wave.FormationCounts.FindRef(ReserveFormationId(Side));
+        if (Count <= 0 || Count != Wave.TotalBodies())
+            continue;
+
+        if (SpawnReinforcementWave(Side, Count))
+        {
+            ReinforcementBattle = MoveTemp(Candidate);
+            ++ReinforcementWaves[Side];
+            Status = FString::Printf(
+                TEXT("%s reinforcements arrived: %d"),
+                Side == 0 ? TEXT("Human") : TEXT("Enemy"),
+                Count);
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_RT_REINFORCEMENT_WAVE: side=%d bodies=%d wave=%d"),
+                Side, Count, ReinforcementWaves[Side]);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning,
+                TEXT("SOUL_RT_REINFORCEMENT_FAILED: side=%d bodies=%d"),
+                Side, Count);
+        }
+    }
 }
 int32 ASoulRealtimeArenaGameMode::AcceptedContactCount() const
 {
@@ -1122,6 +1303,15 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
             DefeatedRepresentations.Contains(I) ||
             !Actors.IsValidIndex(I) || !Actors[I])
             continue;
+
+        if (!Combatants[I].FormationId.IsNone() &&
+            !ReinforcementBattle.Formations.IsEmpty())
+        {
+            FSoulRealtimeBattleRules::ApplyCasualties(
+                ReinforcementBattle,
+                Combatants[I].FormationId,
+                1);
+        }
 
         DefeatedRepresentations.Add(I);
         ACharacter* Actor = Actors[I];
@@ -1416,6 +1606,7 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
 
     TickMagic(Seconds);
     UpdateDefeatedRepresentations();
+    TickReinforcements();
 
     if (!bProof)
     {
@@ -1467,9 +1658,11 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
             PlayerTick(Seconds);
         }
 
-        if (AliveForSide(1) == 0)
+        if (AliveForSide(1) == 0 &&
+            ReserveBodiesForSide(1) == 0)
             Status = TEXT("VICTORY - enemy force defeated");
-        else if (AliveForSide(0) == 0)
+        else if (AliveForSide(0) == 0 &&
+                 ReserveBodiesForSide(0) == 0)
             Status = TEXT("DEFEAT - human force defeated");
         return;
     }
@@ -1531,20 +1724,23 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     DrawRect(FLinearColor(0, 0, 0, 0.80f),
         12, 12, 1120, 158);
     DrawText(
-        TEXT("SOUL | REAL-TIME FANTASY BATTLE PROTOTYPE | 24v24"),
+        TEXT("SOUL | REAL-TIME FANTASY BATTLE | 24v24 ACTIVE + FORMATION RESERVES"),
         FColor::White, 24, 20);
     DrawText(
         TEXT("WASD move | mouse turn | LMB melee | RMB guard | G allied CHARGE/HOLD | Esc exit"),
         FColor::White, 24, 45);
     DrawText(
         FString::Printf(
-            TEXT("Human alive %d | Enemy alive %d | ")
-            TEXT("Human casualties %d | Enemy casualties %d | ")
-            TEXT("Hero HP %.0f | contacts %d"),
+            TEXT("Human %d +%d reserve | Enemy %d +%d reserve | ")
+            TEXT("Casualties H%d/E%d | Waves H%d/E%d | Hero HP %.0f | contacts %d"),
             Host->AliveForSide(0),
+            Host->ReserveBodiesForSide(0),
             Host->AliveForSide(1),
+            Host->ReserveBodiesForSide(1),
             Host->CasualtiesForSide(0),
             Host->CasualtiesForSide(1),
+            Host->ReinforcementWavesForSide(0),
+            Host->ReinforcementWavesForSide(1),
             Host->PlayerHealth(),
             Host->AcceptedContactCount()),
         FColor::White, 24, 70);
@@ -1554,7 +1750,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             Host->PlayerManaValue(), Host->MagicCastCount()),
         FColor::Cyan, 24, 95);
     DrawText(
-        TEXT("RB Combat physical execution | RBAI + RB PBIL spatial policy | RB Magic authority"),
+        TEXT("RB Combat execution | RB Magic authority | RBAI/PBIL policy qualified; deeper runtime spatial integration next"),
         FColor::Cyan, 24, 118);
     DrawText(
         Host->Status,

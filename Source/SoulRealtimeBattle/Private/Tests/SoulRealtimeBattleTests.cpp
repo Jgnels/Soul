@@ -110,6 +110,45 @@ bool FSoulRealtimeReinforcementWaveTest::RunTest(const FString&)
 }
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+    FSoulRealtimePlayableReserveWaveTest,
+    "Soul.RealtimeBattle.PlayableReserveWaveUsesFormation",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FSoulRealtimePlayableReserveWaveTest::RunTest(const FString&)
+{
+    FSoulRealtimeBattleState Battle;
+    Battle.MaxActivePerSide = 24;
+    Battle.ReinforcementTriggerPermille = 700;
+    Battle.MaxWaveSize = 4;
+
+    FSoulRealtimeFormation Frontline =
+        MakeFormation(TEXT("frontline"), TEXT("Human"), 16,
+            ESoulRealtimeFormationRole::Line);
+    Frontline.ActiveCount = 16;
+    Frontline.ReserveCount = 0;
+    Battle.Formations.Add(Frontline);
+
+    FSoulRealtimeFormation Reserve =
+        MakeFormation(TEXT("reserve"), TEXT("Human"), 4,
+            ESoulRealtimeFormationRole::Line);
+    Reserve.ActiveCount = 0;
+    Reserve.ReserveCount = 4;
+    Reserve.MaxActiveRepresentations = 4;
+    Battle.Formations.Add(Reserve);
+
+    TestTrue(TEXT("sixteen active triggers reserve"),
+        FSoulRealtimeBattleRules::ShouldReinforce(Battle, TEXT("Human")));
+    const FSoulReinforcementWave Wave =
+        FSoulRealtimeBattleRules::BuildAndApplyWave(Battle, TEXT("Human"));
+    TestEqual(TEXT("whole four-body formation arrives"), Wave.TotalBodies(), 4);
+    TestEqual(TEXT("active rises to twenty"),
+        FSoulRealtimeBattleRules::ActiveBodies(Battle, TEXT("Human")), 20);
+    TestEqual(TEXT("formation reserve consumed"),
+        FSoulRealtimeBattleRules::ReserveBodies(Battle, TEXT("Human")), 0);
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
     FSoulRealtimeFantasyPowerTest,
     "Soul.RealtimeBattle.FantasyPowerDecouplesFromHeadcount",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)

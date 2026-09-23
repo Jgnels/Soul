@@ -34,6 +34,7 @@ struct FSoulRealtimeArenaCombatant
     float Health = 100.0f;
     int32 Arrows = 0;
     int32 GroupIndex = INDEX_NONE;
+    FName FormationId;
     bool bRanged = false;
     bool bPlayerHero = false;
     float MeleeCooldown = 0.0f;
@@ -148,6 +149,8 @@ public:
     int32 TotalAlliedTargets() const;
     int32 AcceptedContactCount() const;
     float PlayerHealth() const;
+    int32 ReserveBodiesForSide(int32 Side) const;
+    int32 ReinforcementWavesForSide(int32 Side) const;
     float PlayerManaValue() const { return PlayerMana; }
     int32 MagicCastCount() const { return MagicCasts; }
     FString Status;
@@ -172,6 +175,10 @@ private:
         const FVector& Location,
         bool bPlayerHero);
     bool SetupDrivers();
+    bool RefreshDriverRepresentations();
+    void SetupReinforcementState();
+    void TickReinforcements();
+    bool SpawnReinforcementWave(int32 Side, int32 Count);
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);
     bool CastPlayerSpell(
@@ -197,6 +204,9 @@ private:
     TArray<FRBHostGroup> Groups;
     TSet<FGuid> AcceptedContacts;
     TSet<int32> DefeatedRepresentations;
+    FSoulRealtimeBattleState ReinforcementBattle;
+    int32 InitialStrategic[2] = {0, 0};
+    int32 ReinforcementWaves[2] = {0, 0};
     bool bProof = false;
     bool bMagicProof = false;
     bool bFinished = false;
