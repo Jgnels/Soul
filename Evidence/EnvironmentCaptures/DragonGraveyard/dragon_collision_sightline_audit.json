@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "world": "/Game/Dragon_graveyard/Level/L_showcase_level.L_showcase_level",
+  "sample_pairs": 24,
+  "ground_pair_hits": 24,
+  "los_clear_180cm": 3,
+  "los_clear_500cm": 13,
+  "los_clear_1200cm": 21,
+  "rows": [
+    {
+      "i": 0,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 621.0899353027344,
+      "b_z": 1074.802577495575,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 1,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 614.7295236587524,
+      "b_z": 1349.8127460479736,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 2,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 606.694221496582,
+      "b_z": 1221.7816710472107,
+      "los_180": true,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 3,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 598.5340476036072,
+      "b_z": 1068.3426260948181,
+      "los_180": true,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 4,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 592.6313996315002,
+      "b_z": 935.8474612236023,
+      "los_180": true,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 5,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 602.7513742446899,
+      "b_z": 574.8844146728516,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 6,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 577.5877833366394,
+      "b_z": 123.39502573013306,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 7,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 557.5057864189148,
+      "b_z": 106.47416114807129,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 8,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 346.7264771461487,
+      "b_z": 149.14363622665405,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 9,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 306.53417110443115,
+      "b_z": 128.24326753616333,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 10,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 285.10093688964844,
+      "b_z": 1223.7101793289185,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 11,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 356.3985228538513,
+      "b_z": 1332.3670625686646,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 12,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 680.2293658256531,
+      "b_z": 1373.9651441574097,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 13,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 716.5953516960144,
+      "b_z": 1417.1981811523438,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 14,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 664.1319394111633,
+      "b_z": 178.62796783447266,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": false
+    },
+    {
+      "i": 15,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 652.8392434120178,
+      "b_z": 162.7635955810547,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": false
+    },
+    {
+      "i": 16,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 638.7650966644287,
+      "b_z": 152.09853649139404,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 17,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 615.8402562141418,
+      "b_z": 107.54048824310303,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 18,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 612.5614047050476,
+      "b_z": 196.65777683258057,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 19,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 547.5816130638123,
+      "b_z": 1615.4512763023376,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 20,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 541.7230725288391,
+      "b_z": 1564.4526481628418,
+      "los_180": false,
+      "los_500": true,
+      "los_1200": true
+    },
+    {
+      "i": 21,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 580.2050232887268,
+      "b_z": 522.7553844451904,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 22,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 576.0267376899719,
+      "b_z": 439.3428564071655,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": true
+    },
+    {
+      "i": 23,
+      "a_ground": true,
+      "b_ground": true,
+      "a_z": 570.9493160247803,
+      "b_z": 157.63074159622192,
+      "los_180": false,
+      "los_500": false,
+      "los_1200": false
+    }
+  ]
+}

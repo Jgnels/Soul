@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "world": "/Game/Dragon_graveyard/Level/L_showcase_level.L_showcase_level",
+  "paths": [
+    {
+      "i": 0,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 20,
+      "valid": true,
+      "path_length": 21861.19106351687
+    },
+    {
+      "i": 1,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 21,
+      "valid": true,
+      "path_length": 21444.586801207868
+    },
+    {
+      "i": 2,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 20504.64930430673
+    },
+    {
+      "i": 3,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 20111.34993488494
+    },
+    {
+      "i": 4,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 27,
+      "valid": true,
+      "path_length": 19727.94462169319
+    },
+    {
+      "i": 5,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 24,
+      "valid": true,
+      "path_length": 19283.878388423913
+    },
+    {
+      "i": 6,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 18907.833597049223
+    },
+    {
+      "i": 7,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 18561.169509890926
+    },
+    {
+      "i": 8,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 3,
+      "valid": true,
+      "path_length": 4130.1479296950765
+    },
+    {
+      "i": 9,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 17623.2374521066
+    },
+    {
+      "i": 10,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 18437.14185271448
+    },
+    {
+      "i": 11,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 24,
+      "valid": true,
+      "path_length": 18142.49407283496
+    },
+    {
+      "i": 12,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 2,
+      "valid": true,
+      "path_length": 3953.2914134933185
+    },
+    {
+      "i": 13,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 22529.839750825144
+    },
+    {
+      "i": 14,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 22159.788248715384
+    },
+    {
+      "i": 15,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 21773.174887924226
+    },
+    {
+      "i": 16,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 21390.61982703504
+    },
+    {
+      "i": 17,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 20994.87714494612
+    },
+    {
+      "i": 18,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 20615.944030307746
+    },
+    {
+      "i": 19,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 20248.336603708154
+    },
+    {
+      "i": 20,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 25,
+      "valid": true,
+      "path_length": 19869.702872076054
+    },
+    {
+      "i": 21,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 19508.80395683461
+    },
+    {
+      "i": 22,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 19174.373826640563
+    },
+    {
+      "i": 23,
+      "start_projected": true,
+      "end_projected": true,
+      "path_points": 26,
+      "valid": true,
+      "path_length": 18993.466962111743
+    }
+  ],
+  "wait_seconds": 13.165717124938965,
+  "nav_building": false,
+  "success_count": 24,
+  "target_count": 24,
+  "deployment_zones": 2,
+  "pass": true
+}
