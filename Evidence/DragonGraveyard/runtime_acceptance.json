@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "branch": "astra/soul-dragon-graveyard-proof-20260922",
+  "base_checkpoint": "596bc5d58f20a906851bcd89ae9274d58b41a836",
+  "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "arena_origin_cm": [-22500.0, 12500.0, 0.0],
+  "battle_half_extent_cm": [2600.0, 2200.0],
+  "vendor_payload": {
+    "tracked_in_git": false,
+    "mode": "worktree-local junctions",
+    "paths": ["Content/Dragon_graveyard", "Content/Knights_Pack", "Content/Dwarf_Pack"]
+  },
+  "build": {
+    "target": "SoulEditor Win64 Development",
+    "result": "pass",
+    "exit_code": 0,
+    "incremental_actions": 5
+  },
+  "combat_proof": {
+    "result": "pass",
+    "actors": 48,
+    "groups": 16,
+    "accepted_contacts": 388,
+    "human_casualties": 17,
+    "enemy_casualties": 23,
+    "allied_target_violations": 0,
+    "arrows_remaining": 51,
+    "max_observed_offset_cm": [1730.0, 1477.5],
+    "within_battlefield_bounds": true,
+    "ground_misses": 0,
+    "visual_load_failures": 0
+  },
+  "magic_proof": {
+    "result": "pass",
+    "casts": 3,
+    "mana_remaining": 40.0,
+    "active_areas": 1,
+    "accepted_contacts_at_gate": 227,
+    "magic_defeat_observed": true
+  },
+  "visible_playtest": {
+    "result": "pending",
+    "reason": "waiting for the shared upstairs UE lane to clear before starting a visible editor instance"
+  },
+  "evidence": [
+    "Evidence/DragonGraveyard/donor_audit.json",
+    "Evidence/DragonGraveyard/battle_zone_analysis.json",
+    "Evidence/DragonGraveyard/runtime_bounded_proof.log",
+    "Evidence/DragonGraveyard/runtime_magic_proof.log"
+  ]
+}

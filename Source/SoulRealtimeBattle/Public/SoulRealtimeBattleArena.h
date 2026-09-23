@@ -9,7 +9,10 @@
 #include "SoulRealtimeBattleRules.h"
 #include "SoulRealtimeBattleArena.generated.h"
 
+class AActor;
 class ACharacter;
+class UAnimationAsset;
+class USkeletalMesh;
 class URBCombatRangedComponent;
 class URBMagicPresentationProfile;
 class URBMagicSpellDefinition;
@@ -155,6 +158,7 @@ public:
     UPROPERTY() TArray<TObjectPtr<USoulRealtimeArenaBinding>> Bindings;
     UPROPERTY() TArray<TObjectPtr<URBCombatRangedComponent>> Ranged;
     UPROPERTY() TArray<TObjectPtr<USoulRealtimeArenaGroupDriver>> Drivers;
+    UPROPERTY() TArray<TObjectPtr<AActor>> BattlefieldBounds;
     UPROPERTY() TObjectPtr<ACharacter> PlayerHero;
 
 private:
@@ -172,6 +176,14 @@ private:
         const FVector& Location,
         bool bPlayerHero);
     bool SetupDrivers();
+    bool SetupBattlefieldBounds();
+    void TrackBattlefieldExtent();
+    FVector ResolveSpawnLocation(const FVector& Desired);
+    USkeletalMesh* ResolveVisualMesh(
+        int32 Side, ESoulRealtimeFormationRole FormationRole) const;
+    UAnimationAsset* ResolveVisualAnimation(
+        int32 Side, bool bRunning) const;
+    void UpdateVisualAnimations();
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);
     bool CastPlayerSpell(
@@ -197,12 +209,18 @@ private:
     TArray<FRBHostGroup> Groups;
     TSet<FGuid> AcceptedContacts;
     TSet<int32> DefeatedRepresentations;
+    TArray<bool> VisualRunning;
+    FVector ArenaOrigin = FVector::ZeroVector;
     bool bProof = false;
     bool bMagicProof = false;
+    bool bExternalEnvironment = false;
+    bool bVisualUnits = false;
     bool bFinished = false;
     bool bAttackHeld = false;
     bool bAlliedCharge = true;
     float ProofElapsed = 0.0f;
+    float MaxObservedArenaOffsetX = 0.0f;
+    float MaxObservedArenaOffsetY = 0.0f;
     float MagicProofElapsed = 0.0f;
     int32 MagicProofStage = 0;
     float PlayerMana = 80.0f;
