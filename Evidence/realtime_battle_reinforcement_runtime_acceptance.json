@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "validated_commit": "da52545",
+  "project": "Soul",
+  "worktree": "D:/RefinedBadger/Worktrees/Soul-realtime-battle-20260921",
+  "automation": {
+    "suite": "Soul.RealtimeBattle",
+    "tests_found": 11,
+    "result": "PASS",
+    "exit_code": 0,
+    "log": "Evidence/realtime_battle_automation_reinforcement_recheck.log"
+  },
+  "runtime": {
+    "initial_active": {"human": 24, "enemy": 24},
+    "initial_reserve": {"human": 4, "enemy": 4},
+    "human_wave": {"bodies": 4, "wave": 1},
+    "enemy_wave": {"bodies": 4, "wave": 1},
+    "result": "PASS",
+    "log": "Evidence/realtime_battle_reinforcement_runtime.log"
+  }
+}
