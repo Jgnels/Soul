@@ -2066,14 +2066,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
         CastPlayerSpell(
             TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
             TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
-    if (PC->WasInputKeyJustPressed(EKeys::Two))
-        CastPlayerSpell(
-            TEXT("/Game/Soul/Magic/Spells/DA_Soul_ChainLightning.DA_Soul_ChainLightning"),
-            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning.DA_SoulPresentation_ChainLightning"));
-    if (PC->WasInputKeyJustPressed(EKeys::Three))
-        CastPlayerSpell(
-            TEXT("/Game/Soul/Magic/Spells/DA_Soul_Blizzard.DA_Soul_Blizzard"),
-            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard.DA_SoulPresentation_Blizzard"));
+    // Weekend slice exposes Firebolt only; keys 2/3 await qualified presentation assets.
 
     if (PC->WasInputKeyJustPressed(EKeys::G))
         ToggleAlliedOrders();
