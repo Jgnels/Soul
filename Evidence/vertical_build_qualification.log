@@ -1,0 +1,115 @@
+Log started at 09/25/2026 22:12:07 (2026-09-26T04:12:07Z)
+Resolved project argument D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\XmlConfigCache.bin): D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Evidence\vertical_build_qualification.log
+
+Setting temp directory to 'C:\Users\Jeff\AppData\Local\Temp\UnrealBuildTool\eb6d2d82'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" SoulEditor Win64 Development -Project=D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject -WaitMutex -NoHotReloadFromIDE -MaxParallelActions=2 -NoUBA -Log=D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Evidence\vertical_build_qualification.log
+Executing up to 2 actions based on MaxProcessorCount override
+Using 'git status' to determine working set for adaptive non-unity build (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925).
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Building UnrealEditor - SoulEditor - Win64 - Development
+Generated code is up to date.
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\SoulRealtimeBattle\UnrealEditor-SoulRealtimeBattle.lib
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Binaries\Win64\UnrealEditor-Soul.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Binaries\Win64\UnrealEditor-SoulRealtimeBattle.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\UnrealEditor-Soul.lib
+Building SoulEditor...
+===== Toolchain Information =====
+Using ISPC compiler (C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35228 toolchain (C:\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from SoulRealtimeBattle unity file: SoulRealtimeBattleArena.cpp, SoulRealtimeBattlePBIL.cpp, SoulVerticalAnimationCompatibilityTests.cpp, SoulVerticalReinforcementTests.cpp
+[Adaptive Build] Excluded from Soul unity file: SoulFounderPlaytestCampaignActor.cpp, SoulFounderPlaytestGameMode.cpp, SoulFounderPlaytestHUD.cpp, SoulFounderPlaytestPlayerController.cpp, SoulFounderPlaytestStateSubsystem.cpp, SoulPlaytestRegionActor.cpp, SoulVerticalCampaignTests.cpp
+[Adaptive Build] Excluded from SoulCore unity file: SoulCampaignBattleBridge.cpp
+[Adaptive Build] Excluded from RBPBIL unity file: RBPBILInfluenceVolume.cpp, RBPBILTests.cpp
+[Adaptive Build] Excluded from RBSave unity file: RBSaveCoordinator.cpp, RBSaveDomains.cpp, RBSaveSubsystem.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 7 action(s)
+  CPU 4 physical cores, 8 logical cores
+  Memory 15.96 GB physical, 19.32 GB/40.37 GB committed
+  UBA Storage capacity 40 GB
+  UBA RootDir C:\ProgramData\Epic\UnrealBuildAccelerator
+Cache bucket 2008116936 used. Action: Compile [x64] SoulRealtimeBattleArena.cpp ()
+Cache bucket 416513229 used. Action: Link [x64] UnrealEditor-SoulRealtimeBattle.lib ()
+Cache bucket 1869473701 used. Action: Compile [x64] SoulVerticalCampaignTests.cpp ()
+All processes queued
+[1/7] Compile [x64] SoulVerticalCampaignTests.cpp [NoUba]
+[2/7] Link [x64] UnrealEditor-Soul.lib [NoUba]
+[3/7] Compile [x64] SoulRealtimeBattleArena.cpp [NoUba]
+[4/7] Link [x64] UnrealEditor-SoulRealtimeBattle.lib [NoUba]
+[5/7] Link [x64] UnrealEditor-SoulRealtimeBattle.dll [NoUba]
+[6/7] Link [x64] UnrealEditor-Soul.dll [NoUba]
+[7/7] WriteMetadata SoulEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 96.46 seconds
+Output binary: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.559 Main
+   0.024          [  0.024]  +0.125 Apply XmlConfig
+   0.159          [  0.158]  +0.133 AddTelemetry
+   0.329          [  0.329]  +0.229 RegisterPlatforms
+[  0.559]  +0.331 <unknown>
+[  0.891]  +0.061 ParseCommandLine
+[  0.952]  +0.257 <unknown>
+[  1.209]  +0.368 LoadMakefile
+[  1.589]  +0.023 FindPlugins
+   1.589          [  0.000]  +0.090 EngineRulesPlugins
+   1.626             0.037          [  0.036]  +0.057 MakefileValid
+[  1.687]  +0.010 EngineRulesFetchDirs
+[  1.709]  +0.011 EngineRulesAssembly
+[  1.720]  +0.001 ProgramRulesAssembly
+[  1.727]  +0.023 ProjectRulesAssembly
+[  1.750]  +0.397 CreateTargetRules
+[  2.242]  +0.010 CppDependencyCache
+[  2.269]  +0.128 SoulEditor Win64 Development
+[  2.399]  +0.041 UHTWait
+   2.403          [  0.003]  +0.035 UHTManifest
+   2.439          [  0.039]  +0.033 UHTTimestamps
+[  2.481]  +0.004 CppDependencyCache
+[  2.485]  +0.137 Preparing ActionGraph
+   2.506          [  0.020]  +0.008 LinkActions
+   2.514             0.028          [  0.007]  +0.000 DetectActionGraphCycles
+   2.516          [  0.030]  +0.000 GatherPrerequisiteActions
+   2.518          [  0.032]  +0.000 CppDependencyCacheWait
+   2.519          [  0.033]  +0.074 GatherOutdatedActions
+   2.598          [  0.112]  +0.012 LinkActions
+   2.598             0.112          [  0.000]  +0.000 DetectActionGraphCycles
+   2.611          [  0.126]  +0.009 DeleteOutdatedProducedItems
+   2.621          [  0.135]  +0.001 SaveActionHistory
+   2.623          [  0.137]  +0.000 CreateDirectoriesForProducedItems
+[  2.649]  +0.136 GarbageCollect
+[  2.785] +96.320 <unknown>
+[ 99.106]  +0.000 Deploying targets
+[ 99.108]  +0.000 DisconnectCache
+[ 99.118]  +0.001 SaveCasTable
+[ 99.123]  +0.070 Saving caches
+[ 99.194]  +0.004 TelemetryService.FlushEvents
+[ 99.200]
+
+Result: Succeeded
+Total execution time: 99.20 seconds

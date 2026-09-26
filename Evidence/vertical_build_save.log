@@ -1,0 +1,178 @@
+Log started at 09/25/2026 22:01:11 (2026-09-26T04:01:11Z)
+Resolved project argument D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\XmlConfigCache.bin): D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Evidence\vertical_build_save.log
+
+Setting temp directory to 'C:\Users\Jeff\AppData\Local\Temp\UnrealBuildTool\eb6d2d82'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" SoulEditor Win64 Development -Project=D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject -WaitMutex -NoHotReloadFromIDE -MaxParallelActions=2 -NoUBA -Log=D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Evidence\vertical_build_save.log
+Executing up to 2 actions based on MaxProcessorCount override
+Using 'git status' to determine working set for adaptive non-unity build (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925).
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Compiling D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\BuildRules\SoulModuleRules.dll: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Source\Soul\Soul.Build.cs is newer
+D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Source\Soul\Soul.Build.cs has been modified since makefile was built.
+Invalidating makefile for SoulEditor (Soul.Build.cs modified)
+Compiler: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe
+Linker: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe
+Library Manager: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe
+Resource Compiler: C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\rc.exe
+Resource Converter: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cvtres.exe
+Using EngineIncludeOrderVersion.Unreal5_8 for target SoulEditor.Target.cs
+Building UnrealEditor - SoulEditor - Win64 - Development
+VerseVMBytecodeGenerator.Generate, generating CPP headers in: 'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMBytecodeOps.gen.h'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMBytecodesAndCaptures.gen.h'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMMakeCapturesFuncs.gen.h'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMCaptureSwitch.gen.h'
+UnrealHeaderTool needs to run because SavedTimestamp is older than the rules file (D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Source\Soul\Soul.Build.cs) for module Soul
+Found 5 shared PCH headers (listed in order of preference):
+	UnrealEd
+	Engine
+	Slate
+	CoreUObject
+	Core
+Parsing headers for SoulEditor
+  Running Internal UnrealHeaderTool D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Soul.uproject D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\SoulEditor\SoulEditor.uhtmanifest -WarningsAsErrors -installed
+UHT compiled-in object format Default
+Step - Parse Headers
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\Module.RBSave.cpp: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\Module.RBSave.cpp.old.
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\UnrealEditor-RBSave.dll.rsp: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\UnrealEditor-RBSave.dll.rsp.old.
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\UnrealEditor-RBSave.lib.rsp: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\UnrealEditor-RBSave.lib.rsp.old.
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\LiveCodingInfo.json: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\LiveCodingInfo.json.old.
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\UnrealEditor-Soul.dll.rsp: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\UnrealEditor-Soul.dll.rsp.old.
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\Definitions.Soul.h: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\Definitions.Soul.h.old.
+Updating D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\Soul.Shared.rsp: contents have changed. Saving previous version to D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\Soul.Shared.rsp.old.
+Reading engine version from file: C:\Program Files\Epic Games\UE_5.8\Engine\Source\Runtime\Launch\Resources\Version.h
+Got engine version 5.8.2
+Step - Populate symbol table
+Step - Exports
+       Exporter Stats skipped
+       Exporter Json skipped
+       Running exporter CodeGen
+UHT processed SoulEditor in 7.02303 seconds (3 generated files written)
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBSave\UnrealEditor-RBSave.lib
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBSave\Binaries\Win64\UnrealEditor-RBSave.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\UnrealEditor-Soul.lib
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBFoundationLegacyAdapters\Binaries\Win64\UnrealEditor-RBFoundationAdapters.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Binaries\Win64\UnrealEditor-Soul.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-pro-vertical-20260925\Plugins\RBFoundationLegacyAdapters\Intermediate\Build\Win64\x64\UnrealEditor\Development\RBFoundationAdapters\UnrealEditor-RBFoundationAdapters.lib
+Building SoulEditor...
+===== Toolchain Information =====
+Using ISPC compiler (C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35228 toolchain (C:\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from SoulRealtimeBattle unity file: SoulRealtimeBattleArena.cpp, SoulRealtimeBattlePBIL.cpp, SoulVerticalAnimationCompatibilityTests.cpp, SoulVerticalReinforcementTests.cpp
+[Adaptive Build] Excluded from Soul unity file: SoulFounderPlaytestCampaignActor.cpp, SoulFounderPlaytestGameMode.cpp, SoulFounderPlaytestHUD.cpp, SoulFounderPlaytestPlayerController.cpp, SoulFounderPlaytestStateSubsystem.cpp, SoulPlaytestRegionActor.cpp, SoulVerticalCampaignTests.cpp
+[Adaptive Build] Excluded from SoulCore unity file: SoulCampaignBattleBridge.cpp
+[Adaptive Build] Excluded from RBPBIL unity file: RBPBILInfluenceVolume.cpp, RBPBILTests.cpp
+[Adaptive Build] Excluded from RBSave unity file: RBSaveCoordinator.cpp, RBSaveDomains.cpp, RBSaveSubsystem.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 20 action(s)
+  CPU 4 physical cores, 8 logical cores
+  Memory 15.96 GB physical, 19.57 GB/40.37 GB committed
+  UBA Storage capacity 40 GB
+  UBA RootDir C:\ProgramData\Epic\UnrealBuildAccelerator
+Cache bucket 1869473701 used. Action: Compile [x64] Module.RBSave.cpp ()
+Cache bucket 416513229 used. Action: Link [x64] UnrealEditor-RBSave.lib ()
+All processes queued
+[1/20] Compile [x64] Module.RBSave.cpp [NoUba]
+[2/20] Compile [x64] RBSaveDomains.cpp [NoUba]
+[3/20] Compile [x64] RBSaveCoordinator.cpp [NoUba]
+[4/20] Compile [x64] RBSaveSubsystem.cpp [NoUba]
+[5/20] Link [x64] UnrealEditor-RBSave.lib [NoUba]
+[6/20] Link [x64] UnrealEditor-RBSave.dll [NoUba]
+[7/20] Compile [x64] Module.Soul.cpp [NoUba]
+[8/20] Compile [x64] SoulFounderPlaytestCampaignActor.cpp [NoUba]
+[9/20] Compile [x64] SoulFounderPlaytestGameMode.cpp [NoUba]
+[10/20] Compile [x64] SoulFounderPlaytestHUD.cpp [NoUba]
+[11/20] Compile [x64] SoulFounderPlaytestPlayerController.cpp [NoUba]
+[12/20] Compile [x64] SoulFounderPlaytestStateSubsystem.cpp [NoUba]
+[13/20] Compile [x64] SoulPlaytestRegionActor.cpp [NoUba]
+[14/20] Compile [x64] SoulVerticalCampaignTests.cpp [NoUba]
+[15/20] Link [x64] UnrealEditor-Soul.dll [NoUba]
+[16/20] Link [x64] UnrealEditor-Soul.lib [NoUba]
+[17/20] Compile [x64] Module.RBFoundationAdapters.cpp [NoUba]
+[18/20] Link [x64] UnrealEditor-RBFoundationAdapters.lib [NoUba]
+[19/20] Link [x64] UnrealEditor-RBFoundationAdapters.dll [NoUba]
+[20/20] WriteMetadata SoulEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 250.66 seconds
+Output binary: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.508 Main
+   0.020          [  0.020]  +0.112 Apply XmlConfig
+   0.143          [  0.142]  +0.084 AddTelemetry
+   0.253          [  0.253]  +0.254 RegisterPlatforms
+[  0.540]  +0.058 ParseCommandLine
+[  0.598]  +0.469 <unknown>
+[  1.067]  +0.439 LoadMakefile
+   1.068          [  0.001]  +0.111 EngineRulesPlugins
+   1.185          [  0.118]  +0.012 EngineRulesFetchDirs
+   1.207          [  0.139]  +0.019 EngineRulesAssembly
+   1.226          [  0.159]  +0.002 ProgramRulesAssembly
+   1.245          [  0.178]  +4.770 ProjectRulesAssembly
+   1.245             0.178          [  0.000]  +0.271 <unknown>
+   1.517             0.449          [  0.271]  +0.000 FindPlugins
+   1.529             0.461          [  0.283]  +0.182 MakefileValid
+   1.712             0.644          [  0.466]  +4.303 <unknown>
+[  1.507]  +4.508 <unknown>
+[  6.016]  +0.208 CreateTargetRules
+[  6.311]  +0.010 CppDependencyCache
+[  6.357]  +3.989 SoulEditor Win64 Development
+   6.357          [  0.000]  +1.048 <unknown>
+   7.405          [  1.048]  +0.103 UHTModules
+   7.509          [  1.152]  +0.324 <unknown>
+   7.834          [  1.476]  +0.392 UHTManifest
+   8.226          [  1.869]  +7.034 UHT
+   8.226             1.869          [  0.000]  +0.418 <unknown>
+   8.645             2.287          [  0.418]  +0.000 GitWait
+   8.645             2.287          [  0.418]  +1.659 <unknown>
+  10.305             3.947          [  2.078]  +0.000 WaitOnWrites
+  10.349             3.991          [  2.122]  +4.915 UHTWait
+[ 10.346]  +4.957 <unknown>
+[ 15.304]  +0.003 CppDependencyCache
+[ 15.307]  +0.102 Preparing ActionGraph
+  15.324          [  0.016]  +0.008 LinkActions
+  15.332             0.024          [  0.008]  +0.000 DetectActionGraphCycles
+  15.334          [  0.026]  +0.000 GatherPrerequisiteActions
+  15.336          [  0.028]  +0.000 CppDependencyCacheWait
+  15.337          [  0.029]  +0.054 GatherOutdatedActions
+  15.396          [  0.088]  +0.003 LinkActions
+  15.396             0.088          [  0.000]  +0.000 DetectActionGraphCycles
+  15.401          [  0.093]  +0.002 DeleteOutdatedProducedItems
+  15.404          [  0.096]  +0.004 SaveActionHistory
+  15.409          [  0.101]  +0.000 CreateDirectoriesForProducedItems
+[ 15.431]  +0.332 GarbageCollect
+[ 15.763]+250.335 <unknown>
+[266.098]  +0.000 Deploying targets
+[266.102]  +0.000 DisconnectCache
+[266.119]  +0.001 SaveCasTable
+[266.124]  +0.102 Saving caches
+[266.228]  +0.005 TelemetryService.FlushEvents
+[266.235]
+
+Result: Succeeded
+Total execution time: 266.24 seconds
