@@ -1,0 +1,526 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "source": "Soul world overmap structural v1",
+  "start_region": "human_capital",
+  "enemy_region": "orc_camp",
+  "initial_knowledge": {
+    "humans": {
+      "visible_regions": [
+        "human_capital",
+        "crossroads"
+      ],
+      "explored_regions": [
+        "human_capital",
+        "crossroads"
+      ]
+    }
+  },
+  "acceptance_targets": {
+    "resource_sites": 2,
+    "encounter_regions": 3,
+    "tavern_venues": 1
+  },
+  "regions": {
+    "human_capital": {
+      "id": "human_capital",
+      "name": "Human Capital",
+      "macro_region": "heartland",
+      "owner": "humans",
+      "x": 180,
+      "y": 450,
+      "biome": "temperate",
+      "landform": "fortified",
+      "feature": "capital",
+      "elevation_band": "mid",
+      "kind": "capital",
+      "settlement_id": "city.human_capital",
+      "resource": null,
+      "battle_recipe_hint": "human.fortress_outskirts",
+      "notes": [
+        "Founder slice start",
+        "Human faction seat"
+      ],
+      "neighbors": [
+        "crossroads"
+      ],
+      "road_neighbors": [
+        "crossroads"
+      ],
+      "approach_from_neighbor": {
+        "crossroads": "east"
+      },
+      "founder_ue_position": [
+        -3000,
+        0,
+        50
+      ],
+      "site_roles": [
+        "settlement",
+        "recruitment",
+        "tavern",
+        "hero_services"
+      ]
+    },
+    "crossroads": {
+      "id": "crossroads",
+      "name": "Crossroads",
+      "macro_region": "heartland",
+      "owner": "humans",
+      "x": 320,
+      "y": 450,
+      "biome": "temperate",
+      "landform": "rolling_plain",
+      "feature": "crossroads",
+      "elevation_band": "mid",
+      "kind": "region",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "human.grassland_crossroads",
+      "notes": [
+        "Founder slice strategic hub"
+      ],
+      "neighbors": [
+        "forest_edge",
+        "human_capital",
+        "old_quarry",
+        "river_ford"
+      ],
+      "road_neighbors": [
+        "human_capital",
+        "old_quarry",
+        "river_ford"
+      ],
+      "approach_from_neighbor": {
+        "human_capital": "west",
+        "old_quarry": "north_east",
+        "river_ford": "south_east",
+        "forest_edge": "east"
+      },
+      "founder_ue_position": [
+        -1600,
+        0,
+        50
+      ],
+      "site_roles": [
+        "travel_hub"
+      ]
+    },
+    "old_quarry": {
+      "id": "old_quarry",
+      "name": "Old Quarry",
+      "macro_region": "heartland",
+      "owner": null,
+      "x": 390,
+      "y": 330,
+      "biome": "temperate",
+      "landform": "ridge",
+      "feature": "resource",
+      "elevation_band": "high",
+      "kind": "region",
+      "settlement_id": null,
+      "resource": "ore",
+      "battle_recipe_hint": "human.rolling_ridge",
+      "notes": [
+        "Founder slice resource site"
+      ],
+      "neighbors": [
+        "ancient_shrine",
+        "crossroads"
+      ],
+      "road_neighbors": [
+        "crossroads"
+      ],
+      "approach_from_neighbor": {
+        "crossroads": "south_west",
+        "ancient_shrine": "east"
+      },
+      "founder_ue_position": [
+        -700,
+        -1500,
+        50
+      ],
+      "site_roles": [
+        "resource_site",
+        "ore"
+      ]
+    },
+    "river_ford": {
+      "id": "river_ford",
+      "name": "River Ford",
+      "macro_region": "heartland",
+      "owner": null,
+      "x": 420,
+      "y": 560,
+      "biome": "temperate",
+      "landform": "valley",
+      "feature": "river_crossing",
+      "elevation_band": "low",
+      "kind": "region",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "human.river_road",
+      "notes": [
+        "Founder slice crossing / road gate"
+      ],
+      "neighbors": [
+        "crossroads",
+        "orc_watch"
+      ],
+      "road_neighbors": [
+        "crossroads",
+        "orc_watch"
+      ],
+      "approach_from_neighbor": {
+        "crossroads": "north_west",
+        "orc_watch": "east"
+      },
+      "founder_ue_position": [
+        -200,
+        1200,
+        50
+      ],
+      "site_roles": [
+        "crossing",
+        "road_gate",
+        "encounter"
+      ]
+    },
+    "forest_edge": {
+      "id": "forest_edge",
+      "name": "Forest Edge",
+      "macro_region": "heartland",
+      "owner": null,
+      "x": 480,
+      "y": 420,
+      "biome": "forest",
+      "landform": "woodland",
+      "feature": "grove",
+      "elevation_band": "mid",
+      "kind": "region",
+      "settlement_id": null,
+      "resource": "wood",
+      "battle_recipe_hint": "nature.grassland_edge",
+      "notes": [
+        "Founder slice flanking corridor"
+      ],
+      "neighbors": [
+        "crossroads",
+        "north_pass",
+        "orc_watch"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "crossroads": "west",
+        "orc_watch": "south_east",
+        "north_pass": "east"
+      },
+      "founder_ue_position": [
+        200,
+        -500,
+        50
+      ],
+      "site_roles": [
+        "resource_site",
+        "wood",
+        "ambush_route"
+      ]
+    },
+    "ancient_shrine": {
+      "id": "ancient_shrine",
+      "name": "Ancient Shrine",
+      "macro_region": "heartland",
+      "owner": null,
+      "x": 520,
+      "y": 300,
+      "biome": "mountain_forest",
+      "landform": "shrine_terrace",
+      "feature": "ancient_shrine",
+      "elevation_band": "high",
+      "kind": "landmark",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "neutral.mountain_shrine",
+      "notes": [
+        "Founder slice magic landmark"
+      ],
+      "neighbors": [
+        "old_quarry"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "old_quarry": "west"
+      },
+      "founder_ue_position": [
+        700,
+        -2100,
+        50
+      ],
+      "site_roles": [
+        "magic_landmark",
+        "hero_progression"
+      ]
+    },
+    "orc_watch": {
+      "id": "orc_watch",
+      "name": "Orc Watch",
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "x": 620,
+      "y": 540,
+      "biome": "badlands",
+      "landform": "mesa",
+      "feature": "watch",
+      "elevation_band": "mid",
+      "kind": "region",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "orc.badlands",
+      "notes": [
+        "Founder slice forward Orc position"
+      ],
+      "neighbors": [
+        "forest_edge",
+        "orc_camp",
+        "river_ford"
+      ],
+      "road_neighbors": [
+        "orc_camp",
+        "river_ford"
+      ],
+      "approach_from_neighbor": {
+        "river_ford": "west",
+        "forest_edge": "north_west",
+        "orc_camp": "east"
+      },
+      "founder_ue_position": [
+        1600,
+        800,
+        50
+      ],
+      "site_roles": [
+        "enemy_outpost",
+        "encounter"
+      ]
+    },
+    "north_pass": {
+      "id": "north_pass",
+      "name": "North Pass",
+      "macro_region": "eastern_badlands",
+      "owner": null,
+      "x": 640,
+      "y": 360,
+      "biome": "mountain",
+      "landform": "pass",
+      "feature": "narrow_pass",
+      "elevation_band": "high",
+      "kind": "region",
+      "settlement_id": null,
+      "resource": null,
+      "battle_recipe_hint": "dwarf.mountain_pass",
+      "notes": [
+        "Founder slice alternate stronghold approach"
+      ],
+      "neighbors": [
+        "forest_edge",
+        "orc_camp"
+      ],
+      "road_neighbors": [],
+      "approach_from_neighbor": {
+        "forest_edge": "west",
+        "orc_camp": "south_east"
+      },
+      "founder_ue_position": [
+        1700,
+        -1300,
+        50
+      ],
+      "site_roles": [
+        "chokepoint",
+        "encounter"
+      ]
+    },
+    "orc_camp": {
+      "id": "orc_camp",
+      "name": "Orc Stronghold",
+      "macro_region": "eastern_badlands",
+      "owner": "orcs",
+      "x": 780,
+      "y": 460,
+      "biome": "badlands",
+      "landform": "ruined_city_edge",
+      "feature": "stronghold",
+      "elevation_band": "mid",
+      "kind": "capital",
+      "settlement_id": "city.orc_ruinhold",
+      "resource": null,
+      "battle_recipe_hint": "orc.war_camp",
+      "notes": [
+        "Founder slice enemy objective",
+        "Orc faction seat"
+      ],
+      "neighbors": [
+        "north_pass",
+        "orc_watch"
+      ],
+      "road_neighbors": [
+        "orc_watch"
+      ],
+      "approach_from_neighbor": {
+        "north_pass": "north_west",
+        "orc_watch": "west"
+      },
+      "founder_ue_position": [
+        3100,
+        0,
+        50
+      ],
+      "site_roles": [
+        "enemy_stronghold",
+        "siege"
+      ]
+    }
+  },
+  "routes": {
+    "route.crossroads_human_capital": {
+      "a": "human_capital",
+      "b": "crossroads",
+      "route": "road",
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "movement_cost": 6,
+      "road": true,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.crossroads_human_capital",
+      "approach_into_a": "east",
+      "approach_into_b": "west"
+    },
+    "route.crossroads_old_quarry": {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "route": "road",
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "movement_cost": 6,
+      "road": true,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.crossroads_old_quarry",
+      "approach_into_a": "north_east",
+      "approach_into_b": "south_west"
+    },
+    "route.crossroads_river_ford": {
+      "a": "crossroads",
+      "b": "river_ford",
+      "route": "road",
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "movement_cost": 6,
+      "road": true,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.crossroads_river_ford",
+      "approach_into_a": "south_east",
+      "approach_into_b": "north_west"
+    },
+    "route.crossroads_forest_edge": {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "route": "trail",
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "movement_cost": 8,
+      "road": false,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.crossroads_forest_edge",
+      "approach_into_a": "east",
+      "approach_into_b": "west"
+    },
+    "route.ancient_shrine_old_quarry": {
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "route": "trail",
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "movement_cost": 8,
+      "road": false,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.ancient_shrine_old_quarry",
+      "approach_into_a": "east",
+      "approach_into_b": "west"
+    },
+    "route.orc_watch_river_ford": {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "route": "road",
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "movement_cost": 6,
+      "road": true,
+      "chokepoint": true,
+      "notes": [],
+      "id": "route.orc_watch_river_ford",
+      "approach_into_a": "east",
+      "approach_into_b": "west"
+    },
+    "route.forest_edge_orc_watch": {
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "route": "trail",
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "movement_cost": 8,
+      "road": false,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.forest_edge_orc_watch",
+      "approach_into_a": "south_east",
+      "approach_into_b": "north_west"
+    },
+    "route.forest_edge_north_pass": {
+      "a": "forest_edge",
+      "b": "north_pass",
+      "route": "trail",
+      "action_cost": 1,
+      "logistics_movement_cost": 8,
+      "movement_cost": 8,
+      "road": false,
+      "chokepoint": true,
+      "notes": [],
+      "id": "route.forest_edge_north_pass",
+      "approach_into_a": "east",
+      "approach_into_b": "west"
+    },
+    "route.north_pass_orc_camp": {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "route": "pass",
+      "action_cost": 1,
+      "logistics_movement_cost": 10,
+      "movement_cost": 10,
+      "road": false,
+      "chokepoint": true,
+      "notes": [],
+      "id": "route.north_pass_orc_camp",
+      "approach_into_a": "south_east",
+      "approach_into_b": "north_west"
+    },
+    "route.orc_camp_orc_watch": {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "route": "road",
+      "action_cost": 1,
+      "logistics_movement_cost": 6,
+      "movement_cost": 6,
+      "road": true,
+      "chokepoint": false,
+      "notes": [],
+      "id": "route.orc_camp_orc_watch",
+      "approach_into_a": "east",
+      "approach_into_b": "west"
+    }
+  }
+}

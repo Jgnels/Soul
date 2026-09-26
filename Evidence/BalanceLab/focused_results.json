@@ -1,0 +1,567 @@
+{
+  "dwarf_capstone_construction": [
+    {
+      "completion_day": 17,
+      "construction_slots": 1,
+      "start_gold": 600
+    },
+    {
+      "completion_day": 15,
+      "construction_slots": 1,
+      "start_gold": 900
+    },
+    {
+      "completion_day": 15,
+      "construction_slots": 1,
+      "start_gold": 1200
+    },
+    {
+      "completion_day": 17,
+      "construction_slots": 2,
+      "start_gold": 600
+    },
+    {
+      "completion_day": 12,
+      "construction_slots": 2,
+      "start_gold": 900
+    },
+    {
+      "completion_day": 12,
+      "construction_slots": 2,
+      "start_gold": 1200
+    },
+    {
+      "completion_day": 17,
+      "construction_slots": 99,
+      "start_gold": 600
+    },
+    {
+      "completion_day": 9,
+      "construction_slots": 99,
+      "start_gold": 900
+    },
+    {
+      "completion_day": 9,
+      "construction_slots": 99,
+      "start_gold": 1200
+    }
+  ],
+  "elephant_building_loss": [
+    {
+      "available_day28": 3,
+      "condition": "Intact",
+      "gold_spent": 0,
+      "repair_mode": "current_free",
+      "unit": "beast"
+    },
+    {
+      "available_day28": 2,
+      "condition": "Intact",
+      "gold_spent": 202,
+      "repair_mode": "costed",
+      "unit": "beast"
+    }
+  ],
+  "hero_growth": [
+    {
+      "lab_strength_bonus": 0,
+      "level": 1,
+      "wins": 0,
+      "xp": 0
+    },
+    {
+      "lab_strength_bonus": 0,
+      "level": 1,
+      "wins": 1,
+      "xp": 100
+    },
+    {
+      "lab_strength_bonus": 0,
+      "level": 1,
+      "wins": 2,
+      "xp": 200
+    },
+    {
+      "lab_strength_bonus": 55,
+      "level": 2,
+      "wins": 3,
+      "xp": 300
+    },
+    {
+      "lab_strength_bonus": 55,
+      "level": 2,
+      "wins": 5,
+      "xp": 500
+    },
+    {
+      "lab_strength_bonus": 110,
+      "level": 3,
+      "wins": 8,
+      "xp": 800
+    },
+    {
+      "lab_strength_bonus": 110,
+      "level": 3,
+      "wins": 12,
+      "xp": 1200
+    },
+    {
+      "lab_strength_bonus": 165,
+      "level": 4,
+      "wins": 20,
+      "xp": 2000
+    },
+    {
+      "lab_strength_bonus": 220,
+      "level": 5,
+      "wins": 30,
+      "xp": 3000
+    }
+  ],
+  "low_readiness_choices": [
+    {
+      "attack_no_memory": 1300,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 0,
+      "recover": 1700,
+      "seize_current": 1850
+    },
+    {
+      "attack_no_memory": 1400,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 100,
+      "recover": 1600,
+      "seize_current": 1850
+    },
+    {
+      "attack_no_memory": 1550,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 250,
+      "recover": 1450,
+      "seize_current": 1850
+    },
+    {
+      "attack_no_memory": 1700,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 400,
+      "recover": 1300,
+      "seize_current": 1850
+    },
+    {
+      "attack_no_memory": 1850,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 550,
+      "recover": 1150,
+      "seize_current": 1850
+    },
+    {
+      "attack_no_memory": 1950,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 650,
+      "recover": 1050,
+      "seize_current": 1850
+    },
+    {
+      "attack_no_memory": 2000,
+      "chosen_between_recover_and_seize": "SEIZE",
+      "readiness": 700,
+      "recover": -1,
+      "seize_current": 1850
+    }
+  ],
+  "memory_repeated_rival_defeats": [
+    {
+      "attack_score": 1850,
+      "bias": 0,
+      "choice": "ATTACK",
+      "defeats": 0,
+      "edge": 0,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 2150,
+      "bias": 0,
+      "choice": "ATTACK",
+      "defeats": 0,
+      "edge": 300,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1950,
+      "bias": 0,
+      "choice": "ATTACK",
+      "defeats": 0,
+      "edge": 0,
+      "readiness": 650,
+      "recover_score": 1050
+    },
+    {
+      "attack_score": 1210,
+      "bias": -640,
+      "choice": "ATTACK",
+      "defeats": 1,
+      "edge": 0,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1510,
+      "bias": -640,
+      "choice": "ATTACK",
+      "defeats": 1,
+      "edge": 300,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1310,
+      "bias": -640,
+      "choice": "ATTACK",
+      "defeats": 1,
+      "edge": 0,
+      "readiness": 650,
+      "recover_score": 1050
+    },
+    {
+      "attack_score": 1050,
+      "bias": -800,
+      "choice": "RECOVER",
+      "defeats": 2,
+      "edge": 0,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1350,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 2,
+      "edge": 300,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1150,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 2,
+      "edge": 0,
+      "readiness": 650,
+      "recover_score": 1050
+    },
+    {
+      "attack_score": 1050,
+      "bias": -800,
+      "choice": "RECOVER",
+      "defeats": 3,
+      "edge": 0,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1350,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 3,
+      "edge": 300,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1150,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 3,
+      "edge": 0,
+      "readiness": 650,
+      "recover_score": 1050
+    },
+    {
+      "attack_score": 1050,
+      "bias": -800,
+      "choice": "RECOVER",
+      "defeats": 4,
+      "edge": 0,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1350,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 4,
+      "edge": 300,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1150,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 4,
+      "edge": 0,
+      "readiness": 650,
+      "recover_score": 1050
+    },
+    {
+      "attack_score": 1050,
+      "bias": -800,
+      "choice": "RECOVER",
+      "defeats": 5,
+      "edge": 0,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1350,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 5,
+      "edge": 300,
+      "readiness": 550,
+      "recover_score": 1150
+    },
+    {
+      "attack_score": 1150,
+      "bias": -800,
+      "choice": "ATTACK",
+      "defeats": 5,
+      "edge": 0,
+      "readiness": 650,
+      "recover_score": 1050
+    }
+  ],
+  "ranged_building_loss": [
+    {
+      "available_day28": 8,
+      "condition": "Intact",
+      "gold_spent": 0,
+      "repair_mode": "current_free",
+      "unit": "ranged"
+    },
+    {
+      "available_day28": 6,
+      "condition": "Intact",
+      "gold_spent": 216,
+      "repair_mode": "costed",
+      "unit": "ranged"
+    }
+  ],
+  "siege_starvation": {
+    "current_day30_supply": 200,
+    "current_resolves_from_supply_alone": false,
+    "current_trace": [
+      {
+        "day": 1,
+        "defender_supply": 930
+      },
+      {
+        "day": 2,
+        "defender_supply": 860
+      },
+      {
+        "day": 3,
+        "defender_supply": 790
+      },
+      {
+        "day": 4,
+        "defender_supply": 720
+      },
+      {
+        "day": 5,
+        "defender_supply": 650
+      },
+      {
+        "day": 6,
+        "defender_supply": 580
+      },
+      {
+        "day": 7,
+        "defender_supply": 510
+      },
+      {
+        "day": 8,
+        "defender_supply": 440
+      },
+      {
+        "day": 9,
+        "defender_supply": 370
+      },
+      {
+        "day": 10,
+        "defender_supply": 300
+      },
+      {
+        "day": 11,
+        "defender_supply": 230
+      },
+      {
+        "day": 12,
+        "defender_supply": 200
+      },
+      {
+        "day": 13,
+        "defender_supply": 200
+      },
+      {
+        "day": 14,
+        "defender_supply": 200
+      },
+      {
+        "day": 15,
+        "defender_supply": 200
+      },
+      {
+        "day": 16,
+        "defender_supply": 200
+      },
+      {
+        "day": 17,
+        "defender_supply": 200
+      },
+      {
+        "day": 18,
+        "defender_supply": 200
+      },
+      {
+        "day": 19,
+        "defender_supply": 200
+      },
+      {
+        "day": 20,
+        "defender_supply": 200
+      },
+      {
+        "day": 21,
+        "defender_supply": 200
+      },
+      {
+        "day": 22,
+        "defender_supply": 200
+      },
+      {
+        "day": 23,
+        "defender_supply": 200
+      },
+      {
+        "day": 24,
+        "defender_supply": 200
+      },
+      {
+        "day": 25,
+        "defender_supply": 200
+      },
+      {
+        "day": 26,
+        "defender_supply": 200
+      },
+      {
+        "day": 27,
+        "defender_supply": 200
+      },
+      {
+        "day": 28,
+        "defender_supply": 200
+      },
+      {
+        "day": 29,
+        "defender_supply": 200
+      },
+      {
+        "day": 30,
+        "defender_supply": 200
+      }
+    ],
+    "threshold_sensitivity": [
+      {
+        "days": 14,
+        "loss_per_day": 50,
+        "threshold": 300
+      },
+      {
+        "days": 12,
+        "loss_per_day": 50,
+        "threshold": 400
+      },
+      {
+        "days": 10,
+        "loss_per_day": 50,
+        "threshold": 500
+      },
+      {
+        "days": 10,
+        "loss_per_day": 70,
+        "threshold": 300
+      },
+      {
+        "days": 9,
+        "loss_per_day": 70,
+        "threshold": 400
+      },
+      {
+        "days": 8,
+        "loss_per_day": 70,
+        "threshold": 500
+      },
+      {
+        "days": 8,
+        "loss_per_day": 90,
+        "threshold": 300
+      },
+      {
+        "days": 7,
+        "loss_per_day": 90,
+        "threshold": 400
+      },
+      {
+        "days": 6,
+        "loss_per_day": 90,
+        "threshold": 500
+      }
+    ]
+  },
+  "veterancy": [
+    {
+      "combat_bonus_permille": 0,
+      "conditional_expected_action_damage_index": 1.0,
+      "extra_action_chance": 0.0,
+      "morale_bonus": 0,
+      "rank": "Recruit",
+      "xp": 0
+    },
+    {
+      "combat_bonus_permille": 25,
+      "conditional_expected_action_damage_index": 1.025,
+      "extra_action_chance": 0.0,
+      "morale_bonus": 0,
+      "rank": "Seasoned",
+      "xp": 100
+    },
+    {
+      "combat_bonus_permille": 50,
+      "conditional_expected_action_damage_index": 1.155,
+      "extra_action_chance": 0.1,
+      "morale_bonus": 1,
+      "rank": "Veteran",
+      "xp": 300
+    },
+    {
+      "combat_bonus_permille": 75,
+      "conditional_expected_action_damage_index": 1.1825,
+      "extra_action_chance": 0.1,
+      "morale_bonus": 1,
+      "rank": "Elite",
+      "xp": 700
+    },
+    {
+      "combat_bonus_permille": 100,
+      "conditional_expected_action_damage_index": 1.32,
+      "extra_action_chance": 0.2,
+      "morale_bonus": 2,
+      "rank": "Legendary",
+      "xp": 1500
+    }
+  ]
+}

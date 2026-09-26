@@ -1,0 +1,32 @@
+[
+  {
+    "runs": 100,
+    "runaway_rate": 0.0,
+    "mean_gini": 0.08593070099944077,
+    "mean_leader_share": 0.30578511149565796
+  },
+  {
+    "runs": 250,
+    "runaway_rate": 0.0,
+    "mean_gini": 0.08523887074499903,
+    "mean_leader_share": 0.3046074124664999
+  },
+  {
+    "runs": 500,
+    "runaway_rate": 0.0,
+    "mean_gini": 0.08564459583736471,
+    "mean_leader_share": 0.30459545688411466
+  },
+  {
+    "runs": 1000,
+    "runaway_rate": 0.001,
+    "mean_gini": 0.0884684873897372,
+    "mean_leader_share": 0.30579806608387555
+  },
+  {
+    "runs": 2000,
+    "runaway_rate": 0.0005,
+    "mean_gini": 0.08809575963249784,
+    "mean_leader_share": 0.30536349332861973
+  }
+]

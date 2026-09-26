@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "ap_windows": [
+    2,
+    3,
+    4
+  ],
+  "coarse_overstatement_ap": [
+    2
+  ],
+  "canonical_policy_changed": false,
+  "errors": []
+}

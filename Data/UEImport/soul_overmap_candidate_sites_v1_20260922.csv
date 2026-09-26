@@ -1,0 +1,9 @@
+﻿site_id,title,region_id,integration_class,local_status,candidate_status,topology_change,fab_listing_id
+dragon_graveyard,Dragon Graveyard,orc_badlands,direct_battlefield,PROJECT_INSTALLED,CANDIDATE,False,
+lost_shrine,Lost Shrine,ancient_shrine,direct_battlefield,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE,False,8031b2de-3822-44db-ab89-e655d4b2e6c7
+crystal_cave,Crystal Cave,dwarf_high_quarry,direct_battlefield,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE,False,4eb09414-0692-4073-ae72-687204653a9e
+old_windmills,Old Windmills Modular,northwest_march,direct_battlefield,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE,False,e1fe3062-e190-468b-b456-201a8fba136d
+red_canyon,Red Canyon Desert Biome,orc_badlands,direct_battlefield,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE,False,f51cbfd1-9dcd-4145-935c-b16ce0e9b33f
+medieval_fantasy_cave_camp,Medieval Fantasy Cave Camp,orc_war_camp,direct_battlefield,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE,False,a193c9eb-e105-4e43-b0ed-57a5465f12cd
+arena_city_state,Modular Gladiator Arena,southern_crossing,special_venue,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE_NONCANONICAL,False,13f7220f-0865-4cac-b80e-d1259c8a8683
+mystic_dungeon,Mystic Dungeon Environment,mountain_shrine,direct_battlefield,OWNED_PAYLOAD_NOT_LOCAL_VERIFIED,CANDIDATE,False,8d24ba4e-1e2c-4ad7-9f6a-392e434585b5

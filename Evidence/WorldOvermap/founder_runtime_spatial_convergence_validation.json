@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "migration_shape_confirmed": true,
+  "rms_error_pct_world_span": 3.0424173866999085,
+  "max_error_pct_world_span": 5.155449562869597,
+  "max_route_relative_error_pct": 18.109,
+  "candidate_snapshot_unchanged": true,
+  "master_gate_eligible": false,
+  "warnings": [
+    "route lengths are not exact (18.109% worst); accepted v2 route geometry must replace candidate lines"
+  ],
+  "errors": []
+}

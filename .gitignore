@@ -18,3 +18,6 @@ Evidence/EnvironmentCaptures/*.log
 Content/Dragon_graveyard/
 Content/Knights_Pack/
 Content/Dwarf_Pack/
+
+__pycache__/
+*.pyc

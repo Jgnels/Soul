@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "authority": {
+    "major_seats": "current city/siege blueprint IDs",
+    "minor_slots": "candidate density layer only; not campaign-start ownership or final service balance"
+  },
+  "rules": [
+    "Minor settlements reuse existing strategic regions; no extra graph nodes are added.",
+    "Minor sites default to bounded visit scenes or simplified proxies, not capital-scale bespoke cities.",
+    "Interactive space / static clutter rule applies to any visitable minor settlement.",
+    "A minor slot may be removed or changed without invalidating the overmap topology."
+  ],
+  "counts": {
+    "major": 6,
+    "minor_candidates": 8,
+    "total_slots": 14
+  },
+  "slots": [
+    {
+      "region_id": "dark_fortress",
+      "display_name": "Dark Fortress",
+      "tier": "major",
+      "faction_affinity": "dark",
+      "settlement_id": "city.dark_fortress",
+      "status": "LOCKED_MAJOR_SEAT",
+      "visit_scope": "full_visit_scene",
+      "proxy_priority": "high",
+      "services": [
+        "recruitment",
+        "hero_services",
+        "market",
+        "siege"
+      ],
+      "donor": "city.dark_fortress"
+    },
+    {
+      "region_id": "dwarf_hold",
+      "display_name": "Dwarf Hold",
+      "tier": "major",
+      "faction_affinity": "dwarves",
+      "settlement_id": "city.dwarf_hold",
+      "status": "LOCKED_MAJOR_SEAT",
+      "visit_scope": "full_visit_scene",
+      "proxy_priority": "high",
+      "services": [
+        "recruitment",
+        "hero_services",
+        "market",
+        "siege"
+      ],
+      "donor": "city.dwarf_hold"
+    },
+    {
+      "region_id": "human_capital",
+      "display_name": "Human Capital",
+      "tier": "major",
+      "faction_affinity": "humans",
+      "settlement_id": "city.human_capital",
+      "status": "LOCKED_MAJOR_SEAT",
+      "visit_scope": "full_visit_scene",
+      "proxy_priority": "high",
+      "services": [
+        "recruitment",
+        "hero_services",
+        "market",
+        "siege"
+      ],
+      "donor": "city.human_capital"
+    },
+    {
+      "region_id": "nature_treehold",
+      "display_name": "Nature Treehold",
+      "tier": "major",
+      "faction_affinity": "nature",
+      "settlement_id": "city.nature_treehold",
+      "status": "LOCKED_MAJOR_SEAT",
+      "visit_scope": "full_visit_scene",
+      "proxy_priority": "high",
+      "services": [
+        "recruitment",
+        "hero_services",
+        "market",
+        "siege"
+      ],
+      "donor": "city.nature_treehold"
+    },
+    {
+      "region_id": "orc_camp",
+      "display_name": "Orc Stronghold",
+      "tier": "major",
+      "faction_affinity": "orcs",
+      "settlement_id": "city.orc_ruinhold",
+      "status": "LOCKED_MAJOR_SEAT",
+      "visit_scope": "full_visit_scene",
+      "proxy_priority": "high",
+      "services": [
+        "recruitment",
+        "hero_services",
+        "market",
+        "siege"
+      ],
+      "donor": "city.orc_ruinhold"
+    },
+    {
+      "region_id": "viking_harbour",
+      "display_name": "Viking Harbour",
+      "tier": "major",
+      "faction_affinity": "vikings",
+      "settlement_id": "city.viking_harbour",
+      "status": "LOCKED_MAJOR_SEAT",
+      "visit_scope": "full_visit_scene",
+      "proxy_priority": "high",
+      "services": [
+        "recruitment",
+        "hero_services",
+        "market",
+        "siege"
+      ],
+      "donor": "city.viking_harbour"
+    },
+    {
+      "region_id": "coastal_ruins",
+      "display_name": "Coastal Ruins",
+      "tier": "minor",
+      "minor_kind": "ruined_settlement",
+      "faction_affinity": null,
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "exploration",
+        "salvage",
+        "quest"
+      ],
+      "donor": "Coastal Ruins"
+    },
+    {
+      "region_id": "crossroads",
+      "display_name": "Crossroads",
+      "tier": "minor",
+      "minor_kind": "market_town",
+      "faction_affinity": "humans",
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "market",
+        "rest",
+        "caravan"
+      ],
+      "donor": "Medieval Megapack market/civic cluster"
+    },
+    {
+      "region_id": "dark_castle_approach",
+      "display_name": "Castle Approach",
+      "tier": "minor",
+      "minor_kind": "ward_bastion",
+      "faction_affinity": "dark",
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "ward",
+        "supplies",
+        "intel"
+      ],
+      "donor": "Fantasy Alien Castle outer works"
+    },
+    {
+      "region_id": "dwarf_forge_approach",
+      "display_name": "Forge Approach",
+      "tier": "minor",
+      "minor_kind": "forge_outpost",
+      "faction_affinity": "dwarves",
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "forge",
+        "supplies",
+        "repair"
+      ],
+      "donor": "Legendary Forge outer works"
+    },
+    {
+      "region_id": "nature_forest_clearing",
+      "display_name": "Forest Clearing",
+      "tier": "minor",
+      "minor_kind": "grove_village",
+      "faction_affinity": "nature",
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "healing",
+        "supplies",
+        "recruit_light"
+      ],
+      "donor": "Fantasy Forest Village clearing"
+    },
+    {
+      "region_id": "northwest_march",
+      "display_name": "Northwest March",
+      "tier": "minor",
+      "minor_kind": "trade_post",
+      "faction_affinity": null,
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "market",
+        "caravan",
+        "intel"
+      ],
+      "donor": "human/Viking roadside trade composition"
+    },
+    {
+      "region_id": "orc_war_camp",
+      "display_name": "War Camp",
+      "tier": "minor",
+      "minor_kind": "war_camp",
+      "faction_affinity": "orcs",
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "recruit_light",
+        "supplies",
+        "raid"
+      ],
+      "donor": "Ruins + BanditCamp composition"
+    },
+    {
+      "region_id": "viking_forest_track",
+      "display_name": "Forest Track",
+      "tier": "minor",
+      "minor_kind": "village",
+      "faction_affinity": "vikings",
+      "settlement_id": null,
+      "status": "CANDIDATE_NONCANONICAL",
+      "visit_scope": "bounded_scene_or_proxy",
+      "proxy_priority": "medium",
+      "services": [
+        "recruit_light",
+        "rest",
+        "supplies"
+      ],
+      "donor": "Modular Viking Village"
+    }
+  ]
+}

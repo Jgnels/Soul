@@ -1,0 +1,35 @@
+{
+  "seed_base": 20260920,
+  "runs_per_scenario": 1000,
+  "baseline_convergence_runs": 2000,
+  "soul_base_commit": "05597a337f06bb1b01de3fc9dbe829b95b4e9e6a",
+  "canonical_head_at_final_verification": "8d9f879e5eb131048bb2e0774f8524771ab30bb0",
+  "canonical_drift_verified": true,
+  "living_strategy_reference_commit": "d82ddcfdf8f76795909934a9983b43025c34f4c2",
+  "branch": "astra/soul-strategy-balance-lab-20260920",
+  "default_recovery_profile": {
+    "delay_days": 3,
+    "retinue_strength": 220,
+    "supply_permille": 700,
+    "readiness_permille": 550,
+    "fatigue_permille": 150,
+    "preserve_regiment_veterancy": false,
+    "same_day_recruitment": false
+  },
+  "scenario_names": [
+    "baseline", "day14_best_army_lost", "ranged_dwelling_free_repair",
+    "ranged_dwelling_costed_repair", "elephant_dwelling_free_repair",
+    "elephant_dwelling_costed_repair", "wealth_two_resources"
+  ],
+  "sensitivity_names": [
+    "map_small", "map_large", "ap_two", "ap_four", "travel_harsh",
+    "resource_income_low", "resource_income_high", "recovery_generous",
+    "recovery_harsh", "day14_loss_comeback50", "day14_loss_comeback70"
+  ],
+  "authority_notes": [
+    "Source/ is read-only for this lane.",
+    "Live-mirror formulas reproduce observed SoulCore integer rules.",
+    "Aggregate battles, recovery glue, and generic roster costs are lab-only assumptions.",
+    "Living Strategy informs strategic candidate/reasoning and commander-memory boundaries."
+  ]
+}

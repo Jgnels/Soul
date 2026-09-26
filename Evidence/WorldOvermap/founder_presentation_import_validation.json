@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "regions": 9,
+  "routes": 10,
+  "directed_approaches": 20,
+  "distinct_shortest_attack_corridors": 3,
+  "initial_fog_counts": {
+    "visible": 2,
+    "explored_not_visible": 0,
+    "unexplored": 7
+  },
+  "battlefield_fidelity_review_regions": [
+    "old_quarry",
+    "river_ford",
+    "forest_edge",
+    "ancient_shrine",
+    "orc_watch",
+    "north_pass"
+  ],
+  "source_integrated_import_sha256": "192e3d0b9c9576dea2e5a9c1dd2508c2df87d2a71b86f3272b6112ff259389e1",
+  "errors": []
+}

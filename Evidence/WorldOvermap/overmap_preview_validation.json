@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "regions": 36,
+  "routes": 51,
+  "founder_regions": 9,
+  "founder_internal_routes": 10,
+  "candidate_sites": 8,
+  "closest_world_marker_pair": {
+    "a": "orc_broken_bridge",
+    "b": "dark_ruined_causeway",
+    "distance_map_units": 60.828
+  },
+  "warnings": [
+    "tight world marker pair: orc_broken_bridge / dark_ruined_causeway at 60.8 map units"
+  ],
+  "errors": []
+}

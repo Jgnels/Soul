@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "run_count": 270,
+  "core_strategies": [
+    "forest_watch",
+    "north_pass",
+    "road_gate"
+  ],
+  "finding_ids": [
+    "encounter_progression_pressure",
+    "equal_day_core_corridors",
+    "forest_resource_tradeoff",
+    "north_pass_incentive_gap",
+    "reinforcement_timing",
+    "route_logistics_gradient",
+    "seven_day_preparation_tradeoff"
+  ],
+  "warnings": [],
+  "errors": []
+}

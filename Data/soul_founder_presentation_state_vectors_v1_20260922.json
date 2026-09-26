@@ -1,0 +1,2304 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "PRESENTATION_QA_FIXTURE_NONAUTHORITATIVE",
+  "source": "soul_founder_slice_presentation_import_v1_20260922.json",
+  "source_sha256": "647af4a8522eafe3d0fea23a518d041a151cce7b79d9ce73fb72105fefcf07c2",
+  "authority": {
+    "campaign_state": "SoulCore remains authoritative",
+    "fixture_role": "expected presentation states for UE QA only",
+    "fog_basis": "current founder visibility pattern: active region plus adjacent regions",
+    "weather": "RB Weather injects runtime state; not frozen here",
+    "save": "RB Save owns persistence"
+  },
+  "presentation_rules": [
+    "Visible regions may show current armies, interactables, and settlement condition.",
+    "Explored-not-visible regions retain terrain/anchor memory but hide current dynamic state.",
+    "Unexplored regions remain obscured.",
+    "Physical routes become remembered when both endpoints have been explored.",
+    "Selectable movement comes only from routes incident to the active region.",
+    "The final adjacent action is a battle commitment, not movement into the enemy stronghold."
+  ],
+  "corridors": [
+    {
+      "corridor_id": "founder_corridor_1",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "visual_signature": "road -> road -> road -> road",
+      "total_actions_to_battle": 4,
+      "states": [
+        {
+          "step": 0,
+          "active_region": "human_capital",
+          "camera_focus_region": "human_capital",
+          "camera_focus_cm": [
+            -320000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 0,
+          "visible_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "known_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_destinations": [
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_human_capital",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 1,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 1,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "river_ford",
+          "planned_route_id": "route.crossroads_river_ford",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 2,
+          "active_region": "river_ford",
+          "camera_focus_region": "river_ford",
+          "camera_focus_cm": [
+            -80000,
+            -85000,
+            0
+          ],
+          "cumulative_travel_actions": 2,
+          "visible_regions": [
+            "crossroads",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "orc_watch",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_river_ford",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_destinations": [
+            "crossroads",
+            "orc_watch"
+          ],
+          "planned_target_region": "orc_watch",
+          "planned_route_id": "route.orc_watch_river_ford",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 3,
+          "active_region": "orc_watch",
+          "camera_focus_region": "orc_watch",
+          "camera_focus_cm": [
+            120000,
+            -65000,
+            12000
+          ],
+          "cumulative_travel_actions": 3,
+          "visible_regions": [
+            "forest_edge",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "crossroads",
+            "human_capital",
+            "old_quarry"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass"
+          ],
+          "live_dynamic_regions": [
+            "forest_edge",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "crossroads",
+            "human_capital",
+            "old_quarry"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_orc_watch",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.forest_edge_orc_watch",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "orc_camp",
+            "river_ford"
+          ],
+          "planned_target_region": "orc_camp",
+          "planned_route_id": "route.orc_camp_orc_watch",
+          "planned_action": "battle_commit",
+          "planned_target_visible_before_action": true,
+          "battle_commit": {
+            "source_region": "orc_watch",
+            "destination_region": "orc_camp",
+            "route_id": "route.orc_camp_orc_watch",
+            "directed_approach_id": "approach.orc_watch.orc_camp",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "battlefield_recipe_id": "orc.war_camp",
+            "battlefield_recipe_status": "UE_COMPOSITE",
+            "dynamic_context_required": [
+              "weather",
+              "time"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "corridor_id": "founder_corridor_2",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "visual_signature": "road -> trail -> trail -> pass",
+      "total_actions_to_battle": 4,
+      "states": [
+        {
+          "step": 0,
+          "active_region": "human_capital",
+          "camera_focus_region": "human_capital",
+          "camera_focus_cm": [
+            -320000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 0,
+          "visible_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "known_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_destinations": [
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_human_capital",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 1,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 1,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "forest_edge",
+          "planned_route_id": "route.crossroads_forest_edge",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 2,
+          "active_region": "forest_edge",
+          "camera_focus_region": "forest_edge",
+          "camera_focus_cm": [
+            -20000,
+            55000,
+            12000
+          ],
+          "cumulative_travel_actions": 2,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "orc_camp"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "memory_only_regions": [
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "orc_camp"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch"
+          ],
+          "selectable_destinations": [
+            "crossroads",
+            "north_pass",
+            "orc_watch"
+          ],
+          "planned_target_region": "north_pass",
+          "planned_route_id": "route.forest_edge_north_pass",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 3,
+          "active_region": "north_pass",
+          "camera_focus_region": "north_pass",
+          "camera_focus_cm": [
+            140000,
+            115000,
+            30000
+          ],
+          "cumulative_travel_actions": 3,
+          "visible_regions": [
+            "forest_edge",
+            "north_pass",
+            "orc_camp"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "crossroads",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine"
+          ],
+          "live_dynamic_regions": [
+            "forest_edge",
+            "north_pass",
+            "orc_camp"
+          ],
+          "memory_only_regions": [
+            "crossroads",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.north_pass_orc_camp",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.forest_edge_north_pass",
+            "route.north_pass_orc_camp"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "orc_camp"
+          ],
+          "planned_target_region": "orc_camp",
+          "planned_route_id": "route.north_pass_orc_camp",
+          "planned_action": "battle_commit",
+          "planned_target_visible_before_action": true,
+          "battle_commit": {
+            "source_region": "north_pass",
+            "destination_region": "orc_camp",
+            "route_id": "route.north_pass_orc_camp",
+            "directed_approach_id": "approach.north_pass.orc_camp",
+            "entry_direction": "north_west",
+            "route_type": "pass",
+            "road": false,
+            "chokepoint": true,
+            "battlefield_recipe_id": "orc.war_camp",
+            "battlefield_recipe_status": "UE_COMPOSITE",
+            "dynamic_context_required": [
+              "weather",
+              "time"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "corridor_id": "founder_corridor_3",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "visual_signature": "road -> trail -> trail -> road",
+      "total_actions_to_battle": 4,
+      "states": [
+        {
+          "step": 0,
+          "active_region": "human_capital",
+          "camera_focus_region": "human_capital",
+          "camera_focus_cm": [
+            -320000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 0,
+          "visible_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "known_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_destinations": [
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_human_capital",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 1,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 1,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "forest_edge",
+          "planned_route_id": "route.crossroads_forest_edge",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 2,
+          "active_region": "forest_edge",
+          "camera_focus_region": "forest_edge",
+          "camera_focus_cm": [
+            -20000,
+            55000,
+            12000
+          ],
+          "cumulative_travel_actions": 2,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "orc_camp"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "memory_only_regions": [
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "orc_camp"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch"
+          ],
+          "selectable_destinations": [
+            "crossroads",
+            "north_pass",
+            "orc_watch"
+          ],
+          "planned_target_region": "orc_watch",
+          "planned_route_id": "route.forest_edge_orc_watch",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 3,
+          "active_region": "orc_watch",
+          "camera_focus_region": "orc_watch",
+          "camera_focus_cm": [
+            120000,
+            -65000,
+            12000
+          ],
+          "cumulative_travel_actions": 3,
+          "visible_regions": [
+            "forest_edge",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "crossroads",
+            "human_capital",
+            "north_pass",
+            "old_quarry"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine"
+          ],
+          "live_dynamic_regions": [
+            "forest_edge",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "crossroads",
+            "human_capital",
+            "north_pass",
+            "old_quarry"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.north_pass_orc_camp",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.forest_edge_orc_watch",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "orc_camp",
+            "river_ford"
+          ],
+          "planned_target_region": "orc_camp",
+          "planned_route_id": "route.orc_camp_orc_watch",
+          "planned_action": "battle_commit",
+          "planned_target_visible_before_action": true,
+          "battle_commit": {
+            "source_region": "orc_watch",
+            "destination_region": "orc_camp",
+            "route_id": "route.orc_camp_orc_watch",
+            "directed_approach_id": "approach.orc_watch.orc_camp",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "battlefield_recipe_id": "orc.war_camp",
+            "battlefield_recipe_status": "UE_COMPOSITE",
+            "dynamic_context_required": [
+              "weather",
+              "time"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "detours": [
+    {
+      "detour_id": "forest_resource_flank",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "total_actions_to_battle": 4,
+      "states": [
+        {
+          "step": 0,
+          "active_region": "human_capital",
+          "camera_focus_region": "human_capital",
+          "camera_focus_cm": [
+            -320000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 0,
+          "visible_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "known_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_destinations": [
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_human_capital",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 1,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 1,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "forest_edge",
+          "planned_route_id": "route.crossroads_forest_edge",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 2,
+          "active_region": "forest_edge",
+          "camera_focus_region": "forest_edge",
+          "camera_focus_cm": [
+            -20000,
+            55000,
+            12000
+          ],
+          "cumulative_travel_actions": 2,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "orc_camp"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "memory_only_regions": [
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "orc_camp"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch"
+          ],
+          "selectable_destinations": [
+            "crossroads",
+            "north_pass",
+            "orc_watch"
+          ],
+          "planned_target_region": "north_pass",
+          "planned_route_id": "route.forest_edge_north_pass",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 3,
+          "active_region": "north_pass",
+          "camera_focus_region": "north_pass",
+          "camera_focus_cm": [
+            140000,
+            115000,
+            30000
+          ],
+          "cumulative_travel_actions": 3,
+          "visible_regions": [
+            "forest_edge",
+            "north_pass",
+            "orc_camp"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "crossroads",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "ancient_shrine"
+          ],
+          "live_dynamic_regions": [
+            "forest_edge",
+            "north_pass",
+            "orc_camp"
+          ],
+          "memory_only_regions": [
+            "crossroads",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "ancient_shrine"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.north_pass_orc_camp",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.forest_edge_north_pass",
+            "route.north_pass_orc_camp"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "orc_camp"
+          ],
+          "planned_target_region": "orc_camp",
+          "planned_route_id": "route.north_pass_orc_camp",
+          "planned_action": "battle_commit",
+          "planned_target_visible_before_action": true,
+          "battle_commit": {
+            "source_region": "north_pass",
+            "destination_region": "orc_camp",
+            "route_id": "route.north_pass_orc_camp",
+            "directed_approach_id": "approach.north_pass.orc_camp",
+            "entry_direction": "north_west",
+            "route_type": "pass",
+            "road": false,
+            "chokepoint": true,
+            "battlefield_recipe_id": "orc.war_camp",
+            "battlefield_recipe_status": "UE_COMPOSITE",
+            "dynamic_context_required": [
+              "weather",
+              "time"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "detour_id": "quarry_resource_loop",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "old_quarry",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "total_actions_to_battle": 6,
+      "states": [
+        {
+          "step": 0,
+          "active_region": "human_capital",
+          "camera_focus_region": "human_capital",
+          "camera_focus_cm": [
+            -320000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 0,
+          "visible_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "known_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_destinations": [
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_human_capital",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 1,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 1,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "old_quarry",
+          "planned_route_id": "route.crossroads_old_quarry",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 2,
+          "active_region": "old_quarry",
+          "camera_focus_region": "old_quarry",
+          "camera_focus_cm": [
+            -110000,
+            145000,
+            30000
+          ],
+          "cumulative_travel_actions": 2,
+          "visible_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "old_quarry"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "old_quarry"
+          ],
+          "memory_only_regions": [
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_old_quarry"
+          ],
+          "selectable_destinations": [
+            "ancient_shrine",
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_old_quarry",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 3,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 3,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "ancient_shrine"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "ancient_shrine"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "river_ford",
+          "planned_route_id": "route.crossroads_river_ford",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 4,
+          "active_region": "river_ford",
+          "camera_focus_region": "river_ford",
+          "camera_focus_cm": [
+            -80000,
+            -85000,
+            0
+          ],
+          "cumulative_travel_actions": 4,
+          "visible_regions": [
+            "crossroads",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "human_capital",
+            "old_quarry"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "orc_watch",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "human_capital",
+            "old_quarry"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_river_ford",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_destinations": [
+            "crossroads",
+            "orc_watch"
+          ],
+          "planned_target_region": "orc_watch",
+          "planned_route_id": "route.orc_watch_river_ford",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 5,
+          "active_region": "orc_watch",
+          "camera_focus_region": "orc_watch",
+          "camera_focus_cm": [
+            120000,
+            -65000,
+            12000
+          ],
+          "cumulative_travel_actions": 5,
+          "visible_regions": [
+            "forest_edge",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "human_capital",
+            "old_quarry"
+          ],
+          "unexplored_regions": [
+            "north_pass"
+          ],
+          "live_dynamic_regions": [
+            "forest_edge",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "human_capital",
+            "old_quarry"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_orc_watch",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.forest_edge_orc_watch",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "orc_camp",
+            "river_ford"
+          ],
+          "planned_target_region": "orc_camp",
+          "planned_route_id": "route.orc_camp_orc_watch",
+          "planned_action": "battle_commit",
+          "planned_target_visible_before_action": true,
+          "battle_commit": {
+            "source_region": "orc_watch",
+            "destination_region": "orc_camp",
+            "route_id": "route.orc_camp_orc_watch",
+            "directed_approach_id": "approach.orc_watch.orc_camp",
+            "entry_direction": "west",
+            "route_type": "road",
+            "road": true,
+            "chokepoint": false,
+            "battlefield_recipe_id": "orc.war_camp",
+            "battlefield_recipe_status": "UE_COMPOSITE",
+            "dynamic_context_required": [
+              "weather",
+              "time"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "detour_id": "shrine_exploration_loop",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "old_quarry",
+        "ancient_shrine",
+        "old_quarry",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "total_actions_to_battle": 8,
+      "states": [
+        {
+          "step": 0,
+          "active_region": "human_capital",
+          "camera_focus_region": "human_capital",
+          "camera_focus_cm": [
+            -320000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 0,
+          "visible_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "human_capital"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "forest_edge",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "known_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_human_capital"
+          ],
+          "selectable_destinations": [
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_human_capital",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 1,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 1,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [],
+          "unexplored_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [],
+          "hidden_anchor_regions": [
+            "ancient_shrine",
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "old_quarry",
+          "planned_route_id": "route.crossroads_old_quarry",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 2,
+          "active_region": "old_quarry",
+          "camera_focus_region": "old_quarry",
+          "camera_focus_cm": [
+            -110000,
+            145000,
+            30000
+          ],
+          "cumulative_travel_actions": 2,
+          "visible_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "old_quarry"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "old_quarry"
+          ],
+          "memory_only_regions": [
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_old_quarry"
+          ],
+          "selectable_destinations": [
+            "ancient_shrine",
+            "crossroads"
+          ],
+          "planned_target_region": "ancient_shrine",
+          "planned_route_id": "route.ancient_shrine_old_quarry",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 3,
+          "active_region": "ancient_shrine",
+          "camera_focus_region": "ancient_shrine",
+          "camera_focus_cm": [
+            20000,
+            175000,
+            30000
+          ],
+          "cumulative_travel_actions": 3,
+          "visible_regions": [
+            "ancient_shrine",
+            "old_quarry"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "ancient_shrine",
+            "old_quarry"
+          ],
+          "memory_only_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.ancient_shrine_old_quarry"
+          ],
+          "selectable_destinations": [
+            "old_quarry"
+          ],
+          "planned_target_region": "old_quarry",
+          "planned_route_id": "route.ancient_shrine_old_quarry",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 4,
+          "active_region": "old_quarry",
+          "camera_focus_region": "old_quarry",
+          "camera_focus_cm": [
+            -110000,
+            145000,
+            30000
+          ],
+          "cumulative_travel_actions": 4,
+          "visible_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "old_quarry"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "old_quarry"
+          ],
+          "memory_only_regions": [
+            "forest_edge",
+            "human_capital",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_old_quarry"
+          ],
+          "selectable_destinations": [
+            "ancient_shrine",
+            "crossroads"
+          ],
+          "planned_target_region": "crossroads",
+          "planned_route_id": "route.crossroads_old_quarry",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 5,
+          "active_region": "crossroads",
+          "camera_focus_region": "crossroads",
+          "camera_focus_cm": [
+            -180000,
+            25000,
+            12000
+          ],
+          "cumulative_travel_actions": 5,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "ancient_shrine"
+          ],
+          "unexplored_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "memory_only_regions": [
+            "ancient_shrine"
+          ],
+          "hidden_anchor_regions": [
+            "north_pass",
+            "orc_camp",
+            "orc_watch"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "planned_target_region": "forest_edge",
+          "planned_route_id": "route.crossroads_forest_edge",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 6,
+          "active_region": "forest_edge",
+          "camera_focus_region": "forest_edge",
+          "camera_focus_cm": [
+            -20000,
+            55000,
+            12000
+          ],
+          "cumulative_travel_actions": 6,
+          "visible_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "ancient_shrine",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "unexplored_regions": [
+            "orc_camp"
+          ],
+          "live_dynamic_regions": [
+            "crossroads",
+            "forest_edge",
+            "north_pass",
+            "orc_watch"
+          ],
+          "memory_only_regions": [
+            "ancient_shrine",
+            "human_capital",
+            "old_quarry",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [
+            "orc_camp"
+          ],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.crossroads_forest_edge",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch"
+          ],
+          "selectable_destinations": [
+            "crossroads",
+            "north_pass",
+            "orc_watch"
+          ],
+          "planned_target_region": "north_pass",
+          "planned_route_id": "route.forest_edge_north_pass",
+          "planned_action": "move",
+          "planned_target_visible_before_action": true
+        },
+        {
+          "step": 7,
+          "active_region": "north_pass",
+          "camera_focus_region": "north_pass",
+          "camera_focus_cm": [
+            140000,
+            115000,
+            30000
+          ],
+          "cumulative_travel_actions": 7,
+          "visible_regions": [
+            "forest_edge",
+            "north_pass",
+            "orc_camp"
+          ],
+          "explored_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "forest_edge",
+            "human_capital",
+            "north_pass",
+            "old_quarry",
+            "orc_camp",
+            "orc_watch",
+            "river_ford"
+          ],
+          "explored_not_visible_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "unexplored_regions": [],
+          "live_dynamic_regions": [
+            "forest_edge",
+            "north_pass",
+            "orc_camp"
+          ],
+          "memory_only_regions": [
+            "ancient_shrine",
+            "crossroads",
+            "human_capital",
+            "old_quarry",
+            "orc_watch",
+            "river_ford"
+          ],
+          "hidden_anchor_regions": [],
+          "known_route_ids": [
+            "route.ancient_shrine_old_quarry",
+            "route.crossroads_forest_edge",
+            "route.crossroads_human_capital",
+            "route.crossroads_old_quarry",
+            "route.crossroads_river_ford",
+            "route.forest_edge_north_pass",
+            "route.forest_edge_orc_watch",
+            "route.north_pass_orc_camp",
+            "route.orc_camp_orc_watch",
+            "route.orc_watch_river_ford"
+          ],
+          "selectable_route_ids": [
+            "route.forest_edge_north_pass",
+            "route.north_pass_orc_camp"
+          ],
+          "selectable_destinations": [
+            "forest_edge",
+            "orc_camp"
+          ],
+          "planned_target_region": "orc_camp",
+          "planned_route_id": "route.north_pass_orc_camp",
+          "planned_action": "battle_commit",
+          "planned_target_visible_before_action": true,
+          "battle_commit": {
+            "source_region": "north_pass",
+            "destination_region": "orc_camp",
+            "route_id": "route.north_pass_orc_camp",
+            "directed_approach_id": "approach.north_pass.orc_camp",
+            "entry_direction": "north_west",
+            "route_type": "pass",
+            "road": false,
+            "chokepoint": true,
+            "battlefield_recipe_id": "orc.war_camp",
+            "battlefield_recipe_status": "UE_COMPOSITE",
+            "dynamic_context_required": [
+              "weather",
+              "time"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "decision_points": [
+    {
+      "region_id": "crossroads",
+      "shortest_corridor_next_choices": [
+        "forest_edge",
+        "river_ford"
+      ],
+      "choice_count": 2,
+      "visible_from_region": [
+        "crossroads",
+        "forest_edge",
+        "human_capital",
+        "old_quarry",
+        "river_ford"
+      ]
+    },
+    {
+      "region_id": "forest_edge",
+      "shortest_corridor_next_choices": [
+        "north_pass",
+        "orc_watch"
+      ],
+      "choice_count": 2,
+      "visible_from_region": [
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_watch"
+      ]
+    }
+  ],
+  "fixture_active_regions": [
+    "ancient_shrine",
+    "crossroads",
+    "forest_edge",
+    "human_capital",
+    "north_pass",
+    "old_quarry",
+    "orc_watch",
+    "river_ford"
+  ],
+  "acceptance_targets": {
+    "corridors": 3,
+    "states_per_corridor": [
+      4
+    ],
+    "detours": 3,
+    "detour_state_counts": [
+      4,
+      6,
+      8
+    ],
+    "decision_points": 2,
+    "founder_regions": 9,
+    "active_fixture_regions": 8,
+    "founder_routes": 10
+  }
+}

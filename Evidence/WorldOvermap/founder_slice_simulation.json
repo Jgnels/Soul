@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "start": "human_capital",
+  "goal": "orc_camp",
+  "final_approach_regions": [
+    "north_pass",
+    "orc_watch"
+  ],
+  "shortest_moves_to_approach": 3,
+  "minimum_actions_including_battle": 4,
+  "shortest_approach_count": 3,
+  "shortest_approaches": [
+    {
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch"
+      ],
+      "final_approach": "orc_watch",
+      "moves": 3,
+      "battle_commit_ap": 1,
+      "total_actions_to_battle": 4,
+      "logistics_cost": 18,
+      "road_edges": 3,
+      "chokepoints": 1,
+      "resource_sites": [],
+      "encounter_regions": [
+        "orc_watch",
+        "river_ford"
+      ],
+      "days_at_3_ap": 2
+    },
+    {
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass"
+      ],
+      "final_approach": "north_pass",
+      "moves": 3,
+      "battle_commit_ap": 1,
+      "total_actions_to_battle": 4,
+      "logistics_cost": 22,
+      "road_edges": 1,
+      "chokepoints": 1,
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "encounter_regions": [
+        "north_pass"
+      ],
+      "days_at_3_ap": 2
+    },
+    {
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch"
+      ],
+      "final_approach": "orc_watch",
+      "moves": 3,
+      "battle_commit_ap": 1,
+      "total_actions_to_battle": 4,
+      "logistics_cost": 22,
+      "road_edges": 1,
+      "chokepoints": 0,
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "encounter_regions": [
+        "orc_watch"
+      ],
+      "days_at_3_ap": 2
+    }
+  ],
+  "resource_detours": {
+    "quarry_resource_loop": {
+      "path": [
+        "human_capital",
+        "crossroads",
+        "old_quarry",
+        "crossroads",
+        "river_ford",
+        "orc_watch"
+      ],
+      "final_approach": "orc_watch",
+      "moves": 5,
+      "battle_commit_ap": 1,
+      "total_actions_to_battle": 6,
+      "logistics_cost": 30,
+      "road_edges": 5,
+      "chokepoints": 1,
+      "resource_sites": [
+        "old_quarry"
+      ],
+      "encounter_regions": [
+        "orc_watch",
+        "river_ford"
+      ],
+      "days_at_3_ap": 2
+    },
+    "forest_resource_flank": {
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass"
+      ],
+      "final_approach": "north_pass",
+      "moves": 3,
+      "battle_commit_ap": 1,
+      "total_actions_to_battle": 4,
+      "logistics_cost": 22,
+      "road_edges": 1,
+      "chokepoints": 1,
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "encounter_regions": [
+        "north_pass"
+      ],
+      "days_at_3_ap": 2
+    },
+    "shrine_exploration_loop": {
+      "path": [
+        "human_capital",
+        "crossroads",
+        "old_quarry",
+        "ancient_shrine",
+        "old_quarry",
+        "crossroads",
+        "forest_edge",
+        "north_pass"
+      ],
+      "final_approach": "north_pass",
+      "moves": 7,
+      "battle_commit_ap": 1,
+      "total_actions_to_battle": 8,
+      "logistics_cost": 50,
+      "road_edges": 3,
+      "chokepoints": 1,
+      "resource_sites": [
+        "forest_edge",
+        "old_quarry"
+      ],
+      "encounter_regions": [
+        "north_pass"
+      ],
+      "days_at_3_ap": 3
+    }
+  },
+  "representative_reveal_sequence": [
+    {
+      "step": 0,
+      "region": "human_capital",
+      "newly_explored": [],
+      "explored_total": 2
+    },
+    {
+      "step": 1,
+      "region": "crossroads",
+      "newly_explored": [
+        "forest_edge",
+        "old_quarry",
+        "river_ford"
+      ],
+      "explored_total": 5
+    },
+    {
+      "step": 2,
+      "region": "river_ford",
+      "newly_explored": [
+        "orc_watch"
+      ],
+      "explored_total": 6
+    },
+    {
+      "step": 3,
+      "region": "orc_watch",
+      "newly_explored": [
+        "orc_camp"
+      ],
+      "explored_total": 7
+    }
+  ],
+  "errors": [],
+  "interpretation": [
+    "Three equal-action founder approaches prevent one mandatory attack lane.",
+    "Road approach minimizes logistics cost; forest/pass routes trade efficiency for terrain.",
+    "Old Quarry and Forest Edge are optional strategic resource decisions, not gates.",
+    "Ancient Shrine is deliberately a deeper hero/magic progression detour.",
+    "Stronghold becomes explored from either final approach before battle commitment."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "summary_cells": 18,
+  "sensitivity_cells": 54,
+  "candidate_700_200_rates": {
+    "river_watch": 0.626,
+    "forest_watch": 0.438,
+    "north_pass": 0.544
+  },
+  "warnings": [],
+  "errors": []
+}

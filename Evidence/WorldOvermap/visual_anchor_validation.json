@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "anchors": 36,
+  "major_settlement_silhouettes": 6,
+  "minor_settlement_proxies": 8,
+  "founder_anchors": 9,
+  "interactive_anchors": 19,
+  "anchor_types": {
+    "chokepoint": 5,
+    "crossing": 2,
+    "landmark": 3,
+    "major_settlement_silhouette": 6,
+    "minor_settlement_proxy": 8,
+    "resource_infrastructure": 2,
+    "resource_landscape": 1,
+    "terrain_landmark": 9
+  },
+  "errors": []
+}

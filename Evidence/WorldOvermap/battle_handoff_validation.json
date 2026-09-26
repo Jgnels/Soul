@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "expected_directed_handoffs": 20,
+  "actual_directed_handoffs": 20,
+  "stronghold_entries": [
+    [
+      "north_pass",
+      "north_west"
+    ],
+    [
+      "orc_watch",
+      "west"
+    ]
+  ],
+  "warnings": [
+    "battle_handoff.crossroads.river_ford: recipe readiness UE_CROP_REQUIRED",
+    "battle_handoff.north_pass.orc_camp: recipe readiness UE_COMPOSITE",
+    "battle_handoff.old_quarry.ancient_shrine: recipe readiness PAYLOAD_PENDING",
+    "battle_handoff.orc_watch.orc_camp: recipe readiness UE_COMPOSITE",
+    "battle_handoff.orc_watch.river_ford: recipe readiness UE_CROP_REQUIRED"
+  ],
+  "errors": []
+}

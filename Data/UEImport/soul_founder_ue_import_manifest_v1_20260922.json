@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "UE_STAGING_NONAUTHORITATIVE",
+  "authority": "SoulCore / source JSON contracts remain authoritative; CSVs are import staging only",
+  "sources": {
+    "soul_founder_slice_presentation_import_v1_20260922.json": "647af4a8522eafe3d0fea23a518d041a151cce7b79d9ce73fb72105fefcf07c2",
+    "soul_founder_presentation_state_vectors_v1_20260922.json": "2603fa939465a122d8b946b4653643128ec2e99e4643a67803895d561aeb4da0",
+    "soul_world_overmap_v1_20260922.json": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+    "soul_overmap_settlement_slots_v1_20260922.json": "c9bb4005915587af6a8763c8dc43248cb272bd6ec797a7724cd833d219296ae4",
+    "soul_overmap_surface_bindings_v1_20260922.json": "bbe3741c3bab793a72af62b430e6dd69872d51cb7d5b395f615c8034b4bb2272"
+  },
+  "import_order": [
+    "regions",
+    "routes",
+    "settlements",
+    "surface_zones",
+    "approaches",
+    "presentation_states"
+  ],
+  "counts": {
+    "regions": 9,
+    "routes": 10,
+    "approaches": 20,
+    "presentation_states": 30,
+    "settlements": 3,
+    "surface_zones": 9
+  },
+  "files": {
+    "soul_founder_regions_v1_20260922.csv": "f5e1eb780c850a530ad490c37f1e32c4c189b78f94ff624924cc93864010e8c9",
+    "soul_founder_routes_v1_20260922.csv": "7ca3fe92b91ec09471aad66e3bd83d5b337583fe28d8b2ba61d92f6c0404aa2c",
+    "soul_founder_approaches_v1_20260922.csv": "688c2cbfa64b1f5c48f428700fe486f07cd3c3e26afbabc0812d7f7e4b7a737b",
+    "soul_founder_presentation_states_v1_20260922.csv": "4a985f5627fd61f9cfa2726aaffc9c66a1f3a9ddb2481056f1f4636855d2dfbe",
+    "soul_founder_settlements_v1_20260922.csv": "a32da4c726cb58c3d78e9e83629288efc79af865e7ecab965b6eb15ff3db4645",
+    "soul_founder_surface_zones_v1_20260922.csv": "002c7e97e67a68a754c941295a7c6ef319b55f8595a7eab964117e412873e614"
+  },
+  "array_encoding": "pipe-delimited stable IDs inside CSV fields"
+}

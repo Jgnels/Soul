@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "major_slots": 6,
+  "minor_candidate_slots": 8,
+  "minor_by_affinity": {
+    "dark": 1,
+    "dwarves": 1,
+    "humans": 1,
+    "nature": 1,
+    "neutral": 2,
+    "orcs": 1,
+    "vikings": 1
+  },
+  "world_regions_unchanged": 36,
+  "errors": []
+}

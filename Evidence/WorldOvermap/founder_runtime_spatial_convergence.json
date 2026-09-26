@@ -1,0 +1,307 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "READ_ONLY_SPATIAL_CONVERGENCE_ANALYSIS",
+  "authority": {
+    "accepted_layout": "Data/UEImport/soul_founder_import_bundle_v2_20260922.json",
+    "candidate_layout": "D:\\RefinedBadger\\Games\\Soul\\Source\\Soul\\Private\\SoulFounderPlaytestCampaignActor.cpp",
+    "candidate_authority": "UNTRACKED_DIRTY_PRIMARY_PROTOTYPE_NOT_CANONICAL"
+  },
+  "candidate_sha256": "1e6d5637418b2e0350cbfdb7b847f4a73acb445723a078d27064f3ec95da2746",
+  "fit": {
+    "model": "reflected_2d_similarity",
+    "equations": {
+      "accepted_x": "a*candidate_x + b*candidate_y + tx",
+      "accepted_y": "b*candidate_x - a*candidate_y + ty"
+    },
+    "a": 93.7477302989953,
+    "b": -3.1231085824960667,
+    "translation_x_cm": -36596.0537465198,
+    "translation_y_cm": 10208.812492434332,
+    "uniform_scale": 93.79973743796525,
+    "orientation_angle_deg": 1.9080439258281612,
+    "reflection": true,
+    "rms_error_cm": 19894.711357726785,
+    "max_region_error_cm": 33712.06771989371,
+    "accepted_span_cm": 653911.3089708725,
+    "rms_error_pct_world_span": 3.0424173866999085,
+    "max_error_pct_world_span": 5.155449562869597
+  },
+  "regions": [
+    {
+      "region_id": "ancient_shrine",
+      "candidate_xy": [
+        700.0,
+        -2100.0
+      ],
+      "transformed_candidate_xy": [
+        35585.885,
+        204892.87
+      ],
+      "accepted_xy": [
+        20000.0,
+        175000.0
+      ],
+      "error_cm": 33712.068
+    },
+    {
+      "region_id": "crossroads",
+      "candidate_xy": [
+        -1600.0,
+        0.0
+      ],
+      "transformed_candidate_xy": [
+        -186592.422,
+        15205.786
+      ],
+      "accepted_xy": [
+        -180000.0,
+        25000.0
+      ],
+      "error_cm": 11806.213
+    },
+    {
+      "region_id": "forest_edge",
+      "candidate_xy": [
+        200.0,
+        -500.0
+      ],
+      "transformed_candidate_xy": [
+        -16284.953,
+        56458.056
+      ],
+      "accepted_xy": [
+        -20000.0,
+        55000.0
+      ],
+      "error_cm": 3990.927
+    },
+    {
+      "region_id": "human_capital",
+      "candidate_xy": [
+        -3000.0,
+        0.0
+      ],
+      "transformed_candidate_xy": [
+        -317839.245,
+        19578.138
+      ],
+      "accepted_xy": [
+        -320000.0,
+        25000.0
+      ],
+      "error_cm": 5836.561
+    },
+    {
+      "region_id": "north_pass",
+      "candidate_xy": [
+        1700.0,
+        -1300.0
+      ],
+      "transformed_candidate_xy": [
+        126835.129,
+        126771.577
+      ],
+      "accepted_xy": [
+        140000.0,
+        115000.0
+      ],
+      "error_cm": 17660.234
+    },
+    {
+      "region_id": "old_quarry",
+      "candidate_xy": [
+        -700.0,
+        -1500.0
+      ],
+      "transformed_candidate_xy": [
+        -97534.802,
+        153016.584
+      ],
+      "accepted_xy": [
+        -110000.0,
+        145000.0
+      ],
+      "error_cm": 14820.485
+    },
+    {
+      "region_id": "orc_camp",
+      "candidate_xy": [
+        3100.0,
+        0.0
+      ],
+      "transformed_candidate_xy": [
+        254021.91,
+        527.176
+      ],
+      "accepted_xy": [
+        280000.0,
+        15000.0
+      ],
+      "error_cm": 29737.582
+    },
+    {
+      "region_id": "orc_watch",
+      "candidate_xy": [
+        1600.0,
+        800.0
+      ],
+      "transformed_candidate_xy": [
+        110901.828,
+        -69786.345
+      ],
+      "accepted_xy": [
+        120000.0,
+        -65000.0
+      ],
+      "error_cm": 10280.362
+    },
+    {
+      "region_id": "river_ford",
+      "candidate_xy": [
+        -200.0,
+        1200.0
+      ],
+      "transformed_candidate_xy": [
+        -59093.33,
+        -101663.842
+      ],
+      "accepted_xy": [
+        -80000.0,
+        -85000.0
+      ],
+      "error_cm": 26735.229
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "route.ancient_shrine_old_quarry",
+      "transformed_candidate_length_cm": 142871.504,
+      "accepted_length_cm": 133416.641,
+      "delta_cm": 9454.863,
+      "ratio": 1.070867,
+      "relative_error_pct": 7.087
+    },
+    {
+      "route_id": "route.crossroads_forest_edge",
+      "transformed_candidate_length_cm": 175232.371,
+      "accepted_length_cm": 162788.206,
+      "delta_cm": 12444.165,
+      "ratio": 1.076444,
+      "relative_error_pct": 7.644
+    },
+    {
+      "route_id": "route.crossroads_human_capital",
+      "transformed_candidate_length_cm": 131319.632,
+      "accepted_length_cm": 140000.0,
+      "delta_cm": -8680.368,
+      "ratio": 0.937997,
+      "relative_error_pct": 6.2
+    },
+    {
+      "route_id": "route.crossroads_old_quarry",
+      "transformed_candidate_length_cm": 164082.527,
+      "accepted_length_cm": 138924.44,
+      "delta_cm": 25158.087,
+      "ratio": 1.181092,
+      "relative_error_pct": 18.109
+    },
+    {
+      "route_id": "route.crossroads_river_ford",
+      "transformed_candidate_length_cm": 172958.17,
+      "accepted_length_cm": 148660.687,
+      "delta_cm": 24297.482,
+      "ratio": 1.163443,
+      "relative_error_pct": 16.344
+    },
+    {
+      "route_id": "route.forest_edge_north_pass",
+      "transformed_candidate_length_cm": 159459.554,
+      "accepted_length_cm": 170880.075,
+      "delta_cm": -11420.521,
+      "ratio": 0.933166,
+      "relative_error_pct": 6.683
+    },
+    {
+      "route_id": "route.forest_edge_orc_watch",
+      "transformed_candidate_length_cm": 179204.147,
+      "accepted_length_cm": 184390.889,
+      "delta_cm": -5186.742,
+      "ratio": 0.971871,
+      "relative_error_pct": 2.813
+    },
+    {
+      "route_id": "route.north_pass_orc_camp",
+      "transformed_candidate_length_cm": 179204.147,
+      "accepted_length_cm": 172046.505,
+      "delta_cm": 7157.641,
+      "ratio": 1.041603,
+      "relative_error_pct": 4.16
+    },
+    {
+      "route_id": "route.orc_camp_orc_watch",
+      "transformed_candidate_length_cm": 159459.554,
+      "accepted_length_cm": 178885.438,
+      "delta_cm": -19425.885,
+      "ratio": 0.891406,
+      "relative_error_pct": 10.859
+    },
+    {
+      "route_id": "route.orc_watch_river_ford",
+      "transformed_candidate_length_cm": 172958.17,
+      "accepted_length_cm": 200997.512,
+      "delta_cm": -28039.343,
+      "ratio": 0.860499,
+      "relative_error_pct": 13.95
+    }
+  ],
+  "route_error": {
+    "mean_absolute_length_delta_cm": 15126.5097,
+    "max_relative_length_error_pct": 18.109,
+    "worst_routes": [
+      {
+        "route_id": "route.crossroads_old_quarry",
+        "transformed_candidate_length_cm": 164082.527,
+        "accepted_length_cm": 138924.44,
+        "delta_cm": 25158.087,
+        "ratio": 1.181092,
+        "relative_error_pct": 18.109
+      },
+      {
+        "route_id": "route.crossroads_river_ford",
+        "transformed_candidate_length_cm": 172958.17,
+        "accepted_length_cm": 148660.687,
+        "delta_cm": 24297.482,
+        "ratio": 1.163443,
+        "relative_error_pct": 16.344
+      },
+      {
+        "route_id": "route.orc_watch_river_ford",
+        "transformed_candidate_length_cm": 172958.17,
+        "accepted_length_cm": 200997.512,
+        "delta_cm": -28039.343,
+        "ratio": 0.860499,
+        "relative_error_pct": 13.95
+      }
+    ]
+  },
+  "interpretation": [
+    "The candidate and accepted layouts share the same topology and are strongly related by one reflected uniform-scale transform.",
+    "The fit is close enough to reuse the prototype's interaction/camera concepts rather than rebuild them from scratch.",
+    "The remaining local deviations are large enough that accepted v2 region coordinates and route splines should replace candidate hardcoded positions rather than applying the best-fit transform at runtime.",
+    "No candidate source file was modified by this analysis."
+  ],
+  "migration_recommendation": {
+    "reuse": [
+      "region actor interaction model",
+      "campaign camera/input concepts after qualification",
+      "existing nine-node runtime identifiers"
+    ],
+    "replace_from_import_bundle": [
+      "hardcoded RegionPositions coordinates",
+      "hardcoded connection presentation geometry",
+      "region biome/landform/feature metadata"
+    ],
+    "do_not_make_canonical": "best-fit transform; it is migration evidence only"
+  }
+}

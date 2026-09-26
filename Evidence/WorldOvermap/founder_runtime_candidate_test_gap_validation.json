@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "audit_snapshot_valid": true,
+  "candidate_snapshot_unchanged": true,
+  "master_gate_eligible": false,
+  "critical_missing": [
+    "battle_result_applies_actual_destination",
+    "hostile_nonsettlement_entry_blocks_occupation"
+  ],
+  "warnings": [],
+  "errors": []
+}

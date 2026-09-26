@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1020" role="img">
+<title>Soul strategic overmap planning preview - 36 regions</title>
+<style>text{font-family:Segoe UI,Arial,sans-serif}.label{font-size:16px;font-weight:600;paint-order:stroke;stroke:#fff;stroke-width:4px}.small{font-size:11px}.candidate{font-size:9px;font-weight:700}</style>
+<rect x="0" y="0" width="100%" height="100%" fill="#f3f0e8"/>
+<polygon points="85,105 495,105 560,305 430,365 120,345" fill="#dce8ee" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="495,105 990,110 995,400 725,425 560,305" fill="#d8d5cf" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="95,340 635,335 650,670 215,720 85,615" fill="#dfe8c8" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="615,380 1000,380 1010,725 750,760 625,620" fill="#e6cfb5" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="85,620 570,645 595,960 85,960" fill="#c9dfc1" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="545,650 1010,675 1020,960 560,960" fill="#d2c7c3" fill-opacity="0.72" stroke="#ffffff" stroke-width="3"/>
+<polygon points="90,630 490,645 540,940 100,960" fill="#5f8a55" fill-opacity="0.20" stroke="#4f7348" stroke-width="2" stroke-dasharray="6 5"/>
+<polyline points="545,295 510,420 495,560 460,620 405,780 370,900" fill="none" stroke="#4d88a8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+<polyline points="680,325 720,460 730,620 760,720" fill="none" stroke="#4d88a8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+<polyline points="480,145 560,240 650,310 740,310 890,210 970,170" fill="none" stroke="#726e69" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.22"/>
+<polyline points="480,145 560,240 650,310 740,310 890,210 970,170" fill="none" stroke="#66615d" stroke-width="3" stroke-dasharray="5 8" opacity="0.65"/>
+<line id="route.ancient_shrine_mountain_shrine" x1="540" y1="290" x2="560" y2="360" stroke="#6f6a63" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="7 6"/>
+<line id="route.ancient_shrine_old_quarry" x1="430" y1="390" x2="560" y2="360" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.coastal_ruins_human_capital" x1="220" y1="510" x2="140" y2="660" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.coastal_ruins_nature_shrine" x1="140" y1="660" x2="300" y2="700" stroke="#7a6749" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.crossroads_forest_edge" x1="360" y1="510" x2="520" y2="480" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.crossroads_human_capital" x1="220" y1="510" x2="360" y2="510" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.crossroads_old_quarry" x1="360" y1="510" x2="430" y2="390" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.crossroads_river_ford" x1="360" y1="510" x2="460" y2="620" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dark_ash_plain_dark_corrupted_valley" x1="660" y1="800" x2="770" y2="900" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.dark_ash_plain_dark_fortress" x1="770" y1="900" x2="940" y2="900" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dark_castle_approach_dark_fortress" x1="880" y1="820" x2="940" y2="900" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<circle cx="910.0" cy="860.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.dark_castle_approach_dark_ruined_causeway" x1="770" y1="780" x2="880" y2="820" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dark_corrupted_valley_dark_ruined_causeway" x1="660" y1="800" x2="770" y2="780" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.dark_corrupted_valley_southern_crossing" x1="560" y1="760" x2="660" y2="800" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dark_ruined_causeway_orc_broken_bridge" x1="760" y1="720" x2="770" y2="780" stroke="#77634c" stroke-width="6" stroke-linecap="round" opacity="0.72" stroke-dasharray="4 3"/>
+<circle cx="765.0" cy="750.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.dwarf_forge_approach_dwarf_high_quarry" x1="680" y1="190" x2="780" y2="260" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dwarf_forge_approach_dwarf_hold" x1="780" y1="260" x2="890" y2="210" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dwarf_forge_approach_north_pass" x1="780" y1="260" x2="680" y2="420" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<circle cx="730.0" cy="340.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.dwarf_high_quarry_dwarf_mountain_pass" x1="660" y1="320" x2="680" y2="190" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.dwarf_high_quarry_dwarf_snow_basin" x1="680" y1="190" x2="800" y2="150" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.dwarf_hold_dwarf_snow_basin" x1="800" y1="150" x2="890" y2="210" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<circle cx="845.0" cy="180.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.dwarf_mountain_pass_mountain_shrine" x1="540" y1="290" x2="660" y2="320" stroke="#60584d" stroke-width="5" stroke-linecap="round" opacity="0.72" stroke-dasharray="5 4"/>
+<circle cx="600.0" cy="305.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.dwarf_mountain_pass_north_pass" x1="660" y1="320" x2="680" y2="420" stroke="#60584d" stroke-width="5" stroke-linecap="round" opacity="0.72" stroke-dasharray="5 4"/>
+<circle cx="670.0" cy="370.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.forest_edge_north_pass" x1="520" y1="480" x2="680" y2="420" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<circle cx="600.0" cy="450.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.forest_edge_orc_watch" x1="520" y1="480" x2="660" y2="600" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.human_capital_northwest_march" x1="255" y1="375" x2="220" y2="510" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.mountain_shrine_viking_snow_pass" x1="440" y1="230" x2="540" y2="290" stroke="#60584d" stroke-width="5" stroke-linecap="round" opacity="0.72" stroke-dasharray="5 4"/>
+<circle cx="490.0" cy="260.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.nature_forest_clearing_nature_river_woodland" x1="320" y1="810" x2="370" y2="900" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.nature_forest_clearing_nature_shrine" x1="300" y1="700" x2="320" y2="810" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.nature_forest_clearing_nature_treehold" x1="320" y1="810" x2="190" y2="860" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.nature_grassland_edge_nature_river_woodland" x1="440" y1="750" x2="370" y2="900" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.nature_grassland_edge_nature_shrine" x1="300" y1="700" x2="440" y2="750" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.nature_grassland_edge_river_ford" x1="440" y1="750" x2="460" y2="620" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.nature_grassland_edge_southern_crossing" x1="440" y1="750" x2="560" y2="760" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.nature_river_woodland_nature_treehold" x1="370" y1="900" x2="190" y2="860" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.north_pass_orc_camp" x1="680" y1="420" x2="820" y2="520" stroke="#60584d" stroke-width="5" stroke-linecap="round" opacity="0.72" stroke-dasharray="5 4"/>
+<circle cx="750.0" cy="470.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.north_pass_orc_war_camp" x1="680" y1="420" x2="900" y2="460" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.northwest_march_viking_forest_track" x1="300" y1="280" x2="255" y2="375" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.orc_badlands_orc_camp" x1="820" y1="520" x2="920" y2="570" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.orc_badlands_orc_ruined_field" x1="920" y1="570" x2="780" y2="660" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.orc_broken_bridge_orc_ruined_field" x1="780" y1="660" x2="760" y2="720" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<circle cx="770.0" cy="690.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.orc_broken_bridge_southern_crossing" x1="560" y1="760" x2="760" y2="720" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.orc_camp_orc_war_camp" x1="820" y1="520" x2="900" y2="460" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.orc_camp_orc_watch" x1="660" y1="600" x2="820" y2="520" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.orc_ruined_field_orc_watch" x1="660" y1="600" x2="780" y2="660" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<line id="route.orc_watch_river_ford" x1="460" y1="620" x2="660" y2="600" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<circle cx="560.0" cy="610.0" r="7" fill="#f3f0e8" stroke="#4a4139" stroke-width="3"/>
+<line id="route.river_ford_southern_crossing" x1="460" y1="620" x2="560" y2="760" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.viking_fjord_ridge_viking_harbour" x1="160" y1="200" x2="290" y2="160" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.viking_fjord_ridge_viking_snow_pass" x1="290" y1="160" x2="440" y2="230" stroke="#786d5d" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="6 5"/>
+<line id="route.viking_forest_track_viking_harbour" x1="160" y1="200" x2="300" y2="280" stroke="#8c6f48" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+<line id="route.viking_forest_track_viking_snow_pass" x1="300" y1="280" x2="440" y2="230" stroke="#776e60" stroke-width="4" stroke-linecap="round" opacity="0.72" stroke-dasharray="9 7"/>
+<circle id="region-dwarf_snow_basin" cx="800" cy="150" r="8" fill="#fffdf7" stroke="#73553b" stroke-width="4"/>
+<text x="814" y="142" text-anchor="start" class="label">Snow Basin</text>
+<text x="814" y="158" text-anchor="start" class="small">frozen forge vent/standing stone</text>
+<circle id="region-viking_fjord_ridge" cx="290" cy="160" r="8" fill="#fffdf7" stroke="#4e6f83" stroke-width="4"/>
+<text x="304" y="152" text-anchor="start" class="label">Fjord Ridge</text>
+<text x="304" y="168" text-anchor="start" class="small">cliff overlook</text>
+<circle id="region-dwarf_high_quarry" cx="680" cy="190" r="8" fill="#fffdf7" stroke="#73553b" stroke-width="4"/>
+<text x="694" y="182" text-anchor="start" class="label">High Quarry</text>
+<text x="694" y="198" text-anchor="start" class="small">terraced quarry face and ore handling</text>
+<circle cx="680" cy="190" r="20" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="698" y="213" text-anchor="start" class="candidate" fill="#704817">+CC candidate</text>
+<rect id="region-viking_harbour" x="146" y="186" width="28" height="28" rx="3" fill="#fffdf7" stroke="#4e6f83" stroke-width="4"/>
+<text x="174" y="192" text-anchor="start" class="label">Viking Harbour</text>
+<text x="174" y="208" text-anchor="start" class="small">Viking Harbour</text>
+<rect id="region-dwarf_hold" x="876" y="196" width="28" height="28" rx="3" fill="#fffdf7" stroke="#73553b" stroke-width="4"/>
+<text x="876" y="202" text-anchor="end" class="label">Dwarf Hold</text>
+<text x="876" y="218" text-anchor="end" class="small">Dwarf Hold</text>
+<polygon id="region-viking_snow_pass" points="440,219 451,230 440,241 429,230" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="454" y="222" text-anchor="start" class="label">Snow Pass</text>
+<text x="454" y="238" text-anchor="start" class="small">rock needle, cairn or pass gate</text>
+<circle id="region-dwarf_forge_approach" cx="780" cy="260" r="11" fill="#fffdf7" stroke="#73553b" stroke-width="4"/>
+<text x="794" y="252" text-anchor="start" class="label">Forge Approach</text>
+<text x="794" y="268" text-anchor="start" class="small">forge_outpost</text>
+<circle id="region-viking_forest_track" cx="300" cy="280" r="11" fill="#fffdf7" stroke="#4e6f83" stroke-width="4"/>
+<text x="314" y="272" text-anchor="start" class="label">Forest Track</text>
+<text x="314" y="288" text-anchor="start" class="small">village</text>
+<circle id="region-mountain_shrine" cx="540" cy="290" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="554" y="282" text-anchor="start" class="label">Mountain Shrine</text>
+<text x="554" y="298" text-anchor="start" class="small">mountain shrine / sanctuary</text>
+<circle cx="540" cy="290" r="20" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="558" y="313" text-anchor="start" class="candidate" fill="#704817">+MD candidate</text>
+<polygon id="region-dwarf_mountain_pass" points="660,309 671,320 660,331 649,320" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="674" y="312" text-anchor="start" class="label">Mountain Pass</text>
+<text x="674" y="328" text-anchor="start" class="small">stone gateway/quarry cut</text>
+<circle id="region-ancient_shrine" cx="560" cy="360" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="560" cy="360" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="574" y="352" text-anchor="start" class="label">Ancient Shrine</text>
+<text x="574" y="368" text-anchor="start" class="small">ancient shrine / altar</text>
+<circle cx="560" cy="360" r="20" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="578" y="383" text-anchor="start" class="candidate" fill="#704817">+LS candidate</text>
+<circle id="region-northwest_march" cx="255" cy="375" r="11" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="269" y="367" text-anchor="start" class="label">Northwest March</text>
+<text x="269" y="383" text-anchor="start" class="small">trade_post</text>
+<circle cx="255" cy="375" r="23" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="273" y="398" text-anchor="start" class="candidate" fill="#704817">+OW candidate</text>
+<circle id="region-old_quarry" cx="430" cy="390" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="430" cy="390" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="444" y="382" text-anchor="start" class="label">Old Quarry</text>
+<text x="444" y="398" text-anchor="start" class="small">quarry cut, ore carts and exposed stone</text>
+<polygon id="region-north_pass" points="680,409 691,420 680,431 669,420" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="680" cy="420" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="694" y="412" text-anchor="start" class="label">North Pass</text>
+<text x="694" y="428" text-anchor="start" class="small">rock needle, cairn or pass gate</text>
+<circle id="region-orc_war_camp" cx="900" cy="460" r="11" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<text x="886" y="452" text-anchor="end" class="label">War Camp</text>
+<text x="886" y="468" text-anchor="end" class="small">war_camp</text>
+<circle cx="900" cy="460" r="23" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="882" y="483" text-anchor="end" class="candidate" fill="#704817">+MFC candidate</text>
+<circle id="region-forest_edge" cx="520" cy="480" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="520" cy="480" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="534" y="472" text-anchor="start" class="label">Forest Edge</text>
+<text x="534" y="488" text-anchor="start" class="small">distinct treeline / woodland resource edge</text>
+<rect id="region-human_capital" x="206" y="496" width="28" height="28" rx="3" fill="#fffdf7" stroke="#315b8a" stroke-width="4"/>
+<circle cx="220" cy="510" r="21" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="234" y="502" text-anchor="start" class="label">Human Capital</text>
+<text x="234" y="518" text-anchor="start" class="small">Human Capital</text>
+<circle id="region-crossroads" cx="360" cy="510" r="11" fill="#fffdf7" stroke="#315b8a" stroke-width="4"/>
+<circle cx="360" cy="510" r="18" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="374" y="502" text-anchor="start" class="label">Crossroads</text>
+<text x="374" y="518" text-anchor="start" class="small">market_town</text>
+<rect id="region-orc_camp" x="806" y="506" width="28" height="28" rx="3" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<circle cx="820" cy="520" r="21" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="806" y="512" text-anchor="end" class="label">Orc Stronghold</text>
+<text x="806" y="528" text-anchor="end" class="small">Orc Stronghold</text>
+<circle id="region-orc_badlands" cx="920" cy="570" r="8" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<text x="906" y="562" text-anchor="end" class="label">Badlands</text>
+<text x="906" y="578" text-anchor="end" class="small">mesa pillar / gully edge</text>
+<circle cx="920" cy="570" r="20" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="902" y="593" text-anchor="end" class="candidate" fill="#704817">+DG candidate</text>
+<circle cx="920" cy="570" r="24" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="902" y="606" text-anchor="end" class="candidate" fill="#704817">+RC candidate</text>
+<circle id="region-orc_watch" cx="660" cy="600" r="8" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<circle cx="660" cy="600" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="674" y="592" text-anchor="start" class="label">Orc Watch</text>
+<text x="674" y="608" text-anchor="start" class="small">mesa pillar</text>
+<circle id="region-river_ford" cx="460" cy="620" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<circle cx="460" cy="620" r="15" fill="none" stroke="#171717" stroke-width="2" opacity="0.75"/>
+<text x="474" y="612" text-anchor="start" class="label">River Ford</text>
+<text x="474" y="628" text-anchor="start" class="small">visible ford / crossing geometry</text>
+<circle id="region-coastal_ruins" cx="140" cy="660" r="11" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="154" y="652" text-anchor="start" class="label">Coastal Ruins</text>
+<text x="154" y="668" text-anchor="start" class="small">ruined_settlement</text>
+<circle id="region-orc_ruined_field" cx="780" cy="660" r="8" fill="#fffdf7" stroke="#6d7131" stroke-width="4"/>
+<text x="794" y="652" text-anchor="start" class="label">Ruined Field</text>
+<text x="794" y="668" text-anchor="start" class="small">collapsed church/tower</text>
+<circle id="region-nature_shrine" cx="300" cy="700" r="8" fill="#fffdf7" stroke="#3e7250" stroke-width="4"/>
+<text x="314" y="692" text-anchor="start" class="label">Forest Shrine</text>
+<text x="314" y="708" text-anchor="start" class="small">ancient shrine / altar</text>
+<polygon id="region-orc_broken_bridge" points="760,709 771,720 760,731 749,720" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="774" y="712" text-anchor="start" class="label">Broken Bridge</text>
+<text x="774" y="728" text-anchor="start" class="small">collapsed bridge silhouette</text>
+<circle id="region-nature_grassland_edge" cx="440" cy="750" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="454" y="742" text-anchor="start" class="label">Grassland Edge</text>
+<text x="454" y="758" text-anchor="start" class="small">stone circle / solitary great tree</text>
+<circle id="region-southern_crossing" cx="560" cy="760" r="8" fill="#fffdf7" stroke="#555555" stroke-width="4"/>
+<text x="574" y="752" text-anchor="start" class="label">Southern Crossing</text>
+<text x="574" y="768" text-anchor="start" class="small">road-and-river crossing marker</text>
+<circle cx="560" cy="760" r="20" fill="none" stroke="#8e5f26" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.9"/>
+<text x="578" y="783" text-anchor="start" class="candidate" fill="#704817">+ACS candidate</text>
+<polygon id="region-dark_ruined_causeway" points="770,769 781,780 770,791 759,780" fill="#fffdf7" stroke="#5e405f" stroke-width="4"/>
+<text x="784" y="772" text-anchor="start" class="label">Ruined Causeway</text>
+<text x="784" y="788" text-anchor="start" class="small">ruined gatehouse/causeway</text>
+<circle id="region-dark_corrupted_valley" cx="660" cy="800" r="8" fill="#fffdf7" stroke="#5e405f" stroke-width="4"/>
+<text x="674" y="792" text-anchor="start" class="label">Corrupted Valley</text>
+<text x="674" y="808" text-anchor="start" class="small">ritual stone / dead tree</text>
+<circle id="region-nature_forest_clearing" cx="320" cy="810" r="11" fill="#fffdf7" stroke="#3e7250" stroke-width="4"/>
+<text x="334" y="802" text-anchor="start" class="label">Forest Clearing</text>
+<text x="334" y="818" text-anchor="start" class="small">grove_village</text>
+<circle id="region-dark_castle_approach" cx="880" cy="820" r="11" fill="#fffdf7" stroke="#5e405f" stroke-width="4"/>
+<text x="866" y="812" text-anchor="end" class="label">Castle Approach</text>
+<text x="866" y="828" text-anchor="end" class="small">ward_bastion</text>
+<rect id="region-nature_treehold" x="176" y="846" width="28" height="28" rx="3" fill="#fffdf7" stroke="#3e7250" stroke-width="4"/>
+<text x="204" y="852" text-anchor="start" class="label">Nature Treehold</text>
+<text x="204" y="868" text-anchor="start" class="small">Nature Treehold</text>
+<circle id="region-nature_river_woodland" cx="370" cy="900" r="8" fill="#fffdf7" stroke="#3e7250" stroke-width="4"/>
+<text x="384" y="892" text-anchor="start" class="label">River Woodland</text>
+<text x="384" y="908" text-anchor="start" class="small">wood/natural bridge</text>
+<circle id="region-dark_ash_plain" cx="770" cy="900" r="8" fill="#fffdf7" stroke="#5e405f" stroke-width="4"/>
+<text x="784" y="892" text-anchor="start" class="label">Ash Plain</text>
+<text x="784" y="908" text-anchor="start" class="small">black monolith / ruined altar</text>
+<rect id="region-dark_fortress" x="926" y="886" width="28" height="28" rx="3" fill="#fffdf7" stroke="#5e405f" stroke-width="4"/>
+<text x="926" y="892" text-anchor="end" class="label">Dark Fortress</text>
+<text x="926" y="908" text-anchor="end" class="small">Dark Fortress</text>
+<text x="0" y="0" opacity="0">Soul strategic overmap planning preview - 36 regions</text>
+</svg>

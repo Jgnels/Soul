@@ -1,0 +1,351 @@
+"""Build Soul's owned battlefield-environment expansion candidate registry."""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+WORLD = json.loads((ROOT / "Data" / "soul_world_overmap_v1_20260922.json").read_text(encoding="utf-8"))
+OUT = ROOT / "Data" / "soul_battlefield_environment_expansion_v1_20260922.json"
+
+POLICY = {
+    "prebuilt_environment_rule": (
+        "If an owned showcase map already provides strong tactical geometry, preserve and qualify it "
+        "as a direct battlefield donor before rebuilding the scene from components."
+    ),
+    "donor_safety": "Wrap, crop, stream or duplicate into Soul-owned content; do not destructively modify vendor donor maps.",
+    "fallback_order": [
+        "direct_showcase_map",
+        "bounded_crop_or_wrapper",
+        "showcase_plus_tactical_overlay",
+        "modular_asset_recomposition",
+        "bespoke_environment_last",
+    ],
+    "qualification_gates": [
+        "usable combat footprint and two deployment zones",
+        "ground collision and navigation/pathing",
+        "camera and ranged sightline viability",
+        "strategic landmark/context remains recognizable",
+        "48-active-combatant baseline performance",
+        "RB Optimization applied before bespoke optimization",
+    ],
+}
+ACTIVE = [
+    {
+        "id": "dragon_graveyard",
+        "title": "Dragon Graveyard",
+        "fab_listing_id": None,
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "PROJECT_INSTALLED",
+        "integration_class": "direct_battlefield",
+        "priority": 1,
+        "source": {
+            "asset_project": r"D:\Unreal Projects\AoEAssetRenderLab",
+            "content_root": "/Game/Dragon_graveyard",
+            "showcase_maps": [
+                "/Game/Dragon_graveyard/Level/L_showcase_level",
+                "/Game/Dragon_graveyard/Level/L_assets_showcase",
+            ],
+        },
+        "strategic_binding": {
+            "site_kind": "mythic_landmark",
+            "existing_region_candidate": "orc_badlands",
+            "topology_change": False,
+            "variant_not_default": True,
+        },
+        "battlefield": {
+            "proposed_recipe_id": "neutral.dragon_graveyard",
+            "promotion": "QUALIFY_DIRECT_MAP_FIRST",
+            "identity": "colossal dragon remains, bone fields, mythic open-ground battle",
+        },
+    },
+    {
+        "id": "lost_shrine",
+        "title": "Lost Shrine",
+        "fab_listing_id": "8031b2de-3822-44db-ab89-e655d4b2e6c7",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "direct_battlefield",
+        "priority": 2,
+        "strategic_binding": {"existing_region_candidate": "ancient_shrine", "topology_change": False},
+        "battlefield": {
+            "proposed_recipe_id": "nature.ancient_shrine.lost_shrine",
+            "promotion": "CURRENT_FOUNDER_FIDELITY_REPLACEMENT_CANDIDATE",
+            "identity": "overgrown sacred shrine with water, foliage and architectural landmark",
+        },
+    },
+    {
+        "id": "crystal_cave",
+        "title": "Crystal Cave",
+        "fab_listing_id": "4eb09414-0692-4073-ae72-687204653a9e",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "direct_battlefield",
+        "priority": 3,
+        "strategic_binding": {
+            "site_kind": "resource_site_variant",
+            "existing_region_candidate": "dwarf_high_quarry",
+            "topology_change": False,
+        },
+        "battlefield": {
+            "proposed_recipe_id": "dwarf.crystal_mine",
+            "promotion": "RESOURCE_VARIANT",
+            "identity": "crystal mine/cavern whose resource identity survives into battle",
+        },
+    },
+    {
+        "id": "old_windmills",
+        "title": "Old Windmills Modular",
+        "fab_listing_id": "e1fe3062-e190-468b-b456-201a8fba136d",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "direct_battlefield",
+        "priority": 4,
+        "strategic_binding": {
+            "site_kind": "rural_landmark",
+            "existing_region_candidate": "northwest_march",
+            "topology_change": False,
+        },
+        "battlefield": {
+            "proposed_recipe_id": "neutral.windmill_fields",
+            "promotion": "LANDMARK_VARIANT",
+            "identity": "rural windmill remains the dominant visual landmark during the battle",
+        },
+    },
+    {
+        "id": "red_canyon",
+        "title": "Red Canyon Desert Biome",
+        "fab_listing_id": "f51cbfd1-9dcd-4145-935c-b16ce0e9b33f",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "direct_battlefield",
+        "priority": 5,
+        "strategic_binding": {"existing_region_candidate": "orc_badlands", "topology_change": False},
+        "battlefield": {
+            "proposed_recipe_id": "orc.red_canyon",
+            "promotion": "BADLANDS_ALTERNATE_DONOR",
+            "identity": "red canyon walls and dry lanes for Orc/badlands battles",
+        },
+    },
+    {
+        "id": "medieval_fantasy_cave_camp",
+        "title": "Medieval Fantasy Cave Camp",
+        "fab_listing_id": "a193c9eb-e105-4e43-b0ed-57a5465f12cd",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "direct_battlefield",
+        "priority": 6,
+        "strategic_binding": {"existing_region_candidate": "orc_war_camp", "topology_change": False},
+        "battlefield": {
+            "proposed_recipe_id": "neutral.cave_camp",
+            "promotion": "CAMP_VARIANT",
+            "identity": "cave-mouth fortified camp / raider or Orc encampment",
+        },
+    },
+    {
+        "id": "field_defenses",
+        "title": "Medieval Defense Spikes Fences Walls",
+        "fab_listing_id": "47962aff-212c-45d4-b98f-eeadfc8229f4",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "tactical_overlay",
+        "priority": 7,
+        "strategic_binding": {"site_kind": "prepared_position_modifier", "topology_change": False},
+        "battlefield": {
+            "modifier_id": "fortification.fieldworks",
+            "allowed_contexts": ["fortified_camp", "raid_camp", "siege_outskirts", "frontier_defense"],
+            "identity": "spikes, fences and temporary walls visibly communicate prepared defenses",
+        },
+    },
+    {
+        "id": "arena_city_state",
+        "title": "Modular Gladiator Arena",
+        "fab_listing_id": "13f7220f-0865-4cac-b80e-d1259c8a8683",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "special_venue",
+        "priority": 8,
+        "strategic_binding": {
+            "site_kind": "independent_city_state_candidate",
+            "existing_region_candidate": "southern_crossing",
+            "topology_change": False,
+            "start_owner": None,
+            "status": "CANDIDATE_NONCANONICAL",
+        },
+        "battlefield": {
+            "proposed_recipe_id": "special.arena_city_bout",
+            "promotion": "DIRECT_ARENA_VENUE",
+            "identity": "walkable neutral arena used for player-entered bouts",
+        },
+        "feature_scope": {
+            "keep": [
+                "enter independent city-state",
+                "register for an arena bout",
+                "fight personally using Soul battle combat",
+                "duel and small-team bout profiles",
+                "simple payout/reputation hook if campaign economy approves",
+            ],
+            "exclude": [
+                "own gladiator roster",
+                "gladiator training management",
+                "separate gladiator campaign economy",
+                "one arena duplicated for every faction",
+            ],
+        },
+    },
+    {
+        "id": "mystic_dungeon",
+        "title": "Mystic Dungeon Environment",
+        "fab_listing_id": "8d24ba4e-1e2c-4ad7-9f6a-392e434585b5",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "direct_battlefield",
+        "priority": 9,
+        "strategic_binding": {
+            "site_kind": "arcane_special_site",
+            "existing_region_candidate": "mountain_shrine",
+            "topology_change": False,
+            "variant_not_default": True,
+        },
+        "battlefield": {
+            "proposed_recipe_id": "neutral.mystic_dungeon",
+            "promotion": "SPECIAL_SITE_VARIANT",
+            "identity": "high-fantasy underground temple/dungeon encounter",
+        },
+    },
+    {
+        "id": "aurora_skies",
+        "title": "Matte Painting Skybox Pack: Aurora Skies",
+        "fab_listing_id": "e433915e-b45c-458e-a1fa-fe4657eb658e",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "VAULT_RECORD_PRESENT_NOT_PROJECT_VERIFIED",
+        "integration_class": "atmosphere_palette",
+        "priority": 10,
+        "presentation": {
+            "authority": "RB Weather",
+            "palette_id": "sky.aurora",
+            "preferred_contexts": ["northern_fjords", "snow_battle", "rare_nature_magic_night"],
+            "hard_bind_to_recipe": False,
+        },
+    },
+    {
+        "id": "surreal_skies",
+        "title": "Matte Painting Skybox Pack: Surreal Skies",
+        "fab_listing_id": "4d40d3b0-d964-4b71-ab0d-de15e3cebff8",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "atmosphere_palette",
+        "priority": 11,
+        "presentation": {
+            "authority": "RB Weather",
+            "palette_id": "sky.surreal",
+            "preferred_contexts": ["magic_landmark", "nature_sacred_site", "arcane_event"],
+            "hard_bind_to_recipe": False,
+        },
+    },
+    {
+        "id": "chaotic_skies_ii",
+        "title": "Matte Painting Skybox Pack: Chaotic Skies II",
+        "fab_listing_id": "710bb906-5a72-452a-b80d-4795cbdd382c",
+        "ownership": "FOUNDER_CONFIRMED_OWNED",
+        "local_status": "OWNED_PAYLOAD_NOT_LOCAL_VERIFIED",
+        "integration_class": "atmosphere_palette",
+        "priority": 12,
+        "presentation": {
+            "authority": "RB Weather",
+            "palette_id": "sky.chaotic",
+            "preferred_contexts": ["ashen_south", "dark_major_battle", "extreme_magic_event"],
+            "hard_bind_to_recipe": False,
+        },
+    },
+]
+DEFERRED = [
+    {
+        "title": "Fantasy Dungeon Environment Kitbash Set",
+        "fab_listing_id": "a7958be6-3930-4e39-b458-d7348047f083",
+        "reason": "generic dungeon capability is not a current scarcity",
+    },
+    {
+        "title": "Jungle Ruins Modular Kit",
+        "fab_listing_id": "87483ef2-4f8b-4dd5-94e3-0d654baff737",
+        "reason": "founder decision: Soul currently has little to no jungle geography",
+    },
+    {
+        "title": "Desert Temple Modular Kit",
+        "fab_listing_id": "0afb8792-7e99-4db0-8db5-7b9a55b223a3",
+        "reason": "reserve for later ancient-desert expansion; no current high-value site requires it",
+    },
+    {
+        "title": "Modular Babylon Temple Environment",
+        "fab_listing_id": "23711efc-ad24-43ba-9027-993f830a2e8d",
+        "reason": "distinct cultural language should wait for a matching faction/city-state need",
+    },
+    {
+        "title": "Fantasy Cave Environment Set",
+        "fab_listing_id": "73e0b9c2-e15e-409f-952e-59b038a57ad9",
+        "reason": "lower current fit than Crystal Cave and Mystic Dungeon",
+    },
+]
+
+PLAYTEST_BRIDGE = {
+    "target": "dragon_graveyard_humans_vs_dwarves",
+    "environment": {
+        "asset_project": r"D:\Unreal Projects\AoEAssetRenderLab",
+        "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+        "status": "PROJECT_INSTALLED_UNQUALIFIED_FOR_SOUL_BATTLE",
+    },
+    "battle_runtime": {
+        "source_branch": "astra/soul-realtime-battle-prototype-20260921",
+        "source_commit": "f82f477d6207c1c9c8372895db12bb445eaff281",
+        "accepted_active_combatants": 48,
+        "accepted_groups": 16,
+        "current_visual_representation": "cube_proxy_characters",
+    },
+    "visual_units": {
+        "humans": "Knights_Pack local payload; production mesh candidates already evidence-backed",
+        "dwarves": "Dwarf_Pack local payload; named dwarf characters physically present in asset project",
+        "status": "LOCAL_PAYLOAD_PRESENT_REPRESENTATION_BRIDGE_PENDING",
+    },
+    "gates": [
+        "create Soul-owned wrapper/crop around Dragon Graveyard donor without modifying donor",
+        "identify valid battle floor, bounds and two deployment zones",
+        "qualify collision/navigation for group steering",
+        "bind battle combatants to Human/Dwarf skeletal-mesh representations and basic locomotion",
+        "run existing 24v24 combat/magic proof in donor environment",
+        "capture performance/pathing/readability evidence",
+    ],
+}
+nodes = {n["id"]: n for n in WORLD["nodes"]}
+payload = {
+    "schema": 1,
+    "generated": "2026-09-22",
+    "status": "NON_UE_ENVIRONMENT_INTEGRATION_PLAN",
+    "authority": {
+        "ownership": "founder-confirmed for all linked assets in this round",
+        "battle_rules": "Soul realtime battle/RB Combat remain authoritative",
+        "weather": "RB Weather owns sky/weather selection",
+        "optimization": "RB Optimization first",
+        "campaign_state": "SoulCore; this registry does not add ownership or topology",
+    },
+    "policy": POLICY,
+    "active_assets": ACTIVE,
+    "deferred_assets": DEFERRED,
+    "arena_city_state_candidate": {
+        "region_id": "southern_crossing",
+        "existing_region_name": nodes["southern_crossing"]["name"],
+        "existing_owner_affinity": nodes["southern_crossing"].get("owner"),
+        "topology_change": False,
+        "status": "CANDIDATE_NONCANONICAL",
+        "reason": "neutral crossroads between southern theatres lets one arena serve every faction",
+    },
+    "first_playtest_bridge": PLAYTEST_BRIDGE,
+    "counts": {
+        "active_assets": len(ACTIVE),
+        "direct_battlefields": sum(a["integration_class"] == "direct_battlefield" for a in ACTIVE),
+        "tactical_overlays": sum(a["integration_class"] == "tactical_overlay" for a in ACTIVE),
+        "special_venues": sum(a["integration_class"] == "special_venue" for a in ACTIVE),
+        "atmosphere_palettes": sum(a["integration_class"] == "atmosphere_palette" for a in ACTIVE),
+        "deferred_assets": len(DEFERRED),
+    },
+}
+OUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+print(f"WROTE {OUT}")
+print(json.dumps(payload["counts"], indent=2))

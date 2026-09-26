@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "regions": 9,
+  "routes": 10,
+  "bounding_box_cm": {
+    "min_x": -320000,
+    "max_x": 280000,
+    "min_y": -85000,
+    "max_y": 175000,
+    "width": 600000,
+    "height": 260000
+  },
+  "closest_region_pair": {
+    "a": "forest_edge",
+    "b": "ancient_shrine",
+    "distance_cm": 126491.106,
+    "combined_selection_radius_cm": 24000,
+    "selection_overlap_cm": 0.0
+  },
+  "selection_overlap_count": 0,
+  "non_node_route_crossing_count": 0,
+  "non_node_route_crossings": [],
+  "max_sinuosity_route": {
+    "route_id": "route.ancient_shrine_old_quarry",
+    "route_class": "trail",
+    "polyline_length_cm": 135560.761,
+    "direct_distance_cm": 133416.641,
+    "sinuosity_ratio": 1.0161,
+    "endpoint_match": true
+  },
+  "region_pairs": [
+    {
+      "a": "forest_edge",
+      "b": "ancient_shrine",
+      "distance_cm": 126491.106,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "old_quarry",
+      "b": "forest_edge",
+      "distance_cm": 127279.221,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "distance_cm": 133416.641,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "ancient_shrine",
+      "b": "north_pass",
+      "distance_cm": 134164.079,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "distance_cm": 138924.44,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "crossroads",
+      "distance_cm": 140000.0,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "distance_cm": 148660.687,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "river_ford",
+      "b": "forest_edge",
+      "distance_cm": 152315.462,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "distance_cm": 162788.206,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "forest_edge",
+      "b": "north_pass",
+      "distance_cm": 170880.075,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "distance_cm": 172046.505,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "distance_cm": 178885.438,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "orc_watch",
+      "b": "north_pass",
+      "distance_cm": 181107.703,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "distance_cm": 184390.889,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "distance_cm": 200997.512,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "old_quarry",
+      "b": "river_ford",
+      "distance_cm": 231948.27,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "old_quarry",
+      "distance_cm": 241867.732,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "ancient_shrine",
+      "distance_cm": 250000.0,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "old_quarry",
+      "b": "north_pass",
+      "distance_cm": 251793.566,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "ancient_shrine",
+      "b": "orc_watch",
+      "distance_cm": 260000.0,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "river_ford",
+      "distance_cm": 264007.576,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "river_ford",
+      "b": "ancient_shrine",
+      "distance_cm": 278567.766,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "river_ford",
+      "b": "north_pass",
+      "distance_cm": 297321.375,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "forest_edge",
+      "distance_cm": 301496.269,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "forest_edge",
+      "b": "orc_camp",
+      "distance_cm": 302654.919,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "ancient_shrine",
+      "b": "orc_camp",
+      "distance_cm": 305286.75,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "old_quarry",
+      "b": "orc_watch",
+      "distance_cm": 311448.23,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "orc_watch",
+      "distance_cm": 313209.195,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "north_pass",
+      "distance_cm": 332415.403,
+      "combined_selection_radius_cm": 24000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "ancient_shrine",
+      "distance_cm": 371618.084,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_camp",
+      "distance_cm": 373630.834,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "old_quarry",
+      "b": "orc_camp",
+      "distance_cm": 411096.096,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "orc_watch",
+      "distance_cm": 449110.231,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "crossroads",
+      "b": "orc_camp",
+      "distance_cm": 460108.683,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "north_pass",
+      "distance_cm": 468721.666,
+      "combined_selection_radius_cm": 30000,
+      "selection_overlap_cm": 0.0
+    },
+    {
+      "a": "human_capital",
+      "b": "orc_camp",
+      "distance_cm": 600083.328,
+      "combined_selection_radius_cm": 36000,
+      "selection_overlap_cm": 0.0
+    }
+  ],
+  "route_geometry": [
+    {
+      "route_id": "route.ancient_shrine_old_quarry",
+      "route_class": "trail",
+      "polyline_length_cm": 135560.761,
+      "direct_distance_cm": 133416.641,
+      "sinuosity_ratio": 1.0161,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.crossroads_forest_edge",
+      "route_class": "trail",
+      "polyline_length_cm": 165404.353,
+      "direct_distance_cm": 162788.206,
+      "sinuosity_ratio": 1.0161,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.crossroads_human_capital",
+      "route_class": "road",
+      "polyline_length_cm": 142042.247,
+      "direct_distance_cm": 140000.0,
+      "sinuosity_ratio": 1.0146,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.crossroads_old_quarry",
+      "route_class": "road",
+      "polyline_length_cm": 140982.554,
+      "direct_distance_cm": 138924.44,
+      "sinuosity_ratio": 1.0148,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.crossroads_river_ford",
+      "route_class": "road",
+      "polyline_length_cm": 150585.892,
+      "direct_distance_cm": 148660.687,
+      "sinuosity_ratio": 1.013,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.forest_edge_north_pass",
+      "route_class": "trail",
+      "polyline_length_cm": 173626.265,
+      "direct_distance_cm": 170880.075,
+      "sinuosity_ratio": 1.0161,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.forest_edge_orc_watch",
+      "route_class": "trail",
+      "polyline_length_cm": 187354.21,
+      "direct_distance_cm": 184390.889,
+      "sinuosity_ratio": 1.0161,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.north_pass_orc_camp",
+      "route_class": "pass",
+      "polyline_length_cm": 174811.441,
+      "direct_distance_cm": 172046.505,
+      "sinuosity_ratio": 1.0161,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.orc_camp_orc_watch",
+      "route_class": "road",
+      "polyline_length_cm": 180488.13,
+      "direct_distance_cm": 178885.438,
+      "sinuosity_ratio": 1.009,
+      "endpoint_match": true
+    },
+    {
+      "route_id": "route.orc_watch_river_ford",
+      "route_class": "road",
+      "polyline_length_cm": 202425.189,
+      "direct_distance_cm": 200997.512,
+      "sinuosity_ratio": 1.0071,
+      "endpoint_match": true
+    }
+  ],
+  "errors": []
+}

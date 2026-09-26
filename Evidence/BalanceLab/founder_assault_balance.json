@@ -1,0 +1,2715 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "authority": {
+    "map": "Data/soul_founder_slice_runtime_seed_20260922.json",
+    "start_control": "Data/soul_campaign_start_states_v1_20260922.json",
+    "logistics": "live SoulLogistics mirror via Tools/BalanceLab/balance_lab.py",
+    "veterancy_hero_thresholds": "live SoulCore mirror via BalanceLab",
+    "numeric_army_garrison": "BALANCE_LAB_GLUE_NOT_CANONICAL",
+    "neutral_region_capture_on_entry": "LAB_GLUE",
+    "battle_ends_remaining_daily_actions": "current BalanceLab/Soul strategy integration assumption",
+    "reserve_arrival_model": "COARSE_SENSITIVITY_day_gt_1; exact timing superseded by Evidence/WorldOvermap/founder_reaction_window_analysis.json"
+  },
+  "lab_parameters": {
+    "runs_per_cell": 1000,
+    "sensitivity_runs_per_cell": 500,
+    "field_strength": 1050,
+    "orc_watch_garrison": 500,
+    "orc_stronghold_field_strength": 1050,
+    "stronghold_strength_sensitivity": [
+      650,
+      700,
+      750,
+      800,
+      900,
+      1050
+    ],
+    "reserve_sensitivity": [
+      0,
+      200,
+      500
+    ],
+    "ap_sensitivity": [
+      2,
+      3,
+      4
+    ],
+    "base_income": 18,
+    "resource_income": 9,
+    "respawn_delay_days": 3,
+    "respawn_strength": 220
+  },
+  "summaries": [
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 3,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 777,
+      "median_pre_camp_supply": 935,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 2,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 3,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 769,
+      "median_pre_camp_supply": 905,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 2,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 856,
+      "median_pre_camp_fatigue": 180,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 2,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 764,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 753,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.035,
+      "camp_victory_rate_given_reached": 0.035,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 764,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 4,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 1
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 753,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 4,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 1
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 1,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 602,
+      "median_pre_camp_readiness": 756,
+      "median_pre_camp_fatigue": 305,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "no_watch_reserve",
+      "reserve_strength": 0,
+      "ap_per_day": 4,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 1
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 3,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 777,
+      "median_pre_camp_supply": 935,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 2,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 3,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 769,
+      "median_pre_camp_supply": 905,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 2,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 856,
+      "median_pre_camp_fatigue": 180,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 2,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 764,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 753,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 764,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 4,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 1
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 753,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 4,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 1
+    },
+    {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 1,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 602,
+      "median_pre_camp_readiness": 756,
+      "median_pre_camp_fatigue": 305,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 4,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 1
+    }
+  ],
+  "stronghold_sensitivity": [
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.874,
+      "camp_victory_rate_given_reached": 0.874,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 650,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.732,
+      "camp_victory_rate_given_reached": 0.732,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 650,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 1.0,
+      "camp_victory_rate_given_reached": 1.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 650,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.874,
+      "camp_victory_rate_given_reached": 0.874,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 650,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.732,
+      "camp_victory_rate_given_reached": 0.732,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 650,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.774,
+      "camp_victory_rate_given_reached": 0.774,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 650,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.874,
+      "camp_victory_rate_given_reached": 0.874,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 650,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.732,
+      "camp_victory_rate_given_reached": 0.732,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 650,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 650,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.626,
+      "camp_victory_rate_given_reached": 0.626,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 700,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.438,
+      "camp_victory_rate_given_reached": 0.438,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 700,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 1.0,
+      "camp_victory_rate_given_reached": 1.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 700,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.626,
+      "camp_victory_rate_given_reached": 0.626,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 700,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.438,
+      "camp_victory_rate_given_reached": 0.438,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 700,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.544,
+      "camp_victory_rate_given_reached": 0.544,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 700,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.626,
+      "camp_victory_rate_given_reached": 0.626,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 700,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.438,
+      "camp_victory_rate_given_reached": 0.438,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 700,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 700,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.35,
+      "camp_victory_rate_given_reached": 0.35,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 750,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.166,
+      "camp_victory_rate_given_reached": 0.166,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 750,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.992,
+      "camp_victory_rate_given_reached": 0.992,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 750,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.35,
+      "camp_victory_rate_given_reached": 0.35,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 750,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.166,
+      "camp_victory_rate_given_reached": 0.166,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 750,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.294,
+      "camp_victory_rate_given_reached": 0.294,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 750,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.35,
+      "camp_victory_rate_given_reached": 0.35,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 750,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.166,
+      "camp_victory_rate_given_reached": 0.166,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 750,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 750,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.136,
+      "camp_victory_rate_given_reached": 0.136,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 800,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.04,
+      "camp_victory_rate_given_reached": 0.04,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 800,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.908,
+      "camp_victory_rate_given_reached": 0.908,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 800,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.136,
+      "camp_victory_rate_given_reached": 0.136,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 800,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.04,
+      "camp_victory_rate_given_reached": 0.04,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 800,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.134,
+      "camp_victory_rate_given_reached": 0.134,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 800,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.136,
+      "camp_victory_rate_given_reached": 0.136,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 800,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.04,
+      "camp_victory_rate_given_reached": 0.04,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 800,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 800,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 900,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 900,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.544,
+      "camp_victory_rate_given_reached": 0.544,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 900,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 900,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 900,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 900,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 900,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 900,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 900,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 1050,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 1050,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.036,
+      "camp_victory_rate_given_reached": 0.036,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 1050,
+      "reserve_strength": 0,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 1050,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 1050,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 1050,
+      "reserve_strength": 200,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 765,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 1050,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 754,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "stronghold_strength": 1050,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch"
+    },
+    {
+      "runs": 500,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "stronghold_strength": 1050,
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass"
+    }
+  ],
+  "baseline_3ap_watch_reserve": {
+    "river_watch": {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 764,
+      "median_pre_camp_supply": 890,
+      "median_pre_camp_readiness": 964,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "river_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [],
+      "theoretical_days_without_battle_stop": 2
+    },
+    "forest_watch": {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": 1.0,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 0.0,
+      "median_pre_camp_strength": 753,
+      "median_pre_camp_supply": 785,
+      "median_pre_camp_readiness": 960,
+      "median_pre_camp_fatigue": 45,
+      "median_pre_camp_regiment_xp": 85,
+      "median_pre_camp_hero_xp": 100,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    },
+    "north_pass": {
+      "runs": 1000,
+      "camp_reach_rate": 1.0,
+      "camp_victory_rate_all_runs": 0.0,
+      "camp_victory_rate_given_reached": 0.0,
+      "watch_win_rate": null,
+      "median_camp_day": 2,
+      "reserve_arrival_rate": 1.0,
+      "median_pre_camp_strength": 1050,
+      "median_pre_camp_supply": 722,
+      "median_pre_camp_readiness": 916,
+      "median_pre_camp_fatigue": 100,
+      "median_pre_camp_regiment_xp": 0,
+      "median_pre_camp_hero_xp": 0,
+      "profile": "watch_reserve_500",
+      "reserve_strength": 500,
+      "ap_per_day": 3,
+      "corridor": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "actions_to_stronghold_resolution": 4,
+      "hostile_entries": [
+        "orc_camp"
+      ],
+      "resource_sites": [
+        "forest_edge"
+      ],
+      "theoretical_days_without_battle_stop": 2
+    }
+  },
+  "single_loss_recovery": {
+    "river_watch": {
+      "loss_days": [
+        2
+      ],
+      "resource_sites": 0,
+      "daily_income": 18,
+      "recovery70_days": [
+        7
+      ],
+      "final_gold": 28,
+      "final_strength": 1165,
+      "remaining_pool_units": 43,
+      "empty_pool_lines": [],
+      "history": [
+        {
+          "day": 1,
+          "gold": 258,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 2,
+          "gold": 276,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 3,
+          "gold": 294,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 4,
+          "gold": 312,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 5,
+          "gold": 330,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 6,
+          "gold": 348,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 7,
+          "gold": 16,
+          "strength": 865,
+          "pool_total": 12,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 8,
+          "gold": 4,
+          "strength": 925,
+          "pool_total": 29,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 9,
+          "gold": 22,
+          "strength": 925,
+          "pool_total": 29,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 10,
+          "gold": 10,
+          "strength": 985,
+          "pool_total": 28,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 11,
+          "gold": 28,
+          "strength": 985,
+          "pool_total": 28,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 12,
+          "gold": 16,
+          "strength": 1045,
+          "pool_total": 27,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 13,
+          "gold": 4,
+          "strength": 1105,
+          "pool_total": 26,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 14,
+          "gold": 22,
+          "strength": 1105,
+          "pool_total": 26,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 15,
+          "gold": 10,
+          "strength": 1165,
+          "pool_total": 43,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 16,
+          "gold": 28,
+          "strength": 1165,
+          "pool_total": 43,
+          "pool_empty_lines": 0
+        }
+      ]
+    },
+    "forest_watch": {
+      "loss_days": [
+        2
+      ],
+      "resource_sites": 1,
+      "daily_income": 27,
+      "recovery70_days": [
+        7
+      ],
+      "final_gold": 27,
+      "final_strength": 1475,
+      "remaining_pool_units": 39,
+      "empty_pool_lines": [],
+      "history": [
+        {
+          "day": 1,
+          "gold": 267,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 2,
+          "gold": 294,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 3,
+          "gold": 321,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 4,
+          "gold": 348,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 5,
+          "gold": 375,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 6,
+          "gold": 402,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 7,
+          "gold": 24,
+          "strength": 995,
+          "pool_total": 12,
+          "pool_empty_lines": 1
+        },
+        {
+          "day": 8,
+          "gold": 21,
+          "strength": 1055,
+          "pool_total": 29,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 9,
+          "gold": 18,
+          "strength": 1115,
+          "pool_total": 28,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 10,
+          "gold": 15,
+          "strength": 1175,
+          "pool_total": 27,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 11,
+          "gold": 12,
+          "strength": 1235,
+          "pool_total": 26,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 12,
+          "gold": 9,
+          "strength": 1295,
+          "pool_total": 25,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 13,
+          "gold": 6,
+          "strength": 1355,
+          "pool_total": 24,
+          "pool_empty_lines": 1
+        },
+        {
+          "day": 14,
+          "gold": 33,
+          "strength": 1355,
+          "pool_total": 24,
+          "pool_empty_lines": 1
+        },
+        {
+          "day": 15,
+          "gold": 0,
+          "strength": 1475,
+          "pool_total": 39,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 16,
+          "gold": 27,
+          "strength": 1475,
+          "pool_total": 39,
+          "pool_empty_lines": 0
+        }
+      ]
+    },
+    "north_pass": {
+      "loss_days": [
+        2
+      ],
+      "resource_sites": 1,
+      "daily_income": 27,
+      "recovery70_days": [
+        7
+      ],
+      "final_gold": 27,
+      "final_strength": 1475,
+      "remaining_pool_units": 39,
+      "empty_pool_lines": [],
+      "history": [
+        {
+          "day": 1,
+          "gold": 267,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 2,
+          "gold": 294,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 3,
+          "gold": 321,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 4,
+          "gold": 348,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 5,
+          "gold": 375,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 6,
+          "gold": 402,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 7,
+          "gold": 24,
+          "strength": 995,
+          "pool_total": 12,
+          "pool_empty_lines": 1
+        },
+        {
+          "day": 8,
+          "gold": 21,
+          "strength": 1055,
+          "pool_total": 29,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 9,
+          "gold": 18,
+          "strength": 1115,
+          "pool_total": 28,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 10,
+          "gold": 15,
+          "strength": 1175,
+          "pool_total": 27,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 11,
+          "gold": 12,
+          "strength": 1235,
+          "pool_total": 26,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 12,
+          "gold": 9,
+          "strength": 1295,
+          "pool_total": 25,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 13,
+          "gold": 6,
+          "strength": 1355,
+          "pool_total": 24,
+          "pool_empty_lines": 1
+        },
+        {
+          "day": 14,
+          "gold": 33,
+          "strength": 1355,
+          "pool_total": 24,
+          "pool_empty_lines": 1
+        },
+        {
+          "day": 15,
+          "gold": 0,
+          "strength": 1475,
+          "pool_total": 39,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 16,
+          "gold": 27,
+          "strength": 1475,
+          "pool_total": 39,
+          "pool_empty_lines": 0
+        }
+      ]
+    }
+  },
+  "repeat_loss_stress": {
+    "river_watch": {
+      "loss_days": [
+        2,
+        7,
+        12
+      ],
+      "resource_sites": 0,
+      "daily_income": 18,
+      "recovery70_days": [
+        17
+      ],
+      "final_gold": 10,
+      "final_strength": 1325,
+      "remaining_pool_units": 42,
+      "empty_pool_lines": [],
+      "history": [
+        {
+          "day": 1,
+          "gold": 258,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 2,
+          "gold": 276,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 3,
+          "gold": 294,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 4,
+          "gold": 312,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 5,
+          "gold": 330,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 6,
+          "gold": 348,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 7,
+          "gold": 366,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 8,
+          "gold": 384,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 9,
+          "gold": 402,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 10,
+          "gold": 420,
+          "strength": 220,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 11,
+          "gold": 438,
+          "strength": 220,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 12,
+          "gold": 456,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 13,
+          "gold": 474,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 14,
+          "gold": 492,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 15,
+          "gold": 510,
+          "strength": 220,
+          "pool_total": 52,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 16,
+          "gold": 528,
+          "strength": 220,
+          "pool_total": 52,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 17,
+          "gold": 16,
+          "strength": 1205,
+          "pool_total": 44,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 18,
+          "gold": 4,
+          "strength": 1265,
+          "pool_total": 43,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 19,
+          "gold": 22,
+          "strength": 1265,
+          "pool_total": 43,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 20,
+          "gold": 10,
+          "strength": 1325,
+          "pool_total": 42,
+          "pool_empty_lines": 0
+        }
+      ]
+    },
+    "forest_watch": {
+      "loss_days": [
+        2,
+        7,
+        12
+      ],
+      "resource_sites": 1,
+      "daily_income": 27,
+      "recovery70_days": [
+        17
+      ],
+      "final_gold": 20,
+      "final_strength": 1660,
+      "remaining_pool_units": 38,
+      "empty_pool_lines": [],
+      "history": [
+        {
+          "day": 1,
+          "gold": 267,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 2,
+          "gold": 294,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 3,
+          "gold": 321,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 4,
+          "gold": 348,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 5,
+          "gold": 375,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 6,
+          "gold": 402,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 7,
+          "gold": 429,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 8,
+          "gold": 456,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 9,
+          "gold": 483,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 10,
+          "gold": 510,
+          "strength": 220,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 11,
+          "gold": 537,
+          "strength": 220,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 12,
+          "gold": 564,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 13,
+          "gold": 591,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 14,
+          "gold": 618,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 15,
+          "gold": 645,
+          "strength": 220,
+          "pool_total": 52,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 16,
+          "gold": 672,
+          "strength": 220,
+          "pool_total": 52,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 17,
+          "gold": 29,
+          "strength": 1480,
+          "pool_total": 41,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 18,
+          "gold": 26,
+          "strength": 1540,
+          "pool_total": 40,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 19,
+          "gold": 23,
+          "strength": 1600,
+          "pool_total": 39,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 20,
+          "gold": 20,
+          "strength": 1660,
+          "pool_total": 38,
+          "pool_empty_lines": 0
+        }
+      ]
+    },
+    "north_pass": {
+      "loss_days": [
+        2,
+        7,
+        12
+      ],
+      "resource_sites": 1,
+      "daily_income": 27,
+      "recovery70_days": [
+        17
+      ],
+      "final_gold": 20,
+      "final_strength": 1660,
+      "remaining_pool_units": 38,
+      "empty_pool_lines": [],
+      "history": [
+        {
+          "day": 1,
+          "gold": 267,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 2,
+          "gold": 294,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 3,
+          "gold": 321,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 4,
+          "gold": 348,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 5,
+          "gold": 375,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 6,
+          "gold": 402,
+          "strength": 220,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 7,
+          "gold": 429,
+          "strength": 0,
+          "pool_total": 18,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 8,
+          "gold": 456,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 9,
+          "gold": 483,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 10,
+          "gold": 510,
+          "strength": 220,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 11,
+          "gold": 537,
+          "strength": 220,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 12,
+          "gold": 564,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 13,
+          "gold": 591,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 14,
+          "gold": 618,
+          "strength": 0,
+          "pool_total": 36,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 15,
+          "gold": 645,
+          "strength": 220,
+          "pool_total": 52,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 16,
+          "gold": 672,
+          "strength": 220,
+          "pool_total": 52,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 17,
+          "gold": 29,
+          "strength": 1480,
+          "pool_total": 41,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 18,
+          "gold": 26,
+          "strength": 1540,
+          "pool_total": 40,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 19,
+          "gold": 23,
+          "strength": 1600,
+          "pool_total": 39,
+          "pool_empty_lines": 0
+        },
+        {
+          "day": 20,
+          "gold": 20,
+          "strength": 1660,
+          "pool_total": 38,
+          "pool_empty_lines": 0
+        }
+      ]
+    }
+  },
+  "findings": [
+    {
+      "kind": "no_excessive_walking",
+      "severity": "pass",
+      "finding": "All three 3-AP openings reach the stronghold decision by day 2-3 in the live-mirrored action model."
+    },
+    {
+      "kind": "reinforcement_first_order",
+      "severity": "decision_required",
+      "finding": "North Pass bypasses Orc Watch but gives its one-action reserve a full reaction window before a day-2 stronghold assault at 3 AP/day."
+    },
+    {
+      "kind": "intermediate_battle_progression",
+      "severity": "risk",
+      "finding": "The Orc Watch victory grants 85 lab regiment XP and 100 hero XP, leaving both below their next power threshold before the stronghold; the extra battle is attrition without an immediate progression payoff."
+    },
+    {
+      "kind": "resource_income_timing",
+      "severity": "pass",
+      "finding": "Forest Edge adds one resource-income site, but the field army is already away from the capital, so the extra income cannot improve the immediate day-2 assault under current finite-recruitment semantics."
+    },
+    {
+      "kind": "single_loss_recruitment",
+      "severity": "pass",
+      "finding": "A single forced early annihilation does not exhaust the seven-line finite recruitment pool in the bounded recovery model."
+    },
+    {
+      "kind": "repeat_loss_recruitment",
+      "severity": "pass",
+      "finding": "Even three forced early annihilations do not exhaust a recruitment line in this bounded stress window; recovery is gold/income-limited before it is pool-limited."
+    },
+    {
+      "kind": "weekly_growth_timing",
+      "severity": "pass",
+      "finding": "The first weekly recruitment growth pulse occurs on day 8, well after the day-2 baseline stronghold decision, so weekly settlement growth cannot rescue or distort the opening assault."
+    },
+    {
+      "kind": "dominance_sensitivity",
+      "severity": "decision_required",
+      "finding": "Route ranking is not robust until Orc Watch reserve/reaction semantics are fixed; bypassing the outpost changes the North Pass result materially when its 500-strength lab reserve is enabled.",
+      "north_pass_no_reserve_minus_reserve_win_rate": 0.035
+    },
+    {
+      "kind": "stronghold_strength_placeholder",
+      "severity": "risk",
+      "finding": "With the noncanonical 1050-vs-1050 field-strength placeholder, travel wear plus the optional outpost fight makes an immediate founder stronghold rush effectively nonviable; topology is not the blocker, the still-unset army/garrison profile is.",
+      "equal_strength_no_reserve_rates": {
+        "river_watch": 0.0,
+        "forest_watch": 0.0,
+        "north_pass": 0.036
+      }
+    },
+    {
+      "kind": "viable_topology_band",
+      "severity": "pass",
+      "finding": "The same topology produces three live opening corridors in the 700-stronghold / 200-reserve sensitivity cell, showing that the map itself is not a dead opening once defender and reinforcement values are in a plausible tuning band.",
+      "candidate_rates": {
+        "river_watch": 0.626,
+        "forest_watch": 0.438,
+        "north_pass": 0.544
+      }
+    }
+  ]
+}

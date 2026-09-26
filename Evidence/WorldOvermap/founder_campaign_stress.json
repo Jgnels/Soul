@@ -1,0 +1,917 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "authority": {
+    "topology": "Data/soul_founder_slice_runtime_seed_20260922.json",
+    "start_control": "Data/soul_campaign_start_states_v1_20260922.json",
+    "travel_logistics": "Tools/BalanceLab/balance_lab.py LIVE MIRROR functions applied to real founder edge costs",
+    "recruitment_economy": "Tools/BalanceLab/balance_lab.py LAB GLUE until settlement-local runtime pools/costs are authoritative",
+    "hero_xp": "current Soul XP curve; 100 XP/victory donor-reference stress assumption",
+    "battle_attrition": "NOT_MODELED",
+    "town_construction_progression": "NOT_MODELED_UNRESOLVED_RUNTIME_RULE"
+  },
+  "assumptions": [
+    "3 AP/day is the current center; 2 and 4 are sensitivity bounds.",
+    "Resource sites are captured when an uncontested route action enters them.",
+    "hostile_only requires battle commitment for start-hostile regions; all_marked additionally activates regions tagged encounter.",
+    "Battle commitment costs one action; battle attrition is intentionally excluded until realtime battle feeds back authoritative consequences.",
+    "100 XP per victory is reference-only stress glue used to expose progression pressure, not a shipping reward.",
+    "Day-14 economy projection continues base/resource income and weekly recruitment-pool growth but does not invent occupation income or field-army reinforcement."
+  ],
+  "run_count": 270,
+  "core_baseline_hostile_only": {
+    "road_gate": {
+      "strategy": "road_gate",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "ap_per_day": 3,
+      "prep_days": 0,
+      "encounter_policy": "hostile_only",
+      "resource_income": 9,
+      "completion_day": 2,
+      "completion_ap_used": 3,
+      "total_logged_actions": 6,
+      "moves": 4,
+      "battles": 2,
+      "battle_regions": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "captured_resources": [],
+      "logistics_cost_sum": 24,
+      "road_edges": 4,
+      "chokepoint_edges": 1,
+      "supply_at_objective": 720,
+      "readiness_at_objective": 916,
+      "fatigue_at_objective": 80,
+      "minimum_supply": 720,
+      "minimum_readiness": 892,
+      "maximum_fatigue": 135,
+      "initial_strength_after_recruit": 1545,
+      "initial_gold_after_recruit": 3,
+      "strength_at_objective": 1545,
+      "gold_at_objective": 21,
+      "hero_xp_reference": 200,
+      "hero_level_from_current_curve": 1,
+      "regiment_xp_reference": 200,
+      "regiment_rank_from_current_curve": "Seasoned",
+      "rank_combat_bonus_permille": 25,
+      "rank_morale_bonus": 0,
+      "projection_day": 14,
+      "gold_projection_day14": 237,
+      "recruit_pool_available_day14": 31,
+      "recruit_pool_capacity": 52,
+      "reserve_recruit_strength_day14": 3535,
+      "reinforcement_options_for_final_battle": [
+        {
+          "entry_source_region": "north_pass",
+          "entry_direction": "north_west",
+          "route_from_crossroads": [
+            "crossroads",
+            "forest_edge",
+            "north_pass"
+          ],
+          "movement_actions": 2,
+          "hostile_clear_actions": 0,
+          "battle_entry_action": 1,
+          "total_actions": 3,
+          "days_at_ap": 1,
+          "clean_route": true,
+          "logistics_cost_before_entry": 16
+        }
+      ],
+      "action_log": [
+        {
+          "day": 1,
+          "action": "move",
+          "source": "human_capital",
+          "destination": "crossroads",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move",
+          "source": "crossroads",
+          "destination": "river_ford",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move_to_contact",
+          "source": "river_ford",
+          "destination": "orc_watch",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_watch",
+          "xp_reference_award": 100
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "orc_watch",
+          "destination": "orc_camp",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_camp",
+          "xp_reference_award": 100
+        }
+      ]
+    },
+    "forest_watch": {
+      "strategy": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "ap_per_day": 3,
+      "prep_days": 0,
+      "encounter_policy": "hostile_only",
+      "resource_income": 9,
+      "completion_day": 2,
+      "completion_ap_used": 3,
+      "total_logged_actions": 6,
+      "moves": 4,
+      "battles": 2,
+      "battle_regions": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "captured_resources": [
+        "forest_edge"
+      ],
+      "logistics_cost_sum": 28,
+      "road_edges": 2,
+      "chokepoint_edges": 0,
+      "supply_at_objective": 615,
+      "readiness_at_objective": 860,
+      "fatigue_at_objective": 150,
+      "minimum_supply": 615,
+      "minimum_readiness": 836,
+      "maximum_fatigue": 205,
+      "initial_strength_after_recruit": 1545,
+      "initial_gold_after_recruit": 3,
+      "strength_at_objective": 1545,
+      "gold_at_objective": 30,
+      "hero_xp_reference": 200,
+      "hero_level_from_current_curve": 1,
+      "regiment_xp_reference": 200,
+      "regiment_rank_from_current_curve": "Seasoned",
+      "rank_combat_bonus_permille": 25,
+      "rank_morale_bonus": 0,
+      "projection_day": 14,
+      "gold_projection_day14": 354,
+      "recruit_pool_available_day14": 31,
+      "recruit_pool_capacity": 52,
+      "reserve_recruit_strength_day14": 3535,
+      "reinforcement_options_for_final_battle": [
+        {
+          "entry_source_region": "north_pass",
+          "entry_direction": "north_west",
+          "route_from_crossroads": [
+            "crossroads",
+            "forest_edge",
+            "north_pass"
+          ],
+          "movement_actions": 2,
+          "hostile_clear_actions": 0,
+          "battle_entry_action": 1,
+          "total_actions": 3,
+          "days_at_ap": 1,
+          "clean_route": true,
+          "logistics_cost_before_entry": 16
+        }
+      ],
+      "action_log": [
+        {
+          "day": 1,
+          "action": "move",
+          "source": "human_capital",
+          "destination": "crossroads",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move",
+          "source": "crossroads",
+          "destination": "forest_edge",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 1,
+          "action": "move_to_contact",
+          "source": "forest_edge",
+          "destination": "orc_watch",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_watch",
+          "xp_reference_award": 100
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "orc_watch",
+          "destination": "orc_camp",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_camp",
+          "xp_reference_award": 100
+        }
+      ]
+    },
+    "north_pass": {
+      "strategy": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "ap_per_day": 3,
+      "prep_days": 0,
+      "encounter_policy": "hostile_only",
+      "resource_income": 9,
+      "completion_day": 2,
+      "completion_ap_used": 2,
+      "total_logged_actions": 5,
+      "moves": 4,
+      "battles": 1,
+      "battle_regions": [
+        "orc_camp"
+      ],
+      "captured_resources": [
+        "forest_edge"
+      ],
+      "logistics_cost_sum": 32,
+      "road_edges": 1,
+      "chokepoint_edges": 2,
+      "supply_at_objective": 552,
+      "readiness_at_objective": 816,
+      "fatigue_at_objective": 205,
+      "minimum_supply": 552,
+      "minimum_readiness": 816,
+      "maximum_fatigue": 205,
+      "initial_strength_after_recruit": 1545,
+      "initial_gold_after_recruit": 3,
+      "strength_at_objective": 1545,
+      "gold_at_objective": 30,
+      "hero_xp_reference": 100,
+      "hero_level_from_current_curve": 1,
+      "regiment_xp_reference": 100,
+      "regiment_rank_from_current_curve": "Seasoned",
+      "rank_combat_bonus_permille": 25,
+      "rank_morale_bonus": 0,
+      "projection_day": 14,
+      "gold_projection_day14": 354,
+      "recruit_pool_available_day14": 31,
+      "recruit_pool_capacity": 52,
+      "reserve_recruit_strength_day14": 3535,
+      "reinforcement_options_for_final_battle": [
+        {
+          "entry_source_region": "orc_watch",
+          "entry_direction": "west",
+          "route_from_crossroads": [
+            "crossroads",
+            "river_ford",
+            "orc_watch"
+          ],
+          "movement_actions": 2,
+          "hostile_clear_actions": 1,
+          "battle_entry_action": 1,
+          "total_actions": 4,
+          "days_at_ap": 2,
+          "clean_route": false,
+          "logistics_cost_before_entry": 12
+        }
+      ],
+      "action_log": [
+        {
+          "day": 1,
+          "action": "move",
+          "source": "human_capital",
+          "destination": "crossroads",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move",
+          "source": "crossroads",
+          "destination": "forest_edge",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 1,
+          "action": "move",
+          "source": "forest_edge",
+          "destination": "north_pass",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "north_pass",
+          "destination": "orc_camp",
+          "route": "pass",
+          "road": false,
+          "logistics_cost": 10
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_camp",
+          "xp_reference_award": 100
+        }
+      ]
+    }
+  },
+  "core_baseline_all_marked": {
+    "road_gate": {
+      "strategy": "road_gate",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "ap_per_day": 3,
+      "prep_days": 0,
+      "encounter_policy": "all_marked",
+      "resource_income": 9,
+      "completion_day": 3,
+      "completion_ap_used": 1,
+      "total_logged_actions": 7,
+      "moves": 4,
+      "battles": 3,
+      "battle_regions": [
+        "river_ford",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "captured_resources": [],
+      "logistics_cost_sum": 24,
+      "road_edges": 4,
+      "chokepoint_edges": 1,
+      "supply_at_objective": 670,
+      "readiness_at_objective": 976,
+      "fatigue_at_objective": 0,
+      "minimum_supply": 670,
+      "minimum_readiness": 916,
+      "maximum_fatigue": 90,
+      "initial_strength_after_recruit": 1545,
+      "initial_gold_after_recruit": 3,
+      "strength_at_objective": 1545,
+      "gold_at_objective": 39,
+      "hero_xp_reference": 300,
+      "hero_level_from_current_curve": 2,
+      "regiment_xp_reference": 300,
+      "regiment_rank_from_current_curve": "Veteran",
+      "rank_combat_bonus_permille": 50,
+      "rank_morale_bonus": 1,
+      "projection_day": 14,
+      "gold_projection_day14": 237,
+      "recruit_pool_available_day14": 31,
+      "recruit_pool_capacity": 52,
+      "reserve_recruit_strength_day14": 3535,
+      "reinforcement_options_for_final_battle": [
+        {
+          "entry_source_region": "north_pass",
+          "entry_direction": "north_west",
+          "route_from_crossroads": [
+            "crossroads",
+            "forest_edge",
+            "north_pass"
+          ],
+          "movement_actions": 2,
+          "hostile_clear_actions": 0,
+          "battle_entry_action": 1,
+          "total_actions": 3,
+          "days_at_ap": 1,
+          "clean_route": true,
+          "logistics_cost_before_entry": 16
+        }
+      ],
+      "action_log": [
+        {
+          "day": 1,
+          "action": "move",
+          "source": "human_capital",
+          "destination": "crossroads",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move_to_contact",
+          "source": "crossroads",
+          "destination": "river_ford",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "battle_commit",
+          "region": "river_ford",
+          "xp_reference_award": 100
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "river_ford",
+          "destination": "orc_watch",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_watch",
+          "xp_reference_award": 100
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "orc_watch",
+          "destination": "orc_camp",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 3,
+          "action": "battle_commit",
+          "region": "orc_camp",
+          "xp_reference_award": 100
+        }
+      ]
+    },
+    "forest_watch": {
+      "strategy": "forest_watch",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "orc_watch",
+        "orc_camp"
+      ],
+      "ap_per_day": 3,
+      "prep_days": 0,
+      "encounter_policy": "all_marked",
+      "resource_income": 9,
+      "completion_day": 2,
+      "completion_ap_used": 3,
+      "total_logged_actions": 6,
+      "moves": 4,
+      "battles": 2,
+      "battle_regions": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "captured_resources": [
+        "forest_edge"
+      ],
+      "logistics_cost_sum": 28,
+      "road_edges": 2,
+      "chokepoint_edges": 0,
+      "supply_at_objective": 615,
+      "readiness_at_objective": 860,
+      "fatigue_at_objective": 150,
+      "minimum_supply": 615,
+      "minimum_readiness": 836,
+      "maximum_fatigue": 205,
+      "initial_strength_after_recruit": 1545,
+      "initial_gold_after_recruit": 3,
+      "strength_at_objective": 1545,
+      "gold_at_objective": 30,
+      "hero_xp_reference": 200,
+      "hero_level_from_current_curve": 1,
+      "regiment_xp_reference": 200,
+      "regiment_rank_from_current_curve": "Seasoned",
+      "rank_combat_bonus_permille": 25,
+      "rank_morale_bonus": 0,
+      "projection_day": 14,
+      "gold_projection_day14": 354,
+      "recruit_pool_available_day14": 31,
+      "recruit_pool_capacity": 52,
+      "reserve_recruit_strength_day14": 3535,
+      "reinforcement_options_for_final_battle": [
+        {
+          "entry_source_region": "north_pass",
+          "entry_direction": "north_west",
+          "route_from_crossroads": [
+            "crossroads",
+            "forest_edge",
+            "north_pass"
+          ],
+          "movement_actions": 2,
+          "hostile_clear_actions": 0,
+          "battle_entry_action": 1,
+          "total_actions": 3,
+          "days_at_ap": 1,
+          "clean_route": true,
+          "logistics_cost_before_entry": 16
+        }
+      ],
+      "action_log": [
+        {
+          "day": 1,
+          "action": "move",
+          "source": "human_capital",
+          "destination": "crossroads",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move",
+          "source": "crossroads",
+          "destination": "forest_edge",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 1,
+          "action": "move_to_contact",
+          "source": "forest_edge",
+          "destination": "orc_watch",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_watch",
+          "xp_reference_award": 100
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "orc_watch",
+          "destination": "orc_camp",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_camp",
+          "xp_reference_award": 100
+        }
+      ]
+    },
+    "north_pass": {
+      "strategy": "north_pass",
+      "path": [
+        "human_capital",
+        "crossroads",
+        "forest_edge",
+        "north_pass",
+        "orc_camp"
+      ],
+      "ap_per_day": 3,
+      "prep_days": 0,
+      "encounter_policy": "all_marked",
+      "resource_income": 9,
+      "completion_day": 2,
+      "completion_ap_used": 3,
+      "total_logged_actions": 6,
+      "moves": 4,
+      "battles": 2,
+      "battle_regions": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "captured_resources": [
+        "forest_edge"
+      ],
+      "logistics_cost_sum": 32,
+      "road_edges": 1,
+      "chokepoint_edges": 2,
+      "supply_at_objective": 552,
+      "readiness_at_objective": 816,
+      "fatigue_at_objective": 205,
+      "minimum_supply": 552,
+      "minimum_readiness": 816,
+      "maximum_fatigue": 205,
+      "initial_strength_after_recruit": 1545,
+      "initial_gold_after_recruit": 3,
+      "strength_at_objective": 1545,
+      "gold_at_objective": 30,
+      "hero_xp_reference": 200,
+      "hero_level_from_current_curve": 1,
+      "regiment_xp_reference": 200,
+      "regiment_rank_from_current_curve": "Seasoned",
+      "rank_combat_bonus_permille": 25,
+      "rank_morale_bonus": 0,
+      "projection_day": 14,
+      "gold_projection_day14": 354,
+      "recruit_pool_available_day14": 31,
+      "recruit_pool_capacity": 52,
+      "reserve_recruit_strength_day14": 3535,
+      "reinforcement_options_for_final_battle": [
+        {
+          "entry_source_region": "orc_watch",
+          "entry_direction": "west",
+          "route_from_crossroads": [
+            "crossroads",
+            "river_ford",
+            "orc_watch"
+          ],
+          "movement_actions": 2,
+          "hostile_clear_actions": 1,
+          "battle_entry_action": 1,
+          "total_actions": 4,
+          "days_at_ap": 2,
+          "clean_route": false,
+          "logistics_cost_before_entry": 12
+        }
+      ],
+      "action_log": [
+        {
+          "day": 1,
+          "action": "move",
+          "source": "human_capital",
+          "destination": "crossroads",
+          "route": "road",
+          "road": true,
+          "logistics_cost": 6
+        },
+        {
+          "day": 1,
+          "action": "move",
+          "source": "crossroads",
+          "destination": "forest_edge",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 1,
+          "action": "move_to_contact",
+          "source": "forest_edge",
+          "destination": "north_pass",
+          "route": "trail",
+          "road": false,
+          "logistics_cost": 8
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "north_pass",
+          "xp_reference_award": 100
+        },
+        {
+          "day": 2,
+          "action": "move_to_contact",
+          "source": "north_pass",
+          "destination": "orc_camp",
+          "route": "pass",
+          "road": false,
+          "logistics_cost": 10
+        },
+        {
+          "day": 2,
+          "action": "battle_commit",
+          "region": "orc_camp",
+          "xp_reference_award": 100
+        }
+      ]
+    }
+  },
+  "sensitivity": {
+    "completion_day_by_ap_hostile_only": {
+      "road_gate": {
+        "2": 3,
+        "3": 2,
+        "4": 2
+      },
+      "forest_watch": {
+        "2": 3,
+        "3": 2,
+        "4": 2
+      },
+      "north_pass": {
+        "2": 3,
+        "3": 2,
+        "4": 2
+      }
+    },
+    "resource_income_day14_gold_forest_watch": {
+      "6": 315,
+      "9": 354,
+      "12": 393
+    },
+    "prep_strength_and_delay": {
+      "road_gate": {
+        "strength_gain": 210,
+        "completion_day_delay": 7,
+        "gold_delta_at_objective": 21
+      },
+      "forest_watch": {
+        "strength_gain": 210,
+        "completion_day_delay": 7,
+        "gold_delta_at_objective": 21
+      },
+      "north_pass": {
+        "strength_gain": 210,
+        "completion_day_delay": 7,
+        "gold_delta_at_objective": 21
+      }
+    }
+  },
+  "findings": [
+    {
+      "id": "equal_day_core_corridors",
+      "severity": "info",
+      "finding": "All three core founder corridors reach the stronghold on the same campaign day at 3 AP/day under hostile-only encounters.",
+      "evidence": {
+        "road_gate": 2,
+        "forest_watch": 2,
+        "north_pass": 2
+      }
+    },
+    {
+      "id": "route_logistics_gradient",
+      "severity": "info",
+      "finding": "Road -> forest -> pass produces a clean readiness gradient; route geometry is mechanically legible rather than cosmetic.",
+      "evidence": {
+        "road_gate": 892,
+        "forest_watch": 836,
+        "north_pass": 816
+      }
+    },
+    {
+      "id": "forest_resource_tradeoff",
+      "severity": "info",
+      "finding": "Forest Edge gives the forest routes an economic payoff that offsets their worse logistics.",
+      "evidence": {
+        "road_day14_gold": 237,
+        "forest_day14_gold": 354,
+        "delta": 117
+      }
+    },
+    {
+      "id": "north_pass_incentive_gap",
+      "severity": "action",
+      "finding": "With every marked encounter active, North Pass has no systemic strategic reward in the current model: same battle count/resource payoff, no faster completion, and worse logistics than Forest Watch.",
+      "recommended_test": "Give North Pass a concrete tactical/intelligence/avoidance benefit before changing topology; validate it in battle rather than compensating with arbitrary AP discounts."
+    },
+    {
+      "id": "encounter_progression_pressure",
+      "severity": "watch",
+      "finding": "Marked encounters make route choice alter hero/regiment progression before the stronghold.",
+      "evidence": {
+        "road": {
+          "battles": 3,
+          "hero_level": 2,
+          "regiment_rank": "Veteran"
+        },
+        "forest": {
+          "battles": 2,
+          "hero_level": 1,
+          "regiment_rank": "Seasoned"
+        },
+        "north": {
+          "battles": 2,
+          "hero_level": 1,
+          "regiment_rank": "Seasoned"
+        }
+      },
+      "note": "100 XP/victory is donor-reference stress glue, not a locked Soul reward."
+    },
+    {
+      "id": "seven_day_preparation_tradeoff",
+      "severity": "info",
+      "finding": "A full weekly-growth wait is measurable against its seven-day opportunity cost; this is the first founder-slice finite-pool preparation check.",
+      "evidence": {
+        "road_gate": {
+          "strength_gain": 210,
+          "completion_day_delay": 7,
+          "gold_delta_at_objective": 21
+        },
+        "forest_watch": {
+          "strength_gain": 210,
+          "completion_day_delay": 7,
+          "gold_delta_at_objective": 21
+        },
+        "north_pass": {
+          "strength_gain": 210,
+          "completion_day_delay": 7,
+          "gold_delta_at_objective": 21
+        }
+      }
+    },
+    {
+      "id": "reinforcement_timing",
+      "severity": "info",
+      "finding": "Final-battle reinforcement entries are now measured from Crossroads using real graph distance, hostile-clear actions, and the battle-entry action.",
+      "evidence": {
+        "road_gate": [
+          {
+            "entry_source_region": "north_pass",
+            "entry_direction": "north_west",
+            "route_from_crossroads": [
+              "crossroads",
+              "forest_edge",
+              "north_pass"
+            ],
+            "movement_actions": 2,
+            "hostile_clear_actions": 0,
+            "battle_entry_action": 1,
+            "total_actions": 3,
+            "days_at_ap": 1,
+            "clean_route": true,
+            "logistics_cost_before_entry": 16
+          }
+        ],
+        "forest_watch": [
+          {
+            "entry_source_region": "north_pass",
+            "entry_direction": "north_west",
+            "route_from_crossroads": [
+              "crossroads",
+              "forest_edge",
+              "north_pass"
+            ],
+            "movement_actions": 2,
+            "hostile_clear_actions": 0,
+            "battle_entry_action": 1,
+            "total_actions": 3,
+            "days_at_ap": 1,
+            "clean_route": true,
+            "logistics_cost_before_entry": 16
+          }
+        ],
+        "north_pass": [
+          {
+            "entry_source_region": "orc_watch",
+            "entry_direction": "west",
+            "route_from_crossroads": [
+              "crossroads",
+              "river_ford",
+              "orc_watch"
+            ],
+            "movement_actions": 2,
+            "hostile_clear_actions": 1,
+            "battle_entry_action": 1,
+            "total_actions": 4,
+            "days_at_ap": 2,
+            "clean_route": false,
+            "logistics_cost_before_entry": 12
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

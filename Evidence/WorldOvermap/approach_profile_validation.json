@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "world_edges": 51,
+  "directed_approaches": 102,
+  "founder_internal_directed_approaches": 20,
+  "recipe_status_counts": {
+    "LOCAL_VERIFIED": 6,
+    "PAYLOAD_PENDING": 28,
+    "READY_FOR_UE": 52,
+    "UE_COMPOSITE": 12,
+    "UE_CROP_REQUIRED": 4
+  },
+  "errors": []
+}

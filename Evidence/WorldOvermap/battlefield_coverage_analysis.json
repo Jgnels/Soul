@@ -1,0 +1,701 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "pass",
+  "hard_integrity": {
+    "regions": 36,
+    "covered_regions": 36,
+    "directed_approaches": 102,
+    "missing_recipe_regions": [],
+    "missing_profile_recipes": [],
+    "profile_recipe_drift": []
+  },
+  "recipe_status_counts_by_region": {
+    "LOCAL_VERIFIED": 2,
+    "PAYLOAD_PENDING": 11,
+    "READY_FOR_UE": 18,
+    "UE_COMPOSITE": 4,
+    "UE_CROP_REQUIRED": 1
+  },
+  "fidelity_counts_by_region": {
+    "context_transform_review": 8,
+    "exact_context": 23,
+    "settlement_approach_transform": 5
+  },
+  "context_transform_review_count": 8,
+  "priority_review_count": 8,
+  "priority_review_regions": [
+    "ancient_shrine",
+    "forest_edge",
+    "north_pass",
+    "northwest_march",
+    "old_quarry",
+    "orc_watch",
+    "river_ford",
+    "southern_crossing"
+  ],
+  "regions": [
+    {
+      "region_id": "ancient_shrine",
+      "display_name": "Ancient Shrine",
+      "founder_slice": true,
+      "recipe_id": "neutral.mountain_shrine",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [],
+      "context_differences": {
+        "biome": {
+          "campaign": "mountain_forest",
+          "battlefield": "mountain"
+        },
+        "landform": {
+          "campaign": "shrine_terrace",
+          "battlefield": "terrace"
+        },
+        "feature": {
+          "campaign": "ancient_shrine",
+          "battlefield": "shrine"
+        }
+      },
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "coastal_ruins",
+      "display_name": "Coastal Ruins",
+      "founder_slice": false,
+      "recipe_id": "neutral.coastal_ruins",
+      "recipe_status": "LOCAL_VERIFIED",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "crossroads",
+      "display_name": "Crossroads",
+      "founder_slice": true,
+      "recipe_id": "human.grassland_crossroads",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 4
+    },
+    {
+      "region_id": "dark_ash_plain",
+      "display_name": "Ash Plain",
+      "founder_slice": false,
+      "recipe_id": "dark.ash_plain",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "dark_castle_approach",
+      "display_name": "Castle Approach",
+      "founder_slice": false,
+      "recipe_id": "dark.castle_approach",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "dark_corrupted_valley",
+      "display_name": "Corrupted Valley",
+      "founder_slice": false,
+      "recipe_id": "dark.corrupted_valley",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "dark_fortress",
+      "display_name": "Dark Fortress",
+      "founder_slice": false,
+      "recipe_id": "dark.castle_approach",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "settlement_approach_transform",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome"
+      ],
+      "context_differences": {
+        "landform": {
+          "campaign": "fortress",
+          "battlefield": "fortress_approach"
+        },
+        "feature": {
+          "campaign": "throne_sanctum",
+          "battlefield": "alien_castle"
+        }
+      },
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "dark_ruined_causeway",
+      "display_name": "Ruined Causeway",
+      "founder_slice": false,
+      "recipe_id": "dark.ruined_causeway",
+      "recipe_status": "UE_COMPOSITE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "dwarf_forge_approach",
+      "display_name": "Forge Approach",
+      "founder_slice": false,
+      "recipe_id": "dwarf.forge_approach",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "dwarf_high_quarry",
+      "display_name": "High Quarry",
+      "founder_slice": false,
+      "recipe_id": "dwarf.high_quarry",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "dwarf_hold",
+      "display_name": "Dwarf Hold",
+      "founder_slice": false,
+      "recipe_id": "dwarf.forge_approach",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "settlement_approach_transform",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome"
+      ],
+      "context_differences": {
+        "landform": {
+          "campaign": "fortified_hold",
+          "battlefield": "industrial_approach"
+        },
+        "feature": {
+          "campaign": "great_forge",
+          "battlefield": "forge_gate"
+        }
+      },
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "dwarf_mountain_pass",
+      "display_name": "Mountain Pass",
+      "founder_slice": false,
+      "recipe_id": "dwarf.mountain_pass",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "dwarf_snow_basin",
+      "display_name": "Snow Basin",
+      "founder_slice": false,
+      "recipe_id": "dwarf.snow_basin",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "forest_edge",
+      "display_name": "Forest Edge",
+      "founder_slice": true,
+      "recipe_id": "nature.grassland_edge",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [],
+      "context_differences": {
+        "biome": {
+          "campaign": "forest",
+          "battlefield": "meadow_edge"
+        },
+        "landform": {
+          "campaign": "woodland",
+          "battlefield": "rolling_plain"
+        },
+        "feature": {
+          "campaign": "grove",
+          "battlefield": "forest_edge"
+        }
+      },
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "human_capital",
+      "display_name": "Human Capital",
+      "founder_slice": true,
+      "recipe_id": "human.fortress_outskirts",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "settlement_approach_transform",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome"
+      ],
+      "context_differences": {
+        "landform": {
+          "campaign": "fortified",
+          "battlefield": "fortified_outskirts"
+        },
+        "feature": {
+          "campaign": "capital",
+          "battlefield": "castle_edge"
+        }
+      },
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "mountain_shrine",
+      "display_name": "Mountain Shrine",
+      "founder_slice": false,
+      "recipe_id": "neutral.mountain_shrine",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "nature_forest_clearing",
+      "display_name": "Forest Clearing",
+      "founder_slice": false,
+      "recipe_id": "nature.forest_clearing",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "nature_grassland_edge",
+      "display_name": "Grassland Edge",
+      "founder_slice": false,
+      "recipe_id": "nature.grassland_edge",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 4
+    },
+    {
+      "region_id": "nature_river_woodland",
+      "display_name": "River Woodland",
+      "founder_slice": false,
+      "recipe_id": "nature.river_woodland",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "nature_shrine",
+      "display_name": "Forest Shrine",
+      "founder_slice": false,
+      "recipe_id": "nature.ancient_shrine",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "nature_treehold",
+      "display_name": "Nature Treehold",
+      "founder_slice": false,
+      "recipe_id": "nature.forest_clearing",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "settlement_approach_transform",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome"
+      ],
+      "context_differences": {
+        "landform": {
+          "campaign": "treehold",
+          "battlefield": "clearing"
+        },
+        "feature": {
+          "campaign": "great_tree",
+          "battlefield": "dense_treeline"
+        }
+      },
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "north_pass",
+      "display_name": "North Pass",
+      "founder_slice": true,
+      "recipe_id": "dwarf.mountain_pass",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome",
+        "landform"
+      ],
+      "context_differences": {
+        "feature": {
+          "campaign": "narrow_pass",
+          "battlefield": "switchback"
+        }
+      },
+      "incoming_approach_count": 5
+    },
+    {
+      "region_id": "northwest_march",
+      "display_name": "Northwest March",
+      "founder_slice": false,
+      "recipe_id": "human.rolling_ridge",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome"
+      ],
+      "context_differences": {
+        "landform": {
+          "campaign": "rolling_plain",
+          "battlefield": "ridge"
+        },
+        "feature": {
+          "campaign": "trade_road",
+          "battlefield": "high_ground"
+        }
+      },
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "old_quarry",
+      "display_name": "Old Quarry",
+      "founder_slice": true,
+      "recipe_id": "human.rolling_ridge",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform"
+      ],
+      "context_differences": {
+        "feature": {
+          "campaign": "resource",
+          "battlefield": "high_ground"
+        }
+      },
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "orc_badlands",
+      "display_name": "Badlands",
+      "founder_slice": false,
+      "recipe_id": "orc.badlands",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "orc_broken_bridge",
+      "display_name": "Broken Bridge",
+      "founder_slice": false,
+      "recipe_id": "orc.broken_bridge",
+      "recipe_status": "UE_COMPOSITE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "orc_camp",
+      "display_name": "Orc Stronghold",
+      "founder_slice": true,
+      "recipe_id": "orc.war_camp",
+      "recipe_status": "UE_COMPOSITE",
+      "fidelity_class": "settlement_approach_transform",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [],
+      "context_differences": {
+        "biome": {
+          "campaign": "badlands",
+          "battlefield": "ruined_lowland"
+        },
+        "landform": {
+          "campaign": "ruined_city_edge",
+          "battlefield": "open_ruin"
+        },
+        "feature": {
+          "campaign": "stronghold",
+          "battlefield": "camp"
+        }
+      },
+      "incoming_approach_count": 4
+    },
+    {
+      "region_id": "orc_ruined_field",
+      "display_name": "Ruined Field",
+      "founder_slice": false,
+      "recipe_id": "orc.ruined_field",
+      "recipe_status": "PAYLOAD_PENDING",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "orc_war_camp",
+      "display_name": "War Camp",
+      "founder_slice": false,
+      "recipe_id": "orc.war_camp",
+      "recipe_status": "UE_COMPOSITE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "orc_watch",
+      "display_name": "Orc Watch",
+      "founder_slice": true,
+      "recipe_id": "orc.badlands",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome",
+        "landform"
+      ],
+      "context_differences": {
+        "feature": {
+          "campaign": "watch",
+          "battlefield": "dry_gully"
+        }
+      },
+      "incoming_approach_count": 4
+    },
+    {
+      "region_id": "river_ford",
+      "display_name": "River Ford",
+      "founder_slice": true,
+      "recipe_id": "human.river_road",
+      "recipe_status": "UE_CROP_REQUIRED",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome",
+        "landform"
+      ],
+      "context_differences": {
+        "feature": {
+          "campaign": "river_crossing",
+          "battlefield": "river_or_lake_road"
+        }
+      },
+      "incoming_approach_count": 4
+    },
+    {
+      "region_id": "southern_crossing",
+      "display_name": "Southern Crossing",
+      "founder_slice": false,
+      "recipe_id": "neutral.open_grassland",
+      "recipe_status": "LOCAL_VERIFIED",
+      "fidelity_class": "context_transform_review",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome"
+      ],
+      "context_differences": {
+        "landform": {
+          "campaign": "river_valley",
+          "battlefield": "plain"
+        },
+        "feature": {
+          "campaign": "road_crossing",
+          "battlefield": "open"
+        }
+      },
+      "incoming_approach_count": 4
+    },
+    {
+      "region_id": "viking_fjord_ridge",
+      "display_name": "Fjord Ridge",
+      "founder_slice": false,
+      "recipe_id": "viking.fjord_ridge",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "viking_forest_track",
+      "display_name": "Forest Track",
+      "founder_slice": false,
+      "recipe_id": "viking.forest_track",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    },
+    {
+      "region_id": "viking_harbour",
+      "display_name": "Viking Harbour",
+      "founder_slice": false,
+      "recipe_id": "viking.harbour_edge",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": false,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 2
+    },
+    {
+      "region_id": "viking_snow_pass",
+      "display_name": "Snow Pass",
+      "founder_slice": false,
+      "recipe_id": "viking.snow_pass",
+      "recipe_status": "READY_FOR_UE",
+      "fidelity_class": "exact_context",
+      "identity_sensitive_feature": true,
+      "exact_context_fields": [
+        "biome",
+        "landform",
+        "feature"
+      ],
+      "context_differences": {},
+      "incoming_approach_count": 3
+    }
+  ],
+  "errors": []
+}

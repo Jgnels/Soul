@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "generated": "2026-09-22",
+  "status": "BUILT",
+  "regions": 36,
+  "routes": 51,
+  "founder_regions": 9,
+  "candidate_sites": 8,
+  "outputs": [
+    "Data\\UEImport\\soul_overmap_world_markers_v1_20260922.csv",
+    "Data\\UEImport\\soul_overmap_world_routes_v1_20260922.csv",
+    "Data\\UEImport\\soul_overmap_candidate_sites_v1_20260922.csv",
+    "Data/soul_overmap_preview_bundle_v1_20260922.json",
+    "Evidence/WorldOvermap/soul_overmap_world_preview.svg",
+    "Evidence/WorldOvermap/soul_overmap_founder_preview.svg"
+  ]
+}
