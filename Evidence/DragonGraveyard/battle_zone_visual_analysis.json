@@ -1,0 +1,388 @@
+{
+  "schema": 1,
+  "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "battle_half_extent_cm": [
+    2200.0,
+    1800.0
+  ],
+  "physical_obstacle_actor_count": 351,
+  "landmark_actor_count": 30,
+  "selection_rule": "blocked<=0.20, nearest landmark<=10000cm, >=2 landmarks within 12000cm",
+  "top_visual_candidates": [
+    {
+      "center": [
+        2000,
+        -15000,
+        0
+      ],
+      "blocked_fraction_upper_bound": 0.0691,
+      "nearest_landmark_cm": 4127.2,
+      "landmarks_within_12000_cm": 12,
+      "score": 0.4965,
+      "nearest_landmarks": [
+        {
+          "distance_cm": 4127.2,
+          "label": "BP_bones4",
+          "class": "BP_bones_C",
+          "location": [
+            3444.9,
+            -11134.0,
+            1053.1
+          ]
+        },
+        {
+          "distance_cm": 6667.4,
+          "label": "Dragon_kit_NurbsPath_002_030",
+          "class": "StaticMeshActor",
+          "location": [
+            4895.2,
+            -8993.9,
+            320.7
+          ]
+        },
+        {
+          "distance_cm": 8515.2,
+          "label": "Dragon_kit_Cube_11",
+          "class": "StaticMeshActor",
+          "location": [
+            3786.7,
+            -6674.3,
+            1403.5
+          ]
+        },
+        {
+          "distance_cm": 8905.7,
+          "label": "Dragon_kit_Circle_005_049",
+          "class": "StaticMeshActor",
+          "location": [
+            4439.7,
+            -6435.0,
+            407.0
+          ]
+        },
+        {
+          "distance_cm": 9336.9,
+          "label": "Dragon_kit_Circle_005_50",
+          "class": "StaticMeshActor",
+          "location": [
+            4439.7,
+            -5987.5,
+            366.3
+          ]
+        },
+        {
+          "distance_cm": 9956.7,
+          "label": "Dragon_kit_NurbsPath_002_48",
+          "class": "StaticMeshActor",
+          "location": [
+            7519.5,
+            -6713.2,
+            229.2
+          ]
+        },
+        {
+          "distance_cm": 10234.7,
+          "label": "Dragon_kit_Cube_008",
+          "class": "StaticMeshActor",
+          "location": [
+            7835.1,
+            -6591.6,
+            293.4
+          ]
+        },
+        {
+          "distance_cm": 10385.3,
+          "label": "Dragon_kit_Circle_005_47",
+          "class": "StaticMeshActor",
+          "location": [
+            8573.1,
+            -6959.5,
+            279.9
+          ]
+        }
+      ],
+      "largest_overlaps": [
+        {
+          "intersection_area": 1016247.2,
+          "label": "SM_rock_159",
+          "class": "StaticMeshActor",
+          "location": [
+            -7137.1,
+            -7273.7,
+            -5132.1
+          ],
+          "extent": [
+            8278.7,
+            6683.8,
+            6121.7
+          ]
+        },
+        {
+          "intersection_area": 77754.9,
+          "label": "SM_rock_178",
+          "class": "StaticMeshActor",
+          "location": [
+            3803.3,
+            -36900.2,
+            -11570.3
+          ],
+          "extent": [
+            26544.6,
+            20117.8,
+            22802.5
+          ]
+        }
+      ]
+    },
+    {
+      "center": [
+        1000,
+        -15000,
+        0
+      ],
+      "blocked_fraction_upper_bound": 0.1169,
+      "nearest_landmark_cm": 4574.2,
+      "landmarks_within_12000_cm": 10,
+      "score": 1.2047,
+      "nearest_landmarks": [
+        {
+          "distance_cm": 4574.2,
+          "label": "BP_bones4",
+          "class": "BP_bones_C",
+          "location": [
+            3444.9,
+            -11134.0,
+            1053.1
+          ]
+        },
+        {
+          "distance_cm": 7158.6,
+          "label": "Dragon_kit_NurbsPath_002_030",
+          "class": "StaticMeshActor",
+          "location": [
+            4895.2,
+            -8993.9,
+            320.7
+          ]
+        },
+        {
+          "distance_cm": 8779.7,
+          "label": "Dragon_kit_Cube_11",
+          "class": "StaticMeshActor",
+          "location": [
+            3786.7,
+            -6674.3,
+            1403.5
+          ]
+        },
+        {
+          "distance_cm": 9229.9,
+          "label": "Dragon_kit_Circle_005_049",
+          "class": "StaticMeshActor",
+          "location": [
+            4439.7,
+            -6435.0,
+            407.0
+          ]
+        },
+        {
+          "distance_cm": 9646.6,
+          "label": "Dragon_kit_Circle_005_50",
+          "class": "StaticMeshActor",
+          "location": [
+            4439.7,
+            -5987.5,
+            366.3
+          ]
+        },
+        {
+          "distance_cm": 10544.0,
+          "label": "Dragon_kit_NurbsPath_002_48",
+          "class": "StaticMeshActor",
+          "location": [
+            7519.5,
+            -6713.2,
+            229.2
+          ]
+        },
+        {
+          "distance_cm": 10836.0,
+          "label": "Dragon_kit_Cube_008",
+          "class": "StaticMeshActor",
+          "location": [
+            7835.1,
+            -6591.6,
+            293.4
+          ]
+        },
+        {
+          "distance_cm": 11045.4,
+          "label": "Dragon_kit_Circle_005_47",
+          "class": "StaticMeshActor",
+          "location": [
+            8573.1,
+            -6959.5,
+            279.9
+          ]
+        }
+      ],
+      "largest_overlaps": [
+        {
+          "intersection_area": 1773727.9,
+          "label": "SM_rock_159",
+          "class": "StaticMeshActor",
+          "location": [
+            -7137.1,
+            -7273.7,
+            -5132.1
+          ],
+          "extent": [
+            8278.7,
+            6683.8,
+            6121.7
+          ]
+        },
+        {
+          "intersection_area": 77754.9,
+          "label": "SM_rock_178",
+          "class": "StaticMeshActor",
+          "location": [
+            3803.3,
+            -36900.2,
+            -11570.3
+          ],
+          "extent": [
+            26544.6,
+            20117.8,
+            22802.5
+          ]
+        }
+      ]
+    },
+    {
+      "center": [
+        0,
+        -15000,
+        0
+      ],
+      "blocked_fraction_upper_bound": 0.1647,
+      "nearest_landmark_cm": 5178.1,
+      "landmarks_within_12000_cm": 9,
+      "score": 1.8244,
+      "nearest_landmarks": [
+        {
+          "distance_cm": 5178.1,
+          "label": "BP_bones4",
+          "class": "BP_bones_C",
+          "location": [
+            3444.9,
+            -11134.0,
+            1053.1
+          ]
+        },
+        {
+          "distance_cm": 7748.3,
+          "label": "Dragon_kit_NurbsPath_002_030",
+          "class": "StaticMeshActor",
+          "location": [
+            4895.2,
+            -8993.9,
+            320.7
+          ]
+        },
+        {
+          "distance_cm": 9146.3,
+          "label": "Dragon_kit_Cube_11",
+          "class": "StaticMeshActor",
+          "location": [
+            3786.7,
+            -6674.3,
+            1403.5
+          ]
+        },
+        {
+          "distance_cm": 9647.3,
+          "label": "Dragon_kit_Circle_005_049",
+          "class": "StaticMeshActor",
+          "location": [
+            4439.7,
+            -6435.0,
+            407.0
+          ]
+        },
+        {
+          "distance_cm": 10046.7,
+          "label": "Dragon_kit_Circle_005_50",
+          "class": "StaticMeshActor",
+          "location": [
+            4439.7,
+            -5987.5,
+            366.3
+          ]
+        },
+        {
+          "distance_cm": 11189.9,
+          "label": "Dragon_kit_NurbsPath_002_48",
+          "class": "StaticMeshActor",
+          "location": [
+            7519.5,
+            -6713.2,
+            229.2
+          ]
+        },
+        {
+          "distance_cm": 11480.1,
+          "label": "BP_bones3",
+          "class": "BP_bones_C",
+          "location": [
+            3621.9,
+            -4106.3,
+            1052.5
+          ]
+        },
+        {
+          "distance_cm": 11493.0,
+          "label": "Dragon_kit_Cube_008",
+          "class": "StaticMeshActor",
+          "location": [
+            7835.1,
+            -6591.6,
+            293.4
+          ]
+        }
+      ],
+      "largest_overlaps": [
+        {
+          "intersection_area": 2531208.7,
+          "label": "SM_rock_159",
+          "class": "StaticMeshActor",
+          "location": [
+            -7137.1,
+            -7273.7,
+            -5132.1
+          ],
+          "extent": [
+            8278.7,
+            6683.8,
+            6121.7
+          ]
+        },
+        {
+          "intersection_area": 77754.9,
+          "label": "SM_rock_178",
+          "class": "StaticMeshActor",
+          "location": [
+            3803.3,
+            -36900.2,
+            -11570.3
+          ],
+          "extent": [
+            26544.6,
+            20117.8,
+            22802.5
+          ]
+        }
+      ]
+    }
+  ]
+}

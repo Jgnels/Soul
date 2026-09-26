@@ -1,12 +1,16 @@
 #include "SoulRealtimeBattleArena.h"
 
 #include "AIController.h"
+#include "Animation/AnimationAsset.h"
 #include "Camera/CameraComponent.h"
+#include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/DirectionalLightComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Engine/DirectionalLight.h"
+#include "Engine/SkeletalMesh.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/World.h"
 #include "GameFramework/Character.h"
@@ -46,6 +50,10 @@ namespace
         return FName(*FString::Printf(
             TEXT("Realtime.Side%d.Reserve.Line"), Side));
     }
+    constexpr float BattlefieldHalfX = 2600.0f;
+    constexpr float BattlefieldHalfY = 2200.0f;
+    constexpr float BattlefieldWallThickness = 100.0f;
+    constexpr float BattlefieldWallHalfHeight = 2400.0f;
     ASoulRealtimeArenaGameMode* ArenaHost(const UObject* Object)
     {
         return Object && Object->GetWorld()
@@ -734,6 +742,16 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
         FCommandLine::Get(), TEXT("SoulRealtimeArenaProof"));
     bMagicProof = FParse::Param(
         FCommandLine::Get(), TEXT("SoulRealtimeMagicProof"));
+    bExternalEnvironment = FParse::Param(
+        FCommandLine::Get(), TEXT("SoulRealtimeExternalEnvironment"));
+    bVisualUnits = FParse::Param(
+        FCommandLine::Get(), TEXT("SoulRealtimeVisualUnits"));
+    FParse::Value(
+        FCommandLine::Get(), TEXT("-SoulArenaOriginX="), ArenaOrigin.X);
+    FParse::Value(
+        FCommandLine::Get(), TEXT("-SoulArenaOriginY="), ArenaOrigin.Y);
+    FParse::Value(
+        FCommandLine::Get(), TEXT("-SoulArenaOriginZ="), ArenaOrigin.Z);
 
     if (!SetupArena())
     {
@@ -749,35 +767,42 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
     if (!bProof && !bMagicProof)
         SetupReinforcementState();
     UE_LOG(LogTemp, Display,
-        TEXT("SOUL_RT_ARENA_SETUP: actors=%d groups=%d proof=%d"),
-        Combatants.Num(), Groups.Num(), bProof);
+        TEXT("SOUL_RT_ARENA_SETUP: actors=%d groups=%d proof=%d external=%d visuals=%d origin=%s"),
+        Combatants.Num(), Groups.Num(), bProof,
+        bExternalEnvironment, bVisualUnits,
+        *ArenaOrigin.ToCompactString());
 }
 
 bool ASoulRealtimeArenaGameMode::SetupArena()
 {
-    UStaticMesh* Cube = LoadObject<UStaticMesh>(
-        nullptr, TEXT("/Engine/BasicShapes/Cube.Cube"));
-    if (!Cube) return false;
-
-    AActor* Floor = GetWorld()->SpawnActor<AActor>();
-    UStaticMeshComponent* FloorMesh =
-        NewObject<UStaticMeshComponent>(Floor);
-    Floor->SetRootComponent(FloorMesh);
-    Floor->AddInstanceComponent(FloorMesh);
-    FloorMesh->SetStaticMesh(Cube);
-    FloorMesh->SetWorldScale3D(FVector(55.0f, 42.0f, 0.2f));
-    FloorMesh->SetCollisionProfileName(TEXT("BlockAll"));
-    FloorMesh->RegisterComponent();
-    Floor->SetActorLocation(FVector(0, 0, -20));
-
-    ADirectionalLight* Light =
-        GetWorld()->SpawnActor<ADirectionalLight>();
-    if (Light)
+    if (!bExternalEnvironment)
     {
-        Light->GetLightComponent()->SetMobility(EComponentMobility::Movable);
-        Light->SetActorRotation(FRotator(-55, -35, 0));
-        Light->GetLightComponent()->SetIntensity(5.0f);
+        UStaticMesh* Cube = LoadObject<UStaticMesh>(
+            nullptr, TEXT("/Engine/BasicShapes/Cube.Cube"));
+        if (!Cube) return false;
+
+        AActor* Floor = GetWorld()->SpawnActor<AActor>();
+        UStaticMeshComponent* FloorMesh =
+            NewObject<UStaticMeshComponent>(Floor);
+        Floor->SetRootComponent(FloorMesh);
+        Floor->AddInstanceComponent(FloorMesh);
+        FloorMesh->SetStaticMesh(Cube);
+        FloorMesh->SetWorldScale3D(FVector(55.0f, 42.0f, 0.2f));
+        FloorMesh->SetCollisionProfileName(TEXT("BlockAll"));
+        FloorMesh->RegisterComponent();
+        Floor->SetActorLocation(FVector(0, 0, -20));
+
+        ADirectionalLight* Light =
+            GetWorld()->SpawnActor<ADirectionalLight>();
+        if (Light)
+        {
+            Light->GetLightComponent()->SetMobility(EComponentMobility::Movable);
+            Light->SetActorRotation(FRotator(-55, -35, 0));
+            Light->GetLightComponent()->SetIntensity(5.0f);
+        }
     }
+    if (bExternalEnvironment && !SetupBattlefieldBounds())
+        return false;
     if (!SpawnArmy(0) || !SpawnArmy(1) || !SetupDrivers())
         return false;
 
@@ -786,35 +811,92 @@ bool ASoulRealtimeArenaGameMode::SetupArena()
         APlayerController* PC = GetWorld()->GetFirstPlayerController();
         if (!PC) return false;
         PC->Possess(PlayerHero);
+        const FRotator InitialView(
+            -32.0f, PlayerHero->GetActorRotation().Yaw, 0.0f);
+        PC->SetControlRotation(InitialView);
         PC->SetViewTarget(PlayerHero);
         PC->SetShowMouseCursor(false);
+        UE_LOG(LogTemp, Display,
+            TEXT("SOUL_RT_PLAYER_CONTROL: possessed=%d hero=%s control=%s"),
+            PC->GetPawn() == PlayerHero ? 1 : 0,
+            *PlayerHero->GetActorLocation().ToCompactString(),
+            *PC->GetControlRotation().ToCompactString());
     }
 
     Status = TEXT("24v24 physical battle ready - seven unit families plus hero");
     return Combatants.Num() == 48 && Groups.Num() == 16;
 }
 
+bool ASoulRealtimeArenaGameMode::SetupBattlefieldBounds()
+{
+    auto AddWall = [this](const FVector& Offset, const FVector& Extent)
+    {
+        AActor* Wall = GetWorld() ? GetWorld()->SpawnActor<AActor>() : nullptr;
+        if (!Wall) return false;
+        UBoxComponent* Box = NewObject<UBoxComponent>(Wall);
+        if (!Box) return false;
+        Wall->SetRootComponent(Box);
+        Wall->AddInstanceComponent(Box);
+        Box->InitBoxExtent(Extent);
+        Box->SetCollisionProfileName(TEXT("BlockAll"));
+        Box->SetGenerateOverlapEvents(false);
+        Box->SetCanEverAffectNavigation(false);
+        Box->SetHiddenInGame(true);
+        Box->RegisterComponent();
+        Wall->SetActorLocation(ArenaOrigin + Offset);
+        BattlefieldBounds.Add(Wall);
+        return true;
+    };
+
+    BattlefieldBounds.Reset();
+    const bool bReady =
+        AddWall(FVector(BattlefieldHalfX + BattlefieldWallThickness, 0, 0), FVector(BattlefieldWallThickness, BattlefieldHalfY + 200.0f, BattlefieldWallHalfHeight)) &&
+        AddWall(FVector(-BattlefieldHalfX - BattlefieldWallThickness, 0, 0), FVector(BattlefieldWallThickness, BattlefieldHalfY + 200.0f, BattlefieldWallHalfHeight)) &&
+        AddWall(FVector(0, BattlefieldHalfY + BattlefieldWallThickness, 0), FVector(BattlefieldHalfX + 200.0f, BattlefieldWallThickness, BattlefieldWallHalfHeight)) &&
+        AddWall(FVector(0, -BattlefieldHalfY - BattlefieldWallThickness, 0), FVector(BattlefieldHalfX + 200.0f, BattlefieldWallThickness, BattlefieldWallHalfHeight));
+    UE_LOG(LogTemp, Display, TEXT("SOUL_RT_BOUNDS_SETUP: halfX=%.0f halfY=%.0f walls=%d"), BattlefieldHalfX, BattlefieldHalfY, BattlefieldBounds.Num());
+    return bReady && BattlefieldBounds.Num() == 4;
+}
+
+void ASoulRealtimeArenaGameMode::TrackBattlefieldExtent()
+{
+    if (!bExternalEnvironment) return;
+    for (const ACharacter* Actor : Actors)
+    {
+        if (!Actor) continue;
+        const FVector Delta = Actor->GetActorLocation() - ArenaOrigin;
+        MaxObservedArenaOffsetX = FMath::Max(
+            MaxObservedArenaOffsetX, FMath::Abs(Delta.X));
+        MaxObservedArenaOffsetY = FMath::Max(
+            MaxObservedArenaOffsetY, FMath::Abs(Delta.Y));
+    }
+}
+
 bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
 {
     const float BaseX = Side == 0 ? -1450.0f : 1450.0f;
     const float Back = Side == 0 ? -280.0f : 280.0f;
+    const auto At = [this](double X, double Y, double Z)
+    {
+        return ArenaOrigin + FVector(X, Y, Z);
+    };
     return
         SpawnFormation(Side, ESoulRealtimeFormationRole::Line,
-            5, FVector(BaseX, 0, 100)) &&
+            5, At(BaseX, 0, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Guard,
-            4, FVector(BaseX, 520, 100)) &&
+            4, At(BaseX, 520, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Breaker,
-            4, FVector(BaseX, -520, 100)) &&
+            4, At(BaseX, -520, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Shock,
-            3, FVector(BaseX, 1020, 100)) &&
+            3, At(BaseX, 1020, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Ranged,
-            4, FVector(BaseX + Back, -1020, 100)) &&
+            4, At(BaseX + Back, -1020, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Support,
-            2, FVector(BaseX + Back, 1420, 100)) &&
+            2, At(BaseX + Back, 1420, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Hero,
-            1, FVector(BaseX, 260, 100)) &&
+            1, At(BaseX, 260, 100)) &&
         SpawnFormation(Side, ESoulRealtimeFormationRole::Apex,
-            1, FVector(BaseX, -1420, 120));
+            1, At(BaseX, -1420, 120));
 }
 
 bool ASoulRealtimeArenaGameMode::SpawnFormation(
@@ -864,6 +946,116 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     return true;
 }
 
+FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
+    const FVector& Desired)
+{
+    if (!bExternalEnvironment || !GetWorld())
+        return Desired;
+
+    FHitResult Hit;
+    FCollisionQueryParams Query(
+        SCENE_QUERY_STAT(SoulRealtimeArenaGround), false);
+    const FVector Start = Desired + FVector(0, 0, 8000.0);
+    const FVector End = Desired - FVector(0, 0, 12000.0);
+    if (GetWorld()->LineTraceSingleByChannel(
+            Hit, Start, End, ECC_Visibility, Query))
+    {
+        return FVector(
+            Desired.X, Desired.Y, Hit.ImpactPoint.Z + 96.0);
+    }
+
+    UE_LOG(LogTemp, Warning,
+        TEXT("SOUL_RT_GROUND_MISS: desired=%s"),
+        *Desired.ToCompactString());
+    return Desired;
+}
+
+USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
+    int32 Side, ESoulRealtimeFormationRole FormationRole) const
+{
+    const TCHAR* Path = nullptr;
+    if (Side == 0)
+    {
+        switch (FormationRole)
+        {
+            case ESoulRealtimeFormationRole::Guard:
+                Path = TEXT("/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE5/Full_Mesh/SKM_Knight_04_Full_01.SKM_Knight_04_Full_01");
+                break;
+            case ESoulRealtimeFormationRole::Breaker:
+                Path = TEXT("/Game/Knights_Pack/Meshes/Knight_05/Mesh_UE5/Full_Mesh/SKM_Knight_05_Full_01.SKM_Knight_05_Full_01");
+                break;
+            case ESoulRealtimeFormationRole::Shock:
+            case ESoulRealtimeFormationRole::Ranged:
+                Path = TEXT("/Game/Knights_Pack/Meshes/Knight_03/Mesh_UE5/Full/SKM_Knight_03_Full_01.SKM_Knight_03_Full_01");
+                break;
+            case ESoulRealtimeFormationRole::Hero:
+                Path = TEXT("/Game/Knights_Pack/Meshes/Knight_01/Mesh_UE5/Knight_01_Full/SKM_Knight_01_Full_01.SKM_Knight_01_Full_01");
+                break;
+            default:
+                Path = TEXT("/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE5/Full/SKM_Knight_02_Full_01.SKM_Knight_02_Full_01");
+                break;
+        }
+    }
+    else
+    {
+        switch (FormationRole)
+        {
+            case ESoulRealtimeFormationRole::Guard:
+            case ESoulRealtimeFormationRole::Hero:
+                Path = TEXT("/Game/Dwarf_Pack/King/Mesh/SK_Dwarf_King_Full.SK_Dwarf_King_Full");
+                break;
+            case ESoulRealtimeFormationRole::Breaker:
+            case ESoulRealtimeFormationRole::Apex:
+                Path = TEXT("/Game/Dwarf_Pack/Broddi/Mesh/SK_Dwarf_BroddI_Full.SK_Dwarf_BroddI_Full");
+                break;
+            case ESoulRealtimeFormationRole::Ranged:
+                Path = TEXT("/Game/Dwarf_Pack/Orme/Mesh/SK_Dwarf_Orme_Full.SK_Dwarf_Orme_Full");
+                break;
+            case ESoulRealtimeFormationRole::Support:
+                Path = TEXT("/Game/Dwarf_Pack/Agvid/Mesh/SK/SK_Dwarf_Agvid_Full.SK_Dwarf_Agvid_Full");
+                break;
+            default:
+                Path = TEXT("/Game/Dwarf_Pack/Bedvar/Mesh/SK_Dwarf_Bedvar_Full.SK_Dwarf_Bedvar_Full");
+                break;
+        }
+    }
+    return Path ? LoadObject<USkeletalMesh>(nullptr, Path) : nullptr;
+}
+
+UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
+    int32 Side, bool bRunning) const
+{
+    const TCHAR* Path = Side == 0
+        ? (bRunning
+            ? TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Run_Fwd.MM_Run_Fwd")
+            : TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Idle.MM_Idle"))
+        : (bRunning
+            ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run")
+            : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle"));
+    return LoadObject<UAnimationAsset>(nullptr, Path);
+}
+
+void ASoulRealtimeArenaGameMode::UpdateVisualAnimations()
+{
+    if (!bVisualUnits) return;
+    for (int32 I = 0; I < Actors.Num(); ++I)
+    {
+        if (!Actors[I] || !Combatants.IsValidIndex(I) ||
+            !VisualRunning.IsValidIndex(I))
+            continue;
+        const bool bRunning =
+            Actors[I]->GetVelocity().SizeSquared2D() > FMath::Square(12.0);
+        if (VisualRunning[I] == bRunning)
+            continue;
+        if (UAnimationAsset* Animation =
+            ResolveVisualAnimation(Combatants[I].Side, bRunning))
+        {
+            Actors[I]->GetMesh()->PlayAnimation(Animation, true);
+            VisualRunning[I] = bRunning;
+        }
+    }
+}
+
 bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     int32 Side,
     ESoulRealtimeFormationRole FormationRole,
@@ -871,9 +1063,13 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     const FVector& Location,
     bool bPlayer)
 {
-    UStaticMesh* Cube = LoadObject<UStaticMesh>(
-        nullptr, TEXT("/Engine/BasicShapes/Cube.Cube"));
-    if (!Cube) return false;
+    UStaticMesh* Cube = nullptr;
+    if (!bVisualUnits)
+    {
+        Cube = LoadObject<UStaticMesh>(
+            nullptr, TEXT("/Engine/BasicShapes/Cube.Cube"));
+        if (!Cube) return false;
+    }
 
     FSoulRealtimeArenaCombatant Data;
     Data.Id = FGuid::NewGuid();
@@ -891,8 +1087,9 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Params.SpawnCollisionHandlingOverride =
         ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
     const FRotator Facing(0, Side == 0 ? 0.0f : 180.0f, 0);
+    const FVector SpawnLocation = ResolveSpawnLocation(Location);
     ACharacter* Actor = GetWorld()->SpawnActor<ACharacter>(
-        ACharacter::StaticClass(), Location, Facing, Params);
+        ACharacter::StaticClass(), SpawnLocation, Facing, Params);
     if (!Actor) return false;
 
     Actor->SetCanBeDamaged(true);
@@ -903,21 +1100,45 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         RoleWalkSpeed(FormationRole);
     Actor->GetCharacterMovement()->bOrientRotationToMovement = !bPlayer;
 
-    UStaticMeshComponent* Body =
-        NewObject<UStaticMeshComponent>(Actor);
-    Actor->AddInstanceComponent(Body);
-    Body->SetupAttachment(Actor->GetRootComponent());
-    Body->SetStaticMesh(Cube);
-    FVector Scale(0.42f, 0.42f, 1.25f);
-    if (FormationRole == ESoulRealtimeFormationRole::Apex)
-        Scale = FVector(0.78f, 0.78f, 1.8f);
-    else if (FormationRole == ESoulRealtimeFormationRole::Hero)
-        Scale = FVector(0.52f, 0.52f, 1.45f);
-    else if (FormationRole == ESoulRealtimeFormationRole::Ranged)
-        Scale = FVector(0.38f, 0.38f, 1.15f);
-    Body->SetRelativeScale3D(Scale);
-    Body->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-    Body->RegisterComponent();
+    if (bVisualUnits)
+    {
+        USkeletalMesh* Mesh = ResolveVisualMesh(Side, FormationRole);
+        UAnimationAsset* Idle = ResolveVisualAnimation(Side, false);
+        if (!Mesh || !Idle)
+        {
+            UE_LOG(LogTemp, Error,
+                TEXT("SOUL_RT_VISUAL_LOAD_FAIL: side=%d role=%s mesh=%d idle=%d"),
+                Side, *RoleLabel(FormationRole), Mesh != nullptr, Idle != nullptr);
+            return false;
+        }
+
+        USkeletalMeshComponent* Visual = Actor->GetMesh();
+        Visual->SetSkeletalMeshAsset(Mesh);
+        Visual->SetRelativeLocation(FVector(0, 0, -90.0f));
+        Visual->SetRelativeRotation(FRotator(0, -90.0f, 0));
+        Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Visual->SetAnimationMode(EAnimationMode::AnimationSingleNode);
+        Visual->PlayAnimation(Idle, true);
+    }
+    else
+    {
+        UStaticMeshComponent* Body =
+            NewObject<UStaticMeshComponent>(Actor);
+        Actor->AddInstanceComponent(Body);
+        Body->SetupAttachment(Actor->GetRootComponent());
+        Body->SetStaticMesh(Cube);
+        FVector Scale(0.42f, 0.42f, 1.25f);
+        if (FormationRole == ESoulRealtimeFormationRole::Apex)
+            Scale = FVector(0.78f, 0.78f, 1.8f);
+        else if (FormationRole == ESoulRealtimeFormationRole::Hero)
+            Scale = FVector(0.52f, 0.52f, 1.45f);
+        else if (FormationRole == ESoulRealtimeFormationRole::Ranged)
+            Scale = FVector(0.38f, 0.38f, 1.15f);
+        Body->SetRelativeScale3D(Scale);
+        Body->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Body->RegisterComponent();
+    }
+    VisualRunning.Add(false);
 
     UTextRenderComponent* Label =
         NewObject<UTextRenderComponent>(Actor);
@@ -933,6 +1154,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Label->SetTextRenderColor(
         bPlayer ? FColor::Yellow :
         (Side == 0 ? FColor::Cyan : FColor::Red));
+    Label->SetVisibility(!bVisualUnits);
     Label->RegisterComponent();
 
     USoulRealtimeArenaBinding* Binding =
@@ -994,7 +1216,8 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     }
     return Actors.Num() == Combatants.Num() &&
         Bindings.Num() == Combatants.Num() &&
-        Ranged.Num() == Combatants.Num();
+        Ranged.Num() == Combatants.Num() &&
+        VisualRunning.Num() == Combatants.Num();
 }
 
 bool ASoulRealtimeArenaGameMode::SetupDrivers()
@@ -1605,8 +1828,10 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
             FMath::Max(0.0f, C.MeleeCooldown - Seconds);
 
     TickMagic(Seconds);
+    UpdateVisualAnimations();
     UpdateDefeatedRepresentations();
     TickReinforcements();
+    TrackBattlefieldExtent();
 
     if (!bProof)
     {
@@ -1677,6 +1902,7 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
     const int32 EnemyCasualties = CasualtiesForSide(1);
     const int32 Contacts = AcceptedContacts.Num();
     const int32 Allied = TotalAlliedTargets();
+    const bool bWithinBounds = !bExternalEnvironment || (MaxObservedArenaOffsetX <= BattlefieldHalfX && MaxObservedArenaOffsetY <= BattlefieldHalfY);
 
     const bool bPassed =
         Combatants.Num() == 48 &&
@@ -1686,15 +1912,19 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
         Contacts >= 12 &&
         HumanCasualties + EnemyCasualties >= 4 &&
         Allied == 0 &&
-        RemainingArrows < 256;
+        RemainingArrows < 256 &&
+        bWithinBounds;
 
     const FString Detail = FString::Printf(
         TEXT("actors=%d groups=%d contacts=%d ")
         TEXT("casualtiesHuman=%d casualtiesEnemy=%d ")
-        TEXT("alliedTargets=%d arrowsRemaining=%d"),
+        TEXT("alliedTargets=%d arrowsRemaining=%d ")
+        TEXT("boundsMaxX=%.1f boundsMaxY=%.1f withinBounds=%d"),
         Combatants.Num(), Groups.Num(), Contacts,
         HumanCasualties, EnemyCasualties,
-        Allied, RemainingArrows);
+        Allied, RemainingArrows,
+        MaxObservedArenaOffsetX, MaxObservedArenaOffsetY,
+        bWithinBounds ? 1 : 0);
 
     FinishProof(bPassed, Detail);
 }
