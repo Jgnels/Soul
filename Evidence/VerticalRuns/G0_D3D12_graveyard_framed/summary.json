@@ -1,0 +1,58 @@
+{
+  "stage": "G0",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Soul.uproject",
+    "/Game/Dragon_graveyard/Level/L_showcase_level?game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1280",
+    "-ResY=720",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 30",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G0_D3D12_graveyard_framed\\unreal.log",
+    "-SoulMapOnly",
+    "-unattended",
+    "-nosound"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G0_D3D12_graveyard_framed",
+  "expected_active_units": 0,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 75.0,
+  "completion_marker": null,
+  "completion_timeout": null,
+  "started_utc": "2026-09-26T03:44:34.565462+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 4696.0,
+      "temperature_c": 45.0,
+      "utilization_percent": 0.0
+    }
+  ],
+  "automatic_acceptance": false,
+  "pid": 14544,
+  "crash_signatures": [
+    "[2026.09.26-03.44.47:631][  0]LogD3D12RHI: Error: GPU crash detected:",
+    "\t- Device 0 Removed: DXGI_ERROR_DEVICE_RESET",
+    " with error DXGI_ERROR_DEVICE_REMOVED",
+    "[2026.09.26-03.44.50:309][  0]LogD3D12RHI: Error: GPU Crashed or D3D Device Removed."
+  ],
+  "exit_code": 3,
+  "clean_shutdown": false,
+  "stopped_utc": "2026-09-26T03:44:53.979174+00:00",
+  "stop_reason": "crash_signature",
+  "cleanup": "wm_close",
+  "elapsed_seconds": 19.39,
+  "observed_after_ready_seconds": 0,
+  "rhi_log_lines": [
+    "[2026.09.26-03.44.37:467][  0]LogRHI: Using Default RHI: D3D12",
+    "[2026.09.26-03.44.37:860][  0]LogD3D12RHI: Display: Creating D3D12 RHI with Max Feature Level SM5"
+  ],
+  "completion_marker_observed": false,
+  "alive_observed_after_ready_seconds": 0,
+  "preserved_crashes": [
+    "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G0_D3D12_graveyard_framed\\crashes\\UECC-Windows-F393231B49105D55F641D7AAE6602889_0000"
+  ]
+}

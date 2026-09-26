@@ -1,0 +1,14 @@
+test_crash_signature_overrides_marker (__main__.CompletionSafetyTests.test_crash_signature_overrides_marker) ... ok
+test_dead_polling_interval_cannot_satisfy_minimum (__main__.CompletionSafetyTests.test_dead_polling_interval_cannot_satisfy_minimum) ... ok
+test_explicit_marker_accepts_clean_observed_exit (__main__.CompletionSafetyTests.test_explicit_marker_accepts_clean_observed_exit) ... ok
+test_marker_does_not_accept_early_exit (__main__.CompletionSafetyTests.test_marker_does_not_accept_early_exit) ... ok
+test_marker_wait_is_bounded (__main__.CompletionSafetyTests.test_marker_wait_is_bounded) ... ok
+test_missing_marker_rejects_clean_exit (__main__.CompletionSafetyTests.test_missing_marker_rejects_clean_exit) ... ok
+test_nonzero_exit_rejected (__main__.CompletionSafetyTests.test_nonzero_exit_rejected) ... ok
+test_original_duration_mode_preserved (__main__.CompletionSafetyTests.test_original_duration_mode_preserved) ... ok
+test_thermal_failure_overrides_marker (__main__.CompletionSafetyTests.test_thermal_failure_overrides_marker) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.356s
+
+OK

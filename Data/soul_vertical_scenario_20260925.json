@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scenario_id": "founder_human_dwarf_vertical",
+  "description": "Qualification overlay reuses accepted founder geography. Dwarves occupy legacy Orc-named region IDs, preserved as stable geography IDs.",
+  "player_faction": "humans",
+  "enemy_faction": "dwarves",
+  "player_unit_id": "human_knight",
+  "enemy_unit_id": "dwarf_warrior",
+  "player_strategic_count": 12,
+  "enemy_strategic_count": 10,
+  "active_cap_per_side": 5,
+  "battle_map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "campaign_map": "/Engine/Maps/Entry",
+  "arena_origin": [
+    2000,
+    -15000,
+    0
+  ]
+}

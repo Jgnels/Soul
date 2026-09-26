@@ -1,0 +1,858 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-Q1S3RPU",
+			"instance": "B4CAF46045C708B81A7D2B855D1A4E7E",
+			"instanceName": "DESKTOP-Q1S3RPU-16852",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce GTX 1080",
+			"cPUModel": "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.26-04.55.41",
+	"succeeded": 52,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 4.3576493263244629,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "MemoryChangesChoice",
+			"fullTestPath": "Soul.Core.AI.MemoryChangesChoice",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016097798943519592,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "StrategicContextSelectsMap",
+			"fullTestPath": "Soul.Core.Battlefield.StrategicContextSelectsMap",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016517698764801025,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ActionEconomyGrowth",
+			"fullTestPath": "Soul.Core.Campaign.ActionEconomyGrowth",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016385700553655624,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Logistics",
+			"fullTestPath": "Soul.Core.Campaign.Logistics",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.01631859689950943,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DeterministicDamage",
+			"fullTestPath": "Soul.Core.Combat.DeterministicDamage",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016908299177885056,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InitiativeWait",
+			"fullTestPath": "Soul.Core.Combat.InitiativeWait",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.01671159639954567,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RetaliationOnce",
+			"fullTestPath": "Soul.Core.Combat.RetaliationOnce",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016509398818016052,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RetreatConsequences",
+			"fullTestPath": "Soul.Core.Combat.RetreatConsequences",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016721200197935104,
+			"dateTime": "2026.09.26-04.55.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SevenUnitContract",
+			"fullTestPath": "Soul.Core.Faction.SevenUnitContract",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016493499279022217,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ProgressionAndMagic",
+			"fullTestPath": "Soul.Core.Hero.ProgressionAndMagic",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016760800033807755,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CandidatesCanDepart",
+			"fullTestPath": "Soul.Core.HeroRecruitment.CandidatesCanDepart",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016755402088165283,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PhysicalVenueGatesHiring",
+			"fullTestPath": "Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016319300979375839,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LineOfSight",
+			"fullTestPath": "Soul.Core.Hex.LineOfSight",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016398601233959198,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MultiHexFootprint",
+			"fullTestPath": "Soul.Core.Hex.MultiHexFootprint",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.01555589959025383,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Pathfinding",
+			"fullTestPath": "Soul.Core.Hex.Pathfinding",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016446501016616821,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HexArea",
+			"fullTestPath": "Soul.Core.Magic.HexArea",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016453500837087631,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CommanderOnlyContext",
+			"fullTestPath": "Soul.Core.Memory.CommanderOnlyContext",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016766499727964401,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ControlAndSurvival",
+			"fullTestPath": "Soul.Core.Objectives.ControlAndSurvival",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.018126297742128372,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Veterancy",
+			"fullTestPath": "Soul.Core.Regiment.Veterancy",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016356401145458221,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PersistentDamageProjection",
+			"fullTestPath": "Soul.Core.Settlement.PersistentDamageProjection",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.014528598636388779,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Prerequisites",
+			"fullTestPath": "Soul.Core.Settlement.Prerequisites",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016263898462057114,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AnnexesPersistentSettlementDamage",
+			"fullTestPath": "Soul.Core.Siege.AnnexesPersistentSettlementDamage",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.014446903020143509,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PreparedLayeredDefense",
+			"fullTestPath": "Soul.Core.Siege.PreparedLayeredDefense",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.017205800861120224,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TacticalModifiers",
+			"fullTestPath": "Soul.Core.Terrain.TacticalModifiers",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016440000385046005,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ConstructionCostAtomic",
+			"fullTestPath": "Soul.Core.Town.ConstructionCostAtomic",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.015995398163795471,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RecruitmentRequiresBuilding",
+			"fullTestPath": "Soul.Core.Town.RecruitmentRequiresBuilding",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016502499580383301,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RuinedBuildingRequiresRepair",
+			"fullTestPath": "Soul.Core.Town.RuinedBuildingRequiresRepair",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016395200043916702,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GeographyDrivesBattle",
+			"fullTestPath": "Soul.Core.World.GeographyDrivesBattle",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016256600618362427,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AxialCoordinateCount",
+			"fullTestPath": "Soul.Integration.BattlefieldGrid.AxialCoordinateCount",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016723398119211197,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SettlementDomainRoundTrip",
+			"fullTestPath": "Soul.Integration.Save.SettlementDomainRoundTrip",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016482099890708923,
+			"dateTime": "2026.09.26-04.55.36",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "BridgeRejectsPrematureVictory",
+			"fullTestPath": "Soul.Integration.Vertical.BridgeRejectsPrematureVictory",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016287900507450104,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DefeatConsequence",
+			"fullTestPath": "Soul.Integration.Vertical.DefeatConsequence",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.015597499907016754,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "EncounterContract",
+			"fullTestPath": "Soul.Integration.Vertical.EncounterContract",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016816198825836182,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RBSaveDomainRoundTrip",
+			"fullTestPath": "Soul.Integration.Vertical.RBSaveDomainRoundTrip",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.033495798707008362,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RBSaveScopedDomains",
+			"fullTestPath": "Soul.Integration.Vertical.RBSaveScopedDomains",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016245197504758835,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SupportedMatchupContract",
+			"fullTestPath": "Soul.Integration.Vertical.SupportedMatchupContract",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.019852098077535629,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "VictoryCorrectTarget",
+			"fullTestPath": "Soul.Integration.Vertical.VictoryCorrectTarget",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.020354799926280975,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DeterministicReplication",
+			"fullTestPath": "Soul.RealtimeBattle.Lab.DeterministicReplication",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.052208598703145981,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SeededMatrix",
+			"fullTestPath": "Soul.RealtimeBattle.Lab.SeededMatrix",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.30229941010475159,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FireboltBuildsVolcanicIntent",
+			"fullTestPath": "Soul.RealtimeBattle.Magic.FireboltBuildsVolcanicIntent",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016340300440788269,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LatestProofAssetsLoad",
+			"fullTestPath": "Soul.RealtimeBattle.Magic.LatestProofAssetsLoad",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 1.8016828298568726,
+			"dateTime": "2026.09.26-04.55.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormationSpatialPolicies",
+			"fullTestPath": "Soul.RealtimeBattle.PBIL.FormationSpatialPolicies",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.015877902507781982,
+			"dateTime": "2026.09.26-04.55.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CasualtiesCannotConsumeUnspawnedReserve",
+			"fullTestPath": "Soul.RealtimeBattle.Vertical.CasualtiesCannotConsumeUnspawnedReserve",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.017931800335645676,
+			"dateTime": "2026.09.26-04.55.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "KnightUE4DwarfAnimationCompatibility",
+			"fullTestPath": "Soul.RealtimeBattle.Vertical.KnightUE4DwarfAnimationCompatibility",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 1.3893564939498901,
+			"dateTime": "2026.09.26-04.55.39",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SOUL_ANIMATION_COMPAT: animation=/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1 mesh=/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE4/Full/SK_Knight_02_Full_01.SK_Knight_02_Full_01 animationSkeleton=/Game/Dwarf_Pack/Mesh/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton meshSkeleton=/Game/Knights_Pack/Demoscene_UE4/Mesh/UE4_Mannequin_Skeleton.UE4_Mannequin_Skeleton parentChainCheck=1 compatible=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.26-04.55.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SOUL_ANIMATION_COMPAT: animation=/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1 mesh=/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE4/Full/SK_Knight_02_Full_01.SK_Knight_02_Full_01 animationSkeleton=/Game/Dwarf_Pack/Mesh/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton meshSkeleton=/Game/Knights_Pack/Demoscene_UE4/Mesh/UE4_Mannequin_Skeleton.UE4_Mannequin_Skeleton parentChainCheck=1 compatible=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.26-04.55.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SOUL_ANIMATION_COMPAT: animation=/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run mesh=/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE4/Full/SK_Knight_02_Full_01.SK_Knight_02_Full_01 animationSkeleton=/Game/Dwarf_Pack/Mesh/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton meshSkeleton=/Game/Knights_Pack/Demoscene_UE4/Mesh/UE4_Mannequin_Skeleton.UE4_Mannequin_Skeleton parentChainCheck=1 compatible=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.26-04.55.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SOUL_ANIMATION_COMPAT: animation=/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle mesh=/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE4/Full/SK_Knight_02_Full_01.SK_Knight_02_Full_01 animationSkeleton=/Game/Dwarf_Pack/Mesh/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton meshSkeleton=/Game/Knights_Pack/Demoscene_UE4/Mesh/UE4_Mannequin_Skeleton.UE4_Mannequin_Skeleton parentChainCheck=1 compatible=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.26-04.55.41"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LastActiveDeathRetainsHostileReserves",
+			"fullTestPath": "Soul.RealtimeBattle.Vertical.LastActiveDeathRetainsHostileReserves",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.01739560067653656,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SequentialWavesPreserveLedgerAndCaps",
+			"fullTestPath": "Soul.RealtimeBattle.Vertical.SequentialWavesPreserveLedgerAndCaps",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016855698078870773,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FantasyPowerDecouplesFromHeadcount",
+			"fullTestPath": "Soul.RealtimeBattle.FantasyPowerDecouplesFromHeadcount",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016247302293777466,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LargeArmyUsesReserves",
+			"fullTestPath": "Soul.RealtimeBattle.LargeArmyUsesReserves",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.01613679900765419,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlayableReserveWaveUsesFormation",
+			"fullTestPath": "Soul.RealtimeBattle.PlayableReserveWaveUsesFormation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.017187099903821945,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ReinforcementsArriveInBoundedWave",
+			"fullTestPath": "Soul.RealtimeBattle.ReinforcementsArriveInBoundedWave",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016037900000810623,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SmallArmyDeploysAll",
+			"fullTestPath": "Soul.RealtimeBattle.SmallArmyDeploysAll",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.016960401087999344,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "VolcanicTerrainChangesMagic",
+			"fullTestPath": "Soul.RealtimeBattle.VolcanicTerrainChangesMagic",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B4CAF46045C708B81A7D2B855D1A4E7E"
+			],
+			"duration": 0.014638200402259827,
+			"dateTime": "2026.09.26-04.55.41",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

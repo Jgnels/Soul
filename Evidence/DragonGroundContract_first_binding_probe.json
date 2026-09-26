@@ -1,0 +1,178 @@
+{
+  "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "current_origin_samples": [
+    {
+      "xy": [
+        2000,
+        -15000
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        1300,
+        -15000
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        2700,
+        -15000
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        1300,
+        -15600
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        1300,
+        -14400
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        2700,
+        -15600
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        2700,
+        -14400
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        200,
+        -15000
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        3800,
+        -15000
+      ],
+      "blocking_hit": false,
+      "dry_flat_candidate": false,
+      "lava_xy_bounds_overlap": [
+        "Plane4"
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    }
+  ],
+  "errors": [
+    {
+      "xy": [
+        2000,
+        -15000
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        1300,
+        -15000
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        2700,
+        -15000
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        1300,
+        -15600
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        1300,
+        -14400
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        2700,
+        -15600
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        2700,
+        -14400
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        200,
+        -15000
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    },
+    {
+      "xy": [
+        3800,
+        -15000
+      ],
+      "error": "type object 'GameplayStatics' has no attribute 'break_hit_result'"
+    }
+  ]
+}

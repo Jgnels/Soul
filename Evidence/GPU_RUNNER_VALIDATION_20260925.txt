@@ -1,0 +1,17 @@
+PASS NVIDIA CSV telemetry parsing
+PASS existing Unreal process detection
+PASS crash signatures distinguish ordinary startup breadcrumbs
+PASS busy-lane preflight refuses launch
+PASS 85 C preflight refuses launch
+5/5 runner safety checks PASS; no Unreal launched.
+
+PASS ctypes read-only current-Python process memory: {"working_set_mib": 23.89, "peak_working_set_mib": 23.9, "private_commit_mib": 17.27, "pagefile_mib": 17.27}
+PASS mocked early-exit refusal (no process launched)
+PASS mocked full-duration clean observation (no process launched)
+PASS mocked forced-stop non-success (no process launched)
+PASS mocked exit-race non-success (no process launched)
+5/5 additional telemetry/completion checks PASS; no Unreal launched.
+
+Persistent suite: python Tools/test_qualify_soul_vertical.py
+9/9 marker completion safety regressions PASS; no Unreal launched.
+

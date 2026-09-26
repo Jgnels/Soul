@@ -1,4 +1,5 @@
 #include "Misc/AutomationTest.h"
+#include "Engine/World.h"
 
 #include "RBPBILInfluenceComponent.h"
 #include "RBPBILInfluenceVolume.h"
@@ -105,4 +106,46 @@ bool FRBPBILPresetAndGuardTest::RunTest(const FString&)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+    FRBPBILRuntimeDomainTest,
+    "RB.PBIL.RuntimeDomainAndRefreshPolicy",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FRBPBILRuntimeDomainTest::RunTest(const FString&)
+{
+    UWorld* World = UWorld::CreateWorld(EWorldType::Game, false);
+    if (!TestNotNull(TEXT("isolated world exists"), World))
+    {
+        return false;
+    }
+    const FVector Origin(1200.0f, 400.0f, 100.0f);
+    ARBPBILInfluenceVolume* Volume = World->SpawnActorDeferred<ARBPBILInfluenceVolume>(
+        ARBPBILInfluenceVolume::StaticClass(), FTransform(Origin), nullptr, nullptr,
+        ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
+    if (TestNotNull(TEXT("deferred PBIL field exists"), Volume))
+    {
+        TestTrue(TEXT("existing adaptive default preserved"), Volume->IsAdaptiveRefreshEnabled());
+        TestTrue(TEXT("existing GPU default preserved"), Volume->IsGPURefreshEnabled());
+        TestTrue(TEXT("explicit CPU selection succeeds before BeginPlay"),
+            Volume->SetRefreshPolicy(ERBPBILRefreshPolicy::CPU));
+        TestFalse(TEXT("CPU policy cannot be switched back by adaptive tuning"), Volume->IsAdaptiveRefreshEnabled());
+        TestFalse(TEXT("CPU policy excludes GPU readback path"), Volume->IsGPURefreshEnabled());
+        TestTrue(TEXT("runtime bounds configured"),
+            Volume->ConfigureRuntimeBounds(FVector(600.0f, 450.0f, 150.0f), 150.0f));
+        TestEqual(TEXT("columns follow bounded domain"), Volume->GetColumns(), 8);
+        TestEqual(TEXT("rows follow bounded domain"), Volume->GetRows(), 6);
+        TestTrue(TEXT("translated field encloses origin"), Volume->GetCachedBounds().IsInside(Origin));
+        TestFalse(TEXT("degenerate bounds rejected"), Volume->ConfigureRuntimeBounds(FVector::ZeroVector));
+        TestFalse(TEXT("invalid cell size rejected"),
+            Volume->ConfigureRuntimeBounds(FVector(600.0f), 0.0f));
+        TestEqual(TEXT("failed configuration preserves valid grid"), Volume->GetColumns(), 8);
+        TestTrue(TEXT("explicit GPU policy supported"), Volume->SetRefreshPolicy(ERBPBILRefreshPolicy::GPU));
+        TestFalse(TEXT("fixed GPU is not adaptive"), Volume->IsAdaptiveRefreshEnabled());
+        TestTrue(TEXT("fixed GPU enabled"), Volume->IsGPURefreshEnabled());
+        // No FinishSpawning: this test checks the pre-registration contract without GPU dispatch.
+        Volume->Destroy();
+    }
+    World->DestroyWorld(false);
+    return true;
+}
 #endif

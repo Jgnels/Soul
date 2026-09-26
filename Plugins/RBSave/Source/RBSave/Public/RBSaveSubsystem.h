@@ -61,6 +61,16 @@ public:
     UFUNCTION(BlueprintCallable, Category="RB Save|Domain")
     void LoadDomainsAsync(const FString& Slot, const FRBSaveOperationDelegate& Completion);
 
+    // Explicit checkpoint scope. Unselected domains are left untouched; every selected
+    // provider must exist and succeed. Uses the same atomic domain backend.
+    UFUNCTION(BlueprintCallable, Category="RB Save|Domain")
+    void SaveSelectedDomainsAsync(const FString& Slot, const TArray<FName>& DomainIds,
+                                  const FRBSaveOperationDelegate& Completion);
+    UFUNCTION(BlueprintCallable, Category="RB Save|Domain")
+    void LoadSelectedDomainsAsync(const FString& Slot, const TArray<FName>& DomainIds,
+                                  const FRBSaveOperationDelegate& Completion);
+
+
     UFUNCTION(BlueprintPure, Category="RB Save|Domain")
     TArray<FName> GetRegisteredDomainIds() const;
 
@@ -79,8 +89,9 @@ public:
     FString GetGenerationRoot(const FString& Slot) const;
 
     bool CaptureRegisteredDomains(const FString& Slot, rb::save::Snapshot& OutSnapshot,
-                                  FString& OutError) const;
-    bool RestoreRegisteredDomains(const rb::save::Snapshot& Snapshot, FString& OutError);
+                                  FString& OutError, const TArray<FName>* SelectedDomains = nullptr) const;
+    bool RestoreRegisteredDomains(const rb::save::Snapshot& Snapshot, FString& OutError,
+                                  const TArray<FName>* SelectedDomains = nullptr);
 
 private:
     UPROPERTY(Transient)

@@ -1,7 +1,20 @@
 #include "SoulRealtimeBattleArena.h"
+#include "SoulRealtimeBattlePBIL.h"
+#include "SoulCampaignBattleBridge.h"
+#include "Camera/CameraActor.h"
+#include "UnrealClient.h"
+#include "Misc/Paths.h"
+#include "Misc/ScopeExit.h"
+#include "TimerManager.h"
+#include "Engine/GameInstance.h"
+#include "Engine/PostProcessVolume.h"
+#include "EngineUtils.h"
+#include "HAL/IConsoleManager.h"
+#include "Kismet/GameplayStatics.h"
 
 #include "AIController.h"
 #include "Animation/AnimationAsset.h"
+#include "Animation/AnimSingleNodeInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -520,7 +533,7 @@ bool ASoulRealtimeArenaGameMode::CanCastMagic(
     const int32 CasterIndex = Binding
         ? Index(FRBHostIdentity::From(Binding->GetCombatant()))
         : INDEX_NONE;
-    if (CasterIndex == INDEX_NONE ||
+    if (CasterIndex == INDEX_NONE || Combatants[CasterIndex].Health <= 0 ||
         Request.Caster.Domain != MagicArenaDomain ||
         Request.Caster.Id != Combatants[CasterIndex].Id)
     {
@@ -753,9 +766,86 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
     FParse::Value(
         FCommandLine::Get(), TEXT("-SoulArenaOriginZ="), ArenaOrigin.Z);
 
+    bMapOnly = FParse::Param(FCommandLine::Get(), TEXT("SoulMapOnly"));
+    bQualification = FParse::Param(FCommandLine::Get(), TEXT("SoulVerticalQualification"));
+    bAutobattle = true; // Current formation slice is commanded from an observer camera.
+    bQualification = bQualification || bProof;
+    bTacticalMagic = bMagicProof || FParse::Param(FCommandLine::Get(), TEXT("SoulTacticalMagic"));
+    bQualification = bQualification || bMagicProof;
+    // The selected world itself owns environment identity; flags cannot substitute a cube map.
+    const bool bDragon = GetWorld()->GetOutermost()->GetName().Contains(TEXT("Dragon_graveyard/Level/L_showcase_level"));
+    if (bDragon)
+    {
+        bExternalEnvironment = true;
+        bVisualUnits = true;
+        if (ArenaOrigin.IsNearlyZero()) ArenaOrigin = FVector(2000, -15000, 0);
+        // This imported map authored EV100 bounds (-0.5..0). Preserve those bounds
+        // when Soul's renderer uses the legacy positive-luminance convention.
+        // Change this world instance only; never modify the donor asset or global CVars.
+        const auto* Extended = IConsoleManager::Get().FindConsoleVariable(TEXT("r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange"));
+        const auto* Attenuation = IConsoleManager::Get().FindConsoleVariable(TEXT("r.EyeAdaptation.LensAttenuation"));
+        const bool bEV100 = Extended && Extended->GetInt() != 0;
+        const float LuminanceMax = 0.78f / FMath::Max(Attenuation ? Attenuation->GetFloat() : 0.78f, 0.01f);
+        for (TActorIterator<APostProcessVolume> It(GetWorld()); It; ++It)
+        {
+            auto& Settings = It->Settings;
+            UE_LOG(LogTemp, Display, TEXT("SOUL_DRAGON_EXPOSURE: volume=%s extended=%d authoredMin=%g authoredMax=%g bias=%g"),
+                *It->GetName(), bEV100, Settings.AutoExposureMinBrightness, Settings.AutoExposureMaxBrightness, Settings.AutoExposureBias);
+            if (!bEV100 && Settings.bOverride_AutoExposureMinBrightness && Settings.bOverride_AutoExposureMaxBrightness &&
+                Settings.AutoExposureMinBrightness <= 0 && Settings.AutoExposureMaxBrightness <= 0)
+            {
+                Settings.AutoExposureMinBrightness = LuminanceMax * FMath::Pow(2.0f, Settings.AutoExposureMinBrightness);
+                Settings.AutoExposureMaxBrightness = LuminanceMax * FMath::Pow(2.0f, Settings.AutoExposureMaxBrightness);
+                UE_LOG(LogTemp, Display, TEXT("SOUL_DRAGON_EXPOSURE_NORMALIZED: min=%g max=%g"),
+                    Settings.AutoExposureMinBrightness, Settings.AutoExposureMaxBrightness);
+            }
+        }
+    }
+    if (bMapOnly)
+    {
+        SetupBattleCamera();
+        UE_LOG(LogTemp, Display, TEXT("SOUL_G0_READY: map=%s simulation=0 units=0"), *GetWorld()->GetOutermost()->GetName());
+        return;
+    }
+    FParse::Value(FCommandLine::Get(), TEXT("SoulActivePerSide="), ActiveCap);
+    ActiveCap = FMath::Clamp(ActiveCap, 1, 32);
+    StrategicBodies[0] = StrategicBodies[1] = ActiveCap;
+    FParse::Value(FCommandLine::Get(), TEXT("SoulPlayerPool="), StrategicBodies[0]);
+    FParse::Value(FCommandLine::Get(), TEXT("SoulEnemyPool="), StrategicBodies[1]);
+    StrategicBodies[0] = FMath::Clamp(StrategicBodies[0], 1, 250);
+    StrategicBodies[1] = FMath::Clamp(StrategicBodies[1], 1, 250);
+    // Campaign contract is applied below after validation by the campaign authority.
+    if (auto* Bridge = GetGameInstance()->GetSubsystem<USoulCampaignBattleBridge>())
+    {
+        if (const auto* Encounter = Bridge->GetPendingEncounter())
+        {
+            if (!Encounter->IsValid() || !bDragon || Encounter->MapPackage.ToString() != GetWorld()->GetOutermost()->GetName())
+            {
+                FinishProof(false, TEXT("Campaign battlefield identity mismatch"));
+                return;
+            }
+            bCampaignBattle = true;
+            bAutobattle = true;
+            ArenaOrigin = Encounter->ArenaOrigin;
+            ActiveCap = Encounter->ActiveCapPerSide;
+            StrategicBodies[0] = Encounter->PlayerStrategicCount;
+            StrategicBodies[1] = Encounter->EnemyStrategicCount;
+            bTacticalMagic = true;
+            UE_LOG(LogTemp, Display, TEXT("SOUL_CAMPAIGN_BATTLE_BEGIN: encounter=%s target=%s map=%s player=%s:%s:%d enemy=%s:%s:%d cap=%d"),
+                *Encounter->EncounterId.ToString(), *Encounter->TargetRegion.ToString(), *Encounter->MapPackage.ToString(),
+                *Encounter->PlayerFaction.ToString(), *Encounter->PlayerUnitId.ToString(), StrategicBodies[0],
+                *Encounter->EnemyFaction.ToString(), *Encounter->EnemyUnitId.ToString(), StrategicBodies[1], ActiveCap);
+        }
+    }
+    Spatial = NewObject<USoulRealtimeBattlePBIL>(this);
+    if (!Spatial->Configure(GetWorld(), ArenaOrigin))
+    {
+        FinishProof(false, TEXT("PBIL initialization failed"));
+        return;
+    }
     if (!SetupArena())
     {
-        if (bProof)
+        if (bProof || bQualification)
             FinishProof(false, TEXT("arena setup failed"));
         else
             Status = TEXT("Arena setup failed");
@@ -764,8 +854,8 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
 
     InitialAlive[0] = AliveForSide(0);
     InitialAlive[1] = AliveForSide(1);
-    if (!bProof && !bMagicProof)
-        SetupReinforcementState();
+    SetupReinforcementState();
+    if (bAutobattle || !PlayerHero) SetupBattleCamera();
     UE_LOG(LogTemp, Display,
         TEXT("SOUL_RT_ARENA_SETUP: actors=%d groups=%d proof=%d external=%d visuals=%d origin=%s"),
         Combatants.Num(), Groups.Num(), bProof,
@@ -806,7 +896,7 @@ bool ASoulRealtimeArenaGameMode::SetupArena()
     if (!SpawnArmy(0) || !SpawnArmy(1) || !SetupDrivers())
         return false;
 
-    if (!bProof && PlayerHero)
+    if (!bProof && !bAutobattle && PlayerHero)
     {
         APlayerController* PC = GetWorld()->GetFirstPlayerController();
         if (!PC) return false;
@@ -823,8 +913,8 @@ bool ASoulRealtimeArenaGameMode::SetupArena()
             *PC->GetControlRotation().ToCompactString());
     }
 
-    Status = TEXT("24v24 physical battle ready - seven unit families plus hero");
-    return Combatants.Num() == 48 && Groups.Num() == 16;
+    Status = TEXT("Knights versus Dwarves | bounded active formations");
+    return Combatants.Num() == FMath::Min(ActiveCap, StrategicBodies[0]) + FMath::Min(ActiveCap, StrategicBodies[1]);
 }
 
 bool ASoulRealtimeArenaGameMode::SetupBattlefieldBounds()
@@ -874,29 +964,18 @@ void ASoulRealtimeArenaGameMode::TrackBattlefieldExtent()
 
 bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
 {
-    const float BaseX = Side == 0 ? -1450.0f : 1450.0f;
-    const float Back = Side == 0 ? -280.0f : 280.0f;
-    const auto At = [this](double X, double Y, double Z)
+    int32 Remaining = FMath::Min(ActiveCap, StrategicBodies[Side]);
+    const int32 GroupCount = FMath::DivideAndRoundUp(Remaining, 8);
+    for (int32 G = 0; G < GroupCount; ++G)
     {
-        return ArenaOrigin + FVector(X, Y, Z);
-    };
-    return
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Line,
-            5, At(BaseX, 0, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Guard,
-            4, At(BaseX, 520, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Breaker,
-            4, At(BaseX, -520, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Shock,
-            3, At(BaseX, 1020, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Ranged,
-            4, At(BaseX + Back, -1020, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Support,
-            2, At(BaseX + Back, 1420, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Hero,
-            1, At(BaseX, 260, 100)) &&
-        SpawnFormation(Side, ESoulRealtimeFormationRole::Apex,
-            1, At(BaseX, -1420, 120));
+        const int32 Count = FMath::Min(8, Remaining);
+        const float X = Side == 0 ? -700.0f : 700.0f;
+        const float Y = (G - (GroupCount - 1) * 0.5f) * 540.0f;
+        if (!SpawnFormation(Side, ESoulRealtimeFormationRole::Line,
+            Count, ArenaOrigin + FVector(X, Y, 100))) return false;
+        Remaining -= Count;
+    }
+    return Remaining == 0;
 }
 
 bool ASoulRealtimeArenaGameMode::SpawnFormation(
@@ -908,6 +987,19 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     if (Count <= 0 || Count > FRBCombatGroup::MaximumMembers)
         return false;
 
+    const int32 FirstCombatant = Combatants.Num();
+    const int32 FirstGroup = Groups.Num();
+    const int32 FirstDriver = Drivers.Num();
+    const TWeakObjectPtr<ACharacter> PreviousHero(PlayerHero);
+    bool bSpawnCommitted = false;
+    ON_SCOPE_EXIT
+    {
+        if (!bSpawnCommitted)
+        {
+            RollbackSpawnedFormation(FirstCombatant, FirstGroup, FirstDriver);
+            PlayerHero = PreviousHero.Get();
+        }
+    };
     const int32 GroupIndex = Groups.AddDefaulted();
     FRBCombatGroup Core;
     Core.Id = FGuid::NewGuid();
@@ -927,7 +1019,7 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
             * Row * 115.0f;
         Location.Y += (Col - Center) * 115.0f;
         const bool bPlayer =
-            !bProof && Side == 0 &&
+            !bProof && !bAutobattle && Side == 0 &&
             FormationRole == ESoulRealtimeFormationRole::Hero && I == 0;
         if (!SpawnCombatant(
                 Side, FormationRole, GroupIndex, Location, bPlayer))
@@ -943,7 +1035,50 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     if (!FRBHostGroup::FromCore(Core, HostGroup))
         return false;
     Groups[GroupIndex] = MoveTemp(HostGroup);
+    bSpawnCommitted = true;
     return true;
+}
+
+void ASoulRealtimeArenaGameMode::RollbackSpawnedFormation(
+    int32 FirstCombatant, int32 FirstGroup, int32 FirstDriver)
+{
+    for (int32 I = Drivers.Num() - 1; I >= FirstDriver; --I)
+    {
+        if (IsValid(Drivers[I])) Drivers[I]->DestroyComponent();
+    }
+    Drivers.SetNum(FirstDriver);
+    for (int32 I = Actors.Num() - 1; I >= FirstCombatant; --I)
+    {
+        ACharacter* Actor = Actors[I];
+        if (!IsValid(Actor)) continue;
+        if (Spatial) Spatial->UnregisterUnit(Actor);
+        if (AAIController* AI = Cast<AAIController>(Actor->GetController()))
+        {
+            AI->StopMovement();
+            AI->UnPossess();
+            AI->Destroy();
+        }
+        if (PlayerHero == Actor) PlayerHero = nullptr;
+        Actor->SetActorEnableCollision(false);
+        Actor->Destroy();
+    }
+    Actors.SetNum(FirstCombatant);
+    Bindings.SetNum(FirstCombatant);
+    Ranged.SetNum(FirstCombatant);
+    VisualRunning.SetNum(FirstCombatant);
+    Combatants.SetNum(FirstCombatant);
+    Groups.SetNum(FirstGroup);
+    for (auto It = DefeatedRepresentations.CreateIterator(); It; ++It)
+    {
+        if (*It >= FirstCombatant) It.RemoveCurrent();
+    }
+    // A failed refresh may already have updated some pre-existing drivers. Restore all of them.
+    if (!RefreshDriverRepresentations())
+    {
+        UE_LOG(LogTemp, Error, TEXT("SOUL_RT_SPAWN_ROLLBACK_DRIVER_FAILURE"));
+    }
+    UE_LOG(LogTemp, Display, TEXT("SOUL_RT_SPAWN_ROLLED_BACK: actors=%d groups=%d drivers=%d"),
+        Actors.Num(), Groups.Num(), Drivers.Num());
 }
 
 FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
@@ -955,6 +1090,11 @@ FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
     FHitResult Hit;
     FCollisionQueryParams Query(
         SCENE_QUERY_STAT(SoulRealtimeArenaGround), false);
+    // Reinforcement deployment must hit terrain, never a living or retained corpse capsule.
+    for (const ACharacter* Existing : Actors)
+    {
+        if (Existing) Query.AddIgnoredActor(Existing);
+    }
     const FVector Start = Desired + FVector(0, 0, 8000.0);
     const FVector End = Desired - FVector(0, 0, 12000.0);
     if (GetWorld()->LineTraceSingleByChannel(
@@ -978,6 +1118,10 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
     {
         switch (FormationRole)
         {
+            case ESoulRealtimeFormationRole::Line:
+                // Strict parent-chain compatibility with the existing Dwarf melee clips is qualified.
+                Path = TEXT("/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE4/Full/SK_Knight_02_Full_01.SK_Knight_02_Full_01");
+                break;
             case ESoulRealtimeFormationRole::Guard:
                 Path = TEXT("/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE5/Full_Mesh/SKM_Knight_04_Full_01.SKM_Knight_04_Full_01");
                 break;
@@ -1023,9 +1167,10 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
 }
 
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
-    int32 Side, bool bRunning) const
+    int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const
 {
-    const TCHAR* Path = Side == 0
+    const bool bUsesUE5Knight = Side == 0 && FormationRole != ESoulRealtimeFormationRole::Line;
+    const TCHAR* Path = bUsesUE5Knight
         ? (bRunning
             ? TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Run_Fwd.MM_Run_Fwd")
             : TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Idle.MM_Idle"))
@@ -1040,17 +1185,26 @@ void ASoulRealtimeArenaGameMode::UpdateVisualAnimations()
     if (!bVisualUnits) return;
     for (int32 I = 0; I < Actors.Num(); ++I)
     {
-        if (!Actors[I] || !Combatants.IsValidIndex(I) ||
+        if (!Actors[I] || !Combatants.IsValidIndex(I) || Combatants[I].Health <= 0 ||
             !VisualRunning.IsValidIndex(I))
             continue;
+        bool bResumeLocomotion = false;
+        if (Combatants[I].bVisualAttackPlaying)
+        {
+            const UAnimSingleNodeInstance* Playback = Actors[I]->GetMesh()->GetSingleNodeInstance();
+            if (Playback && Playback->IsPlaying()) continue;
+            Combatants[I].bVisualAttackPlaying = false;
+            bResumeLocomotion = true;
+        }
         const bool bRunning =
             Actors[I]->GetVelocity().SizeSquared2D() > FMath::Square(12.0);
-        if (VisualRunning[I] == bRunning)
+        if (!bResumeLocomotion && VisualRunning[I] == bRunning)
             continue;
         if (UAnimationAsset* Animation =
-            ResolveVisualAnimation(Combatants[I].Side, bRunning))
+            ResolveVisualAnimation(Combatants[I].Side, bRunning, Combatants[I].Role))
         {
             Actors[I]->GetMesh()->PlayAnimation(Animation, true);
+            Actors[I]->GetMesh()->SetPlayRate(1.0f);
             VisualRunning[I] = bRunning;
         }
     }
@@ -1092,6 +1246,12 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         ACharacter::StaticClass(), SpawnLocation, Facing, Params);
     if (!Actor) return false;
 
+    // Track ownership before any asset/binding/AI operation can fail, so the enclosing
+    // formation transaction can destroy this actor even if setup stops halfway through.
+    Actors.Add(Actor);
+    Bindings.Add(nullptr);
+    Ranged.Add(nullptr);
+    VisualRunning.Add(false);
     Actor->SetCanBeDamaged(true);
     Actor->bUseControllerRotationYaw = bPlayer;
     Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
@@ -1103,7 +1263,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     if (bVisualUnits)
     {
         USkeletalMesh* Mesh = ResolveVisualMesh(Side, FormationRole);
-        UAnimationAsset* Idle = ResolveVisualAnimation(Side, false);
+        UAnimationAsset* Idle = ResolveVisualAnimation(Side, false, FormationRole);
         if (!Mesh || !Idle)
         {
             UE_LOG(LogTemp, Error,
@@ -1138,8 +1298,6 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Body->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Body->RegisterComponent();
     }
-    VisualRunning.Add(false);
-
     UTextRenderComponent* Label =
         NewObject<UTextRenderComponent>(Actor);
     Actor->AddInstanceComponent(Label);
@@ -1162,9 +1320,8 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Actor->AddInstanceComponent(Binding);
     Binding->RegisterComponent();
 
-    Actors.Add(Actor);
-    Bindings.Add(Binding);
-    Ranged.Add(nullptr);
+    Bindings[NewIndex] = Binding;
+
     if (!Binding->BindCombatant(IdentityAt(NewIndex).Core()))
         return false;
     Binding->SetGuardConfiguration(0.65f, 0.30f, 0.0f);
@@ -1213,7 +1370,18 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         AAIController* AI = GetWorld()->SpawnActor<AAIController>();
         if (!AI) return false;
         AI->Possess(Actor);
+        if (AI->GetPawn() != Actor)
+        {
+            AI->Destroy();
+            return false;
+        }
     }
+    if (!Spatial || !Spatial->RegisterUnit(Actor, Side == 1))
+    {
+        UE_LOG(LogTemp, Error, TEXT("SOUL_PBIL_REGISTER_FAIL: side=%d id=%s"), Side, *Data.Id.ToString());
+        return false;
+    }
+    if (Side == 0 && !PlayerHero) PlayerHero = Actor;
     return Actors.Num() == Combatants.Num() &&
         Bindings.Num() == Combatants.Num() &&
         Ranged.Num() == Combatants.Num() &&
@@ -1243,8 +1411,9 @@ bool ASoulRealtimeArenaGameMode::RefreshDriverRepresentations()
 {
     TArray<URBVariantCombatBindingComponent*> Reps;
     Reps.Reserve(Bindings.Num());
-    for (USoulRealtimeArenaBinding* Binding : Bindings)
-        Reps.Add(Binding);
+    for (int32 I = 0; I < Bindings.Num(); ++I)
+        if (IsValid(Bindings[I]) && Combatants.IsValidIndex(I) && Combatants[I].Health > 0)
+            Reps.Add(Bindings[I]);
 
     for (USoulRealtimeArenaGroupDriver* Driver : Drivers)
     {
@@ -1257,9 +1426,9 @@ bool ASoulRealtimeArenaGameMode::RefreshDriverRepresentations()
 void ASoulRealtimeArenaGameMode::SetupReinforcementState()
 {
     ReinforcementBattle = FSoulRealtimeBattleState();
-    ReinforcementBattle.MaxActivePerSide = 24;
+    ReinforcementBattle.MaxActivePerSide = ActiveCap;
     ReinforcementBattle.ReinforcementTriggerPermille = 700;
-    ReinforcementBattle.MaxWaveSize = 4;
+    ReinforcementBattle.MaxWaveSize = FMath::Min(4, ActiveCap);
     ReinforcementBattle.bReinforcementsEnabled = true;
 
     for (int32 GroupIndex = 0; GroupIndex < Groups.Num(); ++GroupIndex)
@@ -1295,15 +1464,15 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
         Reserve.SideId = RealtimeSideId(Side);
         Reserve.UnitId = TEXT("Soul.Reserve.Line");
         Reserve.Role = ESoulRealtimeFormationRole::Line;
-        Reserve.StrategicCount = 4;
+        Reserve.StrategicCount = FMath::Max(0, StrategicBodies[Side] - AliveForSide(Side));
         Reserve.ActiveCount = 0;
-        Reserve.ReserveCount = 4;
-        Reserve.MaxActiveRepresentations = 4;
+        Reserve.ReserveCount = Reserve.StrategicCount;
+        Reserve.MaxActiveRepresentations = ActiveCap;
         ReinforcementBattle.Formations.Add(Reserve);
-        InitialStrategic[Side] = AliveForSide(Side) + 4;
+        InitialStrategic[Side] = StrategicBodies[Side];
     }
 
-    Status = TEXT("24v24 active + 4-body formation reserve per side");
+    Status = TEXT("Strategic reserves ready");
     UE_LOG(LogTemp, Display,
         TEXT("SOUL_RT_RESERVES_READY: human=%d enemy=%d"),
         ReserveBodiesForSide(0), ReserveBodiesForSide(1));
@@ -1318,12 +1487,23 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
 
     const int32 FirstCombatant = Combatants.Num();
     const int32 NewGroupIndex = Groups.Num();
-    const float X = Side == 0 ? -2300.0f : 2300.0f;
+    const int32 FirstDriver = Drivers.Num();
+    const TWeakObjectPtr<ACharacter> PreviousHero(PlayerHero);
+    bool bSpawnCommitted = false;
+    ON_SCOPE_EXIT
+    {
+        if (!bSpawnCommitted)
+        {
+            RollbackSpawnedFormation(FirstCombatant, NewGroupIndex, FirstDriver);
+            PlayerHero = PreviousHero.Get();
+        }
+    };
+    const float X = Side == 0 ? -1100.0f : 1100.0f;
     if (!SpawnFormation(
             Side,
             ESoulRealtimeFormationRole::Line,
             Count,
-            FVector(X, 0.0f, 100.0f)))
+            ArenaOrigin + FVector(X, 0.0f, 100.0f)))
         return false;
 
     const FName FormationId = ReserveFormationId(Side);
@@ -1340,7 +1520,8 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     Driver->bAllowDirectSteering = true;
     Driver->RegisterComponent();
     Drivers.Add(Driver);
-    return RefreshDriverRepresentations();
+    bSpawnCommitted = RefreshDriverRepresentations();
+    return bSpawnCommitted;
 }
 
 void ASoulRealtimeArenaGameMode::TickReinforcements()
@@ -1377,9 +1558,31 @@ void ASoulRealtimeArenaGameMode::TickReinforcements()
         }
         else
         {
-            UE_LOG(LogTemp, Warning,
-                TEXT("SOUL_RT_REINFORCEMENT_FAILED: side=%d bodies=%d"),
+            // Candidate was never committed and all partial physical state was rolled back.
+            // A content/driver failure is actionable; do not retry the same failure every tick.
+            UE_LOG(LogTemp, Error,
+                TEXT("SOUL_RT_REINFORCEMENT_FAILED: side=%d bodies=%d rollback=1 reserveUnchanged=1"),
                 Side, Count);
+            Status = TEXT("Battle stopped: reinforcement setup failed; reserve state preserved");
+            if (bQualification)
+            {
+                FinishProof(false, Status);
+            }
+            else
+            {
+                bFinished = true;
+                for (USoulRealtimeArenaGroupDriver* Driver : Drivers)
+                {
+                    if (Driver) Driver->SetComponentTickEnabled(false);
+                }
+                for (ACharacter* Actor : Actors)
+                {
+                    if (!IsValid(Actor)) continue;
+                    Actor->GetCharacterMovement()->StopMovementImmediately();
+                    if (AAIController* AI = Cast<AAIController>(Actor->GetController())) AI->StopMovement();
+                }
+            }
+            return;
         }
     }
 }
@@ -1431,6 +1634,7 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
     if (Distance > Weapon.Reach + 95.0f) return false;
 
     Attacker->SetActorRotation(Direction.Rotation());
+
     const FVector Start =
         Attacker->GetActorLocation() +
         Direction * 35.0f + FVector(0, 0, 45);
@@ -1476,6 +1680,25 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
     AttackerBinding->EndNativeAttackContact();
     AttackerData.MeleeCooldown =
         AttackDelay(AttackerData.Role);
+
+    if (bAccepted && bVisualUnits &&
+        (AttackerData.Side == 1 || AttackerData.Role == ESoulRealtimeFormationRole::Line))
+    {
+        UAnimSingleNodeInstance* Playback = Attacker->GetMesh()->GetSingleNodeInstance();
+        if (!AttackerData.bVisualAttackPlaying || !Playback || !Playback->IsPlaying())
+        {
+            if (auto* Attack = LoadObject<UAnimationAsset>(nullptr,
+                TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1")))
+            {
+                Attacker->GetMesh()->PlayAnimation(Attack, false);
+                // Show the entire existing clip within the existing combat cadence; never truncate
+                // it with a guessed cooldown threshold or replace RB Combat's hit authority.
+                const float VisualDuration = FMath::Max(0.1f, AttackDelay(AttackerData.Role) * 0.95f);
+                Attacker->GetMesh()->SetPlayRate(FMath::Max(0.1f, Attack->GetPlayLength() / VisualDuration));
+                AttackerData.bVisualAttackPlaying = true;
+            }
+        }
+    }
 
     if (bAccepted && !bProof)
     {
@@ -1537,13 +1760,52 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
         }
 
         DefeatedRepresentations.Add(I);
+        const int32 GroupIndex = Combatants[I].GroupIndex;
+        if (Groups.IsValidIndex(GroupIndex) && Groups[GroupIndex].Leader.Id == Combatants[I].Id)
+        {
+            for (const auto& Member : Groups[GroupIndex].Members)
+            {
+                const int32 Next = Index(Member);
+                if (Next != INDEX_NONE && Combatants[Next].Health > 0)
+                {
+                    Groups[GroupIndex].Leader = Member;
+                    ++Groups[GroupIndex].Revision;
+                    break;
+                }
+            }
+        }
         ACharacter* Actor = Actors[I];
         Actor->SetActorEnableCollision(false);
-        Actor->SetActorScale3D(FVector(1.0f, 1.0f, 0.28f));
+        if (Spatial) Spatial->UnregisterUnit(Actor);
+        Combatants[I].bVisualAttackPlaying = false;
+        Actor->GetMesh()->bPauseAnims = true;
+        if (bVisualUnits && (Combatants[I].Side == 1 || Combatants[I].Role == ESoulRealtimeFormationRole::Line))
+        {
+            if (auto* Death = LoadObject<UAnimationAsset>(nullptr,
+                TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1")))
+            {
+                Actor->GetMesh()->bPauseAnims = false;
+                Actor->GetMesh()->PlayAnimation(Death, false);
+                Actor->GetMesh()->SetPlayRate(1.0f);
+            }
+        }
+        else Actor->GetMesh()->SetRelativeRotation(FRotator(0, -90, 85));
+        UE_LOG(LogTemp, Display, TEXT("SOUL_UNIT_DEFEATED: side=%d id=%s"), Combatants[I].Side, *Combatants[I].Id.ToString());
         Actor->GetCharacterMovement()->DisableMovement();
-        if (AAIController* AI =
-            Cast<AAIController>(Actor->GetController()))
+        if (AAIController* AI = Cast<AAIController>(Actor->GetController()))
+        {
             AI->StopMovement();
+            AI->SetActorTickEnabled(false);
+        }
+        const TWeakObjectPtr<ACharacter> Corpse(Actor);
+        FTimerHandle Cleanup;
+        GetWorld()->GetTimerManager().SetTimer(Cleanup, [Corpse]()
+        {
+            if (!Corpse.IsValid()) return;
+            Corpse->SetActorHiddenInGame(true);
+            Corpse->GetMesh()->SetComponentTickEnabled(false);
+            Corpse->SetActorTickEnabled(false);
+        }, 6.0f, false);
     }
 }
 int32 ASoulRealtimeArenaGameMode::FindPlayerSpellTarget(
@@ -1821,7 +2083,55 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
 void ASoulRealtimeArenaGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
-    if (bFinished || Combatants.IsEmpty()) return;
+    if (auto* PC = GetWorld()->GetFirstPlayerController())
+    {
+        if (PC->WasInputKeyJustPressed(EKeys::Escape)) FPlatformMisc::RequestExit(false);
+        if (!bFinished && !bMapOnly)
+        {
+            if (PC->WasInputKeyJustPressed(EKeys::G)) ToggleAlliedOrders();
+            if (PC->WasInputKeyJustPressed(EKeys::One))
+                CastPlayerSpell(TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
+                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
+        }
+    }
+    if (bMapOnly)
+    {
+        BattleElapsed += Seconds;
+        if (!bFirstCapture && BattleElapsed > 20)
+        {
+            bFirstCapture = true;
+            FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/Vertical_G0_A.png"), false, false);
+        }
+        if (!bSecondCapture && BattleElapsed > 45)
+        {
+            bSecondCapture = true;
+            if (auto* PC = GetWorld()->GetFirstPlayerController())
+            {
+                const FVector Center = ResolveSpawnLocation(ArenaOrigin + FVector(0, 0, 100));
+                PC->GetViewTarget()->SetActorLocation(Center + FVector(1800, -3200, 1700));
+                PC->GetViewTarget()->SetActorRotation((Center + FVector(500, 1800, 600) - PC->GetViewTarget()->GetActorLocation()).Rotation());
+            }
+            FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/Vertical_G0_B.png"), false, false);
+        }
+        if (bQualification && BattleElapsed >= 90.0f) FinishProof(true, TEXT("G0 map-only 90 seconds, no simulation"));
+        return;
+    }
+    if (bFinished)
+    {
+        UpdateVisualAnimations();
+        if (ResultHoldSeconds >= 0)
+        {
+            ResultHoldSeconds += Seconds;
+            if (ResultHoldSeconds > 60) { bFinished = false; FinishProof(true, TEXT("Resolved real battle plus 60-second observation")); }
+        }
+        return;
+    }
+    if (Combatants.IsEmpty()) return;
+    if (bQualification && !bFirstCapture && BattleElapsed > 3)
+    {
+        bFirstCapture = true;
+        FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/Vertical_Battle.png"), false, false);
+    }
 
     for (auto& C : Combatants)
         C.MeleeCooldown =
@@ -1831,102 +2141,13 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
     UpdateVisualAnimations();
     UpdateDefeatedRepresentations();
     TickReinforcements();
+    if (bFinished) return; // A failed reserve transaction must not proceed to result publication.
     TrackBattlefieldExtent();
+    TickSpatialOrders(Seconds);
+    TickBattleResolution(Seconds);
+    if (bFinished || bAutobattle || bCampaignBattle) return;
 
-    if (!bProof)
-    {
-        if (bMagicProof)
-        {
-            MagicProofElapsed += Seconds;
 
-            if (MagicProofStage == 0 && MagicProofElapsed >= 4.0f)
-            {
-                if (CastPlayerSpell(
-                    TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
-                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt")))
-                    MagicProofStage = 1;
-            }
-            if (MagicProofStage == 1 && MagicProofElapsed >= 5.0f)
-            {
-                if (CastPlayerSpell(
-                    TEXT("/Game/Soul/Magic/Spells/DA_Soul_ChainLightning.DA_Soul_ChainLightning"),
-                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning.DA_SoulPresentation_ChainLightning")))
-                    MagicProofStage = 2;
-            }
-            if (MagicProofStage == 2 && MagicProofElapsed >= 6.0f)
-            {
-                if (CastPlayerSpell(
-                    TEXT("/Game/Soul/Magic/Spells/DA_Soul_Blizzard.DA_Soul_Blizzard"),
-                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard.DA_SoulPresentation_Blizzard")))
-                    MagicProofStage = 3;
-            }
-
-            if (MagicProofElapsed >= 10.0f)
-            {
-                const bool bPassed =
-                    MagicCasts >= 3 &&
-                    PlayerMana <= 40.01f &&
-                    ActiveMagicAreas.Num() > 0;
-                UE_LOG(LogTemp, Display,
-                    TEXT("SOUL_RT_MAGIC_%s: casts=%d mana=%.1f areas=%d contacts=%d"),
-                    bPassed ? TEXT("PASS") : TEXT("FAIL"),
-                    MagicCasts, PlayerMana, ActiveMagicAreas.Num(),
-                    AcceptedContactCount());
-                bFinished = true;
-                FPlatformMisc::RequestExitWithStatus(
-                    true, bPassed ? 0 : 1);
-                return;
-            }
-        }
-        else
-        {
-            PlayerTick(Seconds);
-        }
-
-        if (AliveForSide(1) == 0 &&
-            ReserveBodiesForSide(1) == 0)
-            Status = TEXT("VICTORY - enemy force defeated");
-        else if (AliveForSide(0) == 0 &&
-                 ReserveBodiesForSide(0) == 0)
-            Status = TEXT("DEFEAT - human force defeated");
-        return;
-    }
-
-    ProofElapsed += Seconds;
-    if (ProofElapsed < 22.0f) return;
-    int32 RemainingArrows = 0;
-    for (const auto& C : Combatants)
-        RemainingArrows += C.Arrows;
-
-    const int32 HumanCasualties = CasualtiesForSide(0);
-    const int32 EnemyCasualties = CasualtiesForSide(1);
-    const int32 Contacts = AcceptedContacts.Num();
-    const int32 Allied = TotalAlliedTargets();
-    const bool bWithinBounds = !bExternalEnvironment || (MaxObservedArenaOffsetX <= BattlefieldHalfX && MaxObservedArenaOffsetY <= BattlefieldHalfY);
-
-    const bool bPassed =
-        Combatants.Num() == 48 &&
-        Groups.Num() == 16 &&
-        InitialAlive[0] == 24 &&
-        InitialAlive[1] == 24 &&
-        Contacts >= 12 &&
-        HumanCasualties + EnemyCasualties >= 4 &&
-        Allied == 0 &&
-        RemainingArrows < 256 &&
-        bWithinBounds;
-
-    const FString Detail = FString::Printf(
-        TEXT("actors=%d groups=%d contacts=%d ")
-        TEXT("casualtiesHuman=%d casualtiesEnemy=%d ")
-        TEXT("alliedTargets=%d arrowsRemaining=%d ")
-        TEXT("boundsMaxX=%.1f boundsMaxY=%.1f withinBounds=%d"),
-        Combatants.Num(), Groups.Num(), Contacts,
-        HumanCasualties, EnemyCasualties,
-        Allied, RemainingArrows,
-        MaxObservedArenaOffsetX, MaxObservedArenaOffsetY,
-        bWithinBounds ? 1 : 0);
-
-    FinishProof(bPassed, Detail);
 }
 
 void ASoulRealtimeArenaGameMode::FinishProof(
@@ -1954,10 +2175,10 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     DrawRect(FLinearColor(0, 0, 0, 0.80f),
         12, 12, 1120, 158);
     DrawText(
-        TEXT("SOUL | REAL-TIME FANTASY BATTLE | 24v24 ACTIVE + FORMATION RESERVES"),
+        TEXT("SOUL | KNIGHTS / DWARVES | ACTIVE FORCE + STRATEGIC RESERVES"),
         FColor::White, 24, 20);
     DrawText(
-        TEXT("WASD move | mouse turn | LMB melee | RMB guard | G allied CHARGE/HOLD | Esc exit"),
+        TEXT("Formation battle | G allied CHARGE/HOLD | 1 Firebolt from living allied caster | Esc exit"),
         FColor::White, 24, 45);
     DrawText(
         FString::Printf(
@@ -1976,13 +2197,141 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         FColor::White, 24, 70);
     DrawText(
         FString::Printf(
-            TEXT("Mana %.0f | 1 Firebolt | 2 Chain Lightning | 3 Blizzard | casts %d"),
+            TEXT("Mana %.0f | RB Magic Firebolt | casts %d"),
             Host->PlayerManaValue(), Host->MagicCastCount()),
         FColor::Cyan, 24, 95);
     DrawText(
-        TEXT("RB Combat execution | RB Magic authority | RBAI/PBIL policy qualified; deeper runtime spatial integration next"),
+        TEXT("RB Combat | RB PBIL spatial orders | RB Magic tactical casts"),
         FColor::Cyan, 24, 118);
     DrawText(
         Host->Status,
         FColor::Yellow, 24, 141);
+}
+
+void ASoulRealtimeArenaGameMode::SetupBattleCamera()
+{
+    const FVector Center = ResolveSpawnLocation(ArenaOrigin + FVector(0, 0, 100));
+    // Establish the environment in map-only qualification; frame the actual fighters during play.
+    const FVector CameraOffset = bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000);
+    const FVector FocusOffset = bMapOnly ? FVector(500, 1800, 600) : FVector(250, 1400, 300);
+    auto* Camera = GetWorld()->SpawnActor<ACameraActor>(Center + CameraOffset, FRotator::ZeroRotator);
+    if (!Camera) return;
+    Camera->SetActorRotation((Center + FocusOffset - Camera->GetActorLocation()).Rotation());
+    Camera->GetCameraComponent()->SetFieldOfView(bMapOnly ? 65.0f : 75.0f);
+    if (auto* PC = GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
+}
+
+void ASoulRealtimeArenaGameMode::TickSpatialOrders(float Seconds)
+{
+    SpatialElapsed += Seconds;
+    if (!Spatial || SpatialElapsed < 1.0f) return;
+    SpatialElapsed = 0;
+    for (int32 G = 0; G < Groups.Num(); ++G)
+    {
+        if (!Drivers.IsValidIndex(G) || !Drivers[G]) continue;
+        int32 Leader = INDEX_NONE;
+        for (const auto& Member : Groups[G].Members)
+        {
+            const int32 I = Index(Member);
+            if (I != INDEX_NONE && Combatants[I].Health > 0) { Leader = I; break; }
+        }
+        if (Leader == INDEX_NONE) continue;
+        const int32 Side = Combatants[Leader].Side;
+        if (Side == 0 && !bAlliedCharge) continue;
+        int32 Target = INDEX_NONE;
+        double BestDistance = TNumericLimits<double>::Max();
+        for (int32 I = 0; I < Actors.Num(); ++I)
+        {
+            if (!Actors[I] || Combatants[I].Health <= 0 || Combatants[I].Side == Side) continue;
+            const double Distance = FVector::DistSquared2D(Actors[Leader]->GetActorLocation(), Actors[I]->GetActorLocation());
+            if (Distance < BestDistance) { BestDistance = Distance; Target = I; }
+        }
+        if (Target == INDEX_NONE) continue;
+        FVector Approach;
+        const bool bApproach = BestDistance > FMath::Square(550.0) &&
+            Spatial->QueryApproach(Actors[Leader], Side == 1, Actors[Target]->GetActorLocation(), Approach);
+        FString Error;
+        // Alternate bounded PBIL approach pulses with native Charge, so reaching a sampled point never strands a formation.
+        const bool bAdvance = bApproach && (FMath::FloorToInt(BattleElapsed) % 2 == 0);
+        if (Drivers[G]->RequestGroupOrder(Groups[G].Leader,
+            bAdvance ? ERBHostGroupOrder::Advance : ERBHostGroupOrder::Charge,
+            bAdvance ? Approach : Groups[G].Anchor,
+            (Actors[Target]->GetActorLocation() - Actors[Leader]->GetActorLocation()).GetSafeNormal2D(),
+            FRBHostIdentity(), Groups[G].Revision, Error) && bAdvance) ++SpatialOrders;
+    }
+}
+
+void ASoulRealtimeArenaGameMode::TickBattleResolution(float Seconds)
+{
+    BattleElapsed += Seconds;
+    for (int32 Side = 0; Side < 2; ++Side)
+    {
+        const int32 Logical = FSoulRealtimeBattleRules::ActiveBodies(ReinforcementBattle, RealtimeSideId(Side));
+        if (Logical != AliveForSide(Side) || Logical > ActiveCap)
+        {
+            FinishProof(false, TEXT("Real actor / reinforcement count mismatch"));
+            return;
+        }
+    }
+    // Tactical trigger: a living allied caster with an enemy inside the existing Firebolt target arc.
+    if (bTacticalMagic && MagicCasts == 0 && BattleElapsed > 2 && PlayerHealth() > 0 && FindPlayerSpellTarget(1800) != INDEX_NONE)
+        CastPlayerSpell(TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
+    if (!FSoulRealtimeBattleRules::HasLivingForce(ReinforcementBattle, RealtimeSideId(0)) ||
+        !FSoulRealtimeBattleRules::HasLivingForce(ReinforcementBattle, RealtimeSideId(1)))
+    {
+        FinishBattle();
+        return;
+    }
+    if (bQualification && BattleElapsed > 180)
+        FinishProof(false, TEXT("Battle exceeded 180 seconds: unresolved living force; no fabricated winner"));
+}
+
+void ASoulRealtimeArenaGameMode::FinishBattle()
+{
+    const int32 PlayerSurvivors = AliveForSide(0) + ReserveBodiesForSide(0);
+    const int32 EnemySurvivors = AliveForSide(1) + ReserveBodiesForSide(1);
+    const bool bWon = EnemySurvivors == 0 && PlayerSurvivors > 0;
+    UE_LOG(LogTemp, Display, TEXT("SOUL_BATTLE_RESOLVED: won=%d playerSurvivors=%d enemySurvivors=%d waves=%d/%d magic=%d contacts=%d pbilQueries=%d pbilSuccess=%d pbilOrders=%d seconds=%.2f"),
+        bWon, PlayerSurvivors, EnemySurvivors, ReinforcementWaves[0], ReinforcementWaves[1], MagicCasts,
+        AcceptedContactCount(), Spatial ? Spatial->GetQueryCount() : 0, Spatial ? Spatial->GetSuccessfulQueryCount() : 0, SpatialOrders, BattleElapsed);
+    if (bQualification && (!Spatial || Spatial->GetQueryCount() <= 0 ||
+        Spatial->GetSuccessfulQueryCount() <= 0 || SpatialOrders <= 0))
+    {
+        FinishProof(false, TEXT("Battle resolved without required PBIL query and RB Combat order participation"));
+        return;
+    }
+    if (bCampaignBattle)
+    {
+        auto* Bridge = GetGameInstance()->GetSubsystem<USoulCampaignBattleBridge>();
+        const auto* Pending = Bridge ? Bridge->GetPendingEncounter() : nullptr;
+        if (!Pending) { FinishProof(false, TEXT("Lost campaign encounter")); return; }
+        const FName ReturnMap = Pending->ReturnMapPackage;
+        FSoulCampaignBattleResult Result;
+        Result.EncounterId = Pending->EncounterId;
+        Result.TargetRegion = Pending->TargetRegion;
+        Result.bPlayerWon = bWon;
+        Result.PlayerSurvivors = PlayerSurvivors;
+        Result.EnemySurvivors = EnemySurvivors;
+        Result.PlayerReinforcements = ReinforcementWaves[0];
+        Result.EnemyReinforcements = ReinforcementWaves[1];
+        Result.MagicCasts = MagicCasts;
+        if (!Bridge->ResolveEncounter(Result)) { FinishProof(false, TEXT("Campaign rejected battle result")); return; }
+        bFinished = true;
+        if (Spatial) Spatial->Shutdown();
+        UGameplayStatics::OpenLevel(this, ReturnMap, true, TEXT("game=/Script/Soul.SoulFounderPlaytestGameMode"));
+        return;
+    }
+    if (bQualification)
+    {
+        if (AcceptedContactCount() <= 0 || TotalAlliedTargets() != 0)
+        { FinishProof(false, TEXT("Battle did not meet combat contact checks")); return; }
+        bFinished = true;
+        ResultHoldSeconds = 0;
+        Status = bWon ? TEXT("VICTORY - hostile reserves exhausted") : TEXT("DEFEAT - allied reserves exhausted");
+        FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/Vertical_Result.png"), false, false);
+        return;
+    }
+    bFinished = true;
+    Status = bWon ? TEXT("VICTORY") : TEXT("DEFEAT");
 }

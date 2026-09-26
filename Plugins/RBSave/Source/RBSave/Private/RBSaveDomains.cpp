@@ -12,6 +12,34 @@ using rb::save::DomainRecord;
 using rb::save::Snapshot;
 using rb::save::Value;
 
+bool ValidateDomainSelection(const TArray<FName>* Selection,
+    const TArray<FName>& Registered, FString& Error)
+{
+    if (!Selection) return true; // Existing all-domain contract.
+    if (Selection->IsEmpty())
+    {
+        Error = TEXT("Selected domain list is empty.");
+        return false;
+    }
+    TSet<FName> Seen;
+    for (FName Id : *Selection)
+    {
+        if (Id.IsNone() || Seen.Contains(Id))
+        {
+            Error = TEXT("Selected domain list contains an empty or duplicate id.");
+            return false;
+        }
+        if (!Registered.Contains(Id))
+        {
+            Error = FString::Printf(TEXT("Selected domain '%s' has no registered provider."), *Id.ToString());
+            return false;
+        }
+        Seen.Add(Id);
+    }
+    return true;
+}
+
+
 std::string RBToUtf8(const FString& Text)
 {
     FTCHARToUTF8 Converted(*Text);
@@ -175,10 +203,11 @@ FString URBSaveSubsystem::GetDomainSlotPath(const FString& Slot) const
 }
 
 bool URBSaveSubsystem::CaptureRegisteredDomains(const FString& Slot, Snapshot& OutSnapshot,
-                                                FString& OutError) const
+                                                FString& OutError, const TArray<FName>* SelectedDomains) const
 {
     OutError.Reset();
     OutSnapshot = Snapshot{};
+    if (!ValidateDomainSelection(SelectedDomains, GetRegisteredDomainIds(), OutError)) return false;
     const FString SafeSlot = RBSanitizeSlot(Slot);
     if (SafeSlot.IsEmpty())
     {
@@ -195,6 +224,7 @@ bool URBSaveSubsystem::CaptureRegisteredDomains(const FString& Slot, Snapshot& O
         UObject* Provider = Weak.Get();
         if (!Provider || !Provider->GetClass()->ImplementsInterface(URBSaveDomainProvider::StaticClass())) continue;
         const FName Id = IRBSaveDomainProvider::Execute_GetRBSaveDomainId(Provider);
+        if (SelectedDomains && !SelectedDomains->Contains(Id)) continue;
         const int32 Schema = IRBSaveDomainProvider::Execute_GetRBSaveSchemaVersion(Provider);
         if (Id.IsNone() || Schema <= 0)
         {
@@ -253,9 +283,23 @@ bool URBSaveSubsystem::CaptureRegisteredDomains(const FString& Slot, Snapshot& O
     return true;
 }
 
-bool URBSaveSubsystem::RestoreRegisteredDomains(const Snapshot& SnapshotData, FString& OutError)
+bool URBSaveSubsystem::RestoreRegisteredDomains(const Snapshot& SnapshotData, FString& OutError,
+    const TArray<FName>* SelectedDomains)
 {
     OutError.Reset();
+    if (!ValidateDomainSelection(SelectedDomains, GetRegisteredDomainIds(), OutError)) return false;
+    // Reject a missing selected domain before restoring any provider.
+    if (SelectedDomains)
+    {
+        for (FName Id : *SelectedDomains)
+        {
+            if (!FindDomain(SnapshotData, Id.ToString()))
+            {
+                OutError = FString::Printf(TEXT("Selected domain '%s' is missing from snapshot."), *Id.ToString());
+                return false;
+            }
+        }
+    }
 
     TSet<FString> RegisteredIds;
     for (const TWeakObjectPtr<UObject>& Weak : DomainProviders)
@@ -268,6 +312,7 @@ bool URBSaveSubsystem::RestoreRegisteredDomains(const Snapshot& SnapshotData, FS
     for (const DomainRecord& Domain : SnapshotData.domains)
     {
         const FString DomainId = RBFromUtf8(Domain.id);
+        if (SelectedDomains && !SelectedDomains->Contains(FName(*DomainId))) continue;
         if (!RegisteredIds.Contains(DomainId))
         {
             OutError = FString::Printf(TEXT("saved domain '%s' has no registered provider"), *DomainId);
@@ -279,6 +324,7 @@ bool URBSaveSubsystem::RestoreRegisteredDomains(const Snapshot& SnapshotData, FS
         UObject* Provider = Weak.Get();
         if (!Provider || !Provider->GetClass()->ImplementsInterface(URBSaveDomainProvider::StaticClass())) continue;
         const FName DomainId = IRBSaveDomainProvider::Execute_GetRBSaveDomainId(Provider);
+        if (SelectedDomains && !SelectedDomains->Contains(DomainId)) continue;
         const int32 ExpectedSchema = IRBSaveDomainProvider::Execute_GetRBSaveSchemaVersion(Provider);
         const DomainRecord* Core = FindDomain(SnapshotData, DomainId.ToString());
         if (!Core)
@@ -362,6 +408,73 @@ void URBSaveSubsystem::LoadDomainsAsync(const FString& Slot, const FRBSaveOperat
             }
             FString Error;
             const bool bOk = WeakThis->RestoreRegisteredDomains(Loaded.snapshot, Error);
+            Callback.ExecuteIfBound(DomainResult(bOk, bOk ? TEXT("domain load complete") : Error,
+                static_cast<int64>(Loaded.snapshot.sequence)));
+        });
+    });
+}
+
+void URBSaveSubsystem::SaveSelectedDomainsAsync(const FString& Slot, const TArray<FName>& DomainIds, const FRBSaveOperationDelegate& Completion)
+{
+    const FString Path = GetDomainSlotPath(Slot);
+    if (Path.IsEmpty())
+    {
+        Completion.ExecuteIfBound(DomainResult(false, TEXT("invalid slot")));
+        return;
+    }
+    Snapshot Captured;
+    FString Error;
+    if (!CaptureRegisteredDomains(Slot, Captured, Error, &DomainIds))
+    {
+        Completion.ExecuteIfBound(DomainResult(false, Error));
+        return;
+    }
+    const int64 Sequence = static_cast<int64>(Captured.sequence);
+    FRBSaveOperationDelegate Callback = Completion;
+    Async(EAsyncExecution::ThreadPool, [Path, Captured = MoveTemp(Captured), Sequence, Callback]() mutable
+    {
+        const auto Io = rb::save::WriteAtomic(std::filesystem::path(*Path), Captured);
+        FRBSaveOperationResult Result = DomainResult(Io.ok,
+            Io.ok ? TEXT("domain save complete") : RBFromUtf8(Io.error), Sequence,
+            static_cast<int64>(Io.bytesWritten), static_cast<int64>(Io.checksum));
+        AsyncTask(ENamedThreads::GameThread, [Callback, Result]() mutable { Callback.ExecuteIfBound(Result); });
+    });
+}
+
+void URBSaveSubsystem::LoadSelectedDomainsAsync(const FString& Slot, const TArray<FName>& DomainIds, const FRBSaveOperationDelegate& Completion)
+{
+    FString SelectionError;
+    if (!ValidateDomainSelection(&DomainIds, GetRegisteredDomainIds(), SelectionError))
+    {
+        Completion.ExecuteIfBound(DomainResult(false, SelectionError));
+        return;
+    }
+    const FString Path = GetDomainSlotPath(Slot);
+    if (Path.IsEmpty())
+    {
+        Completion.ExecuteIfBound(DomainResult(false, TEXT("invalid slot")));
+        return;
+    }
+    TWeakObjectPtr<URBSaveSubsystem> WeakThis(this);
+    FRBSaveOperationDelegate Callback = Completion;
+    Async(EAsyncExecution::ThreadPool, [WeakThis, Path, Callback, DomainIds]() mutable
+    {
+        auto Loaded = rb::save::ReadFile(std::filesystem::path(*Path));
+        if (!Loaded.ok)
+        {
+            FRBSaveOperationResult Result = DomainResult(false, RBFromUtf8(Loaded.error));
+            AsyncTask(ENamedThreads::GameThread, [Callback, Result]() mutable { Callback.ExecuteIfBound(Result); });
+            return;
+        }
+        AsyncTask(ENamedThreads::GameThread, [WeakThis, Callback, DomainIds, Loaded = MoveTemp(Loaded)]() mutable
+        {
+            if (!WeakThis.IsValid())
+            {
+                Callback.ExecuteIfBound(DomainResult(false, TEXT("save subsystem destroyed")));
+                return;
+            }
+            FString Error;
+            const bool bOk = WeakThis->RestoreRegisteredDomains(Loaded.snapshot, Error, &DomainIds);
             Callback.ExecuteIfBound(DomainResult(bOk, bOk ? TEXT("domain load complete") : Error,
                 static_cast<int64>(Loaded.snapshot.sequence)));
         });

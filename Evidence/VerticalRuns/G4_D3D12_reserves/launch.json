@@ -1,0 +1,38 @@
+{
+  "stage": "G4",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Soul.uproject",
+    "/Game/Dragon_graveyard/Level/L_showcase_level?game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1280",
+    "-ResY=720",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 30",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G4_D3D12_reserves\\unreal.log",
+    "-SoulVerticalQualification",
+    "-SoulActivePerSide=5",
+    "-SoulPlayerPool=12",
+    "-SoulEnemyPool=10",
+    "-unattended",
+    "-nosound"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G4_D3D12_reserves",
+  "expected_active_units": 10,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 60.0,
+  "completion_marker": "SOUL_RT_ARENA_PASS:",
+  "completion_timeout": 260.0,
+  "started_utc": "2026-09-26T04:33:33.819534+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 3588.0,
+      "temperature_c": 53.0,
+      "utilization_percent": 8.0
+    }
+  ],
+  "automatic_acceptance": false
+}

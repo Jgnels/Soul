@@ -83,6 +83,10 @@
     {
       "Name": "RBMagic",
       "Enabled": true
+    },
+    {
+      "Name": "Cargo",
+      "Enabled": false
     }
   ]
 }

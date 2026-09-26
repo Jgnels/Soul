@@ -1,0 +1,57 @@
+{
+  "stage": "G5",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Soul.uproject",
+    "/Game/Dragon_graveyard/Level/L_showcase_level?game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1280",
+    "-ResY=720",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 30",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G5_D3D12_magic_filesystem_cache\\unreal.log",
+    "-SoulVerticalQualification",
+    "-SoulActivePerSide=5",
+    "-SoulPlayerPool=12",
+    "-SoulEnemyPool=10",
+    "-SoulTacticalMagic",
+    "-DDC=InstalledNoZenLocalFallback",
+    "-unattended",
+    "-nosound"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G5_D3D12_magic_filesystem_cache",
+  "expected_active_units": 10,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 60.0,
+  "completion_marker": "SOUL_RT_ARENA_PASS:",
+  "completion_timeout": 260.0,
+  "started_utc": "2026-09-26T04:42:50.157436+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 4630.0,
+      "temperature_c": 46.0,
+      "utilization_percent": 4.0
+    }
+  ],
+  "automatic_acceptance": false,
+  "pid": 21136,
+  "ready_utc": "2026-09-26T04:45:17.967796+00:00",
+  "exit_code": 0,
+  "clean_shutdown": true,
+  "stopped_utc": "2026-09-26T04:47:28.227406+00:00",
+  "stop_reason": "completion_marker_process_exit",
+  "cleanup": "already_exited",
+  "elapsed_seconds": 277.38,
+  "observed_after_ready_seconds": 130.69,
+  "crash_signatures": [],
+  "rhi_log_lines": [
+    "[2026.09.26-04.42.57:507][  0]LogRHI: Using Default RHI: D3D12",
+    "[2026.09.26-04.42.58:677][  0]LogD3D12RHI: Display: Creating D3D12 RHI with Max Feature Level SM5"
+  ],
+  "completion_marker_observed": true,
+  "alive_observed_after_ready_seconds": 125.47,
+  "preserved_crashes": []
+}

@@ -1,0 +1,53 @@
+{
+  "stage": "G1",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Soul.uproject",
+    "/Game/Dragon_graveyard/Level/L_showcase_level?game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1280",
+    "-ResY=720",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 30",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G1_D3D12_1v1\\unreal.log",
+    "-SoulVerticalQualification",
+    "-SoulActivePerSide=1",
+    "-unattended",
+    "-nosound"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-pro-vertical-20260925\\Evidence\\VerticalRuns\\G1_D3D12_1v1",
+  "expected_active_units": 2,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 60.0,
+  "completion_marker": "SOUL_RT_ARENA_PASS:",
+  "completion_timeout": 260.0,
+  "started_utc": "2026-09-26T04:18:37.109941+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 4551.0,
+      "temperature_c": 59.0,
+      "utilization_percent": 4.0
+    }
+  ],
+  "automatic_acceptance": false,
+  "pid": 9552,
+  "ready_utc": "2026-09-26T04:19:02.817527+00:00",
+  "exit_code": 0,
+  "clean_shutdown": true,
+  "stopped_utc": "2026-09-26T04:20:14.520912+00:00",
+  "stop_reason": "completion_marker_process_exit",
+  "cleanup": "already_exited",
+  "elapsed_seconds": 97.41,
+  "observed_after_ready_seconds": 71.76,
+  "crash_signatures": [],
+  "rhi_log_lines": [
+    "[2026.09.26-04.18.40:165][  0]LogRHI: Using Default RHI: D3D12",
+    "[2026.09.26-04.18.40:549][  0]LogD3D12RHI: Display: Creating D3D12 RHI with Max Feature Level SM5"
+  ],
+  "completion_marker_observed": true,
+  "alive_observed_after_ready_seconds": 66.61,
+  "preserved_crashes": []
+}

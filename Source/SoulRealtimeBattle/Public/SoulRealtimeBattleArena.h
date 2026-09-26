@@ -11,6 +11,7 @@
 
 class AActor;
 class ACharacter;
+class USoulRealtimeBattlePBIL;
 class UAnimationAsset;
 class USkeletalMesh;
 class URBCombatRangedComponent;
@@ -41,6 +42,7 @@ struct FSoulRealtimeArenaCombatant
     bool bRanged = false;
     bool bPlayerHero = false;
     float MeleeCooldown = 0.0f;
+    bool bVisualAttackPlaying = false;
 };
 UCLASS()
 class SOULREALTIMEBATTLE_API USoulRealtimeArenaBinding
@@ -165,6 +167,24 @@ public:
     UPROPERTY() TObjectPtr<ACharacter> PlayerHero;
 
 private:
+    void TickBattleResolution(float Seconds);
+    void TickSpatialOrders(float Seconds);
+    void SetupBattleCamera();
+    void FinishBattle();
+    bool bMapOnly = false;
+    bool bAutobattle = false;
+    bool bQualification = false;
+    bool bTacticalMagic = false;
+    bool bCampaignBattle = false;
+    int32 ActiveCap = 5;
+    int32 StrategicBodies[2] = {5, 5};
+    float BattleElapsed = 0.0f;
+    float ResultHoldSeconds = -1.0f;
+    bool bFirstCapture = false;
+    bool bSecondCapture = false;
+    float SpatialElapsed = 0.0f;
+    int32 SpatialOrders = 0;
+    UPROPERTY() TObjectPtr<USoulRealtimeBattlePBIL> Spatial;
     bool SetupArena();
     bool SpawnArmy(int32 Side);
     bool SpawnFormation(
@@ -183,13 +203,14 @@ private:
     void SetupReinforcementState();
     void TickReinforcements();
     bool SpawnReinforcementWave(int32 Side, int32 Count);
+    void RollbackSpawnedFormation(int32 FirstCombatant, int32 FirstGroup, int32 FirstDriver);
     bool SetupBattlefieldBounds();
     void TrackBattlefieldExtent();
     FVector ResolveSpawnLocation(const FVector& Desired);
     USkeletalMesh* ResolveVisualMesh(
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     UAnimationAsset* ResolveVisualAnimation(
-        int32 Side, bool bRunning) const;
+        int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const;
     void UpdateVisualAnimations();
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);

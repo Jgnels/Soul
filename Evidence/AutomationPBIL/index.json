@@ -1,0 +1,102 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-Q1S3RPU",
+			"instance": "B626F2854FF9CC985D6BEFB03E094E3F",
+			"instanceName": "DESKTOP-Q1S3RPU-15996",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce GTX 1080",
+			"cPUModel": "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.26-03.24.51",
+	"succeeded": 3,
+	"succeededWithWarnings": 1,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.1274397075176239,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ChannelTagsStable",
+			"fullTestPath": "RB.PBIL.ChannelTagsStable",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B626F2854FF9CC985D6BEFB03E094E3F"
+			],
+			"duration": 0.0162493996322155,
+			"dateTime": "2026.09.26-03.24.51",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InfluenceComponentSemanticConfig",
+			"fullTestPath": "RB.PBIL.InfluenceComponentSemanticConfig",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B626F2854FF9CC985D6BEFB03E094E3F"
+			],
+			"duration": 0.016708500683307648,
+			"dateTime": "2026.09.26-03.24.51",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PresetAndQueryGuards",
+			"fullTestPath": "RB.PBIL.PresetAndQueryGuards",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B626F2854FF9CC985D6BEFB03E094E3F"
+			],
+			"duration": 0.016961101442575455,
+			"dateTime": "2026.09.26-03.24.51",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RuntimeDomainAndRefreshPolicy",
+			"fullTestPath": "RB.PBIL.RuntimeDomainAndRefreshPolicy",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"B626F2854FF9CC985D6BEFB03E094E3F"
+			],
+			"duration": 0.077520698308944702,
+			"dateTime": "2026.09.26-03.24.51",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogSpawn: UWorld::DestroyActor: World has no context! World: Untitled, Actor: /Temp/Untitled_1.Untitled:PersistentLevel.RBPBILInfluenceVolume_0",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.26-03.24.51"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}
