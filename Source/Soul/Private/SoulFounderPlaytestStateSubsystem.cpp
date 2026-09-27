@@ -143,6 +143,30 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     EnemyArmies.Reset();
     for (const auto& Pair:World.Regions)
         if (Pair.Value.OwnerFactionId==EnemyFaction) EnemyArmies.Add(Pair.Key,Config->GetIntegerField(TEXT("enemy_strategic_count")));
+    // Scenario overlay adds encounters without changing the accepted geography or
+    // inventing replacement forces on end-day/load. Saved ownership remains authoritative.
+    if (Config->HasField(TEXT("hostile_garrisons")))
+    {
+        TMap<FName, int32> Garrisons;
+        if (!ReadIntMap(*Config, TEXT("hostile_garrisons"), Garrisons))
+        {
+            UE_LOG(LogSoulCampaign, Error, TEXT("Invalid scenario hostile garrisons."));
+            return;
+        }
+        for (const auto& Garrison : Garrisons)
+        {
+            if (!World.Regions.Contains(Garrison.Key) || Garrison.Key == PlayerRegion || Garrison.Value <= 0)
+            {
+                UE_LOG(LogSoulCampaign, Error, TEXT("Invalid hostile garrison region/count: %s"), *Garrison.Key.ToString());
+                return;
+            }
+        }
+        for (const auto& Garrison : Garrisons)
+        {
+            World.Regions.FindChecked(Garrison.Key).OwnerFactionId = EnemyFaction;
+            EnemyArmies.Add(Garrison.Key, Garrison.Value);
+        }
+    }
     Economy=FSoulCampaignEconomy(); Economy.Resources.Add(TEXT("gold"),3000); Economy.DailyIncome.Add(TEXT("gold"),450);
     FSoulRecruitmentPool Pool; Pool.UnitId=PlayerUnitId; Pool.Available=8; Pool.WeeklyGrowth=4;Pool.Capacity=24;
     Pool.CostPerUnit.Add(TEXT("gold"),140); Economy.RecruitmentPools.Add(Pool.UnitId,Pool);

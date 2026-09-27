@@ -1,13 +1,18 @@
 {
   "schema": 1,
   "scenario_id": "founder_human_dwarf_vertical",
-  "description": "Weekend RC uses accepted founder geography and 30 active combatants with physical reserves. Dwarves occupy legacy Orc-named region IDs, preserved as stable geography IDs.",
+  "description": "Post-RC continuation uses accepted founder geography and 30 active combatants with physical reserves. Three Dwarf garrisons occupy stable geography IDs; existing saves retain their recorded ownership and forces.",
   "player_faction": "humans",
   "enemy_faction": "dwarves",
   "player_unit_id": "human_knight",
   "enemy_unit_id": "dwarf_warrior",
   "player_strategic_count": 45,
   "enemy_strategic_count": 30,
+  "hostile_garrisons": {
+    "orc_watch": 30,
+    "orc_camp": 30,
+    "north_pass": 45
+  },
   "active_cap_per_side": 15,
   "battle_map": "/Game/Dragon_graveyard/Level/L_showcase_level",
   "campaign_map": "/Engine/Maps/Entry",

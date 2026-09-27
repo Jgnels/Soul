@@ -385,4 +385,79 @@ bool FSoulVerticalDefeatRecoveryTest::RunTest(const FString&)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalThreeEncountersTest,
+    "Soul.Integration.Vertical.ThreeEncountersAcrossReloads",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalThreeEncountersTest::RunTest(const FString&)
+{
+    auto* S = Campaign();
+    TestEqual(TEXT("three configured hostile garrisons"), S->EnemyArmies.Num(), 3);
+    TestTrue(TEXT("walk to crossroads"), S->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("walk to ford"), S->MovePlayerTo(TEXT("river_ford")));
+    TArray<FSoulCampaignBattleResult> Results;
+    const TArray<FName> Route = {TEXT("orc_watch"), TEXT("orc_camp"), TEXT("north_pass")};
+    for (int32 Index = 0; Index < Route.Num(); ++Index)
+    {
+        const FName Target = Route[Index];
+        if (S->Economy.ActionPoints == 0) S->AdvanceDay();
+        TestFalse(TEXT("hostile garrison cannot be bypassed by movement"), S->MovePlayerTo(Target));
+        if (!TestTrue(TEXT("next hostile encounter commits"), S->BeginBattle(Target))) return false;
+        const auto Descriptor = S->PendingBattle;
+        TestEqual(TEXT("ordinal survives every reload"), Descriptor.EncounterOrdinal, Index + 1);
+        TestEqual(TEXT("target owns actual garrison"), Descriptor.EnemyFaction, S->EnemyFaction);
+        TestEqual(TEXT("third encounter has a larger reserve pool"), Descriptor.EnemyStrategicCount, Index == 2 ? 45 : 30);
+        for (const auto& Stale : Results)
+            TestFalse(TEXT("earlier result cannot resolve later encounter"), S->ApplyBattleResult(Stale));
+        const int32 Gold = S->Economy.Resources.FindRef(TEXT("gold"));
+        const int32 Survivors = 35 - Index * 10;
+        const auto Result = Victory(Descriptor, Survivors);
+        if (!TestTrue(TEXT("victory applied to correct encounter"), S->ApplyBattleResult(Result))) return false;
+        Results.Add(Result);
+        TestEqual(TEXT("region reward paid once"), S->Economy.Resources.FindRef(TEXT("gold")), Gold + 600);
+
+        FRBSaveDomainState Saved;
+        FString Error;
+        if (!TestTrue(TEXT("capture repeated-battle checkpoint"), S->CaptureRBSaveDomain_Implementation(Saved, Error))) return false;
+        auto* Loaded = Campaign();
+        if (!TestTrue(TEXT("reload repeated-battle checkpoint"), Loaded->RestoreRBSaveDomain_Implementation(Saved, Error))) return false;
+        S = Loaded;
+        TestEqual(TEXT("return region persisted"), S->PlayerRegion, Target);
+        TestEqual(TEXT("survivors persisted"), S->PlayerArmy.FindRef(S->PlayerUnitId), Survivors);
+        for (int32 Completed = 0; Completed <= Index; ++Completed)
+        {
+            TestEqual(TEXT("previous conquests stay owned"), S->World.Regions[Route[Completed]].OwnerFactionId, S->PlayerFaction);
+            TestEqual(TEXT("previous garrisons remain depleted"), S->EnemyArmies.FindRef(Route[Completed]), 0);
+            TestTrue(TEXT("resolved identity persisted"), S->ResolvedEncounters.Contains(Results[Completed].EncounterId));
+            TestFalse(TEXT("reload cannot replay rewards"), S->ApplyBattleResult(Results[Completed]));
+        }
+    }
+    S->AdvanceDay();
+    TestTrue(TEXT("campaign continues after third victory"), S->MovePlayerTo(TEXT("forest_edge")));
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalLegacyOwnershipTest,
+    "Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalLegacyOwnershipTest::RunTest(const FString&)
+{
+    // Schema-1 RC checkpoints had only watch/camp garrisons. New scenario defaults
+    // must not overwrite that checkpoint or respawn a force in an explored region.
+    for (FName Owner : TArray<FName>{NAME_None, FName(TEXT("humans"))})
+    {
+        auto* S = Campaign();
+        S->World.Regions[TEXT("north_pass")].OwnerFactionId = Owner;
+        S->EnemyArmies.Remove(TEXT("north_pass"));
+        FRBSaveDomainState Saved;
+        FString Error;
+        if (!TestTrue(TEXT("capture legacy-compatible checkpoint"), S->CaptureRBSaveDomain_Implementation(Saved, Error))) return false;
+        auto* Loaded = Campaign();
+        if (!TestTrue(TEXT("restore legacy checkpoint"), Loaded->RestoreRBSaveDomain_Implementation(Saved, Error))) return false;
+        Loaded->AdvanceDay();
+        TestEqual(TEXT("new defaults cannot replace saved ownership"), Loaded->World.Regions[TEXT("north_pass")].OwnerFactionId, Owner);
+        TestFalse(TEXT("load/day cannot synthesize new garrison"), Loaded->EnemyArmies.Contains(TEXT("north_pass")));
+    }
+    return true;
+}
+
 #endif
