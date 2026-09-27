@@ -19,11 +19,28 @@ def analyze(text):
         kind, payload = match.groups()
         fields = dict(FIELDS.findall(payload))
         if kind == "SOUL_CAMPAIGN_ENCOUNTER":
+            unfinished = current is not None and current["campaign_result"] is None
+            if unfinished:
+                current["issues"].append(f"line {line_number}: next encounter started before campaign return")
             current = dict(encounter=fields, start_line=line_number, deaths=[[], []],
                            waves=[[], []], issues=[], active=None, reserves=None,
                            peak_active=None, battle_result=None, campaign_result=None)
             if any(r["encounter"].get("id") == fields.get("id") for r in records):
                 current["issues"].append(f"line {line_number}: reused encounter identity")
+            if unfinished:
+                current["issues"].append(f"line {line_number}: encounter overlaps an unresolved predecessor")
+            try:
+                if any(not fields.get(key) or fields[key] == "None" for key in ("id", "source", "target", "map")):
+                    raise ValueError("missing encounter identity, geography or map")
+                if fields["source"] == fields["target"]:
+                    raise ValueError("source and target must differ")
+                force = [int(n) for n in fields["forces"].split("/")]
+                if len(force) != 2 or any(n <= 0 or n > 2147483647 for n in force):
+                    raise ValueError("invalid strategic force")
+                if not 1 <= int(fields["cap"]) <= 35:
+                    raise ValueError("active cap outside supported 1-35 range")
+            except (KeyError, ValueError) as error:
+                current["issues"].append(f"line {line_number}: malformed encounter: {error}")
             records.append(current)
             continue
         if current is None:
@@ -48,6 +65,8 @@ def analyze(text):
                 r["reserves"] = [int(fields["human"]), int(fields["enemy"])]
                 r["active"] = [force[s] - r["reserves"][s] for s in (0, 1)]
                 r["peak_active"] = r["active"].copy()
+                if r["active"] != [min(n, cap) for n in force]:
+                    issue("initial deployment differs from committed force and cap")
             elif kind in ("SOUL_UNIT_DEFEATED", "SOUL_RT_REINFORCEMENT_WAVE"):
                 side = int(fields["side"])
                 if side not in (0, 1):
@@ -66,6 +85,10 @@ def analyze(text):
                     r["active"][side] -= 1
                 else:
                     bodies, ordinal = int(fields["bodies"]), int(fields["wave"])
+                    if r["active"][side] * 1000 >= cap * 700:
+                        issue("reinforcement arrived before casualty threshold")
+                    if r["reserves"][side] <= 0:
+                        issue("reinforcement arrived without strategic reserves")
                     if not 1 <= bodies <= min(4, cap):
                         issue("reinforcement wave outside delivery bound")
                     if ordinal != len(r["waves"][side]) + 1:
