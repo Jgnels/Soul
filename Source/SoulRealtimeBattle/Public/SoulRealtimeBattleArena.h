@@ -217,7 +217,7 @@ private:
     void TickMagic(float Seconds);
     bool CastPlayerSpell(
         const TCHAR* SpellPath,
-        const TCHAR* PresentationPath);
+        const TCHAR* PresentationPath = nullptr);
     int32 FindPlayerSpellTarget(float Range) const;
     bool ApplyMagicDamage(int32 TargetIndex, float Damage);
     void SpawnSpellPresentation(

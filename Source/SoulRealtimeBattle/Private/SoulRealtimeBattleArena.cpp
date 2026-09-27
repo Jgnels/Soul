@@ -1870,11 +1870,9 @@ bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
 {
     auto* Spell = LoadObject<URBMagicSpellDefinition>(
         nullptr, SpellPath);
-    auto* Profile = LoadObject<URBMagicPresentationProfile>(
-        nullptr, PresentationPath);
-    if (!Spell || !Profile || !PlayerHero)
+    if (!Spell || !PlayerHero)
     {
-        Status = TEXT("Magic asset failed to load");
+        Status = TEXT("Spell definition or living caster unavailable");
         return false;
     }
 
@@ -1935,7 +1933,16 @@ bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
         return false;
     }
 
-    SpawnSpellPresentation(Profile, PresentationLocation);
+    // RB Magic intents and the existing commit path own gameplay. Presentation
+    // may be unassigned during spell development and cannot veto a valid cast.
+    auto* Profile = PresentationPath && *PresentationPath
+        ? LoadObject<URBMagicPresentationProfile>(nullptr, PresentationPath, nullptr, LOAD_NoWarn)
+        : nullptr;
+    if (Profile && Profile->SpellTag == Spell->SpellTag)
+        SpawnSpellPresentation(Profile, PresentationLocation);
+    else
+        UE_LOG(LogTemp, Display, TEXT("SOUL_MAGIC_PRESENTATION_UNAVAILABLE: spell=%s gameplayCommitted=1"),
+            *Spell->SpellTag.ToString());
     return true;
 }
 
