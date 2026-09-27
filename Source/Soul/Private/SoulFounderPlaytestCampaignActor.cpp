@@ -282,7 +282,7 @@ void ASoulFounderPlaytestCampaignActor::StartBattle()
 {
     if (!State || !IsBattleAvailable() || !State->BeginBattle(SelectedBattleRegion))
     { LastMessage = TEXT("Battle needs an adjacent hostile force, an army and one action point."); return; }
-    LastMessage = TEXT("Entering Dragon Graveyard...");
+    LastMessage = TEXT("Deploying to the battlefield...");
     UGameplayStatics::OpenLevel(this, State->PendingBattle.MapPackage, true,
         TEXT("game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode"));
 }

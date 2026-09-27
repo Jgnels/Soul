@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SoulBattlefieldRecipe.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "SoulCampaignBattleBridge.generated.h"
 
@@ -14,6 +15,8 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     FName EnemyFaction;
     FName PlayerUnitId;
     FName EnemyUnitId;
+    FName BattlefieldId;
+    FSoulBattleContext BattleContext;
     FName MapPackage;
     FName ReturnMapPackage;
     FVector ArenaOrigin = FVector::ZeroVector;

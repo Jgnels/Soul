@@ -48,6 +48,7 @@ public:
     FName PlayerUnitId = TEXT("human_knight"), EnemyUnitId = TEXT("dwarf_warrior");
     FName CampaignMap, BattleMap;
     FVector BattleOrigin = FVector::ZeroVector;
+    TArray<FSoulBattlefieldTemplate> BattlefieldTemplates;
     int32 ActiveCapPerSide = 5, EncounterOrdinal = 0;
     TMap<FName, int32> PlayerArmy, EnemyArmies;
     TMap<FName, FString> RegionDisplayNames;

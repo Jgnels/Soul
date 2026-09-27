@@ -47,6 +47,7 @@ class ContinuationDataTests(unittest.TestCase):
         self.assertEqual((self.config["player_faction"], self.config["player_unit_id"]), ("humans", "human_knight"))
         self.assertEqual((self.config["enemy_faction"], self.config["enemy_unit_id"]), ("dwarves", "dwarf_warrior"))
         self.assertEqual(self.config["battle_map"], "/Game/Dragon_graveyard/Level/L_showcase_level")
+        self.assertFalse(any(candidate.get("enabled", False) for candidate in self.config["battlefield_candidates"]))
         self.assertTrue(15 <= self.config["active_cap_per_side"] <= 35)
 
 

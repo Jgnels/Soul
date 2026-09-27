@@ -19,6 +19,10 @@ struct FSoulBattleContext
 struct FSoulBattlefieldTemplate
 {
     FName Id;
+    // Presentation destination associated with this recipe. Selection remains
+    // deterministic and independent of loading/constructing the Unreal world.
+    FName MapPackage;
+    FVector ArenaOrigin = FVector::ZeroVector;
     TSet<FName> Biomes;
     TSet<FName> Landforms;
     TSet<FName> Features;

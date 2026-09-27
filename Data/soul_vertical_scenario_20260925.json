@@ -15,6 +15,7 @@
   },
   "active_cap_per_side": 15,
   "battle_map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "battlefield_candidates": [],
   "campaign_map": "/Engine/Maps/Entry",
   "arena_origin": [2000, -15000, 0]
 }

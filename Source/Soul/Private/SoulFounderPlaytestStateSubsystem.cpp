@@ -148,6 +148,55 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     CampaignMap=FName(*Config->GetStringField(TEXT("campaign_map")));
     const auto Origin=Config->GetArrayField(TEXT("arena_origin"));
     BattleOrigin=FVector(Origin[0]->AsNumber(),Origin[1]->AsNumber(),Origin[2]->AsNumber());
+    FSoulBattlefieldTemplate DefaultBattlefield;
+    DefaultBattlefield.Id = TEXT("dragon_graveyard");
+    DefaultBattlefield.MapPackage = BattleMap;
+    DefaultBattlefield.ArenaOrigin = BattleOrigin;
+    // A zero-match candidate must not displace the qualified fallback merely
+    // because its stable id sorts earlier. Any real geography match wins.
+    DefaultBattlefield.BaseScore = 1;
+    BattlefieldTemplates = {DefaultBattlefield};
+    // Only explicitly enabled candidates participate. Unqualified/asset-incomplete
+    // environments can be recorded in data without being loaded or selected.
+    if (Config->HasField(TEXT("battlefield_candidates")))
+    {
+        const TArray<TSharedPtr<FJsonValue>>* Candidates = nullptr;
+        if (!Config->TryGetArrayField(TEXT("battlefield_candidates"), Candidates))
+        { UE_LOG(LogSoulCampaign, Error, TEXT("Battlefield candidates must be an array.")); return; }
+        TSet<FName> Seen = {DefaultBattlefield.Id};
+        for (const auto& Value : *Candidates)
+        {
+            if (!Value.IsValid() || Value->Type != EJson::Object)
+            { UE_LOG(LogSoulCampaign, Error, TEXT("Battlefield candidate must be an object.")); return; }
+            const auto Candidate = Value->AsObject();
+            bool Enabled = false;
+            if (!Candidate.IsValid() || !Candidate->TryGetBoolField(TEXT("enabled"), Enabled))
+            { UE_LOG(LogSoulCampaign, Error, TEXT("Battlefield candidate requires an explicit enabled flag.")); return; }
+            if (!Enabled) continue;
+            FString Id, Map;
+            const TArray<TSharedPtr<FJsonValue>>* Coordinates = nullptr;
+            FSoulBattlefieldTemplate Template;
+            if (!Candidate->TryGetStringField(TEXT("id"), Id) || FName(*Id).IsNone() || Seen.Contains(FName(*Id))
+                || !Candidate->TryGetStringField(TEXT("map"), Map) || !Map.StartsWith(TEXT("/Game/"))
+                || !ReadNameSet(*Candidate, TEXT("biomes"), Template.Biomes)
+                || !ReadNameSet(*Candidate, TEXT("landforms"), Template.Landforms)
+                || !ReadNameSet(*Candidate, TEXT("features"), Template.Features)
+                || !Candidate->TryGetArrayField(TEXT("arena_origin"), Coordinates) || Coordinates->Num() != 3)
+            {
+                UE_LOG(LogSoulCampaign, Error, TEXT("Invalid enabled battlefield candidate: %s"), *Id);
+                return;
+            }
+            double X, Y, Z;
+            if (!(*Coordinates)[0]->TryGetNumber(X) || !(*Coordinates)[1]->TryGetNumber(Y)
+                || !(*Coordinates)[2]->TryGetNumber(Z) || !FMath::IsFinite(X) || !FMath::IsFinite(Y) || !FMath::IsFinite(Z))
+            { UE_LOG(LogSoulCampaign, Error, TEXT("Invalid battlefield origin: %s"), *Id); return; }
+            Template.Id = FName(*Id);
+            Template.MapPackage = FName(*Map);
+            Template.ArenaOrigin = FVector(X, Y, Z);
+            Seen.Add(Template.Id);
+            BattlefieldTemplates.Add(Template);
+        }
+    }
     ActiveCapPerSide=Config->GetIntegerField(TEXT("active_cap_per_side"));
     PlayerArmy.Reset(); PlayerArmy.Add(PlayerUnitId,Config->GetIntegerField(TEXT("player_strategic_count")));
     EnemyArmies.Reset();
@@ -220,9 +269,15 @@ bool USoulFounderPlaytestStateSubsystem::BuildBattleDescriptor(FName Target,FSou
         ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)||PlayerArmy.FindRef(PlayerUnitId)<=0||EnemyArmies.FindRef(Target)<=0)
     {Error=TEXT("Encounter requires adjacent hostile forces and a living player army.");return false;}
     Out=FSoulCampaignBattleDescriptor();Out.SourceRegion=PlayerRegion;Out.TargetRegion=Target;
+    Out.BattleContext = FSoulWorldRules::BuildBattleContext(World, PlayerRegion, Target, NAME_None, NAME_None, false);
+    Out.BattlefieldId = FSoulBattlefieldRecipeRules::SelectBest(Out.BattleContext, BattlefieldTemplates);
+    const auto* Battlefield = BattlefieldTemplates.FindByPredicate(
+        [&Out](const FSoulBattlefieldTemplate& Template) { return Template.Id == Out.BattlefieldId; });
+    if (!Battlefield || Battlefield->MapPackage.IsNone())
+    { Error=TEXT("No enabled battlefield matches this encounter."); return false; }
     Out.PlayerFaction=PlayerFaction;Out.EnemyFaction=World.Regions.FindChecked(Target).OwnerFactionId;
-    Out.PlayerUnitId=PlayerUnitId;Out.EnemyUnitId=EnemyUnitId;Out.MapPackage=BattleMap;Out.ReturnMapPackage=CampaignMap;
-    Out.ArenaOrigin=BattleOrigin;Out.PlayerStrategicCount=PlayerArmy.FindRef(PlayerUnitId);Out.EnemyStrategicCount=EnemyArmies.FindRef(Target);
+    Out.PlayerUnitId=PlayerUnitId;Out.EnemyUnitId=EnemyUnitId;Out.MapPackage=Battlefield->MapPackage;Out.ReturnMapPackage=CampaignMap;
+    Out.ArenaOrigin=Battlefield->ArenaOrigin;Out.PlayerStrategicCount=PlayerArmy.FindRef(PlayerUnitId);Out.EnemyStrategicCount=EnemyArmies.FindRef(Target);
     Out.ActiveCapPerSide=ActiveCapPerSide;Out.EncounterOrdinal=EncounterOrdinal+1;
     Out.EncounterId=FName(*FString::Printf(TEXT("encounter.%d.%d.%s.%s"),Economy.Day,Out.EncounterOrdinal,*PlayerRegion.ToString(),*Target.ToString()));
     Error.Reset();return Out.IsValid();
@@ -235,8 +290,9 @@ bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
     if (BattleBridge.IsValid()&&!BattleBridge->BeginEncounter(D)) return false;
     if (!FSoulCampaignRules::SpendAction(Economy,1)) return false;
     PendingBattle=D;EncounterOrdinal=D.EncounterOrdinal;
-    UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_ENCOUNTER id=%s source=%s target=%s map=%s forces=%d/%d cap=%d"),
-        *D.EncounterId.ToString(),*D.SourceRegion.ToString(),*D.TargetRegion.ToString(),*D.MapPackage.ToString(),D.PlayerStrategicCount,D.EnemyStrategicCount,D.ActiveCapPerSide);
+    UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_ENCOUNTER id=%s source=%s target=%s map=%s forces=%d/%d cap=%d recipe=%s landform=%s approach=%s"),
+        *D.EncounterId.ToString(),*D.SourceRegion.ToString(),*D.TargetRegion.ToString(),*D.MapPackage.ToString(),D.PlayerStrategicCount,D.EnemyStrategicCount,D.ActiveCapPerSide,
+        *D.BattlefieldId.ToString(), *D.BattleContext.Landform.ToString(), *D.BattleContext.AttackerApproach.ToString());
     return true;
 }
 bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBattleResult& R)
