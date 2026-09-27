@@ -5,6 +5,10 @@
 #include "SoulSettlementStateSubsystem.h"
 #include "RBSaveSubsystem.h"
 #include "RBSaveCore.h"
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 #if WITH_DEV_AUTOMATION_TESTS
 namespace
@@ -457,6 +461,54 @@ bool FSoulVerticalLegacyOwnershipTest::RunTest(const FString&)
         TestEqual(TEXT("new defaults cannot replace saved ownership"), Loaded->World.Regions[TEXT("north_pass")].OwnerFactionId, Owner);
         TestFalse(TEXT("load/day cannot synthesize new garrison"), Loaded->EnemyArmies.Contains(TEXT("north_pass")));
     }
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalCheckpointValidationTest,
+    "Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalCheckpointValidationTest::RunTest(const FString&)
+{
+    auto* Source = Campaign();
+    Source->PlayerRegion = TEXT("river_ford");
+    if (!TestTrue(TEXT("commit checkpoint encounter"), Source->BeginBattle(TEXT("orc_watch")))) return false;
+    TestTrue(TEXT("resolve checkpoint encounter"), Source->ApplyBattleResult(Victory(Source->PendingBattle, 12)));
+    FRBSaveDomainState Valid;
+    FString Error;
+    if (!TestTrue(TEXT("capture complete checkpoint"), Source->CaptureRBSaveDomain_Implementation(Valid, Error))) return false;
+    auto* Loaded = Campaign();
+    Loaded->Economy.RecruitmentPools[Loaded->PlayerUnitId].Available = 3;
+    const auto Reject = [this, Loaded, &Valid](const TCHAR* Label, TFunction<void(FJsonObject&)> Corrupt)
+    {
+        TSharedPtr<FJsonObject> Json;
+        if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Valid.Fields[0].StringValue), Json)) return;
+        Corrupt(*Json);
+        auto Broken = Valid;
+        Broken.Fields[0].StringValue.Reset();
+        FJsonSerializer::Serialize(Json.ToSharedRef(), TJsonWriterFactory<>::Create(&Broken.Fields[0].StringValue));
+        FString Reason;
+        TestFalse(Label, Loaded->RestoreRBSaveDomain_Implementation(Broken, Reason));
+        TestFalse(TEXT("validation supplies an error"), Reason.IsEmpty());
+        TestEqual(TEXT("rejection leaves location intact"), Loaded->PlayerRegion, FName(TEXT("human_capital")));
+        TestEqual(TEXT("rejection leaves army intact"), Loaded->PlayerArmy.FindRef(Loaded->PlayerUnitId), 45);
+        TestEqual(TEXT("rejection leaves pool intact"), Loaded->Economy.RecruitmentPools[Loaded->PlayerUnitId].Available, 3);
+        TestEqual(TEXT("rejection leaves ownership intact"), Loaded->World.Regions[TEXT("orc_watch")].OwnerFactionId, Loaded->EnemyFaction);
+        TestEqual(TEXT("rejection leaves encounter history intact"), Loaded->EncounterOrdinal, 0);
+    };
+    Reject(TEXT("missing recruitment pool rejected"), [](FJsonObject& J) { J.GetObjectField(TEXT("pools"))->RemoveField(TEXT("human_knight")); });
+    Reject(TEXT("oversized recruitment pool rejected"), [](FJsonObject& J) { J.GetObjectField(TEXT("pools"))->SetNumberField(TEXT("human_knight"), 25); });
+    Reject(TEXT("missing hostile ledger rejected"), [](FJsonObject& J) { J.GetObjectField(TEXT("enemies"))->RemoveField(TEXT("orc_camp")); });
+    Reject(TEXT("captured region cannot contain hostiles"), [](FJsonObject& J) { J.GetObjectField(TEXT("enemies"))->SetNumberField(TEXT("orc_watch"), 1); });
+    Reject(TEXT("fractional day rejected"), [](FJsonObject& J) { J.SetNumberField(TEXT("day"), 1.5); });
+    Reject(TEXT("fractional ordinal rejected"), [](FJsonObject& J) { J.SetNumberField(TEXT("ordinal"), 1.5); });
+    Reject(TEXT("out-of-range ordinal rejected"), [](FJsonObject& J) { J.SetNumberField(TEXT("ordinal"), 2147483648.0); });
+    Reject(TEXT("excess actions rejected"), [](FJsonObject& J) { J.SetNumberField(TEXT("ap"), 4); });
+    Reject(TEXT("lost resolved history rejected"), [](FJsonObject& J) { J.SetArrayField(TEXT("resolved"), {}); });
+    Reject(TEXT("foreign last result rejected"), [](FJsonObject& J) { J.SetStringField(TEXT("result_id"), TEXT("foreign")); });
+    Reject(TEXT("foreign last target rejected"), [](FJsonObject& J) { J.SetStringField(TEXT("result_target"), TEXT("unknown")); });
+    Reject(TEXT("inconsistent victory rejected"), [](FJsonObject& J) { J.GetObjectField(TEXT("result"))->SetNumberField(TEXT("enemy"), 1); });
+    TestTrue(TEXT("valid save replaces used subsystem after rejections"), Loaded->RestoreRBSaveDomain_Implementation(Valid, Error));
+    TestEqual(TEXT("valid pool fully replaces old stock"), Loaded->Economy.RecruitmentPools[Loaded->PlayerUnitId].Available, 8);
     return true;
 }
 

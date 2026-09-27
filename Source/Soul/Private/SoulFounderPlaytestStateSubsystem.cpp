@@ -33,9 +33,19 @@ namespace
         for (const auto& Pair : (*Map)->Values)
         {
             double N;
-            if (Pair.Key.IsEmpty() || !Pair.Value->TryGetNumber(N) || N<0 || N>MAX_int32 || N!=FMath::FloorToDouble(N)) return false;
-            Out.Add(FName(*Pair.Key),static_cast<int32>(N));
+            const FName Name(*Pair.Key);
+            if (Name.IsNone() || Out.Contains(Name) || !Pair.Value->TryGetNumber(N) || !FMath::IsFinite(N)
+                || N<0 || N>MAX_int32 || N!=FMath::FloorToDouble(N)) return false;
+            Out.Add(Name,static_cast<int32>(N));
         }
+        return true;
+    }
+    bool ReadNonNegativeInt(const FJsonObject& Obj, const TCHAR* Key, int32& Out)
+    {
+        double Number;
+        if (!Obj.TryGetNumberField(Key, Number) || !FMath::IsFinite(Number)
+            || Number < 0 || Number > MAX_int32 || Number != FMath::FloorToDouble(Number)) return false;
+        Out = static_cast<int32>(Number);
         return true;
     }
     TArray<TSharedPtr<FJsonValue>> NameSet(const TSet<FName>& Values)
@@ -304,9 +314,9 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
         &&World.Regions.Contains(FName(*Region))&&World.Regions.Contains(FName(*Enemy))
         &&Root->TryGetStringField(TEXT("player_faction"),PF)&&FName(*PF)==PlayerFaction
         &&Root->TryGetStringField(TEXT("enemy_faction"),EF)&&FName(*EF)==EnemyFaction
-        &&Root->TryGetNumberField(TEXT("day"),Day)&&Day>0&&Root->TryGetNumberField(TEXT("ap"),AP)&&AP>=0
-        &&Root->TryGetNumberField(TEXT("max_ap"),MaxAP)&&MaxAP>0&&AP<=MaxAP+1
-        &&Root->TryGetNumberField(TEXT("ordinal"),Ordinal)&&Ordinal>=0
+        &&ReadNonNegativeInt(*Root,TEXT("day"),Day)&&Day>0&&ReadNonNegativeInt(*Root,TEXT("ap"),AP)
+        &&ReadNonNegativeInt(*Root,TEXT("max_ap"),MaxAP)&&MaxAP>0&&AP<=MaxAP
+        &&ReadNonNegativeInt(*Root,TEXT("ordinal"),Ordinal)
         &&Root->TryGetBoolField(TEXT("won"),Won)&&Root->TryGetBoolField(TEXT("hired"),Hired)
         &&ReadIntMap(*Root,TEXT("army"),Army)&&Army.Num()==1&&Army.Contains(PlayerUnitId)
         &&ReadIntMap(*Root,TEXT("enemies"),Enemies)&&ReadIntMap(*Root,TEXT("resources"),Resources)
@@ -322,13 +332,39 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
         Valid=Numbers.Num()==5&&Numbers.Contains(TEXT("level"))&&Numbers.Contains(TEXT("xp"))&&Numbers.Contains(TEXT("points"))&&Numbers.Contains(TEXT("mana"))&&Numbers.Contains(TEXT("max_mana"))
             &&Numbers.FindRef(TEXT("level"))>0&&Numbers.FindRef(TEXT("mana"))<=Numbers.FindRef(TEXT("max_mana"))
             &&Result.Num()==5&&Result.Contains(TEXT("player"))&&Result.Contains(TEXT("enemy"))&&Result.Contains(TEXT("player_waves"))&&Result.Contains(TEXT("enemy_waves"))&&Result.Contains(TEXT("magic"));
+        // Required pools must be present: otherwise a load into a used subsystem
+        // silently retains the previous campaign's remaining recruitment stock.
+        Valid &= Pools.Num() == Economy.RecruitmentPools.Num();
         for(const auto& P:Enemies)Valid&=World.Regions.Contains(P.Key);
-        for(const auto& P:Pools)Valid&=Economy.RecruitmentPools.Contains(P.Key);
+        for(const auto& P:Pools)
+        {
+            const auto* Pool = Economy.RecruitmentPools.Find(P.Key);
+            Valid &= Pool && P.Value <= Pool->Capacity;
+        }
         for(FName R:Rewarded)Valid&=World.Regions.Contains(R);for(FName R:Explored)Valid&=World.Regions.Contains(R);
         for(const auto& P:World.Regions)
         {
             FString Owner;Valid&=(*Owners)->TryGetStringField(P.Key.ToString(),Owner);
             Valid&=Owner==TEXT("None")||FName(*Owner)==PlayerFaction||FName(*Owner)==EnemyFaction;
+            // A hostile region needs an explicit ledger, including zero after
+            // mutual exhaustion. Captured regions cannot hide surviving enemies.
+            if (FName(*Owner) == EnemyFaction) Valid &= Enemies.Contains(P.Key);
+            else Valid &= Enemies.FindRef(P.Key) == 0;
+        }
+        const FName LastId(*ResultId), LastTarget(*ResultTarget);
+        Valid &= Resolved.Num() == Ordinal;
+        if (Ordinal == 0)
+        {
+            Valid &= LastId.IsNone() && LastTarget.IsNone() && !Won && !ResultWon;
+            for (const auto& P : Result) Valid &= P.Value == 0;
+        }
+        else
+        {
+            Valid &= !LastId.IsNone() && Resolved.Contains(LastId)
+                && World.Regions.Contains(LastTarget) && Won == ResultWon;
+            if (ResultWon)
+                Valid &= Result.FindRef(TEXT("player")) > 0 && Result.FindRef(TEXT("enemy")) == 0;
+            else Valid &= Result.FindRef(TEXT("player")) == 0;
         }
     }
     if(!Valid){Error=TEXT("Campaign snapshot failed validation.");return false;}
