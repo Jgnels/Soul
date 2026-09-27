@@ -114,22 +114,30 @@ $tokens = $null; $parseErrors = $null
 $ast = [System.Management.Automation.Language.Parser]::ParseFile(
     (Join-Path (Get-Location) 'Tools/package_soul_weekend.ps1'), [ref]$tokens, [ref]$parseErrors)
 if ($parseErrors.Count) { $parseErrors | ForEach-Object { Write-Error $_ }; exit 1 }
-$assignment = $ast.FindAll({ param($node)
+$assignments = @($ast.FindAll({ param($node)
     $node -is [System.Management.Automation.Language.AssignmentStatementAst] -and
     $node.Left.Extent.Text -eq '$uatArgs'
+}, $true))
+if ($assignments.Count -ne 1) { throw 'Expected one UAT argument assignment.' }
+$argumentNodes = $assignments[0].Right.FindAll({ param($node)
+    $node -is [System.Management.Automation.Language.StringConstantExpressionAst] -or
+    $node -is [System.Management.Automation.Language.ExpandableStringExpressionAst]
 }, $true)
-$assignment.Right.Extent.Text
+ConvertTo-Json -InputObject @($argumentNodes | ForEach-Object { $_.Value })
 """
         result = subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", command],
                                 cwd=ROOT, capture_output=True, text=True, check=True)
-        arguments = result.stdout.lower()
-        for required in ("'-build'", "'-cook'", "'-stage'", "'-archive'", "'-platform=win64'",
-                         "'-clientconfig=development'", "'-noturnkeyvariables'"):
-            self.assertIn(required, arguments)
-        for forbidden in ("-map=", "-package=", "-cookall", "-allmaps", "-skipcook", "-skipbuild",
-                          "-run'", "-nullrhi", "qualification", "-clean'", "-cmdline"):
-            self.assertNotIn(forbidden, arguments)
+        arguments = json.loads(result.stdout)
+        # Exact tokens distinguish editor-only skipping from -skipbuild/-skipbuildclient.
+        # Keep a real Soul Win64 Development build and every packaging phase enabled.
+        self.assertEqual(arguments, [
+            "BuildCookRun", "-nocompileuat", "-noturnkeyvariables", "-nop4", "-unattended", "-utf8output",
+            "-project=$projectFile", "-target=Soul", "-platform=Win64", "-clientconfig=Development",
+            "-build", "-skipbuildeditor", "-cook", "-stage", "-pak", "-iostore", "-package", "-archive",
+            "-prereqs", "-nocleanstage", "-stagingdirectory=$stage", "-archivedirectory=$archive",
+        ])
         text = script.read_text()
+        self.assertIn("& $uat @uatArgs", text)
         self.assertIn("$exitCode = $LASTEXITCODE", text)
         self.assertIn("exit $exitCode", text)
 

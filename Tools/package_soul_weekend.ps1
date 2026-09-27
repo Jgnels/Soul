@@ -88,9 +88,11 @@ try {
     $archive = Join-Path $outputRoot 'Archive'
     $diagnostics = Join-Path $outputRoot 'Diagnostics'
     # Do not add -map, -allmaps, -cookall, -skipcook, -skipbuild, -run or proof flags.
+    # UE 5.8 ProjectParams.SkipBuildEditor excludes only the editor build agenda.
+    # Cook still needs current SoulEditor binaries; captain prepares those separately.
     $uatArgs = @('BuildCookRun', '-nocompileuat', '-noturnkeyvariables', '-nop4', '-unattended', '-utf8output',
         "-project=$projectFile", '-target=Soul', '-platform=Win64', '-clientconfig=Development',
-        '-build', '-cook', '-stage', '-pak', '-iostore', '-package', '-archive', '-prereqs', '-nocleanstage',
+        '-build', '-skipbuildeditor', '-cook', '-stage', '-pak', '-iostore', '-package', '-archive', '-prereqs', '-nocleanstage',
         "-stagingdirectory=$stage", "-archivedirectory=$archive")
     if ($ValidateOnly) {
         Write-Output 'Static preflight passed. No UE/UAT/UBT process started; package/runtime acceptance UNKNOWN.'

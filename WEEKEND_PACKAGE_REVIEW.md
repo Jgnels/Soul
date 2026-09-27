@@ -4,6 +4,73 @@
 cook, build, package, install, or game process was launched by this worker.
 This is a source handoff, not a playable-build receipt.
 
+## S3 package build stall diagnosis
+
+Worker: `codex/soul-package-diagnose-20260926`, based on
+`de204aa299c57fd8fa12cf494c8e7a32009ba677`, on DESKTOP-Q1S3RPU.
+S3 adds exactly `-skipbuildeditor` to the wrapper's UAT arguments. It retains
+`-target=Soul -platform=Win64 -clientconfig=Development -build -cook -stage
+-pak -iostore -package -archive -prereqs`. No game-build bypass or separate
+game-build receipt is needed: UAT still invokes the selected game target build.
+The command below reflects S3; the remaining S2 history is retained.
+
+Read-only inputs under
+`D:\RefinedBadger\Parallel\Soul-Weekend-20260926\Package02\Diagnostics`:
+
+- `console.log` and `UAT/Log.txt`: combined SoulEditor + Soul invocation;
+  `SkipBuildEditor=False`, `SkipBuildClient=False`, `Build=True`.
+  The attempted command used `-skipcook`, which this wrapper does **not** adopt.
+  Its `-ubtargs` appeared only inside the Soul target's arguments, not SoulEditor's.
+- `build-stall.json`: operator recorded two nearly idle cached compiler actions
+  for over three minutes and an owned-tree stop. Package02 exit 1 is supplied
+  captain evidence; the console ends with BUILD FAILED. This does not establish
+  a compiler error or prove the underlying UBA stall mechanism.
+- `game-direct-build.log`: Soul Win64 Development compiled, linked, wrote metadata,
+  and reported `Result: Succeeded` in 599.42 seconds. It is evidence that the game
+  target can build, not permission to reuse that binary for a changed checkout.
+
+Installed source authority, inspected without executing UE tools:
+`C:\Program Files\Epic Games\UE_5.8\Engine\Source\Programs\AutomationTool`.
+`Engine/Build/Build.version` identifies UE 5.8.2, changelist 56702186,
+compatible changelist 55116800, branch `++UE5+Release-5.8`.
+
+- `AutomationUtils/ProjectParams.cs:735-743`: `build` enables Build;
+  `skipbuild` disables it; `skipbuildclient` is independent;
+  `skipbuildeditor` and its alias `nocompileeditor` set SkipBuildEditor.
+  Lines 1776-1778 document that property as skipping the editor executable build.
+- `AutomationUtils/ProjectParams.cs:2678-2681,2716-2717,2780-2784`:
+  the named Game target enters ClientCookedTargets; an editor target is still
+  selected separately. Thus `-target=Soul` alone cannot remove SoulEditor.
+- `Scripts/BuildProjectCommand.Automation.cs:90-96`: editor agenda insertion is
+  gated by `!Params.SkipBuildEditor`. Lines 161-174 independently add the selected
+  cooked game target with its platform/configuration when `!Params.SkipBuildClient`.
+  Lines 127-136 explain the observed placement of `-ubtargs` after editor setup.
+- `Scripts/BuildCookRun.Automation.cs:259-263`: build, cook, stage, package,
+  archive remain sequential. `Scripts/CookCommand.Automation.cs:289,298,347`:
+  cooking is gated by Cook/SkipCook and uses the editor commandlet; skipping its
+  compilation does not skip cooking or remove the editor runtime dependency.
+
+Static verification: `python -B Tools/test_package_soul_weekend.py` **6/6 PASS**;
+PowerShell AST is parsed without script execution and the complete argument list
+is compared as exact tokens, including editor-only skip, game target/config/build,
+cook, pak, iostore, stage, archive and prerequisites. `git diff --check`: PASS.
+No UAT/UE/UBT build, wrapper preflight, process interaction, donor change, machine
+setting change, or live RC modification was performed in S3.
+
+Captain live acceptance remains required after integrating this commit into RC:
+use current, compatible SoulEditor project/plugin binaries for cooking. If source
+changes require rebuilding them, perform a separate authorized SoulEditor Win64
+Development build first; this switch does not prove editor freshness. Run the
+wrapper below with a **new** output directory in an already authorized PowerShell
+context. Verify `Build=True`, `SkipBuildEditor=True`, `SkipBuildClient=False`,
+`Cook=True`, `SkipCook=False`, and a UBT game build for Soul Win64 Development
+with no SoulEditor target in that invocation. Require UAT exit 0 and actual cook,
+stage, pak/iostore containers, archive and staged prerequisites, then perform the
+existing runtime acceptance below. A remaining game-only UBA stall is a separate
+unverified risk; this change makes no executor or timeout claim.
+
+## S2 history
+
 Branch: `worker/Soul-weekend-package-20260926`.
 Inspected base/HEAD: `fe3c418f22ca719bf36930dc2caad6008f7151f3`.
 S2 packages the existing five-file packaging work plus the bounded source fix
@@ -62,12 +129,13 @@ with these arguments (paths resolved from the parameters):
 ```text
 BuildCookRun -nocompileuat -noturnkeyvariables -nop4 -unattended -utf8output
 -project=<RC>\Soul.uproject -target=Soul -platform=Win64 -clientconfig=Development
--build -cook -stage -pak -iostore -package -archive -prereqs -nocleanstage
+-build -skipbuildeditor -cook -stage -pak -iostore -package -archive -prereqs -nocleanstage
 -stagingdirectory=<Output>\Stage -archivedirectory=<Output>\Archive
 ```
 
-Prerequisites are staged, not installed. No game is launched. No cook/build
-skip, map override, proof flag, NullRHI, or runtime command line is supplied.
+Prerequisites are staged, not installed. No game is launched. Only the editor
+build is skipped; no game-build/cook skip, map override, proof flag, NullRHI,
+or runtime command line is supplied.
 The normal campaign remains `/Engine/Maps/Entry` with
 `/Script/Soul.SoulFounderPlaytestGameMode`.
 
