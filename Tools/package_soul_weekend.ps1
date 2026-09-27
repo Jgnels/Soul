@@ -117,8 +117,15 @@ try {
     } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $diagnostics 'invocation.json') -Encoding UTF8
     $oldLogFolder = [Environment]::GetEnvironmentVariable('uebp_LogFolder', 'Process')
     $oldFinalLogFolder = [Environment]::GetEnvironmentVariable('uebp_FinalLogFolder', 'Process')
+    $oldTmp = [Environment]::GetEnvironmentVariable('TMP', 'Process')
     $exitCode = 1
     try {
+        # Build.bat writes its lock below %TMP%. Some launchers only set TEMP;
+        # an empty TMP otherwise becomes an unwritable drive-root lock forever.
+        if ([string]::IsNullOrWhiteSpace($oldTmp)) {
+            $env:TMP = Join-Path $diagnostics 'Temp'
+            $null = New-Item -ItemType Directory -Path $env:TMP
+        }
         # UAT clears this log directory on entry. It is NEW and confined to this output.
         $env:uebp_LogFolder = Join-Path $diagnostics 'UAT'
         $env:uebp_FinalLogFolder = $env:uebp_LogFolder
@@ -132,6 +139,7 @@ try {
     }
     finally {
         $ErrorActionPreference = 'Stop'
+        [Environment]::SetEnvironmentVariable('TMP', $oldTmp, 'Process')
         [Environment]::SetEnvironmentVariable('uebp_LogFolder', $oldLogFolder, 'Process')
         [Environment]::SetEnvironmentVariable('uebp_FinalLogFolder', $oldFinalLogFolder, 'Process')
         $exitCode | Set-Content -LiteralPath (Join-Path $diagnostics 'exit-code.txt')

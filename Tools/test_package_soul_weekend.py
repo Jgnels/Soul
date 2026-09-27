@@ -1,9 +1,11 @@
 """Static packaging regression checks. Never launches UE, UBT, UAT or the package."""
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
 import unittest
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 GAME = (ROOT / "Config/DefaultGame.ini").read_text(encoding="utf-8-sig")
@@ -107,6 +109,39 @@ class WeekendPackagingTests(unittest.TestCase):
         domains = (ROOT / "Plugins/RBSave/Source/RBSave/Private/RBSaveDomains.cpp").read_text()
         self.assertIn('FPaths::ProjectSavedDir(), TEXT("RBSave"), TEXT("Domains")', domains)
         self.assertNotIn("Saved/", RULES)
+
+    def test_uat_temp_fallback_and_restore_without_ue(self):
+        script = (ROOT / "Tools/package_soul_weekend.ps1").read_text(encoding="utf-8-sig")
+        block = script[script.index("    $oldLogFolder ="):script.index("    if ($exitCode -ne 0)")]
+        for missing in (True, False):
+            with self.subTest(missing_tmp=missing), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                diagnostics = root / "diagnostics"
+                diagnostics.mkdir()
+                existing = root / "existing-temp"
+                existing.mkdir()
+                probe = root / "probe.cmd"
+                probe.write_text('@echo off\nif not defined TMP exit /b 22\n'
+                                 '> "%TMP%\\soul-test-lock.txt" echo temp-ready\n'
+                                 'if errorlevel 1 exit /b 23\nexit /b 0\n')
+                env = os.environ.copy()
+                if missing:
+                    env.pop("TMP", None)
+                else:
+                    env["TMP"] = str(existing)
+                quote = lambda value: "'" + str(value).replace("'", "''") + "'"
+                command = ("$ErrorActionPreference='Stop'; $diagnostics=" + quote(diagnostics)
+                           + "; $uat=" + quote(probe) + "; $uatArgs=@();\n" + block
+                           + "\nif ($exitCode -ne 0) { exit $exitCode }; "
+                           + "[Console]::WriteLine('RESTORED_TMP=' + [Environment]::GetEnvironmentVariable('TMP', 'Process'))")
+                result = subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", command],
+                                        env=env, capture_output=True, text=True, timeout=20)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                expected = diagnostics / "Temp" if missing else existing
+                self.assertTrue((expected / "soul-test-lock.txt").is_file())
+                self.assertEqual((diagnostics / "exit-code.txt").read_text(encoding="utf-8-sig").strip(), "0")
+                restored = next(line for line in result.stdout.splitlines() if line.startswith("RESTORED_TMP="))
+                self.assertEqual(restored, "RESTORED_TMP=" + ("" if missing else str(existing)))
 
     def test_powershell_parser_and_uat_arguments_without_execution(self):
         script = ROOT / "Tools/package_soul_weekend.ps1"
