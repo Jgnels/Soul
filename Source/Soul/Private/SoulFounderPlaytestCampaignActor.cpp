@@ -136,7 +136,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         if (RegionId == TEXT("human_capital"))
         {
             bTownPanelOpen = true;
-            LastMessage = TEXT("Capital panel opened. Recruit with keys 1-7; H hires tavern hero.");
+            LastMessage = TEXT("Capital panel opened. [1] recruits a Knight; [H] hires a tavern hero.");
         }
         return;
     }
@@ -182,16 +182,24 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 void ASoulFounderPlaytestCampaignActor::EndDay()
 {
     if (!State) return;
+    const int32 PreviousDay = State->Economy.Day;
+    State->AdvanceDay();
+    if (State->Economy.Day == PreviousDay)
+    {
+        LastMessage = TEXT("Finish the current battle or save/load before ending the day.");
+        return;
+    }
     bTownPanelOpen = false;
     bBattlePromptOpen = false;
-    State->AdvanceDay();
     LastMessage = TEXT("A new day begins. Income applied; mana recovered.");
     RefreshRegionVisuals();
 }
 
 bool ASoulFounderPlaytestCampaignActor::IsSkillChoiceOpen() const
 {
-    return State && State->Hero.UnspentSkillPoints > 0;
+    // Town number keys must perform the recruitment action displayed by the panel.
+    // Unspent skill choices remain available when the panel closes.
+    return State && !bTownPanelOpen && State->Hero.UnspentSkillPoints > 0;
 }
 
 bool ASoulFounderPlaytestCampaignActor::IsBattleAvailable() const
@@ -259,7 +267,7 @@ void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()
     bTownPanelOpen = !bTownPanelOpen;
     bBattlePromptOpen = false;
     LastMessage = bTownPanelOpen
-        ? TEXT("Capital panel opened. Recruit with keys 1-7; H hires tavern hero.")
+        ? TEXT("Capital panel opened. [1] recruits a Knight; [H] hires a tavern hero.")
         : TEXT("Capital panel closed.");
 }
 
@@ -291,8 +299,24 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
     }
     Lines.Add(State->BuildSummary());
     Lines.Add(FString::Printf(TEXT("Region: %s"), *DisplayName(State->PlayerRegion)));
-    Lines.Add(FString::Printf(TEXT("Enemy commander: %s"), *State->EnemyRegion.ToString()));
-    Lines.Add(State->LastAIReport);
+    int32 HostileRegions = 0;
+    for (const auto& Region : State->World.Regions)
+        if (State->IsHostile(Region.Key)) ++HostileRegions;
+    Lines.Add(HostileRegions > 0
+        ? FString::Printf(TEXT("Objective: secure hostile territory | %d regions remain"), HostileRegions)
+        : TEXT("All hostile territory secured. Explore, recruit, or end the day to continue."));
+    if (!State->LastBattleResult.EncounterId.IsNone())
+    {
+        const auto& Result = State->LastBattleResult;
+        Lines.Add(FString::Printf(TEXT("Last battle: %s at %s | Survivors: allied %d, enemy %d"),
+            Result.bPlayerWon ? TEXT("VICTORY") : TEXT("DEFEAT"), *DisplayName(Result.TargetRegion),
+            Result.PlayerSurvivors, Result.EnemySurvivors));
+    }
+    if (State->PlayerArmy.FindRef(State->PlayerUnitId) == 0)
+        Lines.Add(TEXT("Army lost: return to Human Capital and press T, then 1 to recruit. Space restores actions."));
+    if (bBattlePromptOpen && IsBattleAvailable())
+        Lines.Add(FString::Printf(TEXT("Selected: %s | %d defenders including reserves | B commits 1 action"),
+            *DisplayName(SelectedBattleRegion), State->EnemyArmies.FindRef(SelectedBattleRegion)));
     Lines.Add(LastMessage);
     Lines.Add(State->LastPersistenceReport);
     Lines.Add(TEXT("Controls: click region | T town | Space end day | B battle | F5 save | F9 load | Esc close panel"));
