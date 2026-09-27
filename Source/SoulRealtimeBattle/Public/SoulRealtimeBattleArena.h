@@ -156,6 +156,7 @@ public:
     float PlayerHealth() const;
     int32 ReserveBodiesForSide(int32 Side) const;
     int32 ReinforcementWavesForSide(int32 Side) const;
+    FString ReinforcementSummary(int32 Side) const;
     float PlayerManaValue() const { return PlayerMana; }
     int32 MagicCastCount() const { return MagicCasts; }
     bool AreAlliedFormationsCharging() const { return bAlliedCharge; }
@@ -241,6 +242,7 @@ private:
     FSoulRealtimeBattleState ReinforcementBattle;
     int32 InitialStrategic[2] = {0, 0};
     int32 ReinforcementWaves[2] = {0, 0};
+    int32 LastReinforcementBodies[2] = {0, 0};
     TArray<bool> VisualRunning;
     FVector ArenaOrigin = FVector::ZeroVector;
     bool bProof = false;

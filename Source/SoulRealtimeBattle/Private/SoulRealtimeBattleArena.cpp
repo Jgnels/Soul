@@ -7,6 +7,7 @@
 #include "Misc/ScopeExit.h"
 #include "TimerManager.h"
 #include "Engine/GameInstance.h"
+#include "Engine/Canvas.h"
 #include "Engine/PostProcessVolume.h"
 #include "EngineUtils.h"
 #include "HAL/IConsoleManager.h"
@@ -497,6 +498,22 @@ int32 ASoulRealtimeArenaGameMode::ReinforcementWavesForSide(int32 Side) const
     return Side >= 0 && Side <= 1 ? ReinforcementWaves[Side] : 0;
 }
 
+FString ASoulRealtimeArenaGameMode::ReinforcementSummary(int32 Side) const
+{
+    if (Side < 0 || Side > 1) return FString();
+    const int32 Reserve = ReserveBodiesForSide(Side);
+    const TCHAR* Readiness = bFinished ? TEXT("battle ended")
+        : Reserve == 0 ? TEXT("reserves exhausted")
+        : FSoulRealtimeBattleRules::ShouldReinforce(ReinforcementBattle, RealtimeSideId(Side))
+            ? TEXT("reinforcements ready") : TEXT("waiting for frontline losses");
+    FString Summary = FString::Printf(TEXT("%s: %d reserve | %s"),
+        Side == 0 ? TEXT("Allies") : TEXT("Enemy"), Reserve, Readiness);
+    if (ReinforcementWaves[Side] > 0)
+        Summary += FString::Printf(TEXT(" | Last arrival: +%d (wave %d)"),
+            LastReinforcementBodies[Side], ReinforcementWaves[Side]);
+    return Summary;
+}
+
 int32 ASoulRealtimeArenaGameMode::TotalAlliedTargets() const
 {
     int32 Count = 0;
@@ -808,7 +825,7 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
         return;
     }
     FParse::Value(FCommandLine::Get(), TEXT("SoulActivePerSide="), ActiveCap);
-    ActiveCap = FMath::Clamp(ActiveCap, 1, 32);
+    ActiveCap = FMath::Clamp(ActiveCap, 1, 35);
     StrategicBodies[0] = StrategicBodies[1] = ActiveCap;
     FParse::Value(FCommandLine::Get(), TEXT("SoulPlayerPool="), StrategicBodies[0]);
     FParse::Value(FCommandLine::Get(), TEXT("SoulEnemyPool="), StrategicBodies[1]);
@@ -819,17 +836,20 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
     {
         if (const auto* Encounter = Bridge->GetPendingEncounter())
         {
-            if (!Encounter->IsValid() || !bDragon || Encounter->MapPackage.ToString() != GetWorld()->GetOutermost()->GetName())
+            if (!Encounter->IsValid() || Encounter->MapPackage.ToString() != GetWorld()->GetOutermost()->GetName())
             {
                 FinishProof(false, TEXT("Campaign battlefield identity mismatch"));
                 return;
             }
             bCampaignBattle = true;
+            bExternalEnvironment = true;
+            bVisualUnits = true;
             bAutobattle = true;
             ArenaOrigin = Encounter->ArenaOrigin;
             ActiveCap = Encounter->ActiveCapPerSide;
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
+            PlayerMana = static_cast<float>(Encounter->PlayerMana);
             // Automatic casting belongs to explicit qualification. Normal play
             // uses the existing [1] input and must not spend mana on its own.
             bTacticalMagic = bTacticalMagic || bQualification;
@@ -1551,6 +1571,7 @@ void ASoulRealtimeArenaGameMode::TickReinforcements()
         {
             ReinforcementBattle = MoveTemp(Candidate);
             ++ReinforcementWaves[Side];
+            LastReinforcementBodies[Side] = Count;
             Status = FString::Printf(
                 TEXT("%s reinforcements arrived: %d"),
                 Side == 0 ? TEXT("Human") : TEXT("Enemy"),
@@ -1870,7 +1891,7 @@ bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
 {
     auto* Spell = LoadObject<URBMagicSpellDefinition>(
         nullptr, SpellPath);
-    if (!Spell || !PlayerHero)
+    if (!Spell || !IsValid(PlayerHero))
     {
         Status = TEXT("Spell definition or living caster unavailable");
         return false;
@@ -2173,10 +2194,10 @@ void ASoulRealtimeArenaHUD::DrawHUD()
 {
     Super::DrawHUD();
     const auto* Host = ArenaHost(this);
-    if (!Host) return;
+    if (!Host || !Canvas) return;
 
     DrawRect(FLinearColor(0, 0, 0, 0.80f),
-        12, 12, 1120, 158);
+        12, 12, FMath::Min(1120.0f, Canvas->ClipX - 24.0f), 226);
     DrawText(
         TEXT("SOUL | KNIGHTS / DWARVES | ACTIVE FORCE + STRATEGIC RESERVES"),
         FColor::White, 24, 20);
@@ -2185,18 +2206,13 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         FColor::White, 24, 45);
     DrawText(
         FString::Printf(
-            TEXT("Human %d +%d reserve | Enemy %d +%d reserve | ")
-            TEXT("Casualties H%d/E%d | Waves H%d/E%d | Hero HP %.0f | contacts %d"),
+            TEXT("Allies %d active +%d reserve | Enemy %d active +%d reserve | Losses %d / %d"),
             Host->AliveForSide(0),
             Host->ReserveBodiesForSide(0),
             Host->AliveForSide(1),
             Host->ReserveBodiesForSide(1),
             Host->CasualtiesForSide(0),
-            Host->CasualtiesForSide(1),
-            Host->ReinforcementWavesForSide(0),
-            Host->ReinforcementWavesForSide(1),
-            Host->PlayerHealth(),
-            Host->AcceptedContactCount()),
+            Host->CasualtiesForSide(1)),
         FColor::White, 24, 70);
     DrawText(
         FString::Printf(
@@ -2209,8 +2225,13 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             Host->AreAlliedFormationsCharging() ? TEXT("Hold position") : TEXT("Charge the enemy")),
         Host->AreAlliedFormationsCharging() ? FColor::Green : FColor::Yellow, 24, 118);
     DrawText(
+        TEXT("Objective: defeat the enemy army, including its reserves."),
+        FColor::White, 24, 141);
+    DrawText(Host->ReinforcementSummary(0), FColor::Cyan, 24, 164);
+    DrawText(Host->ReinforcementSummary(1), FColor::White, 24, 187);
+    DrawText(
         Host->Status,
-        FColor::Yellow, 24, 141);
+        FColor::Yellow, 24, 210);
 }
 
 void ASoulRealtimeArenaGameMode::SetupBattleCamera()
@@ -2297,9 +2318,9 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
     const int32 PlayerSurvivors = AliveForSide(0) + ReserveBodiesForSide(0);
     const int32 EnemySurvivors = AliveForSide(1) + ReserveBodiesForSide(1);
     const bool bWon = EnemySurvivors == 0 && PlayerSurvivors > 0;
-    UE_LOG(LogTemp, Display, TEXT("SOUL_BATTLE_RESOLVED: won=%d playerSurvivors=%d enemySurvivors=%d waves=%d/%d magic=%d contacts=%d pbilQueries=%d pbilSuccess=%d pbilOrders=%d seconds=%.2f"),
+    UE_LOG(LogTemp, Display, TEXT("SOUL_BATTLE_RESOLVED: won=%d playerSurvivors=%d enemySurvivors=%d waves=%d/%d magic=%d contacts=%d pbilQueries=%d pbilSuccess=%d pbilOrders=%d seconds=%.2f mana=%d"),
         bWon, PlayerSurvivors, EnemySurvivors, ReinforcementWaves[0], ReinforcementWaves[1], MagicCasts,
-        AcceptedContactCount(), Spatial ? Spatial->GetQueryCount() : 0, Spatial ? Spatial->GetSuccessfulQueryCount() : 0, SpatialOrders, BattleElapsed);
+        AcceptedContactCount(), Spatial ? Spatial->GetQueryCount() : 0, Spatial ? Spatial->GetSuccessfulQueryCount() : 0, SpatialOrders, BattleElapsed, FMath::FloorToInt(FMath::Max(0.0f, PlayerMana)));
     if (bQualification && (!Spatial || Spatial->GetQueryCount() <= 0 ||
         Spatial->GetSuccessfulQueryCount() <= 0 || SpatialOrders <= 0))
     {
@@ -2321,6 +2342,7 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         Result.PlayerReinforcements = ReinforcementWaves[0];
         Result.EnemyReinforcements = ReinforcementWaves[1];
         Result.MagicCasts = MagicCasts;
+        Result.PlayerManaRemaining = FMath::FloorToInt(FMath::Max(0.0f, PlayerMana));
         if (!Bridge->ResolveEncounter(Result)) { FinishProof(false, TEXT("Campaign rejected battle result")); return; }
         bFinished = true;
         if (Spatial) Spatial->Shutdown();

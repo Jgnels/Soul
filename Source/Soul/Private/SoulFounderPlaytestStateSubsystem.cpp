@@ -151,6 +151,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     FSoulBattlefieldTemplate DefaultBattlefield;
     DefaultBattlefield.Id = TEXT("dragon_graveyard");
     DefaultBattlefield.MapPackage = BattleMap;
+    DefaultBattlefield.bPlayable = true;
     DefaultBattlefield.ArenaOrigin = BattleOrigin;
     // A zero-match candidate must not displace the qualified fallback merely
     // because its stable id sorts earlier. Any real geography match wins.
@@ -190,6 +191,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
             if (!(*Coordinates)[0]->TryGetNumber(X) || !(*Coordinates)[1]->TryGetNumber(Y)
                 || !(*Coordinates)[2]->TryGetNumber(Z) || !FMath::IsFinite(X) || !FMath::IsFinite(Y) || !FMath::IsFinite(Z))
             { UE_LOG(LogSoulCampaign, Error, TEXT("Invalid battlefield origin: %s"), *Id); return; }
+            Template.bPlayable = true;
             Template.Id = FName(*Id);
             Template.MapPackage = FName(*Map);
             Template.ArenaOrigin = FVector(X, Y, Z);
@@ -270,14 +272,14 @@ bool USoulFounderPlaytestStateSubsystem::BuildBattleDescriptor(FName Target,FSou
     {Error=TEXT("Encounter requires adjacent hostile forces and a living player army.");return false;}
     Out=FSoulCampaignBattleDescriptor();Out.SourceRegion=PlayerRegion;Out.TargetRegion=Target;
     Out.BattleContext = FSoulWorldRules::BuildBattleContext(World, PlayerRegion, Target, NAME_None, NAME_None, false);
-    Out.BattlefieldId = FSoulBattlefieldRecipeRules::SelectBest(Out.BattleContext, BattlefieldTemplates);
-    const auto* Battlefield = BattlefieldTemplates.FindByPredicate(
-        [&Out](const FSoulBattlefieldTemplate& Template) { return Template.Id == Out.BattlefieldId; });
-    if (!Battlefield || Battlefield->MapPackage.IsNone())
-    { Error=TEXT("No enabled battlefield matches this encounter."); return false; }
+    const auto* Battlefield = FSoulBattlefieldRecipeRules::SelectPlayable(Out.BattleContext, BattlefieldTemplates);
+    if (!Battlefield)
+    { Error=TEXT("No admitted battlefield supports this encounter."); return false; }
+    Out.BattlefieldId = Battlefield->Id;
     Out.PlayerFaction=PlayerFaction;Out.EnemyFaction=World.Regions.FindChecked(Target).OwnerFactionId;
     Out.PlayerUnitId=PlayerUnitId;Out.EnemyUnitId=EnemyUnitId;Out.MapPackage=Battlefield->MapPackage;Out.ReturnMapPackage=CampaignMap;
     Out.ArenaOrigin=Battlefield->ArenaOrigin;Out.PlayerStrategicCount=PlayerArmy.FindRef(PlayerUnitId);Out.EnemyStrategicCount=EnemyArmies.FindRef(Target);
+    Out.PlayerMana = Hero.Mana;
     Out.ActiveCapPerSide=ActiveCapPerSide;Out.EncounterOrdinal=EncounterOrdinal+1;
     Out.EncounterId=FName(*FString::Printf(TEXT("encounter.%d.%d.%s.%s"),Economy.Day,Out.EncounterOrdinal,*PlayerRegion.ToString(),*Target.ToString()));
     Error.Reset();return Out.IsValid();
@@ -290,17 +292,18 @@ bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
     if (BattleBridge.IsValid()&&!BattleBridge->BeginEncounter(D)) return false;
     if (!FSoulCampaignRules::SpendAction(Economy,1)) return false;
     PendingBattle=D;EncounterOrdinal=D.EncounterOrdinal;
-    UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_ENCOUNTER id=%s source=%s target=%s map=%s forces=%d/%d cap=%d recipe=%s landform=%s approach=%s"),
+    UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_ENCOUNTER id=%s source=%s target=%s map=%s forces=%d/%d cap=%d recipe=%s landform=%s approach=%s mana=%d"),
         *D.EncounterId.ToString(),*D.SourceRegion.ToString(),*D.TargetRegion.ToString(),*D.MapPackage.ToString(),D.PlayerStrategicCount,D.EnemyStrategicCount,D.ActiveCapPerSide,
-        *D.BattlefieldId.ToString(), *D.BattleContext.Landform.ToString(), *D.BattleContext.AttackerApproach.ToString());
+        *D.BattlefieldId.ToString(), *D.BattleContext.Landform.ToString(), *D.BattleContext.AttackerApproach.ToString(), D.PlayerMana);
     return true;
 }
 bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBattleResult& R)
 {
-    if (!HasPendingBattle()||ResolvedEncounters.Contains(R.EncounterId)||R.EncounterId!=PendingBattle.EncounterId||R.TargetRegion!=PendingBattle.TargetRegion
-        ||R.PlayerSurvivors<0||R.PlayerSurvivors>PendingBattle.PlayerStrategicCount||R.EnemySurvivors<0||R.EnemySurvivors>PendingBattle.EnemyStrategicCount
-        ||(R.bPlayerWon&&(R.EnemySurvivors!=0||R.PlayerSurvivors==0))||(!R.bPlayerWon&&R.PlayerSurvivors!=0)) return false;
+    if (!HasPendingBattle() || ResolvedEncounters.Contains(R.EncounterId) || !R.IsValidFor(PendingBattle)) return false;
     PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;EnemyArmies.FindOrAdd(PendingBattle.TargetRegion)=R.EnemySurvivors;bBattleWon=R.bPlayerWon;
+    Hero.Mana = R.PlayerManaRemaining;
+    UE_LOG(LogSoulCampaign, Display, TEXT("SOUL_CAMPAIGN_MANA id=%s before=%d after=%d casts=%d"),
+        *R.EncounterId.ToString(), PendingBattle.PlayerMana, Hero.Mana, R.MagicCasts);
     if (R.bPlayerWon)
     {
         FSoulWorldRules::Capture(World,PendingBattle.TargetRegion,PendingBattle.PlayerFaction);PlayerRegion=PendingBattle.TargetRegion;
@@ -354,11 +357,13 @@ bool USoulFounderPlaytestStateSubsystem::CaptureRBSaveDomain_Implementation(FRBS
     Root->SetObjectField(TEXT("owners"),Owners);Root->SetArrayField(TEXT("rewarded"),NameSet(RewardedRegions));Root->SetArrayField(TEXT("resolved"),NameSet(ResolvedEncounters));
     Root->SetArrayField(TEXT("explored"),NameSet(World.KnowledgeByFaction.FindChecked(PlayerFaction).ExploredRegions));
     TMap<FName,int32> HeroNumbers={{TEXT("level"),Hero.Level},{TEXT("xp"),Hero.Experience},{TEXT("points"),Hero.UnspentSkillPoints},{TEXT("mana"),Hero.Mana},{TEXT("max_mana"),Hero.MaxMana}};
+    Root->SetNumberField(TEXT("hero_kind"), static_cast<int32>(Hero.Kind));
     Root->SetObjectField(TEXT("hero"),IntMap(HeroNumbers));Root->SetObjectField(TEXT("skills"),IntMap(Hero.Skills));Root->SetArrayField(TEXT("spells"),NameSet(Hero.KnownSpells));
     Root->SetStringField(TEXT("result_id"),LastBattleResult.EncounterId.ToString());Root->SetStringField(TEXT("result_target"),LastBattleResult.TargetRegion.ToString());
     Root->SetBoolField(TEXT("result_won"),LastBattleResult.bPlayerWon);
     TMap<FName,int32> Result={{TEXT("player"),LastBattleResult.PlayerSurvivors},{TEXT("enemy"),LastBattleResult.EnemySurvivors},{TEXT("player_waves"),LastBattleResult.PlayerReinforcements},{TEXT("enemy_waves"),LastBattleResult.EnemyReinforcements},{TEXT("magic"),LastBattleResult.MagicCasts}};
     Root->SetObjectField(TEXT("result"),IntMap(Result));
+    Root->SetNumberField(TEXT("result_mana"), LastBattleResult.PlayerManaRemaining);
     FString Json;if(!FJsonSerializer::Serialize(Root,TJsonWriterFactory<>::Create(&Json)))return false;
     Out=FRBSaveDomainState();Out.DomainId=GetRBSaveDomainId_Implementation();Out.SchemaVersion=1;
     FRBSaveField Field;Field.Name=TEXT("CampaignJson");Field.Type=ERBSaveFieldType::String;Field.StringValue=Json;Out.Fields.Add(Field);Error.Reset();return true;
@@ -374,7 +379,7 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
     TMap<FName,int32> Army,Enemies,Resources,Income,Pools,Numbers,Skills,Result;
     TSet<FName> Rewarded,Resolved,Explored,Spells;
     FString Region,Enemy,PF,EF,ResultId,ResultTarget;
-    int32 Day=0,AP=0,MaxAP=0,Ordinal=0;bool Won=false,Hired=false,ResultWon=false;
+    int32 Day=0,AP=0,MaxAP=0,Ordinal=0,ResultMana=0,HeroKind=0;bool Won=false,Hired=false,ResultWon=false;
     const TSharedPtr<FJsonObject>* Owners=nullptr;
     bool Valid=Root->TryGetStringField(TEXT("player_region"),Region)&&Root->TryGetStringField(TEXT("enemy_region"),Enemy)
         &&World.Regions.Contains(FName(*Region))&&World.Regions.Contains(FName(*Enemy))
@@ -395,7 +400,16 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
         &&Root->TryGetBoolField(TEXT("result_won"),ResultWon)&&ReadIntMap(*Root,TEXT("result"),Result);
     if(Valid)
     {
-        Valid=Numbers.Num()==5&&Numbers.Contains(TEXT("level"))&&Numbers.Contains(TEXT("xp"))&&Numbers.Contains(TEXT("points"))&&Numbers.Contains(TEXT("mana"))&&Numbers.Contains(TEXT("max_mana"))
+        if (Root->HasField(TEXT("hero_kind")))
+            Valid &= ReadNonNegativeInt(*Root, TEXT("hero_kind"), HeroKind);
+        Valid &= HeroKind <= static_cast<int32>(ESoulHeroKind::Paragon);
+        // Schema-1 checkpoints predating mana transfer have no result receipt.
+        // The hero's saved resource balance remains authoritative on that path.
+        ResultMana = Numbers.FindRef(TEXT("mana"));
+        if (Root->HasField(TEXT("result_mana")))
+            Valid &= ReadNonNegativeInt(*Root, TEXT("result_mana"), ResultMana);
+        Valid &= ResultMana <= Numbers.FindRef(TEXT("max_mana"));
+        Valid &= Numbers.Num()==5&&Numbers.Contains(TEXT("level"))&&Numbers.Contains(TEXT("xp"))&&Numbers.Contains(TEXT("points"))&&Numbers.Contains(TEXT("mana"))&&Numbers.Contains(TEXT("max_mana"))
             &&Numbers.FindRef(TEXT("level"))>0&&Numbers.FindRef(TEXT("mana"))<=Numbers.FindRef(TEXT("max_mana"))
             &&Result.Num()==5&&Result.Contains(TEXT("player"))&&Result.Contains(TEXT("enemy"))&&Result.Contains(TEXT("player_waves"))&&Result.Contains(TEXT("enemy_waves"))&&Result.Contains(TEXT("magic"));
         // Required pools must be present: otherwise a load into a used subsystem
@@ -437,12 +451,14 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
     for(auto& P:World.Regions)P.Value.OwnerFactionId=FName(*(*Owners)->GetStringField(P.Key.ToString()));
     Economy.Day=Day;Economy.ActionPoints=AP;Economy.MaxActionPoints=MaxAP;Economy.Resources=MoveTemp(Resources);Economy.DailyIncome=MoveTemp(Income);
     for(const auto& P:Pools)Economy.RecruitmentPools[P.Key].Available=P.Value;
+    Hero.Kind = static_cast<ESoulHeroKind>(HeroKind);
     Hero.Level=Numbers[TEXT("level")];Hero.Experience=Numbers[TEXT("xp")];Hero.UnspentSkillPoints=Numbers[TEXT("points")];Hero.Mana=Numbers[TEXT("mana")];Hero.MaxMana=Numbers[TEXT("max_mana")];Hero.Skills=MoveTemp(Skills);Hero.KnownSpells=MoveTemp(Spells);
     PlayerArmy=MoveTemp(Army);EnemyArmies=MoveTemp(Enemies);PlayerRegion=FName(*Region);EnemyRegion=FName(*Enemy);
     EncounterOrdinal=Ordinal;bBattleWon=Won;bSecondHeroHired=Hired;RewardedRegions=MoveTemp(Rewarded);ResolvedEncounters=MoveTemp(Resolved);
     LastBattleResult.EncounterId=FName(*ResultId);LastBattleResult.TargetRegion=FName(*ResultTarget);LastBattleResult.bPlayerWon=ResultWon;
     LastBattleResult.PlayerSurvivors=Result[TEXT("player")];LastBattleResult.EnemySurvivors=Result[TEXT("enemy")];
     LastBattleResult.PlayerReinforcements=Result[TEXT("player_waves")];LastBattleResult.EnemyReinforcements=Result[TEXT("enemy_waves")];LastBattleResult.MagicCasts=Result[TEXT("magic")];
+    LastBattleResult.PlayerManaRemaining = ResultMana;
     World.KnowledgeByFaction.FindOrAdd(PlayerFaction).ExploredRegions=MoveTemp(Explored);FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);
     Error.Reset();return true;
 }

@@ -28,11 +28,14 @@ struct FSoulBattlefieldTemplate
     TSet<FName> Features;
     int32 BaseScore = 0;
     bool bSupportsSiege = false;
+    // Reference recipes may score, but only admitted bindings may load a world.
+    bool bPlayable = false;
 };
 
 class SOULCORE_API FSoulBattlefieldRecipeRules
 {
 public:
     static int32 Score(const FSoulBattleContext& Context, const FSoulBattlefieldTemplate& Template);
+    static const FSoulBattlefieldTemplate* SelectPlayable(const FSoulBattleContext& Context, const TArray<FSoulBattlefieldTemplate>& Templates);
     static FName SelectBest(const FSoulBattleContext& Context, const TArray<FSoulBattlefieldTemplate>& Templates);
 };

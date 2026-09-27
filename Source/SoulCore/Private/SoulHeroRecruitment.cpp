@@ -32,6 +32,7 @@ bool FSoulHeroRecruitmentRules::OfferCandidate(
     const FSoulHeroCandidate& Candidate)
 {
     if (Candidate.HeroId.IsNone()
+        || (Candidate.Kind != ESoulHeroKind::Hero && Candidate.Kind != ESoulHeroKind::Paragon)
         || State.Candidates.Contains(Candidate.HeroId)
         || State.RecruitedHeroIds.Contains(Candidate.HeroId))
     {
@@ -157,5 +158,6 @@ bool FSoulHeroRecruitmentRules::Recruit(
 
     OutHero = FSoulHeroState();
     OutHero.HeroId = HeroId;
+    OutHero.Kind = Candidate.Kind;
     return true;
 }

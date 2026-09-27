@@ -32,3 +32,22 @@ FName FSoulBattlefieldRecipeRules::SelectBest(const FSoulBattleContext& Context,
     }
     return BestId;
 }
+
+const FSoulBattlefieldTemplate* FSoulBattlefieldRecipeRules::SelectPlayable(
+    const FSoulBattleContext& Context, const TArray<FSoulBattlefieldTemplate>& Templates)
+{
+    const FSoulBattlefieldTemplate* Best = nullptr;
+    int32 BestScore = MIN_int32;
+    for (const auto& Candidate : Templates)
+    {
+        if (!Candidate.bPlayable || Candidate.Id.IsNone() || Candidate.MapPackage.IsNone()) continue;
+        const int32 CandidateScore = Score(Context, Candidate);
+        if (CandidateScore == MIN_int32) continue;
+        if (!Best || CandidateScore > BestScore || (CandidateScore == BestScore && Candidate.Id.LexicalLess(Best->Id)))
+        {
+            Best = &Candidate;
+            BestScore = CandidateScore;
+        }
+    }
+    return Best;
+}

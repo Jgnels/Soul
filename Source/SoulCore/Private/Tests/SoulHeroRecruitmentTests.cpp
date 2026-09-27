@@ -28,6 +28,7 @@ bool FSoulHeroRecruitmentVenueTest::RunTest(const FString&)
     FSoulHeroRecruitmentState Recruitment;
     FSoulHeroCandidate Candidate;
     Candidate.HeroId = HeroId;
+    Candidate.Kind = ESoulHeroKind::Paragon;
     Candidate.VenueBuildingId = TavernId;
     Candidate.RecruitmentCost.Add(TEXT("gold"), 400);
     Candidate.MinimumReputation = 10;
@@ -64,6 +65,7 @@ bool FSoulHeroRecruitmentVenueTest::RunTest(const FString&)
         FSoulHeroRecruitmentRules::Recruit(
             Recruitment, Economy, Town, HeroId, 5, 10, Hero));
     TestTrue(TEXT("recruited hero id is preserved"), Hero.HeroId == HeroId);
+    TestTrue(TEXT("paragon remains a hero entity after recruitment"), Hero.Kind == ESoulHeroKind::Paragon);
     TestEqual(TEXT("recruitment cost is atomic"), Economy.Resources[TEXT("gold")], 600);
     TestEqual(TEXT("recruited hero leaves venue"),
         FSoulHeroRecruitmentRules::AvailableAtVenue(

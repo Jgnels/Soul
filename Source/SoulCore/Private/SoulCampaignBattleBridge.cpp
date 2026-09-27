@@ -8,6 +8,7 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
         && !MapPackage.IsNone() && !ReturnMapPackage.IsNone()
         && PlayerStrategicCount > 0 && EnemyStrategicCount > 0
         && ActiveCapPerSide > 0 && ActiveCapPerSide <= 35
+        && PlayerMana >= 0
         // The installed physical runtime supports this one ordered matchup.
         // Reject unsupported identities instead of silently substituting side-based assets.
         && PlayerFaction == TEXT("humans") && EnemyFaction == TEXT("dwarves")
@@ -22,14 +23,20 @@ bool USoulCampaignBattleBridge::BeginEncounter(const FSoulCampaignBattleDescript
     return true;
 }
 
+bool FSoulCampaignBattleResult::IsValidFor(const FSoulCampaignBattleDescriptor& Encounter) const
+{
+    return Encounter.IsValid() && EncounterId == Encounter.EncounterId
+        && TargetRegion == Encounter.TargetRegion
+        && PlayerSurvivors >= 0 && PlayerSurvivors <= Encounter.PlayerStrategicCount
+        && EnemySurvivors >= 0 && EnemySurvivors <= Encounter.EnemyStrategicCount
+        && PlayerReinforcements >= 0 && EnemyReinforcements >= 0 && MagicCasts >= 0
+        && PlayerManaRemaining >= 0 && PlayerManaRemaining <= Encounter.PlayerMana
+        && (bPlayerWon ? (EnemySurvivors == 0 && PlayerSurvivors > 0) : PlayerSurvivors == 0);
+}
+
 bool USoulCampaignBattleBridge::ResolveEncounter(const FSoulCampaignBattleResult& Result)
 {
-    if (!bPending || Result.EncounterId != Pending.EncounterId
-        || Result.TargetRegion != Pending.TargetRegion
-        || Result.PlayerSurvivors < 0 || Result.PlayerSurvivors > Pending.PlayerStrategicCount
-        || Result.EnemySurvivors < 0 || Result.EnemySurvivors > Pending.EnemyStrategicCount
-        || (Result.bPlayerWon && (Result.EnemySurvivors != 0 || Result.PlayerSurvivors == 0))
-        || (!Result.bPlayerWon && Result.PlayerSurvivors != 0)) return false;
+    if (!bPending || !Result.IsValidFor(Pending)) return false;
     Last = Result;
     bHasResult = true;
     bPending = false;

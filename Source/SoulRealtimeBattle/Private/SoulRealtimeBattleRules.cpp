@@ -51,17 +51,18 @@ void FSoulRealtimeBattleRules::InitializeDeployment(FSoulRealtimeBattleState& Ba
     for (FName SideId : Sides)
     {
         TArray<int32> Indices;
-        int32 Total = 0;
         for (int32 Index = 0; Index < Battle.Formations.Num(); ++Index)
         {
             const FSoulRealtimeFormation& F = Battle.Formations[Index];
             if (F.SideId == SideId && F.StrategicCount > 0)
             {
                 Indices.Add(Index);
-                Total += F.StrategicCount;
             }
         }
-        if (!Battle.bReinforcementsEnabled || Total <= Cap)
+        // The balance lab's explicit all-at-once mode remains unbounded. A
+        // bounded battle must honor each formation's representation limit even
+        // when the entire strategic army fits under the side-wide cap.
+        if (!Battle.bReinforcementsEnabled)
         {
             for (int32 Index : Indices)
             {
@@ -173,7 +174,7 @@ bool FSoulRealtimeBattleRules::ShouldReinforce(
     const FSoulRealtimeBattleState& Battle,
     FName SideId)
 {
-    if (!Battle.bReinforcementsEnabled || ReserveBodies(Battle, SideId) <= 0)
+    if (SideId.IsNone() || !Battle.bReinforcementsEnabled || ReserveBodies(Battle, SideId) <= 0)
     {
         return false;
     }
@@ -181,7 +182,16 @@ bool FSoulRealtimeBattleRules::ShouldReinforce(
     const int32 Cap = FMath::Max(1, Battle.MaxActivePerSide);
     const int32 Threshold = FMath::Clamp(
         Battle.ReinforcementTriggerPermille, 1, 1000);
-    return ActiveBodies(Battle, SideId) * 1000 < Cap * Threshold;
+    if (ActiveBodies(Battle, SideId) * 1000 >= Cap * Threshold) return false;
+    // A reserve is ready only when at least one formation can receive a body.
+    // Small bounded armies may sit below the side threshold with every
+    // formation full. Do not advertise or repeatedly attempt an empty wave.
+    for (const FSoulRealtimeFormation& F : Battle.Formations)
+    {
+        if (F.SideId == SideId && F.ReserveCount > 0
+            && F.ActiveCount < FMath::Max(1, F.MaxActiveRepresentations)) return true;
+    }
+    return false;
 }
 
 FSoulReinforcementWave FSoulRealtimeBattleRules::BuildAndApplyWave(
@@ -193,7 +203,7 @@ FSoulReinforcementWave FSoulRealtimeBattleRules::BuildAndApplyWave(
     if (!ShouldReinforce(Battle, SideId)) return Wave;
     const int32 Active = ActiveBodies(Battle, SideId);
     int32 Slots = FMath::Min(
-        FMath::Max(0, Battle.MaxActivePerSide - Active),
+        FMath::Max(0, FMath::Max(1, Battle.MaxActivePerSide) - Active),
         FMath::Max(1, Battle.MaxWaveSize));
     if (Slots <= 0) return Wave;
 

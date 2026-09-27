@@ -145,6 +145,15 @@ bool FSoulVeterancyTest::RunTest(const FString&)
     FSoulVeterancy::AddExperience(R, 750);
     TestTrue(TEXT("750 XP is elite"), R.Rank == ESoulRegimentRank::Elite);
     TestTrue(TEXT("rank bonus is bounded"), FSoulVeterancy::CombatBonusPermille(R.Rank) <= 100);
+    TestEqual(TEXT("card progress uses existing threshold"), FSoulVeterancy::ProgressSummary(750), FString(TEXT("Elite | 750 XP | 750 to Legendary")));
+    R.Experience = 99;
+    FSoulVeterancy::AddExperience(R, 1);
+    TestTrue(TEXT("promotion updates canonical rank"), R.Rank == ESoulRegimentRank::Seasoned);
+    TestEqual(TEXT("promotion updates readable next rank"), FSoulVeterancy::ProgressSummary(R.Experience), FString(TEXT("Seasoned | 100 XP | 200 to Veteran")));
+    FSoulVeterancy::AddExperience(R, MAX_int32);
+    TestEqual(TEXT("long-lived regiment saturates without losing XP"), R.Experience, MAX_int32);
+    TestTrue(TEXT("maximum XP remains legendary"), R.Rank == ESoulRegimentRank::Legendary);
+    TestTrue(TEXT("maximum rank does not invent a sixth rank"), FSoulVeterancy::ProgressSummary(R.Experience).Contains(TEXT("Maximum rank")));
     return true;
 }
 
@@ -532,17 +541,40 @@ bool FSoulFactionContractTest::RunTest(const FString&)
     FSoulFactionDefinition F;
     F.FactionId = TEXT("castle");
     F.CoreRoster = {
-        {TEXT("fighter1"), ESoulUnitRole::Fighter},
+        {TEXT("fighter1"), ESoulUnitRole::Fighter, true},
         {TEXT("fighter2"), ESoulUnitRole::Fighter},
         {TEXT("fighter3"), ESoulUnitRole::Fighter},
         {TEXT("fighter4"), ESoulUnitRole::Fighter},
         {TEXT("ranged"), ESoulUnitRole::Ranged},
-        {TEXT("beast"), ESoulUnitRole::Beast},
+        {TEXT("apex"), ESoulUnitRole::Apex},
         {TEXT("support"), ESoulUnitRole::SupportMagic}
     };
     F.HeroIds = {TEXT("hero_a"), TEXT("hero_b")};
 
     TestTrue(TEXT("intended seven-unit shape is valid"), FSoulFactionRules::Validate(F).bValid);
+    const auto Valid = F;
+    F.CoreRoster.Add({TEXT("extra_apex"), ESoulUnitRole::Apex});
+    TestFalse(TEXT("apex is not an eighth slot"), FSoulFactionRules::Validate(F).bValid);
+    F = Valid;
+    F.CoreRoster[5].Role = ESoulUnitRole::Fighter;
+    TestFalse(TEXT("apex cannot be omitted"), FSoulFactionRules::Validate(F).bValid);
+    F = Valid;
+    F.CoreRoster[5].UnitId = NAME_None;
+    TestFalse(TEXT("undecided apex cannot masquerade as a finished roster"), FSoulFactionRules::Validate(F).bValid);
+    F = Valid;
+    F.HeroIds.Add(F.CoreRoster[5].UnitId);
+    TestFalse(TEXT("hero/paragon identity cannot occupy core apex slot"), FSoulFactionRules::Validate(F).bValid);
+    F = Valid;
+    F.HeroIds.Add(F.HeroIds[0]);
+    TestFalse(TEXT("hero identity cannot be duplicated"), FSoulFactionRules::Validate(F).bValid);
+    F = Valid;
+    F.CoreRoster[0].bQuadruped = false;
+    TestFalse(TEXT("quadruped direction must be represented"), FSoulFactionRules::Validate(F).bValid);
+    F.CoreRoster[5].bQuadruped = true;
+    TestTrue(TEXT("quadruped may be apex without an extra slot"), FSoulFactionRules::Validate(F).bValid);
+    F.CoreRoster[0].bQuadruped = true;
+    TestFalse(TEXT("second quadruped rejected"), FSoulFactionRules::Validate(F).bValid);
+    F = Valid;
     F.CoreRoster[6].Role = ESoulUnitRole::Fighter;
     TestFalse(TEXT("missing support slot is rejected"), FSoulFactionRules::Validate(F).bValid);
     return true;

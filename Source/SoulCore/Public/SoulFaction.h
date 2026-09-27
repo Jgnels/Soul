@@ -7,6 +7,7 @@ struct FSoulFactionUnitSlot
 {
     FName UnitId;
     ESoulUnitRole Role = ESoulUnitRole::Fighter;
+    bool bQuadruped = false;
 };
 
 struct FSoulFactionDefinition

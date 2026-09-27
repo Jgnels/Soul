@@ -15,6 +15,7 @@ enum class ESoulHeroCandidateState : uint8
 struct FSoulHeroCandidate
 {
     FName HeroId;
+    ESoulHeroKind Kind = ESoulHeroKind::Hero;
     FName VenueBuildingId;
     TMap<FName, int32> RecruitmentCost;
     int32 MinimumReputation = 0;

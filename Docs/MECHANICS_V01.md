@@ -13,6 +13,18 @@
 - Morale and luck are bounded and seeded.
 - Large groups use stabilized damage variance so 50 soldiers do not swing as wildly as one creature.
 
+## Factions and hero entities
+Each finished faction has exactly seven core slots: four melee, one ranged,
+one support/magic, and one apex. Apex is inside the seven, never an eighth slot.
+Exactly one core family uses the quadruped direction; body plan is independent
+of role, so that family need not be the apex. Nature's apex remains undecided.
+An unresolved roster must not validate as final content.
+
+Heroes and paragons are distinct persistent hero entities. Both use the existing
+hero recruitment authority; neither consumes a core slot. Hero kind, hero level,
+unit role, and regiment rank are separate concepts. Presentation should preserve
+non-anime, HOMM-style silhouette and role readability.
+
 ## Regiments
 A combat group is persistent. Rank-and-file individuals are not persistent psychological agents.
 Ranks: Recruit, Seasoned, Veteran, Elite, Legendary.

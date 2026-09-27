@@ -2,9 +2,17 @@
 
 #include "CoreMinimal.h"
 
+// Both kinds are persistent hero entities, never core troop slots or ranks.
+enum class ESoulHeroKind : uint8
+{
+    Hero,
+    Paragon
+};
+
 struct FSoulHeroState
 {
     FName HeroId;
+    ESoulHeroKind Kind = ESoulHeroKind::Hero;
     int32 Level = 1;
     int32 Experience = 0;
     int32 UnspentSkillPoints = 0;

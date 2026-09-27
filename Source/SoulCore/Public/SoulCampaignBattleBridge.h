@@ -24,6 +24,7 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     int32 EnemyStrategicCount = 0;
     int32 ActiveCapPerSide = 5;
     int32 EncounterOrdinal = 0;
+    int32 PlayerMana = 80;
     bool IsValid() const;
 };
 
@@ -38,6 +39,8 @@ struct SOULCORE_API FSoulCampaignBattleResult
     int32 PlayerReinforcements = 0;
     int32 EnemyReinforcements = 0;
     int32 MagicCasts = 0;
+    int32 PlayerManaRemaining = 0;
+    bool IsValidFor(const FSoulCampaignBattleDescriptor& Encounter) const;
 };
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FSoulCampaignBattleResolved, const FSoulCampaignBattleResult&);

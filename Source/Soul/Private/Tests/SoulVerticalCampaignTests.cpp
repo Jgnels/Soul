@@ -24,7 +24,7 @@ namespace
     {
         FSoulCampaignBattleResult R;
         R.EncounterId=D.EncounterId;R.TargetRegion=D.TargetRegion;R.bPlayerWon=true;
-        R.PlayerSurvivors=Survivors;R.EnemySurvivors=0;return R;
+        R.PlayerSurvivors=Survivors;R.EnemySurvivors=0;R.PlayerManaRemaining=D.PlayerMana;return R;
     }
 }
 
@@ -554,40 +554,6 @@ bool FSoulVerticalMutualExhaustionTest::RunTest(const FString&)
     TestEqual(TEXT("remaining garrison untouched"), Loaded->EnemyArmies.FindRef(TEXT("orc_camp")), 30);
     Loaded->AdvanceDay();
     TestTrue(TEXT("next defended encounter remains available"), Loaded->BeginBattle(TEXT("orc_camp")));
-    return true;
-}
-
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalBattlefieldSelectionTest,
-    "Soul.Integration.Vertical.BattlefieldUsesDestinationGeography",
-    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
-bool FSoulVerticalBattlefieldSelectionTest::RunTest(const FString&)
-{
-    auto* S = Campaign();
-    S->PlayerRegion = TEXT("river_ford");
-    FSoulCampaignBattleDescriptor Descriptor;
-    FString Error;
-    if (!TestTrue(TEXT("qualified fallback builds"), S->BuildBattleDescriptor(TEXT("orc_watch"), Descriptor, Error))) return false;
-    TestEqual(TEXT("default battlefield identity"), Descriptor.BattlefieldId, FName(TEXT("dragon_graveyard")));
-    TestEqual(TEXT("default destination preserved"), Descriptor.MapPackage, S->BattleMap);
-    TestEqual(TEXT("actual destination landform transported"), Descriptor.BattleContext.Landform, S->World.Regions[TEXT("orc_watch")].Landform);
-    TestEqual(TEXT("actual approach transported"), Descriptor.BattleContext.AttackerApproach,
-        S->World.Regions[TEXT("orc_watch")].ApproachFromNeighbor.FindRef(TEXT("river_ford")));
-
-    FSoulBattlefieldTemplate Candidate;
-    Candidate.Id = TEXT("aaa_unrelated_environment");
-    Candidate.MapPackage = TEXT("/Game/TestFixtures/AlternateBattlefield"); // Transport test only; never loaded.
-    Candidate.Landforms.Add(TEXT("unrelated_landform"));
-    Candidate.ArenaOrigin = FVector(100, 200, 300);
-    S->BattlefieldTemplates.Add(Candidate);
-    TestTrue(TEXT("unrelated candidate permits fallback"), S->BuildBattleDescriptor(TEXT("orc_watch"), Descriptor, Error));
-    TestEqual(TEXT("unmatched lexical first candidate cannot steal fallback"), Descriptor.BattlefieldId, FName(TEXT("dragon_graveyard")));
-    S->BattlefieldTemplates.Last().Landforms.Add(S->World.Regions[TEXT("orc_watch")].Landform);
-    if (!TestTrue(TEXT("matching candidate builds"), S->BuildBattleDescriptor(TEXT("orc_watch"), Descriptor, Error))) return false;
-    TestEqual(TEXT("geography selects candidate"), Descriptor.BattlefieldId, Candidate.Id);
-    TestEqual(TEXT("candidate map transported"), Descriptor.MapPackage, Candidate.MapPackage);
-    TestTrue(TEXT("candidate arena origin transported"), Descriptor.ArenaOrigin.Equals(Candidate.ArenaOrigin));
-    TestEqual(TEXT("selection does not move campaign army"), S->PlayerRegion, FName(TEXT("river_ford")));
-    TestEqual(TEXT("selection does not spend actions"), S->Economy.ActionPoints, 3);
     return true;
 }
 

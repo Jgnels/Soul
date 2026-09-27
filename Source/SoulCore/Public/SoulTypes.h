@@ -20,7 +20,8 @@ enum class ESoulUnitRole : uint8
     Fighter,
     Ranged,
     SupportMagic,
-    Beast
+    // Apex occupies the seventh core slot. Body plan is independent of role.
+    Apex
 };
 
 enum class ESoulRegimentRank : uint8

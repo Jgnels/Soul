@@ -51,5 +51,26 @@ class ContinuationDataTests(unittest.TestCase):
         self.assertTrue(15 <= self.config["active_cap_per_side"] <= 35)
 
 
+    def test_each_encounter_source_has_secured_retreat_route(self):
+        graph = {key: set() for key in self.scenario["region_ids"]}
+        for edge in self.world["edges"]:
+            a, b = edge["a"], edge["b"]
+            if a in graph and b in graph:
+                graph[a].add(b)
+                graph[b].add(a)
+        route = ["river_ford", "orc_watch", "orc_camp", "north_pass"]
+        secured = {"human_capital", "crossroads", route[0]}
+        for source, target in zip(route, route[1:]):
+            reached, pending = set(), [source]
+            while pending:
+                current = pending.pop()
+                if current in reached:
+                    continue
+                reached.add(current)
+                pending.extend((graph[current] & secured) - reached)
+            self.assertIn("human_capital", reached)
+            secured.add(target)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import re
 
-EVENT = re.compile(r"\b(SOUL_CAMPAIGN_ENCOUNTER|SOUL_RT_RESERVES_READY|SOUL_UNIT_DEFEATED|SOUL_RT_REINFORCEMENT_WAVE|SOUL_RT_REINFORCEMENT_FAILED|SOUL_BATTLE_RESOLVED|SOUL_CAMPAIGN_RESULT)\b:?\s*(.*)")
+EVENT = re.compile(r"\b(SOUL_CAMPAIGN_ENCOUNTER|SOUL_RT_RESERVES_READY|SOUL_UNIT_DEFEATED|SOUL_RT_REINFORCEMENT_WAVE|SOUL_RT_REINFORCEMENT_FAILED|SOUL_BATTLE_RESOLVED|SOUL_CAMPAIGN_RESULT|SOUL_CAMPAIGN_MANA)\b:?\s*(.*)")
 FIELDS = re.compile(r"(\w+)=([^\s]+)")
 
 
@@ -24,7 +24,7 @@ def analyze(text):
                 current["issues"].append(f"line {line_number}: next encounter started before campaign return")
             current = dict(encounter=fields, start_line=line_number, deaths=[[], []],
                            waves=[[], []], issues=[], active=None, reserves=None,
-                           peak_active=None, battle_result=None, campaign_result=None)
+                           peak_active=None, battle_result=None, campaign_result=None, mana_result=None)
             if any(r["encounter"].get("id") == fields.get("id") for r in records):
                 current["issues"].append(f"line {line_number}: reused encounter identity")
             if unfinished:
@@ -32,6 +32,8 @@ def analyze(text):
             try:
                 if any(not fields.get(key) or fields[key] == "None" for key in ("id", "source", "target", "map")):
                     raise ValueError("missing encounter identity, geography or map")
+                if "mana" in fields and not 0 <= int(fields["mana"]) <= 2147483647:
+                    raise ValueError("invalid committed mana")
                 if fields["source"] == fields["target"]:
                     raise ValueError("source and target must differ")
                 force = [int(n) for n in fields["forces"].split("/")]
@@ -103,6 +105,11 @@ def analyze(text):
                 if r["battle_result"] is not None:
                     issue("duplicate battle resolution")
                 r["battle_result"] = fields
+                if int(fields["magic"]) < 0:
+                    issue("negative magic cast count")
+                if "mana" in r["encounter"]:
+                    if "mana" in fields and not 0 <= int(fields["mana"]) <= int(r["encounter"]["mana"]):
+                        issue("battle mana outside committed balance")
                 survivors = [int(fields["playerSurvivors"]), int(fields["enemySurvivors"])]
                 won = int(fields["won"])
                 if won not in (0, 1) or ((survivors[1] == 0 and survivors[0] > 0) != bool(won)):
@@ -116,6 +123,24 @@ def analyze(text):
                         issue(f"side {side} physical and reserve ledger differs from survivors")
                 if [int(n) for n in fields["waves"].split("/")] != [len(w) for w in r["waves"]]:
                     issue("resolved wave counts differ from deliveries")
+            elif kind == "SOUL_CAMPAIGN_MANA":
+                if r["mana_result"] is not None:
+                    issue("duplicate campaign mana receipt")
+                r["mana_result"] = fields
+                if r["campaign_result"] is not None:
+                    issue("mana receipt after campaign return")
+                if fields["id"] != r["encounter"]["id"]:
+                    issue("mana receipt has incorrect id")
+                before, after, casts = (int(fields[key]) for key in ("before", "after", "casts"))
+                if "mana" not in r["encounter"] or before != int(r["encounter"]["mana"]):
+                    issue("mana receipt differs from committed balance")
+                if not 0 <= after <= before <= 2147483647 or casts < 0:
+                    issue("invalid mana receipt balance or cast count")
+                battle = r["battle_result"]
+                if battle is None:
+                    issue("mana receipt has no preceding physical resolution")
+                elif after != int(battle["mana"]) or casts != int(battle["magic"]):
+                    issue("campaign mana receipt differs from physical result")
             elif kind == "SOUL_CAMPAIGN_RESULT":
                 if r["campaign_result"] is not None:
                     issue("duplicate campaign result")
@@ -142,6 +167,8 @@ def analyze(text):
 
     for r in records:
         complete = all(r[key] is not None for key in ("reserves", "battle_result", "campaign_result"))
+        if "mana" in r["encounter"]:
+            complete = complete and r["mana_result"] is not None and "mana" in (r["battle_result"] or {})
         r["log_consistency"] = "INCONSISTENT" if r["issues"] else "CONSISTENT" if complete else "INCOMPLETE"
         r["casualty_counts"] = [len(d) for d in r.pop("deaths")]
     return dict(player_loop_acceptance="UNVERIFIED_FROM_LOGS", encounters=records,

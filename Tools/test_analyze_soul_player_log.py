@@ -93,6 +93,52 @@ class LogAuditTests(unittest.TestCase):
         lines = fixture()
         lines.insert(2, "SOUL_RT_REINFORCEMENT_WAVE: side=0 bodies=4 wave=1")
         self.assertIn("physical count outside active cap", " ".join(analyze("\n".join(lines))["encounters"][0]["issues"]))
+    def mana_fixture(self):
+        lines = fixture()
+        lines[0] += " mana=24"
+        lines[-2] += " mana=16"
+        lines.insert(-1, "SOUL_CAMPAIGN_MANA id=first before=24 after=16 casts=1")
+        return lines
+
+    def test_campaign_mana_receipt_matches_both_authorities(self):
+        record = analyze("\n".join(self.mana_fixture()))["encounters"][0]
+        self.assertEqual(record["log_consistency"], "CONSISTENT", record["issues"])
+        self.assertEqual(record["mana_result"]["after"], "16")
+
+    def test_mana_aware_log_requires_complete_receipt(self):
+        lines = self.mana_fixture()
+        del lines[-2]
+        self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCOMPLETE")
+
+    def test_mana_receipt_rejects_wrong_identity_balance_and_casts(self):
+        for before, after in (("id=first", "id=stale"), ("before=24", "before=80"),
+                              ("after=16", "after=25"), ("after=16", "after=-1"),
+                              ("after=16", "after=15"), ("casts=1", "casts=2"),
+                              ("after=16", "after=1.5")):
+            with self.subTest(before=before, after=after):
+                lines = self.mana_fixture()
+                lines[-2] = lines[-2].replace(before, after)
+                self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+
+    def test_mana_receipt_order_and_duplicates_are_rejected(self):
+        for placement in (1, -1, -2):
+            lines = self.mana_fixture()
+            lines.insert(placement, lines[-2])
+            self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+        lines = self.mana_fixture()
+        receipt = lines.pop(-2)
+        lines.append(receipt)
+        self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+
+    def test_negative_casts_and_mana_are_rejected(self):
+        lines = fixture()
+        lines[-2] = lines[-2].replace("magic=1", "magic=-1")
+        self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+        for balance in ("-1", "2147483648", "1.5"):
+            lines = fixture()
+            lines[0] += " mana=" + balance
+            self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+
     def test_defeat_requires_source_return(self):
         lines = ["SOUL_CAMPAIGN_ENCOUNTER id=d source=river_ford target=orc_watch map=Dragon forces=1/4 cap=15",
                  "SOUL_RT_RESERVES_READY: human=0 enemy=0",
