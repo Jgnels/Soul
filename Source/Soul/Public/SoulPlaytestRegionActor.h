@@ -24,8 +24,6 @@ public:
     void Configure(FName InRegionId, const FString& DisplayName, const FVector& Location);
     void SetVisualState(const FLinearColor& Color, bool bVisible, bool bCurrent);
 
-    virtual void NotifyActorOnClicked(FKey ButtonPressed) override;
-
 private:
     TObjectPtr<class UMaterialInstanceDynamic> DynamicMaterial;
 };

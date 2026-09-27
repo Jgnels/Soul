@@ -5,6 +5,7 @@
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "Engine/GameInstance.h"
 #include "SoulFounderPlaytestCampaignActor.h"
+#include "SoulPlaytestRegionActor.h"
 
 ASoulFounderPlaytestPlayerController::ASoulFounderPlaytestPlayerController()
 {
@@ -62,7 +63,21 @@ ASoulFounderPlaytestCampaignActor* ASoulFounderPlaytestPlayerController::GetCamp
     return nullptr;
 }
 
-void ASoulFounderPlaytestPlayerController::PrimaryClick() {}
+void ASoulFounderPlaytestPlayerController::PrimaryClick()
+{
+    FHitResult Hit;
+    if (!GetHitResultUnderCursor(ECC_Visibility, false, Hit)) return;
+
+    const auto* Region = Cast<ASoulPlaytestRegionActor>(Hit.GetActor());
+    if (!IsValid(Region) || Region->IsHidden() || Region->RegionId.IsNone()) return;
+
+    // This is the sole campaign click dispatcher. Actor click notifications may
+    // still fire, but region actors must not dispatch the same press again.
+    if (auto* Campaign = GetCampaign())
+    {
+        Campaign->HandleRegionClicked(Region->RegionId);
+    }
+}
 
 void ASoulFounderPlaytestPlayerController::Number1() { if (auto* C = GetCampaign()) C->HandleNumberKey(1); }
 void ASoulFounderPlaytestPlayerController::Number2() { if (auto* C = GetCampaign()) C->HandleNumberKey(2); }

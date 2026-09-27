@@ -3,9 +3,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Engine/StaticMesh.h"
-#include "EngineUtils.h"
 #include "Materials/MaterialInstanceDynamic.h"
-#include "SoulFounderPlaytestCampaignActor.h"
 #include "UObject/ConstructorHelpers.h"
 
 ASoulPlaytestRegionActor::ASoulPlaytestRegionActor()
@@ -72,16 +70,4 @@ void ASoulPlaytestRegionActor::SetVisualState(
     Marker->SetRelativeScale3D(
         bCurrent ? FVector(1.65f, 1.65f, 0.60f) : FVector(1.25f, 1.25f, 0.45f));
     Label->SetTextRenderColor(bCurrent ? FColor::Yellow : FColor::White);
-}
-
-void ASoulPlaytestRegionActor::NotifyActorOnClicked(FKey ButtonPressed)
-{
-    Super::NotifyActorOnClicked(ButtonPressed);
-    if (ButtonPressed != EKeys::LeftMouseButton || !GetWorld()) return;
-
-    for (TActorIterator<ASoulFounderPlaytestCampaignActor> It(GetWorld()); It; ++It)
-    {
-        It->HandleRegionClicked(RegionId);
-        return;
-    }
 }
