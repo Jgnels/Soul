@@ -830,7 +830,9 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
             ActiveCap = Encounter->ActiveCapPerSide;
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
-            bTacticalMagic = true;
+            // Automatic casting belongs to explicit qualification. Normal play
+            // uses the existing [1] input and must not spend mana on its own.
+            bTacticalMagic = bTacticalMagic || bQualification;
             UE_LOG(LogTemp, Display, TEXT("SOUL_CAMPAIGN_BATTLE_BEGIN: encounter=%s target=%s map=%s player=%s:%s:%d enemy=%s:%s:%d cap=%d"),
                 *Encounter->EncounterId.ToString(), *Encounter->TargetRegion.ToString(), *Encounter->MapPackage.ToString(),
                 *Encounter->PlayerFaction.ToString(), *Encounter->PlayerUnitId.ToString(), StrategicBodies[0],
@@ -1003,7 +1005,8 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     const int32 GroupIndex = Groups.AddDefaulted();
     FRBCombatGroup Core;
     Core.Id = FGuid::NewGuid();
-    Core.Command = ERBGroupCommand::Charge;
+    // Newly admitted allies inherit the player's current order, including HOLD.
+    Core.Command = Side == 0 && !bAlliedCharge ? ERBGroupCommand::Hold : ERBGroupCommand::Charge;
     Core.Anchor = Anchor;
     Core.Facing = Side == 0
         ? FVector::ForwardVector : -FVector::ForwardVector;
@@ -2206,7 +2209,7 @@ void ASoulRealtimeArenaGameMode::SetupBattleCamera()
     const FVector Center = ResolveSpawnLocation(ArenaOrigin + FVector(0, 0, 100));
     // Establish the environment in map-only qualification; frame the actual fighters during play.
     const FVector CameraOffset = bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000);
-    const FVector FocusOffset = bMapOnly ? FVector(500, 1800, 600) : FVector(250, 1400, 300);
+    const FVector FocusOffset = bMapOnly ? FVector(500, 1800, 600) : FVector(250, 0, 100);
     auto* Camera = GetWorld()->SpawnActor<ACameraActor>(Center + CameraOffset, FRotator::ZeroRotator);
     if (!Camera) return;
     Camera->SetActorRotation((Center + FocusOffset - Camera->GetActorLocation()).Rotation());

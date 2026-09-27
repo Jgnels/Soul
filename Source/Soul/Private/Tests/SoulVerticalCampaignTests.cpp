@@ -47,7 +47,7 @@ bool FSoulVerticalEncounterTest::RunTest(const FString&)
     TestEqual(TEXT("real enemy family"),D.EnemyUnitId,FName(TEXT("dwarf_warrior")));
     TestEqual(TEXT("player strategic transfer"),D.PlayerStrategicCount,S->PlayerArmy[S->PlayerUnitId]);
     TestEqual(TEXT("enemy strategic transfer"),D.EnemyStrategicCount,S->EnemyArmies[TEXT("orc_watch")]);
-    TestEqual(TEXT("bounded active force"),D.ActiveCapPerSide,5);
+    TestEqual(TEXT("bounded active force"),D.ActiveCapPerSide,15);
     TestTrue(TEXT("commit encounter"),S->BeginBattle(TEXT("orc_watch")));
     TestEqual(TEXT("exactly one commitment action"),S->Economy.ActionPoints,AP-1);
     TestFalse(TEXT("cannot commit twice"),S->BeginBattle(TEXT("orc_watch")));
@@ -300,6 +300,88 @@ bool FSoulVerticalScopedSaveTest::RunTest(const FString&)
         State->PlayerArmy[State->PlayerUnitId], 23);
     TestEqual(TEXT("later missing-domain preflight preserves mutated campaign region"),
         State->PlayerRegion, FName(TEXT("human_capital")));
+    return true;
+}
+
+// Direct state regressions only: these do not establish mouse input or rendered acceptance.
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalContinuedVictoryTest,
+    "Soul.Integration.Vertical.ContinuedVictoryAfterReload",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalContinuedVictoryTest::RunTest(const FString&)
+{
+    auto* S = Campaign();
+    TestTrue(TEXT("spend initial skill point before town number keys"), S->ChooseSkill(TEXT("Command")));
+    TestTrue(TEXT("walk to crossroads"), S->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("walk to ford"), S->MovePlayerTo(TEXT("river_ford")));
+    if (!TestTrue(TEXT("first encounter committed"), S->BeginBattle(TEXT("orc_watch")))) return false;
+    const auto First = S->PendingBattle;
+    TestTrue(TEXT("first victory applied"), S->ApplyBattleResult(Victory(First, 5)));
+    TestEqual(TEXT("normal first route exhausts AP"), S->Economy.ActionPoints, 0);
+
+    FRBSaveDomainState Saved;
+    FString Error;
+    if (!TestTrue(TEXT("capture settled victory"), S->CaptureRBSaveDomain_Implementation(Saved, Error))) return false;
+    auto* Loaded = Campaign();
+    if (!TestTrue(TEXT("restore into fresh campaign"), Loaded->RestoreRBSaveDomain_Implementation(Saved, Error))) return false;
+    TestFalse(TEXT("second target cannot be traversed before battle"), Loaded->MovePlayerTo(TEXT("orc_camp")));
+    TestFalse(TEXT("no AP cannot commit second encounter"), Loaded->BeginBattle(TEXT("orc_camp")));
+    Loaded->AdvanceDay();
+    if (!TestTrue(TEXT("next day permits second encounter"), Loaded->BeginBattle(TEXT("orc_camp")))) return false;
+    const auto Second = Loaded->PendingBattle;
+    TestEqual(TEXT("second encounter starts at captured watch"), Second.SourceRegion, FName(TEXT("orc_watch")));
+    TestEqual(TEXT("second encounter targets stronghold"), Second.TargetRegion, FName(TEXT("orc_camp")));
+    TestTrue(TEXT("encounter identity advances across reload"), Second.EncounterId != First.EncounterId);
+    TestEqual(TEXT("ordinal advances across reload"), Second.EncounterOrdinal, First.EncounterOrdinal + 1);
+    TestEqual(TEXT("real surviving player pool reused"), Second.PlayerStrategicCount, 5);
+    TestEqual(TEXT("unfought garrison remains intact"), Second.EnemyStrategicCount, 30);
+    TestFalse(TEXT("stale first result cannot resolve second encounter"), Loaded->ApplyBattleResult(Victory(First, 5)));
+    TestTrue(TEXT("second victory applies"), Loaded->ApplyBattleResult(Victory(Second, 2)));
+    TestEqual(TEXT("second return reaches stronghold"), Loaded->PlayerRegion, FName(TEXT("orc_camp")));
+    TestEqual(TEXT("first captured territory stays owned"), Loaded->World.Regions[TEXT("orc_watch")].OwnerFactionId, Loaded->PlayerFaction);
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalDefeatRecoveryTest,
+    "Soul.Integration.Vertical.DefeatRecruitmentAfterReload",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalDefeatRecoveryTest::RunTest(const FString&)
+{
+    auto* S = Campaign();
+    TestTrue(TEXT("spend initial skill point"), S->ChooseSkill(TEXT("Command")));
+    TestTrue(TEXT("walk to crossroads"), S->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("walk to ford"), S->MovePlayerTo(TEXT("river_ford")));
+    if (!TestTrue(TEXT("commit first battle"), S->BeginBattle(TEXT("orc_watch")))) return false;
+    const auto First = S->PendingBattle;
+    auto Defeat = Victory(First, 0);
+    Defeat.bPlayerWon = false;
+    Defeat.EnemySurvivors = 4;
+    const int32 XP = S->Hero.Experience;
+    TestTrue(TEXT("defeat returns to source"), S->ApplyBattleResult(Defeat));
+
+    FRBSaveDomainState Saved;
+    FString Error;
+    if (!TestTrue(TEXT("capture defeat"), S->CaptureRBSaveDomain_Implementation(Saved, Error))) return false;
+    auto* Loaded = Campaign();
+    if (!TestTrue(TEXT("restore defeat into fresh campaign"), Loaded->RestoreRBSaveDomain_Implementation(Saved, Error))) return false;
+    TestEqual(TEXT("source survives reload"), Loaded->PlayerRegion, First.SourceRegion);
+    TestEqual(TEXT("defeat adds no XP"), Loaded->Hero.Experience, XP);
+    TestFalse(TEXT("empty army cannot attack"), Loaded->BeginBattle(TEXT("orc_watch")));
+    TestFalse(TEXT("hostile destination still blocks movement"), Loaded->MovePlayerTo(TEXT("orc_watch")));
+    Loaded->AdvanceDay();
+    TestTrue(TEXT("empty army may retreat to crossroads"), Loaded->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("capital remains reachable after defeat"), Loaded->MovePlayerTo(TEXT("human_capital")));
+    const int32 Pool = Loaded->Economy.RecruitmentPools[Loaded->PlayerUnitId].Available;
+    const int32 Gold = Loaded->Economy.Resources.FindRef(TEXT("gold"));
+    TestTrue(TEXT("capital recruitment restores a living force"), Loaded->Recruit(Loaded->PlayerUnitId));
+    TestEqual(TEXT("recruitment consumes finite pool"), Loaded->Economy.RecruitmentPools[Loaded->PlayerUnitId].Available, Pool - 1);
+    TestEqual(TEXT("recruitment pays actual cost"), Loaded->Economy.Resources.FindRef(TEXT("gold")), Gold - 140);
+    Loaded->AdvanceDay();
+    TestTrue(TEXT("leave capital again"), Loaded->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("return to ford"), Loaded->MovePlayerTo(TEXT("river_ford")));
+    if (!TestTrue(TEXT("recruited force may retry battle"), Loaded->BeginBattle(TEXT("orc_watch")))) return false;
+    TestEqual(TEXT("retry uses recruited count"), Loaded->PendingBattle.PlayerStrategicCount, 1);
+    TestEqual(TEXT("retry keeps surviving enemy count"), Loaded->PendingBattle.EnemyStrategicCount, 4);
+    TestTrue(TEXT("retry has a fresh identity"), Loaded->PendingBattle.EncounterId != First.EncounterId);
     return true;
 }
 

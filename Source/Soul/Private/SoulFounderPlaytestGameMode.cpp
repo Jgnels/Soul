@@ -28,10 +28,14 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     Campaign=GetWorld()->SpawnActor<ASoulFounderPlaytestCampaignActor>();
     GetWorld()->SpawnActor<ADirectionalLight>(ADirectionalLight::StaticClass(),FVector(0,0,5000),FRotator(-60,-25,0));
     GetWorld()->SpawnActor<ASkyLight>();
-    auto* Camera=GetWorld()->SpawnActor<ACameraActor>(ACameraActor::StaticClass(),FVector(0,0,15000),FRotator(-90,0,0));
+    // The graph is widest along world X. Keep both the capital (recovery after
+    // defeat) and the second hostile target in the mouse-accessible viewport.
+    auto* Camera=GetWorld()->SpawnActor<ACameraActor>(ACameraActor::StaticClass(),FVector(100,-450,15000),FRotator(-90,-90,0));
     if(Camera)
     {
         Camera->GetCameraComponent()->SetProjectionMode(ECameraProjectionMode::Orthographic);
+        Camera->GetCameraComponent()->SetAspectRatio(16.0f / 9.0f);
+        Camera->GetCameraComponent()->SetConstraintAspectRatio(true);
         Camera->GetCameraComponent()->SetOrthoWidth(8200);
         if(auto* PC=GetWorld()->GetFirstPlayerController())PC->SetViewTarget(Camera);
     }

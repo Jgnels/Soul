@@ -27,10 +27,16 @@ ASoulPlaytestRegionActor::ASoulPlaytestRegionActor()
 
     Label = CreateDefaultSubobject<UTextRenderComponent>(TEXT("Label"));
     Label->SetupAttachment(Marker);
-    Label->SetRelativeLocation(FVector(0.0f, 0.0f, 170.0f));
+    // Readable labels must not inherit the flattened marker scale.
+    Label->SetAbsolute(false, false, true);
+    Label->SetWorldScale3D(FVector::OneVector);
+    // TextRender faces local +X; face the overhead campaign camera, with text
+    // above its clickable marker instead of edge-on to the player.
+    Label->SetRelativeLocation(FVector(0.0f, -160.0f, 170.0f));
+    Label->SetRelativeRotation(FRotator(90.0f, 90.0f, 0.0f));
     Label->SetHorizontalAlignment(EHTA_Center);
     Label->SetVerticalAlignment(EVRTA_TextCenter);
-    Label->SetWorldSize(72.0f);
+    Label->SetWorldSize(100.0f);
     Label->SetTextRenderColor(FColor::White);
     Label->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
