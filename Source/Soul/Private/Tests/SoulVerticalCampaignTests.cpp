@@ -307,6 +307,84 @@ bool FSoulVerticalScopedSaveTest::RunTest(const FString&)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalLoadRecoveryTest,
+    "Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalLoadRecoveryTest::RunTest(const FString&)
+{
+    // Exercise both provider orders and both scoped/legacy all-domain APIs.
+    for (bool SettlementFirst : {false, true})
+    for (bool Scoped : {false, true})
+    {
+        auto* GI = NewObject<UGameInstance>(GetTransientPackage());
+        auto* Save = NewObject<URBSaveSubsystem>(GI);
+        auto* State = NewObject<USoulFounderPlaytestStateSubsystem>(GI);
+        auto* Settlements = NewObject<USoulSettlementStateSubsystem>(GI);
+        State->InitializeScenario();
+        FString Error;
+        if (SettlementFirst) Save->RegisterDomainProvider(Settlements, Error);
+        Save->RegisterDomainProvider(State, Error);
+        if (!SettlementFirst) Save->RegisterDomainProvider(Settlements, Error);
+        Settlements->FindOrAddSettlement(TEXT("human_capital")).WallIntegrityPermille = 350;
+        State->PlayerRegion = TEXT("river_ford");
+        if (!TestTrue(TEXT("commit saved encounter"), State->BeginBattle(TEXT("orc_watch")))) return false;
+        if (!TestTrue(TEXT("resolve saved encounter"), State->ApplyBattleResult(Victory(State->PendingBattle, 12)))) return false;
+        const TArray<FName> Both = {TEXT("Soul.Campaign"), TEXT("Soul.Settlements")};
+        const TArray<FName>* Selection = Scoped ? &Both : nullptr;
+        rb::save::Snapshot Saved;
+        if (!TestTrue(TEXT("capture checkpoint"), Save->CaptureRegisteredDomains(TEXT("Recovery"), Saved, Error, Selection))) return false;
+
+        // Play forward before attempting a failed load of the older checkpoint.
+        State->AdvanceDay();
+        State->MovePlayerTo(TEXT("river_ford"));
+        State->Hero.Mana = 17;
+        Settlements->FindOrAddSettlement(TEXT("human_capital")).WallIntegrityPermille = 900;
+        const int32 Day = State->Economy.Day, AP = State->Economy.ActionPoints;
+        const int32 Gold = State->Economy.Resources.FindRef(TEXT("gold"));
+        const auto Receipt = State->LastBattleResult;
+        const auto Preserved = [this, State, Settlements, Day, AP, Gold, Receipt]()
+        {
+            TestEqual(TEXT("failed load preserves progressed day"), State->Economy.Day, Day);
+            TestEqual(TEXT("failed load preserves actions"), State->Economy.ActionPoints, AP);
+            TestEqual(TEXT("failed load preserves gold"), State->Economy.Resources.FindRef(TEXT("gold")), Gold);
+            TestEqual(TEXT("failed load preserves mana"), State->Hero.Mana, 17);
+            TestEqual(TEXT("failed load preserves location"), State->PlayerRegion, FName(TEXT("river_ford")));
+            TestEqual(TEXT("failed load preserves survivors"), State->PlayerArmy.FindRef(State->PlayerUnitId), 12);
+            TestEqual(TEXT("failed load preserves result"), State->LastBattleResult.EncounterId, Receipt.EncounterId);
+            TestTrue(TEXT("failed load preserves replay protection"), State->ResolvedEncounters.Contains(Receipt.EncounterId));
+            TestEqual(TEXT("failed load preserves settlement"), Settlements->FindSettlement(TEXT("human_capital"))->WallIntegrityPermille, 900);
+        };
+        for (int32 Fault = 0; Fault < 4; ++Fault)
+        {
+            auto Broken = Saved;
+            for (auto& Domain : Broken.domains)
+            {
+                // Corrupt the later provider so a sequential restore would
+                // already have overwritten the earlier provider's live state.
+                const bool Later = Domain.id == (SettlementFirst ? "Soul.Campaign" : "Soul.Settlements");
+                if (!Later) continue;
+                if (Fault == 0) Domain.fields[SettlementFirst ? "CampaignJson" : "StateJson"] = std::string("{}");
+                if (Fault == 1) ++Domain.schemaVersion;
+                if (Fault == 2) Domain.fields["None"] = std::string("invalid field");
+            }
+            if (Fault == 3) Broken.domains.push_back(Broken.domains.front());
+            TestFalse(TEXT("invalid later domain rejects whole checkpoint"), Save->RestoreRegisteredDomains(Broken, Error, Selection));
+            TestFalse(TEXT("failure has a reason"), Error.IsEmpty());
+            TestFalse(TEXT("valid captured recovery state restores successfully"), Error.Contains(TEXT("RECOVERY FAILED")));
+            Preserved();
+        }
+        // A provider that cannot capture recovery blocks before any mutation.
+        State->PendingBattle.EncounterId = TEXT("in_progress");
+        TestFalse(TEXT("uncapturable live campaign blocks restore"), Save->RestoreRegisteredDomains(Saved, Error, Selection));
+        Preserved();
+        State->PendingBattle = FSoulCampaignBattleDescriptor();
+        TestTrue(TEXT("valid checkpoint remains loadable after failures"), Save->RestoreRegisteredDomains(Saved, Error, Selection));
+        TestEqual(TEXT("successful load restores intended location"), State->PlayerRegion, FName(TEXT("orc_watch")));
+        TestEqual(TEXT("successful load restores intended settlement"), Settlements->FindSettlement(TEXT("human_capital"))->WallIntegrityPermille, 350);
+    }
+    return true;
+}
+
 // Direct state regressions only: these do not establish mouse input or rendered acceptance.
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalContinuedVictoryTest,
     "Soul.Integration.Vertical.ContinuedVictoryAfterReload",

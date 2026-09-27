@@ -90,6 +90,9 @@ public:
 
     bool CaptureRegisteredDomains(const FString& Slot, rb::save::Snapshot& OutSnapshot,
                                   FString& OutError, const TArray<FName>* SelectedDomains = nullptr) const;
+    // Preflights all selected domains and captures recovery state before applying.
+    // Failure rolls back attempted providers in reverse order; providers must be
+    // able to restore their own captured state. Recovery failures appear in OutError.
     bool RestoreRegisteredDomains(const rb::save::Snapshot& Snapshot, FString& OutError,
                                   const TArray<FName>* SelectedDomains = nullptr);
 

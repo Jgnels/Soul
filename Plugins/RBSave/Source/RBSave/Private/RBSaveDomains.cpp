@@ -309,16 +309,33 @@ bool URBSaveSubsystem::RestoreRegisteredDomains(const Snapshot& SnapshotData, FS
         const FName DomainId = IRBSaveDomainProvider::Execute_GetRBSaveDomainId(Provider);
         if (!DomainId.IsNone()) RegisteredIds.Add(DomainId.ToString());
     }
+    TSet<FName> SavedIds;
     for (const DomainRecord& Domain : SnapshotData.domains)
     {
         const FString DomainId = RBFromUtf8(Domain.id);
         if (SelectedDomains && !SelectedDomains->Contains(FName(*DomainId))) continue;
+        const FName SavedId(*DomainId);
+        if (SavedId.IsNone() || SavedIds.Contains(SavedId))
+        {
+            OutError = TEXT("Snapshot contains an empty or duplicate domain id.");
+            return false;
+        }
+        SavedIds.Add(SavedId);
         if (!RegisteredIds.Contains(DomainId))
         {
             OutError = FString::Printf(TEXT("saved domain '%s' has no registered provider"), *DomainId);
             return false;
         }
     }
+    struct FRestoreRow
+    {
+        UObject* Provider = nullptr;
+        FRBSaveDomainState Incoming;
+        FRBSaveDomainState Before;
+    };
+    TArray<FRestoreRow> Rows;
+    // Preflight every selected provider before the first restore, including
+    // schemas and fields. Registration order must not expose partial state.
     for (const TWeakObjectPtr<UObject>& Weak : DomainProviders)
     {
         UObject* Provider = Weak.Get();
@@ -338,17 +355,61 @@ bool URBSaveSubsystem::RestoreRegisteredDomains(const Snapshot& SnapshotData, FS
                 *DomainId.ToString(), Core->schemaVersion, ExpectedSchema);
             return false;
         }
-        FRBSaveDomainState State;
-        State.DomainId = DomainId;
-        State.SchemaVersion = ExpectedSchema;
+        FRestoreRow Row;
+        Row.Provider = Provider;
+        Row.Incoming.DomainId = DomainId;
+        Row.Incoming.SchemaVersion = ExpectedSchema;
+        TSet<FName> FieldNames;
         for (const auto& [Name, CoreValue] : Core->fields)
-            State.Fields.Add(FromCoreField(Name, CoreValue));
-        FString ProviderError;
-        if (!IRBSaveDomainProvider::Execute_RestoreRBSaveDomain(Provider, State, ProviderError))
         {
-            OutError = FString::Printf(TEXT("restore failed for '%s': %s"), *DomainId.ToString(), *ProviderError);
+            FRBSaveField Field = FromCoreField(Name, CoreValue);
+            if (Field.Name.IsNone() || FieldNames.Contains(Field.Name))
+            {
+                OutError = FString::Printf(TEXT("domain '%s' contains missing/duplicate field name"), *DomainId.ToString());
+                return false;
+            }
+            FieldNames.Add(Field.Name);
+            Row.Incoming.Fields.Add(MoveTemp(Field));
+        }
+        Rows.Add(MoveTemp(Row));
+    }
+    // Use each existing provider's capture/restore contract for recovery. No
+    // domain may be changed unless every selected provider can be recovered.
+    for (FRestoreRow& Row : Rows)
+    {
+        FString ProviderError;
+        const bool Captured = IRBSaveDomainProvider::Execute_CaptureRBSaveDomain(Row.Provider, Row.Before, ProviderError);
+        // Match CaptureRegisteredDomains' optional id/schema defaults.
+        if (Row.Before.DomainId.IsNone()) Row.Before.DomainId = Row.Incoming.DomainId;
+        if (Row.Before.SchemaVersion <= 0) Row.Before.SchemaVersion = Row.Incoming.SchemaVersion;
+        if (!Captured
+            || Row.Before.DomainId != Row.Incoming.DomainId
+            || Row.Before.SchemaVersion != Row.Incoming.SchemaVersion)
+        {
+            OutError = FString::Printf(TEXT("cannot capture recovery state for '%s': %s"),
+                *Row.Incoming.DomainId.ToString(), *ProviderError);
             return false;
         }
+    }
+    for (int32 Index = 0; Index < Rows.Num(); ++Index)
+    {
+        FRestoreRow& Row = Rows[Index];
+        FString ProviderError;
+        if (IRBSaveDomainProvider::Execute_RestoreRBSaveDomain(Row.Provider, Row.Incoming, ProviderError)) continue;
+
+        OutError = FString::Printf(TEXT("restore failed for '%s': %s"),
+            *Row.Incoming.DomainId.ToString(), *ProviderError);
+        // Include the failing provider: implementations may reject after mutation.
+        // Attempt every rollback even if an individual provider cannot recover.
+        for (int32 Rollback = Index; Rollback >= 0; --Rollback)
+        {
+            FString RecoveryError;
+            FRestoreRow& Previous = Rows[Rollback];
+            if (!IRBSaveDomainProvider::Execute_RestoreRBSaveDomain(Previous.Provider, Previous.Before, RecoveryError))
+                OutError += FString::Printf(TEXT("; RECOVERY FAILED for '%s': %s"),
+                    *Previous.Before.DomainId.ToString(), *RecoveryError);
+        }
+        return false;
     }
     return true;
 }
