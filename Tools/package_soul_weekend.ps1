@@ -44,6 +44,9 @@ try {
         $ancestor = Split-Path -Parent $ancestor
     }
 
+    . (Join-Path $PSScriptRoot 'Test-SoulEditorFreshness.ps1')
+    $editorPreflight = Assert-SoulEditorFreshness -ProjectRoot $projectRoot -EngineRoot $engineRoot
+
     $uat = Join-Path $engineRoot 'Engine\Build\BatchFiles\RunUAT.bat'
     Assert-File $uat
     $gameConfig = Get-Content -LiteralPath (Join-Path $projectRoot 'Config\DefaultGame.ini') -Raw
@@ -51,6 +54,10 @@ try {
     if ($engineConfig -notmatch '(?m)^GameDefaultMap=/Engine/Maps/Entry\s*$' -or
         $engineConfig -notmatch '(?m)^GlobalDefaultGameMode=/Script/Soul.SoulFounderPlaytestGameMode\s*$') {
         throw 'Normal campaign startup settings have changed; review before packaging.'
+    }
+    if ($gameConfig -notmatch '(?m)^bShareMaterialShaderCode=True\s*$' -or
+        $gameConfig -match '(?m)^\+IniSectionDenylist=/Script/UnrealEd.ProjectPackagingSettings\s*$') {
+        throw 'Runtime shader-library config must be enabled and preserved during staging.'
     }
     $packages = @([regex]::Matches($gameConfig, '(?m)^\+MapsToCook=\(FilePath="([^"]+)"\)') |
         ForEach-Object { $_.Groups[1].Value })
@@ -92,6 +99,7 @@ try {
     # Cook still needs current SoulEditor binaries; captain prepares those separately.
     $uatArgs = @('BuildCookRun', '-nocompileuat', '-noturnkeyvariables', '-nop4', '-unattended', '-utf8output',
         "-project=$projectFile", '-target=Soul', '-platform=Win64', '-clientconfig=Development',
+        '-ubtargs=-MaxParallelActions=2 -NoUBA', '-AdditionalCookerOptions=-DDC=InstalledNoZenLocalFallback',
         '-build', '-skipbuildeditor', '-cook', '-stage', '-pak', '-iostore', '-package', '-archive', '-prereqs', '-nocleanstage',
         "-stagingdirectory=$stage", "-archivedirectory=$archive")
     if ($ValidateOnly) {
@@ -104,6 +112,7 @@ try {
     @{
         project = $projectFile; branch = $branch; engine = $engineRoot
         executable = $uat; arguments = $uatArgs; cook_roots = $packages; runtime_json = $dataFiles
+        editor_preflight = $editorPreflight
         runtime_acceptance = 'UNKNOWN'
     } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $diagnostics 'invocation.json') -Encoding UTF8
     $oldLogFolder = [Environment]::GetEnvironmentVariable('uebp_LogFolder', 'Process')

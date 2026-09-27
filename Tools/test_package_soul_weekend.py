@@ -100,6 +100,8 @@ class WeekendPackagingTests(unittest.TestCase):
         self.assertNotRegex(GAME, r'(?m)^\+DirectoriesToAlways(?:Cook|StageAsUFS|StageAsNonUFS)=')
         self.assertNotIn("!IniKeyDenylist", GAME)
         self.assertNotIn("!IniSectionDenylist", GAME)
+        self.assertIn("bShareMaterialShaderCode=True", GAME)
+        self.assertNotIn("+IniSectionDenylist=/Script/UnrealEd.ProjectPackagingSettings", GAME)
         self.assertIn("+IniSectionDenylist=/Script/AndroidRuntimeSettings.AndroidRuntimeSettings", GAME)
         # The save is created at runtime, never included as input.
         domains = (ROOT / "Plugins/RBSave/Source/RBSave/Private/RBSaveDomains.cpp").read_text()
@@ -133,6 +135,7 @@ ConvertTo-Json -InputObject @($argumentNodes | ForEach-Object { $_.Value })
         self.assertEqual(arguments, [
             "BuildCookRun", "-nocompileuat", "-noturnkeyvariables", "-nop4", "-unattended", "-utf8output",
             "-project=$projectFile", "-target=Soul", "-platform=Win64", "-clientconfig=Development",
+            "-ubtargs=-MaxParallelActions=2 -NoUBA", "-AdditionalCookerOptions=-DDC=InstalledNoZenLocalFallback",
             "-build", "-skipbuildeditor", "-cook", "-stage", "-pak", "-iostore", "-package", "-archive",
             "-prereqs", "-nocleanstage", "-stagingdirectory=$stage", "-archivedirectory=$archive",
         ])
