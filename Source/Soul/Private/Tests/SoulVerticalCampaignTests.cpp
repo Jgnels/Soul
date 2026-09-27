@@ -512,4 +512,49 @@ bool FSoulVerticalCheckpointValidationTest::RunTest(const FString&)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVerticalMutualExhaustionTest,
+    "Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVerticalMutualExhaustionTest::RunTest(const FString&)
+{
+    auto* S = Campaign();
+    TestTrue(TEXT("walk to crossroads"), S->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("walk to ford"), S->MovePlayerTo(TEXT("river_ford")));
+    if (!TestTrue(TEXT("commit battle"), S->BeginBattle(TEXT("orc_watch")))) return false;
+    auto Result = Victory(S->PendingBattle, 0);
+    Result.bPlayerWon = false;
+    const int32 Gold = S->Economy.Resources.FindRef(TEXT("gold"));
+    TestTrue(TEXT("mutual exhaustion remains a defeat"), S->ApplyBattleResult(Result));
+    TestEqual(TEXT("no victory reward"), S->Economy.Resources.FindRef(TEXT("gold")), Gold);
+    TestEqual(TEXT("no victory XP"), S->Hero.Experience, 0);
+    TestTrue(TEXT("ownership not awarded on defeat"), S->IsHostile(TEXT("orc_watch")));
+    TestFalse(TEXT("exhausted garrison does not require fabricated battle"), S->HasHostileGarrison(TEXT("orc_watch")));
+    S->AdvanceDay();
+    TestFalse(TEXT("empty player army cannot occupy hostile territory"), S->MovePlayerTo(TEXT("orc_watch")));
+    TestEqual(TEXT("denied occupation spends no AP"), S->Economy.ActionPoints, 3);
+
+    FRBSaveDomainState Saved;
+    FString Error;
+    if (!TestTrue(TEXT("save mutually exhausted state"), S->CaptureRBSaveDomain_Implementation(Saved, Error))) return false;
+    auto* Loaded = Campaign();
+    if (!TestTrue(TEXT("reload mutually exhausted state"), Loaded->RestoreRBSaveDomain_Implementation(Saved, Error))) return false;
+    TestTrue(TEXT("retreat to crossroads"), Loaded->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("retreat to capital"), Loaded->MovePlayerTo(TEXT("human_capital")));
+    TestTrue(TEXT("recruit replacement army"), Loaded->Recruit(Loaded->PlayerUnitId));
+    Loaded->AdvanceDay();
+    TestTrue(TEXT("leave capital"), Loaded->MovePlayerTo(TEXT("crossroads")));
+    TestTrue(TEXT("return to ford"), Loaded->MovePlayerTo(TEXT("river_ford")));
+    TestFalse(TEXT("no battle against an empty force"), Loaded->BeginBattle(TEXT("orc_watch")));
+    const int32 BeforeOccupation = Loaded->Economy.Resources.FindRef(TEXT("gold"));
+    TestTrue(TEXT("living replacement occupies exhausted hostile region"), Loaded->MovePlayerTo(TEXT("orc_watch")));
+    TestEqual(TEXT("occupation costs a normal action"), Loaded->Economy.ActionPoints, 0);
+    TestEqual(TEXT("normal capture reward, not battle victory"), Loaded->Economy.Resources.FindRef(TEXT("gold")), BeforeOccupation + 250);
+    TestFalse(TEXT("defeat history is not rewritten"), Loaded->LastBattleResult.bPlayerWon);
+    TestEqual(TEXT("occupation creates no fake encounter"), Loaded->EncounterOrdinal, 1);
+    TestEqual(TEXT("remaining garrison untouched"), Loaded->EnemyArmies.FindRef(TEXT("orc_camp")), 30);
+    Loaded->AdvanceDay();
+    TestTrue(TEXT("next defended encounter remains available"), Loaded->BeginBattle(TEXT("orc_camp")));
+    return true;
+}
+
 #endif

@@ -19,6 +19,7 @@ public:
     void InitializeScenario();
     bool MovePlayerTo(FName TargetRegion);
     bool IsHostile(FName Region) const;
+    bool HasHostileGarrison(FName Region) const;
     bool BuildBattleDescriptor(FName TargetRegion, FSoulCampaignBattleDescriptor& Out, FString& Error) const;
     bool BeginBattle(FName TargetRegion, int32 QualificationActiveCap = 0);
     bool ApplyBattleResult(const FSoulCampaignBattleResult& Result);

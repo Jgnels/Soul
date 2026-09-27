@@ -148,7 +148,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         return;
     }
 
-    if (State->IsHostile(RegionId))
+    if (State->HasHostileGarrison(RegionId))
     {
         if (!FSoulWorldRules::CanMove(State->World, State->PlayerRegion, RegionId))
         {
@@ -196,7 +196,7 @@ bool ASoulFounderPlaytestCampaignActor::IsSkillChoiceOpen() const
 
 bool ASoulFounderPlaytestCampaignActor::IsBattleAvailable() const
 {
-    return State && !SelectedBattleRegion.IsNone() && State->IsHostile(SelectedBattleRegion)
+    return State && !SelectedBattleRegion.IsNone() && State->HasHostileGarrison(SelectedBattleRegion)
         && FSoulWorldRules::CanMove(State->World, State->PlayerRegion, SelectedBattleRegion);
 }
 

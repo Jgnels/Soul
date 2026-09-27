@@ -190,10 +190,20 @@ bool USoulFounderPlaytestStateSubsystem::IsHostile(FName RegionId) const
     const auto* R=World.Regions.Find(RegionId);
     return R&&!R->OwnerFactionId.IsNone()&&R->OwnerFactionId!=PlayerFaction;
 }
+bool USoulFounderPlaytestStateSubsystem::HasHostileGarrison(FName RegionId) const
+{
+    if (!IsHostile(RegionId)) return false;
+    const int32* Defenders = EnemyArmies.Find(RegionId);
+    // Only an explicit exhausted ledger permits occupation. Missing force data
+    // must never grant access to hostile territory.
+    return !Defenders || *Defenders != 0;
+}
 bool USoulFounderPlaytestStateSubsystem::MovePlayerTo(FName Target)
 {
     InitializeScenario();
-    if (!bInitialized||HasPendingBattle()||bPersistenceBusy||IsHostile(Target)||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)) return false;
+    if (!bInitialized||HasPendingBattle()||bPersistenceBusy||HasHostileGarrison(Target)
+        ||(IsHostile(Target)&&PlayerArmy.FindRef(PlayerUnitId)<=0)
+        ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)) return false;
     if (!FSoulCampaignRules::SpendAction(Economy,Hero.Skills.FindRef(TEXT("Adventure"))>=2?0:1)) return false;
     PlayerRegion=Target;FSoulWorldRules::RefreshVision(World,PlayerFaction,Target);
     if (World.Regions.FindChecked(Target).OwnerFactionId!=PlayerFaction)
