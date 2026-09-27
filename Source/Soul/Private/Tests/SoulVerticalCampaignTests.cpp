@@ -598,13 +598,14 @@ bool FSoulVerticalMutualExhaustionTest::RunTest(const FString&)
     auto* S = Campaign();
     TestTrue(TEXT("walk to crossroads"), S->MovePlayerTo(TEXT("crossroads")));
     TestTrue(TEXT("walk to ford"), S->MovePlayerTo(TEXT("river_ford")));
+    const int32 XP = S->Hero.Experience;
     if (!TestTrue(TEXT("commit battle"), S->BeginBattle(TEXT("orc_watch")))) return false;
     auto Result = Victory(S->PendingBattle, 0);
     Result.bPlayerWon = false;
     const int32 Gold = S->Economy.Resources.FindRef(TEXT("gold"));
     TestTrue(TEXT("mutual exhaustion remains a defeat"), S->ApplyBattleResult(Result));
     TestEqual(TEXT("no victory reward"), S->Economy.Resources.FindRef(TEXT("gold")), Gold);
-    TestEqual(TEXT("no victory XP"), S->Hero.Experience, 0);
+    TestEqual(TEXT("defeat adds no XP"), S->Hero.Experience, XP);
     TestTrue(TEXT("ownership not awarded on defeat"), S->IsHostile(TEXT("orc_watch")));
     TestFalse(TEXT("exhausted garrison does not require fabricated battle"), S->HasHostileGarrison(TEXT("orc_watch")));
     S->AdvanceDay();
