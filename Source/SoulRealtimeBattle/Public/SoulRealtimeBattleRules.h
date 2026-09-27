@@ -76,5 +76,9 @@ public:
     static FSoulReinforcementWave BuildAndApplyWave(
         FSoulRealtimeBattleState& Battle,
         FName SideId);
+    // Read-only presentation of the same allocation used for actual arrivals.
+    static FSoulReinforcementWave PreviewWave(
+        const FSoulRealtimeBattleState& Battle,
+        FName SideId);
     static FSoulTerrainMagicProfile MakeVolcanicMagicProfile();
 };

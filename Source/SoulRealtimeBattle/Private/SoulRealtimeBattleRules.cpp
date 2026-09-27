@@ -246,6 +246,13 @@ FSoulReinforcementWave FSoulRealtimeBattleRules::BuildAndApplyWave(
     return Wave;
 }
 
+FSoulReinforcementWave FSoulRealtimeBattleRules::PreviewWave(
+    const FSoulRealtimeBattleState& Battle, FName SideId)
+{
+    FSoulRealtimeBattleState Preview = Battle;
+    return BuildAndApplyWave(Preview, SideId);
+}
+
 FSoulTerrainMagicProfile FSoulRealtimeBattleRules::MakeVolcanicMagicProfile()
 {
     FSoulTerrainMagicProfile Profile;

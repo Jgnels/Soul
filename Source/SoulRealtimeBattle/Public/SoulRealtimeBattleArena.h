@@ -157,6 +157,7 @@ public:
     int32 ReserveBodiesForSide(int32 Side) const;
     int32 ReinforcementWavesForSide(int32 Side) const;
     FString ReinforcementSummary(int32 Side) const;
+    FString AlliedOrderSummary() const;
     float PlayerManaValue() const { return PlayerMana; }
     int32 MagicCastCount() const { return MagicCasts; }
     bool AreAlliedFormationsCharging() const { return bAlliedCharge; }

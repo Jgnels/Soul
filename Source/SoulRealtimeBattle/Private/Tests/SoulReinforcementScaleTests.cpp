@@ -99,4 +99,57 @@ bool FSoulMixedRoleReinforcementTest::RunTest(const FString&)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulWavePreviewConservationTest,
+    "Soul.RealtimeBattle.WavePreviewConservesAt30To70Active",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulWavePreviewConservationTest::RunTest(const FString&)
+{
+    for (int32 Cap : {15, 25, 35})
+    {
+        FSoulRealtimeBattleState Battle;
+        Battle.MaxActivePerSide = Cap;
+        Battle.MaxWaveSize = 4;
+        for (FName Side : TArray<FName>{TEXT("P"), TEXT("E")})
+        {
+            FSoulRealtimeFormation F;
+            F.FormationId = Side; F.SideId = Side;
+            F.StrategicCount = 1000; F.MaxActiveRepresentations = Cap;
+            Battle.Formations.Add(F);
+        }
+        FSoulRealtimeBattleRules::InitializeDeployment(Battle);
+        TestEqual(TEXT("full frontline previews no arrival"), FSoulRealtimeBattleRules::PreviewWave(Battle, TEXT("P")).TotalBodies(), 0);
+        TestEqual(TEXT("unknown side previews no arrival"), FSoulRealtimeBattleRules::PreviewWave(Battle, TEXT("unknown")).TotalBodies(), 0);
+        int32 Lost = 0;
+        for (int32 Step = 0; Step < 1000; ++Step)
+        {
+            Lost += FSoulRealtimeBattleRules::ApplyCasualties(Battle, TEXT("E"), 1);
+            const int32 Active = Battle.Formations[1].ActiveCount, Reserve = Battle.Formations[1].ReserveCount;
+            const auto Preview = FSoulRealtimeBattleRules::PreviewWave(Battle, TEXT("E"));
+            TestEqual(TEXT("repeated HUD reads agree"), FSoulRealtimeBattleRules::PreviewWave(Battle, TEXT("E")).TotalBodies(), Preview.TotalBodies());
+            TestEqual(TEXT("preview cannot consume reserve"), Battle.Formations[1].ReserveCount, Reserve);
+            TestEqual(TEXT("preview cannot spawn active bodies"), Battle.Formations[1].ActiveCount, Active);
+            TestEqual(TEXT("preview cannot alter strategic survivors"), Battle.Formations[1].StrategicCount, 1000 - Lost);
+            {
+                // Production arena allocates on a candidate, then commits only
+                // after physical spawn success. Discarding it must preserve retry.
+                auto FailedCandidate = Battle;
+                TestEqual(TEXT("discarded allocation agrees with preview"), FSoulRealtimeBattleRules::BuildAndApplyWave(FailedCandidate, TEXT("E")).TotalBodies(), Preview.TotalBodies());
+            }
+            const auto Applied = FSoulRealtimeBattleRules::BuildAndApplyWave(Battle, TEXT("E"));
+            TestEqual(TEXT("actual arrival agrees with displayed count"), Applied.TotalBodies(), Preview.TotalBodies());
+            TestEqual(TEXT("actual formation allocation agrees"), Applied.FormationCounts.FindRef(TEXT("E")), Preview.FormationCounts.FindRef(TEXT("E")));
+            TestEqual(TEXT("only actual arrival debits reserve"), Battle.Formations[1].ReserveCount, Reserve - Applied.TotalBodies());
+            TestEqual(TEXT("losses plus active plus reserve conserved"), Lost + Battle.Formations[1].ActiveCount + Battle.Formations[1].ReserveCount, 1000);
+            TestTrue(TEXT("active side cap maintained"), Battle.Formations[1].ActiveCount <= Cap);
+            TestEqual(TEXT("allied strategic pool untouched"), Battle.Formations[0].StrategicCount, 1000);
+        }
+        TestEqual(TEXT("all enemy bodies accounted for"), Lost, 1000);
+        TestEqual(TEXT("exhausted reserves preview no ghost arrival"), FSoulRealtimeBattleRules::PreviewWave(Battle, TEXT("E")).TotalBodies(), 0);
+        FSoulRealtimeBattleRules::ApplyCasualties(Battle, TEXT("P"), Cap);
+        Battle.bReinforcementsEnabled = false;
+        TestEqual(TEXT("disabled reinforcement previews no arrival"), FSoulRealtimeBattleRules::PreviewWave(Battle, TEXT("P")).TotalBodies(), 0);
+    }
+    return true;
+}
+
 #endif

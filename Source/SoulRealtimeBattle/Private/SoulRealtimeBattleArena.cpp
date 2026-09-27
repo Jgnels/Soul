@@ -502,16 +502,43 @@ FString ASoulRealtimeArenaGameMode::ReinforcementSummary(int32 Side) const
 {
     if (Side < 0 || Side > 1) return FString();
     const int32 Reserve = ReserveBodiesForSide(Side);
-    const TCHAR* Readiness = bFinished ? TEXT("battle ended")
+    const int32 NextBodies = bFinished ? 0
+        : FSoulRealtimeBattleRules::PreviewWave(ReinforcementBattle, RealtimeSideId(Side)).TotalBodies();
+    const FString Readiness = bFinished ? TEXT("battle ended")
         : Reserve == 0 ? TEXT("reserves exhausted")
-        : FSoulRealtimeBattleRules::ShouldReinforce(ReinforcementBattle, RealtimeSideId(Side))
-            ? TEXT("reinforcements ready") : TEXT("waiting for frontline losses");
+        : NextBodies > 0 ? FString::Printf(TEXT("next +%d ready"), NextBodies)
+            : TEXT("waiting for frontline losses");
     FString Summary = FString::Printf(TEXT("%s: %d reserve | %s"),
-        Side == 0 ? TEXT("Allies") : TEXT("Enemy"), Reserve, Readiness);
+        Side == 0 ? TEXT("Allies") : TEXT("Enemy"), Reserve, *Readiness);
     if (ReinforcementWaves[Side] > 0)
         Summary += FString::Printf(TEXT(" | Last arrival: +%d (wave %d)"),
             LastReinforcementBodies[Side], ReinforcementWaves[Side]);
     return Summary;
+}
+
+FString ASoulRealtimeArenaGameMode::AlliedOrderSummary() const
+{
+    int32 LivingGroups = 0, MatchingGroups = 0;
+    for (const auto& Group : Groups)
+    {
+        bool AlliedAndAlive = false;
+        for (const auto& Member : Group.Members)
+        {
+            const int32 I = Index(Member);
+            if (I != INDEX_NONE && Combatants[I].Side == 0 && Combatants[I].Health > 0)
+            { AlliedAndAlive = true; break; }
+        }
+        if (!AlliedAndAlive) continue;
+        ++LivingGroups;
+        FRBCombatGroup Core;
+        if (Group.ToCore(Core) && (bAlliedCharge
+            ? Core.Command == ERBGroupCommand::Charge || Core.Command == ERBGroupCommand::Advance
+            : Core.Command == ERBGroupCommand::Hold)) ++MatchingGroups;
+    }
+    const TCHAR* Order = bAlliedCharge ? TEXT("CHARGE") : TEXT("HOLD");
+    return FString::Printf(TEXT("Order %s: %d/%d live groups | arrivals %s | [G] %s"),
+        Order, MatchingGroups, LivingGroups, Order,
+        bAlliedCharge ? TEXT("Hold") : TEXT("Charge"));
 }
 
 int32 ASoulRealtimeArenaGameMode::TotalAlliedTargets() const
@@ -1740,7 +1767,7 @@ void ASoulRealtimeArenaGameMode::ToggleAlliedOrders()
     const ERBHostGroupOrder Order = bAlliedCharge
         ? ERBHostGroupOrder::Charge : ERBHostGroupOrder::Hold;
 
-    int32 Changed = 0;
+    int32 Changed = 0, Eligible = 0;
     for (int32 I = 0; I < Groups.Num(); ++I)
     {
         FRBCombatGroup Core;
@@ -1750,6 +1777,7 @@ void ASoulRealtimeArenaGameMode::ToggleAlliedOrders()
             Combatants[LeaderIndex].Side != 0)
             continue;
 
+        ++Eligible;
         FString Error;
         const bool bOk = Drivers.IsValidIndex(I) && Drivers[I] &&
             Drivers[I]->RequestGroupOrder(
@@ -1760,9 +1788,9 @@ void ASoulRealtimeArenaGameMode::ToggleAlliedOrders()
     }
 
     Status = FString::Printf(
-        TEXT("Allied formations: %s (%d groups)"),
+        TEXT("Allied order %s: %d/%d groups accepted"),
         bAlliedCharge ? TEXT("CHARGE") : TEXT("HOLD"),
-        Changed);
+        Changed, Eligible);
 }
 
 void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
@@ -2220,9 +2248,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             Host->PlayerManaValue(), Host->MagicCastCount()),
         FColor::Cyan, 24, 95);
     DrawText(
-        FString::Printf(TEXT("Allied order: %s | [G] %s"),
-            Host->AreAlliedFormationsCharging() ? TEXT("CHARGE") : TEXT("HOLD"),
-            Host->AreAlliedFormationsCharging() ? TEXT("Hold position") : TEXT("Charge the enemy")),
+        Host->AlliedOrderSummary(),
         Host->AreAlliedFormationsCharging() ? FColor::Green : FColor::Yellow, 24, 118);
     DrawText(
         TEXT("Objective: defeat the enemy army, including its reserves."),

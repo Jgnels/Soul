@@ -42,10 +42,23 @@ int main()
         for (int Step = 0; Step < Pool; ++Step)
         {
             Lost += FSoulRealtimeBattleRules::ApplyCasualties(B, "E", 1);
+            const int BeforeActive = FSoulRealtimeBattleRules::ActiveBodies(B, "E");
+            const int BeforeReserve = FSoulRealtimeBattleRules::ReserveBodies(B, "E");
+            const auto Preview = FSoulRealtimeBattleRules::PreviewWave(B, "E");
+            Check(FSoulRealtimeBattleRules::PreviewWave(B, "E").TotalBodies() == Preview.TotalBodies(), "repeated preview differs");
+            Check(FSoulRealtimeBattleRules::ActiveBodies(B, "E") == BeforeActive &&
+                FSoulRealtimeBattleRules::ReserveBodies(B, "E") == BeforeReserve, "preview mutates live ledger");
+            {
+                auto Discarded = B;
+                Check(FSoulRealtimeBattleRules::BuildAndApplyWave(Discarded, "E").TotalBodies() == Preview.TotalBodies(),
+                    "discarded candidate differs from preview");
+            }
             const auto Wave = FSoulRealtimeBattleRules::BuildAndApplyWave(B, "E");
             const int Active = FSoulRealtimeBattleRules::ActiveBodies(B, "E");
             const int Reserve = FSoulRealtimeBattleRules::ReserveBodies(B, "E");
             Check(Wave.TotalBodies() <= 4, "oversized wave");
+            Check(Wave.TotalBodies() == Preview.TotalBodies(), "displayed and applied waves differ");
+            Check(BeforeReserve - Reserve == Wave.TotalBodies(), "wave reserve debit mismatch");
             Check(Active <= Cap, "active cap exceeded");
             Check(Lost + Active + Reserve == Pool, "casualty conservation");
             Check(B.Formations[1].StrategicCount == Active + Reserve, "formation ledger conservation");
@@ -78,5 +91,5 @@ int main()
     for (const auto& A : Ordered.Formations) for (const auto& B : Reversed.Formations)
         if (A.FormationId == B.FormationId)
             Check(A.ActiveCount == B.ActiveCount && A.ReserveCount == B.ReserveCount, "input order changes deployment");
-    std::cout << "PASS: production reinforcement rules; 24 pool/cap cases, small formation caps, lab mode, stable ordering\n";
+    std::cout << "PASS: production reinforcement rules; 24 pool/cap cases, preview/retry conservation, small formation caps, lab mode, stable ordering\n";
 }
