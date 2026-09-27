@@ -1,4 +1,5 @@
 """Execute read-only PowerShell preflight against synthetic files; never starts UE."""
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -73,7 +74,7 @@ class EditorFreshnessTests(unittest.TestCase):
             report = json.loads(result.stdout)
             self.assertEqual(report['status'], 'NO_PROVABLE_STALENESS')
             self.assertEqual(report['modules_checked'], 2)
-            self.assertEqual(len(report['receipt_sha256']), 64)
+            self.assertEqual(report['receipt_sha256'].lower(), hashlib.sha256(self.receipt_path.read_bytes()).hexdigest())
         return result
 
     def test_current_project_and_plugin_pass(self):

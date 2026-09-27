@@ -101,9 +101,20 @@ function Assert-SoulEditorFreshness([string]$ProjectRoot, [string]$EngineRoot) {
         }
     }
     if ($modules.Count -eq 0) { throw 'Editor preflight: no verified modules.' }
+    # Use the framework directly: Windows PowerShell child processes can inherit
+    # a PSModulePath that does not expose the Get-FileHash module.
+    $receiptStream = [IO.File]::OpenRead($receiptPath)
+    $receiptHasher = [Security.Cryptography.SHA256]::Create()
+    try {
+        $receiptHash = [BitConverter]::ToString($receiptHasher.ComputeHash($receiptStream)).Replace('-', '')
+    }
+    finally {
+        $receiptHasher.Dispose()
+        $receiptStream.Dispose()
+    }
     return [PSCustomObject]@{
         status = 'NO_PROVABLE_STALENESS'; modules_checked = $modules.Count
-        receipt = $receiptPath; receipt_sha256 = (Get-FileHash -LiteralPath $receiptPath -Algorithm SHA256).Hash
+        receipt = $receiptPath; receipt_sha256 = $receiptHash
         receipt_utc = $receiptTime.ToString('o'); build_id = $engineManifest.BuildId
         limitation = 'Timestamp/receipt checks do not prove compiler provenance or detect timestamp-preserving edits. No build/runtime acceptance.'
     }
