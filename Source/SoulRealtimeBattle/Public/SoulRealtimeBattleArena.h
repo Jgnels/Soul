@@ -158,6 +158,7 @@ public:
     int32 ReinforcementWavesForSide(int32 Side) const;
     float PlayerManaValue() const { return PlayerMana; }
     int32 MagicCastCount() const { return MagicCasts; }
+    bool AreAlliedFormationsCharging() const { return bAlliedCharge; }
     FString Status;
     UPROPERTY() TArray<TObjectPtr<ACharacter>> Actors;
     UPROPERTY() TArray<TObjectPtr<USoulRealtimeArenaBinding>> Bindings;

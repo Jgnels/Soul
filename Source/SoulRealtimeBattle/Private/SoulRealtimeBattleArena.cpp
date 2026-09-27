@@ -2197,8 +2197,10 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             Host->PlayerManaValue(), Host->MagicCastCount()),
         FColor::Cyan, 24, 95);
     DrawText(
-        TEXT("RB Combat | RB PBIL spatial orders | RB Magic tactical casts"),
-        FColor::Cyan, 24, 118);
+        FString::Printf(TEXT("Allied order: %s | [G] %s"),
+            Host->AreAlliedFormationsCharging() ? TEXT("CHARGE") : TEXT("HOLD"),
+            Host->AreAlliedFormationsCharging() ? TEXT("Hold position") : TEXT("Charge the enemy")),
+        Host->AreAlliedFormationsCharging() ? FColor::Green : FColor::Yellow, 24, 118);
     DrawText(
         Host->Status,
         FColor::Yellow, 24, 141);
