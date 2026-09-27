@@ -565,7 +565,8 @@ bool FSoulFactionContractTest::RunTest(const FString&)
     F.HeroIds.Add(F.CoreRoster[5].UnitId);
     TestFalse(TEXT("hero/paragon identity cannot occupy core apex slot"), FSoulFactionRules::Validate(F).bValid);
     F = Valid;
-    F.HeroIds.Add(F.HeroIds[0]);
+    const FName DuplicateHeroId = F.HeroIds[0];
+    F.HeroIds.Add(DuplicateHeroId);
     TestFalse(TEXT("hero identity cannot be duplicated"), FSoulFactionRules::Validate(F).bValid);
     F = Valid;
     F.CoreRoster[0].bQuadruped = false;
