@@ -150,6 +150,7 @@ def parser():
     p.add_argument("--project", type=Path, required=True)
     p.add_argument("--stage", choices=[f"G{i}" for i in range(7)], required=True)
     p.add_argument("--map-url", default=None)
+    p.add_argument("--resolution", choices=["1280x720", "1920x1080"], default="1280x720")
     p.add_argument("--ue-arg", action="append", default=[])
     p.add_argument("--expected-active-units", type=int, default=0)
     p.add_argument("--duration", type=float, default=90,
@@ -209,7 +210,8 @@ def main():
         command += [str(project), map_url, "-game"]
     else:
         command += [map_url]
-    command += ["-windowed", "-ResX=1280", "-ResY=720", "-nosplash",
+    width, height = args.resolution.split("x")
+    command += ["-windowed", f"-ResX={width}", f"-ResY={height}", "-nosplash",
                 "-ExecCmds=t.MaxFPS 30", f"-abslog={log}"]
     if args.diagnostic_rhi:
         command.append("-" + args.diagnostic_rhi)

@@ -40,6 +40,12 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     auto* Wood=Make(TEXT("Cube"),FLinearColor(.23f,.13f,.065f));
     auto* Roof=Make(TEXT("Cone"),FLinearColor(.20f,.24f,.28f));
     auto* WarmRoof=Make(TEXT("Cone"),FLinearColor(.38f,.18f,.095f));
+    auto* Tile=Make(TEXT("Cube"),FLinearColor(.38f,.18f,.095f));
+    auto* Slate=Make(TEXT("Cube"),FLinearColor(.20f,.24f,.28f));
+    auto Gable=[&](UInstancedStaticMeshComponent* M,FVector P,float Width,float Depth)
+    {
+        for(int32 Side:{-1,1})Add(M,P+FVector(0,Side*Depth*.23f,0),FVector(Width*.01f,Depth*.0062f,.12f),FRotator(0,0,Side*35.f));
+    };
     const bool Capital=RegionId==TEXT("human_capital"),Fort=RegionId==TEXT("orc_camp"),Watch=RegionId==TEXT("orc_watch"),Pass=RegionId==TEXT("north_pass");
     if(Capital||Fort||Watch||Pass)
     {
@@ -57,7 +63,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
             }
         }
         Add(Wall,FVector(0,50,H*.7f),FVector(1.4f,1.5f,H*.014f));
-        Add(Roof,FVector(0,50,H*1.4f+35),FVector(2.f,2.f,1.2f));
+        Gable(Slate,FVector(0,50,H*1.4f+30),190.f,190.f);
         // Visible gate and crenellations give stonework a settlement silhouette.
         Add(Wood,FVector(0,-R-4,42),FVector(.7f,.12f,.84f));
         for(int32 I=-3;I<=3;++I) for(int32 Side:{-1,1})
@@ -67,7 +73,8 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
             for(int32 I=0;I<9;++I)
             {
                 FVector P(-270+(I%3)*90,-270-(I/3)*90,40);
-                Add(Stone,P,FVector(.70f,.7f,.8f));Add(WarmRoof,P+FVector(0,0,65),FVector(1.f,1.f,.8f));
+                Add(Stone,P,FVector(.70f,.7f,.8f));Gable(Tile,P+FVector(0,0,60),95.f,100.f);
+                Add(Stone,P+FVector(25,15,83),FVector(.16f,.16f,.6f));
             }
         }
     }
@@ -76,7 +83,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
         for(int32 Step=0;Step<3;++Step)Add(Stone,FVector(0,0,Step*18),FVector(3.4f-Step*.5f,2.7f-Step*.4f,.2f));
         for(int32 Side:{-1,1})for(int32 I=0;I<3;++I)Add(Stone,FVector(Side*95,-80+I*80,120),FVector(.3f,.3f,1.8f));
         Add(Stone,FVector(0,0,222),FVector(2.5f,2.5f,.28f));
-        Add(Roof,FVector(0,0,260),FVector(2.7f,2.7f,.65f));
+        Gable(Slate,FVector(0,0,265),280.f,280.f);
     }
     else if(RegionId==TEXT("river_ford"))
     {
@@ -94,7 +101,9 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     else
     {
         Add(Stone,FVector(0,45,50),FVector(1.2f,.9f,1.f));
-        Add(WarmRoof,FVector(0,45,135),FVector(1.7f,1.4f,1.f));
+        Gable(Tile,FVector(0,45,127),155.f,155.f);
+        Add(Stone,FVector(42,60,155),FVector(.2f,.2f,.8f));
+        Add(Wood,FVector(0,92,36),FVector(.25f,.035f,.7f));
         Add(Wood,FVector(-120,-80,55),FVector(.12f,.12f,1.1f));
         Add(Wood,FVector(-120,-80,95),FVector(.8f,.12f,.15f));
         if(RegionId==TEXT("forest_edge"))
@@ -112,7 +121,13 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
         Add(Selection,FVector(X*250,Y*190,12),FVector(.055f,.65f,.05f));
     }
     Garrison=Make(TEXT("Cube"),FLinearColor(.46f,.20f,.11f));
-    for(int32 I=0;I<6;++I)Add(Garrison,FVector(75+(I%3)*35,-95-(I/3)*35,28),FVector(.19f,.19f,.56f));
+    for(int32 I=0;I<6;++I)
+    {
+        FVector P(-35+(I%3)*35,(Fort?270.f:190.f)+(I/3)*35,0);
+        P.Z=ASoulCampaignWorldActor::HeightAt(Location.X+P.X,Location.Y+P.Y)-Location.Z;
+        Add(Garrison,P+FVector(0,0,28),FVector(.19f,.19f,.56f));
+        Add(Garrison,P+FVector(0,0,66),FVector(.18f,.18f,.18f));
+    }
 }
 void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bExplored,bool bCurrent,bool bVisible,bool bSelected,int32 Defenders)
 {
@@ -124,5 +139,9 @@ void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bEx
     if(Garrison)Garrison->SetVisibility(bVisible&&Defenders>0);
     Label->SetTextRenderColor(bSelected?FColor(255,221,139):bVisible?FColor(234,229,206):FColor(151,163,171));
     if(auto* PC=GetWorld()->GetFirstPlayerController())if(PC->PlayerCameraManager)
+    {
         Label->SetWorldRotation((-PC->PlayerCameraManager->GetCameraRotation().Vector()).Rotation());
+        const float Distance=FVector::Distance(PC->PlayerCameraManager->GetCameraLocation(),Label->GetComponentLocation());
+        Label->SetWorldSize(FMath::Clamp(Distance*.016f,20.f,80.f));
+    }
 }

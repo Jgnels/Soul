@@ -168,7 +168,7 @@ void ASoulCampaignWorldActor::BuildRoads()
         FString A=Region.Key.ToString(),B=Neighbor.ToString(),Key=A<B?A+TEXT("|")+B:B+TEXT("|")+A;
         if(Seen.Contains(Key))continue; Seen.Add(Key);
         auto* Road=NewObject<UProceduralMeshComponent>(this);
-        Road->SetupAttachment(RootComponent); Road->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Road->SetupAttachment(RootComponent); Road->SetCollisionEnabled(ECollisionEnabled::NoCollision); Road->SetCastShadow(false);
         Road->RegisterComponent(); AddInstanceComponent(Road);
         TArray<FVector> V,N; TArray<FVector2D> UV; TArray<int32> T; TArray<FLinearColor> C;
         constexpr int32 Steps=48;
@@ -177,11 +177,11 @@ void ASoulCampaignWorldActor::BuildRoads()
             float Alpha=static_cast<float>(I)/Steps;
             FVector P=RoadPoint(Region.Key,Neighbor,Alpha);
             FVector Tangent=RoadPoint(Region.Key,Neighbor,FMath::Min(Alpha+.01f,1.f))-RoadPoint(Region.Key,Neighbor,FMath::Max(Alpha-.01f,0.f));
-            FVector Side=FVector::CrossProduct(Tangent.GetSafeNormal2D(),FVector::UpVector)*38.f;
+            FVector Side=FVector::CrossProduct(Tangent.GetSafeNormal2D(),FVector::UpVector)*(34.f+4.f*FMath::Sin(Alpha*PI*7.f));
             for(float Sign:{-1.f,1.f})
             {
                 FVector Edge=P+Side*Sign; Edge.Z=FMath::Max(HeightAt(Edge.X,Edge.Y)+12.f,10.f);
-                V.Add(Edge); N.Add(FVector::UpVector); UV.Add(FVector2D(Sign,Alpha*20)); C.Add(FLinearColor(.43f,.35f,.22f));
+                V.Add(Edge); N.Add(FVector::UpVector); UV.Add(FVector2D(Sign,Alpha*20)); C.Add(FLinearColor(.36f,.29f,.18f)*(1.f+.045f*FMath::Sin(Alpha*PI*19.f)));
             }
             if(I<Steps){int32 K=I*2;T.Append({K,K+2,K+1,K+1,K+2,K+3});}
         }
@@ -258,6 +258,16 @@ void ASoulCampaignWorldActor::BuildParty()
     Soldiers=MakeInstances(this,TEXT("Cube"),FLinearColor(.19f,.28f,.43f));
     Soldiers->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
     for(int32 I=0;I<5;++I)AddInstance(Soldiers,FVector(-55+(I%3)*45,-25+(I/3)*45,35),FVector(.24f,.20f,.65f));
+    auto* Helmets=MakeInstances(this,TEXT("Cylinder"),FLinearColor(.48f,.52f,.53f));
+    Helmets->AttachToComponent(Soldiers,FAttachmentTransformRules::KeepRelativeTransform);
+    auto* Shields=MakeInstances(this,TEXT("Cube"),FLinearColor(.16f,.32f,.56f));
+    Shields->AttachToComponent(Soldiers,FAttachmentTransformRules::KeepRelativeTransform);
+    for(int32 I=0;I<5;++I)
+    {
+        FVector P(-55+(I%3)*45,-25+(I/3)*45,0);
+        AddInstance(Helmets,P+FVector(0,0,76),FVector(.23f,.23f,.18f));
+        AddInstance(Shields,P+FVector(0,13,42),FVector(.30f,.065f,.34f));
+    }
     auto* Pole=MakeInstances(this,TEXT("Cylinder"),FLinearColor(.30f,.24f,.13f));
     Pole->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
     AddInstance(Pole,FVector(60,0,110),FVector(.045f,.045f,2.2f));
@@ -268,7 +278,7 @@ void ASoulCampaignWorldActor::BuildParty()
 void ASoulCampaignWorldActor::RefreshKnowledge()
 {
     if(!State)return;
-    if(Soldiers) Soldiers->SetVisibility(State->PlayerArmy.FindRef(State->PlayerUnitId)>0);
+    if(Soldiers) Soldiers->SetVisibility(State->PlayerArmy.FindRef(State->PlayerUnitId)>0,true);
     FString Signature;
     TArray<FName> Keys;Locations().GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)Signature+=FString::Printf(TEXT("%d%d"),FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id),FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id));

@@ -53,7 +53,11 @@ void ASoulCampaignCamera::Tick(float DeltaSeconds)
         if (PC->IsInputKeyDown(EKeys::MiddleMouseButton))
         {
             float DX=0,DY=0; PC->GetInputMouseDelta(DX,DY);
-            Input += FVector2D(-DX,DY) * .16f;
+            int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);
+            const float UnitsPerPixel=2.f*Distance*FMath::Tan(FMath::DegreesToRadians(GetCameraComponent()->FieldOfView*.5f))/FMath::Max(Width,1);
+            const FRotator Flat(0,Yaw,0);
+            // Mouse deltas already represent displacement this frame: no delta-time factor.
+            TargetFocus+=(-FRotationMatrix(Flat).GetUnitAxis(EAxis::Y)*DX+Flat.Vector()*DY/ FMath::Sin(FMath::DegreesToRadians(48.f)))*UnitsPerPixel;
         }
         Pan(Input.GetClampedToMaxSize(2.f),DeltaSeconds);
         Orbit((PC->IsInputKeyDown(EKeys::E)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::Q)?1.f:0.f),DeltaSeconds);

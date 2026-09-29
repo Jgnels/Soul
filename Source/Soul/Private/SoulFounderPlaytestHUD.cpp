@@ -38,6 +38,8 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     Panel(14,12,W-28,44);
     Text(TEXT("S O U L"),28,24,Gold,1.35f);
     Text(FString::Printf(TEXT("DAY %d     GOLD %d     ACTIONS %d / %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints,S->Economy.MaxActionPoints),150,28,Ink);
+    bool HostileRemains=false;for(const auto& Region:S->World.Regions)HostileRemains|=S->IsHostile(Region.Key);
+    Text(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED"),500,28,Muted);
     int32 Army=0;for(const auto& P:S->PlayerArmy)Army+=P.Value;
     Text(FString::Printf(TEXT("ARMY %d   HERO %d   XP %d   MANA %d / %d"),Army,S->Hero.Level,S->Hero.Experience,S->Hero.Mana,S->Hero.MaxMana),W-560,28,Ink);
     Button(TEXT("EndDay"),TEXT("Next day  [Space]"),W-165,21,138);
@@ -54,14 +56,19 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->EnemyArmies.FindRef(Selected)),X+15,166,Ink);
         else Text(Visible?TEXT("Click a nearby place to travel."):TEXT("Return within sight for current forces."),X+15,166,Muted);
     }
-    if(C->IsBattleAvailable())Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,218,248);
+    if(C->IsBattleAvailable())
+    {
+        if(S->PlayerArmy.FindRef(S->PlayerUnitId)<=0)Text(TEXT("Recruit Knights at the capital first."),X+15,230,Gold);
+        else if(S->Economy.ActionPoints<=0)Button(TEXT("BattleRest"),TEXT("Next day restores actions  [Space]"),X+15,218,248);
+        else Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,218,248);
+    }
     else if(S->PlayerRegion==TEXT("human_capital"))Button(TEXT("Town"),TEXT("Visit the capital  [T]"),X+15,218,248);
     else Button(TEXT("Focus"),TEXT("Focus your company  [Home]"),X+15,218,248);
     Panel(14,H-85,W-28,42);
     Wrapped(C->LastMessage,28,H-74,W-56,Ink,2);
     Rect(14,H-36,W-28,28,Back);
     Text(TEXT("WASD pan  /  Wheel zoom  /  MMB drag  /  Q E orbit  /  T town  /  B battle  /  F5 save  /  F9 load  /  Esc close"),24,H-28,Muted);
-    if(!S->LastPersistenceReport.IsEmpty()) { Rect(14,60,640,27,Back);Text(S->LastPersistenceReport,28,67,Muted); }
+    if(!S->LastPersistenceReport.IsEmpty()) { Rect(14,60,640,27,Back);Text(S->LastPersistenceReport.Replace(TEXT(" with RB Save"),TEXT("")),28,67,Muted); }
     if(S->PlayerArmy.FindRef(S->PlayerUnitId)==0&&!C->IsTownPanelOpen())
     {
         Panel(28,102,350,74);Text(TEXT("Your fighting company needs recruits"),43,115,Gold);
@@ -102,7 +109,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
 void ASoulFounderPlaytestHUD::NotifyHitBoxClick(FName BoxName)
 {
     Super::NotifyHitBoxClick(BoxName);auto* C=FindCampaign(GetWorld());if(!C)return;
-    if(BoxName==TEXT("EndDay"))C->EndDay();
+    if(BoxName==TEXT("EndDay")||BoxName==TEXT("BattleRest"))C->EndDay();
     else if(BoxName==TEXT("Town"))C->ToggleTownPanel();
     else if(BoxName==TEXT("Battle"))C->StartBattle();
     else if(BoxName==TEXT("Hire"))C->HireTavernHero();

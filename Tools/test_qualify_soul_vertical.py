@@ -21,7 +21,7 @@ SPEC.loader.exec_module(RUNNER)
 class CompletionSafetyTests(unittest.TestCase):
     def scenario(self, *, ticks=(100, 100, 160, 170, 170, 170), exit_at=170,
                  exit_code=0, marker=True, expect_marker=True, crash=False,
-                 hot=False, completion_timeout=300):
+                 hot=False, completion_timeout=300, resolution="1280x720"):
         with tempfile.TemporaryDirectory(prefix="soul-runner-mock-") as directory:
             root = Path(directory).resolve()
             self.assertEqual(root.parent, Path(tempfile.gettempdir()).resolve())
@@ -67,7 +67,8 @@ class CompletionSafetyTests(unittest.TestCase):
                 return [{"temperature_c": 85 if hot and current_time[0] >= 160 else 50}]
 
             arguments = ["runner", "--ue-exe", str(executable), "--project", str(project),
-                         "--stage", "G0", "--duration", "60", "--output", str(output)]
+                         "--stage", "G0", "--duration", "60", "--output", str(output),
+                         "--resolution", resolution]
             if expect_marker:
                 arguments += ["--completion-marker", "SOUL_MOCK_COMPLETED",
                               "--completion-timeout", str(completion_timeout)]
@@ -93,6 +94,13 @@ class CompletionSafetyTests(unittest.TestCase):
         self.assertEqual(record["stop_reason"], "completion_marker_process_exit")
         self.assertEqual(record["alive_observed_after_ready_seconds"], 60)
         self.assertFalse(record["automatic_acceptance"])
+
+    def test_full_hd_uses_bounded_resolution_without_timing_change(self):
+        result, record = self.scenario(resolution="1920x1080")
+        self.assertEqual(result, 0)
+        self.assertIn("-ResX=1920", record["command"])
+        self.assertIn("-ResY=1080", record["command"])
+        self.assertEqual(record["observation_seconds_after_ready"], 60)
 
     def test_marker_does_not_accept_early_exit(self):
         result, record = self.scenario(ticks=(100, 100, 155, 155, 155), exit_at=155)

@@ -7,6 +7,7 @@
 #include "SoulPlaytestRegionActor.h"
 #include "InputKeyEventArgs.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "UnrealClient.h"
 #include "Misc/Paths.h"
 #include "HAL/PlatformMisc.h"
@@ -17,16 +18,30 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     if(!State||!Campaign)return;
     VisualElapsed+=Seconds;
     if(VisualElapsed>=10.f) { ++VisualFrames;VisualFrameSeconds+=Seconds;VisualWorstFrame=FMath::Max(VisualWorstFrame,Seconds); }
-    if(VisualElapsed<10.f+VisualStep*3.f)return;
     auto* PC=Cast<ASoulFounderPlaytestPlayerController>(GetWorld()->GetFirstPlayerController());
     auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
     if(!PC||!Camera)return;
+    if(VisualStep==28) PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::MouseX,IE_Axis,8.f,1));
+    if(VisualElapsed<10.f+VisualStep*3.f)return;
     auto Capture=[&](const TCHAR* Label){FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots")/(CapturePrefix+TEXT("_")+Label+TEXT(".png")),true,false);};
     auto Require=[&](bool Condition,const TCHAR* Label)
     {
         if(Condition){UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_CHECK_PASS %s"),Label);return true;}
         UE_LOG(LogTemp,Error,TEXT("SOUL_WORLD_CHECK_FAIL %s step=%d"),Label,VisualStep);
         Capture(TEXT("failure"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return false;
+    };
+    auto CheckKnowledge=[&](bool RequireMemory)
+    {
+        int32 Unknown=0,Memory=0,Count=0;bool Matches=true;
+        for(TActorIterator<ASoulPlaytestRegionActor> It(GetWorld());It;++It)
+        {
+            const bool Explored=FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,It->RegionId);
+            const bool Visible=FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,It->RegionId);
+            Matches=Matches && It->IsHidden()==!Explored && It->GetActorEnableCollision()==Explored;
+            Unknown+=!Explored;Memory+=Explored&&!Visible;++Count;
+        }
+        return Require(Matches && Count==State->World.Regions.Num() && Unknown>0 && (!RequireMemory||Memory>0),
+            RequireMemory?TEXT("explored memory stays present while unknown locations remain hidden and unselectable"):TEXT("initial unknown locations are hidden and unselectable"));
     };
     auto Key=[&](FKey K){PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Pressed,1));PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Released,0));};
     auto Click=[&](FName Region)
@@ -39,7 +54,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     };
     switch(VisualStep)
     {
-    case 0: Capture(TEXT("initial"));break;
+    case 0: if(!CheckKnowledge(false))return;Capture(TEXT("initial"));break;
     case 1: Key(EKeys::One);break;
     case 2:
         { int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);const float Scale=FMath::Max(1.f,Height/900.f);
@@ -82,7 +97,24 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         if(!Require(State->PlayerRegion==TEXT("old_quarry"),TEXT("legal quarry exploration")))return;
         Capture(TEXT("quarry_shrine"));Campaign->EndDay();Campaign->HandleRegionClicked(TEXT("ancient_shrine"));
         Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("ancient_shrine")));break;
-    case 19: Capture(TEXT("shrine"));break;
+    case 19:
+        {
+            if(!CheckKnowledge(true))return;
+            FName FriendlyMemory,HostileMemory;
+            for(const auto& Pair:State->World.Regions)
+                if(FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Pair.Key)
+                    && !FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Pair.Key))
+                { if(State->IsHostile(Pair.Key))HostileMemory=Pair.Key;else FriendlyMemory=Pair.Key; }
+            if(!Require(!FriendlyMemory.IsNone()&&!HostileMemory.IsNone(),TEXT("route exercises friendly and hostile remembered places")))return;
+            const FString PreviousMessage=Campaign->LastMessage;
+            const FName BeforeRegion=State->PlayerRegion;const int32 BeforeActions=State->Economy.ActionPoints;
+            Campaign->HandleRegionClicked(FriendlyMemory);const FString FriendlyReply=Campaign->LastMessage;
+            Campaign->HandleRegionClicked(HostileMemory);
+            if(!Require(FriendlyReply==Campaign->LastMessage && State->PlayerRegion==BeforeRegion && State->Economy.ActionPoints==BeforeActions,
+                TEXT("distant selection reveals no current garrison information and spends no action")))return;
+            Campaign->HandleRegionClicked(BeforeRegion);Campaign->LastMessage=PreviousMessage;
+            Capture(TEXT("shrine"));
+        }break;
     case 20:
         Campaign->HandleRegionClicked(TEXT("old_quarry"));Campaign->HandleRegionClicked(TEXT("crossroads"));Campaign->EndDay();
         Campaign->HandleRegionClicked(TEXT("forest_edge"));Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("forest_edge")));break;
@@ -112,6 +144,13 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     case 26: Key(EKeys::Home);break;
     case 27:
         if(!Require(FVector::DistXY(Camera->GetFocus(),ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion))<3.f,TEXT("Home returns camera to company")))return;
+        VisualDragStart=Camera->GetFocus();
+        PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::MiddleMouseButton,IE_Pressed,1));break;
+    case 28:
+        PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::MiddleMouseButton,IE_Released,0));
+        if(!Require(FVector::DistXY(Camera->GetFocus(),VisualDragStart)>100.f,TEXT("middle-mouse drag pans through normal mouse-axis input")))return;
+        Capture(TEXT("drag"));break;
+    case 29:
         UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_FRAME_SAMPLE frames=%d mean_fps=%.2f worst_ms=%.2f includes_screenshot_capture=1"),VisualFrames,VisualFrames/FMath::Max(VisualFrameSeconds,.001),VisualWorstFrame*1000.f);
         UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=1"));
         bDone=true;FPlatformMisc::RequestExitWithStatus(false,0);return;

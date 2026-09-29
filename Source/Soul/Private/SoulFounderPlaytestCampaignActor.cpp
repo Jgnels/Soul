@@ -128,13 +128,15 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         return;
     }
 
+    // A remembered distant location must not disclose current forces through an
+    // action rejection message. Adjacent locations are in authoritative sight.
+    if (!FSoulWorldRules::CanMove(State->World, State->PlayerRegion, RegionId))
+    {
+        LastMessage = TEXT("Follow connected roads to reach this place.");
+        return;
+    }
     if (State->HasHostileGarrison(RegionId))
     {
-        if (!FSoulWorldRules::CanMove(State->World, State->PlayerRegion, RegionId))
-        {
-            LastMessage = TEXT("Enemy stronghold is not adjacent.");
-            return;
-        }
         SelectedBattleRegion = RegionId;
         bBattlePromptOpen = true;
         LastMessage = FString::Printf(TEXT("%s: press B to commit to battle."), *DisplayName(RegionId));
@@ -214,7 +216,8 @@ void ASoulFounderPlaytestCampaignActor::HandleNumberKey(int32 Index)
         const FName UnitId = Roster[Index - 1];
         if (State->Recruit(UnitId))
         {
-            LastMessage = FString::Printf(TEXT("Recruited 1 %s."), *UnitId.ToString());
+            const FString UnitName=UnitId.ToString().Replace(TEXT("human_"),TEXT("")).Replace(TEXT("_"),TEXT(" "));
+            LastMessage = FString::Printf(TEXT("Recruited 1 %s."), *UnitName);
         }
         else
         {

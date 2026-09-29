@@ -15,6 +15,7 @@
 #include "HAL/PlatformMisc.h"
 #include "Misc/Paths.h"
 #include "UnrealClient.h"
+#include "InputKeyEventArgs.h"
 #include "SoulFounderPlaytestCampaignActor.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "SoulFounderPlaytestHUD.h"
@@ -65,6 +66,16 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         ReturnHoldSeconds += Seconds;
         if(PreviousHold<4.f && ReturnHoldSeconds>=4.f)
             FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Vertical_Campaign_Return.png"),true,false);
+        // Inspect the newly revealed destination after a real conquest, without revealing unknown state.
+        if(!bRecoveryQualification && FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,TEXT("orc_camp")))
+        {
+            auto* PC=GetWorld()->GetFirstPlayerController();
+            auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
+            if(Camera && PreviousHold<20.f && ReturnHoldSeconds>=20.f) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("orc_camp")));
+            if(PreviousHold<25.f && ReturnHoldSeconds>=25.f)
+                FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Campaign_Stronghold.png"),true,false);
+            if(Camera && PreviousHold<35.f && ReturnHoldSeconds>=35.f) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
+        }
         if(bRecoveryQualification && State->ResolvedEncounters.Num()==1 && ReturnHoldSeconds>=10.f && !bRecoveryAttempted)
         {
             bRecoveryAttempted=true;
@@ -129,7 +140,11 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         Campaign->HandleRegionClicked(TEXT("crossroads"));
         Campaign->HandleRegionClicked(TEXT("river_ford"));
         Campaign->HandleRegionClicked(TEXT("orc_watch"));
-        Campaign->StartBattle();
+        if(auto* PC=GetWorld()->GetFirstPlayerController())
+        {
+            PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::B,IE_Pressed,1));
+            PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::B,IE_Released,0));
+        }
         return;
     }
     if(State->bPersistenceBusy)return;

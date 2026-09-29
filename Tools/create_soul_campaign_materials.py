@@ -13,6 +13,13 @@ for name, vertex in [('M_CampaignSurface', False), ('M_CampaignTerrain', True)]:
         color.set_editor_property('parameter_name', 'Tint')
         color.set_editor_property('default_value', unreal.LinearColor(0.3, 0.4, 0.2, 1.0))
     unreal.MaterialEditingLibrary.connect_material_property(color, '', unreal.MaterialProperty.MP_BASE_COLOR)
+    if not vertex:
+        # Subtle ambient color keeps miniature walls and standards readable in the
+        # asset-free campaign sky; directional lighting still supplies their form.
+        ambient = unreal.MaterialEditingLibrary.create_material_expression(material, unreal.MaterialExpressionMultiply)
+        ambient.set_editor_property('const_b', 0.06)
+        unreal.MaterialEditingLibrary.connect_material_expressions(color, '', ambient, 'A')
+        unreal.MaterialEditingLibrary.connect_material_property(ambient, '', unreal.MaterialProperty.MP_EMISSIVE_COLOR)
     rough = unreal.MaterialEditingLibrary.create_material_expression(material, unreal.MaterialExpressionConstant)
     rough.set_editor_property('r', 0.92)
     unreal.MaterialEditingLibrary.connect_material_property(rough, '', unreal.MaterialProperty.MP_ROUGHNESS)

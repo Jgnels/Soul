@@ -17,6 +17,7 @@ private:
     int32 VisualFrames=0;
     double VisualFrameSeconds=0;
     float VisualWorstFrame=0;
+    FVector VisualDragStart=FVector::ZeroVector;
     bool bVisualQualification=false;
     FString CapturePrefix;
     UPROPERTY() TObjectPtr<class ASoulFounderPlaytestCampaignActor> Campaign;
