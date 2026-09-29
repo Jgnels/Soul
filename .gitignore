@@ -23,3 +23,9 @@ __pycache__/
 *.pyc
 
 Content/MagicSpells/
+Content/Forest_village/
+Content/Kingdom_Capital/
+Evidence/CampaignTerrainProduction-20260929/Local/
+/Content/Medieval_Megapack/
+# Earlier visual iterations remain immutable locally; commit their hash receipts.
+Evidence/CampaignTerrainProduction-20260929/runs/0[1-8]-*/*.png

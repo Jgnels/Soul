@@ -1,4 +1,5 @@
 #include "SoulFounderPlaytestPlayerController.h"
+#include "SoulCampaignTerrain.h"
 #include "Components/InputComponent.h"
 
 #include "EngineUtils.h"
@@ -13,6 +14,7 @@
 
 ASoulFounderPlaytestPlayerController::ASoulFounderPlaytestPlayerController()
 {
+    HitResultTraceDistance=100000.f*SoulCampaignTerrain::Scale();
     bShowMouseCursor = true;
     bEnableClickEvents = true;
     bEnableMouseOverEvents = true;

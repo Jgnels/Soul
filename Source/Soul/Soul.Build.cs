@@ -5,7 +5,7 @@ public class Soul : ModuleRules
     public Soul(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-        PrivateDependencyModuleNames.Add("RBSaveCore");
+        PrivateDependencyModuleNames.AddRange(new[] {"RBSaveCore", "Landscape"});
         PublicDependencyModuleNames.AddRange(new[]
         {
             "Core", "CoreUObject", "Engine", "ProceduralMeshComponent", "InputCore", "SoulCore", "RBFoundation", "RBSave", "Json", "SoulRealtimeBattle"
@@ -18,6 +18,8 @@ public class Soul : ModuleRules
             foreach (string File in new[]
             {
                 "Data/soul_vertical_scenario_20260925.json",
+                "Data/CampaignTerrainV2/FounderHeight.r16",
+                "Data/CampaignTerrainV2/presentation.json",
                 "Data/soul_world_overmap_v1_20260922.json",
                 "Data/soul_campaign_start_states_v1_20260922.json",
                 "Data/soul_overmap_battle_handoff_v1_20260922.json",

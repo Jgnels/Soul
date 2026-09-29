@@ -1,5 +1,6 @@
 #include "Misc/AutomationTest.h"
 #include "SoulCampaignWorldActor.h"
+#include "SoulCampaignTerrain.h"
 #include "SoulCampaignCamera.h"
 #include "SoulPlaytestRegionActor.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
@@ -19,9 +20,10 @@ bool FSoulCampaignWorldGeometryTest::RunTest(const FString&)
     for(const auto& Region:State->World.Regions)
     {
         const FVector* P=Locations.Find(Region.Key);if(!TestNotNull(TEXT("region location exists"),P))continue;
-        TestTrue(TEXT("location inside navigable world"),FMath::Abs(P->X)<ASoulCampaignCamera::MaxFocusX&&FMath::Abs(P->Y)<ASoulCampaignCamera::MaxFocusY);
+        const float Scale=SoulCampaignTerrain::Scale();
+        TestTrue(TEXT("location inside navigable world"),FMath::Abs(P->X)<ASoulCampaignCamera::MaxFocusX*Scale&&FMath::Abs(P->Y)<ASoulCampaignCamera::MaxFocusY*Scale);
         const float Ground=ASoulCampaignWorldActor::HeightAt(P->X,P->Y);
-        TestTrue(TEXT("landmark rests on terrain or ford bridge"),Region.Key==TEXT("river_ford") ? P->Z>=Ground&&P->Z-Ground<60 : FMath::IsNearlyEqual(Ground,static_cast<float>(P->Z),1.f));
+        TestTrue(TEXT("landmark rests on terrain or ford bridge"),Region.Key==TEXT("river_ford") ? P->Z>=Ground&&P->Z-Ground<60*Scale : FMath::IsNearlyEqual(Ground,static_cast<float>(P->Z),1.f*Scale));
         const FVector Party=ASoulCampaignWorldActor::PartyAnchor(Region.Key);
         TestTrue(TEXT("stationed company clears terrain"),Party.Z>=ASoulCampaignWorldActor::HeightAt(Party.X,Party.Y));
         for(FName To:Region.Value.Neighbors) for(int32 I=0;I<=20;++I)

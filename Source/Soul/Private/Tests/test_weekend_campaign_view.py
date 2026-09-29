@@ -34,7 +34,7 @@ class CampaignViewTests(unittest.TestCase):
         control=source('Private/SoulFounderPlaytestPlayerController.cpp')
         self.assertIn('EKeys::MouseScrollUp',control)
         self.assertIn('EKeys::MouseScrollDown',control)
-        self.assertIn('HeightAt(Position.X,Position.Y)',camera)
+        self.assertIn('HeightAt(Position.X*Scale,Position.Y*Scale)/Scale',camera)
     def test_roads_come_from_authoritative_neighbors(self):
         world=source('Private/SoulCampaignWorldActor.cpp')
         campaign=source('Private/SoulFounderPlaytestCampaignActor.cpp')

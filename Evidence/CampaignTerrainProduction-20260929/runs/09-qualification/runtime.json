@@ -1,0 +1,72 @@
+{
+  "stage": "G0",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+    "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1920",
+    "-ResY=1080",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 45,r.VSync 0",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignTerrainProduction-20260929\\Local\\pass9\\unreal.log",
+    "-ForceRes",
+    "-RenderOffscreen",
+    "-unattended",
+    "-nosound",
+    "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+    "-DDC=InstalledNoZenLocalFallback",
+    "-SoulTerrainV2",
+    "-SoulCampaignVisualProof",
+    "-SoulCampaignCapturePrefix=terrain-pass9"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignTerrainProduction-20260929\\Local\\pass9",
+  "expected_active_units": 0,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 60.0,
+  "completion_marker": "SOUL_WORLD_VISUAL_INPUT_PASS",
+  "completion_timeout": 240.0,
+  "terrain_height_sha256": "c8ce0cac1165738979233c5b1cfc5e717fbd3b377a5e70046ad2c9ff7fefb606",
+  "terrain_payload_sha256": {
+    "Data/CampaignTerrainV2/presentation.json": "003fde6bbbbe5d28b26062e197377a62b71246098b80747d7acd06cc6b741d92",
+    "Binaries/Win64/UnrealEditor-Soul.dll": "cceae8b65a39a14ad2f288ac6c0cd1d5dd1bdf4eac55506395b7c715d49f7d32",
+    "Content/Soul/Campaign/TerrainV2/L_FounderTerrain.umap": "5ec71732ec82396be570773565897cf3e9c79506e7485642dad6e3159fb806a3",
+    "Content/Soul/Campaign/TerrainV2/M_CampaignMasonry.uasset": "93fbeaef2186a7b0f83a682f9e65d1a0860114c735807980fc1113dee5a9db7d",
+    "Content/Soul/Campaign/TerrainV2/M_CampaignWood.uasset": "ac4acf381df623f77ec800e9895c574442e11b02ec0ed5835f2e344a3685d59b",
+    "Content/Soul/Campaign/TerrainV2/M_FounderLandscape.uasset": "a0fa6d3fa78b158263c61d60045318f36f93488dec0e589f514689d1c88b260b",
+    "Content/Soul/Campaign/TerrainV2/M_FounderRoad.uasset": "ca30965ca89d097dcf69a9562ce81d5f47874d61ca40bd03e891c34c2459a88e",
+    "Content/Soul/Campaign/TerrainV2/M_FounderWater.uasset": "6d49c1013915c026bacc79ab4e1c6b71a0f759ae98ab02188df4ca775d28b5e0",
+    "Content/Soul/Campaign/TerrainV2/MI_CampaignPine.uasset": "e00e077973469677f2e6c68f57ed8a35624938ff90d33f9755064c16788c342c",
+    "Content/Soul/Campaign/TerrainV2/T_FounderBiome.uasset": "fa08d146a6f9f672f2c226050ee1522ad1dfc02cf313268e6892518939862cef",
+    "Content/Soul/Campaign/TerrainV2/T_FounderMacro.uasset": "3026d2532f858790da9ab0a46ead3e051eb85050c7c339ad3db6b2180fc20004"
+  },
+  "started_utc": "2026-09-29T18:39:50.032069+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 6575.0,
+      "temperature_c": 45.0,
+      "utilization_percent": 0.0
+    }
+  ],
+  "automatic_acceptance": false,
+  "pid": 6820,
+  "ready_utc": "2026-09-29T18:41:23.262051+00:00",
+  "exit_code": 0,
+  "clean_shutdown": true,
+  "stopped_utc": "2026-09-29T18:43:29.884935+00:00",
+  "stop_reason": "completion_marker_process_exit",
+  "cleanup": "already_exited",
+  "elapsed_seconds": 219.86,
+  "observed_after_ready_seconds": 126.73,
+  "crash_signatures": [],
+  "rhi_log_lines": [
+    "[2026.09.29-18.39.57:106][  0]LogRHI: Using Default RHI: D3D11",
+    "[2026.09.29-18.39.57:739][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+  ],
+  "completion_marker_observed": true,
+  "alive_observed_after_ready_seconds": 121.61,
+  "preserved_crashes": []
+}

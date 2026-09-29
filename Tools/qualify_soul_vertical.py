@@ -8,6 +8,7 @@ project D3D12 RHI; a diagnostic RHI requires --diagnostic-rhi and is labeled.
 """
 import argparse
 import csv
+import hashlib
 import ctypes
 from ctypes import wintypes
 import datetime as dt
@@ -17,6 +18,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import socket
 import subprocess
 import time
 
@@ -151,6 +153,7 @@ def parser():
     p.add_argument("--stage", choices=[f"G{i}" for i in range(7)], required=True)
     p.add_argument("--map-url", default=None)
     p.add_argument("--resolution", choices=["1280x720", "1920x1080"], default="1280x720")
+    p.add_argument("--max-fps", type=int, default=30, help="0 for uncapped campaign qualification")
     p.add_argument("--ue-arg", action="append", default=[])
     p.add_argument("--expected-active-units", type=int, default=0)
     p.add_argument("--duration", type=float, default=90,
@@ -173,7 +176,7 @@ def main():
     args = p.parse_args()
     if os.name != "nt":
         p.error("This qualification runner requires the authorized Windows machine")
-    if os.environ.get("COMPUTERNAME", "").upper() != "DESKTOP-Q1S3RPU":
+    if os.environ.get("COMPUTERNAME", socket.gethostname()).upper() != "DESKTOP-Q1S3RPU":
         p.error("Authorized machine is DESKTOP-Q1S3RPU")
     if args.duration < 60 or not 1 <= args.startup_timeout <= 600:
         p.error("Require duration >=60 seconds and startup-timeout in [1,600]")
@@ -212,7 +215,7 @@ def main():
         command += [map_url]
     width, height = args.resolution.split("x")
     command += ["-windowed", f"-ResX={width}", f"-ResY={height}", "-nosplash",
-                "-ExecCmds=t.MaxFPS 30", f"-abslog={log}"]
+                f"-ExecCmds=t.MaxFPS {args.max_fps},r.VSync 0", f"-abslog={log}"]
     if args.diagnostic_rhi:
         command.append("-" + args.diagnostic_rhi)
     command += args.ue_arg
@@ -222,6 +225,14 @@ def main():
                    observation_seconds_after_ready=args.duration,
                    completion_marker=args.completion_marker,
                    completion_timeout=args.completion_timeout if args.completion_marker else None)
+    if "-SoulTerrainV2" in args.ue_arg:
+        height_file=project.parent / "Data/CampaignTerrainV2/FounderHeight.r16"
+        preview["terrain_height_sha256"]=hashlib.sha256(height_file.read_bytes()).hexdigest()
+        payloads=[project.parent/"Data/CampaignTerrainV2/presentation.json",
+                  project.parent/"Binaries/Win64/UnrealEditor-Soul.dll"]
+        payloads+=sorted((project.parent/"Content/Soul/Campaign/TerrainV2").glob("*"))
+        preview["terrain_payload_sha256"]={str(f.relative_to(project.parent)).replace("\\","/"):
+            hashlib.sha256(f.read_bytes()).hexdigest() for f in payloads if f.is_file()}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
         return 0

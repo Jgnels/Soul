@@ -4,6 +4,7 @@
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "SoulCampaignCamera.h"
 #include "SoulCampaignWorldActor.h"
+#include "SoulCampaignTerrain.h"
 #include "SoulPlaytestRegionActor.h"
 #include "InputKeyEventArgs.h"
 #include "Engine/World.h"
@@ -17,6 +18,8 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
 {
     if(!State||!Campaign)return;
     VisualElapsed+=Seconds;
+    if(VisualStep==6&&VisualElapsed-Seconds<25.9f&&VisualElapsed>=25.9f)
+        FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots")/(CapturePrefix+TEXT("_travel.png")),true,false);
     if(VisualElapsed>=10.f) { ++VisualFrames;VisualFrameSeconds+=Seconds;VisualWorstFrame=FMath::Max(VisualWorstFrame,Seconds); }
     auto* PC=Cast<ASoulFounderPlaytestPlayerController>(GetWorld()->GetFirstPlayerController());
     auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
@@ -47,7 +50,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     auto Click=[&](FName Region)
     {
         FVector2D Screen;
-        if(!Require(PC->ProjectWorldLocationToScreen(ASoulCampaignWorldActor::Locations().FindRef(Region)+FVector(0,0,100),Screen),TEXT("project selectable location")))return;
+        if(!Require(PC->ProjectWorldLocationToScreen(ASoulCampaignWorldActor::Locations().FindRef(Region)+FVector(0,0,100*SoulCampaignTerrain::Scale()),Screen),TEXT("project selectable location")))return;
         FHitResult Hit;
         if(!Require(PC->GetHitResultAtScreenPosition(Screen,ECC_Visibility,false,Hit)&&Cast<ASoulPlaytestRegionActor>(Hit.GetActor())&&Cast<ASoulPlaytestRegionActor>(Hit.GetActor())->RegionId==Region,TEXT("viewport ray hits correct location")))return;
         PC->SetMouseLocation(FMath::RoundToInt(Screen.X),FMath::RoundToInt(Screen.Y));Key(EKeys::LeftMouseButton);
@@ -128,7 +131,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Q,IE_Released,0));
         if(!Require(FMath::IsNearlyEqual(Camera->GetDistance(),ASoulCampaignCamera::MinDistance,2.f)
             && Camera->GetActorRotation().Yaw<-110.f
-            && Camera->GetActorLocation().Z>=ASoulCampaignWorldActor::HeightAt(Camera->GetActorLocation().X,Camera->GetActorLocation().Y)+449.f,
+            && Camera->GetActorLocation().Z>=ASoulCampaignWorldActor::HeightAt(Camera->GetActorLocation().X,Camera->GetActorLocation().Y)+449.f*SoulCampaignTerrain::Scale(),
             TEXT("minimum zoom and orbit retain terrain clearance")))return;
         Capture(TEXT("close_orbit"));break;
     case 24:
@@ -137,8 +140,8 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     case 25:
         PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::D,IE_Released,0));
         if(!Require(FMath::IsNearlyEqual(Camera->GetDistance(),ASoulCampaignCamera::MaxDistance,2.f)
-            && FMath::Abs(Camera->GetFocus().X)<=ASoulCampaignCamera::MaxFocusX+1.f
-            && FMath::Abs(Camera->GetFocus().Y)<=ASoulCampaignCamera::MaxFocusY+1.f,
+            && FMath::Abs(Camera->GetFocus().X)<=ASoulCampaignCamera::MaxFocusX*SoulCampaignTerrain::Scale()+1.f
+            && FMath::Abs(Camera->GetFocus().Y)<=ASoulCampaignCamera::MaxFocusY*SoulCampaignTerrain::Scale()+1.f,
             TEXT("maximum zoom and sustained pan stay bounded")))return;
         Capture(TEXT("wide_bounds"));break;
     case 26: Key(EKeys::Home);break;
@@ -151,9 +154,19 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         if(!Require(FVector::DistXY(Camera->GetFocus(),VisualDragStart)>100.f,TEXT("middle-mouse drag pans through normal mouse-axis input")))return;
         Capture(TEXT("drag"));break;
     case 29:
+        if(SoulCampaignTerrain::Enabled())
+        {
+            Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("north_pass")));
+            Camera->Zoom(8);break;
+        }
+        [[fallthrough]];
+    case 33:
         UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_FRAME_SAMPLE frames=%d mean_fps=%.2f worst_ms=%.2f includes_screenshot_capture=1"),VisualFrames,VisualFrames/FMath::Max(VisualFrameSeconds,.001),VisualWorstFrame*1000.f);
         UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=1"));
         bDone=true;FPlatformMisc::RequestExitWithStatus(false,0);return;
+    case 30: Capture(TEXT("north_pass"));break;
+    case 31: Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("human_capital")));Camera->Zoom(3);break;
+    case 32: Capture(TEXT("capital_ground"));break;
     }
     ++VisualStep;
 }

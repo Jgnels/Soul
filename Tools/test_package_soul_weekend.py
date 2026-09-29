@@ -29,15 +29,17 @@ class WeekendPackagingTests(unittest.TestCase):
         required.update((scenario["campaign_map"], scenario["battle_map"]))
         self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
-        self.assertEqual(len(COOK_ROOTS), 28)
+        self.assertEqual(len(COOK_ROOTS), 47)
 
     def test_exact_disk_dependencies_match_actual_readers(self):
         source = (ROOT / "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp").read_text()
         required = {"Data/" + name for name in re.findall(r'ReadData\(TEXT\("([^"]+)"\)', source)}
         required.add("Plugins/RBFoundation/StackManifest.json")
+        required.add("Data/CampaignTerrainV2/presentation.json")
         staged = set(re.findall(r'"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"', RULES))
         self.assertEqual(staged, required)
-        self.assertEqual(len(staged), 5)
+        self.assertEqual(len(staged), 6)
+        self.assertIn('"Data/CampaignTerrainV2/FounderHeight.r16"', RULES)
         self.assertIn('RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS)', RULES)
         for relative in staged:
             json.loads((ROOT / relative).read_text(encoding="utf-8-sig"))

@@ -1,0 +1,58 @@
+{
+  "stage": "G0",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+    "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1920",
+    "-ResY=1080",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 0,r.VSync 0",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignTerrainProduction-20260929\\Local\\pass1\\unreal.log",
+    "-ForceRes",
+    "-RenderOffscreen",
+    "-unattended",
+    "-nosound",
+    "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+    "-DDC=InstalledNoZenLocalFallback",
+    "-SoulTerrainV2",
+    "-SoulCampaignVisualProof",
+    "-SoulCampaignCapturePrefix=terrain-pass1"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignTerrainProduction-20260929\\Local\\pass1",
+  "expected_active_units": 0,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 60.0,
+  "completion_marker": "SOUL_WORLD_VISUAL_INPUT_PASS",
+  "completion_timeout": 240.0,
+  "started_utc": "2026-09-29T16:52:15.816492+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 6322.0,
+      "temperature_c": 48.0,
+      "utilization_percent": 0.0
+    }
+  ],
+  "automatic_acceptance": false,
+  "pid": 22176,
+  "ready_utc": "2026-09-29T16:53:01.954308+00:00",
+  "exit_code": 0,
+  "clean_shutdown": false,
+  "stopped_utc": "2026-09-29T16:53:28.488614+00:00",
+  "stop_reason": "process_exited",
+  "cleanup": "already_exited",
+  "elapsed_seconds": 72.66,
+  "observed_after_ready_seconds": 26.62,
+  "crash_signatures": [],
+  "rhi_log_lines": [
+    "[2026.09.29-16.52.18:937][  0]LogRHI: Using Default RHI: D3D11",
+    "[2026.09.29-16.52.19:443][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+  ],
+  "completion_marker_observed": false,
+  "alive_observed_after_ready_seconds": 21.36,
+  "preserved_crashes": []
+}

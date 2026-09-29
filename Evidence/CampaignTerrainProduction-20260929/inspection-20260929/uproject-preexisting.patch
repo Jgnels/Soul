@@ -1,0 +1,15 @@
+diff --git a/Soul.uproject b/Soul.uproject
+index c0b5547..b8f42c0 100644
+--- a/Soul.uproject
++++ b/Soul.uproject
+@@ -91,6 +91,10 @@
+     {
+       "Name": "ProceduralMeshComponent",
+       "Enabled": true
++    },
++    {
++      "Name": "NwiroIntegrationKit",
++      "Enabled": true
+     }
+   ]
+ }

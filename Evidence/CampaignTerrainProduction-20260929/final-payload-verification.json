@@ -1,0 +1,35 @@
+{
+  "utc": "2026-09-29T19:13:36.905981+00:00",
+  "runs": [
+    {
+      "run": "09-qualification",
+      "exit_code": 0,
+      "marker_observed": true,
+      "payload_mismatches": []
+    },
+    {
+      "run": "11-benchmark-overview",
+      "exit_code": 0,
+      "marker_observed": true,
+      "payload_mismatches": []
+    },
+    {
+      "run": "13-roundtrip-qualified",
+      "exit_code": 0,
+      "marker_observed": true,
+      "payload_mismatches": []
+    },
+    {
+      "run": "14-benchmark-forest",
+      "exit_code": 0,
+      "marker_observed": true,
+      "payload_mismatches": []
+    },
+    {
+      "run": "15-roundtrip-1080-qualified",
+      "exit_code": 0,
+      "marker_observed": true,
+      "payload_mismatches": []
+    }
+  ]
+}

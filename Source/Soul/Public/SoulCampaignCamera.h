@@ -20,7 +20,7 @@ public:
     static constexpr float MinDistance = 1800.f;
     static constexpr float MaxDistance = 12000.f;
     float GetDistance() const { return Distance; }
-    FVector GetFocus() const { return FocusPoint; }
+    FVector GetFocus() const;
 private:
     FVector FocusPoint = FVector(-1000,-250,100), TargetFocus = FocusPoint;
     float Distance = 7500.f, TargetDistance = Distance;

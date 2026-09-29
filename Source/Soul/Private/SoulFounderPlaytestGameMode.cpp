@@ -2,18 +2,22 @@
 #include "Engine/World.h"
 #include "SoulCampaignCamera.h"
 #include "SoulCampaignWorldActor.h"
+#include "SoulCampaignTerrain.h"
 #include "Engine/ExponentialHeightFog.h"
 #include "Components/ExponentialHeightFogComponent.h"
 #include "Components/DirectionalLightComponent.h"
 #include "Components/SkyLightComponent.h"
+#include "Components/SkyAtmosphereComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Engine/DirectionalLight.h"
 #include "Engine/SkyLight.h"
+#include "Engine/TextureCube.h"
 #include "Engine/GameInstance.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "HAL/PlatformMisc.h"
 #include "Misc/Paths.h"
+#include "Misc/FileHelper.h"
 #include "UnrealClient.h"
 #include "InputKeyEventArgs.h"
 #include "SoulFounderPlaytestCampaignActor.h"
@@ -35,18 +39,42 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     Campaign=GetWorld()->SpawnActor<ASoulFounderPlaytestCampaignActor>();
     auto* Sun=GetWorld()->SpawnActor<ADirectionalLight>(ADirectionalLight::StaticClass(),FVector(0,0,5000),FRotator(-42,-35,0));
     if(Sun) { Cast<UDirectionalLightComponent>(Sun->GetLightComponent())->SetForwardShadingPriority(1); Sun->GetLightComponent()->SetIntensity(1.6f); Sun->GetLightComponent()->SetLightColor(FLinearColor(1.f,.89f,.71f)); }
+    if(Sun&&SoulCampaignTerrain::Enabled())
+    {
+        auto* Light=Cast<UDirectionalLightComponent>(Sun->GetLightComponent());Light->SetMobility(EComponentMobility::Movable);
+        Light->SetIntensity(3.2f);Light->DynamicShadowDistanceMovableLight=220000.f;Light->DynamicShadowCascades=3;
+        Light->SetAtmosphereSunLight(true);
+        // Static campaign lighting presentation; RB Weather remains the weather authority.
+        GetWorld()->SpawnActor<ASkyAtmosphere>();
+    }
     // A restrained, shadowless sky fill keeps miniature silhouettes legible
     // in the asset-free campaign map, whose captured sky otherwise contains no sky dome.
     auto* Fill=GetWorld()->SpawnActor<ADirectionalLight>(ADirectionalLight::StaticClass(),FVector(0,0,4500),FRotator(-55,145,0));
     if(Fill) { Fill->GetLightComponent()->SetIntensity(.48f); Fill->GetLightComponent()->SetLightColor(FLinearColor(.64f,.76f,1.f)); Fill->GetLightComponent()->SetCastShadows(false); }
+    if(Fill&&SoulCampaignTerrain::Enabled()){Fill->GetLightComponent()->SetMobility(EComponentMobility::Movable);Fill->GetLightComponent()->SetIntensity(1.4f);}
     auto* Sky=GetWorld()->SpawnActor<ASkyLight>();
     if(Sky) { Sky->GetLightComponent()->SetIntensity(.65f); Sky->GetLightComponent()->SetLightColor(FLinearColor(.65f,.77f,1.f)); }
+    if(Sky&&SoulCampaignTerrain::Enabled())
+    {
+        auto* Light=Sky->GetLightComponent();Light->SetMobility(EComponentMobility::Movable);
+        Light->SourceType=SLS_SpecifiedCubemap;
+        Light->SetCubemap(LoadObject<UTextureCube>(nullptr,TEXT("/Engine/MapTemplates/Sky/DaylightAmbientCubemap")));
+        Light->SetIntensity(.55f);Light->SetLowerHemisphereColor(FLinearColor(.10f,.12f,.09f));
+        Light->RecaptureSky();
+    }
     auto* Fog=GetWorld()->SpawnActor<AExponentialHeightFog>();
-    if(Fog) { Fog->GetComponent()->SetFogDensity(.007f); Fog->GetComponent()->SetFogInscatteringColor(FLinearColor(.38f,.48f,.56f)); Fog->GetComponent()->SetStartDistance(2000.f); }
+    if(Fog) { Fog->GetComponent()->SetFogDensity(SoulCampaignTerrain::Enabled()?.0012f:.007f); Fog->GetComponent()->SetFogInscatteringColor(FLinearColor(.38f,.48f,.56f)); Fog->GetComponent()->SetStartDistance(2000.f*SoulCampaignTerrain::Scale()); }
     auto* Camera=GetWorld()->SpawnActor<ASoulCampaignCamera>();
     if(Camera)
     {
         if(State && State->PlayerRegion!=TEXT("human_capital")) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
+        if(FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainBenchmark")))
+        {
+            FString View;float Zoom=0;
+            if(FParse::Value(FCommandLine::Get(),TEXT("SoulTerrainBenchmarkFocus="),View))
+                if(const FVector* P=ASoulCampaignWorldActor::Locations().Find(FName(*View)))Camera->Focus(*P);
+            if(FParse::Value(FCommandLine::Get(),TEXT("SoulTerrainBenchmarkZoom="),Zoom))Camera->Zoom(Zoom);
+        }
         if(auto* PC=GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
     }
     bVisualQualification=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignVisualProof"));
@@ -58,6 +86,28 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    // Opt-in benchmark of the actual rendered campaign; excludes warmup and captures.
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainBenchmark")))
+    {
+        static double Started=FPlatformTime::Seconds(),Previous=Started;
+        static TArray<double> Samples;
+        const double Now=FPlatformTime::Seconds(),Age=Now-Started,Frame=(Now-Previous)*1000;Previous=Now;
+        if(Age>=20&&Age<80)Samples.Add(Frame);
+        if(Age>=80&&!bDone)
+        {
+            bDone=true;double Sum=0;int32 Below30=0,Below40=0,Below60=0;
+            FString CSV=TEXT("frame_ms\n");
+            for(double V:Samples){Sum+=V;Below30+=V>1000./30;Below40+=V>25;Below60+=V>1000./60;CSV+=FString::Printf(TEXT("%.5f\n"),V);}
+            Samples.Sort();const int32 N=Samples.Num();
+            const FString Receipt=FString::Printf(TEXT("{\"frames\":%d,\"warmup_seconds\":20,\"sample_seconds\":60,\"mean_ms\":%.4f,\"p95_ms\":%.4f,\"p99_ms\":%.4f,\"below_30\":%d,\"below_40\":%d,\"below_60\":%d,\"v2\":%s}"),N,Sum/FMath::Max(N,1),N?Samples[FMath::Min(N-1,FMath::FloorToInt(N*.95))]:0,N?Samples[FMath::Min(N-1,FMath::FloorToInt(N*.99))]:0,Below30,Below40,Below60,SoulCampaignTerrain::Enabled()?TEXT("true"):TEXT("false"));
+            FFileHelper::SaveStringToFile(Receipt,*(FPaths::ProjectSavedDir()/TEXT("TerrainBenchmark.json")));
+            FFileHelper::SaveStringToFile(CSV,*(FPaths::ProjectSavedDir()/TEXT("TerrainBenchmark.csv")));
+            UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_BENCHMARK_COMPLETE %s"),*Receipt);
+            FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/TerrainBenchmark.png"),true,false);
+        }
+        if(Age>83)FPlatformMisc::RequestExitWithStatus(false,0);
+        return;
+    }
     if(bVisualQualification && !bDone) TickVisualQualification(Seconds);
     if(!bQualification||bDone||!State||!Campaign)return;
     if (bRoundTripVerified)

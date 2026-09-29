@@ -1,4 +1,7 @@
 #include "SoulCampaignWorldActor.h"
+#include "SoulCampaignTerrain.h"
+#include "LandscapeProxy.h"
+#include "EngineUtils.h"
 #include "Engine/StaticMesh.h"
 #include "Math/RandomStream.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
@@ -48,9 +51,19 @@ ASoulCampaignWorldActor::ASoulCampaignWorldActor()
     Party=CreateDefaultSubobject<USceneComponent>(TEXT("PlayerParty"));
     Party->SetupAttachment(RootComponent);
 }
-float ASoulCampaignWorldActor::RiverX(float Y) { return -200.f+270.f*FMath::Sin((Y-1200.f)/1000.f); }
+float ASoulCampaignWorldActor::RiverX(float Y) {
+    if(SoulCampaignTerrain::Enabled())
+    {
+        const auto& Lines=SoulCampaignTerrain::WaterLines();if(Lines.IsEmpty())return 0;
+        const auto& Line=Lines[0];
+        for(int32 I=1;I<Line.Num();++I)if(Line[I].Y>=Y)return FMath::Lerp(Line[I-1].X,Line[I].X,FMath::Clamp((Y-Line[I-1].Y)/(Line[I].Y-Line[I-1].Y),0.,1.));
+        return Line.Last().X;
+    }
+    return -200.f+270.f*FMath::Sin((Y-1200.f)/1000.f);
+}
 const TMap<FName,FVector>& ASoulCampaignWorldActor::Locations()
 {
+    if(SoulCampaignTerrain::Enabled())return SoulCampaignTerrain::Locations();
     static const TMap<FName,FVector> Positions={
         {TEXT("human_capital"),FVector(-3000,0,105)},
         {TEXT("crossroads"),FVector(-1600,0,80)},
@@ -66,6 +79,7 @@ const TMap<FName,FVector>& ASoulCampaignWorldActor::Locations()
 }
 float ASoulCampaignWorldActor::HeightAt(float X,float Y)
 {
+    if(SoulCampaignTerrain::Enabled())return SoulCampaignTerrain::Height(X,Y);
     float Height=RawHeight(X,Y);
     for(const auto& Pair:Locations())
     {
@@ -104,12 +118,41 @@ void ASoulCampaignWorldActor::Build(USoulFounderPlaytestStateSubsystem* InState)
 {
     const double Started=FPlatformTime::Seconds();
     State=InState;
-    BuildTerrain(); BuildRoads(); BuildDressing(); BuildParty();
+    if(SoulCampaignTerrain::Enabled())SoulCampaignTerrain::Build(this);
+    BuildTerrain(); BuildRoads();
+    if(!SoulCampaignTerrain::Enabled())BuildDressing();
+    // Strategic geography grows 20x; the miniature company stays human-sized
+    // relative to the licensed buildings and fits the bridge carriageway.
+    BuildParty();Party->SetRelativeScale3D(FVector(SoulCampaignTerrain::Enabled()?5.f:1.f));
     RefreshKnowledge(); PresentPlayerLocation(State->PlayerRegion,false);
     UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_BUILT vertices=%d routes=%d elapsed_ms=%.2f"),Vertices.Num(),Roads.Num(),(FPlatformTime::Seconds()-Started)*1000.0);
 }
 void ASoulCampaignWorldActor::BuildTerrain()
 {
+    if(SoulCampaignTerrain::Enabled())
+    {
+        auto* Mat=LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/Soul/Campaign/TerrainV2/M_FounderWater"));
+        const auto& Lines=SoulCampaignTerrain::WaterLines();
+        for(int32 L=0;L<Lines.Num();++L)
+        {
+            const auto& Line=Lines[L];TArray<FVector> V,N;TArray<FVector2D> UV;TArray<int32> T;
+            for(int32 I=0;I<Line.Num();++I)
+            {
+                const FVector Tangent=Line[FMath::Min(I+1,Line.Num()-1)]-Line[FMath::Max(I-1,0)];
+                // Extend water into the banks; terrain occludes its shoulders so
+                // the visible edge follows the carved bed instead of a ribbon edge.
+                const float Width=L==0?2160.f:900.f*FMath::Clamp(I/8.f,0.f,1.f);
+                const FVector Side=FVector::CrossProduct(Tangent.GetSafeNormal2D(),FVector::UpVector)*Width;
+                for(float S:{-1.f,1.f}){V.Add(Line[I]+Side*S);N.Add(FVector::UpVector);UV.Add(FVector2D((S+1)*.5f,I*.2f));}
+                if(I+1<Line.Num()){const int32 A=I*2;T.Append({A,A+2,A+1,A+1,A+2,A+3});}
+            }
+            River->CreateMeshSection_LinearColor(L,V,T,N,UV,{}, {},false);River->SetMaterial(L,Mat);
+        }
+        return;
+    }
+    const float Scale=SoulCampaignTerrain::Scale();
+    if(!SoulCampaignTerrain::Enabled())
+    {
     constexpr int32 NX=350, NY=350;
     for(int32 Y=0;Y<=NY;++Y) for(int32 X=0;X<=NX;++X)
     {
@@ -132,13 +175,15 @@ void ASoulCampaignWorldActor::BuildTerrain()
     auto* Mat=LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/Soul/Campaign/M_CampaignTerrain.M_CampaignTerrain"));
     Terrain->CreateMeshSection_LinearColor(0,Vertices,Triangles,Normals,UVs,BaseColors,{},false);
     Terrain->SetMaterial(0,Mat);
+    }
+    auto* Mat=LoadObject<UMaterialInterface>(nullptr,SoulCampaignTerrain::Enabled()?TEXT("/Game/Soul/Campaign/TerrainV2/M_FounderWater"):TEXT("/Game/Soul/Campaign/M_CampaignTerrain.M_CampaignTerrain"));
     TArray<FVector> WaterV,WaterN; TArray<FVector2D> WaterUV; TArray<int32> WaterT; TArray<FLinearColor> WaterC;
     for(int32 I=0;I<=320;++I)
     {
-        float Y=-HalfDepth+2.f*HalfDepth*I/320.f;
+        float Y=(-HalfDepth+2.f*HalfDepth*I/320.f)*Scale;
         for(float Side:{-1.f,1.f})
         {
-            WaterV.Add(FVector(RiverX(Y)+Side*(105.f+10.f*FMath::Sin(Y/450)),Y,-8.f));
+            WaterV.Add(FVector(RiverX(Y)+Side*(SoulCampaignTerrain::Enabled()?90.f:105.f+10.f*FMath::Sin(Y/450))*Scale,Y,-8.f*Scale));
             WaterN.Add(FVector::UpVector); WaterUV.Add(FVector2D(Side,I/10.f));
             WaterC.Add(FLinearColor(.08f,.25f,.29f));
         }
@@ -149,6 +194,7 @@ void ASoulCampaignWorldActor::BuildTerrain()
 }
 FVector ASoulCampaignWorldActor::RoadPoint(FName From,FName To,float Alpha)
 {
+    if(SoulCampaignTerrain::Enabled())return SoulCampaignTerrain::Road(From,To,Alpha);
     // Stable unordered-pair orientation gives the same physical path in both directions.
     bool Reverse=From.ToString()>To.ToString();
     FVector A=Locations().FindRef(Reverse?To:From), B=Locations().FindRef(Reverse?From:To);
@@ -171,22 +217,24 @@ void ASoulCampaignWorldActor::BuildRoads()
         Road->SetupAttachment(RootComponent); Road->SetCollisionEnabled(ECollisionEnabled::NoCollision); Road->SetCastShadow(false);
         Road->RegisterComponent(); AddInstanceComponent(Road);
         TArray<FVector> V,N; TArray<FVector2D> UV; TArray<int32> T; TArray<FLinearColor> C;
-        constexpr int32 Steps=48;
+        const float Scale=SoulCampaignTerrain::Scale();
+        const int32 Steps=SoulCampaignTerrain::Enabled()?240:48;
         for(int32 I=0;I<=Steps;++I)
         {
             float Alpha=static_cast<float>(I)/Steps;
             FVector P=RoadPoint(Region.Key,Neighbor,Alpha);
             FVector Tangent=RoadPoint(Region.Key,Neighbor,FMath::Min(Alpha+.01f,1.f))-RoadPoint(Region.Key,Neighbor,FMath::Max(Alpha-.01f,0.f));
-            FVector Side=FVector::CrossProduct(Tangent.GetSafeNormal2D(),FVector::UpVector)*(34.f+4.f*FMath::Sin(Alpha*PI*7.f));
+            FVector Side=FVector::CrossProduct(Tangent.GetSafeNormal2D(),FVector::UpVector)*((SoulCampaignTerrain::Enabled()?22.f:34.f)+4.f*FMath::Sin(Alpha*PI*7.f))*Scale;
             for(float Sign:{-1.f,1.f})
             {
-                FVector Edge=P+Side*Sign; Edge.Z=FMath::Max(HeightAt(Edge.X,Edge.Y)+12.f,10.f);
-                V.Add(Edge); N.Add(FVector::UpVector); UV.Add(FVector2D(Sign,Alpha*20)); C.Add(FLinearColor(.36f,.29f,.18f)*(1.f+.045f*FMath::Sin(Alpha*PI*19.f)));
+                FVector Edge=P+Side*Sign; Edge.Z=SoulCampaignTerrain::Enabled()?SoulCampaignTerrain::RoadSurface(Edge.X,Edge.Y):FMath::Max(HeightAt(Edge.X,Edge.Y)+12.f,10.f);
+                V.Add(Edge); N.Add(FVector::UpVector); UV.Add(FVector2D(SoulCampaignTerrain::Enabled()?(Sign+1)*.5f:Sign,Alpha*20)); C.Add(FLinearColor(.36f,.29f,.18f)*(1.f+.045f*FMath::Sin(Alpha*PI*19.f)));
             }
             if(I<Steps){int32 K=I*2;T.Append({K,K+2,K+1,K+1,K+2,K+3});}
         }
         Road->CreateMeshSection_LinearColor(0,V,T,N,UV,C,{},false);
-        Road->SetMaterial(0,LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/Soul/Campaign/M_CampaignTerrain.M_CampaignTerrain")));
+        Road->SetMaterial(0,LoadObject<UMaterialInterface>(nullptr,SoulCampaignTerrain::Enabled()?TEXT("/Game/Soul/Campaign/TerrainV2/M_FounderRoad"):TEXT("/Game/Soul/Campaign/M_CampaignTerrain.M_CampaignTerrain")));
+        if(SoulCampaignTerrain::Enabled())SoulCampaignTerrain::DressRoad(this,Road,Region.Key,Neighbor);
         Roads.Add(Road); RoadRegions.Add({Region.Key,Neighbor});
     }
 }
@@ -283,6 +331,17 @@ void ASoulCampaignWorldActor::RefreshKnowledge()
     TArray<FName> Keys;Locations().GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)Signature+=FString::Printf(TEXT("%d%d"),FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id),FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id));
     if(Signature==KnowledgeSignature)return;KnowledgeSignature=Signature;
+    if(SoulCampaignTerrain::Enabled())
+    {
+        for(TActorIterator<ALandscapeProxy> It(GetWorld());It;++It)
+        for(int32 I=0;I<Keys.Num();++I)
+        {
+            FName Id=Keys[I];const FVector P=Locations().FindRef(Id);
+            const bool Explored=FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id);
+            const bool Visible=FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id);
+            It->SetLandscapeMaterialVectorParameterValue(FName(*FString::Printf(TEXT("Region%d"),I)),FLinearColor(P.X,P.Y,0,Visible?0:Explored?.60f:.94f));
+        }
+    }
     TArray<FLinearColor> Colors;Colors.Reserve(Vertices.Num());
     for(int32 I=0;I<Vertices.Num();++I)
     {
@@ -303,15 +362,16 @@ void ASoulCampaignWorldActor::RefreshKnowledge()
     }
     Terrain->UpdateMeshSection_LinearColor(0,Vertices,Normals,UVs,Colors,{},false);
     for(int32 I=0;I<Roads.Num();++I)
-        Roads[I]->SetVisibility(FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,RoadRegions[I].Key)&&FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,RoadRegions[I].Value));
+        Roads[I]->SetVisibility(FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,RoadRegions[I].Key)&&FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,RoadRegions[I].Value),true);
 }
 FVector ASoulCampaignWorldActor::PartyAnchor(FName Region)
 {
+    const float Scale=SoulCampaignTerrain::Scale();
     FVector P=Locations().FindRef(Region);
     // Station the company in front of fortified silhouettes, rather than inside walls.
-    if(Region==TEXT("human_capital")||Region==TEXT("orc_camp")||Region==TEXT("orc_watch")||Region==TEXT("north_pass")) P.Y+=290.f;
-    else if(Region!=TEXT("river_ford")) P.Y+=160.f;
-    P.Z=Region==TEXT("river_ford")?38.f:HeightAt(P.X,P.Y)+12.f;
+    if(Region==TEXT("human_capital")||Region==TEXT("orc_camp")||Region==TEXT("orc_watch")||Region==TEXT("north_pass")) P.Y+=290.f*Scale;
+    else if(Region!=TEXT("river_ford")) P.Y+=160.f*Scale;
+    P.Z=Region==TEXT("river_ford")?(SoulCampaignTerrain::Enabled()?20.f:38.f)*Scale:HeightAt(P.X,P.Y)+(SoulCampaignTerrain::Enabled()?2.f:12.f)*Scale;
     return P;
 }
 void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate)
@@ -326,10 +386,11 @@ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     if(TravelAlpha>=1){SetActorTickEnabled(false);return;}
-    TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/.95f);
+    TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/(SoulCampaignTerrain::Enabled()?1.8f:.95f));
     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
-    FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,12);
+    FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,(SoulCampaignTerrain::Enabled()?2:12)*SoulCampaignTerrain::Scale());
     Route=FMath::Lerp(TravelStart,Route,FMath::SmoothStep(0.f,.25f,Eased));
     Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
+    if(SoulCampaignTerrain::Enabled())Route.Z=FMath::Max(Route.Z,HeightAt(Route.X,Route.Y)+24.f);
     Party->SetRelativeLocation(Route);
 }

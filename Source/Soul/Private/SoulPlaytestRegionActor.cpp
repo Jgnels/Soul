@@ -2,6 +2,7 @@
 #include "Engine/World.h"
 #include "Engine/StaticMesh.h"
 #include "SoulCampaignWorldActor.h"
+#include "SoulCampaignTerrain.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -33,8 +34,11 @@ ASoulPlaytestRegionActor::ASoulPlaytestRegionActor()
 void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& DisplayName,const FVector& Location)
 {
     RegionId=InRegionId;SetActorLocation(Location);Label->SetText(FText::FromString(DisplayName));
+    SetActorScale3D(FVector(SoulCampaignTerrain::Scale()));
     auto Make=[this](const TCHAR* Shape,FLinearColor Color){return ASoulCampaignWorldActor::MakeInstances(this,Shape,Color);};
     auto Add=[](UInstancedStaticMeshComponent* M,FVector P,FVector S,FRotator R=FRotator::ZeroRotator){M->AddInstance(FTransform(R,P,S));};
+    if(!SoulCampaignTerrain::DressRegion(this,RegionId))
+    {
     auto* Stone=Make(TEXT("Cube"),FLinearColor(.42f,.40f,.32f));
     auto* DarkStone=Make(TEXT("Cube"),FLinearColor(.20f,.23f,.22f));
     auto* Wood=Make(TEXT("Cube"),FLinearColor(.23f,.13f,.065f));
@@ -109,6 +113,8 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
         if(RegionId==TEXT("forest_edge"))
             for(int32 I=0;I<5;++I)Add(Wood,FVector(120,I*22,15),FVector(.9f,.17f,.17f));
     }
+    }
+    const bool Fort=RegionId==TEXT("orc_camp");
     auto* Pole=Make(TEXT("Cylinder"),FLinearColor(.30f,.25f,.16f));
     Add(Pole,FVector(200,-95,110),FVector(.05f,.05f,2.2f));
     Standard=Make(TEXT("Cube"),FLinearColor::White);
@@ -123,10 +129,12 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     Garrison=Make(TEXT("Cube"),FLinearColor(.46f,.20f,.11f));
     for(int32 I=0;I<6;++I)
     {
-        FVector P(-35+(I%3)*35,(Fort?270.f:190.f)+(I/3)*35,0);
-        P.Z=ASoulCampaignWorldActor::HeightAt(Location.X+P.X,Location.Y+P.Y)-Location.Z;
-        Add(Garrison,P+FVector(0,0,28),FVector(.19f,.19f,.56f));
-        Add(Garrison,P+FVector(0,0,66),FVector(.18f,.18f,.18f));
+        const float Miniature=SoulCampaignTerrain::Enabled()?.25f:1.f;
+        FVector P((-35+(I%3)*35)*Miniature,(Fort?270.f:190.f)+(I/3)*35*Miniature,0);
+        const float Scale=SoulCampaignTerrain::Scale();
+        P.Z=(ASoulCampaignWorldActor::HeightAt(Location.X+P.X*Scale,Location.Y+P.Y*Scale)-Location.Z)/Scale;
+        Add(Garrison,P+FVector(0,0,28*Miniature),FVector(.19f,.19f,.56f)*Miniature);
+        Add(Garrison,P+FVector(0,0,66*Miniature),FVector(.18f,.18f,.18f)*Miniature);
     }
 }
 void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bExplored,bool bCurrent,bool bVisible,bool bSelected,int32 Defenders)
@@ -142,6 +150,6 @@ void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bEx
     {
         Label->SetWorldRotation((-PC->PlayerCameraManager->GetCameraRotation().Vector()).Rotation());
         const float Distance=FVector::Distance(PC->PlayerCameraManager->GetCameraLocation(),Label->GetComponentLocation());
-        Label->SetWorldSize(FMath::Clamp(Distance*.016f,20.f,80.f));
+        Label->SetWorldSize(FMath::Clamp(Distance/SoulCampaignTerrain::Scale()*(SoulCampaignTerrain::Enabled()?.012f:.016f),20.f,80.f));
     }
 }

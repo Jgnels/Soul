@@ -1,0 +1,59 @@
+{
+  "stage": "G0",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+    "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+    "-game",
+    "-windowed",
+    "-ResX=1920",
+    "-ResY=1080",
+    "-nosplash",
+    "-ExecCmds=t.MaxFPS 60,r.VSync 0",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignTerrainProduction-20260929\\Local\\pass6\\unreal.log",
+    "-ForceRes",
+    "-RenderOffscreen",
+    "-unattended",
+    "-nosound",
+    "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+    "-DDC=InstalledNoZenLocalFallback",
+    "-SoulTerrainV2",
+    "-SoulCampaignVisualProof",
+    "-SoulCampaignCapturePrefix=terrain-pass6"
+  ],
+  "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignTerrainProduction-20260929\\Local\\pass6",
+  "expected_active_units": 0,
+  "diagnostic_rhi": null,
+  "observation_seconds_after_ready": 60.0,
+  "completion_marker": "SOUL_WORLD_VISUAL_INPUT_PASS",
+  "completion_timeout": 240.0,
+  "terrain_height_sha256": "1b42e126d81385f9e36591b4e882c1540a5e3fc2e3b36a17c7dcb4f8ed0c78e5",
+  "started_utc": "2026-09-29T18:06:47.250270+00:00",
+  "initial_gpu": [
+    {
+      "name": "NVIDIA GeForce GTX 1080",
+      "memory_total_mib": 8192.0,
+      "memory_used_mib": 6274.0,
+      "temperature_c": 47.0,
+      "utilization_percent": 2.0
+    }
+  ],
+  "automatic_acceptance": false,
+  "pid": 22116,
+  "ready_utc": "2026-09-29T18:07:38.837373+00:00",
+  "exit_code": 1,
+  "clean_shutdown": false,
+  "stopped_utc": "2026-09-29T18:09:12.105583+00:00",
+  "stop_reason": "thermal_cutoff_85c",
+  "cleanup": "terminate_owned_child",
+  "elapsed_seconds": 144.86,
+  "observed_after_ready_seconds": 83.05,
+  "crash_signatures": [],
+  "rhi_log_lines": [
+    "[2026.09.29-18.06.50:496][  0]LogRHI: Using Default RHI: D3D11",
+    "[2026.09.29-18.06.51:175][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+  ],
+  "completion_marker_observed": false,
+  "alive_observed_after_ready_seconds": 77.8,
+  "preserved_crashes": []
+}

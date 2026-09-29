@@ -61,7 +61,7 @@ try {
     }
     $packages = @([regex]::Matches($gameConfig, '(?m)^\+MapsToCook=\(FilePath="([^"]+)"\)') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($packages.Count -ne 28) { throw 'Expected the reviewed 28 exact cook roots; review any breadth change.' }
+    if ($packages.Count -ne 47) { throw 'Expected the reviewed 47 exact cook roots; review any breadth change.' }
     foreach ($package in $packages) {
         $parts = $package.TrimStart('/').Split('/')
         switch ($parts[0]) {
@@ -84,7 +84,8 @@ try {
     $rules = Get-Content -LiteralPath (Join-Path $projectRoot 'Source\Soul\Soul.Build.cs') -Raw
     $dataFiles = @([regex]::Matches($rules, '"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($dataFiles.Count -ne 5) { throw 'Expected five exact JSON runtime dependencies.' }
+    if ($dataFiles.Count -ne 6) { throw 'Expected six exact JSON runtime dependencies.' }
+    if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignTerrainV2/FounderHeight.r16'))) { throw 'Missing V2 heightfield runtime payload.' }
     foreach ($relative in $dataFiles) {
         $file = Join-Path $projectRoot $relative
         Assert-File $file

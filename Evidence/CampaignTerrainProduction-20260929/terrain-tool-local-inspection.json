@@ -1,0 +1,16 @@
+{
+    "checked_utc":  "2026-09-29T18:33:30.6435710Z",
+    "registry_scopes":  [
+                            "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*",
+                            "HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*",
+                            "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*"
+                        ],
+    "matching_installed_apps":  [
+
+                                ],
+    "matching_standard_directories":  [
+
+                                      ],
+    "commercial_export_license_verified":  false,
+    "decision":  "Use project-owned UE-native bake; no evaluation terrain output imported. This bounded inspection does not establish licenses owned elsewhere."
+}
