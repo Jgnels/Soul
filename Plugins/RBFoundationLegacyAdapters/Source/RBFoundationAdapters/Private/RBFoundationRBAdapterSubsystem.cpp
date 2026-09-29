@@ -1,4 +1,6 @@
 #include "RBFoundationRBAdapterSubsystem.h"
+#include "Engine/World.h"
+#include "Engine/GameInstance.h"
 #include "RBFoundationSaveProviders.h"
 
 #include "RBFoundationSubsystem.h"
