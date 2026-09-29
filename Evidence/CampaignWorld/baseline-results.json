@@ -1,0 +1,25 @@
+{
+  "base_commit": "6d53714559d34a123b5394206866925a165373c4",
+  "baseline_unreal": {
+    "succeeded": 67,
+    "failed": 0,
+    "notRun": 0,
+    "totalDuration": 8.853950500488281
+  },
+  "baseline_source_tests": {
+    "campaign_view": 2,
+    "tools": 54
+  },
+  "visual_pass_1": {
+    "capture": "pass1-1280.png",
+    "inspected": true,
+    "accepted": false,
+    "findings": [
+      "Continuous world geometry replaces empty graph backdrop",
+      "Fallback materials prevent evaluation of palette and exploration",
+      "Capital framing overlaps selected-location panel",
+      "Compact HUD leaves most world visible"
+    ]
+  },
+  "runtime_roundtrip_at_baseline": "not yet run on worker implementation"
+}

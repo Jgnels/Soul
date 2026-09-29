@@ -1,0 +1,10 @@
+Base: 6d53714559d34a123b5394206866925a165373c4
+Source branch: astra/soul-finalproject-consolidated-20260927
+Worker branch: codex/soul-bannerlord-campaign-map-20260929
+Source dirty files excluded: Config/DefaultEngine.ini; Evidence/RealtimeBattleLab/battle_lab_report.json; Evidence/RealtimeBattleLab/battle_lab_report.md; Evidence/PipelineRecovery-20260928-2103/; Evidence/PipelineRecovery-20260928-2107/.
+Baseline source tests: campaign view 2/2; Tools test_*.py 54/54.
+Donor: D:/RefinedBadger/Worktrees/Soul-dragon-graveyard-proof-20260922/Content/Dragon_graveyard (exists).
+No source modifications yet. Sandbox command setup broken; elevated commands operational.
+UE baseline: SoulEditor build succeeded (410.44 seconds); existing Soul.* automation 67 succeeded / 0 failed / 0 not run. Before screenshot captured with unmodified baseline binaries and inspected: before-1280.png.
+First world build: succeeded (84.95 seconds). First rendered capture: pass1-1280.png inspected; continuous geometry and compact HUD visible, but materials fallback gray/checkerboard and camera places capital under right panel. Not an accepted visual result.
+Packaging source test initially caught new material/primitive cook roots. Exact list updated from 25 to 28 roots; 7 packaging source tests pass.
