@@ -102,13 +102,15 @@ UInstancedStaticMeshComponent* ASoulCampaignWorldActor::MakeInstances(AActor* Ow
 }
 void ASoulCampaignWorldActor::Build(USoulFounderPlaytestStateSubsystem* InState)
 {
+    const double Started=FPlatformTime::Seconds();
     State=InState;
     BuildTerrain(); BuildRoads(); BuildDressing(); BuildParty();
     RefreshKnowledge(); PresentPlayerLocation(State->PlayerRegion,false);
+    UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_BUILT vertices=%d routes=%d elapsed_ms=%.2f"),Vertices.Num(),Roads.Num(),(FPlatformTime::Seconds()-Started)*1000.0);
 }
 void ASoulCampaignWorldActor::BuildTerrain()
 {
-    constexpr int32 NX=200, NY=200;
+    constexpr int32 NX=350, NY=350;
     for(int32 Y=0;Y<=NY;++Y) for(int32 X=0;X<=NX;++X)
     {
         const float PX=-HalfWidth+2*HalfWidth*X/NX, PY=-HalfDepth+2*HalfDepth*Y/NY;
@@ -255,13 +257,13 @@ void ASoulCampaignWorldActor::BuildParty()
 {
     Soldiers=MakeInstances(this,TEXT("Cube"),FLinearColor(.19f,.28f,.43f));
     Soldiers->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
-    for(int32 I=0;I<5;++I)AddInstance(Soldiers,FVector(-65+(I%3)*45,70+(I/3)*45,35),FVector(.24f,.20f,.65f));
+    for(int32 I=0;I<5;++I)AddInstance(Soldiers,FVector(-55+(I%3)*45,-25+(I/3)*45,35),FVector(.24f,.20f,.65f));
     auto* Pole=MakeInstances(this,TEXT("Cylinder"),FLinearColor(.30f,.24f,.13f));
     Pole->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
-    AddInstance(Pole,FVector(0,70,110),FVector(.045f,.045f,2.2f));
+    AddInstance(Pole,FVector(60,0,110),FVector(.045f,.045f,2.2f));
     auto* Banner=MakeInstances(this,TEXT("Cube"),FLinearColor(.16f,.43f,.75f));
     Banner->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
-    AddInstance(Banner,FVector(35,70,190),FVector(.65f,.055f,.45f));
+    AddInstance(Banner,FVector(95,0,190),FVector(.65f,.055f,.45f));
 }
 void ASoulCampaignWorldActor::RefreshKnowledge()
 {
@@ -293,12 +295,21 @@ void ASoulCampaignWorldActor::RefreshKnowledge()
     for(int32 I=0;I<Roads.Num();++I)
         Roads[I]->SetVisibility(FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,RoadRegions[I].Key)&&FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,RoadRegions[I].Value));
 }
+FVector ASoulCampaignWorldActor::PartyAnchor(FName Region)
+{
+    FVector P=Locations().FindRef(Region);
+    // Station the company in front of fortified silhouettes, rather than inside walls.
+    if(Region==TEXT("human_capital")||Region==TEXT("orc_camp")||Region==TEXT("orc_watch")||Region==TEXT("north_pass")) P.Y+=290.f;
+    else if(Region!=TEXT("river_ford")) P.Y+=160.f;
+    P.Z=Region==TEXT("river_ford")?38.f:HeightAt(P.X,P.Y)+12.f;
+    return P;
+}
 void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate)
 {
     if(RegionId==PresentedRegion)return;
     if(bAnimate&&Locations().Contains(PresentedRegion)&&State&&FSoulWorldRules::CanMove(State->World,PresentedRegion,RegionId))
-    { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelAlpha=0;SetActorTickEnabled(true); }
-    else {TravelAlpha=1;Party->SetRelativeLocation(Locations().FindRef(RegionId)+FVector(0,-130,12));}
+    { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelStart=Party->GetRelativeLocation();TravelAlpha=0;SetActorTickEnabled(true); }
+    else {TravelAlpha=1;Party->SetRelativeLocation(PartyAnchor(RegionId));}
     PresentedRegion=RegionId;
 }
 void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
@@ -307,5 +318,8 @@ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
     if(TravelAlpha>=1){SetActorTickEnabled(false);return;}
     TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/.95f);
     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
-    Party->SetRelativeLocation(RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,-130,15));
+    FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,12);
+    Route=FMath::Lerp(TravelStart,Route,FMath::SmoothStep(0.f,.25f,Eased));
+    Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
+    Party->SetRelativeLocation(Route);
 }

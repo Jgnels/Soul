@@ -22,6 +22,8 @@ bool FSoulCampaignWorldGeometryTest::RunTest(const FString&)
         TestTrue(TEXT("location inside navigable world"),FMath::Abs(P->X)<ASoulCampaignCamera::MaxFocusX&&FMath::Abs(P->Y)<ASoulCampaignCamera::MaxFocusY);
         const float Ground=ASoulCampaignWorldActor::HeightAt(P->X,P->Y);
         TestTrue(TEXT("landmark rests on terrain or ford bridge"),Region.Key==TEXT("river_ford") ? P->Z>=Ground&&P->Z-Ground<60 : FMath::IsNearlyEqual(Ground,static_cast<float>(P->Z),1.f));
+        const FVector Party=ASoulCampaignWorldActor::PartyAnchor(Region.Key);
+        TestTrue(TEXT("stationed company clears terrain"),Party.Z>=ASoulCampaignWorldActor::HeightAt(Party.X,Party.Y));
         for(FName To:Region.Value.Neighbors) for(int32 I=0;I<=20;++I)
         {
             const float T=I/20.f;

@@ -22,7 +22,7 @@ public:
     float GetDistance() const { return Distance; }
     FVector GetFocus() const { return FocusPoint; }
 private:
-    FVector FocusPoint = FVector(0,-250,100), TargetFocus = FocusPoint;
-    float Distance = 8700.f, TargetDistance = Distance;
+    FVector FocusPoint = FVector(-1000,-250,100), TargetFocus = FocusPoint;
+    float Distance = 7500.f, TargetDistance = Distance;
     float Yaw = -90.f, TargetYaw = Yaw;
 };

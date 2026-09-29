@@ -39,7 +39,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     Text(TEXT("S O U L"),28,24,Gold,1.35f);
     Text(FString::Printf(TEXT("DAY %d     GOLD %d     ACTIONS %d / %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints,S->Economy.MaxActionPoints),150,28,Ink);
     int32 Army=0;for(const auto& P:S->PlayerArmy)Army+=P.Value;
-    Text(FString::Printf(TEXT("ARMY %d     HERO %d     MANA %d / %d"),Army,S->Hero.Level,S->Hero.Mana,S->Hero.MaxMana),W-490,28,Ink);
+    Text(FString::Printf(TEXT("ARMY %d   HERO %d   XP %d   MANA %d / %d"),Army,S->Hero.Level,S->Hero.Experience,S->Hero.Mana,S->Hero.MaxMana),W-560,28,Ink);
     Button(TEXT("EndDay"),TEXT("Next day  [Space]"),W-165,21,138);
     const float X=W-292;
     const FName Selected=C->GetSelectedRegion();
@@ -54,7 +54,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->EnemyArmies.FindRef(Selected)),X+15,166,Ink);
         else Text(Visible?TEXT("Click a nearby place to travel."):TEXT("Return within sight for current forces."),X+15,166,Muted);
     }
-    if(C->IsBattleAvailable())Button(TEXT("Battle"),TEXT("Commit to battle  [B]"),X+15,218,248);
+    if(C->IsBattleAvailable())Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,218,248);
     else if(S->PlayerRegion==TEXT("human_capital"))Button(TEXT("Town"),TEXT("Visit the capital  [T]"),X+15,218,248);
     else Button(TEXT("Focus"),TEXT("Focus your company  [Home]"),X+15,218,248);
     Panel(14,H-85,W-28,42);
@@ -84,18 +84,19 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     }
     if(C->IsTownPanelOpen())
     {
-        Panel(28,102,390,370);
+        const auto& Roster=USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
+        const float TavernY=190.f+Roster.Num()*31.f;
+        Panel(28,102,390,TavernY-102.f+77.f);
         Text(TEXT("HUMAN CAPITAL"),45,119,Gold,1.3f);
         Text(TEXT("Recruit from the available weekly pools"),45,148,Muted);
-        const auto& Roster=USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
         for(int32 I=0;I<Roster.Num();++I)
         {
             const auto* Pool=S->Economy.RecruitmentPools.Find(Roster[I]);
             FString Name=Roster[I].ToString().Replace(TEXT("human_"),TEXT("")).Replace(TEXT("_"),TEXT(" "));
             Button(FName(*FString::Printf(TEXT("Recruit%d"),I+1)),FString::Printf(TEXT("[%d] %s  %dg  pool %d  army %d"),I+1,*Name,Pool?Pool->CostPerUnit.FindRef(TEXT("gold")):0,Pool?Pool->Available:0,S->PlayerArmy.FindRef(Roster[I])),45,178+I*31,354);
         }
-        Button(TEXT("Hire"),S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("[H] Hire companion  /  1200 gold"),45,406,354);
-        Text(TEXT("[T / Esc] Return to the campaign"),45,447,Muted);
+        Button(TEXT("Hire"),S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("[H] Hire companion  /  1200 gold"),45,TavernY,354);
+        Text(TEXT("[T / Esc] Return to the campaign"),45,TavernY+41.f,Muted);
     }
 }
 void ASoulFounderPlaytestHUD::NotifyHitBoxClick(FName BoxName)

@@ -33,6 +33,12 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
     }
 
     State->InitializeScenario();
+    if(!State->LastBattleResult.EncounterId.IsNone())
+    {
+        const auto& Result=State->LastBattleResult;
+        LastMessage=FString::Printf(TEXT("%s at %s. %d soldiers remain. [Space] restores travel actions."),
+            Result.bPlayerWon?TEXT("Victory"):TEXT("Defeat"),*DisplayName(Result.TargetRegion),Result.PlayerSurvivors);
+    }
     WorldPresentation = GetWorld()->SpawnActor<ASoulCampaignWorldActor>();
     WorldPresentation->Build(State);
     SpawnRegions();

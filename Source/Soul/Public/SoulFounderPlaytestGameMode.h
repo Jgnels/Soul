@@ -14,6 +14,9 @@ private:
     void TickVisualQualification(float Seconds);
     float VisualElapsed=0;
     int32 VisualStep=0;
+    int32 VisualFrames=0;
+    double VisualFrameSeconds=0;
+    float VisualWorstFrame=0;
     bool bVisualQualification=false;
     FString CapturePrefix;
     UPROPERTY() TObjectPtr<class ASoulFounderPlaytestCampaignActor> Campaign;
@@ -21,6 +24,7 @@ private:
     float Elapsed=0.0f;
     float ReturnHoldSeconds=0.0f;
     bool bRoundTripVerified=false;
+    bool bRecoveryQualification=false,bRecoveryAttempted=false;
     bool bQualification=false,bStarted=false,bLoading=false,bDone=false;
     FString ExpectedSnapshot;
 };

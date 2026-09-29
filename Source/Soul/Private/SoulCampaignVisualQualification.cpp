@@ -16,6 +16,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
 {
     if(!State||!Campaign)return;
     VisualElapsed+=Seconds;
+    if(VisualElapsed>=10.f) { ++VisualFrames;VisualFrameSeconds+=Seconds;VisualWorstFrame=FMath::Max(VisualWorstFrame,Seconds); }
     if(VisualElapsed<10.f+VisualStep*3.f)return;
     auto* PC=Cast<ASoulFounderPlaytestPlayerController>(GetWorld()->GetFirstPlayerController());
     auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
@@ -40,8 +41,10 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     {
     case 0: Capture(TEXT("initial"));break;
     case 1: Key(EKeys::One);break;
-    case 2: Key(EKeys::T);break;
-    case 3: if(!Require(Campaign->IsTownPanelOpen(),TEXT("T opens recruitment panel")))return;Capture(TEXT("town"));Key(EKeys::One);break;
+    case 2:
+        { int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);const float Scale=FMath::Max(1.f,Height/900.f);
+          PC->SetMouseLocation(FMath::RoundToInt(Width-160.f*Scale),FMath::RoundToInt(231.f*Scale));Key(EKeys::LeftMouseButton); }break;
+    case 3: if(!Require(Campaign->IsTownPanelOpen(),TEXT("town HUD button opens recruitment panel")))return;Capture(TEXT("town"));Key(EKeys::One);break;
     case 4: if(!Require(State->PlayerArmy.FindRef(State->PlayerUnitId)==46,TEXT("number key recruits once")))return;Key(EKeys::T);break;
     case 5: Click(TEXT("crossroads"));break;
     case 6: if(!Require(State->PlayerRegion==TEXT("crossroads")&&State->Economy.ActionPoints==2,TEXT("mouse selection moves once and spends one action")))return;Capture(TEXT("crossroads"));break;
@@ -51,7 +54,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         if(!Require(Camera->GetDistance()<7500&&FMath::Abs(Camera->GetFocus().X)>200,TEXT("wheel zoom and keyboard pan move perspective camera")))return;
         Capture(TEXT("camera"));Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("river_ford")));break;
     case 9: Click(TEXT("river_ford"));break;
-    case 10: if(!Require(State->PlayerRegion==TEXT("river_ford"),TEXT("mouse movement reaches ford")))return;Capture(TEXT("frontier"));break;
+    case 10: if(!Require(State->PlayerRegion==TEXT("river_ford"),TEXT("mouse movement reaches ford")))return;Capture(TEXT("frontier"));Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("orc_watch")));break;
     case 11: Click(TEXT("orc_watch"));break;
     case 12:
         if(!Require(Campaign->IsBattleAvailable()&&State->PlayerRegion==TEXT("river_ford"),TEXT("hostile selection offers battle without preoccupation")))return;
@@ -87,6 +90,29 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         if(!Require(State->PlayerRegion==TEXT("forest_edge")&&FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,TEXT("north_pass")),TEXT("forest route reveals the pass through strategic vision")))return;
         Capture(TEXT("forest_pass"));break;
     case 22:
+        for(int32 I=0;I<30;++I)Key(EKeys::MouseScrollUp);
+        PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Q,IE_Pressed,1));break;
+    case 23:
+        PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Q,IE_Released,0));
+        if(!Require(FMath::IsNearlyEqual(Camera->GetDistance(),ASoulCampaignCamera::MinDistance,2.f)
+            && Camera->GetActorRotation().Yaw<-110.f
+            && Camera->GetActorLocation().Z>=ASoulCampaignWorldActor::HeightAt(Camera->GetActorLocation().X,Camera->GetActorLocation().Y)+449.f,
+            TEXT("minimum zoom and orbit retain terrain clearance")))return;
+        Capture(TEXT("close_orbit"));break;
+    case 24:
+        for(int32 I=0;I<40;++I)Key(EKeys::MouseScrollDown);
+        PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::D,IE_Pressed,1));break;
+    case 25:
+        PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::D,IE_Released,0));
+        if(!Require(FMath::IsNearlyEqual(Camera->GetDistance(),ASoulCampaignCamera::MaxDistance,2.f)
+            && FMath::Abs(Camera->GetFocus().X)<=ASoulCampaignCamera::MaxFocusX+1.f
+            && FMath::Abs(Camera->GetFocus().Y)<=ASoulCampaignCamera::MaxFocusY+1.f,
+            TEXT("maximum zoom and sustained pan stay bounded")))return;
+        Capture(TEXT("wide_bounds"));break;
+    case 26: Key(EKeys::Home);break;
+    case 27:
+        if(!Require(FVector::DistXY(Camera->GetFocus(),ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion))<3.f,TEXT("Home returns camera to company")))return;
+        UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_FRAME_SAMPLE frames=%d mean_fps=%.2f worst_ms=%.2f includes_screenshot_capture=1"),VisualFrames,VisualFrames/FMath::Max(VisualFrameSeconds,.001),VisualWorstFrame*1000.f);
         UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=1"));
         bDone=true;FPlatformMisc::RequestExitWithStatus(false,0);return;
     }

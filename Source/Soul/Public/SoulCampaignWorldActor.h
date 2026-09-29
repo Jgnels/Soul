@@ -17,8 +17,9 @@ public:
     static const TMap<FName, FVector>& Locations();
     static float HeightAt(float X, float Y);
     static float RiverX(float Y);
-    static constexpr float HalfWidth = 8000.f;
-    static constexpr float HalfDepth = 8000.f;
+    static FVector PartyAnchor(FName Region);
+    static constexpr float HalfWidth = 14000.f;
+    static constexpr float HalfDepth = 14000.f;
     static FVector RoadPoint(FName From, FName To, float Alpha);
     static class UMaterialInstanceDynamic* MakeMaterial(UObject* Outer, const FLinearColor& Color);
     static class UInstancedStaticMeshComponent* MakeInstances(AActor* Owner, const TCHAR* Shape, const FLinearColor& Color);
@@ -37,6 +38,7 @@ private:
     FString KnowledgeSignature;
     FName PresentedRegion, TravelFrom, TravelTo;
     float TravelAlpha = 1.f;
+    FVector TravelStart = FVector::ZeroVector;
     void BuildTerrain();
     void BuildRoads();
     void BuildDressing();
