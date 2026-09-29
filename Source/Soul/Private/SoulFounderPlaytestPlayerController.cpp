@@ -1,6 +1,10 @@
 #include "SoulFounderPlaytestPlayerController.h"
+#include "Components/InputComponent.h"
 
 #include "EngineUtils.h"
+#include "SoulCampaignCamera.h"
+#include "SoulCampaignWorldActor.h"
+#include "SoulFounderPlaytestHUD.h"
 #include "InputCoreTypes.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "Engine/GameInstance.h"
@@ -30,6 +34,9 @@ void ASoulFounderPlaytestPlayerController::SetupInputComponent()
     Super::SetupInputComponent();
     if (!InputComponent) return;
 
+    InputComponent->BindKey(EKeys::MouseScrollUp, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomIn);
+    InputComponent->BindKey(EKeys::MouseScrollDown, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomOut);
+    InputComponent->BindKey(EKeys::Home, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::SoulFocusCompany);
     InputComponent->BindKey(EKeys::One, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Number1);
     InputComponent->BindKey(EKeys::Two, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Number2);
     InputComponent->BindKey(EKeys::Three, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Number3);
@@ -65,6 +72,9 @@ ASoulFounderPlaytestCampaignActor* ASoulFounderPlaytestPlayerController::GetCamp
 
 void ASoulFounderPlaytestPlayerController::PrimaryClick()
 {
+    float MX=0, MY=0;
+    if (auto* H=Cast<ASoulFounderPlaytestHUD>(GetHUD()))
+        if (GetMousePosition(MX,MY) && H->IsPointerOverPanel(MX,MY)) return;
     FHitResult Hit;
     if (!GetHitResultUnderCursor(ECC_Visibility, false, Hit)) return;
 
@@ -99,3 +109,16 @@ void ASoulFounderPlaytestPlayerController::Spell4() { if(auto* S=GetGameInstance
 void ASoulFounderPlaytestPlayerController::Spell5() { if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>())S->SaveCampaign(); }
 void ASoulFounderPlaytestPlayerController::Spell6() {}
 void ASoulFounderPlaytestPlayerController::CancelPanel() { if (auto* C = GetCampaign()) C->CancelPanel(); }
+
+void ASoulFounderPlaytestPlayerController::ZoomIn() { if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) C->Zoom(1); }
+void ASoulFounderPlaytestPlayerController::ZoomOut() { if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) C->Zoom(-1); }
+void ASoulFounderPlaytestPlayerController::SoulFocusCompany()
+{ if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>()) C->Focus(ASoulCampaignWorldActor::Locations().FindRef(S->PlayerRegion)); }
+void ASoulFounderPlaytestPlayerController::PlayerTick(float DeltaSeconds)
+{
+    Super::PlayerTick(DeltaSeconds);
+    auto* C=GetCampaign();if(!C)return;
+    FHitResult Hit; FName Hover;
+    if(GetHitResultUnderCursor(ECC_Visibility,false,Hit)) if(auto* R=Cast<ASoulPlaytestRegionActor>(Hit.GetActor()))if(!R->IsHidden())Hover=R->RegionId;
+    C->HoveredRegion=Hover;
+}

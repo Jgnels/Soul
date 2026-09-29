@@ -8,7 +8,7 @@ public class Soul : ModuleRules
         PrivateDependencyModuleNames.Add("RBSaveCore");
         PublicDependencyModuleNames.AddRange(new[]
         {
-            "Core", "CoreUObject", "Engine", "InputCore", "SoulCore", "RBFoundation", "RBSave", "Json", "SoulRealtimeBattle"
+            "Core", "CoreUObject", "Engine", "ProceduralMeshComponent", "InputCore", "SoulCore", "RBFoundation", "RBSave", "Json", "SoulRealtimeBattle"
         });
 
         // Runtime readers use ProjectDir()/Data and the Foundation plugin base dir.

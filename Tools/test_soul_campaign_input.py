@@ -40,7 +40,7 @@ class CampaignInputTests(unittest.TestCase):
                         "SetInputMode(Mode)"):
             self.assertIn(setting, self.controller)
         self.assertIn('Marker->SetCollisionProfileName(TEXT("BlockAll"))', self.region)
-        self.assertIn("SetActorEnableCollision(bVisible)", self.region)
+        self.assertIn("SetActorEnableCollision(bExplored)", self.region)
         self.assertIn("Label->SetCollisionEnabled(ECollisionEnabled::NoCollision)", self.region)
 
 

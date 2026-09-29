@@ -1,6 +1,7 @@
 #include "SoulFounderPlaytestCampaignActor.h"
+#include "Engine/World.h"
 
-#include "DrawDebugHelpers.h"
+#include "SoulCampaignWorldActor.h"
 #include "Engine/GameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
@@ -14,18 +15,7 @@ ASoulFounderPlaytestCampaignActor::ASoulFounderPlaytestCampaignActor()
 
 const TMap<FName, FVector>& ASoulFounderPlaytestCampaignActor::RegionPositions()
 {
-    static const TMap<FName, FVector> Positions = {
-        {TEXT("human_capital"), FVector(-3000, 0, 50)},
-        {TEXT("crossroads"), FVector(-1600, 0, 50)},
-        {TEXT("old_quarry"), FVector(-700, -1500, 50)},
-        {TEXT("river_ford"), FVector(-200, 1200, 50)},
-        {TEXT("forest_edge"), FVector(200, -500, 50)},
-        {TEXT("ancient_shrine"), FVector(700, -2100, 50)},
-        {TEXT("orc_watch"), FVector(1600, 800, 50)},
-        {TEXT("north_pass"), FVector(1700, -1300, 50)},
-        {TEXT("orc_camp"), FVector(3100, 0, 50)}
-    };
-    return Positions;
+    return ASoulCampaignWorldActor::Locations();
 }
 
 void ASoulFounderPlaytestCampaignActor::BeginPlay()
@@ -43,8 +33,9 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
     }
 
     State->InitializeScenario();
+    WorldPresentation = GetWorld()->SpawnActor<ASoulCampaignWorldActor>();
+    WorldPresentation->Build(State);
     SpawnRegions();
-    DrawConnections();
     RefreshRegionVisuals();
 }
 
@@ -100,37 +91,20 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
         Pair.Value->SetVisualState(
             RegionColor(Pair.Key),
             bVisible,
-            Pair.Key == State->PlayerRegion);
-    }
-}
-
-void ASoulFounderPlaytestCampaignActor::DrawConnections()
-{
-    if (!State || !GetWorld()) return;
-    TSet<FString> Seen;
-    for (const TPair<FName, FSoulRegionState>& Pair : State->World.Regions)
-    {
-        const FVector* A = RegionPositions().Find(Pair.Key);
-        if (!A) continue;
-        for (FName Neighbor : Pair.Value.Neighbors)
-        {
-            const FVector* B = RegionPositions().Find(Neighbor);
-            if (!B) continue;
-            const FString KA = Pair.Key.ToString();
-            const FString KB = Neighbor.ToString();
-            const FString Key = KA < KB ? KA + TEXT("|") + KB : KB + TEXT("|") + KA;
-            if (Seen.Contains(Key)) continue;
-            Seen.Add(Key);
-            DrawDebugLine(
-                GetWorld(), *A + FVector(0,0,20), *B + FVector(0,0,20),
-                FColor(130,130,130), true, -1.0f, 0, 14.0f);
-        }
+            Pair.Key == State->PlayerRegion,
+            FSoulWorldRules::IsVisible(State->World, State->PlayerFaction, Pair.Key),
+            Pair.Key == SelectedRegion || Pair.Key == HoveredRegion,
+            State->EnemyArmies.FindRef(Pair.Key));
     }
 }
 
 void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 {
     if (!State || bTownPanelOpen) return;
+    if (!FSoulWorldRules::IsExplored(State->World, State->PlayerFaction, RegionId)) return;
+    SelectedRegion = RegionId;
+    SelectedBattleRegion = NAME_None;
+    bBattlePromptOpen = false;
     if (RegionId == State->PlayerRegion)
     {
         if (RegionId == TEXT("human_capital"))
@@ -170,6 +144,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         return;
     }
 
+    if (WorldPresentation) WorldPresentation->PresentPlayerLocation(RegionId, true);
     LastMessage = FString::Printf(TEXT("Moved to %s."), *DisplayName(RegionId));
     if (State->Hero.Level > BeforeLevel)
     {
@@ -204,7 +179,7 @@ bool ASoulFounderPlaytestCampaignActor::IsSkillChoiceOpen() const
 
 bool ASoulFounderPlaytestCampaignActor::IsBattleAvailable() const
 {
-    return State && !SelectedBattleRegion.IsNone() && State->HasHostileGarrison(SelectedBattleRegion)
+    return State && bBattlePromptOpen && !SelectedBattleRegion.IsNone() && State->HasHostileGarrison(SelectedBattleRegion)
         && FSoulWorldRules::CanMove(State->World, State->PlayerRegion, SelectedBattleRegion);
 }
 
@@ -356,5 +331,12 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
 void ASoulFounderPlaytestCampaignActor::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if (WorldPresentation && State)
+    {
+        WorldPresentation->RefreshKnowledge();
+        WorldPresentation->PresentPlayerLocation(State->PlayerRegion, false);
+    }
     RefreshRegionVisuals();
 }
+
+FName ASoulFounderPlaytestCampaignActor::CurrentRegion() const { return State ? State->PlayerRegion : NAME_None; }

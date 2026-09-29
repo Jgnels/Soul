@@ -11,6 +11,8 @@ class SOUL_API ASoulFounderPlaytestPlayerController : public APlayerController
 
 public:
     ASoulFounderPlaytestPlayerController();
+    virtual void PlayerTick(float DeltaSeconds) override;
+    UFUNCTION(Exec) void SoulFocusCompany();
 
 protected:
     virtual void BeginPlay() override;
@@ -19,6 +21,8 @@ protected:
 private:
     class ASoulFounderPlaytestCampaignActor* GetCampaign() const;
     void PrimaryClick();
+    void ZoomIn();
+    void ZoomOut();
     void Number1();
     void Number2();
     void Number3();

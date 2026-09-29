@@ -11,6 +11,11 @@ public:
     virtual void BeginPlay() override;
     virtual void Tick(float Seconds) override;
 private:
+    void TickVisualQualification(float Seconds);
+    float VisualElapsed=0;
+    int32 VisualStep=0;
+    bool bVisualQualification=false;
+    FString CapturePrefix;
     UPROPERTY() TObjectPtr<class ASoulFounderPlaytestCampaignActor> Campaign;
     UPROPERTY() TObjectPtr<class USoulFounderPlaytestStateSubsystem> State;
     float Elapsed=0.0f;
