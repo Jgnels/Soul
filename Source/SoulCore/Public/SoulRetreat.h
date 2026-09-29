@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Math/RandomStream.h"
 #include "SoulTypes.h"
 #include "SoulLogistics.h"
 
