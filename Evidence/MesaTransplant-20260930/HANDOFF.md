@@ -1,0 +1,10 @@
+# Western mesa/lava transplant — 2026-09-30
+FACT: Derived level /Game/SoulCampaignMountain/L_mesa_coast_v2 in D:/RefinedBadger/AssetLibraries/SoulTerrainPreview adds cropped Mesa_01 elevation forms to the western evil-region area. Base is approved L_grass_coast_v2. Original donors and approved base materials are unchanged.
+FACT: 85m feathered boundary, plateau relief, graded interior-to-south approach, canyon-rock texture and irregular emissive fissures. Lava is visual only, not a gameplay hazard or fluid simulation.
+FACT: All outside-mask elevations, human grasslands, water footprint and underwater heights are unchanged. Six sampled routes pass 22-degree limit, including mesa interior to coast/south. Saved level reloaded; 121/121 tiny-radius collision sweeps pass, maximum error0.33814cm.
+FACT: Six final Unreal1920x1080 views and matched before evil-region view inspected. Gallery http://127.0.0.1:8766/mesa-transplant.html; images TerrainWork/Captures/L_mesa_coast_v2_*.png. HTTP200 and all dimensions verified.
+FACT:790licensed donor files unchanged by size/mtime. Local tools/evidence only committed; licensed source/derived assets stay outside Git. Unrelated existing dirty state untouched.
+INFERENCE: Cropped mesas and warmer rock establish a distinct western volcanic region without extending into approved plains. Material transitions, approach shaping and lava appearance remain terrain-study art.
+UNKNOWN: Campaign gameplay integration, hazard rules and battle roundtrip are not qualified on this map.
+Iteration: v1 isolated plateau routes and repeated stripe glow rejected; v2 adds broad graded approach and cellular fissures. Nwiro rejects AssetTools factories; final shader uses analytic region mask and duplicated project-owned materials, no texture import factory. No security bypass.
+Reproduce: export Mesa_01 heights read-only with probe_mesa.py (RGBA8, decodeRG), bake_mesa_v2.py using grass_coast_v2.npy; import_plains.py mesa_coast_v2; dress_mesa.py; capture_mesa.py; validate_mesa_v2.py; collision probes. Existing capture driver forces viewport draws. Never save source map.

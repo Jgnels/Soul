@@ -1,0 +1,8 @@
+{
+  "map": "/Game/SoulCampaignMountain/L_mesa_coast_v2.L_mesa_coast_v2",
+  "probe_type": "0.25cm radius sweep at exact heightmap vertices",
+  "probes": 121,
+  "hits": 121,
+  "max_error_cm": 0.338134765625,
+  "note": "Finite-radius sweep avoids exact-vertex precision issues observed in the prior terrain candidate."
+}

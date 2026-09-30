@@ -1,0 +1,45 @@
+{
+  "base": "grass_coast_v2",
+  "source": "/Game/LandscapePackTwo/Maps/Mesa_01",
+  "polygon_uv": [
+    [
+      -0.08,
+      0.075
+    ],
+    [
+      0.075,
+      0.09
+    ],
+    [
+      0.16,
+      0.13
+    ],
+    [
+      0.2,
+      0.2
+    ],
+    [
+      0.25,
+      0.285
+    ],
+    [
+      0.18,
+      0.325
+    ],
+    [
+      0.08,
+      0.355
+    ],
+    [
+      -0.08,
+      0.34
+    ]
+  ],
+  "donor_raw_range": [
+    22917,
+    44076
+  ],
+  "water_mask_unchanged": true,
+  "outside_mask_unchanged": true,
+  "edited_area_m2": 110234.64532871975
+}
