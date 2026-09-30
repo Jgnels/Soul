@@ -1,0 +1,10 @@
+test_location_collision_is_hidden_and_not_a_sphere (__main__.CampaignViewTests.test_location_collision_is_hidden_and_not_a_sphere) ... ok
+test_locations_inside_continuous_surface (__main__.CampaignViewTests.test_locations_inside_continuous_surface) ... ok
+test_party_motion_does_not_write_campaign_state (__main__.CampaignViewTests.test_party_motion_does_not_write_campaign_state) ... ok
+test_perspective_camera_and_bounded_navigation (__main__.CampaignViewTests.test_perspective_camera_and_bounded_navigation) ... ok
+test_roads_come_from_authoritative_neighbors (__main__.CampaignViewTests.test_roads_come_from_authoritative_neighbors) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.004s
+
+OK

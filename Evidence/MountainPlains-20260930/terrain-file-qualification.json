@@ -1,0 +1,28 @@
+{
+  "coastal": {
+    "checked": 84,
+    "changed": []
+  },
+  "desert": {
+    "checked": 56,
+    "changed": []
+  },
+  "landscapes": {
+    "checked": 614,
+    "changed": []
+  },
+  "rocky": {
+    "checked": 36,
+    "changed": []
+  },
+  "mountain05_sha256": "3C65ED7EE42B3632AAAD11D635432F070735B0FAD66F7EE6B132D0D508D987B2",
+  "source": {
+    "exit_code": 0,
+    "summary": ".............................................................\n----------------------------------------------------------------------\nRan 61 tests in 11.852s\n\nOK\n"
+  },
+  "campaign-view": {
+    "exit_code": 0,
+    "summary": "_perspective_camera_and_bounded_navigation (__main__.CampaignViewTests.test_perspective_camera_and_bounded_navigation) ... ok\ntest_roads_come_from_authoritative_neighbors (__main__.CampaignViewTests.test_roads_come_from_authoritative_neighbors) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.004s\n\nOK\n"
+  },
+  "gallery_http": 200
+}

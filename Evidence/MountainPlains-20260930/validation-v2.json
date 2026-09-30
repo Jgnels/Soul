@@ -1,0 +1,32 @@
+{
+  "outside_edit_unchanged": true,
+  "shoreline_unchanged": true,
+  "quantization_error_m": 0.002500000000000391,
+  "slope_limit_degrees": 22,
+  "routes": {
+    "plains_to_north_coast": {
+      "pass": true,
+      "points": 128,
+      "max_slope_degrees": 10.567426331533682,
+      "length_m": 400.33146580061145
+    },
+    "plains_to_south_foothills": {
+      "pass": true,
+      "points": 118,
+      "max_slope_degrees": 21.679833558573716,
+      "length_m": 390.41210402993374
+    },
+    "plains_to_east_foothills": {
+      "pass": true,
+      "points": 123,
+      "max_slope_degrees": 21.59541740141926,
+      "length_m": 368.5697308793665
+    },
+    "north_lake_west_to_east": {
+      "pass": true,
+      "points": 290,
+      "max_slope_degrees": 12.483502704640728,
+      "length_m": 984.0102701795372
+    }
+  }
+}
