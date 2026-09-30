@@ -1,0 +1,8 @@
+{
+  "map": "/Game/SoulCampaignMountain/L_grass_coast_v2.L_grass_coast_v2",
+  "probe_type": "0.25cm radius sweep at exact heightmap vertices",
+  "probes": 121,
+  "hits": 121,
+  "max_error_cm": 0.0736083984375,
+  "note": "Finite-radius sweep used; exact-vertex ray precision caveat observed in prior candidate."
+}
