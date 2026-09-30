@@ -1,0 +1,494 @@
+{
+  "map": "/Game/SoulCampaignMountain/L_evil_waterfront.L_evil_waterfront",
+  "probe_type": "0.25cm radius sweep at exact heightmap vertices",
+  "probes": 121,
+  "hits": 121,
+  "max_error_cm": 0.338134765625,
+  "note": "Finite-radius sweep avoids exact-vertex precision issues observed in the prior terrain candidate.",
+  "details": [
+    {
+      "hit": true,
+      "error_cm": 0.01416015625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.003173828125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.013671875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.018798828125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.006866455078125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0094451904296875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00164794921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0032196044921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0014495849609375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0081024169921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.001434326171875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0556640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.04248046875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.034423828125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0137939453125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01092529296875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.016693115234375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.02487945556640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01557159423828125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00836181640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.001708984375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.029052734375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.096435546875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.338134765625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.039794921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.017822265625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01917266845703125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.003387451171875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00091552734375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.028076171875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.044677734375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.071533203125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.02099609375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0147705078125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.001800537109375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0466766357421875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.005889892578125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.024204254150390625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01336669921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.028656005859375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01397705078125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.036163330078125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.007781982421875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.027435302734375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0072021484375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01312255859375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.06201171875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0028533935546875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.008544921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.000885009765625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0220947265625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00439453125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01886749267578125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.008056640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.010101318359375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.033447265625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.023681640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.02197265625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.039783477783203125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.002918243408203125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.042724609375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0255126953125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.005126953125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00823974609375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.030517578125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.002227783203125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.050048828125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.041259765625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0321044921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01055145263671875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01153564453125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0106201171875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0107421875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.005126953125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0303955078125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.015380859375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0445556640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0029296875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0245361328125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.03851318359375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00067138671875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00323486328125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0189208984375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00244140625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0025634765625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0157470703125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.07177734375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0390625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0098876953125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0068359375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01104736328125
+    },
+    {
+      "hit": true,
+      "error_cm": 6.103515625e-05
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01885986328125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.001220703125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00445556640625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.003082275390625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.001220703125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.02001953125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.041748046875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.022629737854003906
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00189208984375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01556396484375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00653076171875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.02313232421875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.006591796875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0086669921875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.02197265625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.005767822265625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0335693359375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0192108154296875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0052490234375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.00287628173828125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0736083984375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.043212890625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.017333984375
+    },
+    {
+      "hit": true,
+      "error_cm": 0.03466796875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0294189453125
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0009765625
+    },
+    {
+      "hit": true,
+      "error_cm": 0.01287841796875
+    },
+    {
+      "hit": true,
+      "error_cm": 0.0310821533203125
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "outside_edit_unchanged": true,
+  "shoreline_unchanged": true,
+  "quantization_error_m": 0.0024999999999995026,
+  "slope_limit_degrees": 22,
+  "routes": {
+    "mesa_to_coastal_valley": {
+      "pass": true,
+      "points": 61,
+      "max_slope_degrees": 17.178142180919497,
+      "length_m": 234.9477970409077
+    },
+    "mesa_to_south": {
+      "pass": true,
+      "points": 124,
+      "max_slope_degrees": 20.056040203845274,
+      "length_m": 410.49571322036377
+    },
+    "plains_to_north_coast": {
+      "pass": true,
+      "points": 128,
+      "max_slope_degrees": 11.822843537106053,
+      "length_m": 405.2045665344127
+    },
+    "plains_to_south_foothills": {
+      "pass": true,
+      "points": 118,
+      "max_slope_degrees": 21.690713210447107,
+      "length_m": 387.975553663033
+    },
+    "plains_to_east_foothills": {
+      "pass": true,
+      "points": 123,
+      "max_slope_degrees": 21.59541740141926,
+      "length_m": 383.1890330807699
+    },
+    "north_lake_west_to_east": {
+      "pass": true,
+      "points": 290,
+      "max_slope_degrees": 12.483502704640728,
+      "length_m": 984.0102701795372
+    }
+  }
+}

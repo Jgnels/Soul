@@ -1,0 +1,561 @@
+{
+  "status": "Proposal only; names are placeholders; no faction simulation changed.",
+  "sites": [
+    {
+      "id": "H1",
+      "faction": "Humans",
+      "name": "Crownstead",
+      "kind": "capital",
+      "uv": [
+        0.5823529411764706,
+        0.6392156862745098
+      ],
+      "world_cm": [
+        12352.941176470587,
+        20882.35294117646,
+        1695.8796995535558
+      ],
+      "screen": [
+        1038.782541884085,
+        673.1800112802388
+      ],
+      "height_m": 16.958796995535558,
+      "slope_deg": 4.546964214768235,
+      "footprint_relief_m": 0.8404129188515554,
+      "shore_distance_m_approx": 200.0,
+      "why": "Central market and royal seat on the broad peninsula; space for farms and several approaches.",
+      "caution": "The center should remain open enough that one fort cannot lock the whole human realm.",
+      "earthworks": false
+    },
+    {
+      "id": "H2",
+      "faction": "Humans",
+      "name": "Westhaven",
+      "kind": "port",
+      "uv": [
+        0.36470588235294116,
+        0.6313725490196078
+      ],
+      "world_cm": [
+        -20294.117647058825,
+        19705.882352941175,
+        162.78596157002337
+      ],
+      "screen": [
+        831.1833274080838,
+        665.082855995049
+      ],
+      "height_m": 1.6278596157002339,
+      "slope_deg": 7.582207473016289,
+      "footprint_relief_m": 3.457174650263553,
+      "shore_distance_m_approx": 11.764705882352942,
+      "why": "Western-bank harbor linking the human heartland to the vikings and the main waterway.",
+      "caution": "Naval travel is a proposal; land supply to the capital must work without it.",
+      "earthworks": false
+    },
+    {
+      "id": "H3",
+      "faction": "Humans",
+      "name": "Stonegate",
+      "kind": "city",
+      "uv": [
+        0.7274509803921568,
+        0.788235294117647
+      ],
+      "world_cm": [
+        34117.647058823524,
+        43235.29411764705,
+        670.567416999533
+      ],
+      "screen": [
+        1176.9009421402138,
+        814.8658490914779
+      ],
+      "height_m": 6.70567416999533,
+      "slope_deg": 1.6905881176523239,
+      "footprint_relief_m": 2.910143852033599,
+      "shore_distance_m_approx": 200.0,
+      "why": "Frontier market at the human/dwarf foothills; trade and recruitment staging point.",
+      "caution": "Keep a broad approach and a separate pass fort, rather than making the city an impassable wall.",
+      "earthworks": false
+    },
+    {
+      "id": "D1",
+      "faction": "Dwarves",
+      "name": "Highforge",
+      "kind": "capital",
+      "uv": [
+        0.8725490196078431,
+        0.6490196078431373
+      ],
+      "world_cm": [
+        55882.352941176476,
+        22352.941176470587,
+        5552.648162841797
+      ],
+      "screen": [
+        1320.7068321758018,
+        684.2827328703207
+      ],
+      "height_m": 55.52648162841797,
+      "slope_deg": 14.158568072905178,
+      "footprint_relief_m": 3.6319541931152344,
+      "shore_distance_m_approx": 200.0,
+      "why": "Mountain-seat terrace overlooking the human frontier; a defensible forge capital.",
+      "caution": "Requires a carved terrace and tested pass access; avoid a summit-only placement.",
+      "earthworks": false
+    },
+    {
+      "id": "D2",
+      "faction": "Dwarves",
+      "name": "Southdelve",
+      "kind": "city",
+      "uv": [
+        0.6352941176470588,
+        0.9058823529411765
+      ],
+      "world_cm": [
+        20294.117647058825,
+        60882.352941176476,
+        3040.871810913086
+      ],
+      "screen": [
+        1089.9699932166402,
+        929.9099796499206
+      ],
+      "height_m": 30.40871810913086,
+      "slope_deg": 4.506710288893191,
+      "footprint_relief_m": 3.614717483520508,
+      "shore_distance_m_approx": 141.1764705882352,
+      "why": "Southern mining city makes the dwarven wraparound economically and militarily useful.",
+      "caution": "This should link along the southern foothills, with alternatives to a single bottleneck.",
+      "earthworks": false
+    },
+    {
+      "id": "D3",
+      "faction": "Dwarves",
+      "name": "Ironharbor",
+      "kind": "port",
+      "uv": [
+        0.8705882352941177,
+        0.884313725490196
+      ],
+      "world_cm": [
+        55588.23529411765,
+        57647.0588235294,
+        162.8848671913147
+      ],
+      "screen": [
+        1312.8457760031629,
+        905.914138077354
+      ],
+      "height_m": 1.628848671913147,
+      "slope_deg": 15.627058854808677,
+      "footprint_relief_m": 5.85506646335125,
+      "shore_distance_m_approx": 5.882352941176471,
+      "why": "Southeastern inlet port gives the mountain realm an outlet beyond its passes.",
+      "caution": "Verify navigable channel width before committing docks or naval rules.",
+      "earthworks": true
+    },
+    {
+      "id": "N1",
+      "faction": "Nature",
+      "name": "Heartgrove",
+      "kind": "capital",
+      "uv": [
+        0.39019607843137255,
+        0.21372549019607842
+      ],
+      "world_cm": [
+        -16470.58823529412,
+        -42941.17647058824,
+        151.25229358673096
+      ],
+      "screen": [
+        855.4568529183101,
+        267.4410808227371
+      ],
+      "height_m": 1.5125229358673096,
+      "slope_deg": 1.6849056345123286,
+      "footprint_relief_m": 1.5079273581504822,
+      "shore_distance_m_approx": 55.88235294117645,
+      "why": "Sheltered interior grove between ridges, away from an exposed frontier coast.",
+      "caution": "Forest dressing belongs around approach clearings; it must not obscure routes.",
+      "earthworks": false
+    },
+    {
+      "id": "N2",
+      "faction": "Nature",
+      "name": "Greenreach",
+      "kind": "port",
+      "uv": [
+        0.4392156862745098,
+        0.32941176470588235
+      ],
+      "world_cm": [
+        -9117.647058823524,
+        -25588.23529411765,
+        182.70334005355835
+      ],
+      "screen": [
+        902.1222885086028,
+        377.5690032338208
+      ],
+      "height_m": 1.8270334005355835,
+      "slope_deg": 8.071413865232216,
+      "footprint_relief_m": 3.7999768257141113,
+      "shore_distance_m_approx": 8.823529411764707,
+      "why": "Southern woodland landing facing the central waterway and neighboring realms.",
+      "caution": "Small river landing rather than a giant stone trading port.",
+      "earthworks": false
+    },
+    {
+      "id": "N3",
+      "faction": "Nature",
+      "name": "Lakewatch",
+      "kind": "city",
+      "uv": [
+        0.5529411764705883,
+        0.12745098039215685
+      ],
+      "world_cm": [
+        7941.176470588238,
+        -55882.352941176476,
+        152.97563076019287
+      ],
+      "screen": [
+        1010.4049994416661,
+        185.29815207716484
+      ],
+      "height_m": 1.5297563076019287,
+      "slope_deg": 2.7842718395587434,
+      "footprint_relief_m": 2.0981732606887817,
+      "shore_distance_m_approx": 32.352941176470594,
+      "why": "Northern-lake settlement secures the western route around the preserved lake.",
+      "caution": "Retain room for armies to go around the lake without trespassing through the city.",
+      "earthworks": false
+    },
+    {
+      "id": "O1",
+      "faction": "Orcs",
+      "name": "Redmaw",
+      "kind": "capital",
+      "uv": [
+        0.888235294117647,
+        0.06862745098039216
+      ],
+      "world_cm": [
+        58235.29411764705,
+        -64705.882352941175,
+        166.7623996734619
+      ],
+      "screen": [
+        1329.652375100747,
+        129.27513877694787
+      ],
+      "height_m": 1.6676239967346191,
+      "slope_deg": 0.4132965343396795,
+      "footprint_relief_m": 0.6247127056121826,
+      "shore_distance_m_approx": 49.999999999999986,
+      "why": "Northeastern basin for the main stronghold, backed by hills and multiple expansion directions.",
+      "caution": "A staging basin is more useful than the highest peak.",
+      "earthworks": false
+    },
+    {
+      "id": "O2",
+      "faction": "Orcs",
+      "name": "Ravager Landing",
+      "kind": "port",
+      "uv": [
+        0.9333333333333333,
+        0.3333333333333333
+      ],
+      "world_cm": [
+        65000.0,
+        -25000.0,
+        157.28399753570557
+      ],
+      "screen": [
+        1372.5797350688144,
+        381.31548651199444
+      ],
+      "height_m": 1.5728399753570557,
+      "slope_deg": 4.7494471282109645,
+      "footprint_relief_m": 4.941693305969238,
+      "shore_distance_m_approx": 8.823529411764707,
+      "why": "Southern war-port creates pressure across the central waterway.",
+      "caution": "Avoid putting every orc route through the lake corridor.",
+      "earthworks": false
+    },
+    {
+      "id": "O3",
+      "faction": "Orcs",
+      "name": "Skullpass",
+      "kind": "city",
+      "uv": [
+        0.6882352941176471,
+        0.047058823529411764
+      ],
+      "world_cm": [
+        28235.294117647063,
+        -67941.17647058824,
+        159.8690152168274
+      ],
+      "screen": [
+        1139.2215848094588,
+        108.7480615522399
+      ],
+      "height_m": 1.598690152168274,
+      "slope_deg": 4.280839549157971,
+      "footprint_relief_m": 2.3911420106887817,
+      "shore_distance_m_approx": 20.58823529411765,
+      "why": "Western muster town guards the approach between orc country and the northern lake.",
+      "caution": "Keep a usable bypass or secondary front so the whole faction cannot be trapped here.",
+      "earthworks": false
+    },
+    {
+      "id": "V1",
+      "faction": "Vikings",
+      "name": "Fjordhall",
+      "kind": "capital",
+      "uv": [
+        0.26862745098039215,
+        0.5764705882352941
+      ],
+      "world_cm": [
+        -34705.882352941175,
+        11470.588235294112,
+        151.68312788009644
+      ],
+      "screen": [
+        739.7123617542545,
+        612.8069312846108
+      ],
+      "height_m": 1.5168312788009644,
+      "slope_deg": 7.2618727858782846,
+      "footprint_relief_m": 3.089096799492836,
+      "shore_distance_m_approx": 17.647058823529413,
+      "why": "Western fjord-side seat with a protected inland terrace and access to the long waterway.",
+      "caution": "Capital and harbor can form one district; this marker is the city center.",
+      "earthworks": false
+    },
+    {
+      "id": "V2",
+      "faction": "Vikings",
+      "name": "Northwatch",
+      "kind": "city",
+      "uv": [
+        0.24705882352941178,
+        0.3941176470588235
+      ],
+      "world_cm": [
+        -37941.17647058823,
+        -15882.352941176476,
+        1946.1166381835938
+      ],
+      "screen": [
+        717.8373260343159,
+        438.62957833994614
+      ],
+      "height_m": 19.461166381835938,
+      "slope_deg": 7.356176980740604,
+      "footprint_relief_m": 5.691348075866699,
+      "shore_distance_m_approx": 85.29411764705877,
+      "why": "Northern frontier town watches the crossing toward evil and nature territory.",
+      "caution": "Cross-water connection is proposed, not an existing bridge.",
+      "earthworks": true
+    },
+    {
+      "id": "V3",
+      "faction": "Vikings",
+      "name": "Stormhaven",
+      "kind": "port",
+      "uv": [
+        0.12549019607843137,
+        0.8352941176470589
+      ],
+      "world_cm": [
+        -56176.470588235294,
+        50294.117647058825,
+        152.5447964668274
+      ],
+      "screen": [
+        603.4317738801191,
+        859.2312390916211
+      ],
+      "height_m": 1.525447964668274,
+      "slope_deg": 5.482499355643586,
+      "footprint_relief_m": 2.4342255294322968,
+      "shore_distance_m_approx": 17.647058823529413,
+      "why": "Southern harbor extends viking reach along the long coast.",
+      "caution": "Leave enough hinterland for supplies instead of relying on naval movement alone.",
+      "earthworks": false
+    },
+    {
+      "id": "E1",
+      "faction": "Evil",
+      "name": "Cinder Crown",
+      "kind": "capital",
+      "uv": [
+        0.0803921568627451,
+        0.20784313725490197
+      ],
+      "world_cm": [
+        -62941.17647058824,
+        -43823.5294117647,
+        3100.0
+      ],
+      "screen": [
+        556.8305009796445,
+        259.2885263830235
+      ],
+      "height_m": 31.0,
+      "slope_deg": 0.03524925263419852,
+      "footprint_relief_m": 1.3429867788461536,
+      "shore_distance_m_approx": 200.0,
+      "why": "Protected mesa interior above the approach to the new coast.",
+      "caution": "Keep the graded access route outside lethal lava if hazards are introduced.",
+      "earthworks": false
+    },
+    {
+      "id": "E2",
+      "faction": "Evil",
+      "name": "Ashport",
+      "kind": "port",
+      "uv": [
+        0.2,
+        0.3176470588235294
+      ],
+      "world_cm": [
+        -45000.0,
+        -27352.941176470587,
+        155.12981414794922
+      ],
+      "screen": [
+        674.369772788674,
+        366.38162659703715
+      ],
+      "height_m": 1.5512981414794922,
+      "slope_deg": 12.220324146438674,
+      "footprint_relief_m": 5.6122754909477965,
+      "shore_distance_m_approx": 8.823529411764707,
+      "why": "New northern-bank waterfront; direct outlet for the formerly enclosed evil region.",
+      "caution": "Docks would project from dry ground into the existing water; water navigation remains unimplemented.",
+      "earthworks": true
+    },
+    {
+      "id": "E3",
+      "faction": "Evil",
+      "name": "Black Gate",
+      "kind": "city",
+      "uv": [
+        0.14705882352941177,
+        0.26862745098039215
+      ],
+      "world_cm": [
+        -52941.17647058824,
+        -34705.882352941175,
+        1447.967148674594
+      ],
+      "screen": [
+        622.6196418382843,
+        318.82843187176417
+      ],
+      "height_m": 14.479671486745941,
+      "slope_deg": 2.3597386738208828,
+      "footprint_relief_m": 4.0231963126189125,
+      "shore_distance_m_approx": 132.3529411764705,
+      "why": "Fortified approach town between the mesa capital and its coastal outlet.",
+      "caution": "Keep this smaller than the capital; it should guard the route without being the only possible expansion direction.",
+      "earthworks": false
+    }
+  ],
+  "sources": [
+    {
+      "title": "Total War Academy: Provinces and settlements",
+      "url": "https://academy.totalwar.com/campaign-provinces-and-settlements/"
+    },
+    {
+      "title": "TaleWorlds: The Passage of Time",
+      "url": "https://www.taleworlds.com/en/Games/Bannerlord/Blog/14"
+    },
+    {
+      "title": "TaleWorlds: Settlement placement and the economy",
+      "url": "https://www.taleworlds.com/en/Games/Bannerlord/Blog/99"
+    }
+  ],
+  "routes": [
+    {
+      "faction": "Humans",
+      "from": "H1",
+      "to": "H2",
+      "pass": true
+    },
+    {
+      "faction": "Humans",
+      "from": "H1",
+      "to": "H3",
+      "pass": true
+    },
+    {
+      "faction": "Dwarves",
+      "from": "D1",
+      "to": "D2",
+      "pass": true
+    },
+    {
+      "faction": "Dwarves",
+      "from": "D1",
+      "to": "D3",
+      "pass": true
+    },
+    {
+      "faction": "Nature",
+      "from": "N1",
+      "to": "N2",
+      "pass": true
+    },
+    {
+      "faction": "Nature",
+      "from": "N1",
+      "to": "N3",
+      "pass": true
+    },
+    {
+      "faction": "Orcs",
+      "from": "O1",
+      "to": "O2",
+      "pass": true
+    },
+    {
+      "faction": "Orcs",
+      "from": "O1",
+      "to": "O3",
+      "pass": true
+    },
+    {
+      "faction": "Vikings",
+      "from": "V1",
+      "to": "V2",
+      "pass": true
+    },
+    {
+      "faction": "Vikings",
+      "from": "V1",
+      "to": "V3",
+      "pass": true
+    },
+    {
+      "faction": "Evil",
+      "from": "E1",
+      "to": "E2",
+      "pass": true
+    },
+    {
+      "faction": "Evil",
+      "from": "E1",
+      "to": "E3",
+      "pass": true
+    }
+  ]
+}
