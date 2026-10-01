@@ -21,6 +21,7 @@ public:
     static constexpr float MaxDistance = 12000.f;
     float GetDistance() const { return Distance; }
     float GetMaximumDistance() const;
+    float GetMinimumDistance() const;
     bool ViewFitsTerrain() const;
     FVector GetFocus() const;
 private:

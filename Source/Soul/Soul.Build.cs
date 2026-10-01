@@ -21,6 +21,7 @@ public class Soul : ModuleRules
                 "Data/CampaignTerrainV2/FounderHeight.r16",
                 "Data/CampaignTerrainV2/presentation.json",
                 "Data/CampaignMesa/presentation.json",
+                "Data/CampaignEvilCorridor/presentation.json",
                 "Data/CampaignMesaLocal/MesaHeight.r16",
                 "Data/soul_world_overmap_v1_20260922.json",
                 "Data/soul_campaign_start_states_v1_20260922.json",

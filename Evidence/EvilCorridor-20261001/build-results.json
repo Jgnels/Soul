@@ -1,0 +1,15 @@
+{
+  "SoulEditor": {
+    "result": "Succeeded",
+    "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\EvilCorridor-20261001\\Local\\build-editor-orbit.log",
+    "log_sha256": "e11a5642f2b32fc139938bbd9f859d121a71d4ada9e6d2bdfebb7ce3d7023a4f",
+    "execution_seconds": 27.8
+  },
+  "Soul": {
+    "result": "Succeeded",
+    "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\EvilCorridor-20261001\\Local\\build-game-final.log",
+    "log_sha256": "cfb95abe65ff452513da9995afd891adcda2b70809aeb8214d4fe6a43e2e2291",
+    "execution_seconds": 603.66,
+    "binary_sha256": "fb3ba6b4a106cb8b80935f124ad4feaa2f2fde789c35f6fe47b153b06580290f"
+  }
+}

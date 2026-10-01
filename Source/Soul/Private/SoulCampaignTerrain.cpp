@@ -30,6 +30,7 @@ struct FBake
 {
     TArray<uint8> Heights;
     TMap<FName,FVector> Places;
+    TMap<FName,FString> Names;
     TMap<FString,TArray<FVector>> Routes;
     TArray<TArray<FVector>> Water;
     TArray<FBridge> Bridges;
@@ -43,7 +44,7 @@ struct FBake
         if(Mesa()){Resolution=2041;Extent=150000;Minimum=-75000;HeightUnit=.5f;}
         if(!FFileHelper::LoadFileToArray(Heights,*(FPaths::ProjectDir()/(Mesa()?TEXT("Data/CampaignMesaLocal/MesaHeight.r16"):TEXT("Data/CampaignTerrainV2/FounderHeight.r16"))))
             ||Heights.Num()!=Resolution*Resolution*2
-            ||!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/(Mesa()?TEXT("Data/CampaignMesa/presentation.json"):TEXT("Data/CampaignTerrainV2/presentation.json"))))
+            ||!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/(EvilCorridor()?TEXT("Data/CampaignEvilCorridor/presentation.json"):Mesa()?TEXT("Data/CampaignMesa/presentation.json"):TEXT("Data/CampaignTerrainV2/presentation.json"))))
             ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),Root))
         {UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN invalid/missing presentation payload; run Tools/Setup_Soul_Mesa.ps1 for the default campaign"));return;}
         for(const auto& P:Root->GetObjectField(TEXT("regions"))->Values)
@@ -56,6 +57,7 @@ struct FBake
             if(A>B){Swap(A,B);Algo::Reverse(Points);}
             Routes.Add(A+TEXT("|")+B,MoveTemp(Points));
         }
+        if(EvilCorridor())for(const auto& N:Root->GetObjectField(TEXT("display_names"))->Values)Names.Add(FName(*N.Key),N.Value->AsString());
         bValid=Places.Num()==9&&Routes.Num()==10;
         for(const auto& Item:Root->GetArrayField(TEXT("fields")))
         {
@@ -109,11 +111,13 @@ void Place(UHierarchicalInstancedStaticMeshComponent* H,FVector P,float Width,fl
     H->AddInstance(FTransform(FRotator(0,Yaw,0),P,FVector(S,S,S*Tall)));
 }
 }
+bool EvilCorridor(){return FParse::Param(FCommandLine::Get(),TEXT("SoulEvilCorridor"));}
+FString LocationName(FName Id,const FString& Fallback){if(EvilCorridor())if(const auto* N=Bake().Names.Find(Id))return *N;return Fallback;}
 bool Mesa(){return FParse::Param(FCommandLine::Get(),TEXT("SoulMesaTerrain"))
     ||(!FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"))&&!FParse::Param(FCommandLine::Get(),TEXT("SoulLegacyTerrain")));}
 bool Enabled(){return Mesa()||FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));}
 float Scale(){return Mesa()?10.f:Enabled()?20.f:1.f;}
-float RegionScale(){return Mesa()?5.f:Scale();}
+float RegionScale(){return EvilCorridor()?2.5f:Mesa()?5.f:Scale();}
 FVector2D FocusBounds(){return Mesa()?FVector2D(68000,68000):FVector2D(3800,2600)*Scale();}
 const TMap<FName,FVector>& Locations(){return Bake().Places;}
 const TArray<TArray<FVector>>& WaterLines(){return Bake().Water;}
@@ -142,6 +146,12 @@ float RoadSurface(float X,float Y)
     for(const auto& B:Bake().Bridges)
     {
         const FVector P=FRotator(0,B.Yaw,0).UnrotateVector(FVector(X,Y,0)-B.Center);
+        if(EvilCorridor())
+        {
+            const float Distance=FVector2D(FMath::Max(0.f,static_cast<float>(FMath::Abs(P.X))-B.HalfSpan),P.Y).Size();
+            const float W=1-FMath::SmoothStep(0.f,3000.f,Distance);
+            Z=FMath::Max(Z,FMath::Lerp(Z,static_cast<float>(B.Center.Z+10),W));continue;
+        }
         if(FMath::Abs(P.Y)>950||FMath::Abs(P.X)>B.HalfSpan+1800)continue;
         const float W=1-FMath::SmoothStep(B.HalfSpan,B.HalfSpan+1800.f,static_cast<float>(FMath::Abs(P.X)));
         Z=FMath::Max(Z,FMath::Lerp(Z,static_cast<float>(B.Center.Z+10),W));
@@ -156,6 +166,15 @@ void DressRoad(AActor* Owner,USceneComponent* RoadComponent,FName From,FName To)
         auto* H=Instances(Owner,TEXT("/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01"));
         if(!H)continue;
         H->AttachToComponent(RoadComponent,FAttachmentTransformRules::KeepRelativeTransform);
+        if(EvilCorridor())
+        {
+            if(B.A!=TEXT("river_ford"))continue;
+            const int32 Count=FMath::CeilToInt(B.HalfSpan/990.f);const float Half=B.HalfSpan/Count;
+            const FRotator Rotation(0,B.Yaw,0);const FVector Scale(Half/990.f,1.5f,2.f);
+            for(int32 I=0;I<Count;++I){const FVector C=B.Center+Rotation.RotateVector(FVector(-B.HalfSpan+Half+I*Half*2,0,0));
+                H->AddInstance(FTransform(Rotation,C+Rotation.RotateVector(FVector(990*Scale.X,293.9635*Scale.Y,0)),Scale));}
+            continue;
+        }
         const FVector S(B.HalfSpan/990.f,1.5f,2.f);
         const FRotator R(0,B.Yaw,0);
         const FVector Pivot=B.Center+R.RotateVector(FVector(990*S.X,293.9635*S.Y,0));
@@ -182,7 +201,7 @@ void Build(ASoulCampaignWorldActor* Owner)
     double MaxError=0;int32 Hits=0,Probes=0;
     for(const auto& Route:Bake().Routes)for(int32 I=0;I<Route.Value.Num();I+=8)
     {
-        const FVector P=Route.Value[I];FHitResult Hit;++Probes;
+        const FVector P=Route.Value[I];if(EvilCorridor()&&Height(P.X,P.Y)<=180.f)continue;FHitResult Hit;++Probes;
         if(Owner->GetWorld()->SweepSingleByChannel(Hit,FVector(P.X,P.Y,100000),FVector(P.X,P.Y,-100000),FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(.25f)))
         {++Hits;MaxError=FMath::Max(MaxError,FMath::Abs(Hit.ImpactPoint.Z-Height(P.X,P.Y)));}
     }
@@ -253,6 +272,22 @@ bool DressRegion(AActor* Owner,FName Id)
     auto* TownRoof=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Roof_E")):nullptr;
     const FVector Origin=Owner->GetActorLocation();
     const float LandmarkScale=RegionScale();
+    if(EvilCorridor()&&Id==TEXT("orc_watch"))
+    {
+        auto* Dock=Instances(Owner,TEXT("/Engine/BasicShapes/Cube"));
+        if(Dock)
+        {
+            Dock->SetMaterial(0,LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/Soul/Campaign/TerrainV2/M_CampaignWood")));
+            auto Deck=[&](float Y){const float X=Origin.X+600;return FVector(X,Y,FMath::Max(120.f,Height(X,Y)+35.f));};
+            for(int32 I=0;I<38;++I)
+            {
+                const FVector A=Deck(Origin.Y+600+I*100),B=Deck(Origin.Y+700+I*100),D=B-A;
+                Dock->AddInstance(FTransform(D.Rotation(),((A+B)*.5-Origin)/LandmarkScale,FVector(D.Size()+8,300,18)/(100*LandmarkScale)));
+                if(I%4==0&&Height(A.X,A.Y)<100)
+                    for(int32 Side:{-1,1})Dock->AddInstance(FTransform(FRotator::ZeroRotator,(A+FVector(Side*125,0,-180)-Origin)/LandmarkScale,FVector(22,22,360)/(100*LandmarkScale)));
+            }
+        }
+    }
     auto Ground=[&](float X,float Y){return FVector(X,Y,(Height(Origin.X+X*LandmarkScale,Origin.Y+Y*LandmarkScale)-Origin.Z)/LandmarkScale);};
     auto Cottage=[&](FVector P,float W,float Yaw)
     {

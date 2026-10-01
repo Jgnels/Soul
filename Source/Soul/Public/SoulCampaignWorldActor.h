@@ -39,6 +39,7 @@ private:
     FString KnowledgeSignature;
     FName PresentedRegion, TravelFrom, TravelTo;
     float TravelAlpha = 1.f;
+    float TravelDuration = 1.8f;
     FVector TravelStart = FVector::ZeroVector;
     void BuildTerrain();
     void BuildRoads();

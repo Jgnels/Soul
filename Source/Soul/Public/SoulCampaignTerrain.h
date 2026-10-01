@@ -9,6 +9,8 @@ namespace SoulCampaignTerrain
 {
     bool Enabled();
     bool Mesa();
+    bool EvilCorridor();
+    FString LocationName(FName Id,const FString& Fallback);
     float Scale();
     float RegionScale();
     FVector2D FocusBounds();

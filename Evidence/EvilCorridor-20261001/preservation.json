@@ -1,0 +1,20 @@
+{
+  "unrelated_dirty_unchanged": {
+    "Soul.uproject": true,
+    ".mcp.json": true,
+    "Evidence/CampaignTerrainProduction-20260929/ROBUST_CODEX_PROMPT.md": true,
+    "SOUL_GAMEPLAY_INTEGRATION_20260930.txt": true,
+    "Soul.uproject.nwiro-terrain-backup-20260929-102724": true
+  },
+  "licensed_files_checked": 3652,
+  "licensed_size_mtime_changed": [],
+  "prior_player_save_unchanged": {
+    "Soul.VerticalCampaign.domain.rbsave": true,
+    "Soul.VerticalCampaign.domain.rbsave.bak": true
+  },
+  "payload_sha256": {
+    "Content/SoulCampaignMountain/L_evil_waterfront.umap": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+    "Data/CampaignMesaLocal/MesaHeight.r16": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+    "Data/CampaignEvilCorridor/presentation.json": "aa11593acdcdf107251a5eccc56666f4abdbf977835463fe4be8cf37460d67fb"
+  }
+}

@@ -169,7 +169,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Q,IE_Pressed,1));break;
     case 24:
         PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Q,IE_Released,0));
-        if(!Require(FMath::IsNearlyEqual(Camera->GetDistance(),ASoulCampaignCamera::MinDistance,2.f)
+        if(!Require(FMath::IsNearlyEqual(Camera->GetDistance(),Camera->GetMinimumDistance(),2.f)
             && Camera->GetActorRotation().Yaw<-110.f
             && Camera->GetActorLocation().Z>=ASoulCampaignWorldActor::HeightAt(Camera->GetActorLocation().X,Camera->GetActorLocation().Y)+449.f*SoulCampaignTerrain::Scale(),
             TEXT("minimum zoom and orbit retain terrain clearance")))return;
@@ -219,7 +219,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Gamepad_RightShoulder,IE_Pressed,1));break;
     case 36:
         PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::Gamepad_RightShoulder,IE_Released,0));
-        if(!Require(Camera->GetDistance()>ASoulCampaignCamera::MinDistance+100&&Camera->GetActorRotation().Yaw>-70,TEXT("controller trigger zoom and shoulder orbit")))return;
+        if(!Require(Camera->GetDistance()>Camera->GetMinimumDistance()+100&&Camera->GetActorRotation().Yaw>-70,TEXT("controller trigger zoom and shoulder orbit")))return;
         Campaign->SelectedRegion=TEXT("human_capital"); // Distinct presentation-only fixture.
         Key(EKeys::Gamepad_Special_Left);PC->SetMouseLocation(400,400);break;
     case 37:

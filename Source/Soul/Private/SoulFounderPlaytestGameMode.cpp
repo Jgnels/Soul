@@ -182,6 +182,8 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
                 {
                     if(!Campaign->IsBattleAvailable()||Campaign->GetSelectedRegion()!=TEXT("orc_camp"))
                     {UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_RETURN_CLICK_FAIL fortress selection"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
+                    if(SoulCampaignTerrain::EvilCorridor()&&Camera&&FVector::Dist2D(Camera->GetFocus(),ASoulCampaignWorldActor::Locations().FindRef(TEXT("orc_camp")))>100.f)
+                    {UE_LOG(LogTemp,Error,TEXT("SOUL_CORRIDOR_FOCUS_FAIL fortress is not centered"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
                     UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_RETURN_CLICK_PASS fortress=orc_camp battle_prompt=1"));
                 }
                 FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Campaign_Stronghold.png"),true,false);
@@ -214,7 +216,39 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_RETRY_STARTED previous=%s next=%s recruits=3 finite_pool_spent=3"),*FirstEncounter.ToString(),*State->PendingBattle.EncounterId.ToString());
             return;
         }
-        if (ReturnHoldSeconds >= 70.0f)
+        if(SoulCampaignTerrain::EvilCorridor()&&State->LastBattleResult.bPlayerWon&&!bRecoveryQualification)
+        {
+            auto* PC=GetWorld()->GetFirstPlayerController();auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
+            auto At=[&](float T){return PreviousHold<T&&ReturnHoldSeconds>=T;};
+            auto Click=[&](FName Id)
+            {
+                FVector2D Screen;
+                if(!PC||!PC->ProjectWorldLocationToScreen(ASoulCampaignWorldActor::Locations().FindRef(Id)+FVector(0,0,100*SoulCampaignTerrain::RegionScale()),Screen))return;
+                PC->SetMouseLocation(FMath::RoundToInt(Screen.X),FMath::RoundToInt(Screen.Y));
+                PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Pressed,1));
+                PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Released,0));
+            };
+            if(Camera&&At(40))Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("river_ford")));
+            if(At(45))Click(TEXT("river_ford"));
+            if(Camera&&At(48))Camera->Focus(FVector(-23676,1618,400));
+            if(At(51))FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Corridor_Bridge_Travel.png"),true,false);
+            if(At(59))
+            {
+                if(State->PlayerRegion!=TEXT("river_ford")||State->Economy.ActionPoints!=1)
+                {UE_LOG(LogTemp,Error,TEXT("SOUL_CORRIDOR_TRAVEL_FAIL outbound"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
+                UE_LOG(LogTemp,Display,TEXT("SOUL_CORRIDOR_TRAVEL outbound=river_ford actions=1"));
+            }
+            if(Camera&&At(60))Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("orc_watch")));
+            if(At(64))Click(TEXT("orc_watch"));
+            if(At(78))
+            {
+                if(State->PlayerRegion!=TEXT("orc_watch")||State->Economy.ActionPoints!=0)
+                {UE_LOG(LogTemp,Error,TEXT("SOUL_CORRIDOR_TRAVEL_FAIL inbound"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
+                UE_LOG(LogTemp,Display,TEXT("SOUL_CORRIDOR_TRAVEL_PASS roundtrip=Ashport_Bridgeward_Ashport actions_spent=2 controller_clicks=2"));
+                FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Corridor_Ashport_Return.png"),true,false);
+            }
+        }
+        if (ReturnHoldSeconds >= (SoulCampaignTerrain::EvilCorridor()?85.0f:70.0f))
         {
             UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_PASS id=%s target=%s victory=%d survivors=%d/%d persistence=RBSave returnHoldSeconds=%.2f"),
                 *State->LastBattleResult.EncounterId.ToString(),*State->LastBattleResult.TargetRegion.ToString(),

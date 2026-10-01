@@ -28,7 +28,7 @@ class CampaignViewTests(unittest.TestCase):
         maximum=float(re.search(r'MaxDistance\s*=\s*([\d.]+)',header)[1])
         self.assertGreater(minimum,500)
         self.assertGreater(maximum,minimum)
-        self.assertIn('MinDistance, GetMaximumDistance()',camera)
+        self.assertIn('GetMinimumDistance(), GetMaximumDistance()',camera)
         for key in ['W','A','S','D','MiddleMouseButton']:
             self.assertIn('EKeys::'+key,camera)
         control=source('Private/SoulFounderPlaytestPlayerController.cpp')

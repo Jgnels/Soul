@@ -1,4 +1,5 @@
 #include "SoulFounderPlaytestCampaignActor.h"
+#include "SoulCampaignTerrain.h"
 #include "Engine/World.h"
 
 #include "SoulCampaignWorldActor.h"
@@ -50,7 +51,7 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
 
 FString ASoulFounderPlaytestCampaignActor::DisplayName(FName RegionId) const
 {
-    if (State) if (const FString* Name = State->RegionDisplayNames.Find(RegionId)) return *Name;
+    if (State) if (const FString* Name = State->RegionDisplayNames.Find(RegionId)) return SoulCampaignTerrain::LocationName(RegionId,*Name);
     static const TMap<FName, FString> Names = {
         {TEXT("human_capital"), TEXT("Human Capital")},
         {TEXT("crossroads"), TEXT("Crossroads")},

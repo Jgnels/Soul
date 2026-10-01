@@ -230,6 +230,7 @@ void ASoulCampaignWorldActor::BuildRoads()
             {
                 const float Sign=-1.f+2.f*Column/(Columns-1);
                 FVector Edge=P+Side*Sign; Edge.Z=SoulCampaignTerrain::Enabled()?SoulCampaignTerrain::RoadSurface(Edge.X,Edge.Y):FMath::Max(HeightAt(Edge.X,Edge.Y)+12.f,10.f);
+                if(SoulCampaignTerrain::EvilCorridor())Edge.Z+=Roads.Num()*.75f; // Stable separation of shared road ribbons.
                 V.Add(Edge); N.Add(FVector::UpVector); UV.Add(FVector2D(SoulCampaignTerrain::Enabled()?(Sign+1)*.5f:Sign,Alpha*20)); C.Add(FLinearColor(.36f,.29f,.18f)*(1.f+.045f*FMath::Sin(Alpha*PI*19.f)));
             }
             if(I<Steps)for(int32 Column=0;Column<Columns-1;++Column)
@@ -383,7 +384,15 @@ void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate
 {
     if(RegionId==PresentedRegion&&!bForce)return;
     if(bAnimate&&Locations().Contains(PresentedRegion)&&State&&FSoulWorldRules::CanMove(State->World,PresentedRegion,RegionId))
-    { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelStart=Party->GetRelativeLocation();TravelAlpha=0;SetActorTickEnabled(true); }
+    { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelStart=Party->GetRelativeLocation();TravelAlpha=0;
+        TravelDuration=SoulCampaignTerrain::Enabled()?1.8f:.95f;
+        if(SoulCampaignTerrain::EvilCorridor())
+        {
+            float Distance=0;FVector Previous=RoadPoint(TravelFrom,TravelTo,0);
+            for(int32 I=1;I<=128;++I){const FVector Next=RoadPoint(TravelFrom,TravelTo,I/128.f);Distance+=FVector::Dist(Previous,Next);Previous=Next;}
+            TravelDuration=FMath::Clamp(Distance/10000.f,2.2f,12.f);
+        }
+        SetActorTickEnabled(true); }
     else {TravelAlpha=1;Party->SetRelativeLocation(PartyAnchor(RegionId));}
     PresentedRegion=RegionId;
 }
@@ -391,7 +400,7 @@ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     if(TravelAlpha>=1){SetActorTickEnabled(false);return;}
-    TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/(SoulCampaignTerrain::Enabled()?1.8f:.95f));
+    TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/TravelDuration);
     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
     FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,(SoulCampaignTerrain::Enabled()?2:12)*SoulCampaignTerrain::Scale());
     if(!SoulCampaignTerrain::Mesa())

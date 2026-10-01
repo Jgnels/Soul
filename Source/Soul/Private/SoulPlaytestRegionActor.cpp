@@ -150,6 +150,7 @@ void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bEx
     {
         Label->SetWorldRotation((-PC->PlayerCameraManager->GetCameraRotation().Vector()).Rotation());
         const float Distance=FVector::Distance(PC->PlayerCameraManager->GetCameraLocation(),Label->GetComponentLocation());
-        Label->SetWorldSize(FMath::Clamp(Distance/SoulCampaignTerrain::Scale()*(SoulCampaignTerrain::Enabled()?.012f:.016f),20.f,80.f));
+        if(SoulCampaignTerrain::EvilCorridor())Label->SetWorldSize(Distance/SoulCampaignTerrain::RegionScale()*.008f);
+        else Label->SetWorldSize(FMath::Clamp(Distance/SoulCampaignTerrain::Scale()*(SoulCampaignTerrain::Enabled()?.012f:.016f),20.f,80.f));
     }
 }

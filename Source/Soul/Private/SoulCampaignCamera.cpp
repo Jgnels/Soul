@@ -25,7 +25,8 @@ ASoulCampaignCamera::ASoulCampaignCamera()
     Camera->PostProcessSettings.bOverride_VignetteIntensity = true;
     Camera->PostProcessSettings.VignetteIntensity = .22f;
 }
-void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); Tick(1.f); }
+void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=4000.f; Tick(1.f); }
+float ASoulCampaignCamera::GetMinimumDistance() const {return SoulCampaignTerrain::EvilCorridor()?900.f:MinDistance;}
 float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
 FBox2D ASoulCampaignCamera::FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const
 {
@@ -58,7 +59,7 @@ bool ASoulCampaignCamera::ViewFitsTerrain() const
 }
 void ASoulCampaignCamera::Zoom(float Steps)
 {
-    TargetDistance = FMath::Clamp(TargetDistance * FMath::Pow(.85f, Steps), MinDistance, GetMaximumDistance());
+    TargetDistance = FMath::Clamp(TargetDistance * FMath::Pow(.85f, Steps), GetMinimumDistance(), GetMaximumDistance());
 }
 void ASoulCampaignCamera::Pan(FVector2D Direction, float DeltaSeconds)
 {
@@ -77,9 +78,16 @@ void ASoulCampaignCamera::Focus(FVector Location)
     TargetFocus = FVector(Location.X/SoulCampaignTerrain::Scale(),Location.Y/SoulCampaignTerrain::Scale(),Location.Z/SoulCampaignTerrain::Scale()+100);
     // Home/load must still center the company near the coast: zoom in enough
     // to contain that focus, instead of clamping the company out of the center.
-    if(SoulCampaignTerrain::Mesa())while(TargetDistance>MinDistance
+    const float FocusMinimum=GetMinimumDistance();
+    if(SoulCampaignTerrain::Mesa())while(TargetDistance>FocusMinimum
         &&!FocusRange(TargetDistance,TargetYaw,TargetFocus.Z).IsInsideOrOn(FVector2D(TargetFocus.X,TargetFocus.Y)))
-        TargetDistance=FMath::Max(MinDistance,TargetDistance*.9f);
+        TargetDistance=FMath::Max(FocusMinimum,TargetDistance*.9f);
+    // An edge settlement can remain outside the footprint even at minimum zoom.
+    // Choose an allowed inward-facing angle before moving the focus off its anchor.
+    if(SoulCampaignTerrain::EvilCorridor()&&!FocusRange(TargetDistance,TargetYaw,TargetFocus.Z).IsInsideOrOn(FVector2D(TargetFocus.X,TargetFocus.Y)))
+        for(float Candidate:{-45.f,-90.f,-135.f})
+            if(FocusRange(TargetDistance,Candidate,TargetFocus.Z).IsInsideOrOn(FVector2D(TargetFocus.X,TargetFocus.Y)))
+            {TargetYaw=Candidate;break;}
 }
 FVector ASoulCampaignCamera::GetFocus() const {return FocusPoint*SoulCampaignTerrain::Scale();}
 void ASoulCampaignCamera::Tick(float DeltaSeconds)

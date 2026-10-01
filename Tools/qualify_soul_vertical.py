@@ -247,6 +247,9 @@ def main():
             'Binaries/Win64/UnrealEditor-Soul.dll')]
         preview['mesa_payload_sha256'] = {str(f.relative_to(project.parent)).replace('\\','/'):
             hashlib.sha256(f.read_bytes()).hexdigest() for f in payloads}
+    if "-SoulEvilCorridor" in args.ue_arg:
+        payload = project.parent / 'Data/CampaignEvilCorridor/presentation.json'
+        preview['evil_corridor_profile_sha256'] = hashlib.sha256(payload.read_bytes()).hexdigest()
     if args.dry_run:
         print(json.dumps(preview, indent=2))
         return 0

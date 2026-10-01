@@ -13,6 +13,7 @@ p.add_argument('--run',type=Path,required=True)
 p.add_argument('--output',type=Path,required=True)
 p.add_argument('--prefix',required=True)
 p.add_argument('--benchmark',action='store_true')
+p.add_argument('--saved-dir',type=Path,default=ROOT/'Saved')
 a=p.parse_args()
 if a.output.exists():p.error('Immutable receipt directory already exists')
 summary=json.loads((a.run/'summary.json').read_text())
@@ -25,7 +26,7 @@ receipt={'runtime':summary,'images':[], 'image_root':str(a.output.resolve()),
  'height_sha256_at_launch':summary.get('terrain_height_sha256',summary.get('mesa_payload_sha256',{}).get('Data/CampaignMesaLocal/MesaHeight.r16')),
  'height_sha256_at_archive':hashlib.sha256(height_file.read_bytes()).hexdigest(),
  'assertions':[line for line in log.splitlines() if 'SOUL_' in line and any(word in line for word in ('PASS','FAIL','BUILT','BENCHMARK_COMPLETE','landscape_loaded'))]}
-for f in (ROOT/'Saved/Screenshots').glob(a.prefix+'*.png'):
+for f in (a.saved_dir/'Screenshots').glob(a.prefix+'*.png'):
  if f.stat().st_mtime<started:continue
  raw=f.read_bytes();assert raw[:8]==b'\x89PNG\r\n\x1a\n'
  w,h=struct.unpack('!II',raw[16:24])
@@ -34,7 +35,7 @@ for f in (ROOT/'Saved/Screenshots').glob(a.prefix+'*.png'):
 if a.benchmark:
  import numpy as np
  for name in ['TerrainBenchmark.json','TerrainBenchmark.csv']:
-  src=ROOT/'Saved'/name
+  src=a.saved_dir/name
   assert src.stat().st_mtime>=started, 'Stale benchmark payload'
   shutil.copy2(src,a.output/name)
  frames=np.loadtxt(a.output/'TerrainBenchmark.csv',skiprows=1)

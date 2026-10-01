@@ -1,0 +1,98 @@
+{
+  "runs": {
+    "evil-input-01": {
+      "exit_code": 0,
+      "peak_gpu_c": 61.0,
+      "images": 17,
+      "elapsed_seconds": 327.75
+    },
+    "evil-input-02": {
+      "exit_code": 0,
+      "peak_gpu_c": 61.0,
+      "images": 17,
+      "elapsed_seconds": 245.75
+    },
+    "evil-input-03": {
+      "exit_code": 0,
+      "peak_gpu_c": 65.0,
+      "images": 17,
+      "elapsed_seconds": 242.25
+    },
+    "evil-load-01": {
+      "exit_code": 0,
+      "peak_gpu_c": 60.0,
+      "images": 1,
+      "elapsed_seconds": 183.78
+    },
+    "evil-victory-01": {
+      "exit_code": 0,
+      "peak_gpu_c": 68.0,
+      "images": 13,
+      "elapsed_seconds": 312.77
+    },
+    "evil-victory-03": {
+      "exit_code": 0,
+      "peak_gpu_c": 66.0,
+      "images": 13,
+      "elapsed_seconds": 338.3
+    },
+    "evil-defeat-01": {
+      "exit_code": 0,
+      "peak_gpu_c": 66.0,
+      "images": 9,
+      "elapsed_seconds": 292.39
+    }
+  },
+  "native": {
+    "passed": 69,
+    "failed": 0,
+    "not_run": 0
+  },
+  "tools": {
+    "passed": 76,
+    "failed": 0
+  },
+  "rejected": {
+    "evil-victory-02": "battle passed; rejected by fortress centering assertion; fixed and rerun as evil-victory-03"
+  },
+  "gallery": {
+    "url": "http://127.0.0.1:8766/evil-corridor.html",
+    "http_images_checked": 7,
+    "sha256": "eaaf452bebba19ee90c38e4d074b83f55bb06a018b1653baf17276b89fa5721b"
+  },
+  "inspected_images": [
+    "original-graph.png",
+    "evil-input-01_initial.png",
+    "evil-input-01_battle_prompt.png",
+    "evil-input-02_initial.png",
+    "evil-input-02_battle_prompt.png",
+    "evil-input-03_initial.png",
+    "evil-victory-01/Campaign_Stronghold.png",
+    "evil-victory-01/Corridor_Bridge_Travel.png",
+    "evil-victory-01/Corridor_Ashport_Return.png",
+    "evil-victory-03/Campaign_Stronghold.png",
+    "evil-victory-03/Corridor_Bridge_Travel.png",
+    "evil-victory-03/Corridor_Ashport_Return.png",
+    "evil-victory-03/Vertical_Battle.png",
+    "evil-defeat-01/Vertical_Campaign_Return.png"
+  ],
+  "campaign_view": {
+    "passed": 5,
+    "failed": 0
+  },
+  "builds": {
+    "SoulEditor": {
+      "result": "Succeeded",
+      "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\EvilCorridor-20261001\\Local\\build-editor-orbit.log",
+      "log_sha256": "e11a5642f2b32fc139938bbd9f859d121a71d4ada9e6d2bdfebb7ce3d7023a4f",
+      "execution_seconds": 27.8
+    },
+    "Soul": {
+      "result": "Succeeded",
+      "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\EvilCorridor-20261001\\Local\\build-game-final.log",
+      "log_sha256": "cfb95abe65ff452513da9995afd891adcda2b70809aeb8214d4fe6a43e2e2291",
+      "execution_seconds": 603.66,
+      "binary_sha256": "fb3ba6b4a106cb8b80935f124ad4feaa2f2fde789c35f6fe47b153b06580290f"
+    }
+  }
+}

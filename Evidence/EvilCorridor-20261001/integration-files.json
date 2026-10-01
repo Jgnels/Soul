@@ -1,0 +1,314 @@
+{
+  ".gitignore": {
+    "source": "reviewed prior integration",
+    "sha256": "2df0e3a549d36bfcc48c024322ea7fd52c18c97a10b39eb4e9d4de9b600a7df8"
+  },
+  "Config/DefaultGame.ini": {
+    "source": "reviewed prior integration",
+    "sha256": "6ebc785a69040bdc3991808f4bdf445aaf8dbc74247e58c26aa39ddb6b6371cd"
+  },
+  "Data/CampaignMesa/README.md": {
+    "source": "reviewed prior integration",
+    "sha256": "00489d96f654b3d3bcc69d9e07b78d294bcb2b59b473692d7fbd7b89101df265"
+  },
+  "Data/CampaignMesa/presentation.json": {
+    "source": "reviewed prior integration",
+    "sha256": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f"
+  },
+  "Evidence/CampaignIntegration-20260930/CHANGED_FILES.txt": {
+    "source": "reviewed prior integration",
+    "sha256": "043994146ffe3370f443bb6181b2dc7e3ec53e84b0b882b6322622b3396bd02d"
+  },
+  "Evidence/CampaignIntegration-20260930/HANDOFF.md": {
+    "source": "reviewed prior integration",
+    "sha256": "079bc4c90b3cbdd90d48383955f4cd5550aed9e2ce9b0096e1061abcf3a6527b"
+  },
+  "Evidence/CampaignIntegration-20260930/RC2_CHANGED_FILES.txt": {
+    "source": "reviewed prior integration",
+    "sha256": "42e0b884a4b1be3afcc69f45b04b97f459362de3c2c10019400baac3148ccf4a"
+  },
+  "Evidence/CampaignIntegration-20260930/RC2_HANDOFF.md": {
+    "source": "reviewed prior integration",
+    "sha256": "058df184965a392596f829d9b58143340081698267f88411fce1470e18f28420"
+  },
+  "Evidence/CampaignIntegration-20260930/automation-final-receipt.json": {
+    "source": "reviewed prior integration",
+    "sha256": "38fe7617140889543e0909427903886f387246cf0a8aa8621372b986defd8b43"
+  },
+  "Evidence/CampaignIntegration-20260930/automation-final-result.json": {
+    "source": "reviewed prior integration",
+    "sha256": "55ab0c1705c4e8a249863b65fbb296f64aec3f2f012a018750dc8f1b903990e8"
+  },
+  "Evidence/CampaignIntegration-20260930/automation-result.json": {
+    "source": "reviewed prior integration",
+    "sha256": "9bf16e914b8622e820e27e13ee49696a324c30afffbaa0ea80f63c0789865b45"
+  },
+  "Evidence/CampaignIntegration-20260930/build-editor-result.json": {
+    "source": "reviewed prior integration",
+    "sha256": "93a945d0b11594f0dae233918f5e7c2c0d88dcb175eb7f307006227b2d4da880"
+  },
+  "Evidence/CampaignIntegration-20260930/build-game-result.json": {
+    "source": "reviewed prior integration",
+    "sha256": "471d3d53bba0afead0254fcb2de27a56086c57343908c3d9e4f950ccf9a3e69c"
+  },
+  "Evidence/CampaignIntegration-20260930/input-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "6b1f5324a4dd3f77d5da5f46b4c4d49f8ebaec4980c64234e5b2a6c9617e9d8f"
+  },
+  "Evidence/CampaignIntegration-20260930/input-bounded.json": {
+    "source": "reviewed prior integration",
+    "sha256": "b4b5b7d2c3757b996c142e2a5e73ae65710da0f3f2988e1e990f9c2efd1c90e0"
+  },
+  "Evidence/CampaignIntegration-20260930/input-final.json": {
+    "source": "reviewed prior integration",
+    "sha256": "1fbe20e6b2609d410778541b1966e530eb8fde5e769bc8e607884460316c77f4"
+  },
+  "Evidence/CampaignIntegration-20260930/load-bounded.json": {
+    "source": "reviewed prior integration",
+    "sha256": "2bcc8db7c9e7c5966d1c762030586fb610a893fcbf0be0f6ec419e5207703440"
+  },
+  "Evidence/CampaignIntegration-20260930/load-final.json": {
+    "source": "reviewed prior integration",
+    "sha256": "4b15c7e00d352393b617ec66dd0d6a4422905d6959546c10632b68320f31d42f"
+  },
+  "Evidence/CampaignIntegration-20260930/preservation-final.json": {
+    "source": "reviewed prior integration",
+    "sha256": "98eb575c22ea1acacb2341d4d1c07cffb4fb5d9c2454e7104046c8b441d54b10"
+  },
+  "Evidence/CampaignIntegration-20260930/preserved-dirty-before.json": {
+    "source": "reviewed prior integration",
+    "sha256": "4994021967b16daff9fec350e10575c375707212f789b3f6a7ca5f2c4925d4f7"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-defeat-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "e42d1b1d2ae4bf73e0b29d0cc728272f4a02ce635016be988a23454eb0c61fcd"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-input-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "0ee7b1b54fa3284f03430106db4f87857d53c57035504ab031eb55865df9ebf5"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-load-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "ccca1649f608e3df15afb09b8d0ed3149c9044acc0b3da961e9ab2ff9cdcb0f3"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-package-audit.json": {
+    "source": "reviewed prior integration",
+    "sha256": "bc44681463f84e3377e9254155fe4cab5133fe6a532c75fa901bf5d6bc6f5656"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-package-receipt.json": {
+    "source": "reviewed prior integration",
+    "sha256": "74fd14f42510a46ad2d984fec2d00a478301e776d7deaf7ae0ead3a41605537b"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-preservation.json": {
+    "source": "reviewed prior integration",
+    "sha256": "e81621020d82503d46fa2bf69a11b7c7b6413b37011f38de0ee9b2f9bc194e48"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-tool-checks.json": {
+    "source": "reviewed prior integration",
+    "sha256": "67017cd1bfd5b2fb11936bdd231af22ed18f8fbeb0101f68eb8dffd288e2bfe1"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-victory-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "8b46a846fe691adff26a0133e65c456f1d21810301617fb1a870698a002844e7"
+  },
+  "Evidence/CampaignIntegration-20260930/rc2-victory-02.json": {
+    "source": "reviewed prior integration",
+    "sha256": "14a3160fb4d057c6c4fd597a9bb4af878abd245804de0189d497a542f6dc9f1a"
+  },
+  "Evidence/CampaignIntegration-20260930/roundtrip-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "c3c70e1126e0acf4d6c37e20f8e8c8be2d1b4bbe31b1dc0c5067cc61b2e99dd6"
+  },
+  "Evidence/CampaignIntegration-20260930/route-validation.json": {
+    "source": "reviewed prior integration",
+    "sha256": "c1056854d810e518ba742f3b4d40d911a63af63c3a0c19be9556639eed467567"
+  },
+  "Evidence/CampaignIntegration-20260930/source-checks.json": {
+    "source": "reviewed prior integration",
+    "sha256": "9e87745874970059e20aabd38bbe63428a9660bac4a66c753da3d6e119a7be9e"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-automation.json": {
+    "source": "reviewed prior integration",
+    "sha256": "4706945bf7d387ec1d7b84c79a15019add1a884ce288da93cad2b55aa5923c36"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-build-editor.json": {
+    "source": "reviewed prior integration",
+    "sha256": "c12c675aa177eb32db1e61daa31a4c0c621b2d863e38c741bffece69df91106b"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-build-game.json": {
+    "source": "reviewed prior integration",
+    "sha256": "2ced6a62287faf7c2bee66b40ab32242b7e2e6b74b68f6993a7744f8acf58487"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-defeat-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "eb850f23e9c06f684558eb51b04713eb873b3775acc1ea9b94bc59ea9f531cb6"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-defeat-snapshot.json": {
+    "source": "reviewed prior integration",
+    "sha256": "bfdd8c688688e3116efcfc71fbf2af83b793ff0b6164e8d9b34580cfff81cf9c"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-input-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "d758211304b3fa6c66e39312daf3372b8c904b589d0402627d2e923334b3f471"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-input-02.json": {
+    "source": "reviewed prior integration",
+    "sha256": "3c7ea8cf1e58dbdb88b65ec1aa414c6146b1505a300f98ebb6103f3062b08c39"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-input-03.json": {
+    "source": "reviewed prior integration",
+    "sha256": "3191d1d129ef32519fb080af731853b6d67a35a241609aecad13674ef3fb63d6"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-load-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "f739708bd7ea10f2b4577633f6e8e7025291c4acff97dd2e616d25d22eebc7df"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-os-input-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "139e2c4c11709889133fcb9908f0651fb6d2e8db0657c413e2e9ab80e09d4c53"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-preservation.json": {
+    "source": "reviewed prior integration",
+    "sha256": "dd6dd985eb0f76947bf8c56fb0b0e73fd4922575251c095824209dfe3a162efb"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-verification.json": {
+    "source": "reviewed prior integration",
+    "sha256": "c7cc517658f14b254fdeff4cabd912d75a739d2d2d0760311a7e6499e4b95475"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-victory-01.json": {
+    "source": "reviewed prior integration",
+    "sha256": "acef8d934d1b574998f0c1f324f33b5b82909a4feca7d1711b21714cf7df2dbd"
+  },
+  "Evidence/CampaignIntegration-20260930/waterfront-victory-snapshot.json": {
+    "source": "reviewed prior integration",
+    "sha256": "a3ee9670ae3314a9c30b093a8e3008b2eff8f53b4a50dbc44411740d8e5bf573"
+  },
+  "Source/Soul/Private/SoulCampaignCamera.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "7184c378ada142fa7dd0d26ee749ec1c17ec26008e98ba0268c92d3c2f77fb40"
+  },
+  "Source/Soul/Private/SoulCampaignTerrain.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "7c826bb266af805897f0bc6c7e0a0fde5e5787aa18e67cac7118e1f8e1687335"
+  },
+  "Source/Soul/Private/SoulCampaignVisualQualification.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "460b85eaf5b63cb5fdd92ba540d877dacd45b47a1ec0f185afed94171e3aee41"
+  },
+  "Source/Soul/Private/SoulCampaignWorldActor.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "53cb4999c0caa8afee4505b0d6d188174874ee61b0496e7b1ddd4228d4eb995e"
+  },
+  "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "eb300ed9258eb20f1758872c07f1c40ed4b2bb19ee6c9c72b588135303a0d561"
+  },
+  "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "cf2e269a868acab395fc3f1cc48bf883142ce312d0ef744f8f8c3a843434e1e6"
+  },
+  "Source/Soul/Private/SoulFounderPlaytestHUD.cpp": {
+    "source": "reviewed prior integration",
+    "sha256": "b80b185e646508e6b5175b0dc57ecfa9daa9e2d5b72089de9a6d7282a40b51b2"
+  },
+  "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp": {
+    "source": "reviewed prior integration",
+    "sha256": "1678a5220b4dc24c02af14e1dcf780cf441bbb59c6e7cf52b59cbcbea36b0222"
+  },
+  "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp": {
+    "source": "reviewed prior integration",
+    "sha256": "d396c832138acfaa9f73ba10f3b1bbc86959155b377ff8bab1df569dc61c69e6"
+  },
+  "Source/Soul/Private/SoulPlaytestRegionActor.cpp": {
+    "source": "pre-turn backup",
+    "sha256": "78b9fe3972d65681044e84f3a217088af633b2c9bb071f7ca41c7b04ce266c94"
+  },
+  "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp": {
+    "source": "reviewed prior integration",
+    "sha256": "fa3f1b1c01a6bf60818b95bbd6ffb90126a031df8001a6d58e7af2ef01f7ae5f"
+  },
+  "Source/Soul/Private/Tests/test_weekend_campaign_view.py": {
+    "source": "pre-turn backup",
+    "sha256": "7bec9a12ff1061dcb5451a6da1dced3cbddb61e471b8051820d42c89b1dc2adb"
+  },
+  "Source/Soul/Public/SoulCampaignCamera.h": {
+    "source": "pre-turn backup",
+    "sha256": "99cb39742e2ad30b6fd007da4453f2e8ca5b29d79c230f9266bb658ebea898b3"
+  },
+  "Source/Soul/Public/SoulCampaignTerrain.h": {
+    "source": "pre-turn backup",
+    "sha256": "61ebdc30a670a166b850ab1240f475f62445caee6c0b4789a4e2e73f8eeb7a9b"
+  },
+  "Source/Soul/Public/SoulCampaignWorldActor.h": {
+    "source": "pre-turn backup",
+    "sha256": "bd2235ef78787ffa85ede6a53b3f48a4096edaf70700cc2c00e3c37bc8a73e7d"
+  },
+  "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h": {
+    "source": "reviewed prior integration",
+    "sha256": "77587fe9db4dc294f2b31dc9485c3ae89f4159eeb7b69d1495dd441ccd70062a"
+  },
+  "Source/Soul/Public/SoulFounderPlaytestPlayerController.h": {
+    "source": "reviewed prior integration",
+    "sha256": "45a89014d6ca6d89030db190a74c7f2b95f42711be3f146855861680995b53bb"
+  },
+  "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h": {
+    "source": "reviewed prior integration",
+    "sha256": "bb9ac69af9cdaabc7ca7d7963da3e7f62dbebf94012227c4c33f8a6707d5345b"
+  },
+  "Source/Soul/Soul.Build.cs": {
+    "source": "pre-turn backup",
+    "sha256": "73db927522bd49c70f72a942b258b5aa241150639406da35f5d27b2dbb5cdeeb"
+  },
+  "Tools/Open_Soul_Campaign_Mesa.bat": {
+    "source": "reviewed prior integration",
+    "sha256": "001ae586bf9ea22f4f6754dac23d98b8fd87d190b7fd0bd2a7ebfed978815ce8"
+  },
+  "Tools/Open_Soul_RC2.bat": {
+    "source": "reviewed prior integration",
+    "sha256": "9228837e6b2cf18f00978ca1f41762fe3ab33ed03dda2f475d06e63f8563d7e8"
+  },
+  "Tools/Setup_Soul_Mesa.ps1": {
+    "source": "reviewed prior integration",
+    "sha256": "2ad1b8cb0a96403a7aef98e166561f1b9e50d2372b7d481fa48609a9f31a467c"
+  },
+  "Tools/Stage-SoulTcatResources.ps1": {
+    "source": "reviewed prior integration",
+    "sha256": "ae2e4b03579ece41400c38a7cbe6e9290b8a105dbdca541c70a670b728ec98ad"
+  },
+  "Tools/archive_soul_terrain_run.py": {
+    "source": "pre-turn backup",
+    "sha256": "53946e21559131141b1f3b0c899d01ea9bebff75b678db5189d76932b1470ebf"
+  },
+  "Tools/integrate_soul_mesa.py": {
+    "source": "reviewed prior integration",
+    "sha256": "26aaf1e85987bf36a127c794a8bbfa7db304f7ee75a326f8129a3e575bd1c9e6"
+  },
+  "Tools/package_soul_weekend.ps1": {
+    "source": "reviewed prior integration",
+    "sha256": "ad431838e055dd2b5abce3e675fa1c74de4b04bd5590e6f820ff8012940b6fee"
+  },
+  "Tools/qualify_soul_mesa.ps1": {
+    "source": "reviewed prior integration",
+    "sha256": "b66fc37b66d0b90ba82119bb805d340c207fedeb5b5c5fcd55024bfacd0359d2"
+  },
+  "Tools/qualify_soul_rc2.ps1": {
+    "source": "reviewed prior integration",
+    "sha256": "e837708a9d355dda129ac9360e4cbf03263bedbf8f63277e1a9a1b98e4b33230"
+  },
+  "Tools/qualify_soul_vertical.py": {
+    "source": "pre-turn backup",
+    "sha256": "2fb808eb17848a6b754a00ddd98cdcb0e2817b889b70c5f16ae500f776523c8d"
+  },
+  "Tools/test_package_soul_weekend.py": {
+    "source": "pre-turn backup",
+    "sha256": "f052af817fcf39b5980d5d68d44440cb2daf1364f805297274d0ea8559913276"
+  },
+  "Tools/test_qualify_soul_vertical.py": {
+    "source": "reviewed prior integration",
+    "sha256": "a9116129d3e398904b1f225fa56dab9a3efa298a3cb4dcf14085bf83b6bcce2e"
+  },
+  "Tools/test_soul_mesa_integration.py": {
+    "source": "reviewed prior integration",
+    "sha256": "5835ea53ec1ed35b39d5e5edce0e1ebedcbcc1bc0d9da1241b7c60a240cd3c8b"
+  }
+}
