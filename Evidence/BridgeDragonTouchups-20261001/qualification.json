@@ -1,0 +1,330 @@
+{
+  "worker": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "base_commit": "981361e",
+  "bridge_commit": "aa1da4e",
+  "files_changed": [
+    "Tools/build_evil_corridor_gallery.py",
+    "Data/CampaignEvilCorridor/presentation.json",
+    "Data/soul_vertical_scenario_20260925.json",
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+    "Tools/build_soul_evil_corridor.py",
+    "Tools/test_soul_evil_corridor.py",
+    "Tools/build_soul_bridge_dragon_review.py",
+    "Evidence/EvilCorridor-20261001/route-validation.json",
+    "Evidence/BridgeDragonTouchups-20261001/qualification.json"
+  ],
+  "source_sha256": {
+    "Tools/build_evil_corridor_gallery.py": "cb720328ac9bcb69f01d76e30869b4eeda7b970a9165e742f1e8a3ae02388044",
+    "Data/CampaignEvilCorridor/presentation.json": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+    "Data/soul_vertical_scenario_20260925.json": "4a9e87d2c77ccef32282b193bf2e54079813e183daeee4fce277c2644ffb5842",
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp": "913559b317718a5ff106321fbf19125677649324482cb53af359ebf39826b0e1",
+    "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp": "5dc8a13efe4c3e0d212dae939ee55225fbd8c7f7eaba7cfe46840e56255845b2",
+    "Tools/build_soul_evil_corridor.py": "f7c90ad1a7e3611e1f2ca19b35971f50961ce69260231eb7e89da3cd126ab275",
+    "Tools/test_soul_evil_corridor.py": "d292dba55b7602f8c4a5760ab181a55d812acbd7adc30078ba58971bacdd39ec",
+    "Tools/build_soul_bridge_dragon_review.py": "f63cfa17eea0da217e06a45638bcba216ff02dcff2098f40e8286ecbcd0494b6",
+    "Evidence/EvilCorridor-20261001/route-validation.json": "5922dfe71b0904d7c685e04bf221f9b63aa3a9d23ae763678f15d91c6a1bc108"
+  },
+  "built_binaries_sha256": {
+    "Binaries/Win64/UnrealEditor-Soul.dll": "c95846ff2f49cfcb607b6caa981fcc9f3058e75eb172500d77876478c048bc6a",
+    "Binaries/Win64/UnrealEditor-SoulRealtimeBattle.dll": "392eb80f3ce80277e0ed3a00318d5a24373710c768b6b78a85abb703fbad80d2",
+    "Binaries/Win64/Soul.exe": "61213ac174d784603ba32dd5ff8280d92ce4e52c46a5cb7c92a6e075a3cbaa35"
+  },
+  "bridge_span_m": 41.869530081489266,
+  "bridge_center_cm": [
+    -19867.64705885,
+    3388.9705869,
+    196.0
+  ],
+  "campaign_height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "donor_showcase_sha256": "dca2fc2c5553a793c56fcb9abcfcebbede0ab5cc8bcad227f3cb301f21c0454a",
+  "tests": {
+    "tool_unittests": {
+      "passed": 77,
+      "failed": 0
+    },
+    "campaign_view_source": {
+      "passed": 5,
+      "failed": 0
+    },
+    "unreal_native": {
+      "passed": 69,
+      "failed": 0,
+      "not_run": 0
+    },
+    "editor_build": "Succeeded",
+    "game_build": "Succeeded"
+  },
+  "runs": {
+    "bridge-dragon-victory-01": {
+      "exit_code": 0,
+      "clean_shutdown": true,
+      "completion_marker_observed": true,
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 389.78,
+      "expected_active_units": 30,
+      "peak_gpu_c": 78.0,
+      "receipt": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\EvilCorridor\\bridge-dragon-victory-01\\receipt.json",
+      "images": [
+        {
+          "file": "bridge-dragon-victory-01_battle_prompt.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "be0356398119b74249d54758db1980e529e7c4ceab5043970abb1b8833ef54c8"
+        },
+        {
+          "file": "bridge-dragon-victory-01_camera.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "da092c78f9130c1620f62ee1e970f503b1ee632ae64c23d3ba47a63dca4a1efc"
+        },
+        {
+          "file": "bridge-dragon-victory-01_crossroads.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "0b099077e8ab0f31dcb19961cf1ba01e2865f2b3539cc58511b0e670a4567241"
+        },
+        {
+          "file": "bridge-dragon-victory-01_frontier.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "355df0ff282c8b936a14d9e13d781d2ccd65aa92f721b99892ca53a550b954b7"
+        },
+        {
+          "file": "bridge-dragon-victory-01_initial.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "5ca7e4098fbaac10b424e03d2cb4e50265c74bf718e94524bc43358d375bf756"
+        },
+        {
+          "file": "bridge-dragon-victory-01_restored.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "dc32f1712a3232b16e016edff7a85d3ea04c2a710dfc25987170b5edca6eb3d7"
+        },
+        {
+          "file": "bridge-dragon-victory-01_town.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "8e36b05cb803bcd8195a42332e421daba5fe9f8d85e88ef0840952b10833ddb9"
+        },
+        {
+          "file": "bridge-dragon-victory-01_travel.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "e5ecfa178a8f80f9ce567b27b76e8b30a10cdac310f338e468304adbea425df8"
+        },
+        {
+          "file": "Campaign_Stronghold.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "77e6cd4e1bf1cf28e32be1eba9550fb45f3e02c3b9d688135f8ddad434d031c8"
+        },
+        {
+          "file": "Corridor_Ashport_Return.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "06c723493fc658f5c9a2e33c55e39a194d06a26c69047b21ad2e56855545b03a"
+        },
+        {
+          "file": "Corridor_Bridge_Travel.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ebaf708589ba235c79a197509a940486ee7bd8c4be55605618885cdfac907efd"
+        },
+        {
+          "file": "Vertical_Battle.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "188bebfcb8963b251138cf8f4057f3e28c1dd8f262bff37b027bba588bc4cb6e"
+        },
+        {
+          "file": "Vertical_Campaign_Return.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f7383b3cd40f8fd26250b83b09c1be3e77374ba814dc9f089c1a322217a9cf17"
+        }
+      ]
+    },
+    "bridge-dragon-victory-02": {
+      "exit_code": 0,
+      "clean_shutdown": true,
+      "completion_marker_observed": true,
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 307.23,
+      "expected_active_units": 30,
+      "peak_gpu_c": 75.0,
+      "receipt": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\EvilCorridor\\bridge-dragon-victory-02\\receipt.json",
+      "images": [
+        {
+          "file": "bridge-dragon-victory-02_battle_prompt.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "497240341f0c36d31cc6ce49a73d2d202fb614e99b7c642ac2ebb055d1728022"
+        },
+        {
+          "file": "bridge-dragon-victory-02_camera.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "c13d7ad1681e8aab4c137f61f91d959414469d8f8dca2c98f52d3db2cadf2a62"
+        },
+        {
+          "file": "bridge-dragon-victory-02_crossroads.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "627a47bc664c9387e058065890b8eb41d7b5a475563d5dca9e559e75c376bea9"
+        },
+        {
+          "file": "bridge-dragon-victory-02_frontier.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "1dc59d20c9c5269e7cbfcd3fbdffe0083cb59774418e2a71eb544e24b3cebe0c"
+        },
+        {
+          "file": "bridge-dragon-victory-02_initial.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "00e1bbd5ff9278a04da739ffa5b629807c539575aa799816c19fff19e0eb7b1a"
+        },
+        {
+          "file": "bridge-dragon-victory-02_restored.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "4a07a66f82f691f3e1735063b57ce7ee8badb3d87fd669ee2cb7bc07036f6a7d"
+        },
+        {
+          "file": "bridge-dragon-victory-02_town.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "31d043974f6e8d4eaab94189d9246166ed3d2cb81c0f1c10e0c1eb66d267156e"
+        },
+        {
+          "file": "bridge-dragon-victory-02_travel.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ca9b83b3c9af56c06e6a27a67395d21cdb8d5dff04a088c517700f8cd6dc2a1b"
+        },
+        {
+          "file": "Campaign_Stronghold.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "3e5a2d891e166e0e407ee89003d27f29f022ec6e97ef4c4e01be777c46872a49"
+        },
+        {
+          "file": "Corridor_Ashport_Return.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "8e9ee9ec36ed6c5290194a31fa8906b3c65d787fc52e00c47fe186c98ca8d2b4"
+        },
+        {
+          "file": "Corridor_Bridge_Travel.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "62967e10056d76f586ab9572070ec85c18d1c97c5b2a420e907b94329ab1d550"
+        },
+        {
+          "file": "Vertical_Battle.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "dfd1ac797e83fdcb179496aadc1a1e1570a5bd64d4f1fdfb1be526a43baff13c"
+        },
+        {
+          "file": "Vertical_Campaign_Return.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ca747b2d9e6351db04162ceaaeb29aca5ac2d8fb092dd986d1fcb1fa3e2964f3"
+        }
+      ]
+    },
+    "bridge-dragon-stress-01": {
+      "exit_code": 1,
+      "clean_shutdown": false,
+      "completion_marker_observed": false,
+      "stop_reason": "thermal_cutoff_85c",
+      "elapsed_seconds": 159.19,
+      "expected_active_units": 70,
+      "peak_gpu_c": 85.0,
+      "receipt": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\EvilCorridor\\bridge-dragon-stress-01\\receipt.json",
+      "images": [
+        {
+          "file": "Vertical_Battle.png",
+          "width": 1920,
+          "height": 1080,
+          "sha256": "0c08126050543d233f18d762bc0bfc301ed60344c1d0e836360a19d1f77cbb08"
+        }
+      ]
+    },
+    "bridge-dragon-stress-720-01": {
+      "exit_code": 1,
+      "clean_shutdown": false,
+      "completion_marker_observed": false,
+      "stop_reason": "thermal_cutoff_85c",
+      "elapsed_seconds": 174.88,
+      "expected_active_units": 70,
+      "peak_gpu_c": 85.0,
+      "receipt": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\EvilCorridor\\bridge-dragon-stress-720-01\\receipt.json",
+      "images": [
+        {
+          "file": "Vertical_Battle.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "6cc3b8f7c9da7b3fd64990950b7f0e95afd395252ff0c7744358fc19e4315eef"
+        },
+        {
+          "file": "Vertical_Result.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "578b6868dd63897da2f90a6b479589e7432a4c13bba0dd1672735e26be348a63"
+        }
+      ]
+    },
+    "bridge-dragon-stress-720-15fps": {
+      "exit_code": 0,
+      "clean_shutdown": true,
+      "completion_marker_observed": true,
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 261.41,
+      "expected_active_units": 70,
+      "peak_gpu_c": 72.0,
+      "receipt": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\EvilCorridor\\bridge-dragon-stress-720-15fps\\receipt.json",
+      "images": [
+        {
+          "file": "Vertical_Battle.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "2b239a03dc502c847de54242950efa3f9c03a1f7243e8037714bb2a7cd13004c"
+        },
+        {
+          "file": "Vertical_Result.png",
+          "width": 1280,
+          "height": 720,
+          "sha256": "2f85f3a7dce74cb0427141db8645856f0bc9196409a01ba40e2dd27a8eefd3cf"
+        }
+      ]
+    }
+  },
+  "FACT": [
+    "One short bridge replaces the 160 m viaduct; dry shoal and western neck carry road.",
+    "Campaign locations, legal strategic edges and heightfield unchanged.",
+    "Real showcase level retained; encounter clearing moved from [2000,-15000,0] to [14000,-10000,0].",
+    "Battle fog capped at 0.006 in the transient world; donor density 0.1 remains saved unchanged.",
+    "Final campaign roundtrip: 22 allied survivors, 0 hostile survivors, Ashport human, RBSave reload and two bridge travels passed.",
+    "No licensed asset packages saved or committed; no push or merge."
+  ],
+  "INFERENCE": [
+    "The wider camera and smaller HUD make the existing showcase scenery more recognizable; this is a visual judgment based on inspected captures."
+  ],
+  "UNKNOWN": [
+    "Packaged RC2 has not been recooked or replaced.",
+    "Promotional-image lighting parity is not established; D3D11 battle presentation remains dark and needs further art polish.",
+    "70 active units at 30 FPS cap reached the 85 C cutoff in both 1080p and 720p tests; sustained performance at that setting is not qualified.",
+    "Physical OS input was not repeated; runtime proofs inject through the player controller."
+  ],
+  "visual_inspection": {
+    "bridge": "single short span covers water, road continues across dry approach, party is on the deck",
+    "battle": "troops clear bottom HUD; authored skull, ribcages and lava visible above clearing",
+    "rejected_iteration": "victory-01 battle framing put troops against bottom HUD; revised in victory-02",
+    "review_url": "http://127.0.0.1:8766/bridge-dragon-touchups.html"
+  }
+}

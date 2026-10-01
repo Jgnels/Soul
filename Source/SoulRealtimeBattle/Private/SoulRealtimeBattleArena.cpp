@@ -9,6 +9,8 @@
 #include "Engine/GameInstance.h"
 #include "Engine/Canvas.h"
 #include "Engine/PostProcessVolume.h"
+#include "Engine/ExponentialHeightFog.h"
+#include "Components/ExponentialHeightFogComponent.h"
 #include "EngineUtils.h"
 #include "HAL/IConsoleManager.h"
 #include "Kismet/GameplayStatics.h"
@@ -822,7 +824,17 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
     {
         bExternalEnvironment = true;
         bVisualUnits = true;
-        if (ArenaOrigin.IsNearlyZero()) ArenaOrigin = FVector(2000, -15000, 0);
+        if (ArenaOrigin.IsNearlyZero()) ArenaOrigin = FVector(14000, -10000, 0);
+        // Preserve every donor actor. Reduce the near-field fog curtain only in this
+        // transient battle world so the showcase's skeletons and lava remain legible.
+        for (TActorIterator<AExponentialHeightFog> It(GetWorld()); It; ++It)
+        {
+            if (auto* Fog = It->GetComponent())
+            {
+                UE_LOG(LogTemp, Display, TEXT("SOUL_DRAGON_BATTLE_FOG: authored=%g battle=%g"), Fog->FogDensity, FMath::Min(Fog->FogDensity, 0.006f));
+                Fog->SetFogDensity(FMath::Min(Fog->FogDensity, 0.006f));
+            }
+        }
         // This imported map authored EV100 bounds (-0.5..0). Preserve those bounds
         // when Soul's renderer uses the legacy positive-luminance convention.
         // Change this world instance only; never modify the donor asset or global CVars.
@@ -2224,52 +2236,33 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     const auto* Host = ArenaHost(this);
     if (!Host || !Canvas) return;
 
-    DrawRect(FLinearColor(0, 0, 0, 0.80f),
-        12, 12, FMath::Min(1120.0f, Canvas->ClipX - 24.0f), 226);
-    DrawText(
-        TEXT("SOUL | KNIGHTS / DWARVES | ACTIVE FORCE + STRATEGIC RESERVES"),
-        FColor::White, 24, 20);
-    DrawText(
-        TEXT("Formation battle | G allied CHARGE/HOLD | 1 Firebolt from living allied caster | Esc exit"),
-        FColor::White, 24, 45);
-    DrawText(
-        FString::Printf(
-            TEXT("Allies %d active +%d reserve | Enemy %d active +%d reserve | Losses %d / %d"),
-            Host->AliveForSide(0),
-            Host->ReserveBodiesForSide(0),
-            Host->AliveForSide(1),
-            Host->ReserveBodiesForSide(1),
-            Host->CasualtiesForSide(0),
-            Host->CasualtiesForSide(1)),
-        FColor::White, 24, 70);
-    DrawText(
-        FString::Printf(
-            TEXT("Mana %.0f | RB Magic Firebolt | casts %d"),
-            Host->PlayerManaValue(), Host->MagicCastCount()),
-        FColor::Cyan, 24, 95);
-    DrawText(
-        Host->AlliedOrderSummary(),
-        Host->AreAlliedFormationsCharging() ? FColor::Green : FColor::Yellow, 24, 118);
-    DrawText(
-        TEXT("Objective: defeat the enemy army, including its reserves."),
-        FColor::White, 24, 141);
-    DrawText(Host->ReinforcementSummary(0), FColor::Cyan, 24, 164);
-    DrawText(Host->ReinforcementSummary(1), FColor::White, 24, 187);
-    DrawText(
-        Host->Status,
-        FColor::Yellow, 24, 210);
+    const float Bottom = Canvas->ClipY - 114.f;
+    DrawRect(FLinearColor(0.025f, 0.035f, 0.04f, 0.88f), 12, 12, Canvas->ClipX - 24, 54);
+    DrawRect(FLinearColor(0.025f, 0.035f, 0.04f, 0.82f), 12, Bottom, Canvas->ClipX - 24, 102);
+    DrawText(GetWorld()->GetOutermost()->GetName().Contains(TEXT("Dragon_graveyard")) ? TEXT("SOUL  |  DRAGON GRAVEYARD") : TEXT("SOUL  |  FIELD BATTLE"), FColor(227,211,166), 24, 20);
+    DrawText(FString::Printf(TEXT("Allies %d + %d reserves    Enemy %d + %d reserves    Losses %d / %d"),
+        Host->AliveForSide(0), Host->ReserveBodiesForSide(0), Host->AliveForSide(1), Host->ReserveBodiesForSide(1),
+        Host->CasualtiesForSide(0), Host->CasualtiesForSide(1)), FColor::White, 24, 43);
+    DrawText(FString::Printf(TEXT("Mana %.0f  |  Firebolt casts %d"), Host->PlayerManaValue(), Host->MagicCastCount()), FColor::Cyan, Canvas->ClipX - 260, 20);
+    DrawText(Host->AlliedOrderSummary(), Host->AreAlliedFormationsCharging() ? FColor::Green : FColor::Yellow, 24, Bottom + 8);
+    DrawText(Host->Status, FColor::Yellow, 24, Bottom + 30);
+    DrawText(Host->ReinforcementSummary(0), FColor::Cyan, 24, Bottom + 52);
+    DrawText(Host->ReinforcementSummary(1), FColor::White, Canvas->ClipX * 0.5f, Bottom + 52);
+    DrawText(TEXT("Defeat the enemy and its reserves.   [G] Charge / Hold   [1] Firebolt   [Esc] Exit"), FColor(195,202,203), 24, Bottom + 77);
 }
 
 void ASoulRealtimeArenaGameMode::SetupBattleCamera()
 {
     const FVector Center = ResolveSpawnLocation(ArenaOrigin + FVector(0, 0, 100));
     // Establish the environment in map-only qualification; frame the actual fighters during play.
-    const FVector CameraOffset = bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000);
-    const FVector FocusOffset = bMapOnly ? FVector(500, 1800, 600) : FVector(250, 0, 100);
+    const bool bDragonShowcase = GetWorld()->GetOutermost()->GetName().Contains(TEXT("Dragon_graveyard"));
+    // Frame the eastern clearing together with the authored skull, ribs and lava.
+    const FVector CameraOffset = bDragonShowcase ? FVector(4500, -5500, 4200) : (bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000));
+    const FVector FocusOffset = bDragonShowcase ? FVector(-800, 600, 200) : (bMapOnly ? FVector(500, 1800, 600) : FVector(250, 0, 100));
     auto* Camera = GetWorld()->SpawnActor<ACameraActor>(Center + CameraOffset, FRotator::ZeroRotator);
     if (!Camera) return;
     Camera->SetActorRotation((Center + FocusOffset - Camera->GetActorLocation()).Rotation());
-    Camera->GetCameraComponent()->SetFieldOfView(bMapOnly ? 65.0f : 75.0f);
+    Camera->GetCameraComponent()->SetFieldOfView((bDragonShowcase || bMapOnly) ? 65.0f : 75.0f);
     if (auto* PC = GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
 }
 
