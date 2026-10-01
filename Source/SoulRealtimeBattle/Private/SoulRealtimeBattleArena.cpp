@@ -1229,8 +1229,8 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
         ESoulRealtimeFormationRole MemberRole = FormationRole;
         if (FormationRole == ESoulRealtimeFormationRole::Shock && I == 0)
             MemberRole = ESoulRealtimeFormationRole::Apex;
-        else if (FormationRole == ESoulRealtimeFormationRole::Shock &&
-                 I == 1 && Side == 1 && UsesEvilVisualRoster())
+        else if (FormationRole == ESoulRealtimeFormationRole::Shock && I == 1 &&
+                 (Side == 0 || UsesEvilVisualRoster()))
             MemberRole = ESoulRealtimeFormationRole::Breaker;
         const bool bPlayer =
             !bProof && !bAutobattle && Side == 0 &&
@@ -1345,10 +1345,15 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
         Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Aurora.Aurora");
         return LoadObject<USkeletalMesh>(nullptr, Path);
     }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = TEXT("/Game/AfricanAnimalsPack/Elephant/Meshes/SK_ElephantTusksBig.SK_ElephantTusksBig");
+        return LoadObject<USkeletalMesh>(nullptr, Path);
+    }
     if (Side == 1 && UsesEvilVisualRoster() &&
         FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
-        Path = TEXT("/Game/QuadrapedCreatures/Barghest/Meshes/SK_BARGHEST.SK_BARGHEST");
+        Path = TEXT("/Game/Kraken/Meshes/KRAKEN.KRAKEN");
         return LoadObject<USkeletalMesh>(nullptr, Path);
     }
     if (Side == 0)
@@ -1448,12 +1453,19 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
             : TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Idle.Idle");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = bRunning
+            ? TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_Run.ANIM_Elephant_Run")
+            : TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_IdleBreathe.ANIM_Elephant_IdleBreathe");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
     if (Side == 1 && UsesEvilVisualRoster() &&
         FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
         Path = bRunning
-            ? TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_run.BARGHEST_run")
-            : TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_idleAggressive.BARGHEST_idleAggressive");
+            ? TEXT("/Game/Kraken/Animations/KRAKEN_walk.KRAKEN_walk")
+            : TEXT("/Game/Kraken/Animations/KRAKEN_idle.KRAKEN_idle");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
     if (Side == 0)
@@ -1511,10 +1523,15 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
         Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Primary_Attack_A.Primary_Attack_A");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_TusksAttack1.ANIM_Elephant_TusksAttack1");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
     if (Side == 1 && UsesEvilVisualRoster() &&
         FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
-        Path = TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_jumpBiteAggressive.BARGHEST_jumpBiteAggressive");
+        Path = TEXT("/Game/Kraken/Animations/KRAKEN_sweepAttack.KRAKEN_sweepAttack");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
     if (Side == 0)
@@ -1551,10 +1568,15 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
         Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Death.Death");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_Death.ANIM_Elephant_Death");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
     if (Side == 1 && UsesEvilVisualRoster() &&
         FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
-        Path = TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_deathAggressive.BARGHEST_deathAggressive");
+        Path = TEXT("/Game/Kraken/Animations/KRAKEN_death.KRAKEN_death");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
     if (Side == 0)
@@ -1630,11 +1652,18 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         if (!Cube) return false;
     }
 
+    const bool bKraken =
+        Side == 1 && UsesEvilVisualRoster() &&
+        FormationRole == ESoulRealtimeFormationRole::Breaker;
+    const bool bElephant =
+        Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker;
+
     FSoulRealtimeArenaCombatant Data;
     Data.Id = FGuid::NewGuid();
     Data.Side = Side;
     Data.Role = FormationRole;
-    Data.Health = RoleHealth(FormationRole);
+    Data.Health = bKraken ? 360.0f :
+        (bElephant ? 320.0f : RoleHealth(FormationRole));
     Data.Arrows =
         FormationRole == ESoulRealtimeFormationRole::Ranged ? 32 : 0;
     Data.GroupIndex = GroupIndex;
@@ -1663,7 +1692,8 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
         ECC_Visibility, ECR_Block);
     Actor->GetCharacterMovement()->MaxWalkSpeed =
-        RoleWalkSpeed(FormationRole);
+        bKraken ? 260.0f :
+        (bElephant ? 310.0f : RoleWalkSpeed(FormationRole));
     Actor->GetCharacterMovement()->bOrientRotationToMovement = !bPlayer;
     if (Data.Movement == ESoulRealtimeMovementArchetype::Aerial)
     {
@@ -1676,7 +1706,15 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     }
     else if (Data.Movement == ESoulRealtimeMovementArchetype::LowProfile)
     {
-        Actor->GetCapsuleComponent()->SetCapsuleSize(58.0f, 58.0f);
+        Actor->GetCapsuleComponent()->SetCapsuleSize(
+            bKraken ? 150.0f : 58.0f,
+            bKraken ? 170.0f : 58.0f);
+        Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
+            ECC_Pawn, ECR_Overlap);
+    }
+    else if (bElephant)
+    {
+        Actor->GetCapsuleComponent()->SetCapsuleSize(115.0f, 150.0f);
         Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
             ECC_Pawn, ECR_Overlap);
     }
@@ -1697,15 +1735,30 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Visual->SetSkeletalMeshAsset(Mesh);
         if (Data.Movement == ESoulRealtimeMovementArchetype::Aerial)
         {
-            Visual->SetRelativeLocation(FVector(0, 0, 210.0f));
+            const float ApexScale = Side == 0 ? 0.55f : 0.28f;
+            Visual->SetRelativeLocation(FVector(0, 0, 180.0f));
             Visual->SetRelativeRotation(FRotator::ZeroRotator);
-            Visual->SetRelativeScale3D(FVector(0.72f));
+            Visual->SetRelativeScale3D(FVector(ApexScale));
         }
         else if (Data.Movement == ESoulRealtimeMovementArchetype::LowProfile)
         {
-            Visual->SetRelativeLocation(FVector(0, 0, -58.0f));
+            // The donor Kraken is enormous. A 20% presentation preserves its
+            // broad silhouette while keeping it in the same elite-creature band
+            // as the elephant, griffin, and mountain dragon.
+            Visual->SetRelativeLocation(FVector(
+                0, 0, bKraken ? 105.0f : -58.0f));
             Visual->SetRelativeRotation(FRotator::ZeroRotator);
-            Visual->SetRelativeScale3D(FVector(0.78f));
+            Visual->SetRelativeScale3D(FVector(
+                bKraken ? 0.20f : 0.78f));
+        }
+        else if (bElephant)
+        {
+            // Native bounds are only about 1.3 x 1.7 x 1.1 metres. Three-times
+            // scale gives the tusked elephant a five-metre battlefield footprint
+            // comparable to the other elite creatures without making it a kaiju.
+            Visual->SetRelativeLocation(FVector(0, 0, -440.0f));
+            Visual->SetRelativeRotation(FRotator(0, -90.0f, 0));
+            Visual->SetRelativeScale3D(FVector(3.0f));
         }
         else
         {
@@ -1715,6 +1768,18 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Visual->SetAnimationMode(EAnimationMode::AnimationSingleNode);
         Visual->PlayAnimation(Idle, true);
+        if (FormationRole == ESoulRealtimeFormationRole::Apex ||
+            bKraken || bElephant)
+        {
+            const TCHAR* Creature = bElephant ? TEXT("Elephant") :
+                (bKraken ? TEXT("Kraken") :
+                    (Side == 0 ? TEXT("Griffin") : TEXT("MountainDragon")));
+            const float CreatureScale = bElephant ? 3.0f :
+                (bKraken ? 0.20f : (Side == 0 ? 0.55f : 0.28f));
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_LARGE_UNIT_DEPLOYED: type=%s scale=%.2f health=%.0f group=%d"),
+                Creature, CreatureScale, Data.Health, GroupIndex);
+        }
     }
     else
     {
