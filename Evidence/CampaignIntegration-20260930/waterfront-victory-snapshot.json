@@ -1,0 +1,85 @@
+{
+  "save_sha256": "ce923f0257f15eccf7d1712585d7251bd3c8616a2f45d336f3eb34205086d005",
+  "history_file": "00639264080531000000-D8D05656.rbsave",
+  "campaign": {
+    "player_region": "orc_watch",
+    "enemy_region": "orc_camp",
+    "player_faction": "humans",
+    "enemy_faction": "dwarves",
+    "day": 2,
+    "ap": 2,
+    "max_ap": 3,
+    "ordinal": 1,
+    "won": true,
+    "hired": false,
+    "army": {
+      "human_knight": 20
+    },
+    "enemies": {
+      "north_pass": 45,
+      "orc_camp": 30,
+      "orc_watch": 0
+    },
+    "resources": {
+      "gold": 4160
+    },
+    "income": {
+      "gold": 450
+    },
+    "pools": {
+      "human_knight": 7
+    },
+    "owners": {
+      "human_capital": "humans",
+      "crossroads": "humans",
+      "old_quarry": "None",
+      "river_ford": "humans",
+      "forest_edge": "None",
+      "ancient_shrine": "None",
+      "orc_watch": "humans",
+      "north_pass": "dwarves",
+      "orc_camp": "dwarves"
+    },
+    "rewarded": [
+      "orc_watch",
+      "river_ford"
+    ],
+    "resolved": [
+      "encounter.2.1.river_ford.orc_watch"
+    ],
+    "explored": [
+      "crossroads",
+      "forest_edge",
+      "human_capital",
+      "old_quarry",
+      "orc_camp",
+      "orc_watch",
+      "river_ford"
+    ],
+    "hero_kind": 0,
+    "hero": {
+      "level": 2,
+      "mana": 72,
+      "max_mana": 80,
+      "points": 1,
+      "xp": 500
+    },
+    "skills": {
+      "Command": 1
+    },
+    "spells": [
+      "Magic.Spell.Fire.Firebolt"
+    ],
+    "result_id": "encounter.2.1.river_ford.orc_watch",
+    "result_target": "orc_watch",
+    "result_won": true,
+    "result": {
+      "enemy": 0,
+      "enemy_waves": 4,
+      "magic": 1,
+      "player": 20,
+      "player_waves": 6
+    },
+    "result_mana": 72
+  }
+}

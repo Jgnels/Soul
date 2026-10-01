@@ -29,16 +29,18 @@ class WeekendPackagingTests(unittest.TestCase):
         required.update((scenario["campaign_map"], scenario["battle_map"]))
         self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
-        self.assertEqual(len(COOK_ROOTS), 47)
+        self.assertEqual(len(COOK_ROOTS), 48)
 
     def test_exact_disk_dependencies_match_actual_readers(self):
         source = (ROOT / "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp").read_text()
         required = {"Data/" + name for name in re.findall(r'ReadData\(TEXT\("([^"]+)"\)', source)}
         required.add("Plugins/RBFoundation/StackManifest.json")
         required.add("Data/CampaignTerrainV2/presentation.json")
+        required.add("Data/CampaignMesa/presentation.json")
         staged = set(re.findall(r'"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"', RULES))
         self.assertEqual(staged, required)
-        self.assertEqual(len(staged), 6)
+        self.assertEqual(len(staged), 7)
+        self.assertIn('"Data/CampaignMesaLocal/MesaHeight.r16"', RULES)
         self.assertIn('"Data/CampaignTerrainV2/FounderHeight.r16"', RULES)
         self.assertIn('RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS)', RULES)
         for relative in staged:
@@ -172,7 +174,7 @@ ConvertTo-Json -InputObject @($argumentNodes | ForEach-Object { $_.Value })
         self.assertEqual(arguments, [
             "BuildCookRun", "-nocompileuat", "-noturnkeyvariables", "-nop4", "-unattended", "-utf8output",
             "-project=$projectFile", "-target=Soul", "-platform=Win64", "-clientconfig=Development",
-            "-ubtargs=-MaxParallelActions=2 -NoUBA", "-AdditionalCookerOptions=-DDC=InstalledNoZenLocalFallback",
+            "-ubtargs=-MaxParallelActions=2 -NoUBA", "-AdditionalCookerOptions=-DDC=InstalledNoZenLocalFallback -DisablePlugins=AndroidFileServer",
             "-build", "-skipbuildeditor", "-cook", "-stage", "-pak", "-iostore", "-package", "-archive",
             "-prereqs", "-nocleanstage", "-stagingdirectory=$stage", "-archivedirectory=$archive",
         ])

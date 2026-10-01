@@ -1,0 +1,19 @@
+{
+    "target":  "Soul",
+    "configuration":  "Win64 Development",
+    "started_utc":  "2026-09-30T18:54:55.8828096Z",
+    "finished_utc":  "2026-09-30T18:57:53.5732471Z",
+    "exit_code":  0,
+    "arguments":  [
+                      "Soul",
+                      "Win64",
+                      "Development",
+                      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+                      "-WaitMutex",
+                      "-NoPCH",
+                      "-NoUBA",
+                      "-MaxParallelActions=2",
+                      "-ForceRulesCompile"
+                  ],
+    "compatibility_header_sha256":  "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+}

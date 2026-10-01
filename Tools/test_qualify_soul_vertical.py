@@ -21,11 +21,14 @@ SPEC.loader.exec_module(RUNNER)
 class CompletionSafetyTests(unittest.TestCase):
     def scenario(self, *, ticks=(100, 100, 160, 170, 170, 170), exit_at=170,
                  exit_code=0, marker=True, expect_marker=True, crash=False,
-                 hot=False, completion_timeout=300, resolution="1280x720"):
+                 hot=False, completion_timeout=300, resolution="1280x720", packaged=False):
         with tempfile.TemporaryDirectory(prefix="soul-runner-mock-") as directory:
             root = Path(directory).resolve()
             self.assertEqual(root.parent, Path(tempfile.gettempdir()).resolve())
             executable = root / "UnrealEditor.exe"
+            if packaged:
+                executable = root / "Archive/Windows/Soul/Binaries/Win64/Soul.exe"
+                executable.parent.mkdir(parents=True)
             executable.touch()
             project = root / "Soul.uproject"
             project.write_text("{}", encoding="utf-8")
@@ -47,6 +50,10 @@ class CompletionSafetyTests(unittest.TestCase):
             proc.poll = poll
 
             def fake_start(command, **unused):
+                if packaged:
+                    self.assertEqual(unused['cwd'], executable.parent.parent.parent)
+                    self.assertNotIn(str(project), command)
+                    self.assertNotIn('-game', command)
                 log = Path(next(arg.split("=", 1)[1] for arg in command
                                 if arg.startswith("-abslog=")))
                 text = "LogLoad: Took 1.0 seconds to LoadMap(" + RUNNER.DONOR_MAP + ")\n"
@@ -72,6 +79,8 @@ class CompletionSafetyTests(unittest.TestCase):
             if expect_marker:
                 arguments += ["--completion-marker", "SOUL_MOCK_COMPLETED",
                               "--completion-timeout", str(completion_timeout)]
+            if packaged:
+                arguments += ['--ue-arg=-UserDir=' + str(root / 'isolated-user')]
             with patch.object(sys, "argv", arguments), \
                     patch.dict(os.environ, {"COMPUTERNAME": "DESKTOP-Q1S3RPU"}), \
                     patch.object(RUNNER, "conflicting_processes", return_value=[]), \
@@ -81,11 +90,13 @@ class CompletionSafetyTests(unittest.TestCase):
                                  return_value={"working_set_mib": 100}), \
                     patch.object(RUNNER.subprocess, "Popen", side_effect=fake_start), \
                     patch.object(RUNNER, "close_owned_process", side_effect=close), \
-                    patch.object(RUNNER, "preserve_new_crashes", return_value=[]), \
+                    patch.object(RUNNER, "preserve_new_crashes", return_value=[]) as crashes, \
                     patch.object(RUNNER.time, "sleep"), \
                     patch.object(RUNNER.time, "monotonic", side_effect=clock), \
                     contextlib.redirect_stdout(io.StringIO()):
                 result = RUNNER.main()
+                if packaged:
+                    self.assertEqual(crashes.call_args.args[0], root / 'isolated-user')
             return result, json.loads((output / "summary.json").read_text(encoding="utf-8"))
 
     def test_explicit_marker_accepts_clean_observed_exit(self):
@@ -94,6 +105,12 @@ class CompletionSafetyTests(unittest.TestCase):
         self.assertEqual(record["stop_reason"], "completion_marker_process_exit")
         self.assertEqual(record["alive_observed_after_ready_seconds"], 60)
         self.assertFalse(record["automatic_acceptance"])
+
+    def test_packaged_process_uses_archive_and_isolated_crash_directory(self):
+        result, record = self.scenario(packaged=True)
+        self.assertEqual(result, 0)
+        self.assertEqual(record['runtime_kind'], 'packaged')
+        self.assertEqual(len(record['executable_sha256']), 64)
 
     def test_full_hd_uses_bounded_resolution_without_timing_change(self):
         result, record = self.scenario(resolution="1920x1080")

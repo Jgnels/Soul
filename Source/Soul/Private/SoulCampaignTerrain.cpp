@@ -4,6 +4,11 @@
 #include "Engine/StaticMesh.h"
 #include "Materials/MaterialInterface.h"
 #include "Engine/LevelStreamingDynamic.h"
+#include "Engine/Level.h"
+#include "Engine/DirectionalLight.h"
+#include "Engine/SkyLight.h"
+#include "Camera/CameraActor.h"
+#include "HAL/PlatformMisc.h"
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -30,14 +35,17 @@ struct FBake
     TArray<FBridge> Bridges;
     TArray<FField> Fields;
     bool bValid=false;
+    int32 Resolution=1009;
+    float Extent=560000.f,Minimum=-280000.f,HeightUnit=2.5f;
     FBake()
     {
         FString Text;TSharedPtr<FJsonObject> Root;
-        if(!FFileHelper::LoadFileToArray(Heights,*(FPaths::ProjectDir()/TEXT("Data/CampaignTerrainV2/FounderHeight.r16")))
-            ||Heights.Num()!=1009*1009*2
-            ||!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/TEXT("Data/CampaignTerrainV2/presentation.json")))
+        if(Mesa()){Resolution=2041;Extent=150000;Minimum=-75000;HeightUnit=.5f;}
+        if(!FFileHelper::LoadFileToArray(Heights,*(FPaths::ProjectDir()/(Mesa()?TEXT("Data/CampaignMesaLocal/MesaHeight.r16"):TEXT("Data/CampaignTerrainV2/FounderHeight.r16"))))
+            ||Heights.Num()!=Resolution*Resolution*2
+            ||!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/(Mesa()?TEXT("Data/CampaignMesa/presentation.json"):TEXT("Data/CampaignTerrainV2/presentation.json"))))
             ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),Root))
-        {UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_V2 invalid/missing bake; use qualified fallback without -SoulTerrainV2"));return;}
+        {UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN invalid/missing presentation payload; run Tools/Setup_Soul_Mesa.ps1 for the default campaign"));return;}
         for(const auto& P:Root->GetObjectField(TEXT("regions"))->Values)
         {const auto& A=P.Value->AsArray();Places.Add(FName(*P.Key),FVector(A[0]->AsNumber(),A[1]->AsNumber(),A[2]->AsNumber()));}
         for(const auto& R:Root->GetArrayField(TEXT("routes")))
@@ -101,17 +109,21 @@ void Place(UHierarchicalInstancedStaticMeshComponent* H,FVector P,float Width,fl
     H->AddInstance(FTransform(FRotator(0,Yaw,0),P,FVector(S,S,S*Tall)));
 }
 }
-bool Enabled(){static bool E=FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));return E;}
-float Scale(){return Enabled()?20.f:1.f;}
+bool Mesa(){return FParse::Param(FCommandLine::Get(),TEXT("SoulMesaTerrain"))
+    ||(!FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"))&&!FParse::Param(FCommandLine::Get(),TEXT("SoulLegacyTerrain")));}
+bool Enabled(){return Mesa()||FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));}
+float Scale(){return Mesa()?10.f:Enabled()?20.f:1.f;}
+float RegionScale(){return Mesa()?5.f:Scale();}
+FVector2D FocusBounds(){return Mesa()?FVector2D(68000,68000):FVector2D(3800,2600)*Scale();}
 const TMap<FName,FVector>& Locations(){return Bake().Places;}
 const TArray<TArray<FVector>>& WaterLines(){return Bake().Water;}
 float Height(float X,float Y)
 {
     const auto& B=Bake();if(!B.bValid)return 0;
-    const float U=FMath::Clamp((X+280000.f)/560000.f*1008.f,0.f,1007.999f);
-    const float V=FMath::Clamp((Y+280000.f)/560000.f*1008.f,0.f,1007.999f);
+    const float U=FMath::Clamp((X-B.Minimum)/B.Extent*(B.Resolution-1),0.f,B.Resolution-1.001f);
+    const float V=FMath::Clamp((Y-B.Minimum)/B.Extent*(B.Resolution-1),0.f,B.Resolution-1.001f);
     const int32 IX=FMath::FloorToInt(U),IY=FMath::FloorToInt(V);
-    auto Z=[&](int32 A,int32 C){const int32 I=(C*1009+A)*2;return (static_cast<int32>(B.Heights[I])+(static_cast<int32>(B.Heights[I+1])<<8)-32768)*2.5f;};
+    auto Z=[&](int32 A,int32 C){const int32 I=(C*B.Resolution+A)*2;return (static_cast<int32>(B.Heights[I])+(static_cast<int32>(B.Heights[I+1])<<8)-32768)*B.HeightUnit;};
     // UE LandscapeRender.cpp uses the (0,0)-(1,1) quad diagonal.
     const float FX=U-IX,FY=V-IY;
     return FX>=FY?Z(IX,IY)+(Z(IX+1,IY)-Z(IX,IY))*FX+(Z(IX+1,IY+1)-Z(IX+1,IY))*FY:
@@ -153,20 +165,47 @@ void DressRoad(AActor* Owner,USceneComponent* RoadComponent,FName From,FName To)
 void Build(ASoulCampaignWorldActor* Owner)
 {
     bool Loaded=false;
-    auto* Level=ULevelStreamingDynamic::LoadLevelInstance(Owner,TEXT("/Game/Soul/Campaign/TerrainV2/L_FounderTerrain"),FVector::ZeroVector,FRotator::ZeroRotator,Loaded);
+    const TCHAR* Package=Mesa()?TEXT("/Game/SoulCampaignMountain/L_evil_waterfront"):TEXT("/Game/Soul/Campaign/TerrainV2/L_FounderTerrain");
+    auto* Level=ULevelStreamingDynamic::LoadLevelInstance(Owner,Package,FVector::ZeroVector,FRotator::ZeroRotator,Loaded);
     if(Level){Level->SetShouldBeLoaded(true);Level->SetShouldBeVisible(true);Owner->GetWorld()->FlushLevelStreaming(EFlushLevelStreamingType::Full);}
-    UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_V2 landscape_loaded=%d bake_valid=%d scale=20"),Loaded,Bake().bValid);
+    if(!Loaded||!Level||!Level->GetLoadedLevel()||!Bake().bValid)
+    {
+        UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_INTEGRATION_FAIL map=%s; run Tools/Setup_Soul_Mesa.ps1"),Package);
+        FPlatformMisc::RequestExitWithStatus(false,1);return;
+    }
+    // Remove study-only actors from this transient instance, never save the package.
+    if(Mesa())for(AActor* Actor:TArray<TObjectPtr<AActor>>(Level->GetLoadedLevel()->Actors))
+        if(Actor&&(Actor->IsA<ADirectionalLight>()||Actor->IsA<ASkyLight>()||Actor->IsA<ACameraActor>()))Actor->Destroy();
+    UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_V2 landscape_loaded=%d bake_valid=%d scale=%.0f map=%s"),Loaded,Bake().bValid,Scale(),Package);
     // Probe the actual imported Landscape before settlements exist. This catches
     // flipped PNG axes or a stale bake/import pair that source-only tests miss.
     double MaxError=0;int32 Hits=0,Probes=0;
     for(const auto& Route:Bake().Routes)for(int32 I=0;I<Route.Value.Num();I+=8)
     {
         const FVector P=Route.Value[I];FHitResult Hit;++Probes;
-        if(Owner->GetWorld()->LineTraceSingleByChannel(Hit,FVector(P.X,P.Y,100000),FVector(P.X,P.Y,-100000),ECC_Visibility))
-        {++Hits;MaxError=FMath::Max(MaxError,FMath::Abs(Hit.Location.Z-Height(P.X,P.Y)));}
+        if(Owner->GetWorld()->SweepSingleByChannel(Hit,FVector(P.X,P.Y,100000),FVector(P.X,P.Y,-100000),FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(.25f)))
+        {++Hits;MaxError=FMath::Max(MaxError,FMath::Abs(Hit.ImpactPoint.Z-Height(P.X,P.Y)));}
     }
-    if(Hits!=Probes||MaxError>5){UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_V2_ALIGNMENT_FAIL hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);}
+    if(Hits!=Probes||MaxError>5){UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_V2_ALIGNMENT_FAIL hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);FPlatformMisc::RequestExitWithStatus(false,1);return;}
     else {UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_V2_ALIGNMENT_PASS hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);}
+    if(Mesa())
+    {
+        Hits=Probes=0;MaxError=0;
+        // The active routes remain on the eastern peninsula. Probe dry ground
+        // across the whole map as well, including the upgraded western coast.
+        for(int32 Y=0;Y<=10;++Y)for(int32 X=0;X<=10;++X)
+        {
+            const FVector P(-67500.f+X*13500.f,-67500.f+Y*13500.f,0);
+            const float Expected=Height(P.X,P.Y);if(Expected<=180.f)continue;
+            FHitResult Hit;++Probes;
+            if(Owner->GetWorld()->SweepSingleByChannel(Hit,FVector(P.X,P.Y,100000),FVector(P.X,P.Y,-100000),FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(.25f)))
+            {++Hits;MaxError=FMath::Max(MaxError,FMath::Abs(Hit.ImpactPoint.Z-Expected));}
+        }
+        if(Probes==0||Hits!=Probes||MaxError>5)
+        {UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_COAST_ALIGNMENT_FAIL hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);FPlatformMisc::RequestExitWithStatus(false,1);return;}
+        UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_COAST_ALIGNMENT_PASS hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);
+    }
+    if(Mesa())return; // Existing study terrain + gameplay landmarks, no polish pass.
     auto* Pine=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_01"));
     auto* Pine2=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_03"));
     auto* Broad=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/Update/SM_tree_01_Update"));
@@ -213,9 +252,17 @@ bool DressRegion(AActor* Owner,FName Id)
     auto* TownHouse=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Building_E")):nullptr;
     auto* TownRoof=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Roof_E")):nullptr;
     const FVector Origin=Owner->GetActorLocation();
-    auto Ground=[&](float X,float Y){return FVector(X,Y,(Height(Origin.X+X*20,Origin.Y+Y*20)-Origin.Z)/20);};
+    const float LandmarkScale=RegionScale();
+    auto Ground=[&](float X,float Y){return FVector(X,Y,(Height(Origin.X+X*LandmarkScale,Origin.Y+Y*LandmarkScale)-Origin.Z)/LandmarkScale);};
     auto Cottage=[&](FVector P,float W,float Yaw)
     {
+        if(Mesa())
+        {
+            const FVector WorldPoint=Origin+P*LandmarkScale;
+            const float Clearance=W*LandmarkScale*.8f+500.f;
+            for(const auto& Route:Bake().Routes)for(const FVector& Point:Route.Value)
+                if(FVector::DistSquaredXY(WorldPoint,Point)<FMath::Square(Clearance))return;
+        }
         if(!TownHouse||!TownRoof){Place(House,P,W,Yaw);return;}
         const auto B=TownHouse->GetStaticMesh()->GetBounds(),R=TownRoof->GetStaticMesh()->GetBounds();
         const float S=W/(2*B.BoxExtent.X);
@@ -226,7 +273,7 @@ bool DressRegion(AActor* Owner,FName Id)
     {
         auto* Bridge=Instances(Owner,TEXT("/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01"));
         // The bridge mesh pivot is its east end and its deck is local Z=0.
-        if(Bridge)Bridge->AddInstance(FTransform(FRotator::ZeroRotator,FVector(210,20.578f,8),FVector(.212f,.07f,.10f)));
+        if(Bridge&&!Mesa())Bridge->AddInstance(FTransform(FRotator::ZeroRotator,FVector(210,20.578f,8),FVector(.212f,.07f,.10f)));
         Cottage(Ground(-320,180),85,70);Cottage(Ground(310,-130),65,-80);
     }
     else if(Id==TEXT("old_quarry"))
@@ -236,7 +283,7 @@ bool DressRegion(AActor* Owner,FName Id)
     }
     else if(Id==TEXT("ancient_shrine"))
     {
-        Place(Hall,Ground(0,0),175,0,.75f);
+        Place(Hall,Ground(0,Mesa()?-220:0),175,0,.75f);
         for(int I=0;I<5;++I)Place(Stone,Ground(-170+I*80,170),45,I*37,1.8f);
     }
     else
@@ -244,7 +291,7 @@ bool DressRegion(AActor* Owner,FName Id)
         const bool Capital=Id==TEXT("human_capital"),Fort=Id==TEXT("orc_camp"),Watch=Id==TEXT("orc_watch")||Id==TEXT("north_pass");
         if(Capital||Fort||Watch)
         {
-            Place(Hall,Ground(0,0),Capital?300:Fort?270:150,Fort?30:0,Fort?1.12f:.8f);
+            Place(Hall,Ground(0,Mesa()?-330:0),Capital?300:Fort?270:150,Fort?30:0,Fort?1.12f:.8f);
             for(int I=0;I<(Watch?2:4);++I)
             {Place(Tower,Ground((I%2?1:-1)*(Watch?135:220),(I/2?1:-1)*(Watch?135:220)),65,I*90,.85f);}
             if(Fort||Watch)

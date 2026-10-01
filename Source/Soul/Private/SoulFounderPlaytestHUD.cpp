@@ -42,6 +42,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     Text(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED"),500,28,Muted);
     int32 Army=0;for(const auto& P:S->PlayerArmy)Army+=P.Value;
     Text(FString::Printf(TEXT("ARMY %d   HERO %d   XP %d   MANA %d / %d"),Army,S->Hero.Level,S->Hero.Experience,S->Hero.Mana,S->Hero.MaxMana),W-560,28,Ink);
+    AddHitBox(FVector2D(W-560,21)*Scale,FVector2D(380,27)*Scale,TEXT("Company"),true,1);
     Button(TEXT("EndDay"),TEXT("Next day  [Space]"),W-165,21,138);
     const float X=W-292;
     const FName Selected=C->GetSelectedRegion();
@@ -114,5 +115,5 @@ void ASoulFounderPlaytestHUD::NotifyHitBoxClick(FName BoxName)
     else if(BoxName==TEXT("Battle"))C->StartBattle();
     else if(BoxName==TEXT("Hire"))C->HireTavernHero();
     else if(BoxName.ToString().StartsWith(TEXT("Recruit")))C->HandleNumberKey(FCString::Atoi(*BoxName.ToString().Mid(7)));
-    else if(BoxName==TEXT("Focus"))if(auto* PC=GetOwningPlayerController())PC->ConsoleCommand(TEXT("SoulFocusCompany"));
+    else if(BoxName==TEXT("Focus")||BoxName==TEXT("Company"))if(auto* PC=GetOwningPlayerController())PC->ConsoleCommand(TEXT("SoulFocusCompany"));
 }

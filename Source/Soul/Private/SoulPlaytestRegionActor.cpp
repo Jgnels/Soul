@@ -34,7 +34,7 @@ ASoulPlaytestRegionActor::ASoulPlaytestRegionActor()
 void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& DisplayName,const FVector& Location)
 {
     RegionId=InRegionId;SetActorLocation(Location);Label->SetText(FText::FromString(DisplayName));
-    SetActorScale3D(FVector(SoulCampaignTerrain::Scale()));
+    SetActorScale3D(FVector(SoulCampaignTerrain::RegionScale()));
     auto Make=[this](const TCHAR* Shape,FLinearColor Color){return ASoulCampaignWorldActor::MakeInstances(this,Shape,Color);};
     auto Add=[](UInstancedStaticMeshComponent* M,FVector P,FVector S,FRotator R=FRotator::ZeroRotator){M->AddInstance(FTransform(R,P,S));};
     if(!SoulCampaignTerrain::DressRegion(this,RegionId))
@@ -131,7 +131,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     {
         const float Miniature=SoulCampaignTerrain::Enabled()?.25f:1.f;
         FVector P((-35+(I%3)*35)*Miniature,(Fort?270.f:190.f)+(I/3)*35*Miniature,0);
-        const float Scale=SoulCampaignTerrain::Scale();
+        const float Scale=SoulCampaignTerrain::RegionScale();
         P.Z=(ASoulCampaignWorldActor::HeightAt(Location.X+P.X*Scale,Location.Y+P.Y*Scale)-Location.Z)/Scale;
         Add(Garrison,P+FVector(0,0,28*Miniature),FVector(.19f,.19f,.56f)*Miniature);
         Add(Garrison,P+FVector(0,0,66*Miniature),FVector(.18f,.18f,.18f)*Miniature);

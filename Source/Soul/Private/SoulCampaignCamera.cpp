@@ -26,9 +26,39 @@ ASoulCampaignCamera::ASoulCampaignCamera()
     Camera->PostProcessSettings.VignetteIntensity = .22f;
 }
 void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); Tick(1.f); }
+float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
+FBox2D ASoulCampaignCamera::FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const
+{
+    const auto Bounds=SoulCampaignTerrain::FocusBounds()/SoulCampaignTerrain::Scale();
+    if(!SoulCampaignTerrain::Mesa())return FBox2D(-Bounds,Bounds);
+    const float Pitch=FMath::Lerp(38.f,48.f,FMath::Clamp((ViewDistance-MinDistance)/3500.f,0.f,1.f));
+    const FRotator Rotation(-Pitch,ViewYaw,0);
+    const FVector Forward=Rotation.Vector(),Right=FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y),Up=FRotationMatrix(Rotation).GetUnitAxis(EAxis::Z);
+    const float Tan=FMath::Tan(FMath::DegreesToRadians(GetCameraComponent()->FieldOfView*.5f));
+    int32 Width=1920,Height=1080;
+    if(auto* PC=GetWorld()?GetWorld()->GetFirstPlayerController():nullptr)PC->GetViewportSize(Width,Height);
+    const float Aspect=Width>0&&Height>0?static_cast<float>(Width)/Height:16.f/9.f;
+    const FVector Position=-Forward*ViewDistance+FVector(0,0,FMath::Max(FocusHeight,0.f));
+    FBox2D Footprint(ForceInit);
+    for(float X:{-1.f,1.f})for(float Y:{-1.f,1.f})
+    {
+        const FVector Ray=Forward+Right*Tan*X+Up*Tan/Aspect*Y;
+        const FVector Point=Position-Ray*(Position.Z/Ray.Z);
+        Footprint+=FVector2D(Point.X,Point.Y);
+    }
+    // The water plane and Landscape end at 750 m. Keep 20 m of margin and
+    // project to sea level so hills cannot expose a nearer map boundary.
+    const float Limit=73000.f/SoulCampaignTerrain::Scale();
+    return FBox2D(FVector2D(-Limit,-Limit)-Footprint.Min,FVector2D(Limit,Limit)-Footprint.Max);
+}
+bool ASoulCampaignCamera::ViewFitsTerrain() const
+{
+    const auto Range=FocusRange(Distance,Yaw,FocusPoint.Z);
+    return Range.ExpandBy(1.f).IsInsideOrOn(FVector2D(FocusPoint.X,FocusPoint.Y));
+}
 void ASoulCampaignCamera::Zoom(float Steps)
 {
-    TargetDistance = FMath::Clamp(TargetDistance * FMath::Pow(.85f, Steps), MinDistance, MaxDistance);
+    TargetDistance = FMath::Clamp(TargetDistance * FMath::Pow(.85f, Steps), MinDistance, GetMaximumDistance());
 }
 void ASoulCampaignCamera::Pan(FVector2D Direction, float DeltaSeconds)
 {
@@ -36,13 +66,21 @@ void ASoulCampaignCamera::Pan(FVector2D Direction, float DeltaSeconds)
     const FVector Forward = Flat.Vector();
     const FVector Right = FRotationMatrix(Flat).GetUnitAxis(EAxis::Y);
     TargetFocus += (Forward * Direction.Y + Right * Direction.X) * FMath::Min(DeltaSeconds,.1f) * TargetDistance * .22f;
-    TargetFocus.X = FMath::Clamp(TargetFocus.X,-MaxFocusX,MaxFocusX);
-    TargetFocus.Y = FMath::Clamp(TargetFocus.Y,-MaxFocusY,MaxFocusY);
+    const FVector2D Bounds=SoulCampaignTerrain::FocusBounds()/SoulCampaignTerrain::Scale();
+    TargetFocus.X = FMath::Clamp(TargetFocus.X,-Bounds.X,Bounds.X);
+    TargetFocus.Y = FMath::Clamp(TargetFocus.Y,-Bounds.Y,Bounds.Y);
 }
 void ASoulCampaignCamera::Orbit(float Direction, float DeltaSeconds)
 { TargetYaw = FMath::Clamp(TargetYaw + Direction * DeltaSeconds * 40.f, -135.f, -45.f); }
 void ASoulCampaignCamera::Focus(FVector Location)
-{ TargetFocus = FVector(Location.X/SoulCampaignTerrain::Scale(),Location.Y/SoulCampaignTerrain::Scale(),100); }
+{
+    TargetFocus = FVector(Location.X/SoulCampaignTerrain::Scale(),Location.Y/SoulCampaignTerrain::Scale(),Location.Z/SoulCampaignTerrain::Scale()+100);
+    // Home/load must still center the company near the coast: zoom in enough
+    // to contain that focus, instead of clamping the company out of the center.
+    if(SoulCampaignTerrain::Mesa())while(TargetDistance>MinDistance
+        &&!FocusRange(TargetDistance,TargetYaw,TargetFocus.Z).IsInsideOrOn(FVector2D(TargetFocus.X,TargetFocus.Y)))
+        TargetDistance=FMath::Max(MinDistance,TargetDistance*.9f);
+}
 FVector ASoulCampaignCamera::GetFocus() const {return FocusPoint*SoulCampaignTerrain::Scale();}
 void ASoulCampaignCamera::Tick(float DeltaSeconds)
 {
@@ -53,6 +91,8 @@ void ASoulCampaignCamera::Tick(float DeltaSeconds)
         FVector2D Input(0,0);
         Input.X = (PC->IsInputKeyDown(EKeys::D)?1.f:0.f) - (PC->IsInputKeyDown(EKeys::A)?1.f:0.f);
         Input.Y = (PC->IsInputKeyDown(EKeys::W)?1.f:0.f) - (PC->IsInputKeyDown(EKeys::S)?1.f:0.f);
+        FVector2D Stick(PC->GetInputAnalogKeyState(EKeys::Gamepad_LeftX),PC->GetInputAnalogKeyState(EKeys::Gamepad_LeftY));
+        if(Stick.SizeSquared()>.04f)Input+=Stick;
         if (PC->IsInputKeyDown(EKeys::MiddleMouseButton))
         {
             float DX=0,DY=0; PC->GetInputMouseDelta(DX,DY);
@@ -63,10 +103,16 @@ void ASoulCampaignCamera::Tick(float DeltaSeconds)
             TargetFocus+=(-FRotationMatrix(Flat).GetUnitAxis(EAxis::Y)*DX+Flat.Vector()*DY/ FMath::Sin(FMath::DegreesToRadians(Pitch)))*UnitsPerPixel;
         }
         Pan(Input.GetClampedToMaxSize(2.f),DeltaSeconds);
-        Orbit((PC->IsInputKeyDown(EKeys::E)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::Q)?1.f:0.f),DeltaSeconds);
+        Orbit((PC->IsInputKeyDown(EKeys::E)||PC->IsInputKeyDown(EKeys::Gamepad_RightShoulder)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::Q)||PC->IsInputKeyDown(EKeys::Gamepad_LeftShoulder)?1.f:0.f),DeltaSeconds);
     }
     const float Scale=SoulCampaignTerrain::Scale();
     TargetFocus.Z=ASoulCampaignWorldActor::HeightAt(TargetFocus.X*Scale,TargetFocus.Y*Scale)/Scale+100.f;
+    if(SoulCampaignTerrain::Mesa())
+    {
+        const auto Bounds=FocusRange(TargetDistance,TargetYaw,TargetFocus.Z);
+        TargetFocus.X=FMath::Clamp(TargetFocus.X,Bounds.Min.X,Bounds.Max.X);
+        TargetFocus.Y=FMath::Clamp(TargetFocus.Y,Bounds.Min.Y,Bounds.Max.Y);
+    }
     FocusPoint = FMath::VInterpTo(FocusPoint,TargetFocus,DeltaSeconds,7.f);
     Distance = FMath::FInterpTo(Distance,TargetDistance,DeltaSeconds,7.f);
     Yaw = FMath::FInterpTo(Yaw,TargetYaw,DeltaSeconds,7.f);

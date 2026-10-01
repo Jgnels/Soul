@@ -1,0 +1,26 @@
+{
+  "baseline_dirty_files": 70,
+  "intentionally_modified_baseline_files": [
+    "Evidence/CampaignIntegration-20260930/HANDOFF.md",
+    "Tools/package_soul_weekend.ps1",
+    "Tools/qualify_soul_vertical.py",
+    "Tools/test_package_soul_weekend.py"
+  ],
+  "unrelated_dirty_unchanged": 66,
+  "unexpected_changes": [],
+  "licensed_files_checked": 3655,
+  "licensed_metadata_changes": [],
+  "waterfront_map_sha256": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+  "waterfront_map_matches_baseline": true,
+  "height_matches_baseline": true,
+  "player_checkpoints_unchanged": {
+    "worktree/Soul.VerticalCampaign.domain.rbsave": true,
+    "worktree/Soul.VerticalCampaign.domain.rbsave.bak": true
+  },
+  "qualification_save_directory": "D:/RefinedBadger/Builds/Soul-RC2-Waterfront-20260930-01/Qualification/User",
+  "source_config_note": "Cook-generated Android File Server append removed; original tracked DefaultEngine.ini restored. No endpoint/credential configuration requested or retained.",
+  "newly_modified_previously_clean_files": [
+    "Tools/test_qualify_soul_vertical.py"
+  ],
+  "final_source_config_matches_clean_tracked_version": true
+}

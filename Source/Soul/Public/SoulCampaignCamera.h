@@ -20,8 +20,11 @@ public:
     static constexpr float MinDistance = 1800.f;
     static constexpr float MaxDistance = 12000.f;
     float GetDistance() const { return Distance; }
+    float GetMaximumDistance() const;
+    bool ViewFitsTerrain() const;
     FVector GetFocus() const;
 private:
+    FBox2D FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const;
     FVector FocusPoint = FVector(-1000,-250,100), TargetFocus = FocusPoint;
     float Distance = 7500.f, TargetDistance = Distance;
     float Yaw = -90.f, TargetYaw = Yaw;

@@ -209,7 +209,11 @@ def main():
         p.error("Output directory already exists; never overwrite an earlier run")
     log = output / "unreal.log"
     command = [str(executable)]
-    if executable.name.lower().startswith("unrealeditor"):
+    is_editor = executable.name.lower().startswith("unrealeditor")
+    runtime_root = project.parent if is_editor else executable.parent.parent.parent
+    user_dir = next((Path(a.split("=", 1)[1]).resolve() for a in args.ue_arg
+                     if a.lower().startswith("-userdir=")), runtime_root)
+    if is_editor:
         command += [str(project), map_url, "-game"]
     else:
         command += [map_url]
@@ -220,6 +224,9 @@ def main():
         command.append("-" + args.diagnostic_rhi)
     command += args.ue_arg
     preview = dict(stage=args.stage, command=command, output=str(output),
+                   runtime_kind="editor_game" if is_editor else "packaged",
+                   working_directory=str(runtime_root),
+                   executable_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),
                    expected_active_units=args.expected_active_units,
                    diagnostic_rhi=args.diagnostic_rhi,
                    observation_seconds_after_ready=args.duration,
@@ -233,6 +240,13 @@ def main():
         payloads+=sorted((project.parent/"Content/Soul/Campaign/TerrainV2").glob("*"))
         preview["terrain_payload_sha256"]={str(f.relative_to(project.parent)).replace("\\","/"):
             hashlib.sha256(f.read_bytes()).hexdigest() for f in payloads if f.is_file()}
+    if "-SoulMesaTerrain" in args.ue_arg:
+        payloads = [project.parent / p for p in (
+            'Data/CampaignMesa/presentation.json', 'Data/CampaignMesaLocal/MesaHeight.r16',
+            'Content/SoulCampaignMountain/L_evil_waterfront.umap',
+            'Binaries/Win64/UnrealEditor-Soul.dll')]
+        preview['mesa_payload_sha256'] = {str(f.relative_to(project.parent)).replace('\\','/'):
+            hashlib.sha256(f.read_bytes()).hexdigest() for f in payloads}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
         return 0
@@ -258,7 +272,7 @@ def main():
     try:
         with (output / "console.log").open("w", encoding="utf-8") as console, \
                 (output / "telemetry.jsonl").open("w", encoding="utf-8") as telemetry:
-            process = subprocess.Popen(command, cwd=project.parent, stdout=console,
+            process = subprocess.Popen(command, cwd=runtime_root, stdout=console,
                                        stderr=subprocess.STDOUT,
                                        creationflags=CREATE_NO_WINDOW)
             record["pid"] = process.pid
@@ -353,7 +367,7 @@ def main():
             record["stop_reason"] = "completion_marker_process_exit"
             record["clean_shutdown"] = True
         try:
-            record["preserved_crashes"] = preserve_new_crashes(project.parent, output, started)
+            record["preserved_crashes"] = preserve_new_crashes(user_dir, output, started)
         except Exception as exc:
             record["crash_copy_error"] = str(exc)
         (output / "summary.json").write_text(json.dumps(record, indent=2), encoding="utf-8")

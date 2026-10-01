@@ -61,7 +61,7 @@ try {
     }
     $packages = @([regex]::Matches($gameConfig, '(?m)^\+MapsToCook=\(FilePath="([^"]+)"\)') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($packages.Count -ne 47) { throw 'Expected the reviewed 47 exact cook roots; review any breadth change.' }
+    if ($packages.Count -ne 48) { throw 'Expected the reviewed 48 exact cook roots; review any breadth change.' }
     foreach ($package in $packages) {
         $parts = $package.TrimStart('/').Split('/')
         switch ($parts[0]) {
@@ -81,11 +81,15 @@ try {
     foreach ($fx in @('Fire/FX/NS_Fireball')) {
         Assert-File (Join-Path $projectRoot ('Content/MagicSpells/' + $fx + '.uasset'))
     }
+    foreach ($icon in @('InfluenceComponentIcon.png', 'InfluenceComponentIcon_64.png')) {
+        Assert-File (Join-Path $projectRoot ('Plugins/TCAT/Resources/' + $icon))
+    }
     $rules = Get-Content -LiteralPath (Join-Path $projectRoot 'Source\Soul\Soul.Build.cs') -Raw
     $dataFiles = @([regex]::Matches($rules, '"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($dataFiles.Count -ne 6) { throw 'Expected six exact JSON runtime dependencies.' }
+    if ($dataFiles.Count -ne 7) { throw 'Expected seven exact JSON runtime dependencies.' }
     if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignTerrainV2/FounderHeight.r16'))) { throw 'Missing V2 heightfield runtime payload.' }
+    if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignMesaLocal/MesaHeight.r16'))) { throw 'Missing external Mesa heightfield; run Tools/Setup_Soul_Mesa.ps1.' }
     foreach ($relative in $dataFiles) {
         $file = Join-Path $projectRoot $relative
         Assert-File $file
@@ -100,7 +104,7 @@ try {
     # Cook still needs current SoulEditor binaries; captain prepares those separately.
     $uatArgs = @('BuildCookRun', '-nocompileuat', '-noturnkeyvariables', '-nop4', '-unattended', '-utf8output',
         "-project=$projectFile", '-target=Soul', '-platform=Win64', '-clientconfig=Development',
-        '-ubtargs=-MaxParallelActions=2 -NoUBA', '-AdditionalCookerOptions=-DDC=InstalledNoZenLocalFallback',
+        '-ubtargs=-MaxParallelActions=2 -NoUBA', '-AdditionalCookerOptions=-DDC=InstalledNoZenLocalFallback -DisablePlugins=AndroidFileServer',
         '-build', '-skipbuildeditor', '-cook', '-stage', '-pak', '-iostore', '-package', '-archive', '-prereqs', '-nocleanstage',
         "-stagingdirectory=$stage", "-archivedirectory=$archive")
     if ($ValidateOnly) {
@@ -149,6 +153,9 @@ try {
         [Console]::Error.WriteLine("UAT failed (exit $exitCode). Diagnostics retained: $diagnostics")
         exit $exitCode
     }
+    & (Join-Path $PSScriptRoot 'Stage-SoulTcatResources.ps1') -ProjectRoot $projectRoot -WindowsPackageRoots @(
+        (Join-Path $stage 'Windows'), (Join-Path $archive 'Windows')) |
+        ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $diagnostics 'supplemental-runtime-resources.json') -Encoding UTF8
     Write-Output "UAT completed. Archive: $archive. Runtime/package acceptance remains UNKNOWN until captain verification."
     exit 0
 }

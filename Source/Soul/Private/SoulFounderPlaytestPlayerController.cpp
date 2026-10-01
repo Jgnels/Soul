@@ -7,6 +7,7 @@
 #include "SoulCampaignWorldActor.h"
 #include "SoulFounderPlaytestHUD.h"
 #include "InputCoreTypes.h"
+#include "InputKeyEventArgs.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "Engine/GameInstance.h"
 #include "SoulFounderPlaytestCampaignActor.h"
@@ -60,6 +61,21 @@ void ASoulFounderPlaytestPlayerController::SetupInputComponent()
     InputComponent->BindKey(EKeys::F5, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Spell5);
     InputComponent->BindKey(EKeys::F6, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Spell6);
     InputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::CancelPanel);
+    InputComponent->BindKey(EKeys::Gamepad_FaceButton_Bottom, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::GamepadSelect);
+    InputComponent->BindKey(EKeys::Gamepad_FaceButton_Right, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::CancelPanel);
+    InputComponent->BindKey(EKeys::Gamepad_FaceButton_Left, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ToggleTown);
+    InputComponent->BindKey(EKeys::Gamepad_FaceButton_Top, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::StartBattle);
+    InputComponent->BindKey(EKeys::Gamepad_LeftTrigger, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomOut);
+    InputComponent->BindKey(EKeys::Gamepad_RightTrigger, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomIn);
+    InputComponent->BindKey(EKeys::Gamepad_Special_Left, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::SoulFocusCompany);
+    InputComponent->BindKey(EKeys::Gamepad_Special_Right, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::EndDay);
+}
+
+void ASoulFounderPlaytestPlayerController::GamepadSelect()
+{
+    // Dispatch through the same cursor/HUD hitboxes and sole world click handler.
+    InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Pressed,1));
+    InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Released,0));
 }
 
 ASoulFounderPlaytestCampaignActor* ASoulFounderPlaytestPlayerController::GetCampaign() const
@@ -115,11 +131,21 @@ void ASoulFounderPlaytestPlayerController::CancelPanel() { if (auto* C = GetCamp
 void ASoulFounderPlaytestPlayerController::ZoomIn() { if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) C->Zoom(1); }
 void ASoulFounderPlaytestPlayerController::ZoomOut() { if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) C->Zoom(-1); }
 void ASoulFounderPlaytestPlayerController::SoulFocusCompany()
-{ if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>()) C->Focus(ASoulCampaignWorldActor::Locations().FindRef(S->PlayerRegion)); }
+{
+    if(auto* Campaign=GetCampaign())Campaign->SelectCompany();
+    if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>()) C->Focus(ASoulCampaignWorldActor::Locations().FindRef(S->PlayerRegion));
+}
 void ASoulFounderPlaytestPlayerController::PlayerTick(float DeltaSeconds)
 {
     Super::PlayerTick(DeltaSeconds);
     auto* C=GetCampaign();if(!C)return;
+    const FVector2D Stick(GetInputAnalogKeyState(EKeys::Gamepad_RightX),-GetInputAnalogKeyState(EKeys::Gamepad_RightY));
+    if(Stick.SizeSquared()>.04f)
+    {
+        int32 Width=0,Height=0;GetViewportSize(Width,Height);float X=Width*.5f,Y=Height*.5f;GetMousePosition(X,Y);
+        const FVector2D Delta=Stick.GetClampedToMaxSize(1.f)*900.f*FMath::Min(DeltaSeconds,.1f);
+        if(Width>0&&Height>0)SetMouseLocation(FMath::RoundToInt(FMath::Clamp(X+Delta.X,0.f,Width-1.f)),FMath::RoundToInt(FMath::Clamp(Y+Delta.Y,0.f,Height-1.f)));
+    }
     FHitResult Hit; FName Hover;
     if(GetHitResultUnderCursor(ECC_Visibility,false,Hit)) if(auto* R=Cast<ASoulPlaytestRegionActor>(Hit.GetActor()))if(!R->IsHidden())Hover=R->RegionId;
     C->HoveredRegion=Hover;

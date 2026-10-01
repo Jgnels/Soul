@@ -21,6 +21,7 @@ protected:
 private:
     class ASoulFounderPlaytestCampaignActor* GetCampaign() const;
     void PrimaryClick();
+    void GamepadSelect();
     void ZoomIn();
     void ZoomOut();
     void Number1();

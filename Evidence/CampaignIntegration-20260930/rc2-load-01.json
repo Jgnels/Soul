@@ -1,0 +1,80 @@
+{
+  "runtime": {
+    "stage": "G0",
+    "command": [
+      "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Archive\\Windows\\Soul\\Binaries\\Win64\\Soul.exe",
+      "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+      "-windowed",
+      "-ResX=1920",
+      "-ResY=1080",
+      "-nosplash",
+      "-ExecCmds=t.MaxFPS 30,r.VSync 0",
+      "-abslog=D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Qualification\\load-01\\unreal.log",
+      "-ForceRes",
+      "-RenderOffscreen",
+      "-unattended",
+      "-nosound",
+      "-UserDir=D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Qualification\\User",
+      "-SoulCampaignCapturePrefix=rc2-load",
+      "-SoulCampaignLoadProof"
+    ],
+    "output": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Qualification\\load-01",
+    "runtime_kind": "packaged",
+    "working_directory": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Archive\\Windows\\Soul",
+    "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+    "expected_active_units": 0,
+    "diagnostic_rhi": null,
+    "observation_seconds_after_ready": 60.0,
+    "completion_marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+    "completion_timeout": 600.0,
+    "started_utc": "2026-10-01T00:53:52.474632+00:00",
+    "initial_gpu": [
+      {
+        "name": "NVIDIA GeForce GTX 1080",
+        "memory_total_mib": 8192.0,
+        "memory_used_mib": 5016.0,
+        "temperature_c": 67.0,
+        "utilization_percent": 0.0
+      }
+    ],
+    "automatic_acceptance": false,
+    "pid": 24896,
+    "ready_utc": "2026-10-01T00:53:57.633693+00:00",
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "stopped_utc": "2026-10-01T00:55:13.832919+00:00",
+    "stop_reason": "completion_marker_process_exit",
+    "cleanup": "already_exited",
+    "elapsed_seconds": 81.36,
+    "observed_after_ready_seconds": 76.23,
+    "crash_signatures": [],
+    "rhi_log_lines": [
+      "[2026.10.01-00.53.53:097][  0]LogRHI: Using Default RHI: D3D11",
+      "[2026.10.01-00.53.54:506][  0]LogRHI: Using Default RHI: D3D11",
+      "[2026.10.01-00.53.54:550][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+    ],
+    "completion_marker_observed": true,
+    "alive_observed_after_ready_seconds": 71.16,
+    "preserved_crashes": []
+  },
+  "images": [
+    {
+      "file": "Campaign_Cold_Load.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "45ed2a35e0ea409f5d1abde25c96095eaa2af8ccadbd97ac82c76e538487846b"
+    }
+  ],
+  "image_root": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Qualification\\load-01\\artifacts",
+  "assertions": [
+    "[2026.10.01-00.53.55:817][  0]LogTemp: Display: SOUL_TERRAIN_V2 landscape_loaded=1 bake_valid=1 scale=10 map=/Game/SoulCampaignMountain/L_evil_waterfront",
+    "[2026.10.01-00.53.55:818][  0]LogTemp: Display: SOUL_TERRAIN_V2_ALIGNMENT_PASS hits=105/105 max_cm=0.040",
+    "[2026.10.01-00.53.55:819][  0]LogTemp: Display: SOUL_TERRAIN_COAST_ALIGNMENT_PASS hits=93/93 max_cm=0.283",
+    "[2026.10.01-00.54.07:290][296]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=river_ford exact_snapshot=1 controller_F9=1"
+  ],
+  "warnings": [
+    "[2026.10.01-00.53.57:325][  0]LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread."
+  ],
+  "errors": [],
+  "peak_gpu_temperature_c": 74.0
+}

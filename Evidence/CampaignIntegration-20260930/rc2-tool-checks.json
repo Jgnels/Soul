@@ -1,0 +1,20 @@
+{
+  "packaging": {
+    "exit_code": 0,
+    "log": "Local/rc2-packaging-tests-verified.txt"
+  },
+  "runner": {
+    "exit_code": 0,
+    "log": "Local/rc2-runner-tests-verified.txt"
+  },
+  "staged_engine_config": {
+    "default_map_entry": true,
+    "default_campaign_game_mode": true,
+    "android_file_server_section_absent": true
+  },
+  "git_diff_check_exit_code": 0,
+  "final_static_preflight": {
+    "exit_code": 0,
+    "log": "Local/rc2-preflight-final.txt"
+  }
+}

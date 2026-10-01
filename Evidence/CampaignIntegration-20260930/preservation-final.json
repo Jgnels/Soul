@@ -1,0 +1,24 @@
+{
+  "unrelated_dirty_unchanged": {
+    "Soul.uproject": true,
+    ".mcp.json": true,
+    "Evidence/CampaignTerrainProduction-20260929/ROBUST_CODEX_PROMPT.md": true,
+    "SOUL_GAMEPLAY_INTEGRATION_20260930.txt": true,
+    "Soul.uproject.nwiro-terrain-backup-20260929-102724": true
+  },
+  "licensed_files_checked": 3652,
+  "licensed_size_mtime_changed": [],
+  "approved_map_sha256": "818e3d1f4ca5197536e7e684a7225f3bc4320b4588eb30b97b105677ef92a256",
+  "prior_save_restored": {
+    "Soul.VerticalCampaign.domain.rbsave": {
+      "sha256": "1872ad2ce25a6918ef30b7879f39df37e6a9f5489b82ded2fdcae1972c78f433",
+      "matches_prior": true
+    },
+    "Soul.VerticalCampaign.domain.rbsave.bak": {
+      "sha256": "60d81d522a405753054727fea5aa1666e419ede41c3fbd769a54e99ec3cd5f80",
+      "matches_prior": true
+    }
+  },
+  "test_checkpoint": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\final-test-save",
+  "history": "Existing RB Save history retained; qualification appended test versions."
+}

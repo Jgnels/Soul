@@ -1,0 +1,76 @@
+{
+  "launch": {
+    "stage": "G6",
+    "command": [
+      "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+      "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+      "-game",
+      "-windowed",
+      "-ResX=1280",
+      "-ResY=720",
+      "-nosplash",
+      "-ExecCmds=t.MaxFPS 30,r.VSync 0",
+      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\waterfront-os-input-01\\unreal.log",
+      "-ForceRes",
+      "-nosound",
+      "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+      "-DDC=InstalledNoZenLocalFallback",
+      "-SoulMesaTerrain"
+    ],
+    "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\waterfront-os-input-01",
+    "expected_active_units": 30,
+    "diagnostic_rhi": null,
+    "observation_seconds_after_ready": 300.0,
+    "completion_marker": null,
+    "completion_timeout": null,
+    "mesa_payload_sha256": {
+      "Data/CampaignMesa/presentation.json": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "Data/CampaignMesaLocal/MesaHeight.r16": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "Content/SoulCampaignMountain/L_evil_waterfront.umap": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "Binaries/Win64/UnrealEditor-Soul.dll": "2847b3d402250dd49e0db000d7a1bd55af4a33aff4c1d529826c50a0f27804f0"
+    },
+    "started_utc": "2026-09-30T23:46:16.180575+00:00",
+    "initial_gpu": [
+      {
+        "name": "NVIDIA GeForce GTX 1080",
+        "memory_total_mib": 8192.0,
+        "memory_used_mib": 4900.0,
+        "temperature_c": 52.0,
+        "utilization_percent": 0.0
+      }
+    ],
+    "automatic_acceptance": false
+  },
+  "acceptance": false,
+  "window_detected": {
+    "id": 12454040,
+    "title": "Soul (64-bit Development PCD3D_SM5) "
+  },
+  "capture_errors": [
+    "FrameArrived timed out: timed out waiting on channel",
+    "window capture timed out: timed out waiting on channel"
+  ],
+  "recovery": "Refreshed window selection and retried once; stopped UI input after repeated capture failure.",
+  "os_inputs_exercised": false,
+  "termination": "Owned exec job interrupted after capture failure; exit 1; no UnrealEditor/Soul process remained. No clean-exit acceptance claimed.",
+  "last_telemetry": {
+    "utc": "2026-09-30T23:47:53.268828+00:00",
+    "elapsed_seconds": 97.06,
+    "gpu": [
+      {
+        "name": "NVIDIA GeForce GTX 1080",
+        "memory_total_mib": 8192.0,
+        "memory_used_mib": 5446.0,
+        "temperature_c": 66.0,
+        "utilization_percent": 26.0
+      }
+    ],
+    "process_memory": {
+      "working_set_mib": 1940.27,
+      "peak_working_set_mib": 2235.96,
+      "private_commit_mib": 2426.56,
+      "pagefile_mib": 2426.56
+    }
+  }
+}

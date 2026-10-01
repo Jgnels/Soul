@@ -13,7 +13,8 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     void Build(class USoulFounderPlaytestStateSubsystem* InState);
     void RefreshKnowledge();
-    void PresentPlayerLocation(FName RegionId, bool bAnimate);
+    void PresentPlayerLocation(FName RegionId, bool bAnimate, bool bForce=false);
+    FVector PresentedPartyLocation() const;
     static const TMap<FName, FVector>& Locations();
     static float HeightAt(float X, float Y);
     static float RiverX(float Y);

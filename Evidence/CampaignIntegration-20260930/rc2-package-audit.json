@@ -1,0 +1,206 @@
+{
+  "archive": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Archive\\Windows",
+  "cook_roots": {
+    "/Engine/Maps/Entry": true,
+    "/Game/Dragon_graveyard/Level/L_showcase_level": true,
+    "/Engine/BasicShapes/Cube": true,
+    "/Engine/BasicShapes/Cone": true,
+    "/Engine/BasicShapes/Cylinder": true,
+    "/Game/Soul/Campaign/M_CampaignSurface": true,
+    "/Game/Soul/Campaign/M_CampaignTerrain": true,
+    "/Game/Soul/Campaign/TerrainV2/L_FounderTerrain": true,
+    "/Game/SoulCampaignMountain/L_evil_waterfront": true,
+    "/Game/Soul/Campaign/TerrainV2/M_FounderRoad": true,
+    "/Game/Soul/Campaign/TerrainV2/M_FounderWater": true,
+    "/Game/Soul/Campaign/TerrainV2/MI_CampaignPine": true,
+    "/Engine/MapTemplates/Sky/DaylightAmbientCubemap": true,
+    "/Game/Soul/Campaign/TerrainV2/M_CampaignWood": true,
+    "/Game/Soul/Campaign/TerrainV2/M_CampaignMasonry": true,
+    "/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Building_E": true,
+    "/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Roof_E": true,
+    "/Game/Medieval_Megapack/Meshes/Walls/SM_Wall_6M": true,
+    "/Game/Forest_village/Meshes/Vegetation/SM_bush": true,
+    "/Game/Forest_village/Meshes/Kit/SM_small_wood_building": true,
+    "/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_01": true,
+    "/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_03": true,
+    "/Game/Forest_village/Meshes/Vegetation/Update/SM_tree_01_Update": true,
+    "/Game/Forest_village/Meshes/Rocks/SM_rock_03": true,
+    "/Game/Kingdom_Capital/Meshes/Buildings/SM_circular_module_01": true,
+    "/Game/Kingdom_Capital/Meshes/Buildings/SM_circular_module_04": true,
+    "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01": true,
+    "/Game/Dwarf_Pack/Agvid/Mesh/SK/SK_Dwarf_Agvid_Full": true,
+    "/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1": true,
+    "/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1": true,
+    "/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle": true,
+    "/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Run": true,
+    "/Game/Dwarf_Pack/Bedvar/Mesh/SK_Dwarf_Bedvar_Full": true,
+    "/Game/Dwarf_Pack/Broddi/Mesh/SK_Dwarf_BroddI_Full": true,
+    "/Game/Dwarf_Pack/King/Mesh/SK_Dwarf_King_Full": true,
+    "/Game/Dwarf_Pack/Orme/Mesh/SK_Dwarf_Orme_Full": true,
+    "/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Idle": true,
+    "/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Run_Fwd": true,
+    "/Game/Knights_Pack/Meshes/Knight_01/Mesh_UE5/Knight_01_Full/SKM_Knight_01_Full_01": true,
+    "/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE4/Full/SK_Knight_02_Full_01": true,
+    "/Game/Knights_Pack/Meshes/Knight_02/Mesh_UE5/Full/SKM_Knight_02_Full_01": true,
+    "/Game/Knights_Pack/Meshes/Knight_03/Mesh_UE5/Full/SKM_Knight_03_Full_01": true,
+    "/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE5/Full_Mesh/SKM_Knight_04_Full_01": true,
+    "/Game/Knights_Pack/Meshes/Knight_05/Mesh_UE5/Full_Mesh/SKM_Knight_05_Full_01": true,
+    "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt": true,
+    "/Game/Soul/Magic/Spells/DA_Soul_Firebolt": true,
+    "/RBWeather/Presentation/DA_RBWeather_DefaultPresentation": true,
+    "/RBWeather/Presentation/MPC_RBWeather": true
+  },
+  "cook_roots_passed": 48,
+  "cooked_export_packages": 1035,
+  "loose_payloads": {
+    "Data/soul_vertical_scenario_20260925.json": {
+      "sha256": "157182a5c46d5709ae7bb99e532fe7194566d470bcf808ddda6b5b925d981c94",
+      "matches_source": true
+    },
+    "Data/CampaignTerrainV2/FounderHeight.r16": {
+      "sha256": "c8ce0cac1165738979233c5b1cfc5e717fbd3b377a5e70046ad2c9ff7fefb606",
+      "matches_source": true
+    },
+    "Data/CampaignTerrainV2/presentation.json": {
+      "sha256": "003fde6bbbbe5d28b26062e197377a62b71246098b80747d7acd06cc6b741d92",
+      "matches_source": true
+    },
+    "Data/CampaignMesa/presentation.json": {
+      "sha256": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "matches_source": true
+    },
+    "Data/CampaignMesaLocal/MesaHeight.r16": {
+      "sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "matches_source": true
+    },
+    "Data/soul_world_overmap_v1_20260922.json": {
+      "sha256": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+      "matches_source": true
+    },
+    "Data/soul_campaign_start_states_v1_20260922.json": {
+      "sha256": "195cfe3e7c734e436ffd5cbbc8f7c0993bcee89a892274aaa15c18d295db74e5",
+      "matches_source": true
+    },
+    "Data/soul_overmap_battle_handoff_v1_20260922.json": {
+      "sha256": "42a1f583a3f22f2a0877c898dfc2f36b7fac96cd159f26d5508b2628bfbca24e",
+      "matches_source": true
+    },
+    "Plugins/RBFoundation/StackManifest.json": {
+      "sha256": "2e5c6f74bf985087ba10c7690b8950c722b8fae93ea16122a2c263db9b9171c4",
+      "matches_source": true
+    },
+    "Plugins/TCAT/Resources/InfluenceComponentIcon.png": {
+      "sha256": "d5bebac38a142d2a729c3d38809e9deaab8b1271aed51016f7696116c4c3f18c",
+      "matches_source": true
+    },
+    "Plugins/TCAT/Resources/InfluenceComponentIcon_64.png": {
+      "sha256": "a5e0e2c55b7419518ca319293d9c7f26b10a3bcda9650b0fd8e72bce4f03939d",
+      "matches_source": true
+    }
+  },
+  "extra_dependencies": {
+    "../../../Soul/Content/MagicSpells/Fire/Fx/NS_Fireball.uasset": true,
+    "../../../Soul/Content/ShaderArchive-Global-PCD3D_SM5-PCD3D_SM5.ushaderbytecode": true,
+    "../../../Soul/Content/ShaderArchive-Soul-PCD3D_SM5-PCD3D_SM5.ushaderbytecode": true
+  },
+  "project_plugins": {
+    "RBAI": {
+      "mounted": true,
+      "runtime_modules": [
+        "AITokenCore",
+        "RBAICore",
+        "RBAICombat",
+        "RBAICreatures",
+        "RBAIGroups",
+        "RBAIBoss"
+      ]
+    },
+    "RBFoundation": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBFoundation"
+      ]
+    },
+    "RBFoundationLegacyAdapters": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBFoundationAdapters"
+      ]
+    },
+    "RBItemEconomy": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBItemEconomy"
+      ]
+    },
+    "RBMagic": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBMagicCore",
+        "RBMagicPresentation"
+      ]
+    },
+    "RBOptimization": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBOptimization"
+      ]
+    },
+    "RBPBIL": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBPBIL"
+      ]
+    },
+    "RBRoutine": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBRoutine"
+      ]
+    },
+    "RBSave": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBSaveCore",
+        "RBSave"
+      ]
+    },
+    "RBUIInput": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBUIInput"
+      ]
+    },
+    "RBWeather": {
+      "mounted": true,
+      "runtime_modules": [
+        "RBWeather"
+      ]
+    },
+    "RefinedBadgerCombat": {
+      "mounted": true,
+      "runtime_modules": [
+        "RefinedBadgerCombatCore",
+        "RefinedBadgerCombatVariant"
+      ]
+    },
+    "TCAT": {
+      "mounted": true,
+      "runtime_modules": [
+        "TCAT"
+      ]
+    }
+  },
+  "hyper": "No Hyper-named plugin is enabled in Soul.uproject or project plugin descriptors; TCAT/RBPBIL are mounted.",
+  "archive_reparse_points": [],
+  "prerequisite_installer": true,
+  "tcat_missing_resource_log_after_supplement": false,
+  "shipping": "Not attempted: script and project packaging policy select Development only.",
+  "actual_pak_engine_config": {
+    "sha256": "38afdd6ac4142312d6e7c85bdbe907af1c387b7744040be9366aed9a38964000",
+    "campaign_default_map": true,
+    "campaign_default_game_mode": true,
+    "android_file_server_section_absent": true,
+    "matches_uat_filtered_input": true
+  }
+}

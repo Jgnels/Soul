@@ -21,7 +21,8 @@ bool FSoulCampaignWorldGeometryTest::RunTest(const FString&)
     {
         const FVector* P=Locations.Find(Region.Key);if(!TestNotNull(TEXT("region location exists"),P))continue;
         const float Scale=SoulCampaignTerrain::Scale();
-        TestTrue(TEXT("location inside navigable world"),FMath::Abs(P->X)<ASoulCampaignCamera::MaxFocusX*Scale&&FMath::Abs(P->Y)<ASoulCampaignCamera::MaxFocusY*Scale);
+        const auto Bounds=SoulCampaignTerrain::FocusBounds();
+        TestTrue(TEXT("location inside navigable world"),FMath::Abs(P->X)<Bounds.X&&FMath::Abs(P->Y)<Bounds.Y);
         const float Ground=ASoulCampaignWorldActor::HeightAt(P->X,P->Y);
         TestTrue(TEXT("landmark rests on terrain or ford bridge"),Region.Key==TEXT("river_ford") ? P->Z>=Ground&&P->Z-Ground<60*Scale : FMath::IsNearlyEqual(Ground,static_cast<float>(P->Z),1.f*Scale));
         const FVector Party=ASoulCampaignWorldActor::PartyAnchor(Region.Key);

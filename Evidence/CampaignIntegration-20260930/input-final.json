@@ -1,0 +1,208 @@
+{
+  "runtime": {
+    "stage": "G0",
+    "command": [
+      "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+      "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+      "-game",
+      "-windowed",
+      "-ResX=1920",
+      "-ResY=1080",
+      "-nosplash",
+      "-ExecCmds=t.MaxFPS 30,r.VSync 0",
+      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\input-final\\unreal.log",
+      "-ForceRes",
+      "-RenderOffscreen",
+      "-unattended",
+      "-nosound",
+      "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+      "-DDC=InstalledNoZenLocalFallback",
+      "-SoulMesaTerrain",
+      "-SoulCampaignCapturePrefix=input-final",
+      "-SoulCampaignVisualProof"
+    ],
+    "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\input-final",
+    "expected_active_units": 0,
+    "diagnostic_rhi": null,
+    "observation_seconds_after_ready": 60.0,
+    "completion_marker": "SOUL_WORLD_VISUAL_INPUT_PASS",
+    "completion_timeout": 600.0,
+    "mesa_payload_sha256": {
+      "Data/CampaignMesa/presentation.json": "74bf11521ccbe0e670d1a6ee2fd6dab8c72a99ff6d76b6d6eb1196bd4a2d3e13",
+      "Data/CampaignMesaLocal/MesaHeight.r16": "cb078fed83d959034691a6bd6a1c274d6e6d60e29bbac7a9b4b6bf45d9c89547",
+      "Content/SoulCampaignMountain/L_mesa_coast_v2.umap": "818e3d1f4ca5197536e7e684a7225f3bc4320b4588eb30b97b105677ef92a256",
+      "Binaries/Win64/UnrealEditor-Soul.dll": "a3d34b68eda8a8c6208f9b11462c7bb058b2be6fce8f23a9d3bc6fd3409ae085"
+    },
+    "started_utc": "2026-09-30T18:34:31.267032+00:00",
+    "initial_gpu": [
+      {
+        "name": "NVIDIA GeForce GTX 1080",
+        "memory_total_mib": 8192.0,
+        "memory_used_mib": 4955.0,
+        "temperature_c": 49.0,
+        "utilization_percent": 1.0
+      }
+    ],
+    "automatic_acceptance": false,
+    "pid": 25376,
+    "ready_utc": "2026-09-30T18:35:17.354040+00:00",
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "stopped_utc": "2026-09-30T18:37:15.148994+00:00",
+    "stop_reason": "completion_marker_process_exit",
+    "cleanup": "already_exited",
+    "elapsed_seconds": 163.88,
+    "observed_after_ready_seconds": 117.86,
+    "crash_signatures": [],
+    "rhi_log_lines": [
+      "[2026.09.30-18.34.34:497][  0]LogRHI: Using Default RHI: D3D11",
+      "[2026.09.30-18.34.34:972][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+    ],
+    "completion_marker_observed": true,
+    "alive_observed_after_ready_seconds": 112.72,
+    "preserved_crashes": []
+  },
+  "images": [
+    {
+      "file": "input-final_battle_prompt.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "dc45d2f3769fea583d89ae2ff889d49d2a06d01a46a35b3279a1f8cf63d9e4de"
+    },
+    {
+      "file": "input-final_camera.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "736650cc052eb56fa24e5c365e087a3fd59f46a460321f643adc9c33538d6173"
+    },
+    {
+      "file": "input-final_capital_ground.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "17af517b66875b1bea683611fad87044baa419c2968a11bed06c4e6f9d2344c0"
+    },
+    {
+      "file": "input-final_close_orbit.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "255277f4078a8deec4bad4486faf5bfad42f234ca6ba4c4291e4edc96d464c6b"
+    },
+    {
+      "file": "input-final_crossroads.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "c73539151fc069f7057e99e73f485d5325640865ccf26521323fdd5a6929f69e"
+    },
+    {
+      "file": "input-final_drag.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "2e543678bbe71ced23cbdaa26268891d6bc3df02ada52e0c9fdff2abfab6e67e"
+    },
+    {
+      "file": "input-final_forest_pass.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "c5e635bd674579e7c8c8a86979cf87c74e3d20f39afa60df45dcd395caae4cfb"
+    },
+    {
+      "file": "input-final_frontier.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "6817e63a719606d0591f4b82f5d506bdc8d6d02e70ebd651ccdefa3251a478a1"
+    },
+    {
+      "file": "input-final_initial.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "a8969087e4fa07c0b43464911a35a2e7cdb23bf2769c04c1dd1a262c89d58936"
+    },
+    {
+      "file": "input-final_north_pass.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "38af6df69f310382eb7141cf6b7c654afe4f2f00a9c5f53a78ab9aa5661eed91"
+    },
+    {
+      "file": "input-final_quarry_shrine.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "9afd022d86e95fb606eb01659be280c36d3ca7804a45410faf6d852fb146b175"
+    },
+    {
+      "file": "input-final_restored.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "39e9e7a78a1a22e15651aac30c5f4200a925cf2a022126a5409c51d630b67171"
+    },
+    {
+      "file": "input-final_shrine.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "2c3195476a8d866ebb2296d25ac90092028ded7f26888a63642cdf3b5a9cd321"
+    },
+    {
+      "file": "input-final_town.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "0edfdebf1f6f1ae5c8230e82c50dc77b63723760e850ad35f9fd764ae8e48366"
+    },
+    {
+      "file": "input-final_travel.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "c2e111fb57db92af08565c9dfacf0801ac7520b18355c26fb25bbedd4955ac44"
+    },
+    {
+      "file": "input-final_wide_bounds.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "cc0052c0dc366294db10742054e8342096aa27682875ce5541a1b1e305d0787b"
+    }
+  ],
+  "image_root": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\Qualification\\input-final",
+  "height_sha256_at_launch": "cb078fed83d959034691a6bd6a1c274d6e6d60e29bbac7a9b4b6bf45d9c89547",
+  "height_sha256_at_archive": "cb078fed83d959034691a6bd6a1c274d6e6d60e29bbac7a9b4b6bf45d9c89547",
+  "assertions": [
+    "[2026.09.30-18.35.14:438][  0]LogTemp: Display: SOUL_TERRAIN_V2 landscape_loaded=1 bake_valid=1 scale=10 map=/Game/SoulCampaignMountain/L_mesa_coast_v2",
+    "[2026.09.30-18.35.14:438][  0]LogTemp: Display: SOUL_TERRAIN_V2_ALIGNMENT_PASS hits=105/105 max_cm=0.040",
+    "[2026.09.30-18.35.14:770][  0]LogTemp: Display: SOUL_WORLD_BUILT vertices=0 routes=10 elapsed_ms=501.33",
+    "[2026.09.30-18.35.25:982][297]LogTemp: Display: SOUL_WORLD_CHECK_PASS initial unknown locations are hidden and unselectable",
+    "[2026.09.30-18.35.35:633][556]LogTemp: Display: SOUL_WORLD_CHECK_PASS town HUD button opens recruitment panel",
+    "[2026.09.30-18.35.38:617][636]LogTemp: Display: SOUL_WORLD_CHECK_PASS number key recruits once",
+    "[2026.09.30-18.35.41:617][726]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-18.35.41:617][726]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-18.35.44:639][807]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse selection moves once and spends one action",
+    "[2026.09.30-18.35.50:635][977]LogTemp: Display: SOUL_WORLD_CHECK_PASS wheel zoom and keyboard pan move perspective camera",
+    "[2026.09.30-18.35.53:631][ 57]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-18.35.53:631][ 57]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-18.35.56:632][147]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse movement reaches ford",
+    "[2026.09.30-18.35.59:624][227]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-18.35.59:624][227]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-18.36.02:624][317]LogTemp: Display: SOUL_WORLD_CHECK_PASS hostile selection offers battle without preoccupation",
+    "[2026.09.30-18.36.08:636][488]LogTemp: Display: SOUL_WORLD_CHECK_PASS end day restores actions",
+    "[2026.09.30-18.36.08:636][488]LogTemp: Display: SOUL_WORLD_CHECK_PASS non-adjacent movement rejected",
+    "[2026.09.30-18.36.08:636][488]LogTemp: Display: SOUL_WORLD_CHECK_PASS capture pre-F5 campaign snapshot",
+    "[2026.09.30-18.36.11:636][578]LogTemp: Display: SOUL_WORLD_CHECK_PASS F5 saves through RBSave",
+    "[2026.09.30-18.36.11:636][578]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-18.36.11:636][578]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-18.36.14:637][668]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse changes live region before F9",
+    "[2026.09.30-18.36.17:638][758]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 restores saved campaign location",
+    "[2026.09.30-18.36.17:638][758]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 restores exact campaign snapshot including actions army economy exploration and encounter state",
+    "[2026.09.30-18.36.17:638][758]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 synchronizes selection panels company camera",
+    "[2026.09.30-18.36.17:638][758]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 places physical company at restored terrain anchor",
+    "[2026.09.30-18.36.23:640][928]LogTemp: Display: SOUL_WORLD_CHECK_PASS legal quarry exploration",
+    "[2026.09.30-18.36.26:622][  8]LogTemp: Display: SOUL_WORLD_CHECK_PASS explored memory stays present while unknown locations remain hidden and unselectable",
+    "[2026.09.30-18.36.26:622][  8]LogTemp: Display: SOUL_WORLD_CHECK_PASS route exercises friendly and hostile remembered places",
+    "[2026.09.30-18.36.26:622][  8]LogTemp: Display: SOUL_WORLD_CHECK_PASS distant selection reveals no current garrison information and spends no action",
+    "[2026.09.30-18.36.32:641][179]LogTemp: Display: SOUL_WORLD_CHECK_PASS forest route reveals the pass through strategic vision",
+    "[2026.09.30-18.36.38:625][349]LogTemp: Display: SOUL_WORLD_CHECK_PASS minimum zoom and orbit retain terrain clearance",
+    "[2026.09.30-18.36.44:633][520]LogTemp: Display: SOUL_WORLD_CHECK_PASS maximum zoom and sustained pan stay bounded",
+    "[2026.09.30-18.36.50:622][692]LogTemp: Display: SOUL_WORLD_CHECK_PASS Home returns camera to company",
+    "[2026.09.30-18.36.53:623][782]LogTemp: Display: SOUL_WORLD_CHECK_PASS middle-mouse drag pans through normal mouse-axis input",
+    "[2026.09.30-18.37.08:644][203]LogTemp: Display: SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=1"
+  ],
+  "peak_gpu_temperature_c": 67.0,
+  "peak_total_gpu_memory_mib": 5717.0
+}

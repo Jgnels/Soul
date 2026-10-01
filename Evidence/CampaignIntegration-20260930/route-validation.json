@@ -1,0 +1,72 @@
+[
+  {
+    "a": "human_capital",
+    "b": "crossroads",
+    "length_m": 137.53000500518434,
+    "min_ground_m": 13.570100003403608,
+    "max_grade_degrees": 14.122491636176193
+  },
+  {
+    "a": "crossroads",
+    "b": "old_quarry",
+    "length_m": 304.4262309868553,
+    "min_ground_m": 12.495000000383406,
+    "max_grade_degrees": 14.122491636141605
+  },
+  {
+    "a": "crossroads",
+    "b": "river_ford",
+    "length_m": 192.36186838089918,
+    "min_ground_m": 13.570316669991394,
+    "max_grade_degrees": 19.34147148643616
+  },
+  {
+    "a": "crossroads",
+    "b": "forest_edge",
+    "length_m": 249.22130203483087,
+    "min_ground_m": 4.561050003250504,
+    "max_grade_degrees": 19.830543943460007
+  },
+  {
+    "a": "old_quarry",
+    "b": "ancient_shrine",
+    "length_m": 201.61536285256727,
+    "min_ground_m": 6.421066668041063,
+    "max_grade_degrees": 19.126545892176654
+  },
+  {
+    "a": "river_ford",
+    "b": "orc_watch",
+    "length_m": 73.52941180000002,
+    "min_ground_m": 11.18500000036,
+    "max_grade_degrees": 17.369682785654838
+  },
+  {
+    "a": "forest_edge",
+    "b": "orc_watch",
+    "length_m": 430.42945812081257,
+    "min_ground_m": 4.570374999503745,
+    "max_grade_degrees": 18.849450928550183
+  },
+  {
+    "a": "forest_edge",
+    "b": "north_pass",
+    "length_m": 238.22908399644308,
+    "min_ground_m": 2.6805000002700865,
+    "max_grade_degrees": 18.849450928580524
+  },
+  {
+    "a": "north_pass",
+    "b": "orc_camp",
+    "length_m": 344.29031243131243,
+    "min_ground_m": 2.6832499998772437,
+    "max_grade_degrees": 18.22997309881809
+  },
+  {
+    "a": "orc_watch",
+    "b": "orc_camp",
+    "length_m": 538.0977171678355,
+    "min_ground_m": 3.5556666671648283,
+    "max_grade_degrees": 18.10599389794492
+  }
+]

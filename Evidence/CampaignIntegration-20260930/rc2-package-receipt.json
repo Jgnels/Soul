@@ -1,0 +1,91 @@
+{
+  "status": "DEVELOPMENT_RC2_QUALIFIED_AT_BOUNDED_SETTINGS; FOUNDER_HARDWARE_GATE_PENDING",
+  "host": "DESKTOP-Q1S3RPU",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "base_head": "01526778807656bca32d789e747a354664ef75fd",
+  "configuration": "Win64 Development UE 5.8.2",
+  "archive": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Archive\\Windows",
+  "launcher": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Archive\\Windows\\Play_Soul_RC2.bat",
+  "source_launcher": "Tools/Open_Soul_RC2.bat",
+  "founder_settings": "1280x720 D3D11 30 FPS; normal default campaign; no proof flags",
+  "founder_save_directory": "%LOCALAPPDATA%/Soul/RC2-Waterfront-Founder/Saved/RBSave",
+  "uat_exit_code": 0,
+  "uat_seconds": 1142.05,
+  "fresh_full_cook": true,
+  "archive_files": 134,
+  "archive_bytes": 3523110082,
+  "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+  "archive_manifest": "D:\\RefinedBadger\\Builds\\Soul-RC2-Waterfront-20260930-01\\Diagnostics\\archive-sha256.json",
+  "archive_manifest_sha256": "9268ad3bdc52bf86e9ff02633ef48e9d00ad508ba757c564bfcce5bfb46fecb5",
+  "runs": {
+    "input-01": {
+      "receipt": "rc2-input-01.json",
+      "exit_code": 0,
+      "stop_reason": "completion_marker_process_exit",
+      "runtime_kind": "packaged",
+      "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+      "peak_gpu_temperature_c": 69.0,
+      "images": 17,
+      "errors": 0
+    },
+    "load-01": {
+      "receipt": "rc2-load-01.json",
+      "exit_code": 0,
+      "stop_reason": "completion_marker_process_exit",
+      "runtime_kind": "packaged",
+      "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+      "peak_gpu_temperature_c": 74.0,
+      "images": 1,
+      "errors": 0
+    },
+    "victory-01": {
+      "receipt": "rc2-victory-01.json",
+      "exit_code": 1,
+      "stop_reason": "thermal_cutoff_85c",
+      "runtime_kind": "packaged",
+      "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+      "peak_gpu_temperature_c": 85.0,
+      "images": 9,
+      "errors": 0
+    },
+    "victory-02": {
+      "receipt": "rc2-victory-02.json",
+      "exit_code": 0,
+      "stop_reason": "completion_marker_process_exit",
+      "runtime_kind": "packaged",
+      "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+      "peak_gpu_temperature_c": 76.0,
+      "images": 11,
+      "errors": 0
+    },
+    "defeat-01": {
+      "receipt": "rc2-defeat-01.json",
+      "exit_code": 0,
+      "stop_reason": "completion_marker_process_exit",
+      "runtime_kind": "packaged",
+      "executable_sha256": "1ae085eb83541dc2ab523d013bb804d2895b33fb70576d7a52f65bf70d61fc7d",
+      "peak_gpu_temperature_c": 72.0,
+      "images": 9,
+      "errors": 0
+    }
+  },
+  "supplemental_staging": "Two existing TCAT runtime Slate icons copied by Tools/Stage-SoulTcatResources.ps1 to Stage and Archive after first input run; no recook or executable change. Subsequent cold load and both accepted battle runs have no missing Slate-resource messages. Same step is now called after UAT in package_soul_weekend.ps1.",
+  "cook_side_effect": "AndroidFileServer generated a source config append during cook. Removed only that append after verifying original prefix against clean tracked config; actual packed config excludes the section. Future cook command disables that editor plugin.",
+  "packaging_changes": "Tools only; no gameplay code, licensed source assets, or cook-root breadth changed.",
+  "shipping": "NOT ATTEMPTED: existing project configuration and script support Development only.",
+  "limits": [
+    "1080p battle attempt rejected at 85 C thermal cutoff; owned child terminated. No crash signatures.",
+    "Accepted battle runs use 720p / 30 FPS. Founder launcher defaults to those settings.",
+    "Bounded rendered offscreen runs use simulated controller events, not physical mouse/keyboard/gamepad acceptance.",
+    "No clean-machine install, long soak, audio, uncapped performance, Shipping or production-art acceptance."
+  ],
+  "native_tests": "Prior 69-pass suite retained as earlier source evidence; not rerun because no gameplay changes.",
+  "tool_tests": {
+    "packaging": 7,
+    "runner": 11,
+    "passed": 18,
+    "final_static_preflight": "PASS"
+  },
+  "git_diff_check": "PASS",
+  "commit": "Not created; integrated dirty candidate preserved on existing worker branch."
+}

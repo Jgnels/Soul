@@ -2,6 +2,8 @@
 #include "Engine/World.h"
 
 #include "SoulCampaignWorldActor.h"
+#include "SoulCampaignCamera.h"
+#include "GameFramework/PlayerController.h"
 #include "Engine/GameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
@@ -33,6 +35,7 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
     }
 
     State->InitializeScenario();
+    ObservedLoadRevision=State->CampaignLoadRevision;
     if(!State->LastBattleResult.EncounterId.IsNone())
     {
         const auto& Result=State->LastBattleResult;
@@ -102,6 +105,14 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
             Pair.Key == SelectedRegion || Pair.Key == HoveredRegion,
             State->EnemyArmies.FindRef(Pair.Key));
     }
+}
+
+void ASoulFounderPlaytestCampaignActor::SelectCompany()
+{
+    if(!State)return;
+    CancelPanel();SelectedBattleRegion=NAME_None;SelectedRegion=State->PlayerRegion;
+    int32 Army=0;for(const auto& Unit:State->PlayerArmy)Army+=Unit.Value;
+    LastMessage=FString::Printf(TEXT("Company selected: %d troops at %s. Choose a connected destination."),Army,*DisplayName(State->PlayerRegion));
 }
 
 void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
@@ -342,6 +353,17 @@ void ASoulFounderPlaytestCampaignActor::Tick(float Seconds)
     Super::Tick(Seconds);
     if (WorldPresentation && State)
     {
+        if(ObservedLoadRevision!=State->CampaignLoadRevision)
+        {
+            ObservedLoadRevision=State->CampaignLoadRevision;
+            CancelPanel();SelectedBattleRegion=NAME_None;HoveredRegion=NAME_None;
+            SelectedRegion=State->PlayerRegion;
+            LastMessage=TEXT("Campaign restored. Continue from the saved company location.");
+            WorldPresentation->PresentPlayerLocation(State->PlayerRegion,false,true);
+            if(auto* PC=GetWorld()->GetFirstPlayerController())
+                if(auto* Camera=Cast<ASoulCampaignCamera>(PC->GetViewTarget()))Camera->Focus(RegionPositions().FindRef(State->PlayerRegion));
+            UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_LOAD_PRESENTED region=%s revision=%u"),*State->PlayerRegion.ToString(),ObservedLoadRevision);
+        }
         WorldPresentation->RefreshKnowledge();
         WorldPresentation->PresentPlayerLocation(State->PlayerRegion, false);
     }

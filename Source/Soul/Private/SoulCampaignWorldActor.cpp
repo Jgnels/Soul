@@ -123,7 +123,7 @@ void ASoulCampaignWorldActor::Build(USoulFounderPlaytestStateSubsystem* InState)
     if(!SoulCampaignTerrain::Enabled())BuildDressing();
     // Strategic geography grows 20x; the miniature company stays human-sized
     // relative to the licensed buildings and fits the bridge carriageway.
-    BuildParty();Party->SetRelativeScale3D(FVector(SoulCampaignTerrain::Enabled()?5.f:1.f));
+    BuildParty();Party->SetRelativeScale3D(FVector(SoulCampaignTerrain::Enabled()?SoulCampaignTerrain::Scale()*.25f:1.f));
     RefreshKnowledge(); PresentPlayerLocation(State->PlayerRegion,false);
     UE_LOG(LogTemp,Display,TEXT("SOUL_WORLD_BUILT vertices=%d routes=%d elapsed_ms=%.2f"),Vertices.Num(),Roads.Num(),(FPlatformTime::Seconds()-Started)*1000.0);
 }
@@ -218,19 +218,22 @@ void ASoulCampaignWorldActor::BuildRoads()
         Road->RegisterComponent(); AddInstanceComponent(Road);
         TArray<FVector> V,N; TArray<FVector2D> UV; TArray<int32> T; TArray<FLinearColor> C;
         const float Scale=SoulCampaignTerrain::Scale();
-        const int32 Steps=SoulCampaignTerrain::Enabled()?240:48;
+        const int32 Steps=SoulCampaignTerrain::Mesa()?1200:SoulCampaignTerrain::Enabled()?240:48;
+        const int32 Columns=SoulCampaignTerrain::Mesa()?9:2;
         for(int32 I=0;I<=Steps;++I)
         {
             float Alpha=static_cast<float>(I)/Steps;
             FVector P=RoadPoint(Region.Key,Neighbor,Alpha);
             FVector Tangent=RoadPoint(Region.Key,Neighbor,FMath::Min(Alpha+.01f,1.f))-RoadPoint(Region.Key,Neighbor,FMath::Max(Alpha-.01f,0.f));
             FVector Side=FVector::CrossProduct(Tangent.GetSafeNormal2D(),FVector::UpVector)*((SoulCampaignTerrain::Enabled()?22.f:34.f)+4.f*FMath::Sin(Alpha*PI*7.f))*Scale;
-            for(float Sign:{-1.f,1.f})
+            for(int32 Column=0;Column<Columns;++Column)
             {
+                const float Sign=-1.f+2.f*Column/(Columns-1);
                 FVector Edge=P+Side*Sign; Edge.Z=SoulCampaignTerrain::Enabled()?SoulCampaignTerrain::RoadSurface(Edge.X,Edge.Y):FMath::Max(HeightAt(Edge.X,Edge.Y)+12.f,10.f);
                 V.Add(Edge); N.Add(FVector::UpVector); UV.Add(FVector2D(SoulCampaignTerrain::Enabled()?(Sign+1)*.5f:Sign,Alpha*20)); C.Add(FLinearColor(.36f,.29f,.18f)*(1.f+.045f*FMath::Sin(Alpha*PI*19.f)));
             }
-            if(I<Steps){int32 K=I*2;T.Append({K,K+2,K+1,K+1,K+2,K+3});}
+            if(I<Steps)for(int32 Column=0;Column<Columns-1;++Column)
+            {int32 K=I*Columns+Column;T.Append({K,K+Columns,K+1,K+1,K+Columns,K+Columns+1});}
         }
         Road->CreateMeshSection_LinearColor(0,V,T,N,UV,C,{},false);
         Road->SetMaterial(0,LoadObject<UMaterialInterface>(nullptr,SoulCampaignTerrain::Enabled()?TEXT("/Game/Soul/Campaign/TerrainV2/M_FounderRoad"):TEXT("/Game/Soul/Campaign/M_CampaignTerrain.M_CampaignTerrain")));
@@ -366,17 +369,19 @@ void ASoulCampaignWorldActor::RefreshKnowledge()
 }
 FVector ASoulCampaignWorldActor::PartyAnchor(FName Region)
 {
-    const float Scale=SoulCampaignTerrain::Scale();
+    const float Scale=SoulCampaignTerrain::RegionScale();
     FVector P=Locations().FindRef(Region);
+    if(SoulCampaignTerrain::Mesa()){P.Z=SoulCampaignTerrain::RoadSurface(P.X,P.Y)+20.f;return P;}
     // Station the company in front of fortified silhouettes, rather than inside walls.
     if(Region==TEXT("human_capital")||Region==TEXT("orc_camp")||Region==TEXT("orc_watch")||Region==TEXT("north_pass")) P.Y+=290.f*Scale;
     else if(Region!=TEXT("river_ford")) P.Y+=160.f*Scale;
-    P.Z=Region==TEXT("river_ford")?(SoulCampaignTerrain::Enabled()?20.f:38.f)*Scale:HeightAt(P.X,P.Y)+(SoulCampaignTerrain::Enabled()?2.f:12.f)*Scale;
+    P.Z=Region==TEXT("river_ford")&&!SoulCampaignTerrain::Mesa()?(SoulCampaignTerrain::Enabled()?20.f:38.f)*Scale:HeightAt(P.X,P.Y)+(SoulCampaignTerrain::Enabled()?2.f:12.f)*Scale;
     return P;
 }
-void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate)
+FVector ASoulCampaignWorldActor::PresentedPartyLocation() const {return Party->GetComponentLocation();}
+void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate,bool bForce)
 {
-    if(RegionId==PresentedRegion)return;
+    if(RegionId==PresentedRegion&&!bForce)return;
     if(bAnimate&&Locations().Contains(PresentedRegion)&&State&&FSoulWorldRules::CanMove(State->World,PresentedRegion,RegionId))
     { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelStart=Party->GetRelativeLocation();TravelAlpha=0;SetActorTickEnabled(true); }
     else {TravelAlpha=1;Party->SetRelativeLocation(PartyAnchor(RegionId));}
@@ -389,8 +394,11 @@ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
     TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/(SoulCampaignTerrain::Enabled()?1.8f:.95f));
     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
     FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,(SoulCampaignTerrain::Enabled()?2:12)*SoulCampaignTerrain::Scale());
-    Route=FMath::Lerp(TravelStart,Route,FMath::SmoothStep(0.f,.25f,Eased));
-    Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
+    if(!SoulCampaignTerrain::Mesa())
+    {
+        Route=FMath::Lerp(TravelStart,Route,FMath::SmoothStep(0.f,.25f,Eased));
+        Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
+    }
     if(SoulCampaignTerrain::Enabled())Route.Z=FMath::Max(Route.Z,HeightAt(Route.X,Route.Y)+24.f);
     Party->SetRelativeLocation(Route);
 }

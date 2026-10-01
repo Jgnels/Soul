@@ -1,0 +1,23 @@
+{
+  "python_tool_tests": 66,
+  "python_campaign_view_tests": 5,
+  "native_receipt": "waterfront-automation.json",
+  "package_preflight": {
+    "passed": true,
+    "cook_roots": 48,
+    "log": "Local/package-preflight-waterfront-final.txt",
+    "cook_exercised": false
+  },
+  "runtime_receipts": [
+    "waterfront-input-03.json",
+    "waterfront-load-01.json",
+    "waterfront-victory-01.json",
+    "waterfront-defeat-01.json"
+  ],
+  "os_input": "Blocked by window-capture helper; see waterfront-os-input-01.json",
+  "final_input_duplicate_hitbox_warnings": 0,
+  "binary_sha256": {
+    "Binaries/Win64/UnrealEditor-Soul.dll": "2847b3d402250dd49e0db000d7a1bd55af4a33aff4c1d529826c50a0f27804f0",
+    "Binaries/Win64/Soul.exe": "2d189727b661f979510085c87ba5fa012402c6637ee996f4dcc860fe9f07b076"
+  }
+}

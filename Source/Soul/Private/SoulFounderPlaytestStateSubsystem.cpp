@@ -486,6 +486,7 @@ void USoulFounderPlaytestStateSubsystem::OnCampaignSaved(const FRBSaveOperationR
 }
 void USoulFounderPlaytestStateSubsystem::OnCampaignLoaded(const FRBSaveOperationResult& R)
 {
+    if(R.bSuccess)++CampaignLoadRevision;
     bPersistenceBusy=false;bLastLoadSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?TEXT("Campaign reloaded with RB Save."):R.Message;
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_LOAD success=%d region=%s knights=%d xp=%d"),R.bSuccess,*PlayerRegion.ToString(),PlayerArmy.FindRef(PlayerUnitId),Hero.Experience);
 }

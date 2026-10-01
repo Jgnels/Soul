@@ -18,6 +18,7 @@ public:
     virtual void Tick(float Seconds) override;
 
     void HandleRegionClicked(FName RegionId);
+    void SelectCompany();
     void EndDay();
     void HandleNumberKey(int32 Index);
     void HireTavernHero();
@@ -45,6 +46,7 @@ private:
 
     UPROPERTY() TObjectPtr<class ASoulCampaignWorldActor> WorldPresentation;
     FName SelectedBattleRegion;
+    uint32 ObservedLoadRevision = 0;
     bool bTownPanelOpen = false;
     bool bBattlePromptOpen = false;
 

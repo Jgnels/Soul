@@ -1,0 +1,29 @@
+{
+  "baseline_dirty_files": 52,
+  "continued_integration_files": [
+    "Data/CampaignMesa/README.md",
+    "Data/CampaignMesa/presentation.json",
+    "Evidence/CampaignIntegration-20260930/CHANGED_FILES.txt",
+    "Evidence/CampaignIntegration-20260930/HANDOFF.md",
+    "Tools/integrate_soul_mesa.py",
+    "Tools/qualify_soul_mesa.ps1",
+    "Config/DefaultGame.ini",
+    "Source/Soul/Private/SoulCampaignCamera.cpp",
+    "Source/Soul/Private/SoulCampaignTerrain.cpp",
+    "Source/Soul/Private/SoulCampaignVisualQualification.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+    "Tools/qualify_soul_vertical.py"
+  ],
+  "unrelated_dirty_unchanged": 38,
+  "unexpected_changes": [],
+  "licensed_files_checked": 3667,
+  "licensed_metadata_changes": [],
+  "waterfront_map_sha256": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+  "player_checkpoints_restored": {
+    "Soul.VerticalCampaign.domain.rbsave": true,
+    "Soul.VerticalCampaign.domain.rbsave.bak": true
+  },
+  "save_history": "Existing history retained; tests appended history entries."
+}

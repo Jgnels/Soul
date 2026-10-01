@@ -16,12 +16,14 @@ p.add_argument('--benchmark',action='store_true')
 a=p.parse_args()
 if a.output.exists():p.error('Immutable receipt directory already exists')
 summary=json.loads((a.run/'summary.json').read_text())
+height_file=ROOT/('Data/CampaignMesaLocal/MesaHeight.r16' if 'mesa_payload_sha256' in summary else 'Data/CampaignTerrainV2/FounderHeight.r16')
 started=dt.datetime.fromisoformat(summary['started_utc']).timestamp()
 log=(a.run/'unreal.log').read_text(errors='replace')
 a.output.mkdir(parents=True)
 shutil.copy2(a.run/'summary.json',a.output/'runtime.json')
-receipt={'runtime':summary,'images':[], 'height_sha256_at_launch':summary.get('terrain_height_sha256'),
- 'height_sha256_at_archive':hashlib.sha256((ROOT/'Data/CampaignTerrainV2/FounderHeight.r16').read_bytes()).hexdigest(),
+receipt={'runtime':summary,'images':[], 'image_root':str(a.output.resolve()),
+ 'height_sha256_at_launch':summary.get('terrain_height_sha256',summary.get('mesa_payload_sha256',{}).get('Data/CampaignMesaLocal/MesaHeight.r16')),
+ 'height_sha256_at_archive':hashlib.sha256(height_file.read_bytes()).hexdigest(),
  'assertions':[line for line in log.splitlines() if 'SOUL_' in line and any(word in line for word in ('PASS','FAIL','BUILT','BENCHMARK_COMPLETE','landscape_loaded'))]}
 for f in (ROOT/'Saved/Screenshots').glob(a.prefix+'*.png'):
  if f.stat().st_mtime<started:continue

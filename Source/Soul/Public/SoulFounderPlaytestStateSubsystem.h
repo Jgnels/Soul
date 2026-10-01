@@ -38,6 +38,7 @@ public:
 
     bool bInitialized = false, bSecondHeroHired = false, bBattleWon = false;
     bool bPersistenceBusy = false, bLastSaveSucceeded = false, bLastLoadSucceeded = false;
+    uint32 CampaignLoadRevision = 0; // Presentation notification; never saved as game truth.
     FSoulWorldState World;
     FSoulCommanderState EnemyCommander;
     FString LastAIReport, LastPersistenceReport;

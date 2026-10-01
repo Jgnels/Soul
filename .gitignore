@@ -27,5 +27,10 @@ Content/Forest_village/
 Content/Kingdom_Capital/
 Evidence/CampaignTerrainProduction-20260929/Local/
 /Content/Medieval_Megapack/
+/Content/SoulCampaignMountain/
+/Content/LandscapePackOne/
+/Content/LandscapePackTwo/
+/Data/CampaignMesaLocal/
+/Evidence/CampaignIntegration-20260930/Local/
 # Earlier visual iterations remain immutable locally; commit their hash receipts.
 Evidence/CampaignTerrainProduction-20260929/runs/0[1-8]-*/*.png

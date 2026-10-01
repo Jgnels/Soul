@@ -1,0 +1,24 @@
+{
+  "succeeded": 69,
+  "succeededWithWarnings": 0,
+  "failed": 0,
+  "notRun": 0,
+  "totalDuration": 4.4181437492370605,
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+    "-unattended",
+    "-nop4",
+    "-nosplash",
+    "-nosound",
+    "-nullrhi",
+    "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+    "-DDC=InstalledNoZenLocalFallback",
+    "-ExecCmds=Automation RunTests Soul.",
+    "-TestExit=Automation Test Queue Empty",
+    "-ReportExportPath=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\AutomationWaterfront",
+    "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\automation-waterfront.log"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 57.06330919265747
+}

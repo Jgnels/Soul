@@ -1,0 +1,181 @@
+{
+  "runtime": {
+    "stage": "G6",
+    "command": [
+      "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+      "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+      "-game",
+      "-windowed",
+      "-ResX=1920",
+      "-ResY=1080",
+      "-nosplash",
+      "-ExecCmds=t.MaxFPS 30,r.VSync 0",
+      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\waterfront-victory-01\\unreal.log",
+      "-ForceRes",
+      "-RenderOffscreen",
+      "-unattended",
+      "-nosound",
+      "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+      "-DDC=InstalledNoZenLocalFallback",
+      "-SoulMesaTerrain",
+      "-SoulCampaignCapturePrefix=waterfront-victory-01",
+      "-SoulCampaignMouseRoundtrip",
+      "-SoulRealtimeVisualUnits",
+      "-SoulRealtimeMagicProof"
+    ],
+    "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignIntegration-20260930\\Local\\waterfront-victory-01",
+    "expected_active_units": 30,
+    "diagnostic_rhi": null,
+    "observation_seconds_after_ready": 60.0,
+    "completion_marker": "SOUL_CAMPAIGN_ROUNDTRIP_PASS",
+    "completion_timeout": 600.0,
+    "mesa_payload_sha256": {
+      "Data/CampaignMesa/presentation.json": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "Data/CampaignMesaLocal/MesaHeight.r16": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "Content/SoulCampaignMountain/L_evil_waterfront.umap": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "Binaries/Win64/UnrealEditor-Soul.dll": "19b4ea914f246064fe52867b8450cf1c16b645d7afc5e4bad4b512dbef52646f"
+    },
+    "started_utc": "2026-09-30T23:31:31.614408+00:00",
+    "initial_gpu": [
+      {
+        "name": "NVIDIA GeForce GTX 1080",
+        "memory_total_mib": 8192.0,
+        "memory_used_mib": 4892.0,
+        "temperature_c": 71.0,
+        "utilization_percent": 0.0
+      }
+    ],
+    "automatic_acceptance": false,
+    "pid": 20252,
+    "ready_utc": "2026-09-30T23:32:17.653342+00:00",
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "stopped_utc": "2026-09-30T23:35:28.001834+00:00",
+    "stop_reason": "completion_marker_process_exit",
+    "cleanup": "already_exited",
+    "elapsed_seconds": 236.39,
+    "observed_after_ready_seconds": 190.41,
+    "crash_signatures": [],
+    "rhi_log_lines": [
+      "[2026.09.30-23.31.34:494][  0]LogRHI: Using Default RHI: D3D11",
+      "[2026.09.30-23.31.34:929][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+    ],
+    "completion_marker_observed": true,
+    "alive_observed_after_ready_seconds": 185.25,
+    "preserved_crashes": []
+  },
+  "images": [
+    {
+      "file": "Campaign_Stronghold.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "342a005f7f9ef83b5aee7e0af692a4ceb13e835e8633be9006c81ec8e9927998"
+    },
+    {
+      "file": "Vertical_Battle.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "f4c185d71ee3700023a46e4b629cf01ff04965efdff62b08602a8508bec9da27"
+    },
+    {
+      "file": "Vertical_Campaign_Return.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "d4589e837f92e00d829443624c845791c08f5518b9844ed9a43b6152d94ada0e"
+    },
+    {
+      "file": "waterfront-victory-01_battle_prompt.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "7a15fc25e9eb8b2c069c00bcc2663452c11506b0f39dd63ee96013f083a0a60d"
+    },
+    {
+      "file": "waterfront-victory-01_camera.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "268ef710e9a8ec451a8e8190b4b342d84be12e4d97df9f665ab510c6e44ed60a"
+    },
+    {
+      "file": "waterfront-victory-01_crossroads.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "714874b96aeb8b6850551ff246234d2d7c741f92347fc6730e21f257dfe4e4d4"
+    },
+    {
+      "file": "waterfront-victory-01_frontier.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "6a7acd3bd69864c85964241738a179af15b25524582db35b1484c481ef6b9d28"
+    },
+    {
+      "file": "waterfront-victory-01_initial.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "0c8d2241e31a70e34695536e093ecfbecf6b5aad653e3b7a901c64c7d5b61117"
+    },
+    {
+      "file": "waterfront-victory-01_restored.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "e4969ff35555201672f47c7ffb878f76343c7a0d64ea4b4d287324ea30fac40e"
+    },
+    {
+      "file": "waterfront-victory-01_town.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "2809e7b026c17566c2329243ba0a6a72f5ab772b86876cbef2f6702ca72ca3e4"
+    },
+    {
+      "file": "waterfront-victory-01_travel.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "e671807e220c6c668586138e11bca5e19d0dd6d073797ae126b637be72a97b65"
+    }
+  ],
+  "image_root": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\SoulIntegration\\Qualification\\waterfront-victory-01",
+  "height_sha256_at_launch": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "height_sha256_at_archive": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "assertions": [
+    "[2026.09.30-23.32.12:658][  0]LogTemp: Display: SOUL_TERRAIN_V2 landscape_loaded=1 bake_valid=1 scale=10 map=/Game/SoulCampaignMountain/L_evil_waterfront",
+    "[2026.09.30-23.32.12:658][  0]LogTemp: Display: SOUL_TERRAIN_V2_ALIGNMENT_PASS hits=105/105 max_cm=0.040",
+    "[2026.09.30-23.32.12:659][  0]LogTemp: Display: SOUL_TERRAIN_COAST_ALIGNMENT_PASS hits=93/93 max_cm=0.283",
+    "[2026.09.30-23.32.13:060][  0]LogTemp: Display: SOUL_WORLD_BUILT vertices=0 routes=10 elapsed_ms=586.46",
+    "[2026.09.30-23.32.24:525][296]LogTemp: Display: SOUL_WORLD_CHECK_PASS initial unknown locations are hidden and unselectable",
+    "[2026.09.30-23.32.34:174][555]LogTemp: Display: SOUL_WORLD_CHECK_PASS town HUD button opens recruitment panel",
+    "[2026.09.30-23.32.37:183][636]LogTemp: Display: SOUL_WORLD_CHECK_PASS number key recruits once",
+    "[2026.09.30-23.32.40:183][726]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-23.32.40:183][726]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-23.32.43:180][806]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse selection moves once and spends one action",
+    "[2026.09.30-23.32.49:192][976]LogTemp: Display: SOUL_WORLD_CHECK_PASS wheel zoom and keyboard pan move perspective camera",
+    "[2026.09.30-23.32.52:166][ 55]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-23.32.52:166][ 55]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-23.32.55:173][145]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse movement reaches ford",
+    "[2026.09.30-23.32.58:171][225]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-23.32.58:171][225]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-23.33.01:170][315]LogTemp: Display: SOUL_WORLD_CHECK_PASS hostile selection offers battle without preoccupation",
+    "[2026.09.30-23.33.07:159][485]LogTemp: Display: SOUL_WORLD_CHECK_PASS end day restores actions",
+    "[2026.09.30-23.33.07:159][485]LogTemp: Display: SOUL_WORLD_CHECK_PASS non-adjacent movement rejected",
+    "[2026.09.30-23.33.07:160][485]LogTemp: Display: SOUL_WORLD_CHECK_PASS capture pre-F5 campaign snapshot",
+    "[2026.09.30-23.33.10:161][575]LogTemp: Display: SOUL_WORLD_CHECK_PASS F5 saves through RBSave",
+    "[2026.09.30-23.33.10:161][575]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-23.33.10:161][575]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-23.33.13:161][665]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse changes live region before F9",
+    "[2026.09.30-23.33.16:160][755]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 restores saved campaign location",
+    "[2026.09.30-23.33.16:161][755]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 restores exact campaign snapshot including actions army economy exploration and encounter state",
+    "[2026.09.30-23.33.16:161][755]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 synchronizes selection panels company camera",
+    "[2026.09.30-23.33.16:161][755]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 places physical company at restored terrain anchor",
+    "[2026.09.30-23.33.22:163][925]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+    "[2026.09.30-23.33.22:163][925]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+    "[2026.09.30-23.33.25:163][ 15]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse-selected hostile ready for physical battle",
+    "[2026.09.30-23.34.13:442][948]LogTemp: Display: SOUL_TERRAIN_V2 landscape_loaded=1 bake_valid=1 scale=10 map=/Game/SoulCampaignMountain/L_evil_waterfront",
+    "[2026.09.30-23.34.13:442][948]LogTemp: Display: SOUL_TERRAIN_V2_ALIGNMENT_PASS hits=105/105 max_cm=0.040",
+    "[2026.09.30-23.34.13:443][948]LogTemp: Display: SOUL_TERRAIN_COAST_ALIGNMENT_PASS hits=93/93 max_cm=0.283",
+    "[2026.09.30-23.34.13:767][948]LogTemp: Display: SOUL_WORLD_BUILT vertices=0 routes=10 elapsed_ms=468.61",
+    "[2026.09.30-23.34.14:055][948]LogTemp: Display: SOUL_CAMPAIGN_STRATEGIC_RETURN_PASS region=orc_watch owner=humans allied=20 hostile=0 mana=72 encounter=encounter.2.1.river_ford.orc_watch",
+    "[2026.09.30-23.34.39:220][679]LogTemp: Display: SOUL_CAMPAIGN_RETURN_CLICK_PASS fortress=orc_camp battle_prompt=1",
+    "[2026.09.30-23.35.24:231][ 20]LogTemp: Display: SOUL_CAMPAIGN_ROUNDTRIP_PASS id=encounter.2.1.river_ford.orc_watch target=orc_watch victory=1 survivors=20/0 persistence=RBSave returnHoldSeconds=70.02"
+  ],
+  "peak_gpu_temperature_c": 81.0,
+  "peak_total_gpu_memory_mib": 5873.0
+}

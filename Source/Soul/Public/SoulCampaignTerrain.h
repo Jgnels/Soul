@@ -8,7 +8,10 @@ class USceneComponent;
 namespace SoulCampaignTerrain
 {
     bool Enabled();
+    bool Mesa();
     float Scale();
+    float RegionScale();
+    FVector2D FocusBounds();
     float Height(float X,float Y);
     float RoadSurface(float X,float Y);
     const TMap<FName,FVector>& Locations();

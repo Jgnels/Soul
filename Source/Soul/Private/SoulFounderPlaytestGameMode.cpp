@@ -67,7 +67,7 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     auto* Camera=GetWorld()->SpawnActor<ASoulCampaignCamera>();
     if(Camera)
     {
-        if(State && State->PlayerRegion!=TEXT("human_capital")) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
+        if(State && (SoulCampaignTerrain::Mesa()||State->PlayerRegion!=TEXT("human_capital"))) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
         if(FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainBenchmark")))
         {
             FString View;float Zoom=0;
@@ -81,11 +81,55 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     FParse::Value(FCommandLine::Get(),TEXT("SoulCampaignCapturePrefix="),CapturePrefix);
     CapturePrefix=FPaths::MakeValidFileName(CapturePrefix.IsEmpty()?TEXT("World"):CapturePrefix);
     bQualification=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignQualification"));
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignMouseRoundtrip")))
+    {
+        bQualification=State&&!State->LastBattleResult.EncounterId.IsNone();
+        bVisualQualification=!bQualification;
+    }
     bRecoveryQualification=bQualification && FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignRetryQualification"));
 }
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    // Separate-process F9 proof: a fresh game must restore the preceding F5 snapshot.
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignLoadProof"))&&!bDone&&State&&Campaign)
+    {
+        Elapsed+=Seconds;
+        if(bRoundTripVerified)
+        {
+            if(Elapsed>=75){bDone=true;FPlatformMisc::RequestExitWithStatus(false,0);}
+            return;
+        }
+        auto* PC=GetWorld()->GetFirstPlayerController();
+        if(!bStarted&&Elapsed>=4&&PC)
+        {
+            bStarted=true;
+            if(!FFileHelper::LoadFileToString(ExpectedSnapshot,*(FPaths::ProjectSavedDir()/TEXT("CampaignInputExpectedSnapshot.json"))))
+            {UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_COLD_LOAD_FAIL missing expected snapshot"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
+            UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_COLD_LOAD_BEGIN fresh_region=%s"),*State->PlayerRegion.ToString());
+            PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::F9,IE_Pressed,1));
+            PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::F9,IE_Released,0));
+        }
+        if(Elapsed>=10&&!State->bPersistenceBusy)
+        {
+            FRBSaveDomainState Restored;FString Error;
+            auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
+            const bool Pass=State->bLastLoadSucceeded&&State->CaptureRBSaveDomain_Implementation(Restored,Error)
+                &&Restored.Fields[0].StringValue==ExpectedSnapshot&&Campaign->GetSelectedRegion()==State->PlayerRegion
+                &&!Campaign->IsTownPanelOpen()&&!Campaign->IsBattleAvailable()&&Camera
+                &&FVector::DistXY(Camera->GetFocus(),ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion))<3;
+            if(Pass){UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_COLD_LOAD_PASS region=%s exact_snapshot=1 controller_F9=1"),*State->PlayerRegion.ToString());}
+            else {UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_COLD_LOAD_FAIL snapshot or presentation mismatch"));}
+            if(Pass)
+            {
+                bRoundTripVerified=true;
+                FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Campaign_Cold_Load.png"),true,false);
+            }
+            else {bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);}
+        }
+        if(Elapsed>30){UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_COLD_LOAD_FAIL timeout"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);}
+        return;
+    }
     // Opt-in benchmark of the actual rendered campaign; excludes warmup and captures.
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainBenchmark")))
     {
@@ -122,8 +166,26 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             auto* PC=GetWorld()->GetFirstPlayerController();
             auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
             if(Camera && PreviousHold<20.f && ReturnHoldSeconds>=20.f) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("orc_camp")));
+            if(PC && PreviousHold<24.f && ReturnHoldSeconds>=24.f && FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignMouseRoundtrip")))
+            {
+                FVector2D Screen;
+                if(PC->ProjectWorldLocationToScreen(ASoulCampaignWorldActor::Locations().FindRef(TEXT("orc_camp"))+FVector(0,0,100*SoulCampaignTerrain::RegionScale()),Screen))
+                {
+                    PC->SetMouseLocation(FMath::RoundToInt(Screen.X),FMath::RoundToInt(Screen.Y));
+                    PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Pressed,1));
+                    PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Released,0));
+                }
+            }
             if(PreviousHold<25.f && ReturnHoldSeconds>=25.f)
+            {
+                if(FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignMouseRoundtrip")))
+                {
+                    if(!Campaign->IsBattleAvailable()||Campaign->GetSelectedRegion()!=TEXT("orc_camp"))
+                    {UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_RETURN_CLICK_FAIL fortress selection"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
+                    UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_RETURN_CLICK_PASS fortress=orc_camp battle_prompt=1"));
+                }
                 FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Campaign_Stronghold.png"),true,false);
+            }
             if(Camera && PreviousHold<35.f && ReturnHoldSeconds>=35.f) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
         }
         if(bRecoveryQualification && State->ResolvedEncounters.Num()==1 && ReturnHoldSeconds>=10.f && !bRecoveryAttempted)
@@ -201,6 +263,12 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
     if(!bLoading)
     {
         const auto& Result=State->LastBattleResult;
+        const bool ExpectDefeat=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignDefeatProof"));
+        if(ExpectDefeat && (Result.bPlayerWon || Result.PlayerSurvivors!=0 || Result.EnemyReinforcements<1))
+        {
+            UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_FAIL expected physical defeat with enemy reinforcements"));
+            bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;
+        }
         const FName Target=TEXT("orc_watch");
         const FName ExpectedRegion=Result.bPlayerWon?Target:FName(TEXT("river_ford"));
         const auto* Territory=State->World.Regions.Find(Target);
@@ -230,7 +298,13 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         State->PlayerRegion=TEXT("human_capital");
         State->PlayerArmy.FindOrAdd(State->PlayerUnitId)+=7;
         State->Hero.Experience+=17;
-        bLoading=true;State->LoadCampaign();return;
+        bLoading=true;
+        if(auto* PC=GetWorld()->GetFirstPlayerController())
+        {
+            PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::F9,IE_Pressed,1));
+            PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::F9,IE_Released,0));
+        }
+        return;
     }
     FRBSaveDomainState Restored;FString Error;
     const bool Passed=State->bLastLoadSucceeded&&State->CaptureRBSaveDomain_Implementation(Restored,Error)

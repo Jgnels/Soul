@@ -1,0 +1,24 @@
+{
+  "tool_tests": {
+    "command": "Evidence/CampaignIntegration-20260930/Local/venv/Scripts/python.exe -m unittest discover -s Tools -p test_*.py",
+    "passed": 66,
+    "failed": 0,
+    "duration_seconds": 25.127
+  },
+  "campaign_view_checks": {
+    "command": "python Source/Soul/Private/Tests/test_weekend_campaign_view.py",
+    "passed": 5,
+    "failed": 0
+  },
+  "git_diff_check": {
+    "exit_code": 0,
+    "notes": "Only existing LF/CRLF conversion notices."
+  },
+  "package_preflight": {
+    "passed": true,
+    "mode": "ValidateOnly",
+    "cook_roots": 48,
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File Tools/package_soul_weekend.ps1 -Project D:/RefinedBadger/Worktrees/Soul-bannerlord-campaign-map-20260929/Soul.uproject -Output D:/RefinedBadger/Builds/Soul-Mesa-Preflight-20260930-final -ValidateOnly",
+    "actual_cook_or_packaged_runtime": "NOT RUN"
+  }
+}
