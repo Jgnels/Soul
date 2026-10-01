@@ -266,28 +266,14 @@ bool DressRegion(AActor* Owner,FName Id)
     auto* House=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Kit/SM_small_wood_building"));
     auto* Hall=Instances(Owner,TEXT("/Game/Kingdom_Capital/Meshes/Buildings/SM_circular_module_01"));
     auto* Tower=Instances(Owner,TEXT("/Game/Kingdom_Capital/Meshes/Buildings/SM_circular_module_04"));
+    auto* AlienCitadel=Id==TEXT("orc_camp")?Instances(Owner,TEXT("/Game/AlienPlanet/Meshes/SM_BigTowerComplex")):nullptr;
+    auto* AlienWatch=(Id==TEXT("orc_watch")||Id==TEXT("north_pass"))?Instances(Owner,TEXT("/Game/AlienPlanet/Meshes/SM_BigBetweenTower")):nullptr;
     auto* Stone=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Rocks/SM_rock_03"));
     const bool Human=Id==TEXT("human_capital")||Id==TEXT("crossroads")||Id==TEXT("river_ford");
     auto* TownHouse=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Building_E")):nullptr;
     auto* TownRoof=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Roof_E")):nullptr;
     const FVector Origin=Owner->GetActorLocation();
     const float LandmarkScale=RegionScale();
-    if(EvilCorridor()&&Id==TEXT("orc_watch"))
-    {
-        auto* Dock=Instances(Owner,TEXT("/Engine/BasicShapes/Cube"));
-        if(Dock)
-        {
-            Dock->SetMaterial(0,LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/Soul/Campaign/TerrainV2/M_CampaignWood")));
-            auto Deck=[&](float Y){const float X=Origin.X+600;return FVector(X,Y,FMath::Max(120.f,Height(X,Y)+35.f));};
-            for(int32 I=0;I<38;++I)
-            {
-                const FVector A=Deck(Origin.Y+600+I*100),B=Deck(Origin.Y+700+I*100),D=B-A;
-                Dock->AddInstance(FTransform(D.Rotation(),((A+B)*.5-Origin)/LandmarkScale,FVector(D.Size()+8,300,18)/(100*LandmarkScale)));
-                if(I%4==0&&Height(A.X,A.Y)<100)
-                    for(int32 Side:{-1,1})Dock->AddInstance(FTransform(FRotator::ZeroRotator,(A+FVector(Side*125,0,-180)-Origin)/LandmarkScale,FVector(22,22,360)/(100*LandmarkScale)));
-            }
-        }
-    }
     auto Ground=[&](float X,float Y){return FVector(X,Y,(Height(Origin.X+X*LandmarkScale,Origin.Y+Y*LandmarkScale)-Origin.Z)/LandmarkScale);};
     auto Cottage=[&](FVector P,float W,float Yaw)
     {
@@ -326,8 +312,19 @@ bool DressRegion(AActor* Owner,FName Id)
         const bool Capital=Id==TEXT("human_capital"),Fort=Id==TEXT("orc_camp"),Watch=Id==TEXT("orc_watch")||Id==TEXT("north_pass");
         if(Capital||Fort||Watch)
         {
-            Place(Hall,Ground(0,Mesa()?-330:0),Capital?300:Fort?270:150,Fort?30:0,Fort?1.12f:.8f);
-            for(int I=0;I<(Watch?2:4);++I)
+            if(Fort&&AlienCitadel)
+            {
+                Place(AlienCitadel,Ground(0,Mesa()?-330:0),960,-18,.92f);
+            }
+            else
+            {
+                Place(Hall,Ground(0,Mesa()?-330:0),Capital?300:150,0,.8f);
+            }
+            if(Watch&&AlienWatch)
+            {
+                Place(AlienWatch,Ground(0,Mesa()?-210:0),Id==TEXT("north_pass")?260:620,Id==TEXT("north_pass")?90:15,.78f);
+            }
+            else if(!Fort) for(int I=0;I<(Watch?2:4);++I)
             {Place(Tower,Ground((I%2?1:-1)*(Watch?135:220),(I/2?1:-1)*(Watch?135:220)),65,I*90,.85f);}
             if(Fort||Watch)
             {

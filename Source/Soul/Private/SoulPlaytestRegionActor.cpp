@@ -115,10 +115,26 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     }
     }
     const bool Fort=RegionId==TEXT("orc_camp");
-    auto* Pole=Make(TEXT("Cylinder"),FLinearColor(.30f,.25f,.16f));
-    Add(Pole,FVector(200,-95,110),FVector(.05f,.05f,2.2f));
+    const bool bTerrainMiniature=SoulCampaignTerrain::Enabled();
+    FVector BannerBase=bTerrainMiniature?FVector(120,-65,0):FVector(200,-95,0);
+    if(bTerrainMiniature)
+    {
+        const float Scale=SoulCampaignTerrain::RegionScale();
+        BannerBase.Z=(ASoulCampaignWorldActor::HeightAt(Location.X+BannerBase.X*Scale,
+            Location.Y+BannerBase.Y*Scale)-Location.Z)/Scale;
+    }
     Standard=Make(TEXT("Cube"),FLinearColor::White);
-    Add(Standard,FVector(232,-95,193),FVector(.64f,.07f,.42f));
+    if(bTerrainMiniature)
+    {
+        // A low ownership plinth survives wide zoom without becoming a floating debug pole.
+        Add(Standard,BannerBase+FVector(0,0,8),FVector(.22f,.22f,.08f));
+    }
+    else
+    {
+        auto* Pole=Make(TEXT("Cylinder"),FLinearColor(.30f,.25f,.16f));
+        Add(Pole,BannerBase+FVector(0,0,110),FVector(.05f,.05f,2.2f));
+        Add(Standard,BannerBase+FVector(32,0,193),FVector(.64f,.07f,.42f));
+    }
     BannerMaterial=Cast<UMaterialInstanceDynamic>(Standard->GetMaterial(0));
     Selection=Make(TEXT("Cube"),FLinearColor(.86f,.69f,.30f));
     for(int32 X:{-1,1})for(int32 Y:{-1,1})

@@ -320,12 +320,13 @@ void ASoulCampaignWorldActor::BuildParty()
         AddInstance(Helmets,P+FVector(0,0,76),FVector(.23f,.23f,.18f));
         AddInstance(Shields,P+FVector(0,13,42),FVector(.30f,.065f,.34f));
     }
+    const float StandardScale=SoulCampaignTerrain::Enabled()?.08f:1.f;
     auto* Pole=MakeInstances(this,TEXT("Cylinder"),FLinearColor(.30f,.24f,.13f));
     Pole->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
-    AddInstance(Pole,FVector(60,0,110),FVector(.045f,.045f,2.2f));
+    AddInstance(Pole,FVector(60,0,110)*StandardScale,FVector(.045f,.045f,2.2f)*StandardScale);
     auto* Banner=MakeInstances(this,TEXT("Cube"),FLinearColor(.16f,.43f,.75f));
     Banner->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
-    AddInstance(Banner,FVector(95,0,190),FVector(.65f,.055f,.45f));
+    AddInstance(Banner,FVector(95,0,190)*StandardScale,FVector(.65f,.055f,.45f)*StandardScale);
 }
 void ASoulCampaignWorldActor::RefreshKnowledge()
 {
