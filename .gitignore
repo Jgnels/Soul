@@ -37,3 +37,5 @@ Evidence/CampaignTerrainProduction-20260929/Local/
 # Earlier visual iterations remain immutable locally; commit their hash receipts.
 Evidence/CampaignTerrainProduction-20260929/runs/0[1-8]-*/*.png
 /Evidence/EvilCorridor-20261001/Local/
+/Content/QuadrapedCreatures/
+/Content/ParagonAurora/

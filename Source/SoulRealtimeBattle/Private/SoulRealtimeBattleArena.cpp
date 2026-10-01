@@ -41,6 +41,7 @@
 #include "RBCombatRangedComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
+#include "Particles/ParticleSystem.h"
 #include "RBMagicLibrary.h"
 #include "RBMagicPresentationProfile.h"
 #include "RBMagicSpellDefinition.h"
@@ -279,10 +280,22 @@ float ASoulRealtimeArenaGameMode::RoleWalkSpeed(
         case ESoulRealtimeFormationRole::Shock: return 330.0f;
         case ESoulRealtimeFormationRole::Hero: return 320.0f;
         case ESoulRealtimeFormationRole::Guard: return 240.0f;
-        case ESoulRealtimeFormationRole::Breaker: return 275.0f;
-        case ESoulRealtimeFormationRole::Apex: return 285.0f;
+        case ESoulRealtimeFormationRole::Breaker: return 360.0f;
+        case ESoulRealtimeFormationRole::Apex: return 420.0f;
         default: return 270.0f;
     }
+}
+
+ESoulRealtimeMovementArchetype
+ASoulRealtimeArenaGameMode::ResolveMovementArchetype(
+    int32 Side, ESoulRealtimeFormationRole FormationRole) const
+{
+    if (FormationRole == ESoulRealtimeFormationRole::Apex)
+        return ESoulRealtimeMovementArchetype::Aerial;
+    if (Side == 1 && UsesEvilVisualRoster() &&
+        FormationRole == ESoulRealtimeFormationRole::Breaker)
+        return ESoulRealtimeMovementArchetype::LowProfile;
+    return ESoulRealtimeMovementArchetype::Infantry;
 }
 
 FString ASoulRealtimeArenaGameMode::RoleLabel(
@@ -543,6 +556,31 @@ FString ASoulRealtimeArenaGameMode::AlliedOrderSummary() const
         bAlliedCharge ? TEXT("Hold") : TEXT("Charge"));
 }
 
+FString ASoulRealtimeArenaGameMode::TacticalSummary() const
+{
+    int32 Routing[2] = {0, 0};
+    int32 Living[2] = {0, 0};
+    int32 Morale[2] = {0, 0};
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+    {
+        if (AliveInGroup(State.GroupIndex) <= 0) continue;
+        ++Living[State.Side];
+        Morale[State.Side] += State.MoralePermille;
+        Routing[State.Side] += State.bRouting ? 1 : 0;
+    }
+    const int32 AlliedMorale = Living[0] > 0 ? Morale[0] / Living[0] : 0;
+    const int32 EnemyMorale = Living[1] > 0 ? Morale[1] / Living[1] : 0;
+    return FString::Printf(
+        TEXT("%s  |  Morale A %d%% (%d routing)  E %d%% (%d routing)"),
+        FSoulRealtimeTacticalRules::PhaseLabel(BattlePhase),
+        AlliedMorale / 10, Routing[0], EnemyMorale / 10, Routing[1]);
+}
+
+FString ASoulRealtimeArenaGameMode::SpellSummary() const
+{
+    return TEXT("[1] Firebolt  [2] Chain Lightning  [3] Blizzard  [4] Tidal Ward  [5] Tailwind");
+}
+
 int32 ASoulRealtimeArenaGameMode::TotalAlliedTargets() const
 {
     int32 Count = 0;
@@ -608,17 +646,27 @@ bool ASoulRealtimeArenaGameMode::CanCastMagic(
 
     if (Spell.TargetMode == ERBMagicTargetMode::Unit)
     {
+        bool bFriendlyUnitSpell = false;
+        for (const FRBMagicEffectSpec& Effect : Spell.Effects)
+        {
+            bFriendlyUnitSpell = bFriendlyUnitSpell ||
+                Effect.EffectTag.ToString() == TEXT("Magic.Effect.Shield");
+        }
         const int32 TargetIndex = Combatants.IndexOfByPredicate(
             [&Request](const FSoulRealtimeArenaCombatant& C)
             {
                 return C.Id == Request.Target.Entity.Id;
             });
+        const bool bSameSide = TargetIndex != INDEX_NONE &&
+            Combatants[TargetIndex].Side == Combatants[CasterIndex].Side;
         if (TargetIndex == INDEX_NONE ||
             Combatants[TargetIndex].Health <= 0.0f ||
-            Combatants[TargetIndex].Side == Combatants[CasterIndex].Side ||
+            bSameSide != bFriendlyUnitSpell ||
             !Actors.IsValidIndex(TargetIndex) || !Actors[TargetIndex])
         {
-            OutError = TEXT("Unit spell requires a living enemy target.");
+            OutError = bFriendlyUnitSpell
+                ? TEXT("Ward requires a living allied target.")
+                : TEXT("Unit spell requires a living enemy target.");
             return false;
         }
         if (Spell.Range > 0.0f &&
@@ -649,10 +697,19 @@ bool ASoulRealtimeArenaGameMode::ApplyMagicDamage(
         Damage <= 0.0f || Combatants[TargetIndex].Health <= 0.0f)
         return false;
 
-    const float Before = Combatants[TargetIndex].Health;
-    Combatants[TargetIndex].Health =
-        FMath::Max(0.0f, Before - Damage);
-    if (Before > 0.0f && Combatants[TargetIndex].Health <= 0.0f)
+    FSoulRealtimeArenaCombatant& Target = Combatants[TargetIndex];
+    if (Target.WardSeconds > 0.0f && Target.WardPoints > 0.0f)
+    {
+        const float Absorbed = FMath::Min(Target.WardPoints, Damage);
+        Target.WardPoints -= Absorbed;
+        Damage -= Absorbed;
+        UE_LOG(LogTemp, Display,
+            TEXT("SOUL_MAGIC_WARD_ABSORB: side=%d absorbed=%.1f remaining=%.1f"),
+            Target.Side, Absorbed, Target.WardPoints);
+    }
+    const float Before = Target.Health;
+    Target.Health = FMath::Max(0.0f, Before - Damage);
+    if (Before > 0.0f && Target.Health <= 0.0f)
     {
         UE_LOG(LogTemp, Display,
             TEXT("RB_MAGIC_DEFEAT: side=%d role=%s"),
@@ -756,6 +813,30 @@ bool ASoulRealtimeArenaGameMode::TryCommitMagicCast(
         {
             ApplyMagicDamage(PrimaryTarget, Intent.Effect.Magnitude);
         }
+        else if (EffectTag == TEXT("Magic.Effect.Shield") &&
+                 PrimaryTarget != INDEX_NONE)
+        {
+            FSoulRealtimeArenaCombatant& Target = Combatants[PrimaryTarget];
+            Target.WardPoints = FMath::Max(
+                Target.WardPoints, Intent.Effect.Magnitude);
+            Target.WardSeconds = FMath::Max(
+                Target.WardSeconds, Intent.Effect.DurationSeconds);
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_MAGIC_WARD: target=%s strength=%.1f seconds=%.1f"),
+                *RoleLabel(Target.Role), Target.WardPoints, Target.WardSeconds);
+        }
+        else if (EffectTag == TEXT("Magic.Effect.StrategicMovement"))
+        {
+            const int32 Side = Combatants[CasterIndex].Side;
+            SpeedBuffMultiplier[Side] = FMath::Max(
+                SpeedBuffMultiplier[Side], 1.0f + Intent.Effect.Magnitude);
+            SpeedBuffSeconds[Side] = FMath::Max(
+                SpeedBuffSeconds[Side],
+                FMath::Max(8.0f, Intent.Effect.DurationSeconds));
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_MAGIC_TAILWIND: side=%d multiplier=%.2f seconds=%.1f"),
+                Side, SpeedBuffMultiplier[Side], SpeedBuffSeconds[Side]);
+        }
         else if (EffectTag == TEXT("Magic.Effect.DamagePeriodic"))
         {
             Area.DamagePerTick =
@@ -814,10 +895,12 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
 
     bMapOnly = FParse::Param(FCommandLine::Get(), TEXT("SoulMapOnly"));
     bQualification = FParse::Param(FCommandLine::Get(), TEXT("SoulVerticalQualification"));
-    bAutobattle = true; // Current formation slice is commanded from an observer camera.
     bQualification = bQualification || bProof;
+    bAutobattle = bQualification ||
+        FParse::Param(FCommandLine::Get(), TEXT("SoulAutobattle"));
     bTacticalMagic = bMagicProof || FParse::Param(FCommandLine::Get(), TEXT("SoulTacticalMagic"));
     bQualification = bQualification || bMagicProof;
+    bAutobattle = bAutobattle || bMagicProof;
     // The selected world itself owns environment identity; flags cannot substitute a cube map.
     const bool bDragon = GetWorld()->GetOutermost()->GetName().Contains(TEXT("Dragon_graveyard/Level/L_showcase_level"));
     if (bDragon)
@@ -883,7 +966,8 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
             bCampaignBattle = true;
             bExternalEnvironment = true;
             bVisualUnits = true;
-            bAutobattle = true;
+            // Campaign battles are embodied unless an explicit qualification or
+            // -SoulAutobattle run requested the observer commander.
             ArenaOrigin = Encounter->ArenaOrigin;
             ActiveCap = Encounter->ActiveCapPerSide;
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
@@ -1028,14 +1112,69 @@ void ASoulRealtimeArenaGameMode::TrackBattlefieldExtent()
 bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
 {
     int32 Remaining = FMath::Min(ActiveCap, StrategicBodies[Side]);
-    const int32 GroupCount = FMath::DivideAndRoundUp(Remaining, 8);
+    const int32 GroupCount = FMath::Clamp(
+        FMath::DivideAndRoundUp(Remaining, 7), 1, 5);
+
+    TArray<ESoulRealtimeFormationRole> Roles;
+    TArray<ESoulBattleFormationKind> Kinds;
+    if (GroupCount == 1)
+    {
+        Roles = {ESoulRealtimeFormationRole::Line};
+        Kinds = {ESoulBattleFormationKind::FrontLine};
+    }
+    else if (GroupCount == 2)
+    {
+        Roles = {ESoulRealtimeFormationRole::Line, ESoulRealtimeFormationRole::Ranged};
+        Kinds = {ESoulBattleFormationKind::FrontLine, ESoulBattleFormationKind::MissileSupport};
+    }
+    else if (GroupCount == 3)
+    {
+        Roles = {ESoulRealtimeFormationRole::Line, ESoulRealtimeFormationRole::Ranged, ESoulRealtimeFormationRole::Shock};
+        Kinds = {ESoulBattleFormationKind::FrontLine, ESoulBattleFormationKind::MissileSupport, ESoulBattleFormationKind::Strike};
+    }
+    else if (GroupCount == 4)
+    {
+        Roles = {ESoulRealtimeFormationRole::Line, ESoulRealtimeFormationRole::Ranged,
+            ESoulRealtimeFormationRole::Shock, ESoulRealtimeFormationRole::Hero};
+        Kinds = {ESoulBattleFormationKind::FrontLine, ESoulBattleFormationKind::MissileSupport,
+            ESoulBattleFormationKind::Strike, ESoulBattleFormationKind::CommandReserve};
+    }
+    else
+    {
+        Roles = {ESoulRealtimeFormationRole::Line, ESoulRealtimeFormationRole::Guard,
+            ESoulRealtimeFormationRole::Ranged, ESoulRealtimeFormationRole::Shock,
+            ESoulRealtimeFormationRole::Hero};
+        Kinds = {ESoulBattleFormationKind::FrontLine, ESoulBattleFormationKind::FrontLine,
+            ESoulBattleFormationKind::MissileSupport, ESoulBattleFormationKind::Strike,
+            ESoulBattleFormationKind::CommandReserve};
+    }
+
+    const float Direction = Side == 0 ? 1.0f : -1.0f;
+    const float BaseX = Side == 0 ? -1200.0f : 1200.0f;
+    const float YSlots[5] = {-280.0f, 280.0f, -620.0f, 900.0f, 620.0f};
+    const float Rearward[5] = {0.0f, 0.0f, 340.0f, 80.0f, 430.0f};
     for (int32 G = 0; G < GroupCount; ++G)
     {
-        const int32 Count = FMath::Min(8, Remaining);
-        const float X = Side == 0 ? -700.0f : 700.0f;
-        const float Y = (G - (GroupCount - 1) * 0.5f) * 540.0f;
-        if (!SpawnFormation(Side, ESoulRealtimeFormationRole::Line,
-            Count, ArenaOrigin + FVector(X, Y, 100))) return false;
+        const int32 SlotsLeft = GroupCount - G;
+        const int32 Count = FMath::Clamp(
+            FMath::DivideAndRoundUp(Remaining, SlotsLeft), 1, 8);
+        const FVector Anchor = ArenaOrigin + FVector(
+            BaseX - Direction * Rearward[G],
+            (Side == 0 ? 1.0f : -1.0f) * YSlots[G], 100.0f);
+        if (!SpawnFormation(Side, Roles[G], Count, Anchor))
+            return false;
+
+        FSoulBattleFormationState State;
+        State.GroupIndex = Groups.Num() - 1;
+        State.Side = Side;
+        State.Kind = Kinds[G];
+        State.SpawnAnchor = Anchor;
+        State.TacticalAnchor = Anchor + FVector(Direction * 650.0f, 0, 0);
+        if (Kinds[G] == ESoulBattleFormationKind::Strike)
+            State.TacticalAnchor.Y += (Side == 0 ? 1.0f : -1.0f) * 350.0f;
+        State.InitialBodies = Count;
+        State.PreviousAlive = Count;
+        TacticalFormations.Add(State);
         Remaining -= Count;
     }
     return Remaining == 0;
@@ -1066,8 +1205,9 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     const int32 GroupIndex = Groups.AddDefaulted();
     FRBCombatGroup Core;
     Core.Id = FGuid::NewGuid();
-    // Newly admitted allies inherit the player's current order, including HOLD.
-    Core.Command = Side == 0 && !bAlliedCharge ? ERBGroupCommand::Hold : ERBGroupCommand::Charge;
+    // Deployment begins organized. The formation commander commits each group
+    // after both armies are registered, rather than spawning into an instant mob.
+    Core.Command = ERBGroupCommand::Hold;
     Core.Anchor = Anchor;
     Core.Facing = Side == 0
         ? FVector::ForwardVector : -FVector::ForwardVector;
@@ -1082,11 +1222,21 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
         Location.X += (Side == 0 ? -1.0f : 1.0f)
             * Row * 115.0f;
         Location.Y += (Col - Center) * 115.0f;
+        // A formation owns the tactical job; specialist members keep their own
+        // combat and locomotion identity inside it. The strike element therefore
+        // fields an aerial apex and, for the evil roster, a low-profile beast
+        // without fragmenting the army into one-actor "formations".
+        ESoulRealtimeFormationRole MemberRole = FormationRole;
+        if (FormationRole == ESoulRealtimeFormationRole::Shock && I == 0)
+            MemberRole = ESoulRealtimeFormationRole::Apex;
+        else if (FormationRole == ESoulRealtimeFormationRole::Shock &&
+                 I == 1 && Side == 1 && UsesEvilVisualRoster())
+            MemberRole = ESoulRealtimeFormationRole::Breaker;
         const bool bPlayer =
             !bProof && !bAutobattle && Side == 0 &&
             FormationRole == ESoulRealtimeFormationRole::Hero && I == 0;
         if (!SpawnCombatant(
-                Side, FormationRole, GroupIndex, Location, bPlayer))
+                Side, MemberRole, GroupIndex, Location, bPlayer))
             return false;
 
         const FRBHostIdentity Identity =
@@ -1132,6 +1282,11 @@ void ASoulRealtimeArenaGameMode::RollbackSpawnedFormation(
     VisualRunning.SetNum(FirstCombatant);
     Combatants.SetNum(FirstCombatant);
     Groups.SetNum(FirstGroup);
+    TacticalFormations.RemoveAll(
+        [FirstGroup](const FSoulBattleFormationState& State)
+        {
+            return State.GroupIndex >= FirstGroup;
+        });
     for (auto It = DefeatedRepresentations.CreateIterator(); It; ++It)
     {
         if (*It >= FirstCombatant) It.RemoveCurrent();
@@ -1178,6 +1333,24 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
     const TCHAR* Path = nullptr;
+    if (FormationRole == ESoulRealtimeFormationRole::Apex)
+    {
+        Path = Side == 0
+            ? TEXT("/Game/QuadrapedCreatures/Griffon/Meshes/SK_Griffon.SK_Griffon")
+            : TEXT("/Game/QuadrapedCreatures/MountainDragon/Meshes/SK_MOUNTAIN_DRAGON.SK_MOUNTAIN_DRAGON");
+        return LoadObject<USkeletalMesh>(nullptr, Path);
+    }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Hero)
+    {
+        Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Aurora.Aurora");
+        return LoadObject<USkeletalMesh>(nullptr, Path);
+    }
+    if (Side == 1 && UsesEvilVisualRoster() &&
+        FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = TEXT("/Game/QuadrapedCreatures/Barghest/Meshes/SK_BARGHEST.SK_BARGHEST");
+        return LoadObject<USkeletalMesh>(nullptr, Path);
+    }
     if (Side == 0)
     {
         switch (FormationRole)
@@ -1257,6 +1430,32 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
     int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const
 {
     const TCHAR* Path = nullptr;
+    if (FormationRole == ESoulRealtimeFormationRole::Apex)
+    {
+        Path = Side == 0
+            ? (bRunning
+                ? TEXT("/Game/QuadrapedCreatures/Griffon/Animations/ANIM_Griffon_FlyNormal.ANIM_Griffon_FlyNormal")
+                : TEXT("/Game/QuadrapedCreatures/Griffon/Animations/ANIM_Griffon_FlyStationary.ANIM_Griffon_FlyStationary"))
+            : (bRunning
+                ? TEXT("/Game/QuadrapedCreatures/MountainDragon/Animations/ANIM_MOUNTAIN_DRAGON_flyNormal.ANIM_MOUNTAIN_DRAGON_flyNormal")
+                : TEXT("/Game/QuadrapedCreatures/MountainDragon/Animations/ANIM_MOUNTAIN_DRAGON_FlyStationary.ANIM_MOUNTAIN_DRAGON_FlyStationary"));
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Hero)
+    {
+        Path = bRunning
+            ? TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Fwd.Jog_Fwd")
+            : TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Idle.Idle");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
+    if (Side == 1 && UsesEvilVisualRoster() &&
+        FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = bRunning
+            ? TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_run.BARGHEST_run")
+            : TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_idleAggressive.BARGHEST_idleAggressive");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
     if (Side == 0)
     {
         Path = FormationRole == ESoulRealtimeFormationRole::Line
@@ -1300,6 +1499,24 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
     const TCHAR* Path = nullptr;
+    if (FormationRole == ESoulRealtimeFormationRole::Apex)
+    {
+        Path = Side == 0
+            ? TEXT("/Game/QuadrapedCreatures/Griffon/Animations/ANIM_Griffon_FlyStationaryClawsAttack.ANIM_Griffon_FlyStationaryClawsAttack")
+            : TEXT("/Game/QuadrapedCreatures/MountainDragon/Animations/ANIM_MOUNTAIN_DRAGON_FlyStationarySpreadFire.ANIM_MOUNTAIN_DRAGON_FlyStationarySpreadFire");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Hero)
+    {
+        Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Primary_Attack_A.Primary_Attack_A");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
+    if (Side == 1 && UsesEvilVisualRoster() &&
+        FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_jumpBiteAggressive.BARGHEST_jumpBiteAggressive");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
     if (Side == 0)
     {
         if (FormationRole == ESoulRealtimeFormationRole::Line)
@@ -1322,6 +1539,24 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
     const TCHAR* Path = nullptr;
+    if (FormationRole == ESoulRealtimeFormationRole::Apex)
+    {
+        Path = Side == 0
+            ? TEXT("/Game/QuadrapedCreatures/Griffon/Animations/ANIM_Griffon_Death.ANIM_Griffon_Death")
+            : TEXT("/Game/QuadrapedCreatures/MountainDragon/Animations/ANIM_MOUNTAIN_DRAGON_deathHitTheGround.ANIM_MOUNTAIN_DRAGON_deathHitTheGround");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
+    if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Hero)
+    {
+        Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Death.Death");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
+    if (Side == 1 && UsesEvilVisualRoster() &&
+        FormationRole == ESoulRealtimeFormationRole::Breaker)
+    {
+        Path = TEXT("/Game/QuadrapedCreatures/Barghest/Animations/BARGHEST_deathAggressive.BARGHEST_deathAggressive");
+        return LoadObject<UAnimationAsset>(nullptr, Path);
+    }
     if (Side == 0)
     {
         if (FormationRole == ESoulRealtimeFormationRole::Line)
@@ -1405,6 +1640,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Data.GroupIndex = GroupIndex;
     Data.bRanged = FormationRole == ESoulRealtimeFormationRole::Ranged;
     Data.bPlayerHero = bPlayer;
+    Data.Movement = ResolveMovementArchetype(Side, FormationRole);
     const int32 NewIndex = Combatants.Add(Data);
 
     FActorSpawnParameters Params;
@@ -1429,6 +1665,21 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Actor->GetCharacterMovement()->MaxWalkSpeed =
         RoleWalkSpeed(FormationRole);
     Actor->GetCharacterMovement()->bOrientRotationToMovement = !bPlayer;
+    if (Data.Movement == ESoulRealtimeMovementArchetype::Aerial)
+    {
+        // The capsule remains nav-authoritative while the creature occupies an
+        // airborne visual lane. Pawn overlap and higher speed let it cross the
+        // infantry frontage without creating an unpathable mid-air AI pawn.
+        Actor->GetCapsuleComponent()->SetCapsuleSize(82.0f, 115.0f);
+        Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
+            ECC_Pawn, ECR_Overlap);
+    }
+    else if (Data.Movement == ESoulRealtimeMovementArchetype::LowProfile)
+    {
+        Actor->GetCapsuleComponent()->SetCapsuleSize(58.0f, 58.0f);
+        Actor->GetCapsuleComponent()->SetCollisionResponseToChannel(
+            ECC_Pawn, ECR_Overlap);
+    }
 
     if (bVisualUnits)
     {
@@ -1444,8 +1695,23 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
 
         USkeletalMeshComponent* Visual = Actor->GetMesh();
         Visual->SetSkeletalMeshAsset(Mesh);
-        Visual->SetRelativeLocation(FVector(0, 0, -90.0f));
-        Visual->SetRelativeRotation(FRotator(0, -90.0f, 0));
+        if (Data.Movement == ESoulRealtimeMovementArchetype::Aerial)
+        {
+            Visual->SetRelativeLocation(FVector(0, 0, 210.0f));
+            Visual->SetRelativeRotation(FRotator::ZeroRotator);
+            Visual->SetRelativeScale3D(FVector(0.72f));
+        }
+        else if (Data.Movement == ESoulRealtimeMovementArchetype::LowProfile)
+        {
+            Visual->SetRelativeLocation(FVector(0, 0, -58.0f));
+            Visual->SetRelativeRotation(FRotator::ZeroRotator);
+            Visual->SetRelativeScale3D(FVector(0.78f));
+        }
+        else
+        {
+            Visual->SetRelativeLocation(FVector(0, 0, -90.0f));
+            Visual->SetRelativeRotation(FRotator(0, -90.0f, 0));
+        }
         Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Visual->SetAnimationMode(EAnimationMode::AnimationSingleNode);
         Visual->PlayAnimation(Idle, true);
@@ -1472,7 +1738,9 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         NewObject<UTextRenderComponent>(Actor);
     Actor->AddInstanceComponent(Label);
     Label->SetupAttachment(Actor->GetRootComponent());
-    Label->SetRelativeLocation(FVector(0, 0, 150));
+    Label->SetRelativeLocation(FVector(
+        0, 0, Data.Movement == ESoulRealtimeMovementArchetype::Aerial
+            ? 430.0f : 150.0f));
     Label->SetHorizontalAlignment(EHTA_Center);
     Label->SetWorldSize(24.0f);
     Label->SetText(FText::FromString(FString::Printf(
@@ -1648,6 +1916,63 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
         ReserveBodiesForSide(0), ReserveBodiesForSide(1));
 }
 
+FVector ASoulRealtimeArenaGameMode::ChooseReinforcementAnchor(
+    int32 Side) const
+{
+    const float X = Side == 0
+        ? -BattlefieldHalfX + 260.0f
+        : BattlefieldHalfX - 260.0f;
+    const float YOptions[] = {-1400.0f, 0.0f, 1400.0f};
+
+    FVector FriendlyCenter = ArenaOrigin;
+    int32 FriendlyGroups = 0;
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+    {
+        if (State.Side != Side || AliveInGroup(State.GroupIndex) <= 0)
+            continue;
+        FriendlyCenter += GroupCenter(State.GroupIndex) - ArenaOrigin;
+        ++FriendlyGroups;
+    }
+    if (FriendlyGroups > 0)
+        FriendlyCenter = ArenaOrigin +
+            (FriendlyCenter - ArenaOrigin) / FriendlyGroups;
+
+    FVector Best = ArenaOrigin + FVector(X, 0, 100);
+    int32 BestScore = MIN_int32;
+    float FarthestEnemy = -1.0f;
+    FVector Farthest = Best;
+    for (const float Y : YOptions)
+    {
+        const FVector Candidate = ArenaOrigin + FVector(X, Y, 100);
+        float NearestEnemy = TNumericLimits<float>::Max();
+        for (int32 I = 0; I < Combatants.Num(); ++I)
+        {
+            if (!Actors.IsValidIndex(I) || !Actors[I] ||
+                Combatants[I].Health <= 0.0f ||
+                Combatants[I].Side == Side)
+                continue;
+            NearestEnemy = FMath::Min(NearestEnemy,
+                FVector::Dist2D(Candidate, Actors[I]->GetActorLocation()));
+        }
+        if (NearestEnemy > FarthestEnemy)
+        {
+            FarthestEnemy = NearestEnemy;
+            Farthest = Candidate;
+        }
+        const int32 Score =
+            FSoulRealtimeTacticalRules::ScoreReinforcementAnchor(
+                NearestEnemy,
+                FVector::Dist2D(Candidate, FriendlyCenter),
+                0.0f, true);
+        if (Score > BestScore)
+        {
+            BestScore = Score;
+            Best = Candidate;
+        }
+    }
+    return BestScore == MIN_int32 ? Farthest : Best;
+}
+
 bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     int32 Side, int32 Count)
 {
@@ -1668,13 +1993,26 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
             PlayerHero = PreviousHero.Get();
         }
     };
-    const float X = Side == 0 ? -1100.0f : 1100.0f;
+    const FVector ArrivalAnchor =
+        ChooseReinforcementAnchor(Side);
     if (!SpawnFormation(
             Side,
             ESoulRealtimeFormationRole::Line,
             Count,
-            ArenaOrigin + FVector(X, 0.0f, 100.0f)))
+            ArrivalAnchor))
         return false;
+
+    FSoulBattleFormationState Tactical;
+    Tactical.GroupIndex = NewGroupIndex;
+    Tactical.Side = Side;
+    Tactical.Kind = ESoulBattleFormationKind::FrontLine;
+    Tactical.SpawnAnchor = ArrivalAnchor;
+    Tactical.TacticalAnchor = ArrivalAnchor +
+        FVector(Side == 0 ? 700.0f : -700.0f, 0, 0);
+    Tactical.InitialBodies = Count;
+    Tactical.PreviousAlive = Count;
+    Tactical.MoralePermille = 1000;
+    TacticalFormations.Add(Tactical);
 
     const FName FormationId = ReserveFormationId(Side);
     for (int32 I = FirstCombatant; I < Combatants.Num(); ++I)
@@ -1879,36 +2217,94 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
     return bAccepted;
 }
 
+void ASoulRealtimeArenaGameMode::SelectNextAlliedFormation()
+{
+    TArray<int32> AlliedGroups;
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+        if (State.Side == 0 && AliveInGroup(State.GroupIndex) > 0)
+            AlliedGroups.Add(State.GroupIndex);
+
+    if (AlliedGroups.IsEmpty())
+    {
+        bSelectAllAllies = true;
+        SelectedAlliedFormation = INDEX_NONE;
+        return;
+    }
+    if (bSelectAllAllies)
+    {
+        bSelectAllAllies = false;
+        SelectedAlliedFormation = AlliedGroups[0];
+    }
+    else
+    {
+        const int32 Current = AlliedGroups.IndexOfByKey(
+            SelectedAlliedFormation);
+        if (Current == INDEX_NONE || Current + 1 >= AlliedGroups.Num())
+        {
+            bSelectAllAllies = true;
+            SelectedAlliedFormation = INDEX_NONE;
+        }
+        else SelectedAlliedFormation = AlliedGroups[Current + 1];
+    }
+    Status = bSelectAllAllies
+        ? TEXT("Selected all allied formations")
+        : FString::Printf(TEXT("Selected formation %d"), SelectedAlliedFormation + 1);
+}
+
+void ASoulRealtimeArenaGameMode::CommandSelectedAllies(
+    ERBHostGroupOrder Order)
+{
+    int32 Changed = 0;
+    int32 Eligible = 0;
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+    {
+        if (State.Side != 0 || AliveInGroup(State.GroupIndex) <= 0 ||
+            (!bSelectAllAllies &&
+             State.GroupIndex != SelectedAlliedFormation))
+            continue;
+        ++Eligible;
+
+        const FVector Center = GroupCenter(State.GroupIndex);
+        float EnemyDistance = 0.0f;
+        const int32 Enemy = FindNearestEnemyToGroup(
+            State.GroupIndex, EnemyDistance);
+        const FVector EnemyLocation = Enemy != INDEX_NONE
+            ? Actors[Enemy]->GetActorLocation()
+            : Center + FVector::ForwardVector * 500.0f;
+        const FVector Facing =
+            (EnemyLocation - Center).GetSafeNormal2D();
+        FVector Anchor = Center;
+        if (Order == ERBHostGroupOrder::Advance)
+            Anchor = Center + Facing * 600.0f;
+        else if (Order == ERBHostGroupOrder::Charge)
+            Anchor = EnemyLocation;
+        else if (Order == ERBHostGroupOrder::FallBack)
+            Anchor = Center - Facing * 650.0f;
+        if (IssueFormationOrder(
+                State.GroupIndex, Order, Anchor, Facing, true))
+            ++Changed;
+    }
+
+    const TCHAR* Label = TEXT("FACE");
+    switch (Order)
+    {
+        case ERBHostGroupOrder::Hold: Label = TEXT("HOLD"); break;
+        case ERBHostGroupOrder::Advance: Label = TEXT("ADVANCE"); break;
+        case ERBHostGroupOrder::Charge: Label = TEXT("CHARGE"); break;
+        case ERBHostGroupOrder::FallBack: Label = TEXT("FALL BACK"); break;
+        default: break;
+    }
+    Status = FString::Printf(TEXT("%s order accepted by %d/%d formation(s)"),
+        Label, Changed, Eligible);
+}
+
 void ASoulRealtimeArenaGameMode::ToggleAlliedOrders()
 {
     bAlliedCharge = !bAlliedCharge;
-    const ERBHostGroupOrder Order = bAlliedCharge
-        ? ERBHostGroupOrder::Charge : ERBHostGroupOrder::Hold;
-
-    int32 Changed = 0, Eligible = 0;
-    for (int32 I = 0; I < Groups.Num(); ++I)
-    {
-        FRBCombatGroup Core;
-        if (!Groups[I].ToCore(Core)) continue;
-        const int32 LeaderIndex = Index(Groups[I].Leader);
-        if (LeaderIndex == INDEX_NONE ||
-            Combatants[LeaderIndex].Side != 0)
-            continue;
-
-        ++Eligible;
-        FString Error;
-        const bool bOk = Drivers.IsValidIndex(I) && Drivers[I] &&
-            Drivers[I]->RequestGroupOrder(
-                Groups[I].Leader, Order,
-                Groups[I].Anchor, FVector::ForwardVector,
-                FRBHostIdentity(), Groups[I].Revision, Error);
-        if (bOk) ++Changed;
-    }
-
-    Status = FString::Printf(
-        TEXT("Allied order %s: %d/%d groups accepted"),
-        bAlliedCharge ? TEXT("CHARGE") : TEXT("HOLD"),
-        Changed, Eligible);
+    bSelectAllAllies = true;
+    SelectedAlliedFormation = INDEX_NONE;
+    CommandSelectedAllies(bAlliedCharge
+        ? ERBHostGroupOrder::Charge : ERBHostGroupOrder::Hold);
 }
 
 void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
@@ -2027,8 +2423,39 @@ void ASoulRealtimeArenaGameMode::SpawnSpellPresentation(
     if (!System && !Profile->ProjectileSystem.IsNull())
         System = Profile->ProjectileSystem.LoadSynchronous();
     if (System)
+    {
         UNiagaraFunctionLibrary::SpawnSystemAtLocation(
             GetWorld(), System, Location);
+        return;
+    }
+
+    // The owned Paragon hero packs include production spell particles even
+    // when a matching Niagara provider pack is not mounted. Keep gameplay
+    // authority in RB Magic and use these licensed systems as presentation.
+    const FString Tag = Profile->SpellTag.ToString();
+    const TCHAR* FallbackPath = nullptr;
+    if (Tag == TEXT("Magic.Spell.Electric.ChainLightning"))
+        FallbackPath = TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Primary/FX/P_Aurora_Melee_SucessfulImpact.P_Aurora_Melee_SucessfulImpact");
+    else if (Tag == TEXT("Magic.Spell.Ice.Blizzard"))
+        FallbackPath = TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Ultimate/FX/P_Aurora_Ultimate_InitialBlast.P_Aurora_Ultimate_InitialBlast");
+    else if (Tag == TEXT("Magic.Spell.Water.TidalWard"))
+        FallbackPath = TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Freeze/FX/P_Aurora_Freeze_Rooted.P_Aurora_Freeze_Rooted");
+    else if (Tag == TEXT("Magic.Spell.Air.Tailwind"))
+        FallbackPath = TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Dash/FX/P_Aurora_Dash_WarmUp.P_Aurora_Dash_WarmUp");
+    else if (Tag == TEXT("Magic.Spell.Earth.StoneSentinel"))
+        FallbackPath = TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Dash/FX/P_Aurora_Wall_Base.P_Aurora_Wall_Base");
+
+    if (FallbackPath)
+    {
+        if (UParticleSystem* Fallback = LoadObject<UParticleSystem>(
+                nullptr, FallbackPath, nullptr, LOAD_NoWarn))
+        {
+            UGameplayStatics::SpawnEmitterAtLocation(
+                GetWorld(), Fallback, FTransform(Location));
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_MAGIC_PARAGON_PRESENTATION: spell=%s"), *Tag);
+        }
+    }
 }
 
 bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
@@ -2063,10 +2490,17 @@ bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
     FVector PresentationLocation = PlayerHero->GetActorLocation();
     if (Spell->TargetMode == ERBMagicTargetMode::Unit)
     {
-        const int32 TargetIndex = FindPlayerSpellTarget(Spell->Range);
+        bool bFriendlyUnitSpell = false;
+        for (const FRBMagicEffectSpec& Effect : Spell->Effects)
+        {
+            bFriendlyUnitSpell = bFriendlyUnitSpell ||
+                Effect.EffectTag.ToString() == TEXT("Magic.Effect.Shield");
+        }
+        const int32 TargetIndex = bFriendlyUnitSpell
+            ? CasterIndex : FindPlayerSpellTarget(Spell->Range);
         if (TargetIndex == INDEX_NONE)
         {
-            Status = TEXT("No enemy in spell targeting arc");
+            Status = TEXT("No valid unit in spell targeting arc");
             return false;
         }
         Request.Target.Entity.Domain = MagicArenaDomain;
@@ -2117,14 +2551,27 @@ void ASoulRealtimeArenaGameMode::TickMagic(float Seconds)
 {
     for (auto& Pair : SpellCooldowns)
         Pair.Value = FMath::Max(0.0f, Pair.Value - Seconds);
+    for (int32 Side = 0; Side < 2; ++Side)
+    {
+        SpeedBuffSeconds[Side] = FMath::Max(
+            0.0f, SpeedBuffSeconds[Side] - Seconds);
+        if (SpeedBuffSeconds[Side] <= 0.0f)
+            SpeedBuffMultiplier[Side] = 1.0f;
+    }
 
     for (int32 I = 0; I < Combatants.Num(); ++I)
     {
-        if (Combatants[I].Health <= 0.0f ||
+        FSoulRealtimeArenaCombatant& Combatant = Combatants[I];
+        Combatant.WardSeconds = FMath::Max(
+            0.0f, Combatant.WardSeconds - Seconds);
+        if (Combatant.WardSeconds <= 0.0f)
+            Combatant.WardPoints = 0.0f;
+        if (Combatant.Health <= 0.0f ||
             !Actors.IsValidIndex(I) || !Actors[I])
             continue;
         Actors[I]->GetCharacterMovement()->MaxWalkSpeed =
-            RoleWalkSpeed(Combatants[I].Role);
+            RoleWalkSpeed(Combatant.Role) *
+            SpeedBuffMultiplier[Combatant.Side];
     }
 
     for (int32 AreaIndex = ActiveMagicAreas.Num() - 1;
@@ -2149,6 +2596,7 @@ void ASoulRealtimeArenaGameMode::TickMagic(float Seconds)
             {
                 Actors[I]->GetCharacterMovement()->MaxWalkSpeed =
                     RoleWalkSpeed(Combatants[I].Role) *
+                    SpeedBuffMultiplier[Combatants[I].Side] *
                     (1.0f - Area.SlowFraction);
             }
         }
@@ -2243,10 +2691,35 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
         CastPlayerSpell(
             TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
             TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
-    // Weekend slice exposes Firebolt only; keys 2/3 await qualified presentation assets.
+    if (PC->WasInputKeyJustPressed(EKeys::Two))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_ChainLightning.DA_Soul_ChainLightning"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning.DA_SoulPresentation_ChainLightning"));
+    if (PC->WasInputKeyJustPressed(EKeys::Three))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_Blizzard.DA_Soul_Blizzard"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard.DA_SoulPresentation_Blizzard"));
+    if (PC->WasInputKeyJustPressed(EKeys::Four))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_TidalWard.DA_Soul_TidalWard"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_TidalWard.DA_SoulPresentation_TidalWard"));
+    if (PC->WasInputKeyJustPressed(EKeys::Five))
+        CastPlayerSpell(
+            TEXT("/Game/Soul/Magic/Spells/DA_Soul_Tailwind.DA_Soul_Tailwind"),
+            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Tailwind.DA_SoulPresentation_Tailwind"));
 
+    if (PC->WasInputKeyJustPressed(EKeys::Tab))
+        SelectNextAlliedFormation();
+    if (PC->WasInputKeyJustPressed(EKeys::H))
+        CommandSelectedAllies(ERBHostGroupOrder::Hold);
+    if (PC->WasInputKeyJustPressed(EKeys::V))
+        CommandSelectedAllies(ERBHostGroupOrder::Advance);
     if (PC->WasInputKeyJustPressed(EKeys::G))
-        ToggleAlliedOrders();
+        CommandSelectedAllies(ERBHostGroupOrder::Charge);
+    if (PC->WasInputKeyJustPressed(EKeys::B))
+        CommandSelectedAllies(ERBHostGroupOrder::FallBack);
+    if (PC->WasInputKeyJustPressed(EKeys::F))
+        CommandSelectedAllies(ERBHostGroupOrder::Face);
     if (PC->WasInputKeyJustPressed(EKeys::Escape))
         FPlatformMisc::RequestExit(false);
 }
@@ -2254,16 +2727,8 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
     if (auto* PC = GetWorld()->GetFirstPlayerController())
-    {
-        if (PC->WasInputKeyJustPressed(EKeys::Escape)) FPlatformMisc::RequestExit(false);
-        if (!bFinished && !bMapOnly)
-        {
-            if (PC->WasInputKeyJustPressed(EKeys::G)) ToggleAlliedOrders();
-            if (PC->WasInputKeyJustPressed(EKeys::One))
-                CastPlayerSpell(TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
-                    TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
-        }
-    }
+        if (PC->WasInputKeyJustPressed(EKeys::Escape))
+            FPlatformMisc::RequestExit(false);
     if (bMapOnly)
     {
         BattleElapsed += Seconds;
@@ -2315,9 +2780,8 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
     TrackBattlefieldExtent();
     TickSpatialOrders(Seconds);
     TickBattleResolution(Seconds);
-    if (bFinished || bAutobattle || bCampaignBattle) return;
-
-
+    if (bFinished) return;
+    if (!bAutobattle) PlayerTick(Seconds);
 }
 
 void ASoulRealtimeArenaGameMode::FinishProof(
@@ -2349,12 +2813,13 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     DrawText(FString::Printf(TEXT("Allies %d + %d reserves    Enemy %d + %d reserves    Losses %d / %d"),
         Host->AliveForSide(0), Host->ReserveBodiesForSide(0), Host->AliveForSide(1), Host->ReserveBodiesForSide(1),
         Host->CasualtiesForSide(0), Host->CasualtiesForSide(1)), FColor::White, 24, 43);
-    DrawText(FString::Printf(TEXT("Mana %.0f  |  Firebolt casts %d"), Host->PlayerManaValue(), Host->MagicCastCount()), FColor::Cyan, Canvas->ClipX - 260, 20);
-    DrawText(Host->AlliedOrderSummary(), Host->AreAlliedFormationsCharging() ? FColor::Green : FColor::Yellow, 24, Bottom + 8);
+    DrawText(FString::Printf(TEXT("Mana %.0f  |  Casts %d"), Host->PlayerManaValue(), Host->MagicCastCount()), FColor::Cyan, Canvas->ClipX - 220, 20);
+    DrawText(Host->TacticalSummary(), FColor(227,211,166), 24, Bottom + 8);
     DrawText(Host->Status, FColor::Yellow, 24, Bottom + 30);
     DrawText(Host->ReinforcementSummary(0), FColor::Cyan, 24, Bottom + 52);
     DrawText(Host->ReinforcementSummary(1), FColor::White, Canvas->ClipX * 0.5f, Bottom + 52);
-    DrawText(TEXT("Defeat the enemy and its reserves.   [G] Charge / Hold   [1] Firebolt   [Esc] Exit"), FColor(195,202,203), 24, Bottom + 77);
+    DrawText(TEXT("[Tab] Formation/All  [H] Hold  [V] Advance  [G] Charge  [B] Fall back  [F] Face"), FColor(195,202,203), 24, Bottom + 75);
+    DrawText(Host->SpellSummary(), FColor(170,215,255), Canvas->ClipX * 0.43f, Bottom + 75);
 }
 
 void ASoulRealtimeArenaGameMode::SetupBattleCamera()
@@ -2373,44 +2838,328 @@ void ASoulRealtimeArenaGameMode::SetupBattleCamera()
     if (auto* PC = GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
 }
 
+int32 ASoulRealtimeArenaGameMode::AliveInGroup(int32 GroupIndex) const
+{
+    if (!Groups.IsValidIndex(GroupIndex)) return 0;
+    int32 Count = 0;
+    for (const FRBHostIdentity& Member : Groups[GroupIndex].Members)
+    {
+        const int32 I = Index(Member);
+        Count += I != INDEX_NONE && Combatants[I].Health > 0.0f ? 1 : 0;
+    }
+    return Count;
+}
+
+FVector ASoulRealtimeArenaGameMode::GroupCenter(int32 GroupIndex) const
+{
+    if (!Groups.IsValidIndex(GroupIndex)) return ArenaOrigin;
+    FVector Center = FVector::ZeroVector;
+    int32 Count = 0;
+    for (const FRBHostIdentity& Member : Groups[GroupIndex].Members)
+    {
+        const int32 I = Index(Member);
+        if (I == INDEX_NONE || Combatants[I].Health <= 0.0f ||
+            !Actors.IsValidIndex(I) || !Actors[I])
+            continue;
+        Center += Actors[I]->GetActorLocation();
+        ++Count;
+    }
+    return Count > 0 ? Center / Count : Groups[GroupIndex].Anchor;
+}
+
+int32 ASoulRealtimeArenaGameMode::FindNearestEnemyToGroup(
+    int32 GroupIndex, float& OutDistance) const
+{
+    OutDistance = TNumericLimits<float>::Max();
+    if (!Groups.IsValidIndex(GroupIndex)) return INDEX_NONE;
+    const int32 Leader = Index(Groups[GroupIndex].Leader);
+    if (Leader == INDEX_NONE) return INDEX_NONE;
+    const int32 Side = Combatants[Leader].Side;
+    const FVector Center = GroupCenter(GroupIndex);
+    int32 Best = INDEX_NONE;
+    for (int32 I = 0; I < Combatants.Num(); ++I)
+    {
+        if (!Actors.IsValidIndex(I) || !Actors[I] ||
+            Combatants[I].Health <= 0.0f || Combatants[I].Side == Side)
+            continue;
+        const float Distance = FVector::Dist2D(
+            Center, Actors[I]->GetActorLocation());
+        if (Distance < OutDistance)
+        {
+            OutDistance = Distance;
+            Best = I;
+        }
+    }
+    return Best;
+}
+
+int32 ASoulRealtimeArenaGameMode::FindFormationState(
+    int32 GroupIndex) const
+{
+    return TacticalFormations.IndexOfByPredicate(
+        [GroupIndex](const FSoulBattleFormationState& State)
+        {
+            return State.GroupIndex == GroupIndex;
+        });
+}
+
+bool ASoulRealtimeArenaGameMode::IssueFormationOrder(
+    int32 GroupIndex,
+    ERBHostGroupOrder Order,
+    const FVector& Anchor,
+    const FVector& Facing,
+    bool bManual)
+{
+    if (!Groups.IsValidIndex(GroupIndex) ||
+        !Drivers.IsValidIndex(GroupIndex) || !Drivers[GroupIndex] ||
+        AliveInGroup(GroupIndex) <= 0)
+        return false;
+
+    FString Error;
+    const bool bAccepted = Drivers[GroupIndex]->RequestGroupOrder(
+        Groups[GroupIndex].Leader, Order, Anchor,
+        Facing.IsNearlyZero() ? FVector::ForwardVector : Facing,
+        FRBHostIdentity(), Groups[GroupIndex].Revision, Error);
+    if (!bAccepted) return false;
+
+    const int32 StateIndex = FindFormationState(GroupIndex);
+    if (TacticalFormations.IsValidIndex(StateIndex))
+    {
+        TacticalFormations[StateIndex].TacticalAnchor = Anchor;
+        if (bManual)
+            TacticalFormations[StateIndex].ManualOverrideUntil =
+                BattleElapsed + 15.0f;
+    }
+    ++SpatialOrders;
+    return true;
+}
+
+void ASoulRealtimeArenaGameMode::UpdateFormationMorale()
+{
+    bool bAnyRouting[2] = {false, false};
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+        if (State.bRouting && AliveInGroup(State.GroupIndex) > 0)
+            bAnyRouting[State.Side] = true;
+
+    for (FSoulBattleFormationState& State : TacticalFormations)
+    {
+        const int32 Alive = AliveInGroup(State.GroupIndex);
+        if (Alive <= 0)
+        {
+            State.PreviousAlive = 0;
+            continue;
+        }
+
+        const FVector Center = GroupCenter(State.GroupIndex);
+        int32 FriendlyNear = 0;
+        int32 EnemyNear = 0;
+        bool bHeroSupport = false;
+        for (int32 I = 0; I < Combatants.Num(); ++I)
+        {
+            if (!Actors.IsValidIndex(I) || !Actors[I] ||
+                Combatants[I].Health <= 0.0f)
+                continue;
+            const float Distance = FVector::Dist2D(
+                Center, Actors[I]->GetActorLocation());
+            if (Distance > 850.0f) continue;
+            if (Combatants[I].Side == State.Side)
+            {
+                ++FriendlyNear;
+                bHeroSupport = bHeroSupport ||
+                    Combatants[I].Role == ESoulRealtimeFormationRole::Hero;
+            }
+            else ++EnemyNear;
+        }
+
+        float EnemyDistance = TNumericLimits<float>::Max();
+        const int32 Enemy = FindNearestEnemyToGroup(
+            State.GroupIndex, EnemyDistance);
+        bool bFlanked = false;
+        if (Enemy != INDEX_NONE && Groups.IsValidIndex(State.GroupIndex))
+        {
+            FRBCombatGroup Core;
+            if (Groups[State.GroupIndex].ToCore(Core))
+            {
+                const FVector ToEnemy =
+                    (Actors[Enemy]->GetActorLocation() - Center)
+                    .GetSafeNormal2D();
+                bFlanked = EnemyDistance < 750.0f &&
+                    FVector::DotProduct(Core.Facing.GetSafeNormal2D(),
+                        ToEnemy) < -0.25f;
+            }
+        }
+
+        FSoulBattleMoraleInput Input;
+        Input.PreviousAlive = State.PreviousAlive;
+        Input.CurrentAlive = Alive;
+        Input.bFlanked = bFlanked;
+        Input.bLocalDisadvantage = EnemyNear > FriendlyNear + 2;
+        Input.bFriendlyRoutedNearby = bAnyRouting[State.Side] &&
+            !State.bRouting;
+        Input.bHeroSupport = bHeroSupport;
+        State.MoralePermille =
+            FSoulRealtimeTacticalRules::UpdateMorale(
+                State.MoralePermille, Input);
+        State.PreviousAlive = Alive;
+        if (State.bRouting)
+            State.RoutingSeconds += 0.8f;
+
+        if (!State.bRouting && BattleElapsed >= State.RallyGraceUntil &&
+            State.MoralePermille < 260)
+        {
+            State.bRouting = true;
+            State.bShattered = State.bRallied ||
+                State.MoralePermille <= 0 ||
+                Alive * 4 <= State.InitialBodies;
+            State.bRallied = false;
+            State.RoutingSeconds = 0.0f;
+            ++RoutedSides[State.Side];
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_FORMATION_ROUT: side=%d group=%d kind=%s morale=%d"),
+                State.Side, State.GroupIndex,
+                FSoulRealtimeTacticalRules::FormationKindLabel(State.Kind),
+                State.MoralePermille);
+        }
+        else if (State.bRouting && !State.bShattered &&
+                 bHeroSupport && !Input.bLocalDisadvantage &&
+                 State.RoutingSeconds >= 6.0f &&
+                 State.MoralePermille >= 420)
+        {
+            State.bRouting = false;
+            State.bRallied = true;
+            State.RallyGraceUntil = BattleElapsed + 8.0f;
+            UE_LOG(LogTemp, Display,
+                TEXT("SOUL_FORMATION_RALLY: side=%d group=%d morale=%d"),
+                State.Side, State.GroupIndex, State.MoralePermille);
+        }
+    }
+}
+
+void ASoulRealtimeArenaGameMode::RefreshBattlePhase()
+{
+    float Closest = TNumericLimits<float>::Max();
+    int32 MoraleTotal[2] = {0, 0};
+    int32 MoraleGroups[2] = {0, 0};
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+    {
+        if (AliveInGroup(State.GroupIndex) <= 0) continue;
+        MoraleTotal[State.Side] += State.MoralePermille;
+        ++MoraleGroups[State.Side];
+        float Distance = 0.0f;
+        if (FindNearestEnemyToGroup(State.GroupIndex, Distance) != INDEX_NONE)
+            Closest = FMath::Min(Closest, Distance);
+    }
+    const int32 AlliedLoss = InitialStrategic[0] > 0
+        ? CasualtiesForSide(0) * 1000 / InitialStrategic[0] : 0;
+    const int32 EnemyLoss = InitialStrategic[1] > 0
+        ? CasualtiesForSide(1) * 1000 / InitialStrategic[1] : 0;
+    const int32 AlliedMorale = MoraleGroups[0] > 0
+        ? MoraleTotal[0] / MoraleGroups[0] : 0;
+    const int32 EnemyMorale = MoraleGroups[1] > 0
+        ? MoraleTotal[1] / MoraleGroups[1] : 0;
+    const ESoulBattlePhase NewPhase =
+        FSoulRealtimeTacticalRules::DeterminePhase(
+            BattleElapsed, Closest, AlliedLoss, EnemyLoss,
+            AlliedMorale, EnemyMorale);
+    if (NewPhase != BattlePhase)
+    {
+        BattlePhase = NewPhase;
+        UE_LOG(LogTemp, Display, TEXT("SOUL_BATTLE_PHASE: %s"),
+            FSoulRealtimeTacticalRules::PhaseLabel(BattlePhase));
+    }
+}
+
+void ASoulRealtimeArenaGameMode::TickFormationTactics()
+{
+    UpdateFormationMorale();
+    RefreshBattlePhase();
+
+    bool bFrontEngaged[2] = {false, false};
+    bool bFrontCollapsing[2] = {false, false};
+    for (const FSoulBattleFormationState& State : TacticalFormations)
+    {
+        if (State.Kind != ESoulBattleFormationKind::FrontLine ||
+            AliveInGroup(State.GroupIndex) <= 0)
+            continue;
+        float Distance = 0.0f;
+        FindNearestEnemyToGroup(State.GroupIndex, Distance);
+        bFrontEngaged[State.Side] =
+            bFrontEngaged[State.Side] || Distance < 720.0f;
+        bFrontCollapsing[State.Side] =
+            bFrontCollapsing[State.Side] ||
+            State.MoralePermille < 480;
+    }
+
+    for (FSoulBattleFormationState& State : TacticalFormations)
+    {
+        if (AliveInGroup(State.GroupIndex) <= 0 ||
+            State.ManualOverrideUntil > BattleElapsed)
+            continue;
+
+        float EnemyDistance = 0.0f;
+        const int32 Enemy = FindNearestEnemyToGroup(
+            State.GroupIndex, EnemyDistance);
+        if (Enemy == INDEX_NONE) continue;
+        const FVector Center = GroupCenter(State.GroupIndex);
+        const FVector EnemyLocation = Actors[Enemy]->GetActorLocation();
+        const FVector Facing =
+            (EnemyLocation - Center).GetSafeNormal2D();
+
+        FSoulBattleOrderContext Context;
+        Context.Kind = State.Kind;
+        Context.Morale = FSoulRealtimeTacticalRules::MoraleState(
+            State.MoralePermille, State.bRouting, State.bRallied);
+        Context.Phase = BattlePhase;
+        Context.EnemyDistance = EnemyDistance;
+        Context.bFrontLineEngaged = bFrontEngaged[State.Side];
+        Context.bMeleeThreat = EnemyDistance < 600.0f;
+        Context.bFriendlyLineCollapsing =
+            bFrontCollapsing[State.Side];
+
+        const ERBHostGroupOrder Order =
+            FSoulRealtimeTacticalRules::ChooseOrder(Context);
+        FVector Anchor = State.TacticalAnchor;
+        if (Order == ERBHostGroupOrder::FallBack)
+        {
+            const float Outward = State.Side == 0 ? -1.0f : 1.0f;
+            Anchor = State.SpawnAnchor + FVector(Outward * 550.0f, 0, 0);
+        }
+        else if (Order == ERBHostGroupOrder::Advance)
+        {
+            Anchor = State.TacticalAnchor;
+            if (State.Kind == ESoulBattleFormationKind::FrontLine ||
+                (State.Kind == ESoulBattleFormationKind::Strike &&
+                 bFrontEngaged[State.Side]))
+            {
+                FVector Approach;
+                if (Spatial && Spatial->QueryApproach(
+                        Actors[Index(Groups[State.GroupIndex].Leader)],
+                        State.Side == 1, EnemyLocation, Approach))
+                    Anchor = Approach;
+                else
+                    Anchor = EnemyLocation - Facing * 420.0f;
+            }
+        }
+        else if (Order == ERBHostGroupOrder::Charge)
+        {
+            Anchor = EnemyLocation;
+        }
+        else if (Order == ERBHostGroupOrder::Hold)
+        {
+            Anchor = State.TacticalAnchor;
+        }
+
+        IssueFormationOrder(
+            State.GroupIndex, Order, Anchor, Facing, false);
+    }
+}
+
 void ASoulRealtimeArenaGameMode::TickSpatialOrders(float Seconds)
 {
     SpatialElapsed += Seconds;
-    if (!Spatial || SpatialElapsed < 1.0f) return;
-    SpatialElapsed = 0;
-    for (int32 G = 0; G < Groups.Num(); ++G)
-    {
-        if (!Drivers.IsValidIndex(G) || !Drivers[G]) continue;
-        int32 Leader = INDEX_NONE;
-        for (const auto& Member : Groups[G].Members)
-        {
-            const int32 I = Index(Member);
-            if (I != INDEX_NONE && Combatants[I].Health > 0) { Leader = I; break; }
-        }
-        if (Leader == INDEX_NONE) continue;
-        const int32 Side = Combatants[Leader].Side;
-        if (Side == 0 && !bAlliedCharge) continue;
-        int32 Target = INDEX_NONE;
-        double BestDistance = TNumericLimits<double>::Max();
-        for (int32 I = 0; I < Actors.Num(); ++I)
-        {
-            if (!Actors[I] || Combatants[I].Health <= 0 || Combatants[I].Side == Side) continue;
-            const double Distance = FVector::DistSquared2D(Actors[Leader]->GetActorLocation(), Actors[I]->GetActorLocation());
-            if (Distance < BestDistance) { BestDistance = Distance; Target = I; }
-        }
-        if (Target == INDEX_NONE) continue;
-        FVector Approach;
-        const bool bApproach = BestDistance > FMath::Square(550.0) &&
-            Spatial->QueryApproach(Actors[Leader], Side == 1, Actors[Target]->GetActorLocation(), Approach);
-        FString Error;
-        // Alternate bounded PBIL approach pulses with native Charge, so reaching a sampled point never strands a formation.
-        const bool bAdvance = bApproach && (FMath::FloorToInt(BattleElapsed) % 2 == 0);
-        if (Drivers[G]->RequestGroupOrder(Groups[G].Leader,
-            bAdvance ? ERBHostGroupOrder::Advance : ERBHostGroupOrder::Charge,
-            bAdvance ? Approach : Groups[G].Anchor,
-            (Actors[Target]->GetActorLocation() - Actors[Leader]->GetActorLocation()).GetSafeNormal2D(),
-            FRBHostIdentity(), Groups[G].Revision, Error) && bAdvance) ++SpatialOrders;
-    }
+    if (!Spatial || SpatialElapsed < 0.8f) return;
+    SpatialElapsed = 0.0f;
+    TickFormationTactics();
 }
 
 void ASoulRealtimeArenaGameMode::TickBattleResolution(float Seconds)
@@ -2425,10 +3174,64 @@ void ASoulRealtimeArenaGameMode::TickBattleResolution(float Seconds)
             return;
         }
     }
-    // Tactical trigger: a living allied caster with an enemy inside the existing Firebolt target arc.
-    if (bTacticalMagic && MagicCasts == 0 && BattleElapsed > 2 && PlayerHealth() > 0 && FindPlayerSpellTarget(1800) != INDEX_NONE)
-        CastPlayerSpell(TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
-            TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
+    for (int32 Side = 0; Side < 2; ++Side)
+    {
+        int32 LivingFormations = 0;
+        int32 RoutingFormations = 0;
+        int32 ShatteredFormations = 0;
+        for (const FSoulBattleFormationState& State : TacticalFormations)
+        {
+            if (State.Side != Side || AliveInGroup(State.GroupIndex) <= 0)
+                continue;
+            ++LivingFormations;
+            RoutingFormations += State.bRouting ? 1 : 0;
+            ShatteredFormations += State.bShattered ? 1 : 0;
+        }
+        const bool bActiveArmyShattered = LivingFormations > 0 &&
+            ShatteredFormations >= LivingFormations;
+        bSideMoraleDefeated[Side] = bActiveArmyShattered ||
+            FSoulRealtimeTacticalRules::IsMoraleDefeated(
+                LivingFormations, RoutingFormations,
+                ReserveBodiesForSide(Side));
+    }
+    if (bSideMoraleDefeated[0] || bSideMoraleDefeated[1])
+    {
+        UE_LOG(LogTemp, Display,
+            TEXT("SOUL_MORALE_RESOLUTION: alliedRouted=%d enemyRouted=%d"),
+            bSideMoraleDefeated[0], bSideMoraleDefeated[1]);
+        FinishBattle();
+        return;
+    }
+
+    // Qualification exercises the full current battle spell vocabulary. Each cast
+    // still passes through RB Magic authority; the sequence only supplies inputs.
+    if (bTacticalMagic && PlayerHealth() > 0)
+    {
+        bool bCast = false;
+        if (MagicProofStage == 0 && BattleElapsed > 1.0f)
+            bCast = CastPlayerSpell(
+                TEXT("/Game/Soul/Magic/Spells/DA_Soul_Tailwind.DA_Soul_Tailwind"),
+                TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Tailwind.DA_SoulPresentation_Tailwind"));
+        else if (MagicProofStage == 1 && BattleElapsed > 2.0f)
+            bCast = CastPlayerSpell(
+                TEXT("/Game/Soul/Magic/Spells/DA_Soul_TidalWard.DA_Soul_TidalWard"),
+                TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_TidalWard.DA_SoulPresentation_TidalWard"));
+        else if (MagicProofStage == 2 && BattleElapsed > 3.0f)
+            bCast = CastPlayerSpell(
+                TEXT("/Game/Soul/Magic/Spells/DA_Soul_Blizzard.DA_Soul_Blizzard"),
+                TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Blizzard.DA_SoulPresentation_Blizzard"));
+        else if (MagicProofStage == 3 &&
+                 FindPlayerSpellTarget(2400.0f) != INDEX_NONE)
+            bCast = CastPlayerSpell(
+                TEXT("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt"),
+                TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt"));
+        else if (MagicProofStage == 4 &&
+                 FindPlayerSpellTarget(2200.0f) != INDEX_NONE)
+            bCast = CastPlayerSpell(
+                TEXT("/Game/Soul/Magic/Spells/DA_Soul_ChainLightning.DA_Soul_ChainLightning"),
+                TEXT("/Game/Soul/Magic/Presentation/DA_SoulPresentation_ChainLightning.DA_SoulPresentation_ChainLightning"));
+        if (bCast) ++MagicProofStage;
+    }
     if (!FSoulRealtimeBattleRules::HasLivingForce(ReinforcementBattle, RealtimeSideId(0)) ||
         !FSoulRealtimeBattleRules::HasLivingForce(ReinforcementBattle, RealtimeSideId(1)))
     {
@@ -2441,11 +3244,23 @@ void ASoulRealtimeArenaGameMode::TickBattleResolution(float Seconds)
 
 void ASoulRealtimeArenaGameMode::FinishBattle()
 {
-    const int32 PlayerSurvivors = AliveForSide(0) + ReserveBodiesForSide(0);
-    const int32 EnemySurvivors = AliveForSide(1) + ReserveBodiesForSide(1);
+    const int32 PhysicalPlayerSurvivors =
+        AliveForSide(0) + ReserveBodiesForSide(0);
+    const int32 PhysicalEnemySurvivors =
+        AliveForSide(1) + ReserveBodiesForSide(1);
+    // A fully routed force has lost strategic cohesion and exits this encounter.
+    // The existing campaign bridge represents that defeated force as zero effective
+    // survivors while the arena presents the living bodies physically withdrawing.
+    const int32 PlayerSurvivors =
+        bSideMoraleDefeated[0] ? 0 : PhysicalPlayerSurvivors;
+    const int32 EnemySurvivors =
+        bSideMoraleDefeated[1] ? 0 : PhysicalEnemySurvivors;
     const bool bWon = EnemySurvivors == 0 && PlayerSurvivors > 0;
-    UE_LOG(LogTemp, Display, TEXT("SOUL_BATTLE_RESOLVED: won=%d playerSurvivors=%d enemySurvivors=%d waves=%d/%d magic=%d contacts=%d pbilQueries=%d pbilSuccess=%d pbilOrders=%d seconds=%.2f mana=%d"),
-        bWon, PlayerSurvivors, EnemySurvivors, ReinforcementWaves[0], ReinforcementWaves[1], MagicCasts,
+    UE_LOG(LogTemp, Display, TEXT("SOUL_BATTLE_RESOLVED: won=%d playerSurvivors=%d enemySurvivors=%d physical=%d/%d routed=%d/%d waves=%d/%d magic=%d contacts=%d pbilQueries=%d pbilSuccess=%d pbilOrders=%d seconds=%.2f mana=%d"),
+        bWon, PlayerSurvivors, EnemySurvivors,
+        PhysicalPlayerSurvivors, PhysicalEnemySurvivors,
+        bSideMoraleDefeated[0], bSideMoraleDefeated[1],
+        ReinforcementWaves[0], ReinforcementWaves[1], MagicCasts,
         AcceptedContactCount(), Spatial ? Spatial->GetQueryCount() : 0, Spatial ? Spatial->GetSuccessfulQueryCount() : 0, SpatialOrders, BattleElapsed, FMath::FloorToInt(FMath::Max(0.0f, PlayerMana)));
     if (bQualification && (!Spatial || Spatial->GetQueryCount() <= 0 ||
         Spatial->GetSuccessfulQueryCount() <= 0 || SpatialOrders <= 0))

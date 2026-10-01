@@ -43,15 +43,73 @@ bool FSoulRealtimeRBMagicProofAssetsTest::RunTest(const FString&)
     auto* Blizzard = LoadProofSpell(
         TEXT("/Game/Soul/Magic/Spells/"
              "DA_Soul_Blizzard.DA_Soul_Blizzard"));
+    auto* TidalWard = LoadProofSpell(
+        TEXT("/Game/Soul/Magic/Spells/"
+             "DA_Soul_TidalWard.DA_Soul_TidalWard"));
+    auto* StoneSentinel = LoadProofSpell(
+        TEXT("/Game/Soul/Magic/Spells/"
+             "DA_Soul_StoneSentinel.DA_Soul_StoneSentinel"));
+    auto* Tailwind = LoadProofSpell(
+        TEXT("/Game/Soul/Magic/Spells/"
+             "DA_Soul_Tailwind.DA_Soul_Tailwind"));
 
     TestNotNull(TEXT("Firebolt proof spell loads"), Firebolt);
     TestNotNull(TEXT("Chain Lightning proof spell loads"), Chain);
     TestNotNull(TEXT("Blizzard proof spell loads"), Blizzard);
+    TestNotNull(TEXT("Tidal Ward proof spell loads"), TidalWard);
+    TestNotNull(TEXT("Stone Sentinel proof spell loads"), StoneSentinel);
+    TestNotNull(TEXT("Tailwind proof spell loads"), Tailwind);
 
     UNiagaraSystem* FireFx = LoadObject<UNiagaraSystem>(
         nullptr, TEXT("/Game/MagicSpells/Fire/FX/"
                       "NS_Fireball.NS_Fireball"));
     TestNotNull(TEXT("qualified Firebolt provider VFX loads"), FireFx);
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+    FSoulRealtimeRBMagicDiversityTest,
+    "Soul.RealtimeBattle.Magic.WardAndTailwindBuildDistinctIntents",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FSoulRealtimeRBMagicDiversityTest::RunTest(const FString&)
+{
+    auto* Ward = LoadProofSpell(
+        TEXT("/Game/Soul/Magic/Spells/"
+             "DA_Soul_TidalWard.DA_Soul_TidalWard"));
+    auto* Tailwind = LoadProofSpell(
+        TEXT("/Game/Soul/Magic/Spells/"
+             "DA_Soul_Tailwind.DA_Soul_Tailwind"));
+    if (!TestNotNull(TEXT("Tidal Ward loads"), Ward) ||
+        !TestNotNull(TEXT("Tailwind loads"), Tailwind))
+        return false;
+
+    FRBMagicCastRequest WardRequest = MakeUnitRequest(*Ward);
+    FRBMagicCastRequest TailwindRequest;
+    TailwindRequest.CastId = FGuid::NewGuid();
+    TailwindRequest.SpellTag = Tailwind->SpellTag;
+    TailwindRequest.Caster.Domain = TEXT("Soul.Arena");
+    TailwindRequest.Caster.Id = FGuid::NewGuid();
+
+    TArray<FRBMagicEffectIntent> WardIntents;
+    TArray<FRBMagicEffectIntent> TailwindIntents;
+    FString Error;
+    TestTrue(TEXT("Ward builds"),
+        URBMagicLibrary::BuildEffectIntents(
+            Ward, WardRequest, WardIntents, Error));
+    TestTrue(TEXT("Tailwind builds"),
+        URBMagicLibrary::BuildEffectIntents(
+            Tailwind, TailwindRequest, TailwindIntents, Error));
+    TestEqual(TEXT("Ward has one effect"), WardIntents.Num(), 1);
+    TestEqual(TEXT("Tailwind has one effect"), TailwindIntents.Num(), 1);
+    if (WardIntents.Num() == 1)
+        TestEqual(TEXT("Ward produces shield intent"),
+            WardIntents[0].Effect.EffectTag.ToString(),
+            FString(TEXT("Magic.Effect.Shield")));
+    if (TailwindIntents.Num() == 1)
+        TestEqual(TEXT("Tailwind produces movement intent"),
+            TailwindIntents[0].Effect.EffectTag.ToString(),
+            FString(TEXT("Magic.Effect.StrategicMovement")));
     return true;
 }
 

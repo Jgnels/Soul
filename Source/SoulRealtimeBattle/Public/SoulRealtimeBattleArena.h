@@ -7,6 +7,7 @@
 #include "RBCombatGroupDriver.h"
 #include "RBMagicAuthority.h"
 #include "SoulRealtimeBattleRules.h"
+#include "SoulRealtimeBattleTactics.h"
 #include "SoulRealtimeBattleArena.generated.h"
 
 class AActor;
@@ -17,6 +18,13 @@ class USkeletalMesh;
 class URBCombatRangedComponent;
 class URBMagicPresentationProfile;
 class URBMagicSpellDefinition;
+
+enum class ESoulRealtimeMovementArchetype : uint8
+{
+    Infantry,
+    LowProfile,
+    Aerial
+};
 
 struct FSoulRealtimeArenaMagicArea
 {
@@ -43,6 +51,10 @@ struct FSoulRealtimeArenaCombatant
     bool bPlayerHero = false;
     float MeleeCooldown = 0.0f;
     bool bVisualAttackPlaying = false;
+    ESoulRealtimeMovementArchetype Movement =
+        ESoulRealtimeMovementArchetype::Infantry;
+    float WardPoints = 0.0f;
+    float WardSeconds = 0.0f;
 };
 UCLASS()
 class SOULREALTIMEBATTLE_API USoulRealtimeArenaBinding
@@ -158,6 +170,8 @@ public:
     int32 ReinforcementWavesForSide(int32 Side) const;
     FString ReinforcementSummary(int32 Side) const;
     FString AlliedOrderSummary() const;
+    FString TacticalSummary() const;
+    FString SpellSummary() const;
     float PlayerManaValue() const { return PlayerMana; }
     int32 MagicCastCount() const { return MagicCasts; }
     bool AreAlliedFormationsCharging() const { return bAlliedCharge; }
@@ -172,7 +186,19 @@ public:
 private:
     void TickBattleResolution(float Seconds);
     void TickSpatialOrders(float Seconds);
+    void TickFormationTactics();
+    void UpdateFormationMorale();
+    void RefreshBattlePhase();
     void SetupBattleCamera();
+    int32 AliveInGroup(int32 GroupIndex) const;
+    FVector GroupCenter(int32 GroupIndex) const;
+    int32 FindNearestEnemyToGroup(int32 GroupIndex, float& OutDistance) const;
+    int32 FindFormationState(int32 GroupIndex) const;
+    bool IssueFormationOrder(int32 GroupIndex, ERBHostGroupOrder Order,
+        const FVector& Anchor, const FVector& Facing, bool bManual);
+    FVector ChooseReinforcementAnchor(int32 Side) const;
+    void SelectNextAlliedFormation();
+    void CommandSelectedAllies(ERBHostGroupOrder Order);
     void FinishBattle();
     bool bMapOnly = false;
     bool bAutobattle = false;
@@ -187,6 +213,12 @@ private:
     bool bSecondCapture = false;
     float SpatialElapsed = 0.0f;
     int32 SpatialOrders = 0;
+    TArray<FSoulBattleFormationState> TacticalFormations;
+    ESoulBattlePhase BattlePhase = ESoulBattlePhase::Deployment;
+    int32 SelectedAlliedFormation = INDEX_NONE;
+    bool bSelectAllAllies = true;
+    int32 RoutedSides[2] = {0, 0};
+    bool bSideMoraleDefeated[2] = {false, false};
     UPROPERTY() TObjectPtr<USoulRealtimeBattlePBIL> Spatial;
     bool SetupArena();
     bool SpawnArmy(int32 Side);
@@ -239,6 +271,8 @@ private:
     static float RoleDamage(ESoulRealtimeFormationRole Role);
     static float RoleHealth(ESoulRealtimeFormationRole Role);
     static float RoleWalkSpeed(ESoulRealtimeFormationRole Role);
+    ESoulRealtimeMovementArchetype ResolveMovementArchetype(
+        int32 Side, ESoulRealtimeFormationRole FormationRole) const;
 
     TArray<FSoulRealtimeArenaCombatant> Combatants;
     TArray<FSoulRealtimeArenaMagicArea> ActiveMagicAreas;
@@ -269,5 +303,7 @@ private:
     TMap<FName, float> SpellCooldowns;
     int32 MagicCasts = 0;
     int32 InitialAlive[2] = {0, 0};
+    float SpeedBuffMultiplier[2] = {1.0f, 1.0f};
+    float SpeedBuffSeconds[2] = {0.0f, 0.0f};
 };
 
