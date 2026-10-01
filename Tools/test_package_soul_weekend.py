@@ -29,7 +29,7 @@ class WeekendPackagingTests(unittest.TestCase):
         required.update((scenario["campaign_map"], scenario["battle_map"]))
         self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
-        self.assertEqual(len(COOK_ROOTS), 48)
+        self.assertEqual(len(COOK_ROOTS), 67)
 
     def test_exact_disk_dependencies_match_actual_readers(self):
         source = (ROOT / "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp").read_text()

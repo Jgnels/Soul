@@ -16,7 +16,7 @@ bool FSoulPlayableBattlefieldSelectionTest::RunTest(const FString&)
     FString Error;
     if (!TestTrue(TEXT("default descriptor builds"), S->BuildBattleDescriptor(TEXT("orc_watch"), D, Error))) return false;
     TestEqual(TEXT("proven default retained"), D.MapPackage, S->BattleMap);
-    TestEqual(TEXT("recipe identity travels with descriptor"), D.BattlefieldId, FName(TEXT("dragon_graveyard")));
+    TestEqual(TEXT("destination recipe identity travels with descriptor"), D.BattlefieldId, FName(TEXT("dragon_watch")));
     TestEqual(TEXT("target landform travels with descriptor"), D.BattleContext.Landform, S->World.Regions[TEXT("orc_watch")].Landform);
 
     TestEqual(TEXT("actual approach transported"), D.BattleContext.AttackerApproach,
@@ -32,13 +32,14 @@ bool FSoulPlayableBattlefieldSelectionTest::RunTest(const FString&)
     S->BattlefieldTemplates.Add(Candidate);
     S->BuildBattleDescriptor(TEXT("orc_watch"), D, Error);
     TestEqual(TEXT("unmatched candidate cannot displace default"), D.MapPackage, S->BattleMap);
-    S->BattlefieldTemplates.RemoveAt(1);
+    S->BattlefieldTemplates.RemoveAt(S->BattlefieldTemplates.Num() - 1);
+    Candidate.BaseScore = 10000;
     Candidate.bPlayable = false;
     Candidate.Landforms.Add(D.BattleContext.Landform);
     S->BattlefieldTemplates.Add(Candidate);
     S->BuildBattleDescriptor(TEXT("orc_watch"), D, Error);
     TestEqual(TEXT("unadmitted high-scoring candidate cannot change map"), D.MapPackage, S->BattleMap);
-    S->BattlefieldTemplates[1].bPlayable = true;
+    S->BattlefieldTemplates.Last().bPlayable = true;
     S->BuildBattleDescriptor(TEXT("orc_watch"), D, Error);
     TestEqual(TEXT("admitted matching landform chooses binding"), D.MapPackage, Candidate.MapPackage);
     TestEqual(TEXT("binding supplies its own spawn origin"), D.ArenaOrigin, Candidate.ArenaOrigin);

@@ -15,7 +15,35 @@
   },
   "active_cap_per_side": 15,
   "battle_map": "/Game/Dragon_graveyard/Level/L_showcase_level",
-  "battlefield_candidates": [],
+  "battlefield_candidates": [
+    {
+      "id": "dragon_watch",
+      "enabled": true,
+      "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+      "biomes": ["badlands"],
+      "landforms": ["mesa"],
+      "features": ["watch"],
+      "arena_origin": [4000, -18000, 0]
+    },
+    {
+      "id": "dragon_pass",
+      "enabled": true,
+      "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+      "biomes": ["mountain"],
+      "landforms": ["pass"],
+      "features": ["narrow_pass"],
+      "arena_origin": [-4000, -16000, 0]
+    },
+    {
+      "id": "dragon_stronghold",
+      "enabled": true,
+      "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+      "biomes": ["badlands"],
+      "landforms": ["ruined_city_edge"],
+      "features": ["stronghold"],
+      "arena_origin": [14000, -10000, 0]
+    }
+  ],
   "campaign_map": "/Engine/Maps/Entry",
   "arena_origin": [14000, -10000, 0]
 }

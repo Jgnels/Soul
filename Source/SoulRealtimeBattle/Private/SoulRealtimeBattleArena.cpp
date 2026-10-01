@@ -888,6 +888,8 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
             ActiveCap = Encounter->ActiveCapPerSide;
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
+            EnemyVisualFaction = Encounter->EnemyFaction;
+            EnemyVisualRegion = Encounter->TargetRegion;
             PlayerMana = static_cast<float>(Encounter->PlayerMana);
             // Automatic casting belongs to explicit qualification. Normal play
             // uses the existing [1] input and must not spend mana on its own.
@@ -1202,7 +1204,7 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
                 break;
         }
     }
-    else
+    else if (!UsesEvilVisualRoster())
     {
         switch (FormationRole)
         {
@@ -1225,21 +1227,127 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
                 break;
         }
     }
+    else
+    {
+        switch (FormationRole)
+        {
+            case ESoulRealtimeFormationRole::Guard:
+            case ESoulRealtimeFormationRole::Hero:
+                Path = TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer.SK_Orc_Hummer");
+                break;
+            case ESoulRealtimeFormationRole::Breaker:
+            case ESoulRealtimeFormationRole::Apex:
+                Path = TEXT("/Game/Fantasy_Pack/Characters/Troll/Mesh/SK_Troll.SK_Troll");
+                break;
+            case ESoulRealtimeFormationRole::Ranged:
+                Path = TEXT("/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SK_Ulf_Full.SK_Ulf_Full");
+                break;
+            case ESoulRealtimeFormationRole::Support:
+                Path = TEXT("/Game/Fantasy_Pack/Characters/Fantasy_Barbarian/Mesh/SK_Fantasy_Barbarian_Full.SK_Fantasy_Barbarian_Full");
+                break;
+            default:
+                Path = TEXT("/Game/Fantasy_Pack/Characters/Barbarian/Mesh/SK_Barbarian_Full.SK_Barbarian_Full");
+                break;
+        }
+    }
     return Path ? LoadObject<USkeletalMesh>(nullptr, Path) : nullptr;
 }
 
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
     int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const
 {
-    const bool bUsesUE5Knight = Side == 0 && FormationRole != ESoulRealtimeFormationRole::Line;
-    const TCHAR* Path = bUsesUE5Knight
-        ? (bRunning
-            ? TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Run_Fwd.MM_Run_Fwd")
-            : TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Idle.MM_Idle"))
-        : (bRunning
+    const TCHAR* Path = nullptr;
+    if (Side == 0)
+    {
+        Path = FormationRole == ESoulRealtimeFormationRole::Line
+            ? (bRunning
+                ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run")
+                : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle"))
+            : (bRunning
+                ? TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Run_Fwd.MM_Run_Fwd")
+                : TEXT("/Game/Knights_Pack/Demoscene_UE5/Animations/MM_Idle.MM_Idle"));
+    }
+    else if (!UsesEvilVisualRoster())
+    {
+        Path = bRunning
             ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run")
-            : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle"));
+            : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle");
+    }
+    else if (FormationRole == ESoulRealtimeFormationRole::Guard ||
+             FormationRole == ESoulRealtimeFormationRole::Hero)
+    {
+        Path = bRunning
+            ? TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Run.Anim_Orc_Hummer_Run")
+            : TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Idle.Anim_Orc_Hummer_Idle");
+    }
+    else if (FormationRole == ESoulRealtimeFormationRole::Breaker ||
+             FormationRole == ESoulRealtimeFormationRole::Apex)
+    {
+        Path = bRunning
+            ? TEXT("/Game/Fantasy_Pack/Characters/Troll/Animations/Anim_Troll_Run.Anim_Troll_Run")
+            : TEXT("/Game/Fantasy_Pack/Characters/Troll/Animations/Anim_Troll_Idle.Anim_Troll_Idle");
+    }
+    else
+    {
+        Path = bRunning
+            ? TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run")
+            : TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle");
+    }
     return LoadObject<UAnimationAsset>(nullptr, Path);
+}
+
+UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
+    int32 Side, ESoulRealtimeFormationRole FormationRole) const
+{
+    const TCHAR* Path = nullptr;
+    if (Side == 0)
+    {
+        if (FormationRole == ESoulRealtimeFormationRole::Line)
+            Path = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+    }
+    else if (!UsesEvilVisualRoster())
+        Path = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+    else if (FormationRole == ESoulRealtimeFormationRole::Guard ||
+             FormationRole == ESoulRealtimeFormationRole::Hero)
+        Path = TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.Anim_Orc_Hummer_Attack_1");
+    else if (FormationRole == ESoulRealtimeFormationRole::Breaker ||
+             FormationRole == ESoulRealtimeFormationRole::Apex)
+        Path = TEXT("/Game/Fantasy_Pack/Characters/Troll/Animations/Anim_Troll_Attack_1.Anim_Troll_Attack_1");
+    else
+        Path = TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+    return Path ? LoadObject<UAnimationAsset>(nullptr, Path) : nullptr;
+}
+
+UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
+    int32 Side, ESoulRealtimeFormationRole FormationRole) const
+{
+    const TCHAR* Path = nullptr;
+    if (Side == 0)
+    {
+        if (FormationRole == ESoulRealtimeFormationRole::Line)
+            Path = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1");
+    }
+    else if (!UsesEvilVisualRoster())
+        Path = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1");
+    else if (FormationRole == ESoulRealtimeFormationRole::Guard ||
+             FormationRole == ESoulRealtimeFormationRole::Hero)
+        Path = TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Dead.Anim_Orc_Hummer_Dead");
+    else if (FormationRole == ESoulRealtimeFormationRole::Breaker ||
+             FormationRole == ESoulRealtimeFormationRole::Apex)
+        Path = TEXT("/Game/Fantasy_Pack/Characters/Troll/Animations/Anim_Troll_Dead.Anim_Troll_Dead");
+    else
+        Path = TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1");
+    return Path ? LoadObject<UAnimationAsset>(nullptr, Path) : nullptr;
+}
+
+bool ASoulRealtimeArenaGameMode::UsesEvilVisualRoster() const
+{
+    return EnemyVisualFaction == FName(TEXT("orcs")) ||
+           EnemyVisualFaction == FName(TEXT("evil")) ||
+           EnemyVisualRegion == FName(TEXT("orc_watch")) ||
+           EnemyVisualRegion == FName(TEXT("north_pass")) ||
+           EnemyVisualRegion == FName(TEXT("orc_camp")) ||
+           FParse::Param(FCommandLine::Get(), TEXT("SoulEvilVisualRoster"));
 }
 
 void ASoulRealtimeArenaGameMode::UpdateVisualAnimations()
@@ -1744,14 +1852,12 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
     AttackerData.MeleeCooldown =
         AttackDelay(AttackerData.Role);
 
-    if (bAccepted && bVisualUnits &&
-        (AttackerData.Side == 1 || AttackerData.Role == ESoulRealtimeFormationRole::Line))
+    if (bAccepted && bVisualUnits)
     {
         UAnimSingleNodeInstance* Playback = Attacker->GetMesh()->GetSingleNodeInstance();
         if (!AttackerData.bVisualAttackPlaying || !Playback || !Playback->IsPlaying())
         {
-            if (auto* Attack = LoadObject<UAnimationAsset>(nullptr,
-                TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1")))
+            if (auto* Attack = ResolveVisualAttack(AttackerData.Side, AttackerData.Role))
             {
                 Attacker->GetMesh()->PlayAnimation(Attack, false);
                 // Show the entire existing clip within the existing combat cadence; never truncate
@@ -1843,15 +1949,15 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
         if (Spatial) Spatial->UnregisterUnit(Actor);
         Combatants[I].bVisualAttackPlaying = false;
         Actor->GetMesh()->bPauseAnims = true;
-        if (bVisualUnits && (Combatants[I].Side == 1 || Combatants[I].Role == ESoulRealtimeFormationRole::Line))
+        if (bVisualUnits)
         {
-            if (auto* Death = LoadObject<UAnimationAsset>(nullptr,
-                TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1")))
+            if (auto* Death = ResolveVisualDeath(Combatants[I].Side, Combatants[I].Role))
             {
                 Actor->GetMesh()->bPauseAnims = false;
                 Actor->GetMesh()->PlayAnimation(Death, false);
                 Actor->GetMesh()->SetPlayRate(1.0f);
             }
+            else Actor->GetMesh()->SetRelativeRotation(FRotator(0, -90, 85));
         }
         else Actor->GetMesh()->SetRelativeRotation(FRotator(0, -90, 85));
         UE_LOG(LogTemp, Display, TEXT("SOUL_UNIT_DEFEATED: side=%d id=%s"), Combatants[I].Side, *Combatants[I].Id.ToString());
@@ -2256,13 +2362,14 @@ void ASoulRealtimeArenaGameMode::SetupBattleCamera()
     const FVector Center = ResolveSpawnLocation(ArenaOrigin + FVector(0, 0, 100));
     // Establish the environment in map-only qualification; frame the actual fighters during play.
     const bool bDragonShowcase = GetWorld()->GetOutermost()->GetName().Contains(TEXT("Dragon_graveyard"));
-    // Frame the eastern clearing together with the authored skull, ribs and lava.
-    const FVector CameraOffset = bDragonShowcase ? FVector(4500, -5500, 4200) : (bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000));
-    const FVector FocusOffset = bDragonShowcase ? FVector(-800, 600, 200) : (bMapOnly ? FVector(500, 1800, 600) : FVector(250, 0, 100));
+    // Keep the authored skull, ribs and lava in frame while making formation
+    // silhouettes readable at 720p instead of reducing the armies to a dot.
+    const FVector CameraOffset = bDragonShowcase ? FVector(3200, -4200, 3000) : (bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000));
+    const FVector FocusOffset = bDragonShowcase ? FVector(-200, 500, 150) : (bMapOnly ? FVector(500, 1800, 600) : FVector(250, 0, 100));
     auto* Camera = GetWorld()->SpawnActor<ACameraActor>(Center + CameraOffset, FRotator::ZeroRotator);
     if (!Camera) return;
     Camera->SetActorRotation((Center + FocusOffset - Camera->GetActorLocation()).Rotation());
-    Camera->GetCameraComponent()->SetFieldOfView((bDragonShowcase || bMapOnly) ? 65.0f : 75.0f);
+    Camera->GetCameraComponent()->SetFieldOfView(bDragonShowcase ? 60.0f : bMapOnly ? 65.0f : 75.0f);
     if (auto* PC = GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
 }
 

@@ -214,6 +214,11 @@ private:
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     UAnimationAsset* ResolveVisualAnimation(
         int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const;
+    UAnimationAsset* ResolveVisualAttack(
+        int32 Side, ESoulRealtimeFormationRole FormationRole) const;
+    UAnimationAsset* ResolveVisualDeath(
+        int32 Side, ESoulRealtimeFormationRole FormationRole) const;
+    bool UsesEvilVisualRoster() const;
     void UpdateVisualAnimations();
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);
@@ -246,6 +251,8 @@ private:
     int32 LastReinforcementBodies[2] = {0, 0};
     TArray<bool> VisualRunning;
     FVector ArenaOrigin = FVector::ZeroVector;
+    FName EnemyVisualFaction = NAME_None;
+    FName EnemyVisualRegion = NAME_None;
     bool bProof = false;
     bool bMagicProof = false;
     bool bExternalEnvironment = false;

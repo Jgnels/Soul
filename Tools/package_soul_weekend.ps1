@@ -61,7 +61,7 @@ try {
     }
     $packages = @([regex]::Matches($gameConfig, '(?m)^\+MapsToCook=\(FilePath="([^"]+)"\)') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($packages.Count -ne 48) { throw 'Expected the reviewed 48 exact cook roots; review any breadth change.' }
+    if ($packages.Count -ne 67) { throw 'Expected the reviewed 67 exact cook roots; review any breadth change.' }
     foreach ($package in $packages) {
         $parts = $package.TrimStart('/').Split('/')
         switch ($parts[0]) {
