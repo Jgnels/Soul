@@ -230,7 +230,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             };
             if(Camera&&At(40))Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(TEXT("river_ford")));
             if(At(45))Click(TEXT("river_ford"));
-            if(Camera&&At(48))Camera->Focus(FVector(-23676,1618,400));
+            if(Camera&&At(48))Camera->Focus(FVector(-19867,3389,400));
             if(At(51))FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Corridor_Bridge_Travel.png"),true,false);
             if(At(59))
             {

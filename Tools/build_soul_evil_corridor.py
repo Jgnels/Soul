@@ -26,17 +26,17 @@ def build(preview, terrain='evil_waterfront'):
     z = (raw.astype(float) - 32768) * .5  # exact imported cm
     assert (out / 'MesaHeight.r16').read_bytes() == raw.tobytes()
     step = 150000 / 2040
-    # Require a dry, low-slope corridor including road shoulders (6 m radius).
+    # Require a dry, low-slope corridor including road shoulders (3 m radius), above the actual sea at Z=0.
     # A centered gradient hides sharp triangle edges. Bound both adjacent slopes.
     dx = np.abs(np.diff(z,axis=1))/step
     dy = np.abs(np.diff(z,axis=0))/step
     dx = np.maximum(np.pad(dx,((0,0),(0,1)),mode='edge'),np.pad(dx,((0,0),(1,0)),mode='edge'))
     dy = np.maximum(np.pad(dy,((0,1),(0,0)),mode='edge'),np.pad(dy,((1,0),(0,0)),mode='edge'))
     slope = np.degrees(np.arctan(np.hypot(dx, dy)))
-    legal = (z > 180) & (slope < 22)
-    clear = (z > 180).copy()
+    legal = (z > 30) & (slope < 22)
+    clear = (z > 30).copy()
     for oy, ox in [(y, x) for y in range(-4, 5, 1) for x in range(-4, 5, 1)]:
-        clear &= np.roll(z > 180, (oy, ox), (0, 1))
+        clear &= np.roll(z > 30, (oy, ox), (0, 1))
     clear[:9] = clear[-9:] = False
     clear[:, :9] = clear[:, -9:] = False
     valid = clear[::4, ::4]
@@ -64,18 +64,24 @@ def build(preview, terrain='evil_waterfront'):
     assert not np.any(human & evil), 'Expected disconnected shore components'
     def boundary(mask):
         return np.column_stack(np.nonzero(mask & ~(np.roll(mask,1,0)&np.roll(mask,-1,0)&np.roll(mask,1,1)&np.roll(mask,-1,1))))
-    aa,bb=boundary(human),boundary(evil);best=(1e30,None,None)
-    for chunk in np.array_split(aa,100):
-        if len(chunk)==0:continue
-        ds=np.sum((chunk[:,None,:]-bb[None,:,:])**2,axis=2)
-        i,j=np.unravel_index(ds.argmin(),ds.shape)
-        if ds[i,j]<best[0]:best=(ds[i,j],chunk[i],bb[j])
-    shore_a,shore_b=best[1],best[2]
-    print('Bridge endpoints UV',shore_a[::-1]/510,shore_b[::-1]/510,'span m',np.sqrt(best[0])*1500/510)
-    # Connect dry components across an explicit bridge only, not invisible water paths.
-    bridge_nodes=np.rint(np.linspace(shore_a,shore_b,int(np.sqrt(best[0])*3)+1)).astype(int)
-    valid=human|evil
-    for y,x in bridge_nodes:valid[max(0,y-1):y+2,max(0,x-1):x+2]=True;grades[y,x]=0
+    island=component(.345,.513)
+    assert not np.any(island & (human|evil)), 'Crossing shoal must be a separate dry landmass'
+    def crossing(first,second):
+        aa,bb=boundary(first),boundary(second)
+        # Keep the approved western crossing; do not move it to another continent's neck.
+        aa=aa[(aa[:,1]>130)&(aa[:,1]<230)&(aa[:,0]>220)&(aa[:,0]<300)]
+        bb=bb[(bb[:,1]>130)&(bb[:,1]<230)&(bb[:,0]>220)&(bb[:,0]<300)]
+        best=(1e30,None,None)
+        for chunk in np.array_split(aa,100):
+            if len(chunk)==0:continue
+            ds=np.sum((chunk[:,None,:]-bb[None,:,:])**2,axis=2)
+            i,j=np.unravel_index(ds.argmin(),ds.shape)
+            if ds[i,j]<best[0]:best=(ds[i,j],tuple(chunk[i]),tuple(bb[j]))
+        assert best[1] is not None
+        print('Short crossing UV',np.array(best[1])[::-1]/510,np.array(best[2])[::-1]/510,'span m',np.sqrt(best[0])*1500/510)
+        return best[1],best[2]
+    crossings=[crossing(human,island),crossing(island,evil)]
+    valid=human|evil|island
     yy,xx=np.nonzero(valid)
     nodes = {}
     for name, (u, v) in anchors.items():
@@ -110,19 +116,20 @@ def build(preview, terrain='evil_waterfront'):
                     heapq.heappush(queue, (nc + np.hypot(v[0]-end[0], v[1]-end[1]), v))
         raise RuntimeError(f'No traversable corridor {start} -> {end}')
 
-    # Bridge centerline is explicit; land routes never search through water.
-    valid=human|evil
-    sa,sb=tuple(shore_a),tuple(shore_b)
+    # Roads traverse the exposed shoal and its dry neck; only actual water gets arches.
+    def line(a,b):
+        return [tuple(n) for n in np.linspace(a,b,int(np.linalg.norm(np.array(b)-a)*3)+1)]
+    sa,ia=crossings[0];ib,sb=crossings[1]
+    middle=line(sa,ia)[:-1]+land_route(ia,ib)[:-1]+line(ib,sb)
     def route(start,end):
         if human[start]==human[end]:return land_route(start,end)
-        a,b=(sa,sb) if human[start] else (sb,sa)
-        middle=[tuple(n) for n in np.linspace(a,b,int(np.linalg.norm(shore_b-shore_a)*3)+1)]
-        return land_route(start,a)[:-1]+middle+land_route(b,end)[1:]
+        path=land_route(start,sa)[:-1]+middle+land_route(sb,end)[1:] if human[start] else land_route(start,sb)[:-1]+middle[::-1]+land_route(sa,end)[1:]
+        return path
 
     original = json.loads((ROOT/'Data/CampaignTerrainV2/presentation.json').read_text())
     profile = dict(schema=1, map=f'/Game/SoulCampaignMountain/L_{terrain}',
                    resolution=2041, extent_cm=150000, minimum_xy_cm=-75000,
-                   height_unit_cm=.5, scale=10, region_scale=5,
+                   height_unit_cm=.5, scale=10, region_scale=2.5,
                    height_sha256=hashlib.sha256(raw.tobytes()).hexdigest(),
                    source_png_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
                    regions={}, routes=[], fields=[], bridges=[], waterlines=[])
@@ -133,16 +140,26 @@ def build(preview, terrain='evil_waterfront'):
         path = route(nodes[a], nodes[b])
         # Keep every 2.94 m sample; avoid smoothing across steep or wet corners.
         profile['routes'].append(dict(a=a, b=b, points=[xy(n) for n in path]))
-    ca,cb=np.array(xy(shore_a)),np.array(xy(shore_b));center=(ca+cb)/2;delta=cb-ca
-    deck=float(max(z[shore_a[0]*4,shore_a[1]*4],z[shore_b[0]*4,shore_b[1]*4])+100)
-    for a,b in [('river_ford','orc_watch'),('forest_edge','orc_watch'),('forest_edge','north_pass')]:
-        profile['bridges'].append(dict(a=a,b=b,center=[*center,deck],yaw=float(np.degrees(np.arctan2(delta[1],delta[0]))),half_span=float(np.linalg.norm(delta)/2+150),ford=False))
+    for shore_a,shore_b in crossings:
+        ca,cb=np.array(xy(shore_a)),np.array(xy(shore_b));center=(ca+cb)/2;delta=cb-ca
+        # Low dry necks may fail the road shoulder clearance, but are not water.
+        samples=np.linspace(ca,cb,2001);uv=(samples+75000)/step;ij=uv.astype(int);fx,fy=(uv-ij).T;x,y=ij.T
+        a0,b0,c0,d0=z[y,x],z[y,x+1],z[y+1,x],z[y+1,x+1]
+        heights=np.where(fx>=fy,a0+(b0-a0)*fx+(d0-b0)*fy,a0+(d0-c0)*fx+(c0-a0)*fy)
+        wet=np.flatnonzero(heights<=0)
+        if not len(wet):continue
+        direction=delta/np.linalg.norm(delta)
+        ca=samples[wet[0]]-direction*250;cb=samples[wet[-1]]+direction*250
+        center=(ca+cb)/2;delta=cb-ca
+        deck=float(max(z[shore_a[0]*4,shore_a[1]*4],z[shore_b[0]*4,shore_b[1]*4])+100)
+        for a,b in [('river_ford','orc_watch'),('forest_edge','orc_watch'),('forest_edge','north_pass')]:
+            profile['bridges'].append(dict(a=a,b=b,center=[*center,deck],yaw=float(np.degrees(np.arctan2(delta[1],delta[0]))),half_span=float(np.linalg.norm(delta)/2),ford=False))
     profile['display_names']={'human_capital':'Crownstead','crossroads':'Western Road','river_ford':'Bridgeward','orc_watch':'Ashport','orc_camp':'Cinder Crown','north_pass':'Black Gate','forest_edge':'Westwood','old_quarry':'Old Quarry','ancient_shrine':'Ancient Shrine'}
     target = ROOT/'Data/CampaignEvilCorridor/presentation.json'
     target.parent.mkdir(exist_ok=True)
     target.write_text(json.dumps(profile, indent=2)+'\n')
     image = np.repeat(np.clip(z[:,:,None]/100*1.5+65, 0, 255), 3, axis=2).astype('uint8')
-    image[z <= 180] = [25,60,90]
+    image[z <= 0] = [25,60,90]
     im = Image.fromarray(image).resize((1020,1020))
     draw = ImageDraw.Draw(im)
     for edge in profile['routes']:

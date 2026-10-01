@@ -34,12 +34,23 @@ class EvilCorridorTests(unittest.TestCase):
    t=np.linspace(0,1,12001);xy=np.column_stack([np.interp(t,np.linspace(0,1,len(pts)),pts[:,i]) for i in (0,1)])
    h=self.surface(xy);ds=np.linalg.norm(np.diff(xy,axis=0),axis=1);grade=np.degrees(np.arctan2(np.abs(np.diff(h)),ds))
    # This mountainous route admits short grades up to 30 degrees; not the plains profile's 22.5-degree contract.
-   self.assertLess(grade.max(),30,(r['a'],r['b']));self.assertGreater(h.min(),180)
-   wet=Terrain.height(xy)<=180
+   self.assertLess(grade.max(),30,(r['a'],r['b']));self.assertGreater(h.min(),30)
+   wet=Terrain.height(xy)<=0
    if wet.any():
-    b=self.p['bridges'][0];ang=np.radians(b['yaw']);d=xy[wet]-np.array(b['center'][:2]);lateral=-d[:,0]*np.sin(ang)+d[:,1]*np.cos(ang)
-    self.assertLess(np.max(np.abs(lateral)),1.,'water travel must use the physical bridge centerline')
-    self.assertLess(b['half_span']*2,18000,'reject an ocean-spanning bridge')
+    covered=np.zeros(wet.sum(),dtype=bool)
+    for b in self.p['bridges']:
+     ang=np.radians(b['yaw']);d=xy[wet]-np.array(b['center'][:2]);along=d[:,0]*np.cos(ang)+d[:,1]*np.sin(ang);lateral=-d[:,0]*np.sin(ang)+d[:,1]*np.cos(ang)
+     covered|=(np.abs(lateral)<1)&(np.abs(along)<=b['half_span'])
+     self.assertLess(b['half_span']*2,6500,'arches must cross individual water gaps, not the dry shoal')
+    self.assertTrue(covered.all(),'every water sample must lie on a physical bridge')
    report.append(dict(a=r['a'],b=r['b'],length_m=float(ds.sum()/100),max_grade_degrees=float(grade.max()),wet_samples=int(wet.sum())))
   out=ROOT/'Evidence/EvilCorridor-20261001/route-validation.json';out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2)+'\n')
+ def test_short_crossings_have_dry_abutments_and_water_underneath(self):
+  bridges=[b for b in self.p['bridges'] if b['a']=='river_ford']
+  self.assertEqual(len(bridges),1)
+  for b in bridges:
+   ang=np.radians(b['yaw']);direction=np.array([np.cos(ang),np.sin(ang)]);c=np.array(b['center'][:2]);half=b['half_span']
+   self.assertTrue((Terrain.height([c-direction*half,c+direction*half])>0).all())
+   samples=c+np.linspace(-half,half,101)[:,None]*direction
+   self.assertGreater(np.mean(Terrain.height(samples)<=0),.5,'most of each span should be over actual water')
 if __name__=='__main__':unittest.main(verbosity=2)
