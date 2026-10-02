@@ -1,0 +1,29 @@
+{
+  "scope": "Map-independent non-UE work; Unreal and builds reserved for another game.",
+  "audio": {
+    "prepared_clips": 11,
+    "generated_bytes": 1039846,
+    "original_hashes_unchanged": true,
+    "source": "Installed Free Fantasy SFX Pack by TomMusic",
+    "source_tests": "5 PCM preparation tests pass",
+    "unreal_import": "NOT RUN",
+    "listening": "NOT QUALIFIED",
+    "runtime_hooks": "NOT ADDED until assets are imported and auditioned"
+  },
+  "tests": {
+    "all_tools": "82 passed in 12.830s",
+    "python_syntax": "all three audio tools parse",
+    "ue_build_and_automation": "DEFERRED at user request"
+  },
+  "pending_source_changes": [
+    "Spell readiness text and selection guards",
+    "Controller cast/missing aim feedback",
+    "Formation hover composition, health and ammunition",
+    "Bounded routing/rally/reinforcement/cast/hero-fall notices",
+    "Include Hero in attack preload",
+    "Spell readiness automation added but NOT RUN"
+  ],
+  "vdb": "Authored overview frame-90.png inspected; scene visible, flame absent. Not integrated.",
+  "next_ue_gate": "Compile; run new and existing automation; inspect battle HUD at 720p/1080p; import/audition audio; wire accepted combat event sounds and qualify with audio enabled.",
+  "licensed_assets": "No donor assets edited or committed. Prepared audio remains ignored local derivatives."
+}
