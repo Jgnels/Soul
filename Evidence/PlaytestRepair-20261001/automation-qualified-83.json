@@ -1,0 +1,342 @@
+{
+  "passed": 83,
+  "failed": 0,
+  "report": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\PlaytestRepair-20261001\\Automation-20261002-073316\\index.json",
+  "tests": [
+    {
+      "name": "Soul.Core.AI.MemoryChangesChoice",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Battlefield.StrategicContextSelectsMap",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Campaign.ActionEconomyGrowth",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Campaign.Logistics",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Combat.DeterministicDamage",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Combat.InitiativeWait",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Combat.RetaliationOnce",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Combat.RetreatConsequences",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Faction.SevenUnitContract",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Hero.ProgressionAndMagic",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.HeroRecruitment.CandidatesCanDepart",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Hex.LineOfSight",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Hex.MultiHexFootprint",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Hex.Pathfinding",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Magic.HexArea",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Memory.CommanderOnlyContext",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Objectives.ControlAndSurvival",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Regiment.Veterancy",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Settlement.PersistentDamageProjection",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Settlement.Prerequisites",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Siege.AnnexesPersistentSettlementDamage",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Siege.PreparedLayeredDefense",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Terrain.TacticalModifiers",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Town.ConstructionCostAtomic",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Town.RecruitmentRequiresBuilding",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.Town.RuinedBuildingRequiresRepair",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Core.World.GeographyDrivesBattle",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.BattlefieldGrid.AxialCoordinateCount",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.CampaignWorld.CameraAndSelection",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.CampaignWorld.TerrainAndRoutes",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Save.SettlementDomainRoundTrip",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.BattlefieldSelectionUsesDestinationGeography",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.BridgeRejectsPrematureVictory",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ContinuedVictoryAfterReload",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.DefeatConsequence",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.DefeatRecruitmentAfterReload",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.EncounterContract",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ManaPersistsAcrossBattleReloadAndDay",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RBSaveDomainRoundTrip",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RBSaveScopedDomains",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ResourceReceiptMigrationAndAtomicRejection",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ResultTelemetryRejectedBeforeMutation",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.SupportedMatchupContract",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ThreeEncountersAcrossReloads",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.Integration.Vertical.VictoryCorrectTarget",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Controls.StableFormationSlots",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Controls.ZeroTimeDeploymentCamera",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Lab.DeterministicReplication",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Lab.SeededMatrix",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Magic.FireboltBuildsVolcanicIntent",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Magic.LatestProofAssetsLoad",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Magic.PhysicalProjectileAuthority",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Magic.WardAndTailwindBuildDistinctIntents",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.PBIL.FormationSpatialPolicies",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Physical.CreatureMeleeContact",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Physical.GroundOrderCorridor",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Tactics.MoraleBreakAndRally",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Tactics.OrdersAreDistinct",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Tactics.PhasesAndMoraleResolution",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Tactics.PressureAllowsReaction",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Tactics.SafeReinforcementAnchor",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Tactics.StrikeUsesOutsideApproach",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Vertical.CasualtiesCannotConsumeUnspawnedReserve",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Vertical.CombatPresentationAssets",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Vertical.FullElephantAnimationCompatibility",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Vertical.KnightUE4DwarfAnimationCompatibility",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Vertical.LastActiveDeathRetainsHostileReserves",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.Vertical.SequentialWavesPreserveLedgerAndCaps",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.FantasyPowerDecouplesFromHeadcount",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.HeroApexPriorityAndNormalizedCaps",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.LargeArmyUsesReserves",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.LargePoolsConserveAt30To70Active",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.PlayableReserveWaveUsesFormation",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.ReinforcementsArriveInBoundedWave",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.SmallArmyDeploysAll",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.SmallArmyHonorsFormationCap",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.VolcanicTerrainChangesMagic",
+      "state": "Success"
+    },
+    {
+      "name": "Soul.RealtimeBattle.WavePreviewConservesAt30To70Active",
+      "state": "Success"
+    }
+  ],
+  "succeeded_without_warnings": 82,
+  "succeeded_with_warnings": 1,
+  "warning": "Licensed Sparrow Orion_Proto_RetargetRig reference warning; actual compatible meshes/clips pass. Donor was not resaved."
+}

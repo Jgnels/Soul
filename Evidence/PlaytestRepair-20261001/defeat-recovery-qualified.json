@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\PlaytestRepair-20261001\\DefeatRecoveryRuntime.log",
+  "receipts": [
+    "[2026.10.02-13.41.27:425][100]LogTemp: Display: SOUL_BATTLE_RESOLVED: won=0 playerSurvivors=0 enemySurvivors=66 physical=0/66 routed=0/0 waves=0/0 magic=5 contacts=236 pbilQueries=35 pbilSuccess=35 pbilOrders=285 seconds=51.79 mana=18",
+    "[2026.10.02-13.41.31:641][101]LogTemp: Display: SOUL_CAMPAIGN_STRATEGIC_RETURN_PASS region=river_ford owner=dwarves allied=0 hostile=66 mana=18 encounter=encounter.2.1.river_ford.orc_watch",
+    "[2026.10.02-13.41.41:806][258]LogTemp: Display: SOUL_CAMPAIGN_RETRY_STARTED previous=encounter.2.1.river_ford.orc_watch next=encounter.4.2.river_ford.orc_watch recruits=3 finite_pool_spent=3",
+    "[2026.10.02-13.42.05:040][593]LogTemp: Display: SOUL_BATTLE_RESOLVED: won=0 playerSurvivors=0 enemySurvivors=66 physical=0/66 routed=0/0 waves=0/0 magic=2 contacts=56 pbilQueries=12 pbilSuccess=12 pbilOrders=76 seconds=15.89 mana=8",
+    "[2026.10.02-13.42.09:083][594]LogTemp: Display: SOUL_CAMPAIGN_STRATEGIC_RETURN_PASS region=river_ford owner=dwarves allied=0 hostile=66 mana=8 encounter=encounter.4.2.river_ford.orc_watch",
+    "[2026.10.02-13.43.34:252][ 27]LogTemp: Display: SOUL_CAMPAIGN_ROUNDTRIP_PASS id=encounter.4.2.river_ford.orc_watch target=orc_watch victory=0 survivors=0/66 persistence=RBSave returnHoldSeconds=85.01",
+    "[2026.10.02-13.43.34:252][ 27]LogTemp: Display: SOUL_CAMPAIGN_RECOVERY_PASS resolved=2 second=encounter.4.2.river_ford.orc_watch survivors=0/66"
+  ],
+  "qualification_correction": "An enemy wave is not required when no reinforcement threshold is reached; a separate explicit wave gate remains available. Seven real waves were verified in the victory scenario."
+}

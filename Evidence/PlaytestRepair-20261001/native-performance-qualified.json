@@ -1,0 +1,16 @@
+{
+  "csv": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\PlaytestRepair-20261001\\ReadabilityUser\\Saved\\Profiling\\CSV\\Profile(20261002_080903).csv",
+  "scope": "Native windowed D3D11 Dragon Graveyard, 1280x720, 30 initial combatants; five spells cast by mouse before this capture; combat continues, no screenshot requests during sample; Unreal console overlay remained open during the sample",
+  "hardware": "GTX 1080 / i7-7700HQ / 16 GB",
+  "raw_frames": 1800,
+  "excluded_first_frames": 300,
+  "measured_frames": 1500,
+  "mean_ms": 13.812257333333333,
+  "median_ms": 13.5408,
+  "p95_ms": 16.1441,
+  "p99_ms": 19.5663,
+  "max_ms": 78.9654,
+  "mean_equivalent_fps": 72.39946200442448,
+  "frames_above_33_33_ms": 6,
+  "limitations": "Short 25-second sample. First 300 frames exclude command entry/setup; the console overlay remained open throughout, so this is an instrumented development measurement. Diagnostics enabled; no screenshots requested. Not a clean release benchmark or long soak."
+}

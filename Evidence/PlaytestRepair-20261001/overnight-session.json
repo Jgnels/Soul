@@ -1,0 +1,27 @@
+{
+  "startedUTC": "2026-10-02T06:29:00Z",
+  "requestedUntilUTC": "2026-10-02T14:29:00Z",
+  "authority": "Jeff requested eight hours of autonomous improvement toward supplied Bannerlord and Warhammer campaign/battle references. No further permission needed for local implementation and qualification.",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "priorHead": "94a1199",
+  "priorAutomation": {
+    "passed": 78,
+    "failed": 0,
+    "warnings": 1,
+    "warning": "Legacy licensed Sparrow Rig reference; compatible meshes/clips pass"
+  },
+  "priorRuntime": "Camera controls and pause invariants verified. Earlier small battle routed too quickly; revised morale and team markers await rendered validation.",
+  "priorities": [
+    "Fix visible/control failures using actual UE evidence",
+    "Readable formations, bow/spell/creature execution, paced physical battle",
+    "Campaign usability and battle return regression",
+    "Focused commits and exact evidence report"
+  ],
+  "boundaries": [
+    "Preserve unrelated dirty state",
+    "No push or canonical merge",
+    "No donor edits or reserialization",
+    "One Unreal instance",
+    "No fabricated visual acceptance"
+  ]
+}

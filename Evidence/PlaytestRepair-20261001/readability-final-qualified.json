@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "receipts": [
+    "[2026.10.02-13.48.14:478][679]LogTemp: Display: SOUL_READABILITY_SPELL: name=Firebolt accepted=1",
+    "[2026.10.02-13.48.15:889][748]LogTemp: Display: SOUL_READABILITY_SPELL: name=Blizzard accepted=1",
+    "[2026.10.02-13.48.17:830][872]LogTemp: Display: SOUL_READABILITY_SPELL: name=TidalWard accepted=1",
+    "[2026.10.02-13.48.19:841][  0]LogTemp: Display: SOUL_READABILITY_SPELL: name=Tailwind accepted=1",
+    "[2026.10.02-13.48.33:837][964]LogTemp: Display: SOUL_READABILITY_SPELL: name=ChainLightning accepted=1",
+    "[2026.10.02-13.49.14:976][831]LogTemp: Display: SOUL_BATTLE_RESOLVED: won=1 playerSurvivors=9 enemySurvivors=0 physical=9/1 routed=0/1 waves=0/0 magic=5 contacts=289 pbilQueries=35 pbilSuccess=35 pbilOrders=393 seconds=59.17 mana=18",
+    "[2026.10.02-13.49.17:996][ 34]LogTemp: Display: SOUL_READABILITY_PASS: casts=5 contacts=289 alliedTargets=0 seconds=59.17"
+  ],
+  "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\PlaytestRepair-20261001\\offscreen-final-profile\\SmallBattleRuntime.log"
+}

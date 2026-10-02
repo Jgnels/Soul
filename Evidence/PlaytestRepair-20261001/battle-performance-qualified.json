@@ -1,0 +1,16 @@
+{
+  "csv": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\PlaytestRepair-20261001\\ReadabilityUser\\Saved\\Profiling\\CSV\\Profile(20261002_074810).csv",
+  "scope": "D3D11 rendered-offscreen Dragon Graveyard, 1280x720, 30 active initial combatants, normal combat and spells; qualification captures and diagnostics enabled",
+  "hardware": "GTX 1080 / i7-7700HQ / 16 GB",
+  "raw_frames": 1200,
+  "excluded_first_frames": 30,
+  "measured_frames": 1170,
+  "mean_ms": 15.465622051282052,
+  "median_ms": 13.7401,
+  "p95_ms": 15.9931,
+  "p99_ms": 55.0496,
+  "max_ms": 357.3321,
+  "mean_equivalent_fps": 64.65953950537043,
+  "frames_above_33_33_ms": 16,
+  "limitations": "Short active sample, not a packaged release benchmark or full campaign soak. Screenshot and spell asset activity are included; startup is excluded by capture beginning at deployment resume."
+}

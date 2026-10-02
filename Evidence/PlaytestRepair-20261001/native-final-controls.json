@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "receipt_count": 232,
+  "paused_elapsed_values": [
+    "0.000",
+    "2.200",
+    "4.271",
+    "6.460"
+  ],
+  "pause_invariants": [
+    "health",
+    "ammo",
+    "positions",
+    "hits",
+    "mana",
+    "casts",
+    "alive"
+  ],
+  "native_input": "P resume/pause repeated twice; Space resume/P pause; screenshots inspected",
+  "resolution": [
+    "[2026.10.02-13.13.34:190][919]LogTemp: Display: SOUL_BATTLE_RESOLVED: won=1 playerSurvivors=4 enemySurvivors=0 physical=4/0 routed=0/0 waves=0/0 magic=0 contacts=332 pbilQueries=31 pbilSuccess=31 pbilOrders=499 seconds=109.10 mana=80"
+  ]
+}

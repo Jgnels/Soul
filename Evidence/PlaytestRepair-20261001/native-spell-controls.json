@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "normal_gameplay": true,
+  "autocast_flags": false,
+  "native_mouse_spell_buttons": [
+    0,
+    3,
+    4,
+    2,
+    1
+  ],
+  "targeting": "Firebolt enemy body; Blizzard ground; Chain Lightning enemy marker; Ward/Tailwind immediate friendly effects",
+  "mana_before": 80,
+  "mana_after": 18,
+  "inspected_images": [
+    "native-firebolt-target2.png",
+    "native-ward-click.png",
+    "native-tailwind-click.png",
+    "native-blizzard-target.png",
+    "native-chain-target.png"
+  ],
+  "button_receipts": [
+    "[2026.10.02-13.58.02:345][620]LogTemp: Display: SOUL_BATTLE_UI: action=Spell0",
+    "[2026.10.02-14.01.43:716][172]LogTemp: Display: SOUL_BATTLE_UI: action=Spell3",
+    "[2026.10.02-14.02.46:565][319]LogTemp: Display: SOUL_BATTLE_UI: action=Spell4",
+    "[2026.10.02-14.03.28:136][216]LogTemp: Display: SOUL_BATTLE_UI: action=Spell2",
+    "[2026.10.02-14.05.20:091][238]LogTemp: Display: SOUL_BATTLE_UI: action=Spell1"
+  ],
+  "state_receipt": "[2026.10.02-14.06.17:954][584]LogTemp: Display: SOUL_CONTROL_RECEIPT: paused=0 worldPaused=0 elapsed=10.303 health=5653.000 cooldown=9.773 ammo=296 positions=1337327098 hits=11 mana=18.0 casts=5 alive=15/15 camera=V(X=14000.00, Y=-14200.00, Z=2696.00) rotation=R(P=-32.62, Y=90.00) commander=1 firstPerson=0 arm=1"
+}

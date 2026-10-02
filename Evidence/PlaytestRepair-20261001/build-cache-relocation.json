@@ -1,0 +1,26 @@
+[
+    {
+        "verified":  [
+                         {
+                             "sha256":  "D84AC33CCE9AA6D1543AD74A0047AB38008D6A544AA39A6102F0250354E190A8",
+                             "file":  "SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.pch",
+                             "bytes":  2575171552
+                         }
+                     ],
+        "ssd":  "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulBuildCache-20261002\\UnrealEd",
+        "backup":  "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\UnrealEd.hdd-backup-20261002",
+        "source":  "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\UnrealEd"
+    },
+    {
+        "verified":  [
+                         {
+                             "sha256":  "41A5EED70169631FBA3FF3A2ABF072C3426CF0F61DFECE1EB437FF6F96933A53",
+                             "file":  "SharedPCH.Core.Project.ValApi.ValExpApi.Cpp20.h.pch",
+                             "bytes":  388890624
+                         }
+                     ],
+        "ssd":  "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulBuildCache-20261002\\Core",
+        "backup":  "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\Core.hdd-backup-20261002",
+        "source":  "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\Core"
+    }
+]

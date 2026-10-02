@@ -1,0 +1,36 @@
+[
+  {
+    "source": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Core",
+    "cache": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulBuildCache-20261002\\Game-Core",
+    "retained_original": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Core.hdd-backup-20261002",
+    "pch": [
+      {
+        "name": "SharedPCH.Core.Project.Exceptions.ValApi.ValExpApi.Cpp20.h.pch",
+        "sha256": "6d84c91eb398b972cd3fe69e3d2e1a5c016186c18eb714c50ff3a0877e99676a",
+        "bytes": 387383296
+      },
+      {
+        "name": "SharedPCH.Core.Project.ValApi.ValExpApi.Cpp20.h.pch",
+        "sha256": "09d1c75e731b167479e32a44c1c45408131a2aca2efd8cd3182d5177b4aaa5b8",
+        "bytes": 386990080
+      }
+    ]
+  },
+  {
+    "source": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Engine",
+    "cache": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulBuildCache-20261002\\Game-Engine",
+    "retained_original": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Engine.hdd-backup-20261002",
+    "pch": [
+      {
+        "name": "SharedPCH.Engine.Project.Exceptions.ValApi.ValExpApi.Cpp20.h.pch",
+        "sha256": "41f3ef3b6cb5b264ef17f46f06508ca3d794d7fd5a83e7e0ec11c2f5e339ba35",
+        "bytes": 2154692600
+      },
+      {
+        "name": "SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp20.h.pch",
+        "sha256": "72611fec81ea98422bc514241368f6029407c87642e6cb8c0f20fb65d2470e85",
+        "bytes": 2153512824
+      }
+    ]
+  }
+]
