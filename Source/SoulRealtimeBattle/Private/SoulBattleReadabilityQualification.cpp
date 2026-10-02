@@ -5,6 +5,9 @@
 #include "UnrealClient.h"
 #include "Engine/World.h"
 #include "HAL/FileManager.h"
+#include "GameFramework/PlayerController.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 
 // Explicit opt-in rendered qualification. Calls the normal action handlers;
 // native input delivery is checked separately by the control receipt workflow.
@@ -90,6 +93,8 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         Capture(TEXT("missile-selected-hold"));
         break;
     case 4:
+        if (FParse::Param(FCommandLine::Get(), TEXT("SoulBattleProfile")))
+            PC->ConsoleCommand(TEXT("csvprofile FRAMES=1200"), true);
         if (bBattlePaused) ToggleBattlePause();
         break;
     case 5: Cast(TEXT("Firebolt")); Capture(TEXT("firebolt-flight")); break;

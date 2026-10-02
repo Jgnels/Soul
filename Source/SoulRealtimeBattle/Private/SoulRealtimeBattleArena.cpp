@@ -1,5 +1,5 @@
-#include "Components/InputComponent.h"
 #include "SoulRealtimeBattleArena.h"
+#include "Components/InputComponent.h"
 #include "SoulRealtimeBattlePBIL.h"
 #include "SoulBattleArrow.h"
 #include "SoulBattleSpellCue.h"

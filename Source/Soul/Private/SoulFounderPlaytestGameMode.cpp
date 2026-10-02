@@ -298,9 +298,13 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
     {
         const auto& Result=State->LastBattleResult;
         const bool ExpectDefeat=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignDefeatProof"));
-        if(ExpectDefeat && (Result.bPlayerWon || Result.PlayerSurvivors!=0 || Result.EnemyReinforcements<1))
+        // A loss does not imply enemy casualties or a need for enemy reserves.
+        // Wave qualification is explicit and independent of defeat/recruit/retry.
+        const bool RequireEnemyWave=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignRequireEnemyWave"));
+        if((ExpectDefeat && (Result.bPlayerWon || Result.PlayerSurvivors!=0))
+            || (RequireEnemyWave && Result.EnemyReinforcements<1))
         {
-            UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_FAIL expected physical defeat with enemy reinforcements"));
+            UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_FAIL expected defeat or explicitly requested enemy wave"));
             bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;
         }
         const FName Target=TEXT("orc_watch");
