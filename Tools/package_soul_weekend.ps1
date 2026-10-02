@@ -61,7 +61,7 @@ try {
     }
     $packages = @([regex]::Matches($gameConfig, '(?m)^\+MapsToCook=\(FilePath="([^"]+)"\)') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($packages.Count -ne 67) { throw 'Expected the reviewed 67 exact cook roots; review any breadth change.' }
+    if ($packages.Count -ne 113) { throw 'Expected the reviewed 113 exact cook roots; review any breadth change.' }
     foreach ($package in $packages) {
         $parts = $package.TrimStart('/').Split('/')
         switch ($parts[0]) {
@@ -76,8 +76,8 @@ try {
             throw "Missing cook root: $package. Captain must wire the existing donor junctions in RC."
         }
     }
-    # Firebolt is the only weekend spell root. Its serialized soft reference is
-    # followed by the cooker; unshipped ChainLightning/Blizzard profiles are not roots.
+    # Firebolt requires its Niagara system. The other spells use bounded Paragon
+    # fallback effects, explicitly included in the reviewed cook roots.
     foreach ($fx in @('Fire/FX/NS_Fireball')) {
         Assert-File (Join-Path $projectRoot ('Content/MagicSpells/' + $fx + '.uasset'))
     }
@@ -87,7 +87,7 @@ try {
     $rules = Get-Content -LiteralPath (Join-Path $projectRoot 'Source\Soul\Soul.Build.cs') -Raw
     $dataFiles = @([regex]::Matches($rules, '"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"') |
         ForEach-Object { $_.Groups[1].Value })
-    if ($dataFiles.Count -ne 7) { throw 'Expected seven exact JSON runtime dependencies.' }
+    if ($dataFiles.Count -ne 8) { throw 'Expected eight exact JSON runtime dependencies.' }
     if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignTerrainV2/FounderHeight.r16'))) { throw 'Missing V2 heightfield runtime payload.' }
     if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignMesaLocal/MesaHeight.r16'))) { throw 'Missing external Mesa heightfield; run Tools/Setup_Soul_Mesa.ps1.' }
     foreach ($relative in $dataFiles) {

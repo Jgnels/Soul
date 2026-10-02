@@ -23,13 +23,23 @@ class WeekendPackagingTests(unittest.TestCase):
                 text = source.read_text(encoding="utf-8-sig")
                 # Also handle C++ adjacent string literals.
                 text = re.sub(r'"\s*"', '', text)
-                required.update(p.split(".")[0] for p in re.findall(
-                    r'"(/(?:Game|Engine|RBWeather)/[^"\s]+)"', text))
+                for package in re.findall(r'"(/(?:Game|Engine|RBWeather)/[^"\s]+)"', text):
+                    package = package.split(".")[0]
+                    if "%s" in package:
+                        required.update(package.replace("%s", spell) for spell in
+                            ("Firebolt", "ChainLightning", "Blizzard", "TidalWard", "Tailwind"))
+                    else:
+                        required.add(package)
         scenario = json.loads((ROOT / "Data/soul_vertical_scenario_20260925.json").read_text())
         required.update((scenario["campaign_map"], scenario["battle_map"]))
         self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
-        self.assertEqual(len(COOK_ROOTS), 67)
+        self.assertFalse(any("%" in package for package in COOK_ROOTS))
+        for package in COOK_ROOTS:
+            if package.startswith("/Game/"):
+                asset = ROOT / "Content" / package.removeprefix("/Game/")
+                self.assertTrue(asset.with_suffix(".uasset").is_file() or
+                                asset.with_suffix(".umap").is_file(), package)
 
     def test_exact_disk_dependencies_match_actual_readers(self):
         source = (ROOT / "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp").read_text()
@@ -59,42 +69,38 @@ class WeekendPackagingTests(unittest.TestCase):
                 rb'/Game/MagicSpells/[A-Za-z0-9_/]+', profile.read_bytes())}
             self.assertEqual(references, {dependency})
         shipped = {p for p in COOK_ROOTS if p.startswith("/Game/Soul/Magic/")}
+        spells = ("Firebolt", "ChainLightning", "Blizzard", "TidalWard", "Tailwind")
         self.assertEqual(shipped, {
-            "/Game/Soul/Magic/Spells/DA_Soul_Firebolt",
-            "/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt",
+            f"/Game/Soul/Magic/{folder}/{prefix}{spell}"
+            for spell in spells
+            for folder, prefix in (("Spells", "DA_Soul_"),
+                                   ("Presentation", "DA_SoulPresentation_"))
         })
-        # Inspect both selected serialized assets: neither pulls in unshipped profiles.
-        selected_effects = set()
         for package in shipped:
             asset = ROOT / ("Content/" + package.removeprefix("/Game/") + ".uasset")
-            data = asset.read_bytes()
-            selected_effects.update(s.decode("ascii") for s in re.findall(
-                rb'/Game/MagicSpells/[A-Za-z0-9_/]+', data))
-            for unshipped in (b"ChainLightning", b"Blizzard", b"SoulProof"):
-                self.assertNotIn(unshipped, data)
-        self.assertEqual(selected_effects, {expected["Firebolt"]})
+            self.assertTrue(asset.is_file(), package)
+            self.assertNotIn(b"SoulProof", asset.read_bytes())
+        # Missing optional Niagara effects must have explicit cooked fallback roots.
+        fallbacks = {
+            "P_Aurora_Melee_SucessfulImpact",
+            "P_Aurora_Freeze_Whrilwind",
+            "P_Aurora_Freeze_Rooted",
+            "P_Aurora_JumpPad_Swirl",
+        }
+        self.assertTrue(fallbacks.issubset({p.rsplit("/", 1)[-1] for p in COOK_ROOTS}))
         preflight = (ROOT / "Tools/package_soul_weekend.ps1").read_text()
-        effects = re.search(r"foreach \(\$fx in @\(([^)]*)\)\)", preflight).group(1)
-        checked_effects = {"/Game/MagicSpells/" + p for p in re.findall(r"'([^']+)'", effects)}
-        self.assertEqual(checked_effects, selected_effects)
         self.assertIn("Assert-File (Join-Path $projectRoot ('Content/MagicSpells/' + $fx + '.uasset'))", preflight)
         self.assertIn(f"$packages.Count -ne {len(COOK_ROOTS)}", preflight)
-        # This inspects serialized names only; it does not prove cooked dependency closure.
+        self.assertIn("$dataFiles.Count -ne 8", preflight)
 
-    def test_weekend_inputs_retain_firebolt_without_unshipped_loads(self):
-        arena = (ROOT / "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp").read_text()
-        for key in ("Two", "Three"):
-            self.assertNotIn(f"EKeys::{key}", arena)
-        for spell in ("ChainLightning", "Blizzard"):
-            self.assertNotIn(spell, arena)
-        # Both legacy player control and the normal formation loop retain key 1.
-        for start, end in (("void ASoulRealtimeArenaGameMode::PlayerTick(",
-                            "void ASoulRealtimeArenaGameMode::Tick("),
-                           ("void ASoulRealtimeArenaGameMode::Tick(", "if (bMapOnly)")):
-            block = arena.split(start, 1)[1].split(end, 1)[0]
-            self.assertRegex(block, r"(?s)WasInputKeyJustPressed\(EKeys::One\).*?CastPlayerSpell\(")
-            self.assertIn("/Game/Soul/Magic/Spells/DA_Soul_Firebolt.DA_Soul_Firebolt", block)
-            self.assertIn("/Game/Soul/Magic/Presentation/DA_SoulPresentation_Firebolt.DA_SoulPresentation_Firebolt", block)
+    def test_battle_spell_bar_uses_bounded_cooked_spells(self):
+        actions = (ROOT / "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp").read_text()
+        names = re.search(r"Names\[\]=\{([^}]+)", actions).group(1)
+        selected = re.findall(r'TEXT\("([^"]+)"\)', names)
+        self.assertEqual(selected, ["Firebolt", "ChainLightning", "Blizzard", "TidalWard", "Tailwind"])
+        for spell in selected:
+            self.assertIn(f"/Game/Soul/Magic/Spells/DA_Soul_{spell}", COOK_ROOTS)
+            self.assertIn(f"/Game/Soul/Magic/Presentation/DA_SoulPresentation_{spell}", COOK_ROOTS)
         state = (ROOT / "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp").read_text()
         self.assertIn('Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"))', state)
 
