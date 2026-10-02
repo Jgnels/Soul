@@ -64,6 +64,14 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         }
         return;
     }
+    if(ReadabilityStage==3 && Elapsed>=14.0 && ReadabilityNextCapture==0.0)
+    {
+        SelectAlliedFormationSlot(0);
+        HandleBattleAction(TEXT("Focus"));
+        TacticalDistance=1100;TacticalRotation=FRotator(-20,120,0);
+        Capture(TEXT("frontline-equipment"));
+        ReadabilityNextCapture=1.0;
+    }
     if (Elapsed < Times[ReadabilityStage]) return;
     auto Cast = [this](const TCHAR* Name)
     {
@@ -88,6 +96,7 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         Capture(TEXT("deployment-commander"));
         break;
     case 3:
+        SetupBattleCamera();
         SelectAlliedFormationSlot(1);
         CommandSelectedAllies(ERBHostGroupOrder::Hold);
         Capture(TEXT("missile-selected-hold"));

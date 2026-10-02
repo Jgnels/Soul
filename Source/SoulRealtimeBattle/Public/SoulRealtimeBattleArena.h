@@ -330,6 +330,7 @@ private:
     bool UsesEvilVisualRoster() const;
     void UpdateVisualAnimations();
     void DressDragonBattlefield();
+    void EquipVisualWeapons(ACharacter* Actor, int32 Side, ESoulRealtimeFormationRole FormationRole);
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);
     bool CastPlayerSpell(

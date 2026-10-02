@@ -1,0 +1,8 @@
+{
+  "editor_build": "Build-weapons.log: succeeded",
+  "runtime": "SmallBattleRuntime.log: SOUL_READABILITY_PASS casts=5 contacts=294 alliedTargets=0 seconds=69.00",
+  "inspection": "ReadabilityUser/Saved/Screenshots/Readability/frontline-equipment.png: front-line swords visible in hands; no donor mesh/socket changes. Enemy and shield close-up alignment remains unqualified.",
+  "source_tests": "77 passed in 42.761 seconds",
+  "game_target_after_weapons": "not rebuilt; UE/build lease released to another game",
+  "licensed_assets": "referenced only, no resave or commit"
+}

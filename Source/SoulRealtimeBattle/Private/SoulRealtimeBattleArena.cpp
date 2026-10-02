@@ -2075,6 +2075,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Visual->TickAnimation(0.0f, false);
         Visual->RefreshBoneTransforms();
         Visual->UpdateComponentToWorld();
+        EquipVisualWeapons(Actor, Side, FormationRole);
 
         if (FormationRole == ESoulRealtimeFormationRole::Apex ||
             bKraken || bElephant)

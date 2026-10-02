@@ -1,5 +1,7 @@
 #include "SoulRealtimeBattleArena.h"
 #include "Engine/World.h"
+#include "GameFramework/Character.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Components/StaticMeshComponent.h"
 
@@ -43,4 +45,50 @@ void ASoulRealtimeArenaGameMode::DressDragonBattlefield()
         Prop->Tags.Add(TEXT("SoulBattleRelic"));
         UE_LOG(LogTemp,Display,TEXT("SOUL_BATTLE_RELIC mesh=%s position=%s scale=%.3f"),Relic.Path,*Location.ToCompactString(),Scale);
     }
+}
+
+void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
+    ACharacter* Actor,int32 Side,ESoulRealtimeFormationRole FormationRole)
+{
+    if(!Actor || FormationRole==ESoulRealtimeFormationRole::Ranged ||
+        FormationRole==ESoulRealtimeFormationRole::Apex ||
+        FormationRole==ESoulRealtimeFormationRole::Breaker) return;
+    const TCHAR* Weapon=nullptr;
+    if(Side==0)
+    {
+        // Aurora carries her authored weapon as part of the hero mesh.
+        if(FormationRole==ESoulRealtimeFormationRole::Hero) return;
+        Weapon=TEXT("/Game/Knights_Pack/Meshes/Knight_02/Weapons/SM_Knight_02_Sword");
+    }
+    else if(!UsesEvilVisualRoster())
+        Weapon=(FormationRole==ESoulRealtimeFormationRole::Guard || FormationRole==ESoulRealtimeFormationRole::Hero)
+            ? TEXT("/Game/Dwarf_Pack/King/Mesh/SM_Axe")
+            : TEXT("/Game/Dwarf_Pack/Bedvar/Mesh/SM_Dwarf_Bedvar_Hammer_Mesh");
+    else
+    {
+        // The hammer orc already includes its weapon. Barbarian weapons are separate.
+        if(FormationRole==ESoulRealtimeFormationRole::Guard || FormationRole==ESoulRealtimeFormationRole::Hero) return;
+        Weapon=FormationRole==ESoulRealtimeFormationRole::Support
+            ? TEXT("/Game/Fantasy_Pack/Characters/Fantasy_Barbarian/Mesh/SM_Fantasy_Barbarian_Weapon_01")
+            : TEXT("/Game/Fantasy_Pack/Characters/Barbarian/Mesh/SM_Axel");
+    }
+    auto Attach=[&](const TCHAR* Path,FName Hand)
+    {
+        auto* Mesh=LoadObject<UStaticMesh>(nullptr,Path);
+        if(!Mesh || !Actor->GetMesh()->DoesSocketExist(Hand)) return;
+        auto* Piece=NewObject<UStaticMeshComponent>(Actor);
+        Actor->AddInstanceComponent(Piece);
+        Piece->SetupAttachment(Actor->GetMesh(),Hand);
+        Piece->SetStaticMesh(Mesh);
+        Piece->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Piece->SetCanEverAffectNavigation(false);
+        Piece->ComponentTags.Add(TEXT("SoulVisualWeapon"));
+        Piece->RegisterComponent();
+        UE_LOG(LogTemp,Display,TEXT("SOUL_VISUAL_WEAPON mesh=%s hand=%s"),*Mesh->GetName(),*Hand.ToString());
+    };
+    // The qualified Dwarf Warrior rig's Weapon_Soket is identity on hand_r.
+    // The knight shares that parent chain, so use the bone without modifying a donor socket.
+    Attach(Weapon,TEXT("hand_r"));
+    if(Side==0 && FormationRole==ESoulRealtimeFormationRole::Guard)
+        Attach(TEXT("/Game/Knights_Pack/Meshes/Knight_04/Weapon/SM_Knight_04_Shield"),TEXT("hand_l"));
 }
