@@ -34,7 +34,10 @@ ASoulPlaytestRegionActor::ASoulPlaytestRegionActor()
 void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& DisplayName,const FVector& Location)
 {
     RegionId=InRegionId;SetActorLocation(Location);Label->SetText(FText::FromString(DisplayName));
-    SetActorScale3D(FVector(SoulCampaignTerrain::RegionScale()));
+    const float SettlementScale=SoulCampaignTerrain::EvilCorridor() ?
+        (RegionId==TEXT("human_capital") ? 6.f : RegionId==TEXT("orc_camp") ? 4.f : 2.5f) :
+        SoulCampaignTerrain::RegionScale();
+    SetActorScale3D(FVector(SettlementScale));
     auto Make=[this](const TCHAR* Shape,FLinearColor Color){return ASoulCampaignWorldActor::MakeInstances(this,Shape,Color);};
     auto Add=[](UInstancedStaticMeshComponent* M,FVector P,FVector S,FRotator R=FRotator::ZeroRotator){M->AddInstance(FTransform(R,P,S));};
     if(!SoulCampaignTerrain::DressRegion(this,RegionId))
@@ -119,15 +122,17 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     FVector BannerBase=bTerrainMiniature?FVector(120,-65,0):FVector(200,-95,0);
     if(bTerrainMiniature)
     {
-        const float Scale=SoulCampaignTerrain::RegionScale();
+        const float Scale=GetActorScale3D().X;
         BannerBase.Z=(ASoulCampaignWorldActor::HeightAt(Location.X+BannerBase.X*Scale,
             Location.Y+BannerBase.Y*Scale)-Location.Z)/Scale;
     }
     Standard=Make(TEXT("Cube"),FLinearColor::White);
     if(bTerrainMiniature)
     {
-        // A low ownership plinth survives wide zoom without becoming a floating debug pole.
-        Add(Standard,BannerBase+FVector(0,0,8),FVector(.22f,.22f,.08f));
+        // Restrained settlement standard: allegiance is readable in the world.
+        auto* Pole=Make(TEXT("Cylinder"),FLinearColor(.30f,.25f,.16f));
+        Add(Pole,BannerBase+FVector(0,0,75),FVector(.035f,.035f,1.5f));
+        Add(Standard,BannerBase+FVector(28,0,128),FVector(.56f,.045f,.38f));
     }
     else
     {
@@ -147,7 +152,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     {
         const float Miniature=SoulCampaignTerrain::Enabled()?.25f:1.f;
         FVector P((-35+(I%3)*35)*Miniature,(Fort?270.f:190.f)+(I/3)*35*Miniature,0);
-        const float Scale=SoulCampaignTerrain::RegionScale();
+        const float Scale=GetActorScale3D().X;
         P.Z=(ASoulCampaignWorldActor::HeightAt(Location.X+P.X*Scale,Location.Y+P.Y*Scale)-Location.Z)/Scale;
         Add(Garrison,P+FVector(0,0,28*Miniature),FVector(.19f,.19f,.56f)*Miniature);
         Add(Garrison,P+FVector(0,0,66*Miniature),FVector(.18f,.18f,.18f)*Miniature);
@@ -166,7 +171,7 @@ void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bEx
     {
         Label->SetWorldRotation((-PC->PlayerCameraManager->GetCameraRotation().Vector()).Rotation());
         const float Distance=FVector::Distance(PC->PlayerCameraManager->GetCameraLocation(),Label->GetComponentLocation());
-        if(SoulCampaignTerrain::EvilCorridor())Label->SetWorldSize(Distance/SoulCampaignTerrain::RegionScale()*.008f);
+        if(SoulCampaignTerrain::EvilCorridor())Label->SetWorldSize(Distance/GetActorScale3D().X*.014f);
         else Label->SetWorldSize(FMath::Clamp(Distance/SoulCampaignTerrain::Scale()*(SoulCampaignTerrain::Enabled()?.012f:.016f),20.f,80.f));
     }
 }

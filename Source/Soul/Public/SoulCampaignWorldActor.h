@@ -30,6 +30,12 @@ private:
     UPROPERTY() TObjectPtr<class UProceduralMeshComponent> River;
     UPROPERTY() TObjectPtr<class USceneComponent> Party;
     UPROPERTY() TObjectPtr<class UInstancedStaticMeshComponent> Soldiers;
+    UPROPERTY() TArray<TObjectPtr<class USkeletalMeshComponent>> PartyFigures;
+    UPROPERTY() TArray<TObjectPtr<class UAnimationAsset>> PartyIdleClips;
+    UPROPERTY() TArray<TObjectPtr<class UAnimationAsset>> PartyTravelClips;
+    bool bPartyWalking=false;
+    void SetPartyWalking(bool Walking);
+
     UPROPERTY() TArray<TObjectPtr<class UProceduralMeshComponent>> Roads;
     TArray<TPair<FName,FName>> RoadRegions;
     TArray<FVector> Vertices, Normals;

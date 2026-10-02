@@ -105,7 +105,13 @@ void Place(UHierarchicalInstancedStaticMeshComponent* H,FVector P,float Width,fl
 {
     if(!H)return;
     const auto B=H->GetStaticMesh()->GetBounds();
-    const float S=Width/FMath::Max(B.BoxExtent.X*2.f,1.f);
+    float S=Width/FMath::Max(B.BoxExtent.X*2.f,1.f);
+    // These alien prefabs have narrow footprints and exceptionally tall spires.
+    // Fit their whole silhouette, preserving proportions, instead of scaling a
+    // tower to town width and accidentally making it a mountain.
+    if(H->GetStaticMesh()->GetPathName().Contains(TEXT("/AlienPlanet/")))
+        S=FMath::Min(Width/FMath::Max(FMath::Max(B.BoxExtent.X,B.BoxExtent.Y)*2.f,1.f),
+            Width*.85f/FMath::Max(B.BoxExtent.Z*2.f*Tall,1.f));
     P-=FRotator(0,Yaw,0).RotateVector(FVector(B.Origin.X,B.Origin.Y,0)*S);
     P.Z-=(B.Origin.Z-B.BoxExtent.Z)*S*Tall;
     H->AddInstance(FTransform(FRotator(0,Yaw,0),P,FVector(S,S,S*Tall)));
@@ -224,7 +230,46 @@ void Build(ASoulCampaignWorldActor* Owner)
         {UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_COAST_ALIGNMENT_FAIL hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);FPlatformMisc::RequestExitWithStatus(false,1);return;}
         UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_COAST_ALIGNMENT_PASS hits=%d/%d max_cm=%.3f"),Hits,Probes,MaxError);
     }
-    if(Mesa())return; // Existing study terrain + gameplay landmarks, no polish pass.
+    if(Mesa())
+    {
+        // Instance biome dressing over the approved heightfield. The terrain,
+        // roads and strategic state remain the existing authorities.
+        auto* Pine=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_01"));
+        auto* Broad=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/Update/SM_tree_01_Update"));
+        auto* Rock=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Rocks/SM_rock_03"));
+        for(auto* Trees:{Pine,Broad}) if(Trees) Trees->SetForcedLodModel(2);
+        FRandomStream Dressing(20261002);
+        int32 Trees=0,Rocks=0;
+        const FVector Forest=Locations().FindRef(TEXT("forest_edge"));
+        for(int32 I=0;I<42000 && Trees<4200;++I)
+        {
+            const float X=Dressing.FRandRange(-70000,70000),Y=Dressing.FRandRange(-70000,70000);
+            const float Z=Height(X,Y);
+            if(Z<260 || Z>8500) continue;
+            bool Clear=false;
+            for(const auto& Location:Locations())
+                if(FVector::DistSquaredXY(FVector(X,Y,0),Location.Value)<FMath::Square(Location.Key==TEXT("human_capital")?3200.f:1600.f)) {Clear=true;break;}
+            if(Clear)continue;
+            for(const auto& Route:Bake().Routes)
+            {
+                for(const FVector& Point:Route.Value)
+                    if(FVector::DistSquaredXY(FVector(X,Y,0),Point)<FMath::Square(650.f)) {Clear=true;break;}
+                if(Clear)break;
+            }
+            if(Clear)continue;
+            const float Slope=FVector2D(Height(X+140,Y)-Height(X-140,Y),Height(X,Y+140)-Height(X,Y-140)).Size()/280;
+            const float Patch=FMath::PerlinNoise2D(FVector2D(X,Y)/6500.f);
+            const bool Volcanic=X<-30000 && Y<0;
+            const float Woodland=1-FMath::SmoothStep(9000.0,26000.0,FVector::Dist2D(FVector(X,Y,0),Forest));
+            const bool Wooded=!Volcanic && Slope<.65f && (Woodland+Patch>.55f || (Y>30000 && Patch>.05f) || (Z>2800 && Patch>.12f));
+            if(Wooded)
+            {Place(I%3==0?Broad:Pine,FVector(X,Y,Z),Dressing.FRandRange(240,480),Dressing.FRandRange(0,360));++Trees;}
+            else if(Slope>.35f && Dressing.FRand()<.10f)
+            {Place(Rock,FVector(X,Y,Z-20),Dressing.FRandRange(180,500),Dressing.FRandRange(0,360),.75f);++Rocks;}
+        }
+        UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_DRESSING: trees=%d rocks=%d instanced=1"),Trees,Rocks);
+        return;
+    }
     auto* Pine=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_01"));
     auto* Pine2=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_03"));
     auto* Broad=Instances(Owner,TEXT("/Game/Forest_village/Meshes/Vegetation/Update/SM_tree_01_Update"));
@@ -273,14 +318,14 @@ bool DressRegion(AActor* Owner,FName Id)
     auto* TownHouse=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Building_E")):nullptr;
     auto* TownRoof=Human?Instances(Owner,TEXT("/Game/Medieval_Megapack/Meshes/Courtyard/Houses/SM_Roof_E")):nullptr;
     const FVector Origin=Owner->GetActorLocation();
-    const float LandmarkScale=RegionScale();
+    const float LandmarkScale=Owner->GetActorScale3D().X;
     auto Ground=[&](float X,float Y){return FVector(X,Y,(Height(Origin.X+X*LandmarkScale,Origin.Y+Y*LandmarkScale)-Origin.Z)/LandmarkScale);};
     auto Cottage=[&](FVector P,float W,float Yaw)
     {
         if(Mesa())
         {
             const FVector WorldPoint=Origin+P*LandmarkScale;
-            const float Clearance=W*LandmarkScale*.8f+500.f;
+            const float Clearance=W*LandmarkScale*.7f+130.f;
             for(const auto& Route:Bake().Routes)for(const FVector& Point:Route.Value)
                 if(FVector::DistSquaredXY(WorldPoint,Point)<FMath::Square(Clearance))return;
         }

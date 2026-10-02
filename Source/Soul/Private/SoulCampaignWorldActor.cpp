@@ -1,4 +1,8 @@
 #include "SoulCampaignWorldActor.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMesh.h"
+#include "Animation/AnimationAsset.h"
+#include "Animation/AnimSingleNodeInstance.h"
 #include "SoulCampaignTerrain.h"
 #include "LandscapeProxy.h"
 #include "EngineUtils.h"
@@ -307,20 +311,36 @@ void ASoulCampaignWorldActor::BuildDressing()
 }
 void ASoulCampaignWorldActor::BuildParty()
 {
-    Soldiers=MakeInstances(this,TEXT("Cube"),FLinearColor(.19f,.28f,.43f));
-    Soldiers->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
-    for(int32 I=0;I<5;++I)AddInstance(Soldiers,FVector(-55+(I%3)*45,-25+(I/3)*45,35),FVector(.24f,.20f,.65f));
-    auto* Helmets=MakeInstances(this,TEXT("Cylinder"),FLinearColor(.48f,.52f,.53f));
-    Helmets->AttachToComponent(Soldiers,FAttachmentTransformRules::KeepRelativeTransform);
-    auto* Shields=MakeInstances(this,TEXT("Cube"),FLinearColor(.16f,.32f,.56f));
-    Shields->AttachToComponent(Soldiers,FAttachmentTransformRules::KeepRelativeTransform);
-    for(int32 I=0;I<5;++I)
+    for(int32 I=0;I<3;++I)
     {
-        FVector P(-55+(I%3)*45,-25+(I/3)*45,0);
-        AddInstance(Helmets,P+FVector(0,0,76),FVector(.23f,.23f,.18f));
-        AddInstance(Shields,P+FVector(0,13,42),FVector(.30f,.065f,.34f));
+        auto* Figure=NewObject<USkeletalMeshComponent>(this);
+        Figure->SetupAttachment(Party);
+        auto* Mesh=LoadObject<USkeletalMesh>(nullptr,I==0 ?
+            TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Aurora") :
+            TEXT("/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE4/Full_Mesh/SK_Knight_04_Full_01"));
+        auto* Idle=LoadObject<UAnimationAsset>(nullptr,I==0 ?
+            TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Idle") :
+            TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle"));
+        auto* Run=LoadObject<UAnimationAsset>(nullptr,I==0 ?
+            TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Fwd") :
+            TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Run"));
+        if(!Mesh || !Idle || !Run) { Figure->DestroyComponent(); continue; }
+        Figure->SetSkeletalMeshAsset(Mesh);
+        Figure->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Figure->SetCanEverAffectNavigation(false);
+        Figure->SetForcedLOD(2);
+        const auto Bounds=Mesh->GetBounds();
+        const float S=(I==0?240.f:175.f)/FMath::Max(1.f,float(Bounds.BoxExtent.Z*2));
+        Figure->SetRelativeScale3D(FVector(S));
+        Figure->SetRelativeRotation(FRotator(0,-90,0));
+        Figure->SetRelativeLocation(FVector(I==0?0:-100,I==0?0:I==1?-70:70,
+            -(Bounds.Origin.Z-Bounds.BoxExtent.Z)*S));
+        Figure->RegisterComponent();AddInstanceComponent(Figure);
+        Figure->PlayAnimation(Idle,true);
+        if(auto* Instance=Figure->GetSingleNodeInstance()) Instance->SetPosition(I*.37f,false);
+        PartyFigures.Add(Figure);PartyIdleClips.Add(Idle);PartyTravelClips.Add(Run);
     }
-    const float StandardScale=SoulCampaignTerrain::Enabled()?.08f:1.f;
+    const float StandardScale=1.f;
     auto* Pole=MakeInstances(this,TEXT("Cylinder"),FLinearColor(.30f,.24f,.13f));
     Pole->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
     AddInstance(Pole,FVector(60,0,110)*StandardScale,FVector(.045f,.045f,2.2f)*StandardScale);
@@ -328,10 +348,23 @@ void ASoulCampaignWorldActor::BuildParty()
     Banner->AttachToComponent(Party,FAttachmentTransformRules::KeepRelativeTransform);
     AddInstance(Banner,FVector(95,0,190)*StandardScale,FVector(.65f,.055f,.45f)*StandardScale);
 }
+void ASoulCampaignWorldActor::SetPartyWalking(bool Walking)
+{
+    if(bPartyWalking==Walking)return;
+    bPartyWalking=Walking;
+    for(int32 I=0;I<PartyFigures.Num();++I)
+    {
+        PartyFigures[I]->PlayAnimation(Walking?PartyTravelClips[I]:PartyIdleClips[I],true);
+        PartyFigures[I]->SetPlayRate(Walking?.85f:1.f);
+        if(auto* Instance=PartyFigures[I]->GetSingleNodeInstance())Instance->SetPosition(I*.29f,false);
+    }
+}
 void ASoulCampaignWorldActor::RefreshKnowledge()
 {
     if(!State)return;
     if(Soldiers) Soldiers->SetVisibility(State->PlayerArmy.FindRef(State->PlayerUnitId)>0,true);
+    for(int32 I=1;I<PartyFigures.Num();++I)
+        PartyFigures[I]->SetVisibility(State->PlayerArmy.FindRef(State->PlayerUnitId)>0);
     FString Signature;
     TArray<FName> Keys;Locations().GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)Signature+=FString::Printf(TEXT("%d%d"),FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id),FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id));
@@ -393,14 +426,14 @@ void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate
             for(int32 I=1;I<=128;++I){const FVector Next=RoadPoint(TravelFrom,TravelTo,I/128.f);Distance+=FVector::Dist(Previous,Next);Previous=Next;}
             TravelDuration=FMath::Clamp(Distance/10000.f,2.2f,12.f);
         }
-        SetActorTickEnabled(true); }
-    else {TravelAlpha=1;Party->SetRelativeLocation(PartyAnchor(RegionId));}
+        SetPartyWalking(true);SetActorTickEnabled(true); }
+    else {TravelAlpha=1;SetPartyWalking(false);Party->SetRelativeLocation(PartyAnchor(RegionId));}
     PresentedRegion=RegionId;
 }
 void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
-    if(TravelAlpha>=1){SetActorTickEnabled(false);return;}
+    if(TravelAlpha>=1){SetPartyWalking(false);SetActorTickEnabled(false);return;}
     TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/TravelDuration);
     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
     FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,(SoulCampaignTerrain::Enabled()?2:12)*SoulCampaignTerrain::Scale());
@@ -410,5 +443,7 @@ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
         Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
     }
     if(SoulCampaignTerrain::Enabled())Route.Z=FMath::Max(Route.Z,HeightAt(Route.X,Route.Y)+24.f);
+    const FVector Direction=Route-Party->GetRelativeLocation();
+    if(!Direction.IsNearlyZero()) Party->SetRelativeRotation(Direction.GetSafeNormal2D().Rotation());
     Party->SetRelativeLocation(Route);
 }

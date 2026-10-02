@@ -6,6 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "SoulFounderPlaytestCampaignActor.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
+#include "SoulCampaignWorldActor.h"
 
 namespace
 {
@@ -37,25 +38,45 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     };
     Panel(14,12,W-28,44);
     Text(TEXT("S O U L"),28,24,Gold,1.35f);
-    Text(FString::Printf(TEXT("DAY %d     GOLD %d     ACTIONS %d / %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints,S->Economy.MaxActionPoints),150,28,Ink);
+    Text(FString::Printf(TEXT("DAY %d     GOLD %d     MOVEMENT %d / %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints,S->Economy.MaxActionPoints),150,28,Ink);
     bool HostileRemains=false;for(const auto& Region:S->World.Regions)HostileRemains|=S->IsHostile(Region.Key);
     Text(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED"),500,28,Muted);
     int32 Army=0;for(const auto& P:S->PlayerArmy)Army+=P.Value;
-    Text(FString::Printf(TEXT("ARMY %d   HERO %d   XP %d   MANA %d / %d"),Army,S->Hero.Level,S->Hero.Experience,S->Hero.Mana,S->Hero.MaxMana),W-560,28,Ink);
-    AddHitBox(FVector2D(W-560,21)*Scale,FVector2D(380,27)*Scale,TEXT("Company"),true,1);
-    Button(TEXT("EndDay"),TEXT("Next day  [Space]"),W-165,21,138);
+
+    Button(TEXT("Company"),FString::Printf(TEXT("SELECT YOUR ARMY  %d  [Home]"),Army),W-570,21,270);
+    Button(TEXT("EndDay"),S->Economy.ActionPoints>0?TEXT("Next day  [Space]"):TEXT("RESTORE MOVEMENT  [Space]"),W-280,21,253);
+    // A separate, persistent company label is selectable even beside a city.
+    for(TActorIterator<ASoulCampaignWorldActor> It(GetWorld());It;++It)
+    {
+        FVector2D At;
+        if(GetOwningPlayerController()->ProjectWorldLocationToScreen(It->PresentedPartyLocation(),At,true))
+        {
+            At/=Scale; At+=FVector2D(-70,22);
+            if(At.X>20 && At.X<W-440 && At.Y>90 && At.Y<H-130)
+            {
+                Panel(At.X,At.Y,154,29);
+                Button(TEXT("CompanyWorld"),FString::Printf(TEXT("YOUR ARMY  %d"),Army),At.X+1,At.Y+1,152);
+            }
+        }
+        break;
+    }
     const float X=W-292;
     const FName Selected=C->GetSelectedRegion();
     const bool Explored=FSoulWorldRules::IsExplored(S->World,S->PlayerFaction,Selected),Visible=FSoulWorldRules::IsVisible(S->World,S->PlayerFaction,Selected);
     Panel(X,75,278,197);
-    Text(Explored?C->DisplayName(Selected):TEXT("Uncharted territory"),X+15,90,Gold,1.15f);
+    const FString SelectedTitle=C->IsCompanySelected()&&Selected==S->PlayerRegion
+        ? FString::Printf(TEXT("YOUR ARMY — %s"),*C->DisplayName(Selected))
+        : (Explored?C->DisplayName(Selected):TEXT("Uncharted territory"));
+    Text(SelectedTitle,X+15,90,Gold,1.15f);
     if(Explored)
     {
         const auto* Region=S->World.Regions.Find(Selected);
-        Text(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT"),X+15,116,Muted);
-        Text(Selected==S->PlayerRegion?TEXT("Your company is stationed here."):FSoulWorldRules::CanMove(S->World,S->PlayerRegion,Selected)?TEXT("Connected by a traversable road."):TEXT("Reach this place through its neighbours."),X+15,143,Ink);
-        if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->EnemyArmies.FindRef(Selected)),X+15,166,Ink);
+        Text(C->IsCompanySelected()?FString::Printf(TEXT("ARMY SELECTED — %d MOVEMENT LEFT"),S->Economy.ActionPoints):(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT")),X+15,116,C->IsCompanySelected()?Gold:Muted);
+        Text(C->IsCompanySelected()?TEXT("Click a highlighted neighbouring place."):(Selected==S->PlayerRegion?TEXT("Your company is stationed here."):FSoulWorldRules::CanMove(S->World,S->PlayerRegion,Selected)?TEXT("Connected by a traversable road."):TEXT("Reach this place through its neighbours.")),X+15,143,Ink);
+        if(C->IsCompanySelected())Text(TEXT("Each road move costs 1 movement."),X+15,166,Muted);
+        else if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->EnemyArmies.FindRef(Selected)),X+15,166,Ink);
         else Text(Visible?TEXT("Click a nearby place to travel."):TEXT("Return within sight for current forces."),X+15,166,Muted);
+        Text(FString::Printf(TEXT("Hero %d  |  XP %d  |  Mana %d/%d"),S->Hero.Level,S->Hero.Experience,S->Hero.Mana,S->Hero.MaxMana),X+15,190,Muted);
     }
     if(C->IsBattleAvailable())
     {
@@ -63,12 +84,13 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         else if(S->Economy.ActionPoints<=0)Button(TEXT("BattleRest"),TEXT("Next day restores actions  [Space]"),X+15,218,248);
         else Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,218,248);
     }
+    else if(C->IsCompanySelected())Button(TEXT("Focus"),TEXT("ARMY SELECTED — choose a highlighted road"),X+15,218,248);
     else if(S->PlayerRegion==TEXT("human_capital"))Button(TEXT("Town"),TEXT("Visit the capital  [T]"),X+15,218,248);
-    else Button(TEXT("Focus"),TEXT("Focus your company  [Home]"),X+15,218,248);
+    else Button(TEXT("Focus"),TEXT("Select your army  [Home]"),X+15,218,248);
     Panel(14,H-85,W-28,42);
     Wrapped(C->LastMessage,28,H-74,W-56,Ink,2);
     Rect(14,H-36,W-28,28,Back);
-    Text(TEXT("WASD pan  /  Wheel zoom  /  MMB drag  /  Q E orbit  /  T town  /  B battle  /  F5 save  /  F9 load  /  Esc close"),24,H-28,Muted);
+    Text(TEXT("[HOME] select army  /  Click highlighted destination  /  [SPACE] next day  /  WASD pan  /  Wheel zoom  /  [T] town  /  [B] battle"),24,H-28,Muted);
     if(!S->LastPersistenceReport.IsEmpty()) { Rect(14,60,640,27,Back);Text(S->LastPersistenceReport.Replace(TEXT(" with RB Save"),TEXT("")),28,67,Muted); }
     if(S->PlayerArmy.FindRef(S->PlayerUnitId)==0&&!C->IsTownPanelOpen())
     {
@@ -115,5 +137,5 @@ void ASoulFounderPlaytestHUD::NotifyHitBoxClick(FName BoxName)
     else if(BoxName==TEXT("Battle"))C->StartBattle();
     else if(BoxName==TEXT("Hire"))C->HireTavernHero();
     else if(BoxName.ToString().StartsWith(TEXT("Recruit")))C->HandleNumberKey(FCString::Atoi(*BoxName.ToString().Mid(7)));
-    else if(BoxName==TEXT("Focus")||BoxName==TEXT("Company"))if(auto* PC=GetOwningPlayerController())PC->ConsoleCommand(TEXT("SoulFocusCompany"));
+    else if(BoxName==TEXT("Focus")||BoxName==TEXT("Company")||BoxName==TEXT("CompanyWorld"))if(auto* PC=GetOwningPlayerController())PC->ConsoleCommand(TEXT("SoulFocusCompany"));
 }

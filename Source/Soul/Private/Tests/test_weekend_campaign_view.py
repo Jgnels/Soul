@@ -56,4 +56,30 @@ class CampaignViewTests(unittest.TestCase):
             self.assertNotIn(forbidden,world)
         self.assertIn('RoadPoint(TravelFrom,TravelTo',world)
 
+    def test_campaign_travel_is_discoverable(self):
+        hud=source('Private/SoulFounderPlaytestHUD.cpp')
+        campaign=source('Private/SoulFounderPlaytestCampaignActor.cpp')
+        self.assertIn('MOVEMENT %d / %d',hud)
+        self.assertIn('SELECT YOUR ARMY',hud)
+        self.assertIn('highlighted neighbouring place',hud)
+        self.assertIn('bLegalDestination',campaign)
+        self.assertIn('movement remaining',campaign)
+
+    def test_normal_launcher_keeps_player_control(self):
+        launcher=(ROOT/'PLAY_SOUL_VERTICAL_SLICE.cmd').read_text(encoding='utf-8-sig')
+        battle=(ROOT/'Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp').read_text(encoding='utf-8-sig')
+        self.assertNotIn('SoulRealtimeMagicProof',launcher)
+        self.assertNotIn('SoulAutobattle',launcher)
+        self.assertIn('DEPLOYMENT PAUSED',battle)
+        self.assertIn('EKeys::F1',battle)
+        self.assertIn('ToggleBattleCamera',battle)
+        self.assertIn('EKeys::X',battle)
+        self.assertIn('ToggleFirstPersonCamera',battle)
+        arm=re.search(r'TargetArmLength = bFirstPersonCamera \? 0\.0f : ([0-9.]+)f',battle)
+        self.assertIsNotNone(arm)
+        self.assertGreater(float(arm.group(1)),200.0)
+        self.assertIn('SetOwnerNoSee(bFirstPersonCamera)',battle)
+        self.assertIn('/SK_Elephant.SK_Elephant',battle)
+        self.assertNotIn('/SK_ElephantTusksBig.SK_ElephantTusksBig',battle)
+
 if __name__=='__main__':unittest.main(verbosity=2)

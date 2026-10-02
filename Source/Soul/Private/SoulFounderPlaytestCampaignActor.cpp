@@ -98,12 +98,15 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
         if (!Pair.Value) continue;
         const bool bVisible = FSoulWorldRules::IsExplored(
             State->World, TEXT("humans"), Pair.Key);
+        const bool bLegalDestination = bCompanySelected &&
+            Pair.Key != State->PlayerRegion &&
+            FSoulWorldRules::CanMove(State->World, State->PlayerRegion, Pair.Key);
         Pair.Value->SetVisualState(
             RegionColor(Pair.Key),
             bVisible,
             Pair.Key == State->PlayerRegion,
             FSoulWorldRules::IsVisible(State->World, State->PlayerFaction, Pair.Key),
-            Pair.Key == SelectedRegion || Pair.Key == HoveredRegion,
+            Pair.Key == SelectedRegion || Pair.Key == HoveredRegion || bLegalDestination,
             State->EnemyArmies.FindRef(Pair.Key));
     }
 }
@@ -111,25 +114,35 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
 void ASoulFounderPlaytestCampaignActor::SelectCompany()
 {
     if(!State)return;
-    CancelPanel();SelectedBattleRegion=NAME_None;SelectedRegion=State->PlayerRegion;
+    CancelPanel();SelectedBattleRegion=NAME_None;SelectedRegion=State->PlayerRegion;bCompanySelected=true;
     int32 Army=0;for(const auto& Unit:State->PlayerArmy)Army+=Unit.Value;
-    LastMessage=FString::Printf(TEXT("Company selected: %d troops at %s. Choose a connected destination."),Army,*DisplayName(State->PlayerRegion));
+    LastMessage=FString::Printf(TEXT("YOUR ARMY selected: %d troops at %s. Highlighted places cost 1 movement."),Army,*DisplayName(State->PlayerRegion));
+    RefreshRegionVisuals();
 }
 
 void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 {
     if (!State || bTownPanelOpen) return;
     if (!FSoulWorldRules::IsExplored(State->World, State->PlayerFaction, RegionId)) return;
+    if (RegionId == State->PlayerRegion && bCompanySelected)
+    {
+        SelectedRegion = RegionId;
+        LastMessage = TEXT("YOUR ARMY is selected. Click a highlighted neighbouring place to spend 1 movement.");
+        RefreshRegionVisuals();
+        return;
+    }
     SelectedRegion = RegionId;
     SelectedBattleRegion = NAME_None;
     bBattlePromptOpen = false;
     if (RegionId == State->PlayerRegion)
     {
+        bCompanySelected = false;
         if (RegionId == TEXT("human_capital"))
         {
             bTownPanelOpen = true;
             LastMessage = TEXT("Capital panel opened. [1] recruits a Knight; [H] hires a tavern hero.");
         }
+        RefreshRegionVisuals();
         return;
     }
 
@@ -165,7 +178,10 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     }
 
     if (WorldPresentation) WorldPresentation->PresentPlayerLocation(RegionId, true);
-    LastMessage = FString::Printf(TEXT("Moved to %s."), *DisplayName(RegionId));
+    bCompanySelected = true;
+    SelectedRegion = RegionId;
+    LastMessage = FString::Printf(TEXT("Moved to %s. %d movement remaining."),
+        *DisplayName(RegionId), State->Economy.ActionPoints);
     if (State->Hero.Level > BeforeLevel)
     {
         LastMessage += TEXT(" Level up: choose a skill with 1 Command, 2 Adventure, or 3 Magic.");
@@ -262,16 +278,20 @@ void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()
     }
     bTownPanelOpen = !bTownPanelOpen;
     bBattlePromptOpen = false;
+    bCompanySelected = false;
     LastMessage = bTownPanelOpen
         ? TEXT("Capital panel opened. [1] recruits a Knight; [H] hires a tavern hero.")
         : TEXT("Capital panel closed.");
+    RefreshRegionVisuals();
 }
 
 void ASoulFounderPlaytestCampaignActor::CancelPanel()
 {
     bTownPanelOpen = false;
     bBattlePromptOpen = false;
+    bCompanySelected = false;
     LastMessage = TEXT("Back to adventure map.");
+    RefreshRegionVisuals();
 }
 
 void ASoulFounderPlaytestCampaignActor::StartBattle()

@@ -30,6 +30,7 @@ public:
     TArray<FString> BuildHudLines() const;
     bool IsSkillChoiceOpen() const;
     bool IsTownPanelOpen() const { return bTownPanelOpen; }
+    bool IsCompanySelected() const { return bCompanySelected; }
     bool IsBattleAvailable() const;
     FName SelectedRegion, HoveredRegion;
     USoulFounderPlaytestStateSubsystem* GetState() const { return State; }
@@ -49,6 +50,7 @@ private:
     uint32 ObservedLoadRevision = 0;
     bool bTownPanelOpen = false;
     bool bBattlePromptOpen = false;
+    bool bCompanySelected = false;
 
     void SpawnRegions();
     void RefreshRegionVisuals();

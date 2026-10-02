@@ -25,7 +25,7 @@ ASoulCampaignCamera::ASoulCampaignCamera()
     Camera->PostProcessSettings.bOverride_VignetteIntensity = true;
     Camera->PostProcessSettings.VignetteIntensity = .22f;
 }
-void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=4000.f; Tick(1.f); }
+void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=3200.f; Tick(1.f); }
 float ASoulCampaignCamera::GetMinimumDistance() const {return SoulCampaignTerrain::EvilCorridor()?900.f:MinDistance;}
 float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
 FBox2D ASoulCampaignCamera::FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const
