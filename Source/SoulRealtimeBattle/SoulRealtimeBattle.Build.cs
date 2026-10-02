@@ -5,6 +5,7 @@ public class SoulRealtimeBattle : ModuleRules
     public SoulRealtimeBattle(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+        PrivateDependencyModuleNames.Add("NavigationSystem");
 
         PublicDependencyModuleNames.AddRange(new string[]
         {

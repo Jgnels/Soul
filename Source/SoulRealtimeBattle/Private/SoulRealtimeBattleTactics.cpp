@@ -33,9 +33,11 @@ int32 FSoulRealtimeTacticalRules::UpdateMorale(
         FMath::Max(0, Input.PreviousAlive - Input.CurrentAlive);
     int32 Delta = -NewLosses * 115;
     Delta -= Input.bCaptainLost ? 180 : 0;
-    Delta -= Input.bFlanked ? 75 : 0;
-    Delta -= Input.bLocalDisadvantage ? 60 : 0;
-    Delta -= Input.bFriendlyRoutedNearby ? 90 : 0;
+    // These are sustained pressures sampled every 0.8 seconds, not new
+    // casualty events. Keep their drain gradual enough to react or withdraw.
+    Delta -= Input.bFlanked ? 12 : 0;
+    Delta -= Input.bLocalDisadvantage ? 10 : 0;
+    Delta -= Input.bFriendlyRoutedNearby ? 15 : 0;
     Delta += Input.bHeroSupport ? 24 : 0;
     Delta += Input.bReinforcementsArrived ? 100 : 0;
     if (NewLosses == 0 && !Input.bFlanked &&
@@ -72,6 +74,8 @@ ERBHostGroupOrder FSoulRealtimeTacticalRules::ChooseOrder(
     switch (Context.Kind)
     {
         case ESoulBattleFormationKind::MissileSupport:
+            if (!Context.bRangedOperational)
+                return Context.EnemyDistance>450 ? ERBHostGroupOrder::Advance : ERBHostGroupOrder::Charge;
             if (Context.bMeleeThreat || Context.EnemyDistance < 520.0f)
                 return ERBHostGroupOrder::FallBack;
             return Context.EnemyDistance > 2200.0f
@@ -176,4 +180,17 @@ const TCHAR* FSoulRealtimeTacticalRules::PhaseLabel(
         case ESoulBattlePhase::Resolution: return TEXT("RESOLUTION");
         default: return TEXT("BATTLE");
     }
+}
+
+
+FVector FSoulRealtimeTacticalRules::StrikeWaypoint(int32 Side,const FVector& Origin,
+    const FVector& Center,const FVector& Target,float FlankSign,int32& Stage)
+{
+    const float Direction=Side==0 ? 1.0f : -1.0f;
+    const float Lane=Origin.Y+(FlankSign<0 ? -1150.0f : 1150.0f);
+    const FVector Staging(Origin.X-Direction*1000.0f,Lane,Center.Z);
+    const FVector Rear(FMath::Clamp(Target.X+Direction*250.0f,Origin.X-1900.0,Origin.X+1900.0),Lane,Center.Z);
+    if(Stage==0 && FVector::DistSquared2D(Center,Staging)<FMath::Square(240.0f)) Stage=1;
+    if(Stage==1 && FVector::DistSquared2D(Center,Rear)<FMath::Square(280.0f)) Stage=2;
+    return Stage==0 ? Staging : Stage==1 ? Rear : Target;
 }

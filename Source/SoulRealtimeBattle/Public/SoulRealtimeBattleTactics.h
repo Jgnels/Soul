@@ -46,6 +46,8 @@ struct FSoulBattleFormationState
     float ManualOverrideUntil = -1.0f;
     float RoutingSeconds = 0.0f;
     float RallyGraceUntil = -1.0f;
+    int32 FlankStage = 0;
+    float FlankSign = 0.0f;
     bool bRouting = false;
     bool bRallied = false;
     bool bShattered = false;
@@ -71,6 +73,7 @@ struct FSoulBattleOrderContext
     float EnemyDistance = TNumericLimits<float>::Max();
     bool bFrontLineEngaged = false;
     bool bMeleeThreat = false;
+    bool bRangedOperational = true;
     bool bFriendlyLineCollapsing = false;
 };
 
@@ -96,6 +99,9 @@ public:
 
     static ERBHostGroupOrder ChooseOrder(
         const FSoulBattleOrderContext& Context);
+
+    static FVector StrikeWaypoint(int32 Side, const FVector& Origin,
+        const FVector& Center, const FVector& Target, float FlankSign, int32& Stage);
 
     static int32 ScoreReinforcementAnchor(
         float NearestEnemyDistance,

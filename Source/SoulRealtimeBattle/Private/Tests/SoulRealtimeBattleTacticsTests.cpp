@@ -20,6 +20,14 @@ bool FSoulTacticalOrdersDifferTest::RunTest(const FString&)
     Context.bMeleeThreat = true;
     TestEqual(TEXT("threatened missiles withdraw"), FSoulRealtimeTacticalRules::ChooseOrder(Context), ERBHostGroupOrder::FallBack);
 
+    Context.bRangedOperational=false;
+    Context.EnemyDistance=1900.0f;
+    TestEqual(TEXT("Empty bows advance instead of holding a deadlock"),
+        FSoulRealtimeTacticalRules::ChooseOrder(Context),ERBHostGroupOrder::Advance);
+    Context.EnemyDistance=300.0f;
+    TestEqual(TEXT("Trapped empty bows commit to close combat"),
+        FSoulRealtimeTacticalRules::ChooseOrder(Context),ERBHostGroupOrder::Charge);
+    Context.bRangedOperational=true;
     Context.Kind = ESoulBattleFormationKind::CommandReserve;
     Context.bMeleeThreat = false;
     Context.bFriendlyLineCollapsing = false;
@@ -98,5 +106,25 @@ bool FSoulTacticalPhaseAndResolutionTest::RunTest(const FString&)
         FSoulRealtimeTacticalRules::IsMoraleDefeated(3, 3, 0));
     TestTrue(TEXT("uncommitted reserve retreats after total active rout"),
         FSoulRealtimeTacticalRules::IsMoraleDefeated(3, 3, 4));
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulSustainedMoralePressureTest,
+    "Soul.RealtimeBattle.Tactics.PressureAllowsReaction",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulSustainedMoralePressureTest::RunTest(const FString&)
+{
+    FSoulBattleMoraleInput Pressure;
+    Pressure.PreviousAlive = Pressure.CurrentAlive = 5;
+    Pressure.bLocalDisadvantage = true;
+    Pressure.bFlanked = true;
+    int32 Morale = 1000;
+    for (int32 Step = 0; Step < 25; ++Step) // Twenty seconds without casualties.
+        Morale = FSoulRealtimeTacticalRules::UpdateMorale(Morale, Pressure);
+    TestTrue(TEXT("Persistent pressure matters"), Morale < 720);
+    TestTrue(TEXT("Healthy formation has time to respond before routing"), Morale >= 260);
+    Pressure.bFlanked = Pressure.bLocalDisadvantage = false;
+    const int32 Recovered = FSoulRealtimeTacticalRules::UpdateMorale(Morale, Pressure);
+    TestTrue(TEXT("Escaping pressure allows recovery"), Recovered > Morale);
     return true;
 }
