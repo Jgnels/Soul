@@ -1,4 +1,6 @@
 #include "SoulRealtimeBattleArena.h"
+#include "RBUIInputSubsystem.h"
+#include "Engine/LocalPlayer.h"
 #include "Components/InputComponent.h"
 #include "SoulRealtimeBattlePBIL.h"
 #include "SoulBattleArrow.h"
@@ -228,6 +230,22 @@ void ASoulRealtimeArenaPlayerController::SetupInputComponent()
     Super::SetupInputComponent();
     for(const FKey Key:{EKeys::P,EKeys::SpaceBar})
         InputComponent->BindKey(Key,IE_Pressed,this,&ASoulRealtimeArenaPlayerController::PauseBattle).bExecuteWhenPaused=true;
+    const TPair<FKey,FName> PadBindings[]={
+        {EKeys::Gamepad_Special_Right,TEXT("Pause")},{EKeys::Gamepad_Special_Left,TEXT("Camera")},
+        {EKeys::Gamepad_RightShoulder,TEXT("NextFormation")},{EKeys::Gamepad_LeftShoulder,TEXT("All")},
+        {EKeys::Gamepad_DPad_Up,TEXT("Advance")},{EKeys::Gamepad_DPad_Down,TEXT("Fallback")},
+        {EKeys::Gamepad_DPad_Left,TEXT("Hold")},{EKeys::Gamepad_DPad_Right,TEXT("Charge")},
+        {EKeys::Gamepad_LeftThumbstick,TEXT("Focus")},{EKeys::Gamepad_RightThumbstick,TEXT("View")},
+        {EKeys::Gamepad_FaceButton_Left,TEXT("NextSpell")},{EKeys::Gamepad_FaceButton_Top,TEXT("Cast")},
+        {EKeys::Gamepad_FaceButton_Bottom,TEXT("GroundOrder")},{EKeys::Gamepad_FaceButton_Right,TEXT("Cancel")}};
+    for(const auto& Entry:PadBindings)
+    {
+        FInputKeyBinding Binding(FInputChord(Entry.Key),IE_Pressed);
+        Binding.bExecuteWhenPaused=true;
+        Binding.KeyDelegate.GetDelegateForManualSet().BindWeakLambda(this,[this,Action=Entry.Value]()
+        { if(auto* Host=GetWorld()->GetAuthGameMode<ASoulRealtimeArenaGameMode>()) Host->HandleGamepadAction(Action); });
+        InputComponent->KeyBindings.Add(MoveTemp(Binding));
+    }
 }
 void ASoulRealtimeArenaPlayerController::PauseBattle()
 {
@@ -1191,7 +1209,14 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
         return;
     }
 
+    if(bDragon) DressDragonBattlefield();
     SetupSpellBar();
+    if(bVisualUnits)
+        for(int32 Side=0;Side<2;++Side)
+            for(int32 RoleIndex=0;RoleIndex<=static_cast<int32>(ESoulRealtimeFormationRole::Apex);++RoleIndex)
+                for(int32 Variant=0;Variant<2;++Variant)
+                    if(auto* Clip=ResolveVisualAttack(Side,static_cast<ESoulRealtimeFormationRole>(RoleIndex),Variant))
+                        BattlePresentationAssets.AddUnique(Clip);
     InitialAlive[0] = AliveForSide(0);
     InitialAlive[1] = AliveForSide(1);
     SetupReinforcementState();
@@ -1683,7 +1708,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
     if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
         Path = bRunning
-            ? TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_Run.ANIM_Elephant_Run")
+            ? TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_Walk.ANIM_Elephant_Walk")
             : TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_IdleBreathe.ANIM_Elephant_IdleBreathe");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
@@ -1731,7 +1756,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
 }
 
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
-    int32 Side, ESoulRealtimeFormationRole FormationRole) const
+    int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Variation) const
 {
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Apex)
@@ -1748,21 +1773,21 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
     }
     if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
-        Path = TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_TusksAttack1.ANIM_Elephant_TusksAttack1");
+        Path = Variation%2 ? TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_TusksAttack2.ANIM_Elephant_TusksAttack2") : TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_TusksAttack1.ANIM_Elephant_TusksAttack1");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
     if (Side == 1 && UsesEvilVisualRoster() &&
         FormationRole == ESoulRealtimeFormationRole::Breaker)
     {
-        Path = TEXT("/Game/Kraken/Animations/KRAKEN_sweepAttack.KRAKEN_sweepAttack");
+        Path = Variation%2 ? TEXT("/Game/Kraken/Animations/KRAKEN_smashAttack.KRAKEN_smashAttack") : TEXT("/Game/Kraken/Animations/KRAKEN_sweepAttack.KRAKEN_sweepAttack");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
     if (Side == 0)
     {
-        Path = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+        Path = Variation%2 ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2") : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
     }
     else if (!UsesEvilVisualRoster())
-        Path = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+        Path = Variation%2 ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2") : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
     else if (FormationRole == ESoulRealtimeFormationRole::Guard ||
              FormationRole == ESoulRealtimeFormationRole::Hero)
         Path = TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.Anim_Orc_Hummer_Attack_1");
@@ -1858,7 +1883,14 @@ void ASoulRealtimeArenaGameMode::UpdateVisualAnimations()
         const bool bRunning =
             Actors[I]->GetVelocity().SizeSquared2D() > FMath::Square(12.0);
         if (!bResumeLocomotion && VisualRunning[I] == bRunning)
+        {
+            if(bRunning)
+            {
+                const float SpeedFraction=Actors[I]->GetVelocity().Size2D()/FMath::Max(1.f,Combatants[I].BaseWalkSpeed);
+                Actors[I]->GetMesh()->SetPlayRate(FMath::Clamp(SpeedFraction,.65f,1.30f)*(0.97f+.015f*(I%5)));
+            }
             continue;
+        }
         if (UAnimationAsset* Animation =
             ResolveVisualAnimation(Combatants[I].Side, bRunning, Combatants[I].Role))
         {
@@ -2541,7 +2573,7 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
     if (FVector::Dist2D(Actor->GetActorLocation(), Target->GetActorLocation()) >
         Profile(AttackerIndex).Reach + 95.0f)
         return false;
-    UAnimationAsset* Clip = bVisualUnits ? ResolveVisualAttack(Data.Side, Data.Role) : nullptr;
+    UAnimationAsset* Clip = bVisualUnits ? ResolveVisualAttack(Data.Side, Data.Role, AttackerIndex + Data.VisualAttackSequence++) : nullptr;
     const float Duration = Clip ? FMath::Clamp(Clip->GetPlayLength(), 0.8f, 2.8f) : AttackDelay(Data.Role);
     Data.MeleeCooldown = Duration;
     Data.PendingMeleeTarget = IntendedTarget;
@@ -3241,7 +3273,14 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (PC->WasInputKeyJustPressed(EKeys::Five)) SelectPlayerSpell(4);
 
     if (PC->WasInputKeyJustPressed(EKeys::F10)) bShowBattleHelp = !bShowBattleHelp;
-    const bool WantsCursor = bTacticalCameraActive || SelectedSpellSlot >= 0 || bPlaceFormationOrder || PC->IsInputKeyDown(EKeys::LeftAlt);
+    auto PadAxis=[&](FKey Key){const float V=PC->GetInputAnalogKeyState(Key);return FMath::Abs(V)<.20f?0.f:FMath::Sign(V)*(FMath::Abs(V)-.20f)/.80f;};
+    const float PadX=PadAxis(EKeys::Gamepad_LeftX),PadY=PadAxis(EKeys::Gamepad_LeftY);
+    const float PadLookX=PadAxis(EKeys::Gamepad_RightX),PadLookY=PadAxis(EKeys::Gamepad_RightY);
+    // RB owns device detection; the battle only consumes its current input method.
+    if (const auto* LocalPlayer=PC->GetLocalPlayer())
+        if (const auto* InputMethod=LocalPlayer->GetSubsystem<URBUIInputSubsystem>())
+            bGamepadActive=InputMethod->IsGamepadActive();
+    const bool WantsCursor = !bGamepadActive && (bTacticalCameraActive || SelectedSpellSlot >= 0 || bPlaceFormationOrder || PC->IsInputKeyDown(EKeys::LeftAlt));
     if (PC->bShowMouseCursor != WantsCursor)
     {
         PC->SetShowMouseCursor(WantsCursor);
@@ -3302,16 +3341,16 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (!bTacticalCameraActive && !WantsCursor)
     {
         FRotator View = PC->GetControlRotation();
-        View.Yaw += MouseX * 0.45f;
-        View.Pitch = FMath::Clamp(FRotator::NormalizeAxis(View.Pitch) - MouseY * 0.35f, -75.0f, 70.0f);
+        View.Yaw += MouseX * 0.45f + PadLookX*100.f*FMath::Clamp(float(FApp::GetDeltaTime()),0.f,.05f);
+        View.Pitch = FMath::Clamp(FRotator::NormalizeAxis(View.Pitch) - MouseY * 0.35f + PadLookY*80.f*FMath::Clamp(float(FApp::GetDeltaTime()),0.f,.05f), -75.0f, 70.0f);
         PC->SetControlRotation(View);
     }
 
     if (bTacticalCameraActive && TacticalCamera)
     {
         const float CameraSeconds = FMath::Clamp(float(FApp::GetDeltaTime()), 0.0f, 0.05f);
-        const float ForwardAxis = float(PC->IsInputKeyDown(EKeys::W)) - float(PC->IsInputKeyDown(EKeys::S));
-        const float RightAxis = float(PC->IsInputKeyDown(EKeys::D)) - float(PC->IsInputKeyDown(EKeys::A));
+        const float ForwardAxis = float(PC->IsInputKeyDown(EKeys::W)) - float(PC->IsInputKeyDown(EKeys::S)) + PadY;
+        const float RightAxis = float(PC->IsInputKeyDown(EKeys::D)) - float(PC->IsInputKeyDown(EKeys::A)) + PadX;
         TacticalRotation.Yaw += (float(PC->IsInputKeyDown(EKeys::E)) - float(PC->IsInputKeyDown(EKeys::Q))) * 65.0f * CameraSeconds;
         if (PC->IsInputKeyDown(EKeys::RightMouseButton) && !PC->IsInputKeyDown(EKeys::LeftShift))
         {
@@ -3323,6 +3362,9 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
             * TacticalDistance * 0.65f * CameraSeconds;
         TacticalFocus.X = FMath::Clamp(TacticalFocus.X, ArenaOrigin.X - 3200.0, ArenaOrigin.X + 3200.0);
         TacticalFocus.Y = FMath::Clamp(TacticalFocus.Y, ArenaOrigin.Y - 2400.0, ArenaOrigin.Y + 2400.0);
+        TacticalRotation.Yaw+=PadLookX*80.f*CameraSeconds;
+        TacticalRotation.Pitch=FMath::Clamp(TacticalRotation.Pitch+PadLookY*50.f*CameraSeconds,-75.f,-20.f);
+        TacticalDistance*=1.f+(PC->GetInputAnalogKeyState(EKeys::Gamepad_LeftTriggerAxis)-PC->GetInputAnalogKeyState(EKeys::Gamepad_RightTriggerAxis))*CameraSeconds;
         if (PC->WasInputKeyJustPressed(EKeys::MouseScrollUp)) TacticalDistance /= 1.15f;
         if (PC->WasInputKeyJustPressed(EKeys::MouseScrollDown)) TacticalDistance *= 1.15f;
         TacticalDistance = FMath::Clamp(TacticalDistance, 650.0f, 6000.0f);
@@ -3339,10 +3381,10 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
 
     const float ForwardInput = bTacticalCameraActive ? 0.0f :
         (PC->IsInputKeyDown(EKeys::W) ? 1.0f : 0.0f) -
-        (PC->IsInputKeyDown(EKeys::S) ? 1.0f : 0.0f);
+        (PC->IsInputKeyDown(EKeys::S) ? 1.0f : 0.0f) + PadY;
     const float RightInput = bTacticalCameraActive ? 0.0f :
         (PC->IsInputKeyDown(EKeys::D) ? 1.0f : 0.0f) -
-        (PC->IsInputKeyDown(EKeys::A) ? 1.0f : 0.0f);
+        (PC->IsInputKeyDown(EKeys::A) ? 1.0f : 0.0f) + PadX;
     if (bFinished || bBattlePaused || PlayerHealth() <= 0.0f) return;
     PlayerHero->AddMovementInput(Forward, ForwardInput);
     PlayerHero->AddMovementInput(Right, RightInput);
@@ -3355,10 +3397,10 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (PlayerIndex == INDEX_NONE) return;
 
     PlayerBinding->SetGuardIntent(
-        PC->IsInputKeyDown(EKeys::RightMouseButton));
+        PC->IsInputKeyDown(EKeys::RightMouseButton) || PC->GetInputAnalogKeyState(EKeys::Gamepad_LeftTriggerAxis)>.3f);
 
     if (!bTacticalCameraActive && !WantsCursor && !OverUI &&
-        PC->WasInputKeyJustPressed(EKeys::LeftMouseButton))
+        (PC->WasInputKeyJustPressed(EKeys::LeftMouseButton) || PC->GetInputAnalogKeyState(EKeys::Gamepad_RightTriggerAxis)>.3f))
     {
         int32 Best = INDEX_NONE;
         double BestDistance = 340.0 * 340.0;

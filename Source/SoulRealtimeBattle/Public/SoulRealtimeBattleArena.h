@@ -59,6 +59,7 @@ struct FSoulRealtimeArenaCombatant
     float PendingMeleeSeconds = 0.0f;
     FRBHostIdentity PendingMeleeTarget;
     bool bVisualAttackPlaying = false;
+    int32 VisualAttackSequence = 0;
     ESoulRealtimeMovementArchetype Movement =
         ESoulRealtimeMovementArchetype::Infantry;
     float WardPoints = 0.0f;
@@ -232,6 +233,8 @@ private:
     void HandleBattleAction(FName Action);
     FString SpellButtonLabel(int32 Slot) const;
     void SetupSpellBar();
+    void HandleGamepadAction(FName Action);
+    bool bGamepadActive = false;
     UPROPERTY() TArray<TObjectPtr<URBMagicSpellDefinition>> BattleSpells;
     UPROPERTY() TArray<TObjectPtr<UObject>> BattlePresentationAssets;
     void SelectPlayerSpell(int32 Slot);
@@ -321,11 +324,12 @@ private:
     UAnimationAsset* ResolveVisualAnimation(
         int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const;
     UAnimationAsset* ResolveVisualAttack(
-        int32 Side, ESoulRealtimeFormationRole FormationRole) const;
+        int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Variation = 0) const;
     UAnimationAsset* ResolveVisualDeath(
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     bool UsesEvilVisualRoster() const;
     void UpdateVisualAnimations();
+    void DressDragonBattlefield();
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);
     bool CastPlayerSpell(

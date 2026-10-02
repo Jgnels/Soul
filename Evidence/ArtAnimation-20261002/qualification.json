@@ -1,0 +1,66 @@
+{
+  "base": "4f677df2e8558b0ac98ab813aca5873a7958f4b5",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "machine": "DESKTOP-Q1S3RPU",
+  "builds": {
+    "SoulEditor": "Build-qualification-fixes.log: Succeeded",
+    "Soul": "Build-Soul-game.log: Succeeded"
+  },
+  "automation": {
+    "report": "Automation-20261002-135327\\index.json",
+    "passed": 82,
+    "passed_with_warning": 1,
+    "failed": 0,
+    "warning": "Existing Sparrow Orion retarget source warning"
+  },
+  "source_tests": {
+    "Tools": 77,
+    "campaign_view": 7,
+    "failed": 0
+  },
+  "runtime": {
+    "art_pass_2_1080": {
+      "casts": 5,
+      "accepted_contacts": 302,
+      "allied_targets": 0,
+      "battle_seconds": 74.98
+    },
+    "campaign_roundtrip": {
+      "victory": true,
+      "survivors": 35,
+      "hostiles": 0,
+      "owner": "humans",
+      "region": "orc_watch",
+      "mana": 18,
+      "persistence": "RBSave",
+      "encounter": "encounter.2.1.river_ford.orc_watch",
+      "return_next_battle_prompt": true
+    }
+  },
+  "inspected_images": [
+    "ui-pass1-720/deployment-commander.png",
+    "ui-pass1-720/deployment-hero.png",
+    "art-pass2-1080/deployment-commander.png",
+    "art-pass2-1080/deployment-hero.png",
+    "ReadabilityCampaignUser/Saved/Screenshots/World_town.png",
+    "ReadabilityCampaignUser/Saved/Screenshots/Readability/deployment-commander.png"
+  ],
+  "iterations": [
+    "720p framed HUD and readable hierarchy",
+    "1080p attack variants and peripheral licensed bone props",
+    "Move intrusive foreground bones outward; rendered 720p campaign battle reviewed"
+  ],
+  "limitations": [
+    "Controller actions have automation coverage; physical gamepad validation pending",
+    "Packaged cook/runtime not yet qualified",
+    "Dragon VDB is being evaluated in preview, not integrated in this commit",
+    "City art remains modular prototype; no portrait assets integrated yet",
+    "Audio work pending"
+  ],
+  "preserved": [
+    "Licensed assets not resaved",
+    "Pre-existing DefaultEngine.ini and Soul.uproject changes excluded",
+    "Unrelated untracked evidence excluded"
+  ],
+  "terrain_mounts": "terrain-mount-repair.json: worker only; original junctions preserved in PreviousMounts"
+}

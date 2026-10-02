@@ -31,7 +31,7 @@ bool FSoulBattlePresentationAssets::RunTest(const FString&)
     };
     const FString Warrior = TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon");
     const TArray<FString> WarriorClips = {TEXT("Anim_Warrior_Idle"), TEXT("Anim_Warrior_Run"),
-        TEXT("Anim_Warrior_Attack_1"), TEXT("Anim_Warrior_Dead_1")};
+        TEXT("Anim_Warrior_Attack_1"), TEXT("Anim_Warrior_Attack_2"), TEXT("Anim_Warrior_Dead_1")};
     Check(TEXT("/Game/Knights_Pack/Meshes/Knight_03/Mesh_UE4/Full/SK_Knight_03_Full_01.SK_Knight_03_Full_01"), Warrior, WarriorClips);
     Check(TEXT("/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE4/Full_Mesh/SK_Knight_04_Full_01.SK_Knight_04_Full_01"), Warrior, WarriorClips);
     const FString Sparrow = TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations");
@@ -41,9 +41,9 @@ bool FSoulBattlePresentationAssets::RunTest(const FString&)
     Check(TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Skins/Raven/Meshes/Sparrow_Raven.Sparrow_Raven"), Sparrow, BowClips);
     Check(TEXT("/Game/AfricanAnimalsPack/Elephant/Meshes/SK_Elephant.SK_Elephant"),
         TEXT("/Game/AfricanAnimalsPack/Elephant/Animations"),
-        {TEXT("ANIM_Elephant_Run"), TEXT("ANIM_Elephant_TusksAttack1"), TEXT("ANIM_Elephant_Death")});
+        {TEXT("ANIM_Elephant_Walk"), TEXT("ANIM_Elephant_TusksAttack2"), TEXT("ANIM_Elephant_TusksAttack1"), TEXT("ANIM_Elephant_Death")});
     Check(TEXT("/Game/Kraken/Meshes/KRAKEN.KRAKEN"), TEXT("/Game/Kraken/Animations"),
-        {TEXT("KRAKEN_walk"), TEXT("KRAKEN_sweepAttack"), TEXT("KRAKEN_death")});
+        {TEXT("KRAKEN_walk"), TEXT("KRAKEN_sweepAttack"), TEXT("KRAKEN_smashAttack"), TEXT("KRAKEN_death")});
     return true;
 }
 #endif

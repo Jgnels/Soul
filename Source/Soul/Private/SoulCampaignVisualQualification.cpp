@@ -8,6 +8,7 @@
 #include "SoulPlaytestRegionActor.h"
 #include "InputKeyEventArgs.h"
 #include "Engine/World.h"
+#include "GameFramework/HUD.h"
 #include "EngineUtils.h"
 #include "UnrealClient.h"
 #include "Misc/Paths.h"
@@ -54,6 +55,18 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
             RequireMemory?TEXT("explored memory stays present while unknown locations remain hidden and unselectable"):TEXT("initial unknown locations are hidden and unselectable"));
     };
     auto Key=[&](FKey K){PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Pressed,1));PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Released,0));};
+    auto ClickHUD=[&](FName Name,FKey Button)
+    {
+        auto* HUD=PC->GetHUD();
+        int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);
+        // Find a point in the rendered hitbox: no copied layout/resolution constants.
+        for(int32 Y=4;HUD && Y<Height;Y+=8)
+            for(int32 X=4;X<Width;X+=8)
+                if(const auto* Hit=HUD->GetHitBoxAtCoordinates(FVector2D(X,Y),true))
+                    if(Hit->GetName()==Name)
+                    {PC->SetMouseLocation(X,Y);Key(Button);return true;}
+        return Require(false,TEXT("requested HUD action has a rendered clickable hitbox"));
+    };
     auto Click=[&](FName Region)
     {
         FVector2D Screen;
@@ -67,8 +80,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
     case 0: if(!CheckKnowledge(false))return;Capture(TEXT("initial"));break;
     case 1: Key(EKeys::One);break;
     case 2:
-        { int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);const float Scale=FMath::Max(1.f,Height/900.f);
-          PC->SetMouseLocation(FMath::RoundToInt(Width-160.f*Scale),FMath::RoundToInt(231.f*Scale));Key(EKeys::LeftMouseButton); }break;
+        if(!ClickHUD(TEXT("Town"),EKeys::LeftMouseButton))return;break;
     case 3: if(!Require(Campaign->IsTownPanelOpen(),TEXT("town HUD button opens recruitment panel")))return;Capture(TEXT("town"));Key(EKeys::One);break;
     case 4: if(!Require(State->PlayerArmy.FindRef(State->PlayerUnitId)==46,TEXT("number key recruits once")))return;Key(EKeys::T);break;
     case 5: Click(TEXT("crossroads"));break;
@@ -187,8 +199,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         Capture(TEXT("wide_bounds"));break;
     case 27:
         // Select the army through its ordinary HUD hitbox, not a state edit.
-        {int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);const float Scale=FMath::Max(1.f,Height/900.f);
-         PC->SetMouseLocation(FMath::RoundToInt(Width-500.f*Scale),FMath::RoundToInt(32.f*Scale));Key(EKeys::LeftMouseButton);}
+        if(!ClickHUD(TEXT("Company"),EKeys::LeftMouseButton))return;
         break;
     case 28:
         if(!Require(Campaign->GetSelectedRegion()==State->PlayerRegion&&!Campaign->IsBattleAvailable()&&!Campaign->IsTownPanelOpen(),TEXT("army HUD click selects company without moving or opening town")))return;
@@ -227,8 +238,7 @@ void ASoulFounderPlaytestGameMode::TickVisualQualification(float Seconds)
         {float X=0,Y=0;if(!Require(PC->GetMousePosition(X,Y)&&X>500,TEXT("controller right stick moves bounded selection cursor")))return;}
         if(!Require(Campaign->GetSelectedRegion()==State->PlayerRegion&&FVector::DistXY(Camera->GetFocus(),ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion))<3.f,TEXT("controller Back selects and focuses the company")))return;
         Campaign->SelectedRegion=TEXT("human_capital"); // Bottom-button test must change selection.
-        {int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);const float Scale=FMath::Max(1.f,Height/900.f);
-         PC->SetMouseLocation(FMath::RoundToInt(Width-500.f*Scale),FMath::RoundToInt(32.f*Scale));Key(EKeys::Gamepad_FaceButton_Bottom);}
+        if(!ClickHUD(TEXT("Company"),EKeys::Gamepad_FaceButton_Bottom))return;
         break;
     case 38:
         {FRBSaveDomainState Snapshot;FString Error;

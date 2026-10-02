@@ -132,7 +132,7 @@ bool ASoulRealtimeArenaGameMode::ReadPointerHit(FHitResult& Hit) const
     auto* PC=GetWorld()->GetFirstPlayerController();
     if(!PC) return false;
     FVector Origin,Direction;
-    if(bTacticalCameraActive || PC->bShowMouseCursor)
+    if(!bGamepadActive && (bTacticalCameraActive || PC->bShowMouseCursor))
     {
         if(!PC->DeprojectMousePositionToWorld(Origin,Direction)) return false;
     }
@@ -218,4 +218,33 @@ bool ASoulRealtimeArenaGameMode::IsDirectGroundRouteClear(
         Previous=At;
     }
     return true;
+}
+
+void ASoulRealtimeArenaGameMode::HandleGamepadAction(FName Action)
+{
+    bGamepadActive=true;
+    if(Action==TEXT("Cancel"))
+    { SelectedSpellSlot=INDEX_NONE; bPlaceFormationOrder=false; Status=TEXT("Targeting cancelled"); return; }
+    if(bFinished && Action!=TEXT("Camera") && Action!=TEXT("View") && Action!=TEXT("Focus")) return;
+    if(Action==TEXT("NextFormation")) { SelectNextAlliedFormation(); return; }
+    if(Action==TEXT("NextSpell"))
+    {
+        if(PlayerHealth()<=0) { Status=TEXT("Hero fallen - spells unavailable"); return; }
+        SelectedSpellSlot=(SelectedSpellSlot+1)%5; bPlaceFormationOrder=false;
+        Status=TEXT("Aim with the right stick, then [Y] to cast. [B] cancels."); return;
+    }
+    if(Action==TEXT("Cast"))
+    {
+        if(SelectedSpellSlot<0) { Status=TEXT("[X] selects a spell; aim, then [Y] casts."); return; }
+        FHitResult Hit;
+        if(SelectedSpellSlot>=3 ? CastPlayerSpellSlot(SelectedSpellSlot) :
+            (ReadPointerHit(Hit) && CastPlayerSpellSlot(SelectedSpellSlot,&Hit))) SelectedSpellSlot=INDEX_NONE;
+        return;
+    }
+    if(Action==TEXT("GroundOrder"))
+    {
+        if(!bTacticalCameraActive) { Status=TEXT("[View] opens commander camera for ground orders."); return; }
+        SelectedSpellSlot=INDEX_NONE; MoveSelectedToPointer(); return;
+    }
+    HandleBattleAction(Action);
 }

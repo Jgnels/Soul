@@ -17,7 +17,11 @@ bool FSoulFormationSelectionTest::RunTest(const FString&)
         Host->TacticalFormations.Add(State);
         FSoulRealtimeArenaCombatant Unit;
         Unit.GroupIndex=I;Unit.Side=0;Unit.Health=100;
+        Unit.Id=FGuid::NewGuid();
         Host->Combatants.Add(Unit);
+        FRBHostGroup Group;
+        Group.Members.Add(Host->IdentityAt(I));
+        Host->Groups.Add(Group);
     }
     Host->SelectAlliedFormationSlot(1);
     TestEqual(TEXT("F2 selects missile group"),Host->SelectedAlliedFormation,1);
@@ -30,6 +34,19 @@ bool FSoulFormationSelectionTest::RunTest(const FString&)
     TestEqual(TEXT("F3 remains strike"),Host->SelectedAlliedFormation,2);
     Host->SelectAlliedFormationSlot(0);
     TestEqual(TEXT("Defeated card never selects another group"),Host->SelectedAlliedFormation,0);
+    Host->HandleGamepadAction(TEXT("All"));
+    TestTrue(TEXT("Controller all selects whole army"),Host->bSelectAllAllies);
+    Host->HandleGamepadAction(TEXT("NextFormation"));
+    TestEqual(TEXT("Controller skips defeated formation when cycling"),Host->SelectedAlliedFormation,1);
+    Host->HandleGamepadAction(TEXT("NextFormation"));
+    TestEqual(TEXT("Controller can reach strike formation"),Host->SelectedAlliedFormation,2);
+    Host->SelectedSpellSlot=2;Host->bPlaceFormationOrder=true;
+    Host->HandleGamepadAction(TEXT("Cancel"));
+    TestEqual(TEXT("Controller cancels spell without casting"),Host->SelectedSpellSlot,INDEX_NONE);
+    TestFalse(TEXT("Controller cancels move targeting"),Host->bPlaceFormationOrder);
+    Host->bFinished=true;
+    Host->HandleGamepadAction(TEXT("NextFormation"));
+    TestEqual(TEXT("Resolved battle rejects new controller combat actions"),Host->SelectedAlliedFormation,2);
     World->DestroyWorld(false);
     return true;
 }
