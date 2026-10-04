@@ -7,6 +7,7 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "NavigationSystem.h"
+#include "Engine/Texture2D.h"
 
 namespace
 {
@@ -29,6 +30,16 @@ void ASoulRealtimeArenaGameMode::PushBattleNotice(const FString& Text,int32 Side
 void ASoulRealtimeArenaGameMode::SetupSpellBar()
 {
     BattleSpells.Reset();
+    // Licensed donor references only; preload once, never load from DrawHUD.
+    SpellIcons.Reset();
+    const TCHAR* IconPaths[]={
+        TEXT("/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_12"),
+        TEXT("/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_02"),
+        TEXT("/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_16"),
+        TEXT("/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_24"),
+        TEXT("/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_20"),
+        TEXT("/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_36")};
+    for(const TCHAR* Path:IconPaths) SpellIcons.Add(LoadObject<UTexture2D>(nullptr,Path));
     // Load presentation before deployment rather than blocking the first cast
     // while its short effect expires during shader/asset preparation.
     BattlePresentationAssets.Reset();
@@ -91,22 +102,34 @@ void ASoulRealtimeArenaGameMode::SelectPlayerSpell(int32 Slot)
     // new choice must never leave a different spell armed under the same pointer.
     SelectedSpellSlot=INDEX_NONE;
     bPlaceFormationOrder=false;
-    const FString Reason=SpellBlockReason(Slot,Slot>=0 && Slot<3);
+    const FString Reason=SpellBlockReason(Slot,true);
     if(!Reason.IsEmpty()) { Status=Reason; return; }
-    if(Slot>=3)
-    {
-        CastPlayerSpellSlot(Slot);
-        return;
-    }
+    bSpellbookOpen=false;
     SelectedSpellSlot=Slot;
     Status=Slot==2 ? TEXT("Blizzard selected: click ground within hero range. RMB cancels.") :
         TEXT("Spell selected: click an enemy within hero range. RMB cancels.");
-    if(bBattlePaused) Status=TEXT("Target selected spell after resuming [P]. RMB cancels; no mana spent.");
+    if(Slot>=3) Status=Slot==3 ? TEXT("Tidal ward ready: click battlefield to shield your hero. RMB cancels.") :
+        TEXT("Tailwind ready: click battlefield to hasten your army. RMB cancels.");
+    if(bBattlePaused) Status=TEXT("Spell readied. Resume [P], then click to cast. No mana spent.");
 }
 void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
 {
     const FString Name=Action.ToString();
     UE_LOG(LogTemp,Display,TEXT("SOUL_BATTLE_UI: action=%s"),*Name);
+    if(Action==TEXT("CloseGrimoire")) { bSpellbookOpen=false; return; }
+    if(Action==TEXT("Grimoire"))
+    {
+        bSpellbookOpen=!bSpellbookOpen;
+        if(bSpellbookOpen) { SelectedSpellSlot=INDEX_NONE; bPlaceFormationOrder=false; }
+        return; // Opening or closing a book never changes simulation time.
+    }
+    if(Action==TEXT("PauseRule"))
+    {
+        if(bBattlePaused && BattleElapsed<=0.f)
+            bAllowTacticalPause=!bAllowTacticalPause;
+        else Status=TEXT("Choose tactical pause during deployment, before starting battle.");
+        return;
+    }
     if(Action==TEXT("Pause")) { ToggleBattlePause(); return; }
     if(Action==TEXT("Camera")) { ToggleBattleCamera(); return; }
     if(Action==TEXT("View")) { ToggleFirstPersonCamera(); return; }
@@ -148,6 +171,7 @@ void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
         return;
     }
     if(Name.StartsWith(TEXT("Formation"))) { SelectAlliedFormationSlot(FCString::Atoi(*Name.Mid(9))); return; }
+    if(Name.StartsWith(TEXT("BookSpell"))) { SelectPlayerSpell(FCString::Atoi(*Name.Mid(9))); return; }
     if(Name.StartsWith(TEXT("Spell"))) { SelectPlayerSpell(FCString::Atoi(*Name.Mid(5))); return; }
     if(Action==TEXT("Move")) { bPlaceFormationOrder=true; SelectedSpellSlot=INDEX_NONE; Status=TEXT("Click clear ground to move selected formations. RMB cancels."); return; }
     if(Action==TEXT("All")) { bSelectAllAllies=true; SelectedAlliedFormation=INDEX_NONE; Status=TEXT("All allied formations selected"); return; }
@@ -255,7 +279,7 @@ void ASoulRealtimeArenaGameMode::HandleGamepadAction(FName Action)
 {
     bGamepadActive=true;
     if(Action==TEXT("Cancel"))
-    { SelectedSpellSlot=INDEX_NONE; bPlaceFormationOrder=false; Status=TEXT("Targeting cancelled"); return; }
+    { bSpellbookOpen=false; SelectedSpellSlot=INDEX_NONE; bPlaceFormationOrder=false; Status=TEXT("Targeting cancelled"); return; }
     if(bFinished && Action!=TEXT("Camera") && Action!=TEXT("View") && Action!=TEXT("Focus")) return;
     if(Action==TEXT("NextFormation")) { SelectNextAlliedFormation(); return; }
     if(Action==TEXT("NextSpell"))

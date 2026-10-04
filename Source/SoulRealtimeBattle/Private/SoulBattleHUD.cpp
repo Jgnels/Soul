@@ -4,6 +4,8 @@
 #include "Engine/World.h"
 #include "GameFramework/Character.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Engine/Texture2D.h"
+#include "RBMagicSpellDefinition.h"
 
 void ASoulRealtimeArenaHUD::NotifyHitBoxClick(FName Name)
 {
@@ -31,7 +33,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         const auto& Bounds = Actor->GetMesh()->Bounds;
         FVector P = Project(Bounds.Origin+FVector(0,0,Bounds.BoxExtent.Z+24));
         P.X/=UI.Scale; P.Y/=UI.Scale;
-        if (P.Z<=0 || P.X<8 || P.X>W-8 || P.Y<106 || P.Y>H-230) continue;
+        if (P.Z<=0 || P.X<8 || P.X>W-8 || P.Y<54 || P.Y>H-124) continue;
         AddHitBox(FVector2D(P.X-14,P.Y-19)*UI.Scale,FVector2D(28,30)*UI.Scale,
             FName(*FString::Printf(TEXT("Unit%d"),I)),true,5);
         const FLinearColor Team = Unit.Side==0 ? FLinearColor(0.2f,0.85f,1) : FLinearColor(1,0.3f,0.15f);
@@ -52,7 +54,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             (!Host->bSelectAllAllies && Formation.GroupIndex!=Host->SelectedAlliedFormation)) continue;
         FVector P=Project(Formation.TacticalAnchor+FVector(0,0,18));
         P.X/=UI.Scale; P.Y/=UI.Scale;
-        if(P.Z<=0 || P.X<40 || P.X>W-90 || P.Y<150 || P.Y>H-220) continue;
+        if(P.Z<=0 || P.X<40 || P.X>W-90 || P.Y<54 || P.Y>H-124) continue;
         const FLinearColor Target(1.f,.72f,.20f,1.f);
         UI.Line(P.X-12,P.Y,P.X,P.Y-7,Target,2);
         UI.Line(P.X,P.Y-7,P.X+12,P.Y,Target,2);
@@ -61,32 +63,105 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         UI.Text(FString::Printf(TEXT("%s ORDER"),FSoulRealtimeTacticalRules::FormationKindLabel(Formation.Kind)),P.X+17,P.Y-7,UI.Bright);
     }
 
-    UI.Panel(12,12,W-24,68);
-    UI.Emblem(6,36,38,14,UI.Gold);
-    UI.Text(TEXT("S O U L  /  DRAGON GRAVEYARD"),60,22,UI.Bright,1.3f);
-    UI.Text(FString::Printf(TEXT("Your army %d  (+%d reserves)    Enemy %d  (+%d)"),
-        Host->AliveForSide(0),Host->ReserveBodiesForSide(0),Host->AliveForSide(1),Host->ReserveBodiesForSide(1)),60,50,UI.Ink);
-    UI.Button(TEXT("Pause"),Host->bFinished?TEXT("Battle resolved"):Host->bBattlePaused?TEXT("Resume [P]"):TEXT("Pause [P]"),W-455,28,142,34,Host->bBattlePaused);
-    UI.Button(TEXT("Camera"),Host->bTacticalCameraActive?TEXT("Hero [C]"):TEXT("Commander [C]"),W-305,28,142,34);
-    UI.Button(TEXT("View"),TEXT("1st / 3rd [X]"),W-155,28,131,34);
-    UI.Panel(W*.5f-210,92,420,32,Host->bBattlePaused);
-    UI.FitText(Host->bFinished?TEXT("BATTLE RESOLVED"):Host->bBattlePaused?TEXT("PAUSED  /  Plan orders, then resume"):Host->TacticalSummary(),W*.5f-198,101,396,UI.Bright);
-    UI.Text(TEXT("ALLIES"),24,94,Ally); UI.Text(TEXT("ENEMIES"),112,94,Enemy);
 
-    // Stable formation slots show strength and morale, including defeated formations.
+
+    // Read-only targeting preview. Mana, range and effect commitment remain in RB Magic.
+    if(Host->SelectedSpellSlot>=0 && !Host->bSpellbookOpen && !Host->bFinished)
+    {
+        const int32 Slot=Host->SelectedSpellSlot;
+        const auto* Spell=Host->BattleSpells.IsValidIndex(Slot)?Host->BattleSpells[Slot].Get():nullptr;
+        FHitResult Hit;
+        bool HaveTarget=Slot>=3?IsValid(Host->PlayerHero):Host->ReadPointerHit(Hit);
+        FVector Target=Slot>=3 && Host->PlayerHero?Host->PlayerHero->GetActorLocation():FVector(Hit.ImpactPoint);
+        bool Valid=HaveTarget && Spell && Host->SpellBlockReason(Slot,true).IsEmpty();
+        if(Slot<2)
+        {
+            const auto* Binding=Hit.GetActor()?Hit.GetActor()->FindComponentByClass<USoulRealtimeArenaBinding>():nullptr;
+            const int32 Index=Binding?Host->Index(FRBHostIdentity::From(Binding->GetCombatant())):INDEX_NONE;
+            Valid=Valid && Host->Combatants.IsValidIndex(Index) && Host->Combatants[Index].Side==1 && Host->Combatants[Index].Health>0;
+            if(Host->Actors.IsValidIndex(Index) && Host->Actors[Index]) Target=Host->Actors[Index]->GetActorLocation();
+        }
+        if(Slot==2 && HaveTarget) Target.Z=Host->ResolveSpawnLocation(Target).Z-94.f;
+        if(Slot<3 && Spell && Host->PlayerHero)
+            Valid=Valid && FVector::Dist(Host->PlayerHero->GetActorLocation(),Target)<=Spell->Range;
+        if(HaveTarget)
+        {
+            float Radius=75.f;
+            if(Slot==2 && Spell)
+                for(const auto& Effect:Spell->Effects) Radius=FMath::Max(Radius,Effect.Radius);
+            const FLinearColor Color=Valid?FLinearColor(.38f,.85f,1):FLinearColor(.8f,.35f,.2f);
+            for(int32 I=0;I<32;++I)
+            {
+                const float A=2*PI*I/32,B=2*PI*(I+1)/32;
+                const FVector P=Project(Target+FVector(FMath::Cos(A)*Radius,FMath::Sin(A)*Radius,20));
+                const FVector Q=Project(Target+FVector(FMath::Cos(B)*Radius,FMath::Sin(B)*Radius,20));
+                if(P.Z>0 && Q.Z>0) UI.Line(P.X/UI.Scale,P.Y/UI.Scale,Q.X/UI.Scale,Q.Y/UI.Scale,Color,2);
+            }
+            const FVector P=Project(Target+FVector(0,0,120));
+            if(P.Z>0) UI.Text(Valid?Host->bBattlePaused?TEXT("Resume to cast"):TEXT("Confirm cast"):TEXT("Choose a valid target"),
+                P.X/UI.Scale+12,P.Y/UI.Scale,Color);
+        }
+    }
+
+    // Compact fixed-height top strip. The world remains the dominant surface.
+    UI.Panel(12,12,W-24,38);
+    UI.Emblem(6,28,31,10,UI.Gold);
+    UI.Text(TEXT("S O U L"),47,24,UI.Bright);
+    UI.Text(FString::Printf(TEXT("ALLIES %d (+%d)"),Host->AliveForSide(0),Host->ReserveBodiesForSide(0)),135,24,Ally);
+    UI.Text(FString::Printf(TEXT("ENEMY %d (+%d)"),Host->AliveForSide(1),Host->ReserveBodiesForSide(1)),295,24,Enemy);
+    FString Phase=Host->TacticalSummary();
+    int32 PhaseSeparator=INDEX_NONE;
+    if(Phase.FindChar(TCHAR('|'),PhaseSeparator)) Phase.LeftInline(PhaseSeparator);
+    Phase.TrimEndInline();
+    UI.FitText(Host->bFinished?TEXT("RESOLVED"):Host->bBattlePaused?TEXT("PAUSED"):Phase,465,24,W-900,UI.Bright);
+    UI.Button(TEXT("Pause"),Host->bFinished?TEXT("Resolved"):Host->bBattlePaused?TEXT("Start / Resume [P]"):
+        Host->bAllowTacticalPause?TEXT("Pause [P]"):TEXT("No pause"),W-422,17,144,28,Host->bBattlePaused);
+    UI.Button(TEXT("Camera"),Host->bTacticalCameraActive?TEXT("Hero [C]"):TEXT("Commander [C]"),W-270,17,142,28);
+    UI.Button(TEXT("View"),TEXT("View [X]"),W-120,17,100,28);
+    if(Host->bBattlePaused && Host->BattleElapsed<=0.f)
+    {
+        if(UI.Button(TEXT("PauseRule"),Host->bAllowTacticalPause?TEXT("Tactical pause: ON"):TEXT("Tactical pause: OFF"),12,58,185,28))
+            Tooltip=TEXT("Choose before starting. OFF keeps battle live when browsing spells and disables tactical pause after deployment.");
+    }
+
+    // Wrap details instead of shrinking or truncating them into one long line.
+    auto Paragraph=[&](const FString& Value,float X,float Y,float Width,FLinearColor Color,float Size=1.1f)
+    {
+        TArray<FString> Words;Value.ParseIntoArrayWS(Words);
+        FString Line;
+        for(const FString& Word:Words)
+        {
+            const FString Next=Line.IsEmpty()?Word:Line+TEXT(" ")+Word;
+            float TW=0,TH=0;Canvas->StrLen(GEngine->GetSmallFont(),Next,TW,TH);
+            if(TW*Size>Width && !Line.IsEmpty())
+            { UI.Text(Line,X,Y,Color,Size);Y+=17;Line=Word; }
+            else Line=Next;
+        }
+        if(!Line.IsEmpty()) { UI.Text(Line,X,Y,Color,Size);Y+=17; }
+        return Y;
+    };
+    auto Icon=[&](int32 I,float X,float Y,float Size,bool Ready=true)
+    {
+        UTexture2D* Texture=Host->SpellIcons.IsValidIndex(I)?Host->SpellIcons[I].Get():nullptr;
+        if(Texture) DrawTexture(Texture,X*UI.Scale,Y*UI.Scale,Size*UI.Scale,Size*UI.Scale,0,0,1,1,
+            Ready?FLinearColor::White:FLinearColor(.38f,.38f,.38f,1),BLEND_Translucent);
+        else UI.Emblem(I,(X+Size*.5f),(Y+Size*.5f),Size*.32f,Ready?UI.Bright:UI.Muted);
+    };
+    auto ShieldUI=[&](FName Name,float X,float Y,float Width,float Height,int32 Priority=8)
+    { AddHitBox(FVector2D(X,Y)*UI.Scale,FVector2D(Width,Height)*UI.Scale,Name,true,Priority); };
+
+    ShieldUI(TEXT("TopStrip"),12,12,W-24,38);
     const int32 Count=FMath::Max(1,Host->AlliedFormationCount());
-    const float Available=W-264, CardW=(Available-(Count-1)*8)/Count;
+    const float ArmyWidth=W-474,CardW=FMath::Min(185.f,(ArmyWidth-(Count-1)*6)/Count);
     int32 Slot=0;
     for(const auto& Formation:Host->TacticalFormations)
     {
         if(Formation.Side!=0) continue;
-        const float X=12+Slot*(CardW+8), Y=H-228;
+        const float X=12+Slot*(CardW+6),Y=H-120;
         const bool Selected=Host->bSelectAllAllies||Host->SelectedAlliedFormation==Formation.GroupIndex;
-        const FName Action(*FString::Printf(TEXT("Formation%d"),Slot));
-        if(UI.Button(Action,TEXT(""),X,Y,CardW,88,Selected))
+        if(UI.Button(FName(*FString::Printf(TEXT("Formation%d"),Slot)),TEXT(""),X,Y,CardW,54,Selected))
         {
-            int32 Members[8]={},Arrows=0;
-            float Health=0,Maximum=0;
+            int32 Members[8]={},Arrows=0;float Health=0,Maximum=0;
             for(const auto& Unit:Host->Combatants)
                 if(Unit.GroupIndex==Formation.GroupIndex && Unit.Health>0)
                 {
@@ -95,69 +170,131 @@ void ASoulRealtimeArenaHUD::DrawHUD()
                     Health+=Unit.Health;Maximum+=Unit.MaxHealth;
                     if(Unit.bRanged) Arrows+=Unit.Arrows;
                 }
-            Tooltip=FString::Printf(TEXT("F%d: "),Slot+1);
-            bool First=true;
+            Tooltip=Host->AlliedFormationSummary(Slot)+TEXT(". ");
             for(int32 RoleIndex=0;RoleIndex<8;++RoleIndex)
-                if(Members[RoleIndex])
-                {
-                    if(!First) Tooltip+=TEXT(", ");
-                    Tooltip+=FString::Printf(TEXT("%d %s"),Members[RoleIndex],*Host->RoleLabel(static_cast<ESoulRealtimeFormationRole>(RoleIndex)));
-                    First=false;
-                }
-            if(First) Tooltip+=TEXT("No active troops");
-            else Tooltip+=FString::Printf(TEXT(" | Health %.0f%% | %d arrows | Click to select"),100.f*Health/FMath::Max(1.f,Maximum),Arrows);
+                if(Members[RoleIndex]) Tooltip+=FString::Printf(TEXT("%d %s. "),Members[RoleIndex],*Host->RoleLabel(static_cast<ESoulRealtimeFormationRole>(RoleIndex)));
+            Tooltip+=FString::Printf(TEXT("Health %.0f%%. %d arrows. Click to select; Home focuses."),
+                100.f*Health/FMath::Max(1.f,Maximum),Arrows);
         }
-        UI.Emblem(Formation.Kind==ESoulBattleFormationKind::FrontLine?3:Formation.Kind==ESoulBattleFormationKind::Strike?5:Formation.Kind==ESoulBattleFormationKind::MissileSupport?4:6,X+24,Y+30,13,Selected?UI.Bright:UI.Gold);
-        UI.FitText(FString::Printf(TEXT("F%d  %s"),Slot+1,FSoulRealtimeTacticalRules::FormationKindLabel(Formation.Kind)),X+48,Y+12,CardW-60,UI.Ink,1.25f);
         const int32 Alive=Host->AliveInGroup(Formation.GroupIndex);
+        UI.FitText(FString::Printf(TEXT("F%d %s  %d"),Slot+1,FSoulRealtimeTacticalRules::FormationKindLabel(Formation.Kind),Alive),X+10,Y+8,CardW-20,Selected?UI.Bright:UI.Ink);
         const auto Morale=FSoulRealtimeTacticalRules::MoraleState(Formation.MoralePermille,Formation.bRouting,Formation.bRallied);
-        UI.Text(FString::Printf(TEXT("%d / %d  |  %s"),Alive,Formation.InitialBodies,Alive?FSoulRealtimeTacticalRules::MoraleLabel(Morale):TEXT("DEFEATED")),X+48,Y+34,Alive?UI.Muted:Enemy);
         FString Summary=Host->AlliedFormationSummary(Slot);
-        // The authority's summary supplies the order; present it on a separate line.
         const TCHAR* Order=TEXT("Hold");
         if(Summary.Contains(TEXT("ADVANCE"))) Order=TEXT("Advance");
         else if(Summary.Contains(TEXT("CHARGE"))) Order=TEXT("Charge");
-        else if(Summary.Contains(TEXT("FALL BACK"))) Order=TEXT("Fall back");
+        else if(Summary.Contains(TEXT("FALL BACK"))) Order=TEXT("Withdraw");
         else if(Summary.Contains(TEXT("FOLLOW"))) Order=TEXT("Follow");
         else if(Summary.Contains(TEXT("FACE"))) Order=TEXT("Face");
-        UI.Text(FString::Printf(TEXT("%s  /  %s"),Order,Formation.ManualOverrideUntil>Host->BattleElapsed?TEXT("Your orders"):TEXT("Commander")),X+12,Y+59,Selected?UI.Bright:UI.Muted,1.05f);
-        UI.Bar(X+12,Y+79,CardW-24,Formation.MoralePermille/1000.f,Formation.bRouting?Enemy:Ally);
+        UI.FitText(Alive?FString::Printf(TEXT("%s / %s"),Order,FSoulRealtimeTacticalRules::MoraleLabel(Morale)):TEXT("DEFEATED"),
+            X+10,Y+27,CardW-20,Alive?UI.Muted:Enemy,1.f);
+        UI.Bar(X+10,Y+46,CardW-20,Formation.MoralePermille/1000.f,Formation.bRouting?Enemy:Ally);
         ++Slot;
     }
-    UI.Panel(W-240,H-228,228,88);
-    UI.Text(FString::Printf(TEXT("HERO  %.0f HP"),Host->PlayerHealth()),W-224,H-215,UI.Ink,1.25f);
-    UI.Text(FString::Printf(TEXT("MANA  %.0f"),Host->PlayerManaValue()),W-224,H-192,FLinearColor(.36f,.70f,1));
-    UI.Button(TEXT("Focus"),TEXT("Focus selected [Home]"),W-228,H-168,204,24);
-
     static const TCHAR* Actions[]={TEXT("All"),TEXT("Move"),TEXT("Hold"),TEXT("Advance"),TEXT("Charge"),TEXT("Fallback"),TEXT("Face"),TEXT("AI")};
-    static const TCHAR* Labels[]={TEXT("Select all"),TEXT("Move here"),TEXT("Hold [H]"),TEXT("Advance [V]"),TEXT("Charge [G]"),TEXT("Fall back [B]"),TEXT("Face [F]"),TEXT("AI orders [R]")};
-    static const TCHAR* Hints[]={TEXT("Select every surviving friendly formation."),TEXT("Select, then click clear ground for this formation's destination."),TEXT("Hold this ground; engage nearby threats without chasing."),TEXT("Approach the enemy while keeping ranks together."),TEXT("Commit to contact. Troops may break ranks to pursue."),TEXT("Withdraw toward a safe position."),TEXT("Face the threat without advancing."),TEXT("Return selected formations to their commander's control.")};
-    const float OrderW=(W-176)/8.f;
+    static const TCHAR* Labels[]={TEXT("All"),TEXT("Move"),TEXT("Hold H"),TEXT("Advance V"),TEXT("Charge G"),TEXT("Back B"),TEXT("Face F"),TEXT("AI R")};
+    static const TCHAR* Hints[]={TEXT("Select every surviving friendly formation."),TEXT("Select, then click clear ground for the formation destination."),
+        TEXT("Hold this ground. Engage nearby threats without chasing."),TEXT("Approach the enemy while keeping ranks together."),
+        TEXT("Commit to contact. Troops may break ranks to pursue."),TEXT("Withdraw toward a safe position."),
+        TEXT("Face the threat without advancing."),TEXT("Return selected formations to their commander.")};
+    const float OrderW=(ArmyWidth-28)/8.f;
     for(int32 I=0;I<8;++I)
-        if(UI.Button(Actions[I],Labels[I],12+I*(OrderW+4),H-132,OrderW,32)) Tooltip=Hints[I];
-    UI.Button(TEXT("Help"),TEXT("Help [F10]"),W-124,H-132,112,32,Host->bShowBattleHelp);
-    const float SpellW=(W-48)/5;
-    const FLinearColor SpellColors[]={FLinearColor(1,.43f,.17f),FLinearColor(.80f,.62f,1),FLinearColor(.48f,.82f,1),FLinearColor(.25f,.65f,1),FLinearColor(.49f,.90f,.65f)};
-    static const TCHAR* SpellNames[]={TEXT("Firebolt"),TEXT("Chain lightning"),TEXT("Blizzard"),TEXT("Tidal ward"),TEXT("Tailwind")};
-    static const TCHAR* SpellHints[]={TEXT("Select, then click an enemy. A physical firebolt can hit intervening bodies or scenery."),TEXT("Select, then click an enemy near other enemies to chain lightning."),TEXT("Select, then click ground in hero range for a sustained area spell."),TEXT("Cast immediately: shield your hero against incoming damage."),TEXT("Cast immediately: hasten your surviving army.")};
+        if(UI.Button(Actions[I],Labels[I],12+I*(OrderW+4),H-60,OrderW,28)) Tooltip=Hints[I];
+
+    UI.Panel(W-446,H-120,434,54);
+    ShieldUI(TEXT("HeroPanel"),W-446,H-120,434,54);
+    UI.Text(FString::Printf(TEXT("HERO  %.0f HP"),Host->PlayerHealth()),W-434,H-111,UI.Ink);
+    UI.Text(FString::Printf(TEXT("MANA  %.0f"),Host->PlayerManaValue()),W-278,H-111,FLinearColor(.36f,.70f,1));
+    UI.FitText(Host->bTacticalCameraActive?TEXT("Commander view"):TEXT("Hero view"),W-434,H-90,260,UI.Muted,1.f);
+    UI.Button(TEXT("Focus"),TEXT("Focus [Home]"),W-140,H-109,116,30);
+
+    int32 HoverSpell=INDEX_NONE;
     for(int32 I=0;I<5;++I)
     {
-        const float X=12+I*(SpellW+6),Y=H-92;
-        const FString Blocked=Host->SpellBlockReason(I);
-        if(UI.Button(FName(*FString::Printf(TEXT("Spell%d"),I)),TEXT(""),X,Y,SpellW,58,Host->SelectedSpellSlot==I))
-            Tooltip=Blocked.IsEmpty() ? FString(SpellHints[I]) : Blocked+TEXT(". ")+SpellHints[I];
-        UI.Emblem(I,X+25,Y+29,15,Blocked.IsEmpty()?SpellColors[I]:UI.Muted);
-        UI.FitText(FString::Printf(TEXT("%d  %s"),I+1,SpellNames[I]),X+50,Y+10,SpellW-60,UI.Ink,1.2f);
-        FString Name,Detail;
-        Host->SpellButtonLabel(I).Split(TEXT(" | "),&Name,&Detail);
-        UI.FitText(Detail,X+50,Y+34,SpellW-60,Blocked.IsEmpty()?UI.Muted:UI.Bright,1.05f);
+        const float X=W-446+I*49,Y=H-60;
+        const bool Ready=Host->SpellBlockReason(I,true).IsEmpty();
+        if(UI.Button(FName(*FString::Printf(TEXT("Spell%d"),I)),TEXT(""),X,Y,44,44,Host->SelectedSpellSlot==I)) HoverSpell=I;
+        Icon(I,X+3,Y+3,38,Ready);
+        UI.Rect(X+1,Y+27,13,16,FLinearColor(0,0,0,.9f));
+        UI.Text(FString::FromInt(I+1),X+3,Y+28,UI.Ink,1.f);
+        if(!Ready)
+        {
+            const auto* Spell=Host->BattleSpells.IsValidIndex(I)?Host->BattleSpells[I].Get():nullptr;
+            const float Cooldown=Spell?Host->SpellCooldowns.FindRef(Spell->SpellTag.GetTagName()):0.f;
+            UI.Text(Cooldown>0?FString::Printf(TEXT("%.0f"),FMath::CeilToFloat(Cooldown)):TEXT("-"),X+18,Y+15,UI.Bright);
+        }
     }
-    UI.FitText(Host->Status,24,H-24,W-48,UI.Bright,1.05f);
-    const FString Context=Host->bPlaceFormationOrder?TEXT("MOVE READY: click clear ground | RMB cancels"):
-        Host->SelectedSpellSlot>=0?TEXT("SPELL READY: click target | RMB cancels"):
-        Host->bTacticalCameraActive?TEXT("Click ally to select  /  WASD pan  /  Wheel zoom  /  RMB orbit"):
-        TEXT("WASD move  /  Mouse aim  /  LMB attack  /  RMB block  /  Hold Alt for buttons");
-    UI.FitText(Host->bGamepadActive ? TEXT("RB: formation / LB: all / D-pad: orders / A: move / X: spell / Y: cast / B: cancel / Menu: pause") : Context,24,132,W-48,UI.Muted,1.05f);
+    UI.Button(TEXT("Grimoire"),TEXT("Spellbook [K]"),W-191,H-60,139,44,Host->bSpellbookOpen);
+    UI.Button(TEXT("Help"),TEXT("?"),W-46,H-60,34,44,Host->bShowBattleHelp);
+
+    static const TCHAR* SpellNames[]={TEXT("Firebolt"),TEXT("Chain lightning"),TEXT("Blizzard"),TEXT("Tidal ward"),TEXT("Tailwind")};
+    static const TCHAR* Descriptions[]={
+        TEXT("Launch a firebolt at an enemy. Bodies and scenery can intercept the projectile."),
+        TEXT("Strike an enemy and chain lightning to nearby foes."),
+        TEXT("Cover an area with damaging frost and slow enemies within it."),
+        TEXT("Shield your hero against incoming damage."),
+        TEXT("Hasten your surviving army to help it reposition.")};
+    static const TCHAR* Targets[]={TEXT("Target: enemy"),TEXT("Target: enemy"),TEXT("Target: ground"),TEXT("Target: your hero"),TEXT("Target: allied army")};
+    auto SpellDetails=[&](int32 I,float X,float Y,float Width)
+    {
+        UI.Text(SpellNames[I],X,Y,UI.Bright,1.25f);Y+=26;
+        const auto* Spell=Host->BattleSpells.IsValidIndex(I)?Host->BattleSpells[I].Get():nullptr;
+        if(Spell)
+        {
+            UI.Text(FString::Printf(TEXT("%.0f mana  /  %.0fs cooldown"),Host->SpellManaCost(*Spell),Spell->CooldownSeconds),X,Y,UI.Ink,1.05f);Y+=22;
+        }
+        UI.Text(Targets[I],X,Y,Ally,1.05f);Y+=23;
+        Y=Paragraph(Descriptions[I],X,Y,Width,UI.Ink)+12;
+        const FString Reason=Host->SpellBlockReason(I,true);
+        Y=Paragraph(Reason.IsEmpty()?Host->bBattlePaused?TEXT("Ready. Resume before casting."):TEXT("Ready to select."):Reason,X,Y,Width,Reason.IsEmpty()?UI.Muted:UI.Bright)+8;
+        Paragraph(TEXT("Select, then confirm on the battlefield. Right click cancels."),X,Y,Width,UI.Muted,1.f);
+    };
+    if(Host->bSpellbookOpen)
+    {
+        const float X=W-452,Y=H-470,BookW=440,BookH=338;
+        UI.Panel(X,Y,BookW,BookH);
+        ShieldUI(TEXT("BookBackground"),X,Y,BookW,BookH);
+        // Original two-page layout: restrained spine, icon index, readable detail page.
+        UI.Rect(X+8,Y+46,205,BookH-56,FLinearColor(.09f,.085f,.067f,1));
+        UI.Rect(X+219,Y+46,213,BookH-56,FLinearColor(.105f,.096f,.072f,1));
+        UI.Line(X+215,Y+48,X+215,Y+BookH-10,UI.Gold,2);
+        Icon(5,X+10,Y+6,32);
+        UI.Text(TEXT("GRIMOIRE"),X+51,Y+9,UI.Bright,1.3f);
+        UI.Text(Host->bBattlePaused?TEXT("Battle paused manually"):TEXT("Battle continues"),X+51,Y+27,UI.Muted,1.f);
+        UI.Button(TEXT("CloseGrimoire"),TEXT("Close"),X+358,Y+8,70,28);
+        int32 Detail=Host->SelectedSpellSlot>=0?Host->SelectedSpellSlot:0;
+        for(int32 I=0;I<5;++I)
+        {
+            const float RowY=Y+55+I*52;
+            const bool Ready=Host->SpellBlockReason(I,true).IsEmpty();
+            if(UI.Button(FName(*FString::Printf(TEXT("BookSpell%d"),I)),TEXT(""),X+14,RowY,192,46,Host->SelectedSpellSlot==I)) Detail=I;
+            Icon(I,X+18,RowY+4,38,Ready);
+            UI.FitText(SpellNames[I],X+64,RowY+7,133,Ready?UI.Ink:UI.Muted,1.05f);
+            const auto* Spell=Host->BattleSpells.IsValidIndex(I)?Host->BattleSpells[I].Get():nullptr;
+            UI.Text(Spell?FString::Printf(TEXT("[%d]  %.0f mana"),I+1,Host->SpellManaCost(*Spell)):TEXT("Unavailable"),X+64,RowY+27,UI.Muted,1.f);
+        }
+        SpellDetails(Detail,X+231,Y+60,189);
+    }
+    else if(HoverSpell>=0 || (Host->bGamepadActive && Host->SelectedSpellSlot>=0))
+    {
+        const int32 Detail=HoverSpell>=0?HoverSpell:Host->SelectedSpellSlot;
+        UI.Panel(W-342,H-354,330,222);
+        ShieldUI(TEXT("SpellTooltip"),W-342,H-354,330,222,20);
+        SpellDetails(Detail,W-326,H-340,298);
+    }
+    else if(!Tooltip.IsEmpty())
+    {
+        UI.Panel(12,H-238,650,108);
+        ShieldUI(TEXT("OrderTooltip"),12,H-238,650,108,20);
+        Paragraph(Tooltip,26,H-223,621,UI.Ink);
+    }
+
+    const FString Context=Host->bPlaceFormationOrder?TEXT("MOVE: click clear ground / RMB cancel"):
+        Host->SelectedSpellSlot>=0?Host->bBattlePaused?TEXT("SPELL READY / resume [P], then click / RMB cancel"):TEXT("SPELL READY / click to cast / RMB cancel"):
+        Host->bTacticalCameraActive?TEXT("WASD pan / wheel zoom / RMB orbit / K spellbook"):
+        TEXT("WASD move / LMB attack / RMB block / K spellbook / Alt cursor");
+    UI.FitText(Host->bGamepadActive?TEXT("RB formation / D-pad orders / X spell / Y cast / B cancel / Menu pause"):Context,22,94,700,UI.Muted,1.f);
+    UI.FitText(Host->Status,22,H-23,ArmyWidth-12,UI.Bright,1.f);
     if(Host->bGamepadActive)
     {
         UI.Line(W*.5f-8,H*.5f,W*.5f-3,H*.5f,UI.Bright,2);
@@ -165,29 +302,26 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         UI.Line(W*.5f,H*.5f-8,W*.5f,H*.5f-3,UI.Bright,2);
         UI.Line(W*.5f,H*.5f+3,W*.5f,H*.5f+8,UI.Bright,2);
     }
-    if(!Tooltip.IsEmpty())
-    {
-        UI.Panel(22,H-277,W-44,34);
-        UI.FitText(Tooltip,34,H-267,W-68,UI.Ink);
-    }
-    // Only meaningful battle changes; bounded and frozen with the simulation.
     int32 NoticeRow=0;
     for(const auto& Notice:Host->BattleNotices)
     {
         if(Notice.ExpiresAt<=Host->BattleElapsed) continue;
-        const float Y=166+NoticeRow*30;
-        UI.Panel(W-342,Y,330,26);
-        UI.FitText(Notice.Text,W-330,Y+6,306,
-            Notice.Side==0?Ally:Notice.Side==1?Enemy:UI.Bright,1.05f);
+        const float Y=58+NoticeRow*28;
+        UI.Panel(W-322,Y,310,24);
+        ShieldUI(FName(*FString::Printf(TEXT("Notice%d"),NoticeRow)),W-322,Y,310,24);
+        UI.FitText(Notice.Text,W-312,Y+5,290,Notice.Side==0?Ally:Notice.Side==1?Enemy:UI.Bright,1.f);
         ++NoticeRow;
     }
     if(Host->bShowBattleHelp)
     {
-        UI.Panel(22,162,680,158);
-        UI.Text(TEXT("COMMAND YOUR BATTLE"),38,175,UI.Bright,1.35f);
-        UI.Text(TEXT("P / Space pauses. Inspect the battle and issue orders while paused."),38,203,UI.Ink);
-        UI.Text(TEXT("F1-F5 select formations. Tab cycles. Your orders persist until [R]."),38,228,UI.Ink);
-        UI.Text(TEXT("Spells 1-3: target click. 4: shield hero. 5: hasten army. Resume to cast."),38,253,UI.Ink);
-        UI.Text(TEXT("C: hero / commander. X: first / third person. Q/E: commander rotation."),38,278,UI.Ink);
+        UI.Panel(22,130,625,190);
+        ShieldUI(TEXT("HelpBackground"),22,130,625,190,20);
+        UI.Text(TEXT("COMMAND YOUR BATTLE"),38,144,UI.Bright,1.3f);
+        UI.Text(TEXT("P / Space: start or pause (if enabled during deployment)."),38,174,UI.Ink);
+        UI.Text(TEXT("F1-F5: formations. Tab: cycle. R: return orders to AI."),38,199,UI.Ink);
+        UI.Text(TEXT("K: spellbook. 1-5: ready spell. Click: cast. RMB: cancel."),38,224,UI.Ink);
+        UI.Text(TEXT("Opening the book never pauses. Resume before casting."),38,249,UI.Ink);
+        UI.Text(TEXT("C: hero / commander. X: first / third person. Home: focus."),38,274,UI.Ink);
+        UI.Text(TEXT("F10 closes help. Esc closes menus or targeting first."),38,299,UI.Muted,1.f);
     }
 }

@@ -1,0 +1,35 @@
+{
+  "policy": "Read-only donor junction; texture packages are not source-owned or committed. Six explicit cook roots only.",
+  "assets": [
+    {
+      "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Spell_Mix\\frame\\Textures\\T_spells_mix_frame_12.uasset",
+      "sha256": "b5bb71968f2b5c3abc721f6d75572ce6b317d6096d459ded196be0e7d8a55314",
+      "bytes": 503172
+    },
+    {
+      "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Spell_Mix\\frame\\Textures\\T_spells_mix_frame_02.uasset",
+      "sha256": "3de2bd8e6a2caff6cd0f94892cccf87d3f4ebdcfacf92cd5b6137fb41255ac57",
+      "bytes": 542970
+    },
+    {
+      "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Spell_Mix\\frame\\Textures\\T_spells_mix_frame_16.uasset",
+      "sha256": "37bb2f71fc005a531a2f5aea8b47657f01b69b0aa203c820ac3be58f4e775c74",
+      "bytes": 510111
+    },
+    {
+      "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Spell_Mix\\frame\\Textures\\T_spells_mix_frame_24.uasset",
+      "sha256": "ff1e2b7072dd00a0fb51ffaf5c42af8f7fac0f4836982aa4e2aaf06ae738a7f6",
+      "bytes": 502246
+    },
+    {
+      "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Spell_Mix\\frame\\Textures\\T_spells_mix_frame_20.uasset",
+      "sha256": "bb19272411d5a36bdad970770b90cf507281a289b6e1eac46649f0e075276e2c",
+      "bytes": 570416
+    },
+    {
+      "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Spell_Mix\\frame\\Textures\\T_spells_mix_frame_36.uasset",
+      "sha256": "2a85f0771acd9d7279d478594a1fae9b19dda8aaabf1f37697008ab566fc5aec",
+      "bytes": 480503
+    }
+  ]
+}

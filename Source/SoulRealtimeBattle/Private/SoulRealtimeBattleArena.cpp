@@ -1545,7 +1545,7 @@ void ASoulRealtimeArenaGameMode::RollbackSpawnedFormation(
 }
 
 FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
-    const FVector& Desired)
+    const FVector& Desired) const
 {
     if (!bExternalEnvironment || !GetWorld())
         return Desired;
@@ -2751,6 +2751,8 @@ void ASoulRealtimeArenaGameMode::SelectAlliedFormationSlot(int32 Slot)
 void ASoulRealtimeArenaGameMode::ToggleBattlePause()
 {
     if(bFinished) return;
+    if(!bBattlePaused && !bAllowTacticalPause)
+    { Status=TEXT("Tactical pause is disabled for this battle."); return; }
     const bool bPause = !bBattlePaused;
     if (!UGameplayStatics::SetGamePaused(this, bPause))
     {
@@ -2764,7 +2766,7 @@ void ASoulRealtimeArenaGameMode::ToggleBattlePause()
         AliveForSide(0), AliveForSide(1), AcceptedContacts.Num(), PlayerMana);
     Status = bBattlePaused
         ? TEXT("BATTLE PAUSED - select a formation and issue orders")
-        : TEXT("BATTLE RUNNING - [Space/P] pauses at any time");
+        : bAllowTacticalPause ? TEXT("BATTLE RUNNING - [Space/P] pauses at any time") : TEXT("BATTLE RUNNING - tactical pause disabled");
 }
 
 void ASoulRealtimeArenaGameMode::ToggleBattleCamera()
@@ -3287,6 +3289,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (PC->WasInputKeyJustPressed(EKeys::Four)) SelectPlayerSpell(3);
     if (PC->WasInputKeyJustPressed(EKeys::Five)) SelectPlayerSpell(4);
 
+    if (PC->WasInputKeyJustPressed(EKeys::K)) HandleBattleAction(TEXT("Grimoire"));
     if (PC->WasInputKeyJustPressed(EKeys::F10)) bShowBattleHelp = !bShowBattleHelp;
     auto PadAxis=[&](FKey Key){const float V=PC->GetInputAnalogKeyState(Key);return FMath::Abs(V)<.20f?0.f:FMath::Sign(V)*(FMath::Abs(V)-.20f)/.80f;};
     const float PadX=PadAxis(EKeys::Gamepad_LeftX),PadY=PadAxis(EKeys::Gamepad_LeftY);
@@ -3295,7 +3298,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (const auto* LocalPlayer=PC->GetLocalPlayer())
         if (const auto* InputMethod=LocalPlayer->GetSubsystem<URBUIInputSubsystem>())
             bGamepadActive=InputMethod->IsGamepadActive();
-    const bool WantsCursor = !bGamepadActive && (bTacticalCameraActive || SelectedSpellSlot >= 0 || bPlaceFormationOrder || PC->IsInputKeyDown(EKeys::LeftAlt));
+    const bool WantsCursor = !bGamepadActive && (bSpellbookOpen || bTacticalCameraActive || SelectedSpellSlot >= 0 || bPlaceFormationOrder || PC->IsInputKeyDown(EKeys::LeftAlt));
     if (PC->bShowMouseCursor != WantsCursor)
     {
         PC->SetShowMouseCursor(WantsCursor);
@@ -3316,7 +3319,8 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (SelectedSpellSlot >= 0 && !OverUI && PC->WasInputKeyJustPressed(EKeys::LeftMouseButton))
     {
         FHitResult Hit;
-        if (ReadPointerHit(Hit) && CastPlayerSpellSlot(SelectedSpellSlot, &Hit))
+        if ((SelectedSpellSlot>=3 || ReadPointerHit(Hit)) &&
+            CastPlayerSpellSlot(SelectedSpellSlot, SelectedSpellSlot>=3 ? nullptr : &Hit))
             SelectedSpellSlot = INDEX_NONE;
         return;
     }
@@ -3443,15 +3447,21 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
             Status = TEXT("No enemy in melee arc");
     }
 
-    if (PC->WasInputKeyJustPressed(EKeys::Escape))
-        FPlatformMisc::RequestExit(false);
 }
 void ASoulRealtimeArenaGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
     if (auto* PC = GetWorld()->GetFirstPlayerController())
         if (PC->WasInputKeyJustPressed(EKeys::Escape))
-            FPlatformMisc::RequestExit(false);
+        {
+            if(bSpellbookOpen || SelectedSpellSlot>=0 || bPlaceFormationOrder || bShowBattleHelp)
+            {
+                bSpellbookOpen=false; SelectedSpellSlot=INDEX_NONE;
+                bPlaceFormationOrder=false; bShowBattleHelp=false;
+                Status=TEXT("Closed without casting.");
+            }
+            else FPlatformMisc::RequestExit(false);
+        }
     if (bMapOnly)
     {
         BattleElapsed += Seconds;

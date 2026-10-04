@@ -8,11 +8,29 @@
 #include "GameFramework/PlayerController.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
+#include "GameFramework/HUDHitBox.h"
+#include "Engine/Texture2D.h"
+#include "Algo/AllOf.h"
+#if WITH_EDITOR
+#include "AssetCompilingManager.h"
+#endif
 
 // Explicit opt-in rendered qualification. Calls the normal action handlers;
 // native input delivery is checked separately by the control receipt workflow.
 void ASoulRealtimeArenaGameMode::TickReadabilityProof()
 {
+#if WITH_EDITOR
+    // Editor-game can render default materials while asynchronous compilation
+    // finishes. Qualification must capture the loaded scene, not that placeholder.
+    if (ReadabilityStarted == 0.0)
+    {
+        auto& Compiler = FAssetCompilingManager::Get();
+        UE_LOG(LogTemp, Display, TEXT("SOUL_CAPTURE_ASSETS: pending=%d"), Compiler.GetNumRemainingAssets());
+        Compiler.FinishAllCompilation();
+        UE_LOG(LogTemp, Display, TEXT("SOUL_CAPTURE_ASSETS: ready pending=%d"), Compiler.GetNumRemainingAssets());
+    }
+#endif
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulSpellbookProof"))) { TickSpellbookProof(); return; }
     const double Now = FPlatformTime::Seconds();
     if (ReadabilityStarted == 0.0) ReadabilityStarted = Now;
     const double Elapsed = Now - ReadabilityStarted;
@@ -137,5 +155,127 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         ReadabilityNextCapture = Now + 5.0;
         break;
     default: break;
+    }
+}
+
+// Opt-in rendered HUD qualification. Uses the real HUD hitboxes/action route;
+// it is not a claim that physical mouse/controller hardware was exercised.
+void ASoulRealtimeArenaGameMode::TickSpellbookProof()
+{
+    const double Now=FPlatformTime::Seconds();
+    if(ReadabilityStarted==0) ReadabilityStarted=Now;
+    auto* PC=GetWorld()->GetFirstPlayerController();
+    auto* HUD=PC?Cast<ASoulRealtimeArenaHUD>(PC->GetHUD()):nullptr;
+    if(!PC || !HUD) return;
+    int32 PixelsX=0,PixelsY=0;PC->GetViewportSize(PixelsX,PixelsY);
+    const float Scale=FMath::Max(.5f,FMath::Min(PixelsX/1280.f,PixelsY/720.f));
+    const float W=PixelsX/Scale,H=PixelsY/Scale;
+    auto Require=[&](bool OK,const TCHAR* Label)
+    {
+        UE_LOG(LogTemp,Display,TEXT("SOUL_SPELLBOOK_CHECK: %s %s"),Label,OK?TEXT("PASS"):TEXT("FAIL"));
+        if(!OK) FPlatformMisc::RequestExitWithStatus(false,1);
+        return OK;
+    };
+    auto Click=[&](float X,float Y,FName Expected)
+    {
+        const auto* Box=HUD->GetHitBoxAtCoordinates(FVector2D(X,Y)*Scale,true);
+        if(!Require(Box && Box->GetName()==Expected,*Expected.ToString())) return false;
+        HUD->NotifyHitBoxClick(Box->GetName());
+        return true;
+    };
+    auto Capture=[&](const TCHAR* Label)
+    {
+        ReadabilityCaptureName=FString::Printf(TEXT("%dx%d-%s"),PixelsX,PixelsY,Label);
+        ReadabilityCaptureAt=Now+.75;
+    };
+    if(!ReadabilityCaptureName.IsEmpty())
+    {
+        if(Now<ReadabilityCaptureAt || FScreenshotRequest::IsScreenshotRequested()) return;
+        const FString Dir=FPaths::ProjectSavedDir()/TEXT("Screenshots/Spellbook");
+        IFileManager::Get().MakeDirectory(*Dir,true);
+        FScreenshotRequest::RequestScreenshot(Dir/(ReadabilityCaptureName+TEXT(".png")),false,false);
+        UE_LOG(LogTemp,Display,TEXT("SOUL_SPELLBOOK_CAPTURE: %s"),*ReadabilityCaptureName);
+        ReadabilityCaptureName.Reset();
+        ReadabilityNextCapture=Now+1.5;
+        return;
+    }
+    if(Now<ReadabilityNextCapture || Now-ReadabilityStarted<2.0) return;
+    switch(ReadabilityStage++)
+    {
+    case 0:
+        if(!bTacticalCameraActive) ToggleBattleCamera();
+        PC->SetMouseLocation(PixelsX/2,PixelsY/2);
+        if(!Require(SpellIcons.Num()==6 && Algo::AllOf(SpellIcons,[](const auto& Icon){return IsValid(Icon.Get());}),TEXT("six donor icons loaded"))) return;
+        Capture(TEXT("compact-deployment"));
+        break;
+    case 1:
+        if(!Click(W-150,H-38,TEXT("Grimoire"))) return;
+        if(!Require(bSpellbookOpen && bBattlePaused,TEXT("book preserves manual pause"))) return;
+        PC->SetMouseLocation(FMath::RoundToInt((W-340)*Scale),FMath::RoundToInt((H-470+55+52+20)*Scale));
+        Capture(TEXT("open-book"));
+        break;
+    case 2:
+        {
+            const auto* Box=HUD->GetHitBoxAtCoordinates(FVector2D(W-100,H-210)*Scale,true);
+            if(!Require(Box && Box->GetName()==TEXT("BookBackground"),TEXT("page blocks world clicks"))) return;
+        }
+        if(!Click(W-340,H-470+55+3*52+20,TEXT("BookSpell3"))) return;
+        if(!Require(!bSpellbookOpen && SelectedSpellSlot==3 && bBattlePaused && MagicCasts==0,TEXT("paused ward arms without cast"))) return;
+        Capture(TEXT("paused-selection"));
+        break;
+    case 3:
+        HandleGamepadAction(TEXT("Cancel"));bGamepadActive=false;
+        if(!Click(65,70,TEXT("PauseRule"))) return;
+        if(!Click(W-340,30,TEXT("Pause"))) return;
+        if(!Click(W-150,H-38,TEXT("Grimoire"))) return;
+        if(!Require(bSpellbookOpen && !bBattlePaused && !bAllowTacticalPause,TEXT("live book no slowdown or pause"))) return;
+        Capture(TEXT("live-book"));
+        break;
+    case 4:
+        if(!Click(W-340,H-470+55+3*52+20,TEXT("BookSpell3"))) return;
+        if(!Require(SelectedSpellSlot==3 && MagicCasts==0,TEXT("live selection still requires confirmation"))) return;
+        HandleGamepadAction(TEXT("Cast"));bGamepadActive=false;
+        if(!Require(MagicCasts==1 && SelectedSpellSlot==INDEX_NONE,TEXT("confirmed ward casts once"))) return;
+        Capture(TEXT("ward-cast"));
+        break;
+    case 5:
+        if(!Click(W-446+2*49+20,H-38,TEXT("Spell2"))) return;
+        PC->SetMouseLocation(PixelsX/2,PixelsY/2);
+        Capture(TEXT("ground-target-preview"));
+        break;
+    case 6:
+        HandleGamepadAction(TEXT("Cancel"));bGamepadActive=false;
+        PC->SetMouseLocation(FMath::RoundToInt((W-426)*Scale),FMath::RoundToInt((H-38)*Scale));
+        Capture(TEXT("quick-slot-details"));
+        break;
+    case 7:
+        if(!Click(W-150,H-38,TEXT("Grimoire"))) return;
+        PC->SetMouseLocation(PixelsX/2,PixelsY/2);
+        Capture(TEXT("live-book-return"));
+        break;
+    case 8:
+        if(!Click(W-55,H-448,TEXT("CloseGrimoire"))) return;
+        if(!Require(!bSpellbookOpen && !bBattlePaused,TEXT("close restores live battlefield"))) return;
+        Capture(TEXT("compact-live"));
+        break;
+    case 9:
+        HandleBattleAction(TEXT("Camera"));
+        HandleBattleAction(TEXT("Grimoire"));
+        PC->SetMouseLocation(PixelsX/2,PixelsY/2);
+        Capture(TEXT("hero-book"));
+        break;
+    case 10:
+        if(!Require(!bTacticalCameraActive && bSpellbookOpen && PC->bShowMouseCursor,TEXT("hero book releases pointer"))) return;
+        if(!Click(W-55,H-448,TEXT("CloseGrimoire"))) return;
+        Capture(TEXT("hero-controls-restored"));
+        break;
+    case 11:
+        if(!Require(!bSpellbookOpen && !PC->bShowMouseCursor,TEXT("closing book restores hero mouse look"))) return;
+        ToggleBattlePause();
+        if(!Require(!bBattlePaused,TEXT("no-pause rejects pause after start"))) return;
+        UE_LOG(LogTemp,Display,TEXT("SOUL_SPELLBOOK_PASS: resolution=%dx%d casts=%d elapsed=%.2f mana=%.1f"),
+            PixelsX,PixelsY,MagicCasts,BattleElapsed,PlayerMana);
+        FPlatformMisc::RequestExitWithStatus(false,0);
+        break;
     }
 }

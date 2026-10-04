@@ -265,6 +265,9 @@ private:
     bool ReadPointerHit(FHitResult& Hit) const;
     void MoveSelectedToPointer();
     bool bShowBattleHelp = false;
+    bool bSpellbookOpen = false;
+    bool bAllowTacticalPause = true;
+    UPROPERTY() TArray<TObjectPtr<class UTexture2D>> SpellIcons;
     int32 SelectedSpellSlot = INDEX_NONE;
     bool bPlaceFormationOrder = false;
     void TickBattleResolution(float Seconds);
@@ -314,6 +317,7 @@ private:
     double ReadabilityCaptureAt = 0.0;
     FString ReadabilityCaptureName;
     void TickReadabilityProof();
+    void TickSpellbookProof();
     double NextControlReceipt = 0.0;
     bool bTacticalCameraActive = false;
     bool bFirstPersonCamera = false;
@@ -341,7 +345,7 @@ private:
     void RollbackSpawnedFormation(int32 FirstCombatant, int32 FirstGroup, int32 FirstDriver);
     bool SetupBattlefieldBounds();
     void TrackBattlefieldExtent();
-    FVector ResolveSpawnLocation(const FVector& Desired);
+    FVector ResolveSpawnLocation(const FVector& Desired) const;
     USkeletalMesh* ResolveVisualMesh(
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     UAnimationAsset* ResolveVisualAnimation(

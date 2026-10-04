@@ -1,0 +1,140 @@
+{
+  "scope": "Compact realtime battle spellbook, quick slots and HUD. No campaign map/Titan work or new spell authority.",
+  "worktree": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "base_commit": "d106dcf",
+  "fact": {
+    "implementation": [
+      "Five persistent quick slots and a two-page bottom-right grimoire. K/button toggles; hover shows definition-derived cost/cooldown and effect/target guidance.",
+      "Book opening preserves current simulation state. Optional deployment-only tactical-pause rule. Every spell requires selection then confirmation; cancel/selection spends no mana.",
+      "Hero book releases cursor; closing restores hero mouse look. UI panels consume clicks. Ground spell has a read-only range/area preview.",
+      "Compact phase/resources, formation cards, orders and hero panel; detailed help is optional.",
+      "Six owned donor textures referenced through ignored junction with explicit cook roots; original packages untouched."
+    ],
+    "automation": {
+      "passed": 85,
+      "clean_passes": 84,
+      "passed_with_warning": 1,
+      "failed": 0,
+      "not_run": 0,
+      "report": "Automation-20261004-105132/index.json",
+      "warning": "Existing Orion_Proto_Retarget donor references missing Rig class."
+    },
+    "source_tests": {
+      "tools": 82,
+      "campaign_view": 7,
+      "logs": [
+        "Source-tests-final.log",
+        "Campaign-view-tests.log"
+      ]
+    },
+    "runtime_input_method": "Rendered HUD hitbox routing and normal action handlers; automated PC cursor movement. Not physical mouse/controller hardware qualification.",
+    "licensed_content": "Six donor icon SHA256 values verified unchanged against donor-icon-reference.json.",
+    "cache_recovery": "Old Core/Engine/UnrealEd cache junctions pointed into temporary SoulBuildCache-20261002. Replaced active worker cache paths with ordinary local directories; archived junctions and existing backup directories retained. No source or donor paths deleted.",
+    "prior_campaign_roundtrip": "Qualified at base d106dcf in Evidence/BattleExpansion-20261003/qualification-receipt.json. Not requalified by this HUD-only spellbook proof.",
+    "incoming_assets": "MilitaryRanks1 and Medieval_Warzone props detected in donor project. No rank authority or siege gameplay was added in this change.",
+    "builds": {
+      "SoulEditor": "Build-editor-local-cache.log: Succeeded,334.63s",
+      "Soul": "Build-game-final.log: Succeeded,662.52s",
+      "warnings": "Existing TCAT deprecated RHI/profiler APIs during cache rebuild; no gameplay compilation errors."
+    },
+    "capture_barrier": "Opt-in rendered qualification finishes outstanding editor asset compilation before capturing. No gameplay tick or licensed package changes.",
+    "performance": "One disk sample: D 96% active,2.45MB/s reads during game PCH load. Read-only sequential warm of2153512824-byte PCH completed in28.99s; pending build then completed. Not an interactive battle FPS measurement.",
+    "files_changed": [
+      "Config/DefaultGame.ini",
+      "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+      "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp",
+      "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp",
+      "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "Source/SoulRealtimeBattle/Private/Tests/SoulSpellReadinessTests.cpp",
+      "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "Tools/package_soul_weekend.ps1",
+      "Tools/build_soul_spellbook_review.py",
+      "Evidence/Spellbook-20261004/run_battle.ps1",
+      "Evidence/Spellbook-20261004/export_icons.py",
+      "Evidence/Spellbook-20261004/donor-icon-reference.json",
+      "Evidence/Spellbook-20261004/qualification-receipt.json"
+    ],
+    "spellbook_runtime": [
+      {
+        "log": "SmallBattleRuntime-pass1.log",
+        "resolution": "1280x720",
+        "result": "PASS",
+        "casts": 1,
+        "mana": 68,
+        "images": "Pass1-1280 (initial layout)"
+      },
+      {
+        "log": "Spellbook-1920.log",
+        "resolution": "1920x1080",
+        "result": "PASS",
+        "casts": 1,
+        "mana": 68,
+        "images": "ReadabilityUser/Saved/Screenshots/Spellbook/1920x1080-*"
+      },
+      {
+        "log": "Spellbook-1280-final.log",
+        "resolution": "1280x720",
+        "result": "Controls PASS; visuals rejected for default materials",
+        "images": "Pass3-material-pending"
+      },
+      {
+        "log": "Spellbook-1280-ready.log",
+        "resolution": "1280x720",
+        "result": "PASS; final textured images visually inspected",
+        "casts": 1,
+        "mana": 68,
+        "battle_seconds": 17.69,
+        "checks": [
+          "book does not pause or slow live battle",
+          "paused selection spends no mana",
+          "UI backgrounds block world clicks",
+          "ward confirmation casts once",
+          "ground preview",
+          "tooltip",
+          "close book",
+          "hero cursor released then mouse look restored",
+          "no-pause rejects pause"
+        ],
+        "images": "ReadabilityUser/Saved/Screenshots/Spellbook/1280x720-*"
+      }
+    ],
+    "material_capture_recovery": "Unreal had664 pending asset compilations at initial proof tick. FinishAllCompilation took12.03s, reported1remaining job; final screenshots showed fully textured floor and characters. Rejected placeholder captures retained separately. Barrier applies only to opt-in qualification.",
+    "battle_regression": {
+      "log": "Qualified-battle-40active-reserves.log",
+      "active_cap": 40,
+      "player_pool": 46,
+      "enemy_pool": 30,
+      "casts": 5,
+      "accepted_contacts": 519,
+      "allied_targets": 0,
+      "battle_seconds": 89.65,
+      "allied_reinforcement_waves": 2,
+      "enemy_reinforcement_waves": 3,
+      "result": "Victory by enemy rout; resolved screenshot inspected; normal shutdown",
+      "end_screenshot": "ReadabilityUser/Saved/Screenshots/Readability/result.png",
+      "note": "Standalone physical battle regression. No new campaign return run."
+    },
+    "inspected_views": [
+      "prior HUD before",
+      "1080p compact/open book/ground targeting",
+      "final720p compact/open book/quick tooltip/ground targeting/hero book/hero restored",
+      "40-active battle result"
+    ]
+  },
+  "inference": [
+    "Logical HUD rectangle coverage is roughly 15% closed versus roughly 34% previously at three formations; grimoire itself occupies 16.1% at 16:9. This is a layout calculation, not pixel segmentation.",
+    "Slow C: derived-data cache reads contribute to long editor-game startup; measured 1.13 MB/s random reads in one run."
+  ],
+  "unknown_or_remaining": [
+    "Fresh packaged/cooked execution with new icon roots.",
+    "Physical controller and Jeff hands-on playtest.",
+    "Existing battlefield art/animation issues remain outside this HUD change."
+  ],
+  "intentionally_uncommitted": [
+    "Pre-existing Config/DefaultEngine.ini and Soul.uproject edits.",
+    "Licensed content junctions and donor packages.",
+    "Large runtime logs, screenshots, texture exports, generated caches and pre-existing evidence."
+  ],
+  "gallery": "http://127.0.0.1:8766/soul-spellbook.html"
+}
