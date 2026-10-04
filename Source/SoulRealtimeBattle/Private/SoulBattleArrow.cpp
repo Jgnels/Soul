@@ -1,4 +1,6 @@
 #include "SoulBattleArrow.h"
+#include "SoulRealtimeBattleArena.h"
+#include "Engine/World.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Particles/ParticleSystem.h"
@@ -42,9 +44,19 @@ ASoulBattleArrow::ASoulBattleArrow()
 }
 
 
-#include "SoulRealtimeBattleArena.h"
 #include "NiagaraComponent.h"
 #include "NiagaraSystem.h"
+
+void ASoulBattleArrow::Tick(float DeltaSeconds)
+{
+    if (!bLaunchPresented && GetLaunchEvidence().IsValid())
+    {
+        bLaunchPresented = true;
+        if (auto* Host = GetWorld()->GetAuthGameMode<ASoulRealtimeArenaGameMode>())
+            Host->PresentBowLaunch(GetLaunchEvidence());
+    }
+    Super::Tick(DeltaSeconds);
+}
 
 ASoulBattleSpellProjectile::ASoulBattleSpellProjectile()
 {

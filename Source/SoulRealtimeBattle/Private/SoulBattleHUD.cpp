@@ -83,7 +83,30 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         const float X=12+Slot*(CardW+8), Y=H-228;
         const bool Selected=Host->bSelectAllAllies||Host->SelectedAlliedFormation==Formation.GroupIndex;
         const FName Action(*FString::Printf(TEXT("Formation%d"),Slot));
-        UI.Button(Action,TEXT(""),X,Y,CardW,88,Selected);
+        if(UI.Button(Action,TEXT(""),X,Y,CardW,88,Selected))
+        {
+            int32 Members[8]={},Arrows=0;
+            float Health=0,Maximum=0;
+            for(const auto& Unit:Host->Combatants)
+                if(Unit.GroupIndex==Formation.GroupIndex && Unit.Health>0)
+                {
+                    const int32 RoleIndex=static_cast<int32>(Unit.Role);
+                    if(RoleIndex>=0 && RoleIndex<8) ++Members[RoleIndex];
+                    Health+=Unit.Health;Maximum+=Unit.MaxHealth;
+                    if(Unit.bRanged) Arrows+=Unit.Arrows;
+                }
+            Tooltip=FString::Printf(TEXT("F%d: "),Slot+1);
+            bool First=true;
+            for(int32 RoleIndex=0;RoleIndex<8;++RoleIndex)
+                if(Members[RoleIndex])
+                {
+                    if(!First) Tooltip+=TEXT(", ");
+                    Tooltip+=FString::Printf(TEXT("%d %s"),Members[RoleIndex],*Host->RoleLabel(static_cast<ESoulRealtimeFormationRole>(RoleIndex)));
+                    First=false;
+                }
+            if(First) Tooltip+=TEXT("No active troops");
+            else Tooltip+=FString::Printf(TEXT(" | Health %.0f%% | %d arrows | Click to select"),100.f*Health/FMath::Max(1.f,Maximum),Arrows);
+        }
         UI.Emblem(Formation.Kind==ESoulBattleFormationKind::FrontLine?3:Formation.Kind==ESoulBattleFormationKind::Strike?5:Formation.Kind==ESoulBattleFormationKind::MissileSupport?4:6,X+24,Y+30,13,Selected?UI.Bright:UI.Gold);
         UI.FitText(FString::Printf(TEXT("F%d  %s"),Slot+1,FSoulRealtimeTacticalRules::FormationKindLabel(Formation.Kind)),X+48,Y+12,CardW-60,UI.Ink,1.25f);
         const int32 Alive=Host->AliveInGroup(Formation.GroupIndex);
@@ -116,16 +139,18 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     const float SpellW=(W-48)/5;
     const FLinearColor SpellColors[]={FLinearColor(1,.43f,.17f),FLinearColor(.80f,.62f,1),FLinearColor(.48f,.82f,1),FLinearColor(.25f,.65f,1),FLinearColor(.49f,.90f,.65f)};
     static const TCHAR* SpellNames[]={TEXT("Firebolt"),TEXT("Chain lightning"),TEXT("Blizzard"),TEXT("Tidal ward"),TEXT("Tailwind")};
-    static const TCHAR* SpellHints[]={TEXT("Select, then click an enemy. A physical firebolt can hit intervening bodies or scenery."),TEXT("Select, then click an enemy near other enemies to chain lightning."),TEXT("Select, then click ground in hero range for a sustained area spell."),TEXT("Cast immediately: protect nearby allies."),TEXT("Cast immediately: hasten your surviving army.")};
+    static const TCHAR* SpellHints[]={TEXT("Select, then click an enemy. A physical firebolt can hit intervening bodies or scenery."),TEXT("Select, then click an enemy near other enemies to chain lightning."),TEXT("Select, then click ground in hero range for a sustained area spell."),TEXT("Cast immediately: shield your hero against incoming damage."),TEXT("Cast immediately: hasten your surviving army.")};
     for(int32 I=0;I<5;++I)
     {
         const float X=12+I*(SpellW+6),Y=H-92;
-        if(UI.Button(FName(*FString::Printf(TEXT("Spell%d"),I)),TEXT(""),X,Y,SpellW,58,Host->SelectedSpellSlot==I)) Tooltip=SpellHints[I];
-        UI.Emblem(I,X+25,Y+29,15,Host->PlayerHealth()>0?SpellColors[I]:UI.Muted);
+        const FString Blocked=Host->SpellBlockReason(I);
+        if(UI.Button(FName(*FString::Printf(TEXT("Spell%d"),I)),TEXT(""),X,Y,SpellW,58,Host->SelectedSpellSlot==I))
+            Tooltip=Blocked.IsEmpty() ? FString(SpellHints[I]) : Blocked+TEXT(". ")+SpellHints[I];
+        UI.Emblem(I,X+25,Y+29,15,Blocked.IsEmpty()?SpellColors[I]:UI.Muted);
         UI.FitText(FString::Printf(TEXT("%d  %s"),I+1,SpellNames[I]),X+50,Y+10,SpellW-60,UI.Ink,1.2f);
         FString Name,Detail;
         Host->SpellButtonLabel(I).Split(TEXT(" | "),&Name,&Detail);
-        UI.FitText(Host->PlayerHealth()>0?Detail:TEXT("Hero fallen"),X+50,Y+34,SpellW-60,UI.Muted,1.05f);
+        UI.FitText(Detail,X+50,Y+34,SpellW-60,Blocked.IsEmpty()?UI.Muted:UI.Bright,1.05f);
     }
     UI.FitText(Host->Status,24,H-24,W-48,UI.Bright,1.05f);
     const FString Context=Host->bPlaceFormationOrder?TEXT("MOVE READY: click clear ground | RMB cancels"):
@@ -145,13 +170,24 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         UI.Panel(22,H-277,W-44,34);
         UI.FitText(Tooltip,34,H-267,W-68,UI.Ink);
     }
+    // Only meaningful battle changes; bounded and frozen with the simulation.
+    int32 NoticeRow=0;
+    for(const auto& Notice:Host->BattleNotices)
+    {
+        if(Notice.ExpiresAt<=Host->BattleElapsed) continue;
+        const float Y=166+NoticeRow*30;
+        UI.Panel(W-342,Y,330,26);
+        UI.FitText(Notice.Text,W-330,Y+6,306,
+            Notice.Side==0?Ally:Notice.Side==1?Enemy:UI.Bright,1.05f);
+        ++NoticeRow;
+    }
     if(Host->bShowBattleHelp)
     {
         UI.Panel(22,162,680,158);
         UI.Text(TEXT("COMMAND YOUR BATTLE"),38,175,UI.Bright,1.35f);
         UI.Text(TEXT("P / Space pauses. Inspect the battle and issue orders while paused."),38,203,UI.Ink);
         UI.Text(TEXT("F1-F5 select formations. Tab cycles. Your orders persist until [R]."),38,228,UI.Ink);
-        UI.Text(TEXT("Spells 1-3 need a target click. Spells 4-5 cast on your army immediately."),38,253,UI.Ink);
+        UI.Text(TEXT("Spells 1-3: target click. 4: shield hero. 5: hasten army. Resume to cast."),38,253,UI.Ink);
         UI.Text(TEXT("C: hero / commander. X: first / third person. Q/E: commander rotation."),38,278,UI.Ink);
     }
 }

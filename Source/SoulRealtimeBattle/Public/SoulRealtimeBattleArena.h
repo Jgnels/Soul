@@ -11,6 +11,10 @@
 #include "SoulRealtimeBattleTactics.h"
 #include "SoulRealtimeBattleArena.generated.h"
 
+struct FRBProjectileLaunch;
+class USoundWave;
+class USoundAttenuation;
+class USoundConcurrency;
 class AActor;
 class ASoulBattleSpellProjectile;
 class ACameraActor;
@@ -23,11 +27,24 @@ class URBCombatRangedComponent;
 class URBMagicPresentationProfile;
 class URBMagicSpellDefinition;
 
+enum class ESoulBattleSound : uint8
+{
+    SwordSwing1, SwordSwing2, SwordHit1, SwordHit2, BowRelease1, BowRelease2,
+    ArrowHit, Firebolt, Blizzard, MagicImpact, TidalWard
+};
+
 enum class ESoulRealtimeMovementArchetype : uint8
 {
     Infantry,
     LowProfile,
     Aerial
+};
+
+struct FSoulBattleNotice
+{
+    FString Text;
+    float ExpiresAt = 0.0f;
+    int32 Side = INDEX_NONE;
 };
 
 struct FSoulRealtimeArenaMagicArea
@@ -147,6 +164,7 @@ public:
     virtual void BeginPlay() override;
     virtual void Tick(float Seconds) override;
 
+    void PresentBowLaunch(const FRBProjectileLaunch& Launch);
     int32 Index(FRBHostIdentity Identity) const;
     FRBHostIdentity IdentityAt(int32 Index) const;
     FRBWeaponProfile Profile(int32 Index) const;
@@ -222,6 +240,7 @@ private:
     friend class ASoulBattleSpellProjectile;
     friend class FSoulMagicProjectileAuthorityTest;
     friend class FSoulFormationSelectionTest;
+    friend class FSoulSpellReadinessTest;
     bool LaunchMagicProjectile(int32 Caster,int32 Target,const FGuid& CastId,float Damage);
     void ResolveMagicProjectile(ASoulBattleSpellProjectile* Projectile,const FHitResult& Hit);
     void ForgetMagicProjectile(ASoulBattleSpellProjectile* Projectile);
@@ -231,7 +250,11 @@ private:
     static constexpr float BattlefieldHalfX = 2600.0f;
     static constexpr float BattlefieldHalfY = 2200.0f;
     void HandleBattleAction(FName Action);
+    void PushBattleNotice(const FString& Text, int32 Side = INDEX_NONE);
+    TArray<FSoulBattleNotice> BattleNotices;
     FString SpellButtonLabel(int32 Slot) const;
+    FString SpellBlockReason(int32 Slot, bool bAllowPausedTargeting = false) const;
+    static float SpellManaCost(const URBMagicSpellDefinition& Spell);
     void SetupSpellBar();
     void HandleGamepadAction(FName Action);
     bool bGamepadActive = false;
@@ -330,6 +353,14 @@ private:
     bool UsesEvilVisualRoster() const;
     void UpdateVisualAnimations();
     void DressDragonBattlefield();
+    friend class FSoulBattleAudioTest;
+    void SetupBattleAudio();
+    void PlayBattleSound(ESoulBattleSound Sound, const FVector& Location, int32 Variation = 0);
+    UPROPERTY() TArray<TObjectPtr<USoundWave>> BattleSounds;
+    UPROPERTY() TObjectPtr<USoundConcurrency> TroopSoundConcurrency;
+    UPROPERTY() TObjectPtr<USoundConcurrency> SpellSoundConcurrency;
+    UPROPERTY() TObjectPtr<USoundAttenuation> BattleSoundAttenuation;
+    TArray<int32> BattleAudioRequests;
     void EquipVisualWeapons(ACharacter* Actor, int32 Side, ESoulRealtimeFormationRole FormationRole);
     void PlayerTick(float Seconds);
     void TickMagic(float Seconds);

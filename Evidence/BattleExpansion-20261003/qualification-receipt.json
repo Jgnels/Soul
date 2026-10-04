@@ -1,0 +1,115 @@
+{
+  "scope": "Battle feedback and runtime qualification; no campaign map or Titan changes.",
+  "base_commit": "d0f3c16",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "fact": {
+    "implementation": [
+      "Spell availability reflects cooldown, mana, pause, hero death and resolution; switching to an unavailable spell cancels stale targeting.",
+      "Formation hover shows living composition, health and ammunition. Accepted casts, reinforcement arrivals, rout/rally and hero defeat create at most three expiring notices.",
+      "Eleven local mono audio clips follow accepted melee, arrow and spell events. Shared voice caps: eight troop and three spell voices. No changes to RB damage or mana authority.",
+      "Hero attack animations preload; scheduled capture views cannot be overwritten by a later proof stage.",
+      "Windows XAudio2 default successfully opens Realtek output; editor-game asset registry scan runs asynchronously."
+    ],
+    "builds": {
+      "SoulEditor": "Build-capture-final.log: Succeeded, 38.40s",
+      "Soul": "Build-game-final.log: Succeeded, 147.14s"
+    },
+    "automation": {
+      "report": "Automation-20261003-233042/index.json",
+      "passed": 85,
+      "warnings": 1,
+      "failed": 0,
+      "not_run": 0,
+      "warning": "Existing CombatPresentationAssets warning: donor Orion_Proto_Retarget references missing Rig class.",
+      "source_tests": "82 passed, source-tests.txt",
+      "campaign_view_tests": "7 passed"
+    },
+    "rendered_runs": [
+      {
+        "log": "SingleThread-startup-control.log",
+        "active": 30,
+        "resolution": "1280x720",
+        "casts": 5,
+        "contacts": 273,
+        "allied_targets": 0,
+        "seconds": 78.04,
+        "note": "Diagnostic single-thread launch; inspected captures preserved in Inspected-1280."
+      },
+      {
+        "log": "Qualified-40active-1920.log",
+        "active": 40,
+        "resolution": "1920x1080",
+        "casts": 5,
+        "contacts": 357,
+        "allied_targets": 0,
+        "seconds": 67.76,
+        "note": "Normal multithreaded D3D11 launch. Inspected-1920."
+      },
+      {
+        "log": "Qualified-40active-reserves.log",
+        "active_cap": 40,
+        "total_allied": 46,
+        "total_enemy": 30,
+        "waves": "1 allied + 3 enemy",
+        "casts": 5,
+        "contacts": 451,
+        "allied_targets": 0,
+        "seconds": 69.59,
+        "survivors": 39,
+        "note": "Final capture scheduling fix exercised; Inspected-reserves."
+      },
+      {
+        "log": "ReadabilityCampaignRuntime.log",
+        "scenario": "campaign -> real Dragon Graveyard -> campaign",
+        "casts": 5,
+        "contacts": 560,
+        "seconds": 104.44,
+        "waves": "4 allied + 4 enemy",
+        "returned_region": "orc_watch (Ashport)",
+        "owner": "humans",
+        "allied_survivors": 28,
+        "hostile_survivors": 0,
+        "mana": 18,
+        "xp": 500,
+        "encounter": "encounter.2.1.river_ford.orc_watch",
+        "verified": "Strategic return PASS, RBSave save/load succeeded, next-fortress selection PASS, normal shutdown. Return screenshot inspected."
+      }
+    ],
+    "performance": "frame-timing.json: 1200 offscreen 1080p frames, median18.36ms p95 21.96ms maximum1162.75ms. Includes screenshot capture, diagnostic logging and first-use asset compilation; not a clean interactive benchmark.",
+    "startup": "Cold campaign LoadMap took399.06s building existing donor settlement meshes. Async registry reduced the subsequent LoadMap->engine-init gap to0.77s. Earlier apparent stalls include slow synchronous scans; they are not proven deadlocks.",
+    "licensed_content": "Original donor WAV hashes unchanged. Eleven SoundWaves are local ignored derivatives; no licensed assets, maps, caches or full logs included in commit.",
+    "gallery": "http://127.0.0.1:8766/soul-battle-feedback.html"
+  },
+  "inference": [
+    "Cold asset preparation and synchronous registry scanning explain the observed startup delays; normal multithreaded rendering subsequently passed without a renderer code change.",
+    "Audio event creation and voice limits are verified, but listening quality is not established by those checks."
+  ],
+  "unknown_or_remaining": [
+    "Subjective audio mix/listening and physical gamepad validation.",
+    "Fresh cooked/package test.",
+    "Creature attack/death presentation, particularly airborne deaths; stronger dragon breath and portrait art.",
+    "First-use hitch reduction and clean interactive performance measurement.",
+    "Existing campaign HUD encoding artifacts were observed but left outside this battle-focused pass."
+  ],
+  "intentionally_uncommitted": [
+    "Unrelated pre-existing Config/DefaultEngine.ini and Soul.uproject changes.",
+    "Local licensed audio derivatives, screenshots, logs, profiles, imported caches and older evidence."
+  ],
+  "next_meaningful_work": "Improve creature attack/death readability and dragon-breath presentation, then qualify them in the same small physical battle.",
+  "files_changed": [
+    "Config/DefaultGame.ini",
+    "Config/Windows/WindowsEngine.ini",
+    "Source/SoulRealtimeBattle/Private/SoulBattleArrow.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattleAudio.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattleMagicProjectile.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+    "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAudioTests.cpp",
+    "Source/SoulRealtimeBattle/Private/Tests/SoulSpellReadinessTests.cpp",
+    "Source/SoulRealtimeBattle/Public/SoulBattleArrow.h",
+    "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+    "Tools/package_soul_weekend.ps1"
+  ]
+}

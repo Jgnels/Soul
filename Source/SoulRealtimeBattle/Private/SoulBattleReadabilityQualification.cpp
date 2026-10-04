@@ -52,6 +52,9 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         }
         return;
     }
+    // Preserve each scheduled view when loading or a delayed target advances
+    // several wall-clock stages at once. Never overwrite an uncaptured spell.
+    if (!ReadabilityCaptureName.IsEmpty()) return;
     auto* PC = GetWorld()->GetFirstPlayerController();
     if (!PC || !PlayerHero) return;
     static const double Times[] = {4, 8, 12, 16, 20, 21, 23, 25, 27, 29, 33, 43, 50, 55};

@@ -16,6 +16,16 @@ const TCHAR* BattleSpellName(int32 Slot)
     return Slot>=0 && Slot<5 ? Names[Slot] : nullptr;
 }
 }
+void ASoulRealtimeArenaGameMode::PushBattleNotice(const FString& Text,int32 Side)
+{
+    if(Text.IsEmpty()) return;
+    BattleNotices.RemoveAll([&](const FSoulBattleNotice& Notice)
+        { return Notice.ExpiresAt<=BattleElapsed || (Notice.Text==Text && Notice.Side==Side); });
+    FSoulBattleNotice Notice;
+    Notice.Text=Text;Notice.Side=Side;Notice.ExpiresAt=BattleElapsed+12.f;
+    BattleNotices.Insert(MoveTemp(Notice),0);
+    if(BattleNotices.Num()>3) BattleNotices.SetNum(3);
+}
 void ASoulRealtimeArenaGameMode::SetupSpellBar()
 {
     BattleSpells.Reset();
@@ -38,17 +48,34 @@ void ASoulRealtimeArenaGameMode::SetupSpellBar()
             *FString::Printf(TEXT("/Game/Soul/Magic/Spells/DA_Soul_%s.DA_Soul_%s"),*Name,*Name)));
     }
 }
+float ASoulRealtimeArenaGameMode::SpellManaCost(const URBMagicSpellDefinition& Spell)
+{
+    float Cost=0;
+    for(const auto& Resource:Spell.Costs)
+        if(Resource.ResourceTag.ToString()==TEXT("Magic.Resource.Mana")) Cost+=Resource.Amount;
+    return Cost;
+}
+FString ASoulRealtimeArenaGameMode::SpellBlockReason(int32 Slot,bool bAllowPausedTargeting) const
+{
+    const auto* Spell=BattleSpells.IsValidIndex(Slot) ? BattleSpells[Slot].Get() : nullptr;
+    if(!Spell || Spell->bStrategicOnly) return TEXT("Spell unavailable");
+    if(bFinished) return TEXT("Battle resolved");
+    if(PlayerHealth()<=0) return TEXT("Hero fallen");
+    const float Cooldown=SpellCooldowns.FindRef(Spell->SpellTag.GetTagName());
+    if(Cooldown>0) return FString::Printf(TEXT("Ready in %.0fs"),FMath::CeilToFloat(Cooldown));
+    const float Cost=SpellManaCost(*Spell);
+    if(PlayerMana+KINDA_SMALL_NUMBER<Cost)
+        return FString::Printf(TEXT("Need %.0f more mana"),FMath::CeilToFloat(Cost-PlayerMana));
+    if(bBattlePaused && !bAllowPausedTargeting) return TEXT("Resume to cast");
+    return FString();
+}
 FString ASoulRealtimeArenaGameMode::SpellButtonLabel(int32 Slot) const
 {
     const auto* Spell=BattleSpells.IsValidIndex(Slot) ? BattleSpells[Slot].Get() : nullptr;
-    if(!Spell) return TEXT("Spell unavailable");
-    float Cost=0;
-    for(const auto& Resource:Spell->Costs)
-        if(Resource.ResourceTag.ToString()==TEXT("Magic.Resource.Mana")) Cost+=Resource.Amount;
-    const float Cooldown=SpellCooldowns.FindRef(Spell->SpellTag.GetTagName());
+    if(!Spell) return TEXT("Unavailable | Spell unavailable");
+    const FString Reason=SpellBlockReason(Slot);
     return FString::Printf(TEXT("[%d] %s | %s"),Slot+1,*Spell->DisplayName.ToString(),
-        Cooldown>0 ? *FString::Printf(TEXT("%.0fs"),FMath::CeilToFloat(Cooldown)) :
-        *FString::Printf(TEXT("%.0f mana"),Cost));
+        Reason.IsEmpty() ? *FString::Printf(TEXT("%.0f mana | Ready"),SpellManaCost(*Spell)) : *Reason);
 }
 bool ASoulRealtimeArenaGameMode::CastPlayerSpellSlot(int32 Slot,const FHitResult* AimHit)
 {
@@ -60,17 +87,21 @@ bool ASoulRealtimeArenaGameMode::CastPlayerSpellSlot(int32 Slot,const FHitResult
 void ASoulRealtimeArenaGameMode::SelectPlayerSpell(int32 Slot)
 {
     if(bFinished) return;
-    if(PlayerHealth()<=0) { Status=TEXT("Hero fallen - spells are unavailable. You can still command surviving formations."); return; }
+    // Explicitly cancel an old target before choosing another spell. A rejected
+    // new choice must never leave a different spell armed under the same pointer.
+    SelectedSpellSlot=INDEX_NONE;
     bPlaceFormationOrder=false;
+    const FString Reason=SpellBlockReason(Slot,Slot>=0 && Slot<3);
+    if(!Reason.IsEmpty()) { Status=Reason; return; }
     if(Slot>=3)
     {
-        SelectedSpellSlot=INDEX_NONE;
         CastPlayerSpellSlot(Slot);
         return;
     }
     SelectedSpellSlot=Slot;
-    Status=Slot==2 ? TEXT("Blizzard ready: click ground within hero range. RMB cancels.") :
-        TEXT("Spell ready: click an enemy within hero range. RMB cancels.");
+    Status=Slot==2 ? TEXT("Blizzard selected: click ground within hero range. RMB cancels.") :
+        TEXT("Spell selected: click an enemy within hero range. RMB cancels.");
+    if(bBattlePaused) Status=TEXT("Target selected spell after resuming [P]. RMB cancels; no mana spent.");
 }
 void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
 {
@@ -231,14 +262,23 @@ void ASoulRealtimeArenaGameMode::HandleGamepadAction(FName Action)
     {
         if(PlayerHealth()<=0) { Status=TEXT("Hero fallen - spells unavailable"); return; }
         SelectedSpellSlot=(SelectedSpellSlot+1)%5; bPlaceFormationOrder=false;
-        Status=TEXT("Aim with the right stick, then [Y] to cast. [B] cancels."); return;
+        const FString Reason=SpellBlockReason(SelectedSpellSlot);
+        Status=Reason.IsEmpty()
+            ? (SelectedSpellSlot==3 ? TEXT("[Y] shields your hero. [B] cancels.") : SelectedSpellSlot==4 ? TEXT("[Y] hastens your army. [B] cancels.") :
+                TEXT("Aim with the right stick, then [Y] to cast. [B] cancels."))
+            : Reason+TEXT(". [X] changes spell; [B] cancels.");
+        return;
     }
     if(Action==TEXT("Cast"))
     {
         if(SelectedSpellSlot<0) { Status=TEXT("[X] selects a spell; aim, then [Y] casts."); return; }
+        const FString Reason=SpellBlockReason(SelectedSpellSlot);
+        if(!Reason.IsEmpty()) { Status=Reason; return; }
         FHitResult Hit;
-        if(SelectedSpellSlot>=3 ? CastPlayerSpellSlot(SelectedSpellSlot) :
-            (ReadPointerHit(Hit) && CastPlayerSpellSlot(SelectedSpellSlot,&Hit))) SelectedSpellSlot=INDEX_NONE;
+        if(SelectedSpellSlot<3 && !ReadPointerHit(Hit))
+        { Status=TEXT("Aim at a visible target or ground, then [Y] to cast."); return; }
+        if(CastPlayerSpellSlot(SelectedSpellSlot,SelectedSpellSlot>=3 ? nullptr : &Hit))
+            SelectedSpellSlot=INDEX_NONE;
         return;
     }
     if(Action==TEXT("GroundOrder"))

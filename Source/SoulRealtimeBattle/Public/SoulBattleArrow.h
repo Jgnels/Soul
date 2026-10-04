@@ -9,6 +9,9 @@ class SOULREALTIMEBATTLE_API ASoulBattleArrow : public ARBCombatProjectile
     GENERATED_BODY()
 public:
     ASoulBattleArrow();
+    virtual void Tick(float DeltaSeconds) override;
+private:
+    bool bLaunchPresented = false;
 };
 
 

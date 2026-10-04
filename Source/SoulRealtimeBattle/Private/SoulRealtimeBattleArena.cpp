@@ -437,6 +437,14 @@ bool ASoulRealtimeArenaGameMode::CommitHit(
     }
 
     AcceptedContacts.Add(Hit.ContactId);
+    // Sound follows the accepted contact, including arrows already in flight
+    // after their shooter has switched to melee.
+    if (Hit.Weapon.Category == TEXT("Bow"))
+        PlayBattleSound(ESoulBattleSound::ArrowHit, Hit.ImpactPoint, A);
+    else if (Combatants[A].Role != ESoulRealtimeFormationRole::Apex &&
+             Combatants[A].Role != ESoulRealtimeFormationRole::Breaker)
+        PlayBattleSound((AcceptedContacts.Num() & 1) ? ESoulBattleSound::SwordHit1 :
+            ESoulBattleSound::SwordHit2, Hit.ImpactPoint, A);
     const float Before = Combatants[V].Health;
     Combatants[V].Health =
         FMath::Max(0.0f, Before - Hit.AcceptedDamage);
@@ -775,12 +783,7 @@ bool ASoulRealtimeArenaGameMode::CanCastMagic(
         return false;
     }
 
-    float ManaCost = 0.0f;
-    for (const FRBMagicResourceCost& Cost : Spell.Costs)
-    {
-        if (Cost.ResourceTag.ToString() == TEXT("Magic.Resource.Mana"))
-            ManaCost += Cost.Amount;
-    }
+    const float ManaCost = SpellManaCost(Spell);
     if (PlayerMana + KINDA_SMALL_NUMBER < ManaCost)
     {
         OutError = TEXT("Not enough mana.");
@@ -886,12 +889,7 @@ bool ASoulRealtimeArenaGameMode::TryCommitMagicCast(
         return false;
     }
 
-    float ManaCost = 0.0f;
-    for (const FRBMagicResourceCost& Cost : Spell.Costs)
-    {
-        if (Cost.ResourceTag.ToString() == TEXT("Magic.Resource.Mana"))
-            ManaCost += Cost.Amount;
-    }
+    const float ManaCost = SpellManaCost(Spell);
 
     int32 PrimaryTarget = INDEX_NONE;
     if (Spell.TargetMode == ERBMagicTargetMode::Unit)
@@ -1045,6 +1043,7 @@ bool ASoulRealtimeArenaGameMode::TryCommitMagicCast(
         Spell.SpellTag.GetTagName(), Spell.CooldownSeconds);
     CommittedMagicCasts.Add(Request.CastId);
     ++MagicCasts;
+    PushBattleNotice(FString::Printf(TEXT("%s cast"),*Spell.DisplayName.ToString()),0);
     Status = FString::Printf(
         TEXT("Cast %s | Mana %.0f"),
         *Spell.DisplayName.ToString(), PlayerMana);
@@ -1211,9 +1210,10 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
 
     if(bDragon) DressDragonBattlefield();
     SetupSpellBar();
+    SetupBattleAudio();
     if(bVisualUnits)
         for(int32 Side=0;Side<2;++Side)
-            for(int32 RoleIndex=0;RoleIndex<=static_cast<int32>(ESoulRealtimeFormationRole::Apex);++RoleIndex)
+            for(int32 RoleIndex=0;RoleIndex<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++RoleIndex)
                 for(int32 Variant=0;Variant<2;++Variant)
                     if(auto* Clip=ResolveVisualAttack(Side,static_cast<ESoulRealtimeFormationRole>(RoleIndex),Variant))
                         BattlePresentationAssets.AddUnique(Clip);
@@ -2421,6 +2421,8 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
         UE_LOG(LogTemp,Display,TEXT("SOUL_REINFORCEMENT_JOIN: side=%d group=%d bodies=%d entry=%s"),
             Side,Existing.GroupIndex,Count,*ArrivalAnchor.ToCompactString());
         bSpawnCommitted=true;
+        PushBattleNotice(FString::Printf(TEXT("%s reinforcements: %d troops"),
+            Side==0?TEXT("Your"):TEXT("Enemy"),Count),Side);
         return true;
     }
 
@@ -2451,6 +2453,8 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     Driver->RegisterComponent();
     Drivers.Add(Driver);
     bSpawnCommitted = RefreshDriverRepresentations();
+    if(bSpawnCommitted) PushBattleNotice(FString::Printf(TEXT("%s reinforcements: %d troops"),
+        Side==0?TEXT("Your"):TEXT("Enemy"),Count),Side);
     return bSpawnCommitted;
 }
 
@@ -2576,6 +2580,9 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
         return false;
     UAnimationAsset* Clip = bVisualUnits ? ResolveVisualAttack(Data.Side, Data.Role, AttackerIndex + Data.VisualAttackSequence++) : nullptr;
     const float Duration = Clip ? FMath::Clamp(Clip->GetPlayLength(), 0.8f, 2.8f) : AttackDelay(Data.Role);
+    if (Data.Role != ESoulRealtimeFormationRole::Apex && Data.Role != ESoulRealtimeFormationRole::Breaker)
+        PlayBattleSound((Data.VisualAttackSequence & 1) ? ESoulBattleSound::SwordSwing1 :
+            ESoulBattleSound::SwordSwing2, Actor->GetActorLocation(), AttackerIndex);
     Data.MeleeCooldown = Duration;
     Data.PendingMeleeTarget = IntendedTarget;
     Data.PendingMeleeSeconds = Duration * 0.35f;
@@ -2914,6 +2921,7 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
         }
 
         DefeatedRepresentations.Add(I);
+        if(Actors[I]==PlayerHero) PushBattleNotice(TEXT("Hero fallen - command your army"),0);
         const int32 GroupIndex = Combatants[I].GroupIndex;
         if (Groups.IsValidIndex(GroupIndex) && Groups[GroupIndex].Leader.Id == Combatants[I].Id)
         {
@@ -3170,6 +3178,12 @@ bool ASoulRealtimeArenaGameMode::CastPlayerSpell(
             Combatants[CasterIndex].MeleeCooldown = FMath::Max(Combatants[CasterIndex].MeleeCooldown, Cast->GetPlayLength());
         }
     }
+    const FString SpellName = Spell->SpellTag.ToString();
+    const ESoulBattleSound CastSound = SpellName.Contains(TEXT("Firebolt")) ? ESoulBattleSound::Firebolt :
+        SpellName.Contains(TEXT("Blizzard")) ? ESoulBattleSound::Blizzard :
+        SpellName.Contains(TEXT("TidalWard")) || SpellName.Contains(TEXT("Tailwind")) ? ESoulBattleSound::TidalWard :
+        ESoulBattleSound::MagicImpact;
+    PlayBattleSound(CastSound, PlayerHero->GetActorLocation());
     // RB Magic intents and the existing commit path own gameplay. Presentation
     // may be unassigned during spell development and cannot veto a valid cast.
     auto* Profile = PresentationPath && *PresentationPath
@@ -3779,6 +3793,9 @@ void ASoulRealtimeArenaGameMode::UpdateFormationMorale()
             State.bRallied = false;
             State.RoutingSeconds = 0.0f;
             ++RoutedSides[State.Side];
+            PushBattleNotice(FString::Printf(TEXT("%s %s is routing"),
+                State.Side==0?TEXT("Your"):TEXT("Enemy"),
+                FSoulRealtimeTacticalRules::FormationKindLabel(State.Kind)),State.Side);
             UE_LOG(LogTemp, Display,
                 TEXT("SOUL_FORMATION_ROUT: side=%d group=%d kind=%s morale=%d"),
                 State.Side, State.GroupIndex,
@@ -3793,6 +3810,9 @@ void ASoulRealtimeArenaGameMode::UpdateFormationMorale()
             State.bRouting = false;
             State.bRallied = true;
             State.RallyGraceUntil = BattleElapsed + 8.0f;
+            PushBattleNotice(FString::Printf(TEXT("%s %s has rallied"),
+                State.Side==0?TEXT("Your"):TEXT("Enemy"),
+                FSoulRealtimeTacticalRules::FormationKindLabel(State.Kind)),State.Side);
             UE_LOG(LogTemp, Display,
                 TEXT("SOUL_FORMATION_RALLY: side=%d group=%d morale=%d"),
                 State.Side, State.GroupIndex, State.MoralePermille);

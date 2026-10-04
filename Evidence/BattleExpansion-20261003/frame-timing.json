@@ -1,0 +1,11 @@
+{
+  "source": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\BattleExpansion-20261003\\ReadabilityUser\\Saved\\Profiling\\CSV\\Profile(20261003_225803).csv",
+  "frames": 1200,
+  "mean_ms": 22.98643625,
+  "median_ms": 18.3572,
+  "p95_ms": 21.9553,
+  "max_ms": 1162.749,
+  "over50ms": 19,
+  "over100ms": 15,
+  "scope": "1920x1080 D3D11 rendered offscreen, audio enabled, diagnostic logging, screenshot capture and first-use texture builds included; not a clean interactive FPS benchmark"
+}

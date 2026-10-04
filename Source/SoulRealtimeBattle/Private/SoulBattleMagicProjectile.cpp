@@ -54,6 +54,7 @@ void ASoulRealtimeArenaGameMode::ResolveMagicProjectile(
     const bool Accepted=Enemy && ApplyMagicDamage(Target,Launch.Damage);
     UE_LOG(LogTemp,Display,TEXT("SOUL_MAGIC_PROJECTILE_IMPACT: id=%s source=%d target=%d accepted=%d blocker=%s"),
         *Launch.ShotId.ToString(),Source,Target,Accepted,*GetNameSafe(Hit.GetActor()));
+    if (Accepted) PlayBattleSound(ESoulBattleSound::MagicImpact, Hit.ImpactPoint);
     if(!bFinished)
         if(auto* Fire=LoadObject<UNiagaraSystem>(nullptr,TEXT("/Game/MagicSpells/Fire/FX/NS_Fireball.NS_Fireball")))
             if(auto* FX=UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(),Fire,Hit.ImpactPoint,
