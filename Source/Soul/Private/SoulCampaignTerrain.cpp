@@ -191,11 +191,15 @@ void Build(ASoulCampaignWorldActor* Owner)
 {
     bool Loaded=false;
     const TCHAR* Package=Mesa()?TEXT("/Game/SoulCampaignMountain/L_evil_waterfront"):TEXT("/Game/Soul/Campaign/TerrainV2/L_FounderTerrain");
-    auto* Level=ULevelStreamingDynamic::LoadLevelInstance(Owner,Package,FVector::ZeroVector,FRotator::ZeroRotator,Loaded);
+    // This is already a canonical long package name. The name-search overload
+    // consults the asynchronously gathering registry and can report an existing
+    // map missing on a fresh editor-game launch. Load that exact package directly.
+    const ULevelStreamingDynamic::FLoadLevelInstanceParams Params(Owner->GetWorld(),Package,FTransform::Identity);
+    auto* Level=ULevelStreamingDynamic::LoadLevelInstance(Params,Loaded);
     if(Level){Level->SetShouldBeLoaded(true);Level->SetShouldBeVisible(true);Owner->GetWorld()->FlushLevelStreaming(EFlushLevelStreamingType::Full);}
     if(!Loaded||!Level||!Level->GetLoadedLevel()||!Bake().bValid)
     {
-        UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_INTEGRATION_FAIL map=%s; run Tools/Setup_Soul_Mesa.ps1"),Package);
+        UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_INTEGRATION_FAIL map=%s requested=%d instance=%d loaded=%d bake=%d; run Tools/Setup_Soul_Mesa.ps1"),Package,Loaded,Level!=nullptr,Level && Level->GetLoadedLevel(),Bake().bValid);
         FPlatformMisc::RequestExitWithStatus(false,1);return;
     }
     // Remove study-only actors from this transient instance, never save the package.

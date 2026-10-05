@@ -67,13 +67,13 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     const bool Explored=FSoulWorldRules::IsExplored(S->World,S->PlayerFaction,Selected),Visible=FSoulWorldRules::IsVisible(S->World,S->PlayerFaction,Selected);
     Panel(X,94,312,197);
     const FString SelectedTitle=C->IsCompanySelected()&&Selected==S->PlayerRegion
-        ? FString::Printf(TEXT("YOUR ARMY â€” %s"),*C->DisplayName(Selected))
+        ? FString::Printf(TEXT("YOUR ARMY / %s"),*C->DisplayName(Selected))
         : (Explored?C->DisplayName(Selected):TEXT("Uncharted territory"));
     UI.FitText(SelectedTitle,X+15,109,282,Gold,1.32f);
     if(Explored)
     {
         const auto* Region=S->World.Regions.Find(Selected);
-        Text(C->IsCompanySelected()?FString::Printf(TEXT("ARMY SELECTED â€” %d MOVEMENT LEFT"),S->Economy.ActionPoints):(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT")),X+15,135,C->IsCompanySelected()?Gold:Muted);
+        Text(C->IsCompanySelected()?FString::Printf(TEXT("ARMY SELECTED / %d MOVEMENT LEFT"),S->Economy.ActionPoints):(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT")),X+15,135,C->IsCompanySelected()?Gold:Muted);
         Text(C->IsCompanySelected()?TEXT("Click a highlighted neighbouring place."):(Selected==S->PlayerRegion?TEXT("Your company is stationed here."):FSoulWorldRules::CanMove(S->World,S->PlayerRegion,Selected)?TEXT("Connected by a traversable road."):TEXT("Reach this place through its neighbours.")),X+15,162,Ink);
         if(C->IsCompanySelected())Text(TEXT("Each road move costs 1 movement."),X+15,185,Muted);
         else if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->EnemyArmies.FindRef(Selected)),X+15,185,Ink);
@@ -86,7 +86,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         else if(S->Economy.ActionPoints<=0)Button(TEXT("BattleRest"),TEXT("Next day restores actions  [Space]"),X+15,237,282);
         else Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,237,282);
     }
-    else if(C->IsCompanySelected())Button(TEXT("Focus"),TEXT("ARMY SELECTED â€” choose a highlighted road"),X+15,237,282);
+    else if(C->IsCompanySelected())Button(TEXT("Focus"),TEXT("ARMY SELECTED / choose a highlighted road"),X+15,237,282);
     else if(S->PlayerRegion==TEXT("human_capital"))Button(TEXT("Town"),TEXT("Visit the capital  [T]"),X+15,237,282);
     else Button(TEXT("Focus"),TEXT("Select your army  [Home]"),X+15,237,282);
     Panel(14,H-85,W-28,42);
