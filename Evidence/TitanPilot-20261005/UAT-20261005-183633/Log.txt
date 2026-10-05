@@ -1,0 +1,755 @@
+Log started at 10/5/2026 12:36:34 PM (2026-10-05T18:36:34Z)
+Starting AutomationTool...
+Parsing command line: BuildCookRun -nocompileuat -noturnkeyvariables -nop4 -unattended -utf8output -project=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject -target=Soul -platform=Win64 -clientconfig=Development -skipbuild -skipcook -stage -pak -iostore -nodebuginfo -nocleanstage -CustomConfig=TitanPilot -stagingdirectory=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633
+Found 1 scripts to execute:
+  BuildCookRun(noturnkeyvariables, nop4, unattended, utf8output, project=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject, target=Soul, platform=Win64, clientconfig=Development, skipbuild, skipcook, stage, pak, iostore, nodebuginfo, nocleanstage, CustomConfig=TitanPilot, stagingdirectory=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633)
+Running on Windows as a 64-bit process.
+CWD=C:\Program Files\Epic Games\UE_5.8
+UnrealEngine ver. 5.8.0.0
+Initializing script modules...
+Find 1 directories time: 0.01 s
+Find 25 projects time: 0.31 s
+Total script module initialization time: 0.91 s.
+IsBuildMachine=False
+ShouldKillProcesses=True
+Setting up command environment.
+GetEnvironmentVariable uebp_LOCAL_ROOT=
+GetEnvironmentVariable uebp_LOCAL_ROOT=
+GetEnvironmentVariable uebp_EngineSavedFolder=
+SetEnvVar uebp_EngineSavedFolder=C:/Program Files/Epic Games/UE_5.8/Engine/Programs/AutomationTool/Saved
+GetEnvironmentVariable uebp_EngineSavedFolder=C:/Program Files/Epic Games/UE_5.8/Engine/Programs/AutomationTool/Saved
+GetEnvironmentVariable uebp_CSVFile=
+GetEnvironmentVariable uebp_LogFolder=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633
+GetEnvironmentVariable uebp_FinalLogFolder=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633
+SetEnvVar MallocNanoZone=0
+GetEnvironmentVariable uebp_UATChildInstance=0
+Found VisualStudio2022 installation: C:\BuildTools (Product=Microsoft.VisualStudio.Product.BuildTools, Version=17.14.37614.0)
+Using C:\BuildTools\MSBuild\Current\Bin\MSBuild.exe
+CompilationEvironment.HasCapabilityToCompile=True
+CompilationEvironment.FrameworkMsbuildExe=C:\BuildTools\MSBuild\Current\Bin\MSBuild.exe
+CompilationEvironment.DotnetMsbuildExe=C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\DotNet\10.0\win-x64\dotnet.exe
+Command Environment settings:
+CmdExe=C:\WINDOWS\system32\cmd.exe
+EngineSavedFolder=C:/Program Files/Epic Games/UE_5.8/Engine/Programs/AutomationTool/Saved
+HasCapabilityToCompile=True
+LocalRoot=C:/Program Files/Epic Games/UE_5.8
+LogFolder=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633
+MountExe=C:\WINDOWS\system32\mount.exe
+FrameworkMsbuildExe=C:\BuildTools\MSBuild\Current\Bin\MSBuild.exe
+DotnetMsbuildExe=C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\DotNet\10.0\win-x64\dotnet.exe
+RobocopyExe=C:\WINDOWS\system32\robocopy.exe
+TimestampAsString=2026-10-05_12.36.35
+AutomationToolDll=C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationTool.dll
+
+No project directory provided for project scope BuildConfiguration.xml resolution.
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (C:\Users\Jeff\AppData\Local\UnrealEngine\XmlConfigCache-C+Program Files+Epic Games+UE_5.8.bin): C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (C:\Users\Jeff\AppData\Local\UnrealEngine\XmlConfigCache-C+Program Files+Epic Games+UE_5.8.bin): C:\Users\Jeff\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Cleaning up project rules folder
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Apple\net10.0\Apple.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\AutomatedPerfTesting\net10.0\AutomatedPerfTesting.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Scripts\net10.0\AutomationScripts.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationUtils\net10.0\AutomationUtils.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\BuildGraph\net10.0\BuildGraph.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\CookedEditor\net10.0\CookedEditor.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\CrowdinLocalization\net10.0\CrowdinLocalization.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Gauntlet\net10.0\Gauntlet.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\ICVFX\net10.0\ICVFX.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Insights\net10.0\Insights.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\IOS\net10.0\IOS.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\LiveLinkHub.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Localization\net10.0\Localization.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LowLevelTests\net10.0\LowLevelTests.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Mac\net10.0\Mac.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Microsoft\net10.0\Microsoft.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Mutable\net10.0\Mutable.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\OneSkyLocalization\net10.0\OneSkyLocalization.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\SmartlingLocalization\net10.0\SmartlingLocalization.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\SteamDeck\net10.0\SteamDeck.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Turnkey\net10.0\Turnkey.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\TVOS\net10.0\TVOS.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Platforms\VisionOS\Binaries\DotNET\AutomationTool\AutomationScripts\net10.0\VisionOS.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Windows\net10.0\Win.Automation.dll
+Loading script DLL: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\XLocLocalization\net10.0\XLocLocalization.Automation.dll
+Creating platforms.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll
+Creating platform AndroidPlatform from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll.
+Creating platform AndroidPlatformMulti from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll.
+Creating platform AndroidPlatformDXT from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll.
+Creating platform AndroidPlatformETC2 from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll.
+Creating platform AndroidPlatformASTC from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll.
+Creating platform AndroidPlatformOpenXR from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Android\net10.0\Android.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\TVOS\net10.0\Apple.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\AutomatedPerfTesting\net10.0\AutomatedPerfTesting.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Scripts\net10.0\AutomationScripts.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationUtils\net10.0\AutomationUtils.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\BuildGraph\net10.0\BuildGraph.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll
+Creating platform WindowsCookedEditor from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll.
+Creating platform LinuxCookedEditor from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll.
+Creating platform MacCookedEditor from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll.
+Creating platform WindowsCookedCooker from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll.
+Creating platform LinuxCookedCooker from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll.
+Creating platform MacCookedCooker from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\CookedEditor.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\CrowdinLocalization\net10.0\CrowdinLocalization.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Mutable\net10.0\Gauntlet.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\ICVFX\net10.0\ICVFX.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Insights\net10.0\Insights.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\IOS\net10.0\IOS.Automation.dll
+Creating platform IOSPlatform from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\IOS\net10.0\IOS.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll
+Creating platform GenericLinuxPlatform from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll.
+Creating platform GenericLinuxPlatformArm64 from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll.
+Creating platform LinuxPlatformArm64DXT from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll.
+Creating platform LinuxPlatformArm64ASTC from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll.
+Creating platform LinuxPlatformArm64ETC2 from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll.
+Creating platform LinuxPlatformArm64Multi from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Linux\net10.0\Linux.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LiveLinkHub\net10.0\LiveLinkHub.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Localization\net10.0\Localization.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\LowLevelTests\net10.0\LowLevelTests.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Mac\net10.0\Mac.Automation.dll
+Creating platform MacPlatform from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Mac\net10.0\Mac.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Microsoft\net10.0\Microsoft.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Mutable\net10.0\Mutable.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\OneSkyLocalization\net10.0\OneSkyLocalization.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\SmartlingLocalization\net10.0\SmartlingLocalization.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Windows\net10.0\SteamDeck.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Turnkey\net10.0\Turnkey.Automation.dll
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\TVOS\net10.0\TVOS.Automation.dll
+Creating platform TVOSPlatform from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\TVOS\net10.0\TVOS.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Platforms\VisionOS\Binaries\DotNET\AutomationTool\AutomationScripts\net10.0\VisionOS.Automation.dll
+Creating platform VisionOSPlatform from C:\Program Files\Epic Games\UE_5.8\Engine\Platforms\VisionOS\Binaries\DotNET\AutomationTool\AutomationScripts\net10.0\VisionOS.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Windows\net10.0\Win.Automation.dll
+Creating platform Win64Platform from C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\Platforms\Windows\net10.0\Win.Automation.dll.
+Looking for platforms in C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\AutomationTool\AutomationScripts\XLocLocalization\net10.0\XLocLocalization.Automation.dll
+Initializing AllowSubmit.
+AllowSubmit=False
+Initializing P4Enabled.
+P4Enabled=False
+P4CLRequired=False
+Executing commands...
+Attempting to execute BuildCookRun(noturnkeyvariables, nop4, unattended, utf8output, project=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject, target=Soul, platform=Win64, clientconfig=Development, skipbuild, skipcook, stage, pak, iostore, nodebuginfo, nocleanstage, CustomConfig=TitanPilot, stagingdirectory=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633)
+Setting up ProjectParams for D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+Looking for targets for project D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+Searching for target rule files in D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005
+Found 2 target rule files:
+  D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Source\Soul.Target.cs
+  D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Source\SoulEditor.Target.cs
+Compiling targets DLL: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\TitanPilotTemp\UAT\C+Program+Files+Epic+Games+UE_5.8\Rules\UATRules-64d7d45c37e3ae61b666814a377f1bf5.dll
+Compiling D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\TitanPilotTemp\UAT\C+Program+Files+Epic+Games+UE_5.8\Rules\UATRules-64d7d45c37e3ae61b666814a377f1bf5.dll: Assembly does not exist
+Creating target rules object: SoulTarget
+Adding target: SoulTarget (Game)
+Creating target rules object: SoulEditorTarget
+Adding target: SoulEditorTarget (Editor)
+Loading ini files for D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+Project Params **************
+AdditionalServerMapParams=
+Archive=False
+ArchiveMetaData=False
+CreateAppBundle=True
+BaseArchiveDirectory=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\ArchivedBuilds
+BaseStageDirectory=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633
+ConfigOverrideParams=-
+Build=False
+SkipBuildClient=False
+SkipBuildEditor=False
+Cook=True
+Clean=(null)
+Client=False
+ClientConfigsToBuild=Development
+ClientCookedTargets=Soul
+ClientTargetPlatform=Win64
+Compressed=False
+ForceUncompressed=False
+AdditionalPakOptions=
+AdditionalIoStoreOptions=
+ForceOodleDllVersion=
+CookOnTheFly=False
+CookOnTheFlyStreaming=False
+UnversionedCookedContent=True
+OptionalContent=False
+SkipCookingEditorContent=False
+SkipCookingErrorSummary=False
+GeneratePatch=False
+AddPatchLevel=False
+DiscVersion=
+CreateReleaseVersion=
+BasedOnReleaseVersion=
+OriginalReleaseVersion=
+DLCFile=(null)
+DLCIncludeEngineContent=False
+DLCPakPluginFile=False
+DLCOverrideCookedSubDir=(null)
+DLCOverrideStagedSubDir=(null)
+DiffCookedContentPath=
+AdditionalCookerOptions=
+DedicatedServer=False
+DirectoriesToCook=
+DDCGraph=
+CulturesToCook=<Not Specified> (Use Defaults)
+EditorTargets=SoulEditor
+Foreign=False
+IsCodeBasedProject=True
+IsProgramTarget=False
+IncrementalCook=False
+IterateSharedCookedBuild=
+IterateSharedBuildUsePrecompiledExe=False
+CookAll=False
+CookPartialGC=False
+CookInEditor=False
+CookMapsOnly=False
+Deploy=False
+IterativeDeploy=False
+FastCook=False
+LogWindow=False
+Manifests=False
+MapToRun=
+NoClient=False
+NumClients=0
+NoDebugInfo=True
+SeparateDebugInfo=False
+MapFile=False
+NoCleanStage=True
+NoXGE=False
+MapsToCook=
+MapIniSectionsToCook=
+Pak=True
+IgnorePaksFromDifferentCookSource=False
+IoStore=True
+SkipIoStore=False
+ZenStore=False
+NoZenAutoLaunch=
+SkipEncryption=False
+GenerateOptimizationData=False
+SkipPackage=False
+NeverPackage=False
+Package=False
+ForcePackageData=False
+NullRHI=False
+WriteBackMetadataToAssetRegistry=
+FakeClient=False
+EditorTest=False
+RunAutomationTests=False
+RunAutomationTest=
+RunTimeoutSeconds=0
+CrashIndex=0
+ProgramTargets=
+ProjectPlatformBinariesPaths=[Win64, D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64]
+ProjectExePaths=[Win64, D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\Soul.exe]
+Distribution=False
+PackageEncryptionKeyFile=(null)
+Prebuilt=False
+Prereqs=False
+AppLocalDirectory=
+NoBootstrapExe=False
+RawProjectPath=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+RawProgramProjectOverride=(null)
+Run=False
+ServerConfigsToBuild=Development
+ServerCookedTargets=
+ServerTargetPlatform=Win64
+ShortProjectName=Soul
+SignedPak=False
+SignPak=(null)
+SkipCook=True
+SkipCookOnTheFly=False
+SkipPak=False
+PrePak=False
+SkipStage=False
+Stage=True
+RehydrateAssets=False
+bTreatNonShippingBinariesAsDebugFiles=False
+bUseExtraFlavor=False
+StageDirectoryParam=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633
+AdditionalPackageOptions=
+Trace=(null)
+TraceHost=(null)
+TraceFile=(null)
+Project Params **************
+********** STAGE COMMAND STARTED **********
+Deployment Context **************
+ProjectFile = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+ArchiveDir = (null)
+IsCodeBasedUprojectFile = True
+DedicatedServer = False
+Stage = True
+StageTargetPlatform = Win64
+InputRootDir = C:\Program Files\Epic Games\UE_5.8
+InputProjectDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005
+PlatformDir = Win64
+StagedOutputDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows
+ShortProjectName = Soul
+ProjectArgForCommandLines = -project="../../../Soul/Soul.uproject"
+RunRootDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows
+RunProjectDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul
+PakFileInternalRoot = ../../../
+PlatformUsesChunkManifests = False
+End Deployment Context **************
+Creating Staging Manifest...
+Can't find cloud directory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Platforms\Windows\Build\Cloud
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\BootstrapPackagedGame-Win64-Shipping.exe D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Staging\Soul.exe
+Patching bootstrap executable; D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Staging\Soul.exe
+Begin update resource 'D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Staging\Soul.exe' (0)
+Add resource 101, length 104 (True)
+Add resource 1, length 1996 (True)
+Add resource 2, length 2447 (True)
+Add resource 3, length 2535 (True)
+Add resource 4, length 3037 (True)
+Add resource 5, length 3244 (True)
+Add resource 6, length 3531 (True)
+Add resource 7, length 6931 (True)
+Add resource 201, length 58 (True)
+Add resource 202, length 10 (True)
+Add resource 205, length 2 (True)
+End update resource (True/0)
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\PortableObjectExport.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseEditorSettings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\Category.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseSourceControlSettings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\PortableObjectImport.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseLightmass.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseEditor.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\WindowsEditorPerProjectUserSettings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\WordCount.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\Editor.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseUnrealInsightsSettings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\PropertyNames.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BasePakFileRules.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseEditorKeyBindings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\WindowsEditorSettings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\Engine.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\RepairData.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseEditorPerProjectUserSettings.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\Keywords.ini
+Excluding config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Localization\ToolTips.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Layouts\DefaultLayout.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\PluginBase.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\ConsoleVariables.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\ConfigRedirects.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\BaseWindowsInput.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\BaseWindowsGame.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\BaseWindowsEngine.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\VulkanPC\DataDrivenPlatformInfo.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseInput.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseHardware.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseGameUserSettings.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseGame.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseEngine.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseDeviceProfiles.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseCompat.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Base.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseScalability.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseRuntimeOptions.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseMaterialExpressions.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseInstallBundle.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\WindowsInput.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\WindowsGame.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\DataDrivenPlatformInfo.ini
+Including config file C:\Program Files\Epic Games\UE_5.8\Engine\Config\Layouts\UE4ClassicLayout.ini
+Excluding config file D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\Custom\TitanPilot\DefaultGame.ini
+The config file 'Soul/Config/Tags/RBMagic.ini' will be staged, but is not explicitly allowed or denied. Add +AllowedConfigFiles=Soul/Config/Tags/RBMagic.ini or +DisallowedConfigFiles=Soul/Config/Tags/RBMagic.ini to the [Staging] section of DefaultGame.ini
+Including config file D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\Tags\RBMagic.ini
+Including config file D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultEngine.ini
+Including config file D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultGameplayTags.ini
+Including config file D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultGame.ini
+Including config file D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultInput.ini
+SafeFileExists D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\TemporaryNonUFSFiles.txt=False
+Skipping clean of staging directory due to -NoCleanStage argument.
+Creating pak using staging manifest.
+DumpManifest: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PrePak_Windows_NonUFSFiles.txt, NumItems: 51
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PrePak_Windows_NonUFSFiles.txt
+DumpManifest: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PrePak_Windows_NonUFSFilesDebug.txt, NumItems: 6
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PrePak_Windows_NonUFSFilesDebug.txt
+DumpManifest: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PrePak_Windows_UFSFiles.txt, NumItems: 3001
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PrePak_Windows_UFSFiles.txt
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Layouts\DefaultLayout.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Layouts\DefaultLayout.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\PluginBase.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\PluginBase.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\ConsoleVariables.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\ConsoleVariables.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\ConfigRedirects.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\ConfigRedirects.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\BaseWindowsInput.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Windows\BaseWindowsInput.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\BaseWindowsGame.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Windows\BaseWindowsGame.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\BaseWindowsEngine.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Windows\BaseWindowsEngine.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\VulkanPC\DataDrivenPlatformInfo.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\VulkanPC\DataDrivenPlatformInfo.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseInput.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseInput.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseHardware.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseHardware.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseGameUserSettings.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseGameUserSettings.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseGame.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseGame.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseEngine.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseEngine.ini
+Filtering config section 'StorageServers'
+Filtering config section '/Script/AndroidRuntimeSettings.AndroidRuntimeSettings'
+Filtering config section '/Script/AndroidPlatformEditor.AndroidSDKSettings'
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseDeviceProfiles.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseDeviceProfiles.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseCompat.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseCompat.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Base.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Base.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseScalability.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseScalability.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseRuntimeOptions.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseRuntimeOptions.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseMaterialExpressions.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseMaterialExpressions.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\BaseInstallBundle.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\BaseInstallBundle.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\WindowsInput.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Windows\WindowsInput.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\WindowsGame.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Windows\WindowsGame.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Windows\DataDrivenPlatformInfo.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Windows\DataDrivenPlatformInfo.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Config\Layouts\UE4ClassicLayout.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Config\Layouts\UE4ClassicLayout.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\Tags\RBMagic.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Config\Tags\RBMagic.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultEngine.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Config\DefaultEngine.ini
+Filtering config section '/Script/AndroidFileServerEditor.AndroidFileServerRuntimeSettings'
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultGameplayTags.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Config\DefaultGameplayTags.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultGame.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Config\DefaultGame.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Config\DefaultInput.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Config\DefaultInput.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\2D\Paper2D\Config\DefaultPaper2D.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\2D\Paper2D\Config\DefaultPaper2D.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\ACLPlugin\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\ACLPlugin\Config\FilterPlugin.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\AnimatorKit\Config\Editor.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\AnimatorKit\Config\Editor.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\ControlRig\Config\DefaultControlRig.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\ControlRig\Config\DefaultControlRig.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\DeformerGraph\Config\DefaultDeformerGraph.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\DeformerGraph\Config\DefaultDeformerGraph.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\DeformerGraph\Config\Editor.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\DeformerGraph\Config\Editor.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\IKRig\Config\DefaultIKRig.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\IKRig\Config\DefaultIKRig.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\LiveLink\Config\DefaultLiveLink.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\LiveLink\Config\DefaultLiveLink.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\PhysicsControl\Config\DefaultPhysicsControl.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\PhysicsControl\Config\DefaultPhysicsControl.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Animation\RigLogic\Config\DefaultRigLogic.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Animation\RigLogic\Config\DefaultRigLogic.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Cameras\GameplayCameras\Config\DefaultGameplayCameras.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Cameras\GameplayCameras\Config\DefaultGameplayCameras.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\ChaosVD\Config\ConfigRedirects.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\ChaosVD\Config\ConfigRedirects.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\ChaosVD\Config\DefaultChaosVD.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\ChaosVD\Config\DefaultChaosVD.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\ChaosVD\Config\Engine.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\ChaosVD\Config\Engine.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Compositing\CompositeCore\Config\DefaultCompositeCore.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Compositing\CompositeCore\Config\DefaultCompositeCore.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Developer\Concert\ConcertSync\ConcertSyncCore\Config\DefaultConcertSyncCore.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Developer\Concert\ConcertSync\ConcertSyncCore\Config\DefaultConcertSyncCore.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Editor\ConsoleVariablesEditor\Config\DefaultConsoleVariables.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Editor\ConsoleVariablesEditor\Config\DefaultConsoleVariables.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Editor\EditorScriptingUtilities\Config\DefaultEditorScriptingUtilities.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Editor\EditorScriptingUtilities\Config\DefaultEditorScriptingUtilities.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\EnhancedInput\Config\DefaultEnhancedInput.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\EnhancedInput\Config\DefaultEnhancedInput.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\EnhancedInput\Config\Input.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\EnhancedInput\Config\Input.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Enterprise\DatasmithContent\Config\DefaultDatasmithContent.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Enterprise\DatasmithContent\Config\DefaultDatasmithContent.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Enterprise\GLTFExporter\Config\DefaultGLTFExporter.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Enterprise\GLTFExporter\Config\DefaultGLTFExporter.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Enterprise\GLTFExporter\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Enterprise\GLTFExporter\Config\FilterPlugin.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Enterprise\VariantManagerContent\Config\DefaultVariantManagerContent.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Enterprise\VariantManagerContent\Config\DefaultVariantManagerContent.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Experimental\Animation\Scribble\Config\DefaultScribble.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Experimental\Animation\Scribble\Config\DefaultScribble.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Experimental\ControlRigPhysics\Config\DefaultControlRigPhysics.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Experimental\ControlRigPhysics\Config\DefaultControlRigPhysics.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Experimental\FullBodyIK\Config\DefaultFullBodyIK.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Experimental\FullBodyIK\Config\DefaultFullBodyIK.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Experimental\InterchangeAxF\Assets\Config\DefaultInterchangeAxFAssets.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Experimental\InterchangeAxF\Assets\Config\DefaultInterchangeAxFAssets.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Experimental\InterchangeAxF\Assets\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Experimental\InterchangeAxF\Assets\Config\FilterPlugin.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Experimental\ToolPresets\Config\DefaultToolPresets.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Experimental\ToolPresets\Config\DefaultToolPresets.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\FX\Niagara\Config\DefaultNiagara.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\FX\Niagara\Config\DefaultNiagara.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Interchange\Assets\Config\DefaultInterchangeAssets.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Interchange\Assets\Config\DefaultInterchangeAssets.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Interchange\Runtime\Config\DefaultInterchange.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Interchange\Runtime\Config\DefaultInterchange.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\MetaHuman\MetaHumanSDK\Config\DefaultMetaHumanSDK.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\MetaHuman\MetaHumanSDK\Config\DefaultMetaHumanSDK.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Mutable\Config\DefaultMutable.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Mutable\Config\DefaultMutable.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Mutable\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Mutable\Config\FilterPlugin.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\NNE\NNEDenoiser\Config\Game.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\NNE\NNEDenoiser\Config\Game.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Online\OnlineSubsystemUtils\Config\Editor.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Online\OnlineSubsystemUtils\Config\Editor.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Online\OnlineSubsystemUtils\Config\Localization\OnlineSubsystemUtils.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Online\OnlineSubsystemUtils\Config\Localization\OnlineSubsystemUtils.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Online\OnlineSubsystem\Config\Localization\OnlineSubsystem.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Online\OnlineSubsystem\Config\Localization\OnlineSubsystem.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\PCG\Config\DefaultPCG.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\PCG\Config\DefaultPCG.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\PCG\Config\EditorPerProjectUserSettings.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\PCG\Config\EditorPerProjectUserSettings.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\CommonUI\Config\DefaultCommonUI.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\CommonUI\Config\DefaultCommonUI.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\CommonUI\Config\Input.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\CommonUI\Config\Input.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\HairStrands\Config\DefaultHairStrands.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\HairStrands\Config\DefaultHairStrands.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\InputDebugging\Config\Input.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\InputDebugging\Config\Input.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\Metasound\Config\DefaultMetaSound.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\Metasound\Config\DefaultMetaSound.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\ModelViewViewModel\Config\DefaultModelViewViewModel.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\ModelViewViewModel\Config\DefaultModelViewViewModel.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\PropertyBindingUtils\Config\DefaultPropertyBindingUtils.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\PropertyBindingUtils\Config\DefaultPropertyBindingUtils.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\RigVM\Config\DefaultRigVM.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\RigVM\Config\DefaultRigVM.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\RigVM\Config\Editor.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\RigVM\Config\Editor.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\StateTree\Config\DefaultStateTree.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\StateTree\Config\DefaultStateTree.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\Synthesis\Config\DefaultSynthesis.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\Synthesis\Config\DefaultSynthesis.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\USDCore\Config\DefaultUSDCore.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\USDCore\Config\DefaultUSDCore.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\Runtime\Windows\XInputDevice\Config\Input.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\Runtime\Windows\XInputDevice\Config\Input.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\TraceUtilities\Config\DefaultTraceUtilities.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\TraceUtilities\Config\DefaultTraceUtilities.ini
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\VirtualProduction\Takes\Config\DefaultTakes.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Engine\Plugins\VirtualProduction\Takes\Config\DefaultTakes.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\RBAI\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Plugins\RBAI\Config\FilterPlugin.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\RBMagic\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Plugins\RBMagic\Config\FilterPlugin.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\RBWeather\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Plugins\RBWeather\Config\FilterPlugin.ini
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\TCAT\Config\FilterPlugin.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Temp\Win64\Soul\Plugins\TCAT\Config\FilterPlugin.ini
+No matching platform for PakFileRules for Section ExcludeContentForMobile : Windows
+SafeFindFiles D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Build\Windows\FileOpenOrder GameOpenOrder*.log False
+FindFiles D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Build\Windows\FileOpenOrder GameOpenOrder*.log False
+SafeFindFiles D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Build\Windows\FileOpenOrder CookerOpenOrder*.log False
+FindFiles D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Build\Windows\FileOpenOrder CookerOpenOrder*.log False
+SafeFindFiles D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Build\Windows\FileOpenOrder EditorOpenOrder.log False
+FindFiles D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Build\Windows\FileOpenOrder EditorOpenOrder.log False
+Using 0 pak order files:
+SafeCreateDirectory C:\Program Files\Epic Games\UE_5.8\Engine\Programs\AutomationTool\Saved\ResponseFiles
+SafeCreateDirectory C:\Program Files\Epic Games\UE_5.8\Engine\Programs\AutomationTool\Saved\ResponseFiles
+Running UnrealPak with arguments: "D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject"  -cryptokeys="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\Crypto.json" -unattended -patchpaddingalign=2048 -compressionformats=Oodle -compresslevel=4 -compressmethod=Kraken  -platform=Windows  -CreateMultiple="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PakCommands.txt"
+SafeFileExists C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealPak.exe=True
+Running: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealPak.exe "D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject"  -cryptokeys="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\Crypto.json" -unattended -patchpaddingalign=2048 -compressionformats=Oodle -compresslevel=4 -compressmethod=Kraken  -platform=Windows  -CreateMultiple="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\PakCommands.txt"
+OodleDataCompression: Display: Oodle v2.9.16 format for pak/iostore with method=Kraken, level=4=Normal
+LogStreaming: Display: AsyncLoading2 - Created: Async Loading Thread: false, Async Post Load: false, Multithreaded: false
+LogPakFile: Display: ProjectDir: D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/
+LogPakFile: Display: Parsing crypto keys from a crypto key cache file
+LogPakFile: Display: CompressionFormats in priority order: Oodle, Zlib
+LogPakFile: Display: Oodle enabled on 'NoPluginCompression' files
+LogPakFile: Display: Loading response file C:\Program Files\Epic Games\UE_5.8\Engine\Programs\AutomationTool\Saved\ResponseFiles\PakList_Soul-Windows.txt
+LogPakFile: Display: Added 1765 entries to add to pak file.
+LogPakFile: Display: Collecting files to add to pak file...
+LogPakFile: Display: Collected 1765 files in 0.01s.
+LogPakFile: Display: Creating pak D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/StagedBuilds/TitanPilot-20261005-183633/Windows/Soul/Content/Paks/Soul-Windows.pak.
+LogPakFile: Display: Created pak file: D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/StagedBuilds/TitanPilot-20261005-183633/Windows/Soul/Content/Paks/Soul-Windows.pak
+LogPakFile: Display: CompressionFormat 0 [Oodle] : 407 files, 24101214 -> 9213000 bytes
+LogPakFile: Display: CompressionFormat 2 [None] : 1358 files, 795003 -> 795003 bytes
+LogPakFile: Display: Added 1765 files, 10683439 bytes total
+LogPakFile: Display: PrimaryIndex size: 24302 bytes
+LogPakFile: Display: PathHashIndex size: 56749 bytes
+LogPakFile: Display: FullDirectoryIndex size: 59504 bytes
+LogPakFile: Display: Compression summary: 38.23% of original size. Compressed Size 9213000 bytes, Original Size 24101214 bytes.
+LogPakFile: Display: Encryption - DISABLED
+LogPakFile: Display:
+LogPakFile: Display: Writer and Compression Threads exited.
+LogPakFile: Display: UnrealPak executed in 1.527536 seconds
+Took 3.46s to run UnrealPak.exe, ExitCode=0
+SafeDeleteFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\UnrealPak_CreateMultiplePaks-2026.10.05-12.36.43.txt
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Logs\UnrealPak.log D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\UnrealPak_CreateMultiplePaks-2026.10.05-12.36.43.txt
+Running UnrealPak with arguments: "D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject" D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject -CreateGlobalContainer="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Content\Paks\global.utoc" -PackageStoreManifest="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\packagestore.manifest" -CookedDirectory="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows" -Commands="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\IoStoreCommands.txt" -ScriptObjects="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\scriptobjects.bin" -patchpaddingalign=2048 -compressionformats=Oodle -compresslevel=4 -compressmethod=Kraken   -cryptokeys="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\Crypto.json" -compressionMinBytesSaved=1024 -compressionMinPercentSaved=5 -WriteBackMetadataToAssetRegistry=Disabled -platform=Windows  -unattended
+SafeFileExists C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealPak.exe=True
+Running: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealPak.exe "D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject" D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject -CreateGlobalContainer="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Content\Paks\global.utoc" -PackageStoreManifest="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\packagestore.manifest" -CookedDirectory="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows" -Commands="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\IoStoreCommands.txt" -ScriptObjects="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\scriptobjects.bin" -patchpaddingalign=2048 -compressionformats=Oodle -compresslevel=4 -compressmethod=Kraken   -cryptokeys="D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\Crypto.json" -compressionMinBytesSaved=1024 -compressionMinPercentSaved=5 -WriteBackMetadataToAssetRegistry=Disabled -platform=Windows  -unattended
+OodleDataCompression: Display: Oodle v2.9.16 format for pak/iostore with method=Kraken, level=4=Normal
+LogStreaming: Display: AsyncLoading2 - Created: Async Loading Thread: false, Async Post Load: false, Multithreaded: false
+LogPakFile: Display: ProjectDir: D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/
+LogIoStore: Display: ==================== IoStore Utils ====================
+LogIoStore: Display: Parsing crypto keys from a crypto key cache file 'D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows\Soul\Metadata\Crypto.json'
+LogIoStore: Display: Container signing - DISABLED
+LogIoStore: Display: Directory index - ENABLED
+LogIoStore: Display: Using compression format 'Oodle'
+LogConfig: Display: Read in platform Windows ini files took 0.06 seconds
+LogIoStore: Display: Using memory mapping alignment '16384'
+LogIoStore: Display: Using compression block size '65536'
+LogIoStore: Display: Using compression block alignment '2048'
+LogIoStore: Display: Using compression min bytes saved '1024'
+LogIoStore: Display: Using compression min percent saved '5'
+LogIoStore: Display: Using max partition size '0'
+LogIoStore: Display: Not using DDC for compression
+LogIoStore: Display: Container metadata disabled
+LogIoStore: Display: Using command list file: 'D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\IoStoreCommands.txt'
+LogIoStore: Display: Selected Oodle level 4 (Normal) from command line for shaders
+LogIoStore: Display: Fetched 585 oplog items from Manifest in 0.01 seconds
+LogIoStore: Display: Parsed 585 oplog items 0.00 seconds, 655 chunks
+LogIoStore: Display: Using input asset registry: D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/Cooked/Windows/Soul/Metadata/DevelopmentAssetRegistry.bin
+LogIoStore: Display: Loaded 76 chunk hashes from AssetRegistry in 0.02 seconds, 76 hashes updated in 0.00 seconds
+LogIoStore: Display: Searching for cooked assets in folder 'D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Cooked\Windows'
+LogIoStore: Display: Found '1238' files
+LogIoStore: Display: Creating container targets...
+LogIoStore: Display: Parsing packages...
+LogIoStore: Display: Reading package assets...
+LogIoStore: Display: Packages read 579 files in 0.02 seconds, 1,519,504 total bytes, 79,413,818 bytes per second
+LogIoStore: Display: Processing shader libraries, compressing with Oodle Mermaid, level 4 (Normal)
+LogIoStore: Display: Shader library chunk override is disabled
+LogShaderLibrary: Display: Created IoStoreShaderArchive header: shaders grouped in 169 groups (63 of them didn't need new indices), average uncompressed size 86658 bytes, min 502 bytes, max 922569 bytes (r.ShaderCodeLibrary.MaxShaderGroupSize=1048576)
+LogIoStore: Display: Soul-PCD3D_SM5(PCD3D_SM5): Recompressed 1384 shaders as 169 groups. Library size changed from 4101 KB (3.49 : 1 ratio) to 1605 KB (8.91 : 1 ratio), 39.14% of previous.
+LogIoStore: Display: Save IoStoreShaderCodeArchive 'Soul-PCD3D_SM5-PCD3D_SM5' with ChunkId '79bc4015d7f61f6300000008' for target file 'D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/Cooked/Windows/Soul/Content/ShaderArchive-Soul-PCD3D_SM5-PCD3D_SM5.ushaderbytecode'
+LogShaderLibrary: Display: Created IoStoreShaderArchive header: shaders grouped in 385 groups (160 of them didn't need new indices), average uncompressed size 140004 bytes, min 249 bytes, max 1038208 bytes (r.ShaderCodeLibrary.MaxShaderGroupSize=1048576)
+LogIoStore: Display: Global-PCD3D_SM5(PCD3D_SM5): Recompressed 3930 shaders as 385 groups. Library size changed from 11889 KB (4.43 : 1 ratio) to 5224 KB (10.08 : 1 ratio), 43.94% of previous.
+LogIoStore: Display: Save IoStoreShaderCodeArchive 'Global-PCD3D_SM5-PCD3D_SM5' with ChunkId 'c3fad98e7ca0cc3100000008' for target file 'D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/Cooked/Windows/Soul/Content/ShaderArchive-Global-PCD3D_SM5-PCD3D_SM5.ushaderbytecode'
+LogIoStore: Display: Shaders processed in 0.36 seconds
+LogIoStore: Display: Initialized WriteRequestManager with MaxConcurrentSourceReads=4 (8 cores), MaxSourceBufferMemory=3072MiB
+LogIoStore: Display: Processing redirects...
+LogIoStore: Display: Creating disk layout...
+LogIoStore: Display: Ordered 579 packages using fallback bundle order
+LogIoStore: Display: Disabled WriteRequestManager memory throttling, MaxConcurrentSourceReads=4 (8 cores)
+LogIoStore: Display: Writing container(s)...
+LogIoStore: Display: Writing and compressing took 1.17 seconds, writes to disk took 0.11 seconds for 152,269,808 bytes @ 1,442,223,453 bytes per second.
+LogIoStore: Display: Soul-Windows: Found perfect hashmap for 1212 items.
+LogIoStore: Display: global: Found perfect hashmap for 1 items.
+LogIoStore: Display: Finalize took 0.1 seconds for 2 writers to write 145,859 bytes, 1,145,780 bytes per second
+LogIoStore: Display: Writing tocs... [Physical: 566 MiB, Virtual: 3292 MiB]
+LogIoStore: Display: 76 / 1,213 hashes were loaded from the hash database, by type:
+LogIoStore: Display:     BulkData                   76
+LogIoStore: Display: 655 / 1,213 chunks attempted to compress, by type:
+LogIoStore: Display:     ExportBundleData           579 / 579
+LogIoStore: Display:     BulkData                   76 / 76
+LogIoStore: Display:     ScriptObjects              0 / 1
+LogIoStore: Display:     ContainerHeader            0 / 1
+LogIoStore: Display:     ShaderCodeLibrary          0 / 2
+LogIoStore: Display:     ShaderCode                 0 / 554
+LogIoStore: Display: Source bytes read:
+LogIoStore: Display:     Zen:                                  0
+LogIoStore: Display:     Loose File:                 364,112,057
+LogIoStore: Display:         ExportBundleData        302,547,546 bytes over 1,158 reads
+LogIoStore: Display:         BulkData                 61,564,511 bytes over 76 reads
+LogIoStore: Display:     Memory:                      14,291,540
+LogIoStore: Display:         ShaderCodeLibrary           304,496 bytes over 4 reads
+LogIoStore: Display:         ShaderCode               13,987,044 bytes over 1,108 reads
+LogIoStore: Display: Calculating stats...
+LogIoStore: Display:
+LogIoStore: Display: Container Summary
+LogIoStore: Display: ==================
+LogIoStore: Display:
+LogIoStore: Display:            Container      Flags      Chunk(s) #       TOC (KiB)       Raw Size (MiB)           Size (MiB)
+LogIoStore: Display: ---------------------------------------------------------------------------------------------------------
+LogIoStore: Display:               global  -/-/-/-/-               1            0.80                 3.19                 3.19 -
+LogIoStore: Display:         Soul-Windows  C/-/-/I/-            1212          141.64               211.65               142.02 (32.90% Oodle)
+LogIoStore: Display: ---------------------------------------------------------------------------------------------------------
+LogIoStore: Display:                Total                       1213          142.44               214.84               145.22
+LogIoStore: Display:
+LogIoStore: Display: ** Flags: (C)ompressed / (E)ncrypted / (S)igned) / (I)ndexed) / (O)nDemand **
+LogIoStore: Display:
+LogIoStore: Display: Compression block padding:     0.71 MiB
+LogIoStore: Display:
+LogIoStore: Display: Container Directory Index
+LogIoStore: Display: ==========================
+LogIoStore: Display:
+LogIoStore: Display:            Container      Size (KiB)
+LogIoStore: Display: ------------------------------------
+LogIoStore: Display:               global            0.00
+LogIoStore: Display:         Soul-Windows           33.36
+LogIoStore: Display:
+LogIoStore: Display: Container Patch Report
+LogIoStore: Display: ========================
+LogIoStore: Display:
+LogIoStore: Display:            Container          Total #       Modified #          Added #   Modified (MiB)      Added (MiB)
+LogIoStore: Display: ---------------------------------------------------------------------------------------------------------
+LogIoStore: Display:               global                1                0                0             0.00             0.00
+LogIoStore: Display:         Soul-Windows             1212                0             1212             0.00           141.31
+LogIoStore: Display: ---------------------------------------------------------------------------------------------------------
+LogIoStore: Display:
+LogIoStore: Display: PackageStore
+LogIoStore: Display: =============
+LogIoStore: Display:
+LogIoStore: Display:            Container      Size (KiB)      Packages #     Localized #
+LogIoStore: Display: --------------------------------------------------------------------
+LogIoStore: Display:         Soul-Windows              15             579               0
+LogIoStore: Display: --------------------------------------------------------------------
+LogIoStore: Display:                Total              15             579               0
+LogIoStore: Display:
+LogIoStore: Display:
+LogIoStore: Display: Input:       579 Packages
+LogIoStore: Display: Input:    144.27 MiB UExp
+LogIoStore: Display: Input:      1.45 MiB UAsset
+LogIoStore: Display: Input:     58.71 MiB UBulk
+LogIoStore: Display: Input:      5.10 MiB for 385 Global shaders
+LogIoStore: Display: Input:    402.51 KiB for 89 Shared shaders
+LogIoStore: Display: Input:         0   B for 0 Unique shaders
+LogIoStore: Display: Input:      1.17 MiB for 80 Inline shaders
+LogIoStore: Display:
+LogIoStore: Display: Output:    23346 Name map entries
+LogIoStore: Display: Output:      600 Imported package entries
+LogIoStore: Display: Output:      384 Packages without imports
+LogIoStore: Display: Output:        0 Public runtime script objects
+LogIoStore: Display: Output:     1.12 MiB HeaderData
+LogIoStore: Display: Output:     3.19 MiB InitialLoadData
+LogIoStore: Display:
+LogIoStore: Display: Success
+LogPakFile: Display: UnrealPak executed in 2.059173 seconds
+Took 3.73s to run UnrealPak.exe, ExitCode=0
+SafeDeleteFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\UnrealPak_CreateIoStoreContainers-2026.10.05-12.36.47.txt
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\Logs\UnrealPak.log D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\UnrealPak_CreateIoStoreContainers-2026.10.05-12.36.47.txt
+DumpManifest: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\FinalCopyWin64_UFSFiles.txt, NumItems: 3002
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\FinalCopyWin64_UFSFiles.txt
+DumpManifest: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\FinalCopyWin64_NonUFSFiles.txt, NumItems: 51
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\FinalCopyWin64_NonUFSFiles.txt
+DumpManifest: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\FinalCopyWin64_NonUFSFilesDebug.txt, NumItems: 6
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\FinalCopyWin64_NonUFSFilesDebug.txt
+Copying NonUFSFiles to staging directory: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\D3D12\x64
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\D3D12\x64\D3D12Core.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\D3D12\x64\D3D12Core.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\D3D12\x64\d3d12SDKLayers.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\D3D12\x64\d3d12SDKLayers.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\DML\x64
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\DML\x64\DirectML.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\DML\x64\DirectML.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\Soul.exe D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\Soul.exe
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_atomic-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_atomic-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_chrono-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_chrono-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_container-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_container-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_filesystem-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_filesystem-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_graph-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_graph-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_iostreams-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_iostreams-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_program_options-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_program_options-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_python311-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_python311-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_random-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_random-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_regex-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_regex-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_system-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_system-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\boost_thread-mt-x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\boost_thread-mt-x64.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\tbb12.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\tbb12.dll
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\tbbmalloc.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Binaries\Win64\tbbmalloc.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\DbgHelp
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\DbgHelp\dbghelp.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\DbgHelp\dbghelp.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\MsQuic\v220\win64
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\MsQuic\v220\win64\msquic.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\MsQuic\v220\win64\msquic.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\NVIDIA\NVaftermath\Win64
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\NVIDIA\NVaftermath\Win64\GFSDK_Aftermath_Lib.x64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\NVIDIA\NVaftermath\Win64\GFSDK_Aftermath_Lib.x64.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Ogg\Win64\VS2015
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Ogg\Win64\VS2015\libogg_64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Ogg\Win64\VS2015\libogg_64.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vorbis\Win64\VS2015
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vorbis\Win64\VS2015\libvorbis_64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vorbis\Win64\VS2015\libvorbis_64.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vorbis\Win64\VS2015\libvorbisfile_64.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vorbis\Win64\VS2015\libvorbisfile_64.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Windows\WinPixEventRuntime\x64
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Windows\WinPixEventRuntime\x64\WinPixEventRuntime.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Windows\WinPixEventRuntime\x64\WinPixEventRuntime.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Windows\XAudio2_9\x64
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Windows\XAudio2_9\x64\xaudio2_9redist.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Windows\XAudio2_9\x64\xaudio2_9redist.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Content\Renderer
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Content\Renderer\TessellationTable.bin D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Content\Renderer\TessellationTable.bin
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Content\Slate\Cursor
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Content\Slate\Cursor\invisible.cur D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Content\Slate\Cursor\invisible.cur
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Plugins\NNE\NNERuntimeORT\Binaries\ThirdParty\Onnxruntime\Win64
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Plugins\NNE\NNERuntimeORT\Binaries\ThirdParty\Onnxruntime\Win64\onnxruntime.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Plugins\NNE\NNERuntimeORT\Binaries\ThirdParty\Onnxruntime\Win64\onnxruntime.dll
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Data
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Data\soul_campaign_start_states_v1_20260922.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Data\soul_campaign_start_states_v1_20260922.json
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Data\soul_overmap_battle_handoff_v1_20260922.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Data\soul_overmap_battle_handoff_v1_20260922.json
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Data\soul_vertical_scenario_20260925.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Data\soul_vertical_scenario_20260925.json
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Data\soul_world_overmap_v1_20260922.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Data\soul_world_overmap_v1_20260922.json
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Plugins\RBFoundation
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\RBFoundation\StackManifest.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul\Plugins\RBFoundation\StackManifest.json
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Config
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildCookRun\StagedBuild_Soul.ini D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Config\StagedBuild_Soul.ini
+SafeCreateDirectory D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_api_dump.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_api_dump.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_api_dump.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_api_dump.json
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_crash_diagnostic.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_crash_diagnostic.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_crash_diagnostic.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_crash_diagnostic.json
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_gfxreconstruct.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_gfxreconstruct.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_gfxreconstruct.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_gfxreconstruct.json
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_profiles.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_profiles.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_profiles.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_profiles.json
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_shader_object.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_shader_object.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_shader_object.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_shader_object.json
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_synchronization2.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_synchronization2.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_synchronization2.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_synchronization2.json
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_validation.dll D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_validation.dll
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_validation.json D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Engine\Binaries\ThirdParty\Vulkan\Win64\VkLayer_khronos_validation.json
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Staging\Soul.exe D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul.exe
+SafeCopyFile C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Licenses\NOTICES.txt D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\NOTICES.txt
+SafeDeleteFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Manifest_NonUFSFiles_Win64.txt
+SafeDeleteFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\Manifest_NonUFSFiles_Win64.txt
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\Manifest_NonUFSFiles_Win64.txt
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\Manifest_NonUFSFiles_Win64.txt D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Manifest_NonUFSFiles_Win64.txt
+SafeDeleteFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Manifest_UFSFiles_Win64.txt
+SafeDeleteFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\Manifest_UFSFiles_Win64.txt
+SafeWriteAllLines D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\Manifest_UFSFiles_Win64.txt
+SafeCopyFile D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\UAT-20261005-183633\Manifest_UFSFiles_Win64.txt D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Manifest_UFSFiles_Win64.txt
+Stage command time: 9.49 s
+********** STAGE COMMAND COMPLETED **********
+Deployment Context **************
+ProjectFile = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+ArchiveDir = (null)
+IsCodeBasedUprojectFile = True
+DedicatedServer = False
+Stage = True
+StageTargetPlatform = Win64
+InputRootDir = C:\Program Files\Epic Games\UE_5.8
+InputProjectDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005
+PlatformDir = Win64
+StagedOutputDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows
+ShortProjectName = Soul
+ProjectArgForCommandLines = -project="../../../Soul/Soul.uproject"
+RunRootDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows
+RunProjectDir = D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\StagedBuilds\TitanPilot-20261005-183633\Windows\Soul
+PakFileInternalRoot = ../../../
+PlatformUsesChunkManifests = False
+End Deployment Context **************
+BuildCookRun time: 11.60 s
+BUILD SUCCESSFUL
+AutomationTool executed for 0h 0m 14s
+AutomationTool exiting with ExitCode=0 (Success)

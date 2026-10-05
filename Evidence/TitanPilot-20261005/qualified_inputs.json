@@ -1,0 +1,125 @@
+{
+  "source_commit": "cef33b885070d59e0c1774fb29f36555f450bd2c",
+  "files": [
+    {
+      "path": "Tools/TitanPilot/audit_packages.py",
+      "bytes": 5520,
+      "sha256": "de88b73fc9d83abed88b5fe87b243b0c982c17b3f04caeeef7f35f019f5cfc69",
+      "modified_utc": "2026-10-05T14:40:00.933964+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/prepare_migration.py",
+      "bytes": 10790,
+      "sha256": "94aabfe7e2b4bf4aabf43cbfd63069b72ac8e380f658269b39ec6fbf46a23177",
+      "modified_utc": "2026-10-05T17:43:35.547542+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/qualify_evidence.py",
+      "bytes": 4217,
+      "sha256": "61d42f84cfc745e91741222c433e3c2bd5eab42eb55e497b9ed55ac754e492bc",
+      "modified_utc": "2026-10-05T18:43:40.899256+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/record_preflight.py",
+      "bytes": 2532,
+      "sha256": "5e4a2f77e0a6b020f922b66ab88a297d6a2df91a558c295b577359f8f1143da9",
+      "modified_utc": "2026-10-05T14:50:46.537560+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/review_unreal_log.py",
+      "bytes": 1521,
+      "sha256": "2990924a32a93866ebdc19775d5f9dc5484c0921083ad25c2310715fbab7e10c",
+      "modified_utc": "2026-10-05T17:38:21.036480+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/test_audit_packages.py",
+      "bytes": 9416,
+      "sha256": "97b8d012670a3ce0501b39ae3d88895127607fb136d219d166bdd5368a29612d",
+      "modified_utc": "2026-10-05T17:21:05.044257+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/test_external_actor_classes.py",
+      "bytes": 6718,
+      "sha256": "2a2b5d1dee5ba20b1fa6c377afcce39f0928b5c7ffcc6fc29cecb64b6550e0a9",
+      "modified_utc": "2026-10-05T17:43:37.177584+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/test_review_unreal_log.py",
+      "bytes": 1593,
+      "sha256": "4fcfc33d5d118631bb596185c7fc42110935c4c8c3ca7da8da54990310e57cf9",
+      "modified_utc": "2026-10-05T17:38:22.712782+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/test_transfer_clifftop.py",
+      "bytes": 3370,
+      "sha256": "0f9b685a14325c75e8024c499ae370b4870b20a366ee57cd04adf0b4a1c884f3",
+      "modified_utc": "2026-10-05T17:27:59.340058+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/transfer_clifftop.py",
+      "bytes": 5040,
+      "sha256": "850bb9b4a2a148cd8b56060f74fe19db27101c0d361c2484936a2b7f0e5cc964",
+      "modified_utc": "2026-10-05T17:21:01.343455+00:00"
+    },
+    {
+      "path": "Tools/TitanPilot/Run-TitanPilot.ps1",
+      "bytes": 9192,
+      "sha256": "5a1abf74793e62d1c977d95b5f859651513f8a5d20e936f3c9b28ddf8f8f46e5",
+      "modified_utc": "2026-10-05T18:36:29.171554+00:00"
+    },
+    {
+      "path": "Source/Soul/Private/SoulTitanPilot.cpp",
+      "bytes": 13671,
+      "sha256": "16befe6379e391ca4f69180ef2fd2c421521f5086dea92165f47d2eab9bde94f",
+      "modified_utc": "2026-10-05T17:59:04.078685+00:00"
+    },
+    {
+      "path": "Source/Soul/Public/SoulTitanPilot.h",
+      "bytes": 1538,
+      "sha256": "218b98db6ae701def0b3faeda6da378f89731e5334cee7b61310aeffc8793b76",
+      "modified_utc": "2026-10-05T17:41:37.922000+00:00"
+    },
+    {
+      "path": "Source/SoulEditor/Private/SoulTitanAuditCommandlet.cpp",
+      "bytes": 10640,
+      "sha256": "0b1a9f073cf9203b08486c50e7cce372e721e9c74c72d4312266ee2a3cc93150",
+      "modified_utc": "2026-10-05T17:24:39.595226+00:00"
+    },
+    {
+      "path": "Source/SoulEditor/Private/SoulTitanPilotBuildCommandlet.cpp",
+      "bytes": 12296,
+      "sha256": "e5474915f3e2dbc052b3951bec86afe7ba99b5d71483820418a2f644cd061f4b",
+      "modified_utc": "2026-10-05T17:53:20.715206+00:00"
+    },
+    {
+      "path": "Content/Soul/Maps/Soul_TitanPilot.umap",
+      "bytes": 233790,
+      "sha256": "86bc896ff606114afdfc8bd5d6c5b207663510fb77f0981e74dd9376ab3bccae",
+      "modified_utc": "2026-10-05T17:55:34.095860+00:00"
+    },
+    {
+      "path": "Config/Custom/TitanPilot/DefaultGame.ini",
+      "bytes": 428,
+      "sha256": "cbc2c6459049c45176dbec9db0a1bbac291be76c222214f36ce4564c746ae042",
+      "modified_utc": "2026-10-05T18:34:10.844982+00:00"
+    },
+    {
+      "path": "Binaries/Win64/Soul.exe",
+      "bytes": 339217408,
+      "sha256": "d9b0321007cf345f52349f6aae2d4bd669a0faa21bcbde031723344f5e72f6b7",
+      "modified_utc": "2026-10-05T18:15:48.810135+00:00"
+    },
+    {
+      "path": "Binaries/Win64/UnrealEditor-Soul.dll",
+      "bytes": 959488,
+      "sha256": "6323379481ca633bb139b584beaeea66b3cbafd57ba3b35ea5c1a2015f2d71c1",
+      "modified_utc": "2026-10-05T18:00:00.089783+00:00"
+    },
+    {
+      "path": "Binaries/Win64/UnrealEditor-SoulEditor.dll",
+      "bytes": 201728,
+      "sha256": "66dad6e2c0bff96536e353672ca2d2a9a569227922501d18e685b9b8c7113617",
+      "modified_utc": "2026-10-05T17:53:42.303423+00:00"
+    }
+  ]
+}

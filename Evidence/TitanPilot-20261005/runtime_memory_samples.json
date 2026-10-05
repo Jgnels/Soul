@@ -1,0 +1,128 @@
+﻿[
+    {
+        "utc":  "2026-10-05T18:02:07.5863587Z",
+        "process_id":  1964,
+        "working_set_bytes":  2224361472,
+        "peak_working_set_bytes":  2226102272,
+        "cpu_seconds":  89.5625,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 40 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:09.7334365Z",
+        "process_id":  1964,
+        "working_set_bytes":  2224369664,
+        "peak_working_set_bytes":  2226102272,
+        "cpu_seconds":  91.734375,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:11.8106605Z",
+        "process_id":  1964,
+        "working_set_bytes":  2224418816,
+        "peak_working_set_bytes":  2226102272,
+        "cpu_seconds":  93.671875,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 42 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:13.8803268Z",
+        "process_id":  1964,
+        "working_set_bytes":  2224369664,
+        "peak_working_set_bytes":  2226102272,
+        "cpu_seconds":  95.84375,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:15.9601958Z",
+        "process_id":  1964,
+        "working_set_bytes":  2224312320,
+        "peak_working_set_bytes":  2226102272,
+        "cpu_seconds":  97.984375,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 40 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:18.0592445Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228690944,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  100.390625,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 40 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:20.1407705Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228690944,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  102.703125,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 40 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:22.2219235Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228748288,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  104.96875,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:24.3085550Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228690944,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  107.296875,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:26.3797713Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228715520,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  109.265625,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:28.4468340Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228592640,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  111.296875,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:30.5124639Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228592640,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  113.375,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 41 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:32.5750937Z",
+        "process_id":  1964,
+        "working_set_bytes":  2228699136,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  115.71875,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 40 %",
+        "free_d_bytes":  28756992000
+    },
+    {
+        "utc":  "2026-10-05T18:02:34.6417386Z",
+        "process_id":  1964,
+        "working_set_bytes":  2223050752,
+        "peak_working_set_bytes":  2228981760,
+        "cpu_seconds":  117.6875,
+        "gpu_aggregate":  "NVIDIA GeForce GTX 1080, 8192 MiB, 4519 MiB, 40 %",
+        "free_d_bytes":  28756992000
+    }
+]

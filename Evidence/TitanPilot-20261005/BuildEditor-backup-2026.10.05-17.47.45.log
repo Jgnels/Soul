@@ -1,0 +1,105 @@
+Log started at 10/05/2026 11:47:45 (2026-10-05T17:47:45Z)
+Resolved project argument D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject to D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor.log
+Deleting old log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor-backup-2026.10.05-16.49.44.log
+Deleting old log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor-backup-2026.10.05-16.49.44.json
+
+Setting temp directory to 'C:\Users\Jeff\AppData\Local\Temp\UnrealBuildTool\eb6d2d82'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" SoulEditor Win64 Development -Project=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject -WaitMutex -NoHotReloadFromIDE -NoUBA -MaxParallelActions=2 -Log=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor.log
+Executing up to 2 actions based on MaxProcessorCount override
+Using 'git status' to determine working set for adaptive non-unity build (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005).
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Building UnrealEditor - SoulEditor - Win64 - Development
+Generated code is up to date.
+Building SoulEditor...
+===== Toolchain Information =====
+Using ISPC compiler (C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35228 toolchain (C:\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from Soul unity file: SoulTitanPilot.cpp
+[Adaptive Build] Excluded from SoulEditor unity file: SoulTitanPilotBuildCommandlet.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 4 action(s)
+  CPU 4 physical cores, 8 logical cores
+  Memory 15.96 GB physical, 18.95 GB/40.37 GB committed
+  UBA Storage capacity 40 GB
+  UBA RootDir C:\ProgramData\Epic\UnrealBuildAccelerator
+Cache bucket 4134325563 used. Action: Compile [x64] SoulTitanPilotBuildCommandlet.cpp ()
+Cache bucket 416513229 used. Action: Link [x64] UnrealEditor-SoulEditor.dll ()
+All processes queued
+[1/4] Compile [x64] SoulTitanPilotBuildCommandlet.cpp [NoUba]
+[2/4] Link [x64] UnrealEditor-SoulEditor.lib [NoUba]
+[3/4] Link [x64] UnrealEditor-SoulEditor.dll [NoUba]
+[4/4] WriteMetadata SoulEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 16.48 seconds
+Output binary: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.535 Main
+   0.018          [  0.018]  +0.112 Apply XmlConfig
+   0.142          [  0.142]  +0.089 AddTelemetry
+   0.268          [  0.268]  +0.266 RegisterPlatforms
+[  0.563]  +0.031 ParseCommandLine
+[  0.673]  +0.242 LoadMakefile
+   0.708          [  0.034]  +0.073 EngineRulesPlugins
+   0.786          [  0.113]  +0.010 EngineRulesFetchDirs
+   0.804          [  0.131]  +0.012 EngineRulesAssembly
+   0.817          [  0.143]  +0.001 ProgramRulesAssembly
+   0.833          [  0.160]  +0.010 ProjectRulesAssembly
+   0.843          [  0.170]  +0.314 CreateTargetRules
+   0.918             0.245          [  0.075]  +0.000 FindPlugins
+   0.940             0.266          [  0.096]  +0.069 MakefileValid
+[  0.916]  +0.352 <unknown>
+[  1.269]  +0.008 CppDependencyCache
+[  1.294]  +0.093 SoulEditor Win64 Development
+[  1.388]  +0.030 UHTWait
+   1.390          [  0.001]  +0.026 UHTManifest
+   1.417          [  0.028]  +0.027 UHTTimestamps
+[  1.457]  +0.003 CppDependencyCache
+[  1.461]  +0.105 Preparing ActionGraph
+   1.478          [  0.017]  +0.008 LinkActions
+   1.486             0.025          [  0.007]  +0.000 DetectActionGraphCycles
+   1.488          [  0.027]  +0.000 GatherPrerequisiteActions
+   1.490          [  0.029]  +0.000 CppDependencyCacheWait
+   1.491          [  0.030]  +0.053 GatherOutdatedActions
+   1.549          [  0.087]  +0.013 LinkActions
+   1.549             0.087          [  0.000]  +0.000 DetectActionGraphCycles
+   1.563          [  0.102]  +0.001 DeleteOutdatedProducedItems
+   1.564          [  0.103]  +0.001 SaveActionHistory
+   1.566          [  0.105]  +0.000 CreateDirectoriesForProducedItems
+[  1.584]  +0.109 GarbageCollect
+[  1.694] +16.376 <unknown>
+[ 18.071]  +0.000 Deploying targets
+[ 18.072]  +0.000 DisconnectCache
+[ 18.082]  +0.001 SaveCasTable
+[ 18.088]  +0.073 Saving caches
+[ 18.162]  +0.003 TelemetryService.FlushEvents
+[ 18.168]
+
+Result: Succeeded
+Total execution time: 18.17 seconds

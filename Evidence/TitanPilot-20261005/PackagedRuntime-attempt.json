@@ -1,15 +1,18 @@
 ﻿{
-    "stage":  "Runtime",
-    "started_utc":  "2026-10-05T18:00:50.5065756Z",
+    "stage":  "PackagedRuntime",
+    "started_utc":  "2026-10-05T18:40:05.9185311Z",
     "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
     "branch":  "codex/soul-titan-pilot-20261005",
     "competitors":  [
 
                     ],
-    "free_bytes_before":  28757508096,
-    "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
+    "free_bytes_before":  21443006464,
+    "package_directory":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Saved\\StagedBuilds\\TitanPilot-20261005-183633",
+    "executable":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Saved\\StagedBuilds\\TitanPilot-20261005-183633\\Windows\\Soul\\Binaries\\Win64\\Soul.exe",
     "arguments":  [
-                      "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+                      "-NotInstalled",
+                      "-CustomConfig=TitanPilot",
+                      "-UserDir=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Saved\\StagedBuilds\\TitanPilot-20261005-183633\\PilotUser",
                       "/Game/Soul/Maps/Soul_TitanPilot",
                       "-game",
                       "-windowed",
@@ -21,10 +24,10 @@
                       "-nosound",
                       "-SoulTitanPilotProof",
                       "-ExecCmds=r.DynamicGlobalIlluminationMethod 0,r.ReflectionMethod 0,r.Shadow.Virtual.Enable 0,sg.ViewDistanceQuality 1,sg.ShadowQuality 1,sg.EffectsQuality 0,sg.PostProcessQuality 0,r.Streaming.PoolSize 2048,t.MaxFPS 60",
-                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\Runtime.log"
+                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\PackagedRuntime.log"
                   ],
     "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
     "exit_code":  0,
-    "ended_utc":  "2026-10-05T18:02:36.3844165Z",
-    "free_bytes_after":  28757102592
+    "ended_utc":  "2026-10-05T18:41:43.8728490Z",
+    "free_bytes_after":  21441040384
 }

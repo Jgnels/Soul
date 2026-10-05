@@ -1,0 +1,237 @@
+Log started at 10/05/2026 12:03:30 (2026-10-05T18:03:30Z)
+Resolved project argument D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject to D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildGame.log
+
+Setting temp directory to 'C:\Users\Jeff\AppData\Local\Temp\UnrealBuildTool\eb6d2d82'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" Soul Win64 Development -Project=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject -WaitMutex -NoHotReloadFromIDE -NoUBA -MaxParallelActions=2 -Log=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildGame.log
+Executing up to 2 actions based on MaxProcessorCount override
+Using 'git status' to determine working set for adaptive non-unity build (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005).
+Creating makefile for Soul (no existing makefile)
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Compiler: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe
+Linker: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe
+Library Manager: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe
+Resource Compiler: C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\rc.exe
+Resource Converter: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cvtres.exe
+Using EngineIncludeOrderVersion.Unreal5_8 for target Soul.Target.cs
+Building UnrealGame - Soul - Win64 - Development
+VerseVMBytecodeGenerator.Generate, generating CPP headers in: 'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealGame\Inc\CoreUObject\VerseVMBytecode'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealGame\Inc\CoreUObject\VerseVMBytecode\VVMBytecodeOps.gen.h'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealGame\Inc\CoreUObject\VerseVMBytecode\VVMBytecodesAndCaptures.gen.h'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealGame\Inc\CoreUObject\VerseVMBytecode\VVMMakeCapturesFuncs.gen.h'
+	Writing out generated header file. Changed:False Path:'C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealGame\Inc\CoreUObject\VerseVMBytecode\VVMCaptureSwitch.gen.h'
+Found 4 shared PCH headers (listed in order of preference):
+	Engine
+	Slate
+	CoreUObject
+	Core
+Parsing headers for Soul
+  Running Internal UnrealHeaderTool D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\Win64\Soul\Soul.uhtmanifest -WarningsAsErrors -installed
+UHT compiled-in object format Default
+Step - Parse Headers
+Step - Populate symbol table
+Step - Exports
+       Exporter Stats skipped
+       Exporter Json skipped
+       Running exporter CodeGen
+UHT processed Soul in 14.5835196 seconds (294 generated files written)
+Building Soul...
+===== Toolchain Information =====
+Using ISPC compiler (C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35228 toolchain (C:\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from Soul unity file: SoulTitanPilot.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 99 action(s)
+  CPU 4 physical cores, 8 logical cores
+  Memory 15.96 GB physical, 19.39 GB/40.37 GB committed
+  UBA Storage capacity 40 GB
+  UBA RootDir C:\ProgramData\Epic\UnrealBuildAccelerator
+Cache bucket 361583038 used. Action: Compile [x64] SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp20.cpp ()
+Cache bucket 4010880385 used. Action: Compile [x64] SharedPCH.Core.Project.ValApi.ValExpApi.Cpp20.cpp ()
+Cache bucket 3084607794 used. Action: Compile Resource [x64] Soul-Default.rc2 ()
+Cache bucket 508334458 used. Action: Compile [x64] Module.SoulCore.gen.cpp ()
+Cache bucket 2785216701 used. Action: Compile [x64] SoulBattlefieldRecipe.cpp ()
+Cache bucket 136926991 used. Action: Link [x64] Soul.exe ()
+All processes queued
+[1/99] Compile [x64] SharedPCH.Core.Project.ValApi.ValExpApi.Cpp20.cpp [NoUba]
+[2/99] Compile [x64] SharedPCH.Core.Project.Exceptions.ValApi.ValExpApi.Cpp20.cpp [NoUba]
+[3/99] Compile [x64] SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp20.cpp [NoUba]
+[4/99] Copy Soul-Default.rc2 [NoUba]
+[5/99] Compile Resource [x64] Soul-Default.rc2 [NoUba]
+[6/99] Compile [x64] SharedPCH.Engine.Project.Exceptions.ValApi.ValExpApi.Cpp20.cpp [NoUba]
+[7/99] Compile [x64] SoulBattlefieldRecipe.cpp [NoUba]
+[8/99] Compile [x64] Module.SoulCore.gen.cpp [NoUba]
+[9/99] Compile [x64] SoulCampaignBattleBridge.cpp [NoUba]
+[10/99] Compile [x64] SoulCampaign.cpp [NoUba]
+[11/99] Compile [x64] SoulCore.cpp [NoUba]
+[12/99] Compile [x64] SoulCombat.cpp [NoUba]
+[13/99] Compile [x64] SoulFaction.cpp [NoUba]
+[14/99] Compile [x64] SoulHero.cpp [NoUba]
+[15/99] Compile [x64] SoulHeroRecruitment.cpp [NoUba]
+[16/99] Compile [x64] SoulHeroRecruitmentTests.cpp [NoUba]
+[17/99] Compile [x64] SoulLogistics.cpp [NoUba]
+[18/99] Compile [x64] SoulHex.cpp [NoUba]
+[19/99] Compile [x64] SoulMagic.cpp [NoUba]
+[20/99] Compile [x64] SoulMechanicsTests.cpp [NoUba]
+[21/99] Compile [x64] SoulMemory.cpp [NoUba]
+[22/99] Compile [x64] SoulObjectives.cpp [NoUba]
+[23/99] Compile [x64] SoulRetreat.cpp [NoUba]
+[24/99] Compile [x64] SoulSettlement.cpp [NoUba]
+[25/99] Compile [x64] SoulSiege.cpp [NoUba]
+[26/99] Compile [x64] SoulSiegeAftermath.cpp [NoUba]
+[27/99] Compile [x64] SoulStrategyAI.cpp [NoUba]
+[28/99] Compile [x64] SoulTerrainTactics.cpp [NoUba]
+[29/99] Compile [x64] SoulTown.cpp [NoUba]
+[30/99] Compile [x64] SoulVeterancy.cpp [NoUba]
+[31/99] Compile [x64] SoulWorld.cpp [NoUba]
+[32/99] Compile [x64] SoulRealtimeBattle.cpp [NoUba]
+[33/99] Compile [x64] Module.SoulRealtimeBattle.gen.cpp [NoUba]
+[34/99] Compile [x64] SoulRealtimeBattleLabTests.cpp [NoUba]
+[35/99] Compile [x64] SoulRealtimeBattleMagicTests.cpp [NoUba]
+[36/99] Compile [x64] SoulRealtimeBattleArena.cpp [NoUba]
+[37/99] Compile [x64] SoulRealtimeBattlePBIL.cpp [NoUba]
+[38/99] Compile [x64] SoulRealtimeBattleRules.cpp [NoUba]
+[39/99] Compile [x64] SoulRealtimeBattleSpatial.cpp [NoUba]
+[40/99] Compile [x64] SoulRealtimeBattleSpatialTests.cpp [NoUba]
+[41/99] Compile [x64] SoulRealtimeBattleTests.cpp [NoUba]
+[42/99] Compile [x64] SoulReinforcementScaleTests.cpp [NoUba]
+[43/99] Compile [x64] SoulVerticalAnimationCompatibilityTests.cpp [NoUba]
+[44/99] Compile [x64] SoulVerticalReinforcementTests.cpp [NoUba]
+[45/99] Compile [x64] SoulTitanPilot.cpp [NoUba]
+[46/99] Compile [x64] Module.AITokenCore.cpp [NoUba]
+[47/99] Compile [x64] Module.Soul.cpp [NoUba]
+[48/99] Compile [x64] Module.RBAIBoss.cpp [NoUba]
+[49/99] Compile [x64] Module.RBAICombat.cpp [NoUba]
+[50/99] Compile [x64] Module.RBAICore.cpp [NoUba]
+[51/99] Compile [x64] Module.RBAICreatures.cpp [NoUba]
+[52/99] Compile [x64] Module.RBAIGroups.cpp [NoUba]
+[53/99] Compile [x64] Module.RBFoundationAdapters.cpp [NoUba]
+[54/99] Compile [x64] Module.RBFoundation.cpp [NoUba]
+[55/99] Compile [x64] Module.RBMagicCore.cpp [NoUba]
+[56/99] Compile [x64] Module.RBMagicPresentation.cpp [NoUba]
+[57/99] Compile [x64] Module.RBItemEconomy.cpp [NoUba]
+[58/99] Compile [x64] Module.RBPBIL.cpp [NoUba]
+[59/99] Compile [x64] Module.RBOptimization.cpp [NoUba]
+[60/99] Compile [x64] Module.RBRoutine.cpp [NoUba]
+[61/99] Compile [x64] Module.RBSave.cpp [NoUba]
+[62/99] Compile [x64] Module.RBUIInput.cpp [NoUba]
+[63/99] Compile [x64] Module.RBWeather.cpp [NoUba]
+[64/99] Compile [x64] Module.RBSaveCore.cpp [NoUba]
+[65/99] Compile [x64] RBCombatActions.cpp [NoUba]
+[66/99] Compile [x64] RBCombatCommands.cpp [NoUba]
+[67/99] Compile [x64] RBCombatGuard.cpp [NoUba]
+[68/99] Compile [x64] RefinedBadgerCombatCore.cpp [NoUba]
+[69/99] Compile [x64] RBCombatRouter.cpp [NoUba]
+[70/99] Compile [x64] RBCombatBlueprintBinding.cpp [NoUba]
+[71/99] Compile [x64] Module.RefinedBadgerCombatVariant.gen.cpp [NoUba]
+[72/99] Compile [x64] RBCombatContactNotify.cpp [NoUba]
+[73/99] Compile [x64] RBCombatGroupDriver.cpp [NoUba]
+[74/99] Compile [x64] RBCombatMeleeComponent.cpp [NoUba]
+[75/99] Compile [x64] RBCombatProjectile.cpp [NoUba]
+[76/99] Compile [x64] RBCombatRangedComponent.cpp [NoUba]
+[77/99] Compile [x64] RBCombatWeaponData.cpp [NoUba]
+[78/99] Compile [x64] RBVariantCombatBindingComponent.cpp [NoUba]
+[79/99] Compile [x64] RefinedBadgerCombatVariant.cpp [NoUba]
+[80/99] Copy D3D12Core.dll [NoUba]
+[81/99] Copy d3d12SDKLayers.dll [NoUba]
+[82/99] Copy DirectML.dll [NoUba]
+[83/99] Copy boost_atomic-mt-x64.dll [NoUba]
+[84/99] Copy boost_chrono-mt-x64.dll [NoUba]
+[85/99] Copy boost_container-mt-x64.dll [NoUba]
+[86/99] Copy boost_filesystem-mt-x64.dll [NoUba]
+[87/99] Copy boost_graph-mt-x64.dll [NoUba]
+[88/99] Copy boost_iostreams-mt-x64.dll [NoUba]
+[89/99] Copy boost_program_options-mt-x64.dll [NoUba]
+[90/99] Copy boost_python311-mt-x64.dll [NoUba]
+[91/99] Copy boost_random-mt-x64.dll [NoUba]
+[92/99] Copy boost_regex-mt-x64.dll [NoUba]
+[93/99] Copy boost_system-mt-x64.dll [NoUba]
+[94/99] Copy boost_thread-mt-x64.dll [NoUba]
+[95/99] Copy tbb12.dll [NoUba]
+[96/99] Copy tbbmalloc.dll [NoUba]
+[97/99] Compile [x64] Module.TCAT.cpp [NoUba]
+D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\TCAT\Source\TCAT\Private\Core\TCATSubsystem.cpp(1269,35): warning C4996: 'RHICreateTexture': RHICreateTexture with an implied immediate command list is deprecated - Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+            GlobalCurveAtlasRHI = RHICreateTexture(Desc);
+                                  ^
+D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Plugins\TCAT\Source\TCAT\Private\Simulation\TCATInfluenceDispatcher.cpp(38): warning C4996: The legacy GPU profiler has been removed from the engine. RDG_GPU_STAT_SCOPE has been deprecated, and now does nothing. GPU stats are handled via the _STAT versions of RDG_EVENT_SCOPE macros, e.g. RDG_EVENT_SCOPE_STAT. - Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+[98/99] Link [x64] Soul.exe [NoUba]
+[99/99] WriteMetadata Soul.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 725.82 seconds
+Output binary: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\Soul.exe
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.560 Main
+   0.018          [  0.018]  +0.114 Apply XmlConfig
+   0.142          [  0.141]  +0.088 AddTelemetry
+   0.268          [  0.268]  +0.292 RegisterPlatforms
+[  0.595]  +0.036 ParseCommandLine
+[  0.731]  +0.069 EngineRulesPlugins
+[  0.806]  +0.031 EngineRulesFetchDirs
+[  0.847]  +0.012 EngineRulesAssembly
+[  0.860]  +0.001 ProgramRulesAssembly
+[  0.867]  +0.007 ProjectRulesAssembly
+[  0.874]  +0.292 CreateTargetRules
+[  1.288]  +0.004 CppDependencyCache
+[  1.305]  +3.483 Soul Win64 Development
+   1.305          [  0.000]  +0.507 <unknown>
+   1.813          [  0.507]  +0.059 UHTModules
+   1.872          [  0.566]  +0.222 <unknown>
+   2.095          [  0.789]  +0.189 UHTManifest
+   2.285          [  0.979] +14.591 UHT
+   2.285             0.979          [  0.000]  +0.995 <unknown>
+   3.280             1.975          [  0.995]  +0.000 GitWait
+   3.281             1.975          [  0.995]  +1.502 <unknown>
+   4.784             3.478          [  2.498]  +0.000 WaitOnWrites
+   4.789             3.483          [  2.503]  +0.083 SavingMakefile
+   4.873             3.567          [  2.587] +12.003 <unknown>
+[  4.788] +12.089 <unknown>
+[ 16.878]  +0.035 UHTTimestamps
+[ 16.928]  +0.000 CppDependencyCache
+[ 16.929]  +0.084 Preparing ActionGraph
+  16.948          [  0.019]  +0.009 LinkActions
+  16.956             0.027          [  0.008]  +0.000 DetectActionGraphCycles
+  16.958          [  0.029]  +0.000 GatherPrerequisiteActions
+  16.961          [  0.031]  +0.000 CppDependencyCacheWait
+  16.962          [  0.032]  +0.029 GatherOutdatedActions
+  16.995          [  0.066]  +0.005 LinkActions
+  16.995             0.066          [  0.000]  +0.000 DetectActionGraphCycles
+  17.002          [  0.073]  +0.000 DeleteOutdatedProducedItems
+  17.003          [  0.074]  +0.005 SaveActionHistory
+  17.011          [  0.081]  +0.002 CreateDirectoriesForProducedItems
+[ 17.034]  +0.207 GarbageCollect
+[ 17.242]+725.611 <unknown>
+[742.853]  +0.000 Deploying targets
+[742.856]  +0.000 DisconnectCache
+[742.873]  +0.002 SaveCasTable
+[742.878]  +0.072 Saving caches
+[742.952]  +0.003 TelemetryService.FlushEvents
+[742.957]
+
+Result: Succeeded
+Total execution time: 742.96 seconds

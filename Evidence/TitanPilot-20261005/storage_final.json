@@ -1,0 +1,24 @@
+{
+  "recorded_utc": "2026-10-05T18:44:06.192605+00:00",
+  "free_bytes": 21439180800,
+  "reserve_bytes": 16106127360,
+  "donor_source_hash_mismatches": [],
+  "donor_files_rechecked": 346,
+  "outputs": {
+    "staged_windows": {
+      "files": 58,
+      "bytes": 605626331,
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Saved\\StagedBuilds\\TitanPilot-20261005-183633\\Windows"
+    },
+    "cooked_windows": {
+      "files": 1263,
+      "bytes": 259029388,
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Saved\\Cooked\\Windows"
+    },
+    "pilot_user": {
+      "files": 5,
+      "bytes": 1851093,
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Saved\\StagedBuilds\\TitanPilot-20261005-183633\\PilotUser"
+    }
+  }
+}

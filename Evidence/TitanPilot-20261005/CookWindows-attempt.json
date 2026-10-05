@@ -1,29 +1,30 @@
 ﻿{
-    "stage":  "Audit",
-    "started_utc":  "2026-10-05T17:29:23.6476374Z",
+    "stage":  "CookWindows",
+    "started_utc":  "2026-10-05T18:34:19.7986377Z",
     "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
     "branch":  "codex/soul-titan-pilot-20261005",
     "competitors":  [
 
                     ],
-    "free_bytes_before":  28777115648,
+    "free_bytes_before":  22053240832,
     "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
     "arguments":  [
                       "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
-                      "-run=SoulTitanAudit",
+                      "-run=Cook",
+                      "-TargetPlatform=Windows",
+                      "-Map=/Game/Soul/Maps/Soul_TitanPilot",
+                      "-CookMapsOnly",
+                      "-SkipEditorContent",
                       "-unattended",
                       "-nosplash",
                       "-nullrhi",
                       "-nosound",
-                      "-NoAssetRegistryCache",
-                      "-NoAutoSave",
+                      "-CustomConfig=TitanPilot",
                       "-NoSourceControl",
-                      "-Donor=D:\\Unreal Projects\\ProjectTitan",
-                      "-Output=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\asset_registry_closure-20261005-172923.json",
-                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\Audit.log"
+                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\CookWindows.log"
                   ],
     "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
     "exit_code":  0,
-    "ended_utc":  "2026-10-05T17:29:58.5601560Z",
-    "free_bytes_after":  28775063552
+    "ended_utc":  "2026-10-05T18:34:47.3475083Z",
+    "free_bytes_after":  22052102144
 }

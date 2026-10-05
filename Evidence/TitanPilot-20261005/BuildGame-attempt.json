@@ -1,16 +1,16 @@
 ﻿{
-    "stage":  "BuildEditor",
-    "started_utc":  "2026-10-05T17:59:39.9896699Z",
+    "stage":  "BuildGame",
+    "started_utc":  "2026-10-05T18:03:30.0894684Z",
     "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
     "branch":  "codex/soul-titan-pilot-20261005",
     "competitors":  [
 
                     ],
-    "free_bytes_before":  28757549056,
+    "free_bytes_before":  28757098496,
     "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\ThirdParty\\DotNet\\10.0\\win-x64\\dotnet.exe",
     "arguments":  [
                       "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.dll",
-                      "SoulEditor",
+                      "Soul",
                       "Win64",
                       "Development",
                       "-Project=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
@@ -18,10 +18,10 @@
                       "-NoHotReloadFromIDE",
                       "-NoUBA",
                       "-MaxParallelActions=2",
-                      "-Log=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\BuildEditor.log"
+                      "-Log=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\BuildGame.log"
                   ],
     "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
     "exit_code":  0,
-    "ended_utc":  "2026-10-05T18:00:01.5044792Z",
-    "free_bytes_after":  28757508096
+    "ended_utc":  "2026-10-05T18:15:53.4937790Z",
+    "free_bytes_after":  22597898240
 }

@@ -1,0 +1,24 @@
+OodleDataCompression: Display: Oodle v2.9.16 format for pak/iostore with method=Kraken, level=4=Normal
+LogStreaming: Display: AsyncLoading2 - Created: Async Loading Thread: false, Async Post Load: false, Multithreaded: false
+LogPakFile: Display: ProjectDir: D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/
+LogPakFile: Display: Parsing crypto keys from a crypto key cache file
+LogPakFile: Display: CompressionFormats in priority order: Oodle, Zlib
+LogPakFile: Display: Oodle enabled on 'NoPluginCompression' files
+LogPakFile: Display: Loading response file C:\Program Files\Epic Games\UE_5.8\Engine\Programs\AutomationTool\Saved\ResponseFiles\PakList_Soul-Windows.txt
+LogPakFile: Display: Added 1765 entries to add to pak file.
+LogPakFile: Display: Collecting files to add to pak file...
+LogPakFile: Display: Collected 1765 files in 0.01s.
+LogPakFile: Display: Creating pak D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/StagedBuilds/TitanPilot-20261005-183633/Windows/Soul/Content/Paks/Soul-Windows.pak.
+LogPakFile: Display: Created pak file: D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Saved/StagedBuilds/TitanPilot-20261005-183633/Windows/Soul/Content/Paks/Soul-Windows.pak
+LogPakFile: Display: CompressionFormat 0 [Oodle] : 407 files, 24101214 -> 9213000 bytes
+LogPakFile: Display: CompressionFormat 2 [None] : 1358 files, 795003 -> 795003 bytes
+LogPakFile: Display: Added 1765 files, 10683439 bytes total
+LogPakFile: Display: PrimaryIndex size: 24302 bytes
+LogPakFile: Display: PathHashIndex size: 56749 bytes
+LogPakFile: Display: FullDirectoryIndex size: 59504 bytes
+LogPakFile: Display: Compression summary: 38.23% of original size. Compressed Size 9213000 bytes, Original Size 24101214 bytes. 
+LogPakFile: Display: Encryption - DISABLED
+LogPakFile: Display: 
+LogPakFile: Display: Writer and Compression Threads exited.
+LogPakFile: Display: UnrealPak executed in 1.527536 seconds
+

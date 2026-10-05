@@ -1,0 +1,125 @@
+Log started at 10/05/2026 11:46:28 (2026-10-05T17:46:28Z)
+Resolved project argument D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject to D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\Jeff\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\XmlConfigCache.bin): C:\Users\Jeff\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor.log
+Deleting old log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor-backup-2026.10.05-16.42.32.log
+Deleting old log file: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor-backup-2026.10.05-16.42.32.json
+
+Setting temp directory to 'C:\Users\Jeff\AppData\Local\Temp\UnrealBuildTool\eb6d2d82'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" SoulEditor Win64 Development -Project=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Soul.uproject -WaitMutex -NoHotReloadFromIDE -NoUBA -MaxParallelActions=2 -Log=D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Evidence\TitanPilot-20261005\BuildEditor.log
+Executing up to 2 actions based on MaxProcessorCount override
+Using 'git status' to determine working set for adaptive non-unity build (D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005).
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping C:\Program Files\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Building UnrealEditor - SoulEditor - Win64 - Development
+Generated code is up to date.
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\Win64\x64\UnrealEditor\Development\Soul\UnrealEditor-Soul.lib
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\UnrealEditor-Soul.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Binaries\Win64\UnrealEditor-SoulEditor.pdb
+Deleting outdated item: D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Intermediate\Build\Win64\x64\UnrealEditor\Development\SoulEditor\UnrealEditor-SoulEditor.lib
+Building SoulEditor...
+===== Toolchain Information =====
+Using ISPC compiler (C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35228 toolchain (C:\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from Soul unity file: SoulTitanPilot.cpp
+[Adaptive Build] Excluded from SoulEditor unity file: SoulTitanPilotBuildCommandlet.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 7 action(s)
+  CPU 4 physical cores, 8 logical cores
+  Memory 15.96 GB physical, 19.06 GB/40.37 GB committed
+  UBA Storage capacity 40 GB
+  UBA RootDir C:\ProgramData\Epic\UnrealBuildAccelerator
+Cache bucket 3219070584 used. Action: Compile [x64] SoulTitanPilot.cpp ()
+Cache bucket 416513229 used. Action: Link [x64] UnrealEditor-Soul.lib ()
+Cache bucket 4134325563 used. Action: Compile [x64] SoulTitanPilotBuildCommandlet.cpp ()
+All processes queued
+ Compile [x64] SoulTitanPilotBuildCommandlet.cpp [NoUba]: Exited with error code 2 . The build will fail.
+ Compile [x64] SoulTitanPilotBuildCommandlet.cpp [NoUba]: WorkingDirectory C:\Program Files\Epic Games\UE_5.8\Engine\Source
+ Compile [x64] SoulTitanPilotBuildCommandlet.cpp [NoUba]: C:\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe @"D:/RefinedBadger/Worktrees/Soul-titan-pilot-20261005/Intermediate/Build/Win64/x64/UnrealEditor/Development/SoulEditor/SoulTitanPilotBuildCommandlet.cpp.obj.rsp" 
+[1/7] Compile [x64] SoulTitanPilotBuildCommandlet.cpp [NoUba]
+D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Source\SoulEditor\Private\SoulTitanPilotBuildCommandlet.cpp(163,28): error C4456: declaration of 'Offset' hides previous local declaration
+        for (const FVector Offset : {FVector(600,0,0), FVector(0,600,0), FVector(1000,1000,0)})
+                           ^
+D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005\Source\SoulEditor\Private\SoulTitanPilotBuildCommandlet.cpp(85,19): note: see declaration of 'Offset'
+    const FVector Offset(-Bounds.GetCenter().X, -Bounds.GetCenter().Y, -Bounds.Min.Z);
+                  ^
+[2/7] Compile [x64] SoulTitanPilot.cpp [NoUba]
+[3/7] Link [x64] UnrealEditor-Soul.lib [NoUba]
+[4/7] Link [x64] UnrealEditor-Soul.dll [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 20.23 seconds
+CompilationResultException: OtherCompilationError
+   at UnrealBuildTool.ActionGraph.InternalExecuteActions(ActionExecutor Executor, List`1 ActionsToExecute, ILogger Logger)
+   at UnrealBuildTool.ActionGraph.ExecuteActionsAsync(BuildConfiguration BuildConfiguration, List`1 ActionsToExecute, List`1 TargetDescriptors, ILogger Logger, ActionExecutor executor)
+   at UnrealBuildTool.BuildMode.BuildAsync(List`1 Targets, BuildConfiguration BuildConfiguration, BuildOptions Options, FileReference WriteOutdatedActionsFile, CppDependencyCache cppDependencyCache, ILogger Logger, String ActionTypeFilter, ActionExecutor executor)
+   at UnrealBuildTool.BuildMode.ExecuteAsync(CommandLineArguments Arguments, ILogger Logger)
+   at UnrealBuildTool.BuildMode.ExecuteAsync(CommandLineArguments Arguments, ILogger Logger)
+   at UnrealBuildTool.UnrealBuildTool.Main(String[] ArgumentsArray)
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.566 Main
+   0.019          [  0.019]  +0.109 Apply XmlConfig
+   0.141          [  0.141]  +0.088 AddTelemetry
+   0.260          [  0.259]  +0.306 RegisterPlatforms
+[  0.599]  +0.043 ParseCommandLine
+[  0.724]  +0.172 LoadMakefile
+   0.783          [  0.059]  +0.064 EngineRulesPlugins
+   0.853          [  0.129]  +0.011 EngineRulesFetchDirs
+   0.877          [  0.153]  +0.012 EngineRulesAssembly
+   0.890          [  0.166]  +0.001 ProgramRulesAssembly
+[  0.897]  +0.016 ProjectRulesAssembly
+   0.904          [  0.007]  +0.000 FindPlugins
+[  0.913]  +0.310 CreateTargetRules
+   0.920          [  0.007]  +0.037 MakefileValid
+   0.957             0.044          [  0.037]  +0.000 GitWait
+   0.958          [  0.045]  +0.264 <unknown>
+[  1.340]  +0.009 CppDependencyCache
+[  1.363]  +0.098 SoulEditor Win64 Development
+[  1.464]  +0.031 UHTWait
+   1.465          [  0.001]  +0.027 UHTManifest
+   1.493          [  0.029]  +0.030 UHTTimestamps
+[  1.533]  +0.003 CppDependencyCache
+[  1.537]  +0.115 Preparing ActionGraph
+   1.552          [  0.015]  +0.008 LinkActions
+   1.560             0.023          [  0.007]  +0.000 DetectActionGraphCycles
+   1.561          [  0.024]  +0.000 GatherPrerequisiteActions
+   1.564          [  0.027]  +0.000 CppDependencyCacheWait
+   1.565          [  0.028]  +0.055 GatherOutdatedActions
+   1.625          [  0.088]  +0.011 LinkActions
+   1.625             0.088          [  0.000]  +0.000 DetectActionGraphCycles
+   1.637          [  0.100]  +0.012 DeleteOutdatedProducedItems
+   1.649          [  0.112]  +0.001 SaveActionHistory
+   1.652          [  0.115]  +0.000 CreateDirectoriesForProducedItems
+[  1.670]  +0.094 GarbageCollect
+[  1.765] +20.138 <unknown>
+[ 21.903]  +0.000 DisconnectCache
+[ 21.914]  +0.001 SaveCasTable
+[ 21.920]  +0.073 Saving caches
+[ 22.009]  +0.004 TelemetryService.FlushEvents
+[ 22.015]
+
+Result: Failed (OtherCompilationError)
+Total execution time: 22.02 seconds

@@ -1,0 +1,7 @@
+﻿{
+  "unresolved_load_errors": [],
+  "resolved_editor_warnings": [
+    "[2026.10.05-18.01.15:410][  4]LogLinker: Warning: [AssetLog] C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Content\\Maps\\Templates\\HLODs\\HLODLayer_Merged.uasset: VerifyImport: Failed to find script package for import object 'Package /Script/WorldPartitionHLODUtilities'"
+  ],
+  "runtime_pass": true
+}

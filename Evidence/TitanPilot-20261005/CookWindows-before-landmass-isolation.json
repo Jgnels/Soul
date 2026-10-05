@@ -1,25 +1,29 @@
 ﻿{
-    "stage":  "CreatePilot",
-    "started_utc":  "2026-10-05T17:54:54.7802336Z",
+    "stage":  "CookWindows",
+    "started_utc":  "2026-10-05T18:18:06.8422540Z",
     "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
     "branch":  "codex/soul-titan-pilot-20261005",
     "competitors":  [
 
                     ],
-    "free_bytes_before":  28761821184,
+    "free_bytes_before":  22597898240,
     "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
     "arguments":  [
                       "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
-                      "-run=SoulTitanPilotBuild",
+                      "-run=Cook",
+                      "-TargetPlatform=Windows",
+                      "-Map=/Game/Soul/Maps/Soul_TitanPilot",
+                      "-CookMapsOnly",
+                      "-SkipEditorContent",
                       "-unattended",
                       "-nosplash",
                       "-nullrhi",
                       "-nosound",
                       "-NoSourceControl",
-                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\CreatePilot.log"
+                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\CookWindows.log"
                   ],
-    "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
-    "exit_code":  0,
-    "ended_utc":  "2026-10-05T17:55:35.3023997Z",
-    "free_bytes_after":  28758773760
+    "status":  "FAILED",
+    "exit_code":  1,
+    "ended_utc":  "2026-10-05T18:22:55.7662839Z",
+    "free_bytes_after":  22181576704
 }
