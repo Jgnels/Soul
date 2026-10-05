@@ -1,0 +1,44 @@
+{
+  "scope": "R6 campaign world native checks; Soul.Core28 previously passed R5 with unchanged Core source",
+  "tests": [
+    [
+      "Success",
+      "CameraAndSelection",
+      "Soul.Integration.CampaignWorld.CameraAndSelection"
+    ],
+    [
+      "Success",
+      "TerrainAndRoutes",
+      "Soul.Integration.CampaignWorld.TerrainAndRoutes"
+    ]
+  ],
+  "log": "Evidence\\CampaignWorldTerrain-20261005\\Local\\editor-r5\\unreal.log",
+  "log_sha256": "972d8d7543fec518fbe483239ff408576d9137c4b6865a3e709f079f2f191469",
+  "editor_session": {
+    "command": [
+      "C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+      "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "/Engine/Maps/Entry",
+      "-d3d11",
+      "-RenderOffscreen",
+      "-unattended",
+      "-nosound",
+      "-nosplash",
+      "-DisablePlugins=AndroidFileServer",
+      "-DDC=InstalledNoZenLocalFallback",
+      "-ExecCmds=t.MaxFPS 20,r.VSync 0",
+      "-windowed",
+      "-ResX=1920",
+      "-ResY=1080",
+      "-ForceRes",
+      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CampaignWorldTerrain-20261005\\Local\\editor-r5\\unreal.log",
+      "-SoulWorldTerrain"
+    ],
+    "started_utc": "2026-10-05T21:20:06.546918+00:00",
+    "temporary_directory": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulWorldEditor_50blbdmb",
+    "pid": 24028,
+    "cleanup": "already_exited",
+    "exit_code": 0,
+    "finished_utc": "2026-10-05T21:23:48.812581+00:00"
+  }
+}

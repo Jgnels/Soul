@@ -45,3 +45,10 @@ Evidence/CampaignTerrainProduction-20260929/runs/0[1-8]-*/*.png
 
 # Locally prepared licensed audio; recreate with Tools/prepare_soul_battle_audio.py
 /Data/BattleAudioLocal/
+
+# Local licensed-derived campaign world payload; regenerate from owned tools.
+/Content/SoulCampaignWorld/
+/Data/CampaignWorldLocal/
+/Evidence/CampaignWorldTerrain-20261005/Local/
+/Evidence/CampaignWorldTerrain-20261005/*-runtime/
+/Evidence/CampaignWorldTerrain-20261005/editor-session/

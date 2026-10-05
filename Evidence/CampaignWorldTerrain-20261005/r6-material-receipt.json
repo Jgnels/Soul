@@ -1,0 +1,21 @@
+{
+  "map": "/Game/SoulCampaignWorld/L_SoulWorld.L_SoulWorld",
+  "landscape_count": 1,
+  "macro_texture_used": true,
+  "authored_biome_masks_used": true,
+  "macro_palette_space": "display sRGB stored in linear HDR texture; explicit IEC shader decode; biome channels linear",
+  "field_parcels": 54,
+  "surface_breakup_scales_m": [
+    24,
+    105,
+    470
+  ],
+  "field_shader": "one baked mask sample with near-only rows; no per-parcel shader loops",
+  "materials": [
+    "/Game/SoulCampaignWorld/M_WorldGround",
+    "/Game/SoulCampaignWorld/M_WorldWater",
+    "/Game/SoulCampaignWorld/M_WorldRoad",
+    "/Game/SoulCampaignWorld/M_WorldMasonry"
+  ],
+  "donor_assets_saved": false
+}

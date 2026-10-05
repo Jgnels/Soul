@@ -1,0 +1,15 @@
+test_actual_route_grades_and_crossing_clearances (__main__.WorldTerrainContracts.test_actual_route_grades_and_crossing_clearances) ... ok
+test_connected_downhill_drainage (__main__.WorldTerrainContracts.test_connected_downhill_drainage) ... ok
+test_context_settlements_do_not_create_gameplay_regions (__main__.WorldTerrainContracts.test_context_settlements_do_not_create_gameplay_regions) ... ok
+test_exact_existing_world_transform_and_route_endpoints (__main__.WorldTerrainContracts.test_exact_existing_world_transform_and_route_endpoints) ... ok
+test_exact_graph_and_unchanged_authority (__main__.WorldTerrainContracts.test_exact_graph_and_unchanged_authority) ... ok
+test_height_import_dimensions_encoding_and_margins (__main__.WorldTerrainContracts.test_height_import_dimensions_encoding_and_margins) ... ok
+test_lake_has_a_closed_basin_and_supported_radial_mesh (__main__.WorldTerrainContracts.test_lake_has_a_closed_basin_and_supported_radial_mesh) ... ok
+test_level_settlement_footprints (__main__.WorldTerrainContracts.test_level_settlement_footprints) ... ok
+test_named_crossings_have_one_shared_deck_and_bank_approach (__main__.WorldTerrainContracts.test_named_crossings_have_one_shared_deck_and_bank_approach) ... ok
+test_productive_hinterland_is_substantial_and_dry (__main__.WorldTerrainContracts.test_productive_hinterland_is_substantial_and_dry) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.152s
+
+OK

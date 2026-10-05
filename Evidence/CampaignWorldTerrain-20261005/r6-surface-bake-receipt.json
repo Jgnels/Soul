@@ -1,0 +1,15 @@
+{
+  "profile_sha256": "521b3c284dafb6bdc385338a81f7476289549425e234cac31b18e3de422c0771",
+  "resolution": 2033,
+  "orientation": "row zero UE Y minimum",
+  "fields": 54,
+  "noise_scales_m": [
+    24,
+    105,
+    470
+  ],
+  "files": {
+    "WorldDetail.png": "4efe0363b1b939ff46df49b485e3dcb9dc55ea250995993ded77e60e35c34839",
+    "WorldCultivation.png": "5a0d6582468711339ee5990dd6634bdb0403cf3c0d812f7c0144fbcda6e45bca"
+  }
+}

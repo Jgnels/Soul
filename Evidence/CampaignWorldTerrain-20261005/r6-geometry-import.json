@@ -1,0 +1,22 @@
+{
+  "height_sha256": "f032cbba35e73862953051dab5b14e3d6d8b08c817774c39e6c8cedb268eed29",
+  "profile_sha256": "521b3c284dafb6bdc385338a81f7476289549425e234cac31b18e3de422c0771",
+  "map_sha256": "aaf062d5e33607a8f742b3aec0cf743ba7e303e0a0fec2c1c1f06c2b96eaa796",
+  "terrain": {
+    "resolution": 2033,
+    "minimum_xy_cm": [
+      -508000.0,
+      -508000.0
+    ],
+    "extent_xy_cm": [
+      1016000.0,
+      1016000.0
+    ],
+    "height_unit_cm": 4.0,
+    "heightfield_path": "Data/CampaignWorldLocal/WorldHeight.r16",
+    "map": "/Game/SoulCampaignWorld/L_SoulWorld"
+  },
+  "offline_status": "pass",
+  "diagnostic_only": false,
+  "runtime_qualified": false
+}
