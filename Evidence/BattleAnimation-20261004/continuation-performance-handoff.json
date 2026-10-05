@@ -1,0 +1,173 @@
+{
+  "status": "QUALIFIED: clean warmed interactive performance measurement completed at representative 40- and 60-active-cap battle loads. This is measurement qualification, not release acceptance or a guaranteed 60 FPS claim.",
+  "prior_receipt": "continuation-22004-receipt.json",
+  "timestamp_utc": "2026-10-05T02:47:06.122756+00:00",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "head": "195ea79c9b88096bafc8d18030a2980d945231f1",
+  "preservation": "No gameplay/source/config changes. All previous dirty/new work preserved; original git status unchanged. No reset, clean, merge, push, new worktree, Hyper Combat integration, external communication or deployment.",
+  "build": {
+    "executable": "C:/Temp/SoulBattle-20261004-r11/Archive/Windows/Soul/Binaries/Win64/Soul.exe",
+    "configuration": "Previously qualified r11 packaged Development, UE 5.8.3-58210709",
+    "provenance": "Performance-20261004/provenance.json",
+    "package_files": "Performance-20261004/package-files.json",
+    "source_snapshot": "source-snapshot-r11.json: all 43 entries still match",
+    "no_rebuild_or_recook": true
+  },
+  "environment": {
+    "cpu": "Intel Core i7-7700HQ, 4 cores / 8 logical processors",
+    "gpu": "NVIDIA GeForce GTX 1080, driver 32.0.15.8253",
+    "display": "Visible native windowed game, 1280x720, D3D11; default commander overview",
+    "quality": "Epic scalability (3); r.ScreenPercentage=0 selects default, r.ScreenPercentage.Default=100; VSync=False; t.MaxFPS=0 / FrameRateLimit=0; dynamic resolution disabled",
+    "audio": "Enabled in both runs; not a listening qualification",
+    "lease": "Studio-Control Global\\RefinedBadger_Unreal_<machine> held exclusively by run_interactive.ps1; no concurrent Unreal process; released at normal exit",
+    "background": "Existing desktop applications preserved. Background process delta recorded; this is an interactive workstation measurement, not an isolated laboratory or shipping benchmark."
+  },
+  "method": {
+    "map": "/Game/Dragon_graveyard/Level/L_showcase_level?game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode",
+    "input": "Native Computer Use key input; no screenshot requests, offscreen rendering or automated proof flags. Combat resumed before accepted profiler commands. Small UE console closes after Return; later P input successfully pauses gameplay.",
+    "profiler": "Unreal csvprofile frames=2400; actual FrameTime, GameThreadTime, RenderThreadTime, RHIThreadTime and GPUTime. No Tick-derived timing.",
+    "selection": "Predeclared whole frames within seconds 5..35 of CSV capture. No per-frame removal, no outlier trimming. Complete raw CSV retained.",
+    "warmup_60": "126.9s initial live combat, then 69.58s additional live combat in rejected capture; third encounter loaded 02:34:45.938Z, resumed 02:35:41.812Z, CSV began 02:35:55.535Z. Accepted window begins about 74.6s after reload completion and 18.7s after combat resume.",
+    "warmup_40": "131.6s initial live combat, then 85.24s additional live combat in rejected capture; third encounter loaded 02:42:35.292Z, resumed 02:43:39.236Z, CSV began 02:43:52.820Z. Accepted window begins about 82.5s after reload completion and 18.6s after combat resume.",
+    "logging": "SoulControlDiagnostics disabled. LogTemp Warning suppresses per-contact/stance/reaction display traffic before capture. Exactly eight ordinary skeletal component creation lines in each accepted 30s window; no verbose/control/contact logs, load/flush warnings or errors.",
+    "counter_acceptance": "Every retained frame has zero package queue depths, streamables in flight, pending IO, level loads/visibility work and texture stream-in data; desired texture data=100%; shader loaded/created counters stable; no CSV events. Created-shader counter can be negative after resource teardown; stability/delta, not its absolute value, is the check.",
+    "load_semantics": "Initial 40=20/20 and 60=30/30 live actors, with finite pools 46/30 and 46/46. Live combat includes movement, attacks, deaths and reinforcement component creation; casualties/replacements occur naturally. This does not claim a constant exact number alive in every measured frame. Exact per-frame alive telemetry was deliberately not enabled.",
+    "scope": "Representative commander-view combat in the current campaign package. No player spell casts during accepted samples; not a spell-heavy stress scene, campaign-only traversal benchmark, first-launch benchmark, physical-controller acceptance or long soak."
+  },
+  "accepted_samples": {
+    "40": {
+      "qualified": true,
+      "initial_active": 40,
+      "active_cap_per_side": 20,
+      "finite_pools": [
+        46,
+        30
+      ],
+      "summary": "Performance-20261004/Live-40/sample-2.json",
+      "csv": "Performance-20261004/Live-40/User/Saved/Profiling/CSV/Profile(20261004_204352).csv",
+      "csv_sha256": "b403a7ac353986e0feaf5d2469d38c946d6f43165095ea6cc15cc253e2445cf6",
+      "runtime_log": "Performance-20261004/Live-40/Runtime.log",
+      "raw_frames": 2400,
+      "measured_frames": 1839,
+      "measured_seconds": 29.98277629999999,
+      "frame_time_ms": {
+        "frames": 1839,
+        "mean_ms": 16.303847906470903,
+        "median_ms": 16.1564,
+        "p90_ms": 18.302580000000003,
+        "p95_ms": 19.00504,
+        "p99_ms": 20.569437999999998,
+        "max_ms": 44.6049,
+        "above_16_667_ms": 731,
+        "above_33_333_ms": 1,
+        "above_50_ms": 0,
+        "above_100_ms": 0
+      },
+      "mean_thread_gpu_ms": {
+        "GameThreadTime": 8.691157966286026,
+        "RenderThreadTime": 15.011153561718325,
+        "RHIThreadTime": 8.285621152800436,
+        "GPUTime": 16.28915589994564
+      },
+      "counter_checks_pass": true,
+      "post_capture_endpoint": {
+        "battle_seconds": 83.18,
+        "alive": [
+          16,
+          9
+        ],
+        "accepted_contacts": 515,
+        "note": "Endpoint is after raw capture; not a per-frame alive count in the selected window."
+      }
+    },
+    "60": {
+      "qualified": true,
+      "initial_active": 60,
+      "active_cap_per_side": 30,
+      "finite_pools": [
+        46,
+        46
+      ],
+      "summary": "Performance-20261004/Live-60-r2/sample-2.json",
+      "csv": "Performance-20261004/Live-60-r2/User/Saved/Profiling/CSV/Profile(20261004_203555).csv",
+      "csv_sha256": "295840841498cfcfb40b8952d8947abf429dcd842f3abe9152257ad987692ebb",
+      "runtime_log": "Performance-20261004/Live-60-r2/Runtime.log",
+      "raw_frames": 2400,
+      "measured_frames": 1593,
+      "measured_seconds": 29.976933000000017,
+      "frame_time_ms": {
+        "frames": 1593,
+        "mean_ms": 18.817911487758956,
+        "median_ms": 18.536,
+        "p90_ms": 21.131659999999997,
+        "p95_ms": 21.95296,
+        "p99_ms": 23.887635999999997,
+        "max_ms": 32.7457,
+        "above_16_667_ms": 1508,
+        "above_33_333_ms": 0,
+        "above_50_ms": 0,
+        "above_100_ms": 0
+      },
+      "mean_thread_gpu_ms": {
+        "GameThreadTime": 11.369075580665424,
+        "RenderThreadTime": 17.271271939736366,
+        "RHIThreadTime": 9.07552919020715,
+        "GPUTime": 18.821527118644077
+      },
+      "counter_checks_pass": true,
+      "post_capture_endpoint": {
+        "battle_seconds": 81.87,
+        "alive": [
+          22,
+          20
+        ],
+        "accepted_contacts": 846,
+        "note": "Endpoint is after raw capture; not a per-frame alive count in the selected window."
+      }
+    }
+  },
+  "rejected_evidence": [
+    {
+      "path": "Performance-20261004/Live-60",
+      "reason": "Initial warm-up only. Escape exited normally after console had already auto-closed; no CSV measurement."
+    },
+    {
+      "path": "Performance-20261004/Live-60-r2/preliminary.json",
+      "csv": "Profile(20261004_203247).csv",
+      "reason": "Resume arrived 5.7s after CSV start, overlapping predeclared sample by about 0.7s; also 4 shader creations and texture stream-in. Not qualified."
+    },
+    {
+      "path": "Performance-20261004/Live-40/sample-1.json",
+      "csv": "Profile(20261004_204107).csv",
+      "reason": "4 shader creations and texture stream-in despite initial warm-up. Counter checks reject it. Not qualified."
+    }
+  ],
+  "performance_assessment": {
+    "mean_equivalent_fps": {
+      "40": 61.33521397749949,
+      "60": 53.140860007259555
+    },
+    "interpretation": "GPUTime is close to FrameTime while game-thread time is lower in both samples, consistent with GPU-dominant steady-state throughput. Thread/GPU counters overlap and must not be summed.",
+    "outlier": "One 44.6049ms frame at 40 active retained. Nearby pipelined RHI/render-thread and cloth-wait activity is recorded in retained-spike.json; timing counters alone do not establish cause. No >50ms or >100ms frames in either accepted window.",
+    "regression": "No concrete, safely attributable SoulRealtimeBattle regression established. Historical captured/diagnostic timings remain confounded and are not a clean baseline; do not claim improvement/regression against them.",
+    "fixes": "None indicated within admitted authority. No source changes or new subsystem.",
+    "regression_gates": "No implementation change to gate. Prior r11 automation/native/source/cooked gameplay qualification retained; source and executable hashes reverified."
+  },
+  "visual_sanity": "No new visual pass needed: no presentation or gameplay change. Prior qualified battle result, dragon/griffin facing, hammer fit and reinforcement receipts remain authoritative. No screenshots captured in this continuation.",
+  "evidence": [
+    "Performance-20261004/input-events.json",
+    "Performance-20261004/measured-window-log-audit.json",
+    "Performance-20261004/retained-spike.json",
+    "Performance-20261004/final-verification.json",
+    "Performance-20261004/run_interactive.ps1",
+    "Performance-20261004/summarize_clean.py",
+    "Performance-20261004/background-process-delta.json"
+  ],
+  "remaining_human_only_gates": [
+    "Physical controller feel and actual device input during play.",
+    "Audio listening balance.",
+    "Subjective movement/contact polish and donor open-palm grip/portrait art choices."
+  ],
+  "next_meaningful_action": "Hands-on review of the existing r11 package for the remaining human-only gates. Clean interactive performance measurement is no longer pending. No canonical mission-complete or release declaration.",
+  "final_state": "Both measurement game processes exited 0; exclusive Unreal lease released; no Unreal/Soul process left running."
+}

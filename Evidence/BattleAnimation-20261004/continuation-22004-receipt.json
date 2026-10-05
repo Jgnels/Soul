@@ -1,0 +1,466 @@
+{
+  "status": "Automated and fresh cooked runtime qualification recorded; human playtest/art gates remain. No canonical completion or release declaration.",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "base_commit": "195ea79c9b88096bafc8d18030a2980d945231f1",
+  "preservation": "All pre-existing dirty/new work retained. No reset, clean, merge, push, new worktree, Hyper Combat integration, external communication or deployment.",
+  "ownership": "PID22500 handed its edits to this continuation in continuation-22500-handoff.md. Existing external launcher runtime receipts were preserved separately. UE/build operations use the Studio-Control exclusive lane.",
+  "changes": [
+    "Preserved and compiled existing animation variation, compatible hit reactions, directional stances, aerial fall/landing/death and strength-meter work.",
+    "Guard threat queries are shared once per group per 0.2-second update; group cores are copied once per animation update. Resolved battles release guard intent.",
+    "Hold/Face and fallback preserve infantry group facing without overriding player hero look. Non-directional creatures face travel until stopped, avoiding forward-animation moonwalking.",
+    "Accepted spell health loss triggers the bounded hit reaction. Fully absorbed ward hits do not flinch; lethal hits use death handling.",
+    "Frost boundary now uses the actual ground target plane; blocked Firebolts explain friendly/terrain obstruction in the existing notice HUD.",
+    "Campaign streaming uses the known long package name directly, avoiding a fresh-user-directory asynchronous asset-registry lookup race.",
+    "Opt-in diagnostics record clip, playback time, playing and pause flags; read-only summarizer distinguishes live playback from deliberately frozen staged captures.",
+    "Pose fixture now covers 24 poses on both rosters, diagnoses missing subjects/clips, refreshes render state for staged GPU skinning, frames sampled bone bounds and stages away from boundary rocks. r4 body/death poses visually inspected; r8 hammer orientation visually qualified.",
+    "Three corrupted separators in campaign army/encounter prompts replaced with ASCII slashes.",
+    "Heavy-orc Guard/Hero now receive the separate owned SM_Hummer on the audited CATRigRArmPalm bone; one cosmetic component with collision/navigation disabled. No contact/damage/range changes.",
+    "Reserve Advance now computes a new approach anchor; routed/shattered or eliminated front lines retain collapse state. Existing spatial queries and command authority preserved. Regression and r8 60-active runtime passed.",
+    "Readability fixture selects missiles by role for five-group rosters; optional bounded 210-600 second wall budget does not change battle rules or force results.",
+    "Battle result HUD distinguishes victory, defeat and rout without falsely claiming reserve exhaustion.",
+    "Dragon and griffin mesh facing corrected from audited +Y source clips; existing movement/actor authority preserved.",
+    "Owned dragon flame follows accepted contact, has no damage/collision/navigation, and bounded lifetime/death/result cleanup. Cooked first-use visibility verified.",
+    "Preload role death animations before deployment; preserve all previous dirty/new work."
+  ],
+  "source_and_native_tests": {
+    "tools": {
+      "passed": 82,
+      "seconds": 24.607,
+      "log": "source-dragon-r9.txt",
+      "exit_code": 0
+    },
+    "campaign_view": {
+      "passed": 7,
+      "log": "campaign-view-hud-r4-qualified.txt"
+    },
+    "native_reinforcement": {
+      "passed_cases": 24,
+      "log": "continuation-native-reinforcement-c-buildtools.txt",
+      "compiler": "C:/BuildTools/VC/Auxiliary/Build/vcvars64.bat"
+    },
+    "failed_attempts_retained": "Default D:/DevTools MSVC header was zero-filled; C:/BuildTools rerun passed. campaign-view-hud-r4.txt selected zero tests and is not qualification; corrected discovery ran seven."
+  },
+  "builds": [
+    {
+      "log": "Build-editor-continuation-22004.log",
+      "result": "PASS",
+      "seconds": 333.4
+    },
+    {
+      "log": "Build-pose-framing-22004.log",
+      "result": "PASS",
+      "seconds": 181.67
+    },
+    {
+      "log": "Build-spell-startup-r3.log",
+      "result": "PASS",
+      "seconds": 116.24
+    },
+    {
+      "log": "Build-pose-hud-r4.log",
+      "result": "PASS",
+      "seconds": 104.07
+    },
+    {
+      "log": "Build-hammer-r5.log",
+      "result": "PASS",
+      "seconds": 89.61
+    },
+    {
+      "log": "Build-hammer-scale-r6.log",
+      "result": "PASS",
+      "seconds": 62.59
+    },
+    {
+      "log": "Build-hammer-grip-r7.log",
+      "result": "PASS",
+      "seconds": 757.85
+    },
+    {
+      "log": "Build-reserves-r8.log",
+      "result": "PASS",
+      "seconds": 51.11
+    },
+    {
+      "log": "Build-dragon-r9.log",
+      "result": "PASS",
+      "seconds": 75.06
+    },
+    {
+      "log": "Build-dragon-camera-r10.log",
+      "result": "PASS",
+      "seconds": 21.56,
+      "scope": "Opt-in close-up fixture and actual Soul dependent-DLL relink; invocation-scoped UBT import-library checking."
+    },
+    {
+      "log": "Build-dragon-scale-r11.log",
+      "result": "PASS",
+      "seconds": 125.16
+    }
+  ],
+  "automation": {
+    "report": "Automation-dragon-r9/Automation-20261004-172027/index.json",
+    "clean_passed": 88,
+    "warning_passed": 1,
+    "failed": 0,
+    "not_run": 0,
+    "warning": "Existing donor rig-class warning",
+    "scope": "89 tests, including sampled apex world-facing and flame no-damage/collision/navigation, paused/friendly/dead rejection, component replacement and death cleanup."
+  },
+  "campaign_victory": {
+    "result": "PASS; exit 0",
+    "log": "Campaign-r3/ReadabilityCampaignRuntime.log",
+    "fresh_user_directory": true,
+    "encounter": "encounter.2.1.river_ford.orc_watch",
+    "battle_seconds": 88.68,
+    "casts": 5,
+    "accepted_contacts": 513,
+    "allied_waves": 3,
+    "enemy_waves": 4,
+    "player_survivors": 30,
+    "enemy_effective_survivors": 0,
+    "mana": 18,
+    "xp": 500,
+    "checks": [
+      "Hostile encounter through controller input",
+      "Physical battle and reinforcement waves",
+      "Dragon aerial landing",
+      "Victory return with human ownership",
+      "RBSave exact reload",
+      "Next fortress selection",
+      "Two additional campaign moves spending two actions"
+    ],
+    "playback": {
+      "receipt": "Campaign-r3/animation-playback.json",
+      "live_samples": 481,
+      "progressing_unit_clip_groups": 116,
+      "unexpected_pause_flags": 0,
+      "repeated_constant_time_groups": 0
+    },
+    "visual": "Vertical_Battle.png inspected: frost boundary is now visible above terrain. Playback telemetry alone does not prove correct skin deformation.",
+    "earlier_failed_attempt": "Campaign-registry-race.log: map name search ran before registry gathering finished; terrain startup failed. Retained, not counted as a pass."
+  },
+  "standalone_prior_build": {
+    "result": "PASS",
+    "log": "Live-40-22004/Runtime.log",
+    "active_cap": 40,
+    "pools": [
+      46,
+      30
+    ],
+    "casts": 5,
+    "contacts": 547,
+    "allied_targets": 0,
+    "waves": [
+      3,
+      3
+    ],
+    "seconds": 102.73,
+    "survivors": 31,
+    "profile": "Live-40-22004/frame-timing.json",
+    "profile_limits": "Median16.52ms, p95 23.50ms, p99 96.60ms, max3836.89ms across1170 retained frames. Diagnostic logging, screenshots and first-use assets included; not a clean interactive performance benchmark."
+  },
+  "poses": {
+    "r3": "24 captures and exit0; visually REJECTED for stale humanoid bodies and occluded dragon death. See Poses-r3/visual-review.json.",
+    "r4": "24 captures, exit0; representative poses verify distinct humanoid deformation and clear both-creature deaths. See Poses-r4/visual-review.json. Exposed missing hammer, repaired in r5.",
+    "r5": "24 captures, exit0; hammer fit REJECTED for inherited CAT2.54 scale. Preserved failed evidence; corrected and qualified by r8 visual review."
+  },
+  "defeat_retry": {
+    "result": "PASS; exit0",
+    "log": "DefeatRetry-r4/DefeatRecoveryRuntime.log",
+    "first_encounter": "encounter.2.1.river_ford.orc_watch",
+    "first_result": [
+      0,
+      65
+    ],
+    "first_seconds": 48.9,
+    "first_casts": 5,
+    "first_contacts": 203,
+    "recruits": 3,
+    "finite_pool_spent": 3,
+    "second_encounter": "encounter.4.2.river_ford.orc_watch",
+    "second_result": [
+      0,
+      65
+    ],
+    "second_seconds": 16.74,
+    "second_casts": 2,
+    "second_contacts": 55,
+    "resolved_encounters": 2,
+    "mana_after_retry": 8,
+    "persistence": "RBSave verified on both returns",
+    "playback_receipt": "DefeatRetry-r4/animation-playback.json",
+    "live_samples": 291,
+    "progressing_unit_clip_groups": 60,
+    "unexpected_pause_flags": 0,
+    "repeated_constant_time_groups": 0,
+    "visual": "World_battle_prompt.png inspected; repaired prompt text is legible."
+  },
+  "spellbook": {
+    "result": "PASS; exit0",
+    "log": "Spellbook-r5/SmallBattleRuntime.log",
+    "resolution": [
+      1280,
+      720
+    ],
+    "casts": 1,
+    "elapsed": 17.46,
+    "mana": 68,
+    "checks": "Manual pause preserved; live book no slowdown; arm without spend; explicit confirmation casts once; UI blocks world clicks; ground preview; close restores hero pointer/mouse look; no-pause rule enforced.",
+    "inspected": [
+      "1280x720-open-book.png",
+      "1280x720-ground-target-preview.png",
+      "1280x720-hero-controls-restored.png"
+    ],
+    "input_scope": "HUD hitbox and normal action handlers; not physical gamepad acceptance."
+  },
+  "package": {
+    "static_preflight": "PASS r11,181 exact roots",
+    "log": "Package-r11/cook.log",
+    "fresh_cook_and_runtime": "PASS local build/cook/stage/package/archive, packaged victory roundtrip and packaged defeat/recruit/retry.",
+    "exact_cook_roots": 181,
+    "failed_attempts": [
+      "package-preflight-r9.txt: hidden AppData output ancestor lookup rejected.",
+      "package-preflight-r9-c-temp.txt: stale Soul DLL; not a cook/package pass."
+    ],
+    "planned_local_output": "C:/Temp/SoulBattle-20261004-r11",
+    "current_log": "C:/Temp/SoulBattle-20261004-r11/Diagnostics/cook.log",
+    "receipt": "Package-r11/run-receipt.json",
+    "preflight_log": "package-preflight-current.txt"
+  },
+  "remaining": [
+    "Human physical controller feel and actual device input in play.",
+    "Audio listening balance, subjective movement/contact polish and donor open-palm grip/portrait art choices.",
+    "Clean interactive performance measurement; prior captured/diagnostic frame timings remain explicitly confounded."
+  ],
+  "large_battle_r6": {
+    "result": "FAIL: explicit runtime timeout despite launcher exit0",
+    "log": "Live-60-r6/SmallBattleRuntime.log",
+    "active_cap_total": 60,
+    "pools": [
+      46,
+      46
+    ],
+    "casts": 5,
+    "contacts": 1141,
+    "alive_at_timeout": [
+      16,
+      7
+    ],
+    "last_battle_seconds": 172.816,
+    "wall_timeout": 210,
+    "profile": "Live-60-r6/frame-timing.json",
+    "findings": "Reserve Advance retained holding anchor; routed/eliminated front could hide collapse. Fixture F2 assumed missile incorrectly. Fixed and verified by the r8 60-active victory; failed r6 retained.",
+    "performance_limit": "Screenshot/diagnostics/first-use captured; median16.40ms p95 23.22ms, max9243.60ms. Not a clean interactive benchmark."
+  },
+  "large_battle_r8": {
+    "result": "PASS: explicit SOUL_READABILITY_PASS and genuine enemy morale resolution",
+    "log": "Live-60-reserves-r8/SmallBattleRuntime.log",
+    "active_cap_total": 60,
+    "pools": [
+      46,
+      46
+    ],
+    "casts": 5,
+    "accepted_contacts": 1275,
+    "allied_targets": 0,
+    "seconds": 129.69,
+    "victory": true,
+    "strategic_survivors": [
+      7,
+      0
+    ],
+    "physical_survivors": [
+      7,
+      5
+    ],
+    "waves": [
+      4,
+      4
+    ],
+    "rendered_review": "F3 missile selection correct; result shows enemy rout, landed corpses and battlefield. Subsequent r9 result-header visual review passed.",
+    "playback_receipt": "Live-60-reserves-r8/animation-playback.json",
+    "live_samples": 1132,
+    "progressing_unit_clip_groups": 231,
+    "unexpected_pause": 0,
+    "constant_time_groups": 0,
+    "profile": "Live-60-reserves-r8/frame-timing.json",
+    "profile_scope": "1170 frames after excluding initial30; median17.63ms p95 24.50ms max2022.89ms. Captures, diagnostics and first-use activity included; not a clean benchmark."
+  },
+  "pose_review_r8": {
+    "result": "PASS; 24 captures, engine exit0",
+    "receipt": "Poses-grip-r8/visual-review.json",
+    "limits": "Sampled skinning/equipment placement qualified; subjective motion and donor open-palm finger pose remain visual review."
+  },
+  "qualification_receipts": {
+    "implementation": "run_battle.ps1 now requires explicit pass markers or a complete zero-failure automation report, and rejects explicit failure markers regardless of engine exit.",
+    "regression_failed_input": "Live-60-r6/run-receipt.json: qualified=false, engine_exit=0; validation shell exit1",
+    "regression_passed_input": "Live-60-reserves-r8/run-receipt.json: qualified=true, engine_exit=0; validation shell exit0"
+  },
+  "pending_unbuilt_changes": [],
+  "dragon_asset_audit": {
+    "local_copy": "dragon-fx-local-copy.json",
+    "dependencies": "dragon-fx-ue-audit.json",
+    "missing_dependencies": 0,
+    "limit": "Eleven dependencies load; read-only T3D export inspected all five emitters. No donor assets edited. r11 repeated editor bursts and first cooked burst visibly qualified.",
+    "facing": "apex-facing-audit.json: sampled stationary, travel and attack clips confirm both dragon and griffin face mesh +Y."
+  },
+  "pending_r9_qualification": [],
+  "live_dragon_r9": {
+    "result": "Battle PASS; flame visual INCONCLUSIVE, camera framing being corrected",
+    "log": "Live-dragon-r9/SmallBattleRuntime.log",
+    "active_total": 40,
+    "pools": [
+      46,
+      30
+    ],
+    "seconds": 79.41,
+    "casts": 5,
+    "accepted_contacts": 498,
+    "allied_targets": 0,
+    "victory": true,
+    "strategic_survivors": [
+      33,
+      0
+    ],
+    "physical_survivors": [
+      33,
+      4
+    ],
+    "waves": [
+      2,
+      3
+    ],
+    "header_visual": "result.png inspected: VICTORY / ENEMY ROUTED clearly displayed in top strip.",
+    "flame_visual": "First3 captures exist, but apex near edge/scenery/HUD; not accepted as flame visual evidence. Active particle component is only telemetry."
+  },
+  "live_dragon_r10": {
+    "log": "Live-dragon-close-r10/SmallBattleRuntime.log",
+    "battle_result": "PASS",
+    "seconds": 95.4,
+    "casts": 5,
+    "accepted_contacts": 509,
+    "allied_targets": 0,
+    "strategic_survivors": [
+      32,
+      0
+    ],
+    "physical_survivors": [
+      32,
+      1
+    ],
+    "waves": [
+      2,
+      3
+    ],
+    "flame_visual": "FAIL: all three close-ups inspected; tiny ember under mouth does not qualify readable breath. One active particle is expected for this emitter and does not prove visual quality."
+  },
+  "live_dragon_r11": {
+    "result": "Battle PASS; repeated editor flame bursts visibly PASS. Invisible first editor frame retained; cooked first-use visibility subsequently PASS in Packaged-win-r11.",
+    "log": "Live-dragon-scale-r11/SmallBattleRuntime.log",
+    "seconds": 87.31,
+    "casts": 5,
+    "accepted_contacts": 508,
+    "allied_targets": 0,
+    "strategic_survivors": [
+      36,
+      0
+    ],
+    "physical_survivors": [
+      36,
+      1
+    ],
+    "waves": [
+      1,
+      3
+    ],
+    "mana": 18,
+    "visual_review": "Live-dragon-scale-r11/visual-review.json",
+    "source_hashes": "source-snapshot-r11.json"
+  },
+  "packaged_win_r11": {
+    "result": "PASS, engine exit0",
+    "receipt": "Packaged-win-r11/run-receipt.json",
+    "log": "Packaged-win-r11/PackagedCampaign.log",
+    "seconds": 104.28,
+    "casts": 5,
+    "accepted_contacts": 493,
+    "strategic_survivors": [
+      32,
+      0
+    ],
+    "physical_survivors": [
+      32,
+      0
+    ],
+    "waves": [
+      3,
+      4
+    ],
+    "mana": 18,
+    "xp": 500,
+    "owner": "humans",
+    "persistence": "RBSave save and exact reload, continued next-fortress selection; final85.01-second return hold passed.",
+    "visual_review": "Packaged-win-r11/visual-review.json",
+    "first_use_breath": "PASS first captured burst visible in fresh cooked game; subsequent2 also visible, last partly clipped at camera edge.",
+    "return_screenshot": "Packaged-win-r11/User/Saved/Screenshots/Vertical_Campaign_Return.png inspected: survivors32/0,XP500,mana18,ownedterritory."
+  },
+  "historical_base_reference": "d106dcf6cc581279400511ace4f7bb971f80effe",
+  "base_reference_correction": "Earlier receipt carried d106dcf from the preceding battle expansion. Read-only reflog confirms 195ea79 was already committed on 2026-10-04 at 12:48 local, before this continuation. This worker made no commit; source-snapshot-r11 matches all 43 files.",
+  "packaged_defeat_retry_r11": {
+    "result": "PASS, engine exit0",
+    "receipt": "Packaged-defeat-retry-r11/run-receipt.json",
+    "log": "Packaged-defeat-retry-r11/PackagedCampaign.log",
+    "first": {
+      "seconds": 47.76,
+      "casts": 5,
+      "accepted_contacts": 192,
+      "survivors": [
+        0,
+        69
+      ],
+      "mana": 18
+    },
+    "second": {
+      "seconds": 19.27,
+      "casts": 2,
+      "accepted_contacts": 49,
+      "survivors": [
+        0,
+        69
+      ],
+      "mana": 8
+    },
+    "finite_recruits": 3,
+    "finite_pool_spent": 3,
+    "distinct_encounters": [
+      "encounter.2.1.river_ford.orc_watch",
+      "encounter.4.2.river_ford.orc_watch"
+    ],
+    "persistence": "Both results saved/reloaded via RBSave; final 85.01-second hold and recovery PASS.",
+    "visual": "Vertical_Campaign_Return.png inspected: DEFEAT, 0/69 survivors, mana 8, owned Bridgeward and recruitment guidance."
+  },
+  "next_meaningful_action": "Hands-on playtest of the local r11 package for controller, audio and visual judgment. No known actionable code/runtime blocker remains in the exercised backlog.",
+  "cluster_status": "battle-cluster-status-22004.json",
+  "source_provenance": "source-provenance-r11.json",
+  "human_playtest": {
+    "executable": "C:/Temp/SoulBattle-20261004-r11/Archive/Windows/Soul/Binaries/Win64/Soul.exe",
+    "suggested_arguments": [
+      "-windowed",
+      "-ResX=1280",
+      "-ResY=720",
+      "-d3d11",
+      "-SoulRealtimeVisualUnits",
+      "-SoulEvilVisualRoster",
+      "-SoulMesaTerrain",
+      "-SoulEvilCorridor"
+    ],
+    "note": "No automated proof, offscreen or NoSound switches for hands-on review. Keep the existing exclusive UE lane idle before launch. Not launched by this handoff."
+  },
+  "final_hygiene": {
+    "full_diff_check_exit": 2,
+    "known_preserved_issue": "Config/DefaultEngine.ini:25: new blank line at EOF.",
+    "changed_code_scope_exit": 0,
+    "note": "Pre-existing DefaultEngine.ini trailing blank line preserved. No source edits made during cook/runtime qualification. UE/game processes are closed."
+  }
+}

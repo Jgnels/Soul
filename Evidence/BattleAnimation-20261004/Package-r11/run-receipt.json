@@ -1,0 +1,19 @@
+{
+  "result": "PASS local build/cook/stage/package/archive",
+  "engine_exit": 0,
+  "total_seconds": 2469.89,
+  "game_build_seconds": 357.37,
+  "cook_errors": 0,
+  "cook_warnings": 7,
+  "warnings": "Existing Aurora/Sparrow Orion_Proto_Retarget Rig class references and slow DDC reads.",
+  "exact_roots": 181,
+  "dependency_packages": 2072,
+  "executable": "C:\\Temp\\SoulBattle-20261004-r11\\Archive\\Windows\\Soul\\Binaries\\Win64\\Soul.exe",
+  "exe_sha256": "7744e764d101c9e4ae589409a95313b91187fe87c39f39c289a18b791db64de0",
+  "source_snapshot": "../source-snapshot-r11.json",
+  "scope": "Local qualification only; no release or canonical acceptance",
+  "runtime_receipts": [
+    "../Packaged-win-r11/run-receipt.json",
+    "../Packaged-defeat-retry-r11/run-receipt.json"
+  ]
+}
