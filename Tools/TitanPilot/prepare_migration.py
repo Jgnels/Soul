@@ -107,6 +107,8 @@ def build_plan(report, donor, seed, destination, prior_receipt=None):
             raise ValueError("Passive support class mismatch: " + package)
         if not row["classes"]:
             raise ValueError("Incomplete registry scan: " + package)
+        if package.startswith("/Game/__ExternalActors__/Environment/") and row.get("serialized_read_complete") is False:
+            raise ValueError("Incomplete serialized instance dependency read: " + package)
         query_complete = row["hard_query_found"] and row["all_query_found"]
         if not query_complete:
             class_package = environment_actor_class(row, by_package, explicit_companions)

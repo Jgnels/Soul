@@ -1,8 +1,8 @@
 ﻿python : test_ansi_and_utf16_are_not_concatenated 
 (test_audit_packages.AuditTests.test_ansi_and_utf16_are_not_concatenated) ... ok
-At line:2 char:1
-+ python -m unittest discover -s Tools/TitanPilot -p 'test_*.py' -v 2>& ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+At line:2 char:76
++ ... t -Tail 12; python -m unittest discover -s Tools/TitanPilot -p 'test_ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: (test_ansi_and_u...tenated) ... ok:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
  
@@ -46,6 +46,12 @@ test_unknown_native_or_non_environment_classes_fail
 (test_external_actor_classes.ExternalActorClassTests.test_unknown_native_or_non_environment_classes_fail) ... ok
 test_valid_fallback_preserves_actor_class_mesh_and_hash 
 (test_external_actor_classes.ExternalActorClassTests.test_valid_fallback_preserves_actor_class_mesh_and_hash) ... ok
+test_new_page_is_not_an_error_but_missing_packages_are 
+(test_review_unreal_log.LogReviewTests.test_new_page_is_not_an_error_but_missing_packages_are) ... ok
+test_only_exact_editor_template_warning_with_loaded_module_is_classified 
+(test_review_unreal_log.LogReviewTests.test_only_exact_editor_template_warning_with_loaded_module_is_classified) ... ok
+test_runtime_pass_requires_marker_without_failure 
+(test_review_unreal_log.LogReviewTests.test_runtime_pass_requires_marker_without_failure) ... ok
 test_bad_source_hash_and_sulfur_refused_before_copy 
 (test_transfer_clifftop.TransferTests.test_bad_source_hash_and_sulfur_refused_before_copy) ... ok
 test_hash_verification_and_no_overwrite (test_transfer_clifftop.TransferTests.test_hash_verification_and_no_overwrite) 
@@ -54,6 +60,6 @@ test_supplement_reuses_exact_files_without_overwriting
 (test_transfer_clifftop.TransferTests.test_supplement_reuses_exact_files_without_overwriting) ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 0.486s
+Ran 27 tests in 0.466s
 
 OK

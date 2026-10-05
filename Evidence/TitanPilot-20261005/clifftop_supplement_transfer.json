@@ -1,0 +1,2089 @@
+{
+  "started_utc": "2026-10-05T17:30:31.688440+00:00",
+  "seed": "/Game/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid",
+  "status": "VERIFIED",
+  "free_bytes_before": 28775153664,
+  "verified_existing_count": 343,
+  "new_file_count": 3,
+  "files": [
+    {
+      "package": "/Game/Blueprint/FoliageInteraction/MPC_Player",
+      "relative_file": "Blueprint/FoliageInteraction/MPC_Player.uasset",
+      "bytes": 2014,
+      "sha256": "13a065a8c5cbfbfb5e05f977f75140fff99871050d569d6af918acfb5c4ff725"
+    },
+    {
+      "package": "/Game/Blueprint/FoliageInteraction/RT_Player",
+      "relative_file": "Blueprint/FoliageInteraction/RT_Player.uasset",
+      "bytes": 4426,
+      "sha256": "3f05670b9f15f7fdc82e657c51a82d9004d88ff161a2bb23c6edcdfa9311b21f"
+    },
+    {
+      "package": "/Game/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid",
+      "relative_file": "Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid.umap",
+      "bytes": 11139,
+      "sha256": "a644a940fc8bea2bd2d1d61d0cc29a4a0a2505e626dc8dbe81e1ca2c08f7ca6f"
+    },
+    {
+      "package": "/Game/Environment/Clifftop/Materials/Props/BulletinBoard/M_BulletinBoard",
+      "relative_file": "Environment/Clifftop/Materials/Props/BulletinBoard/M_BulletinBoard.uasset",
+      "bytes": 9443,
+      "sha256": "f0ea0cba687e63d7819886a71d5ad1e79a5165c69fc785afc9fd5df765885fe4"
+    },
+    {
+      "package": "/Game/Environment/Clifftop/Meshes/Props/SM_BulletinBoard/BP_Pillar",
+      "relative_file": "Environment/Clifftop/Meshes/Props/SM_BulletinBoard/BP_Pillar.uasset",
+      "bytes": 31381,
+      "sha256": "3c97df8fd71e7f426c5127ab6c902ce39f685e3d6a650859f50a5f4f343a063a"
+    },
+    {
+      "package": "/Game/Environment/Clifftop/Meshes/Props/SM_BulletinBoard/SM_BulletinBoard__1__PillarBase_Low",
+      "relative_file": "Environment/Clifftop/Meshes/Props/SM_BulletinBoard/SM_BulletinBoard__1__PillarBase_Low.uasset",
+      "bytes": 27615,
+      "sha256": "3d7cf89ab5535ca69c07808aedd44106b242e688b841d61144f14dac8b55c9d4"
+    },
+    {
+      "package": "/Game/Environment/Clifftop/Meshes/Props/SM_BulletinBoard/SM_BulletinBoard__1__PillarCap_Low",
+      "relative_file": "Environment/Clifftop/Meshes/Props/SM_BulletinBoard/SM_BulletinBoard__1__PillarCap_Low.uasset",
+      "bytes": 35711,
+      "sha256": "25e5f9cc7fa41d1acc8cb0de93983d488c43ea043187168cd061273269514f6c"
+    },
+    {
+      "package": "/Game/Environment/Clifftop/Meshes/Props/SM_BulletinBoard/SM_BulletinBoard__1__Pillar_Low",
+      "relative_file": "Environment/Clifftop/Meshes/Props/SM_BulletinBoard/SM_BulletinBoard__1__Pillar_Low.uasset",
+      "bytes": 19114,
+      "sha256": "a2e379e6d175ca017c233e2823ecedec8f0270058003dd70c34a2cbed3836d10"
+    },
+    {
+      "package": "/Game/Environment/Desert/Materials/Rocks/C_DesertCliffStrats",
+      "relative_file": "Environment/Desert/Materials/Rocks/C_DesertCliffStrats.uasset",
+      "bytes": 7150,
+      "sha256": "1e6ac5f5ef79912bd81563b4fd3df966eaf37bdb5f6427e9d288f1d22d4e2302"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_ClaySplatter",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_ClaySplatter.uasset",
+      "bytes": 10822,
+      "sha256": "041d4b9bc5acf66ed98da5c2cc124545f941eb3a885a5b9cd27e335caa71d32c"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_Clover_V1",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_Clover_V1.uasset",
+      "bytes": 11255,
+      "sha256": "52c6b3d1116ae2adb97209e9501f85032e9c1bf3a22aa73e3d5f14012f7e6b7b"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_Clover_V2",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_Clover_V2.uasset",
+      "bytes": 8202,
+      "sha256": "f279531d858d54e7f15472a7e690faa41c2c05880d79a7d0191013fd244626bd"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_Diamond",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_Diamond.uasset",
+      "bytes": 8785,
+      "sha256": "0abf9dbc2f999e190e881e3505e2be1ed59eeb374211b06b7d302fd0d054c4e6"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_Flower1_Orange",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_Flower1_Orange.uasset",
+      "bytes": 8453,
+      "sha256": "7fd5357c50cbea2b9853335169dffa5cf0f726ece57dcc0ce8fef3dfea8607ec"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_Flower1_Red",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_Flower1_Red.uasset",
+      "bytes": 8672,
+      "sha256": "30ac96c18be38f85fb370594453a5e2c17ee73217ab535a1679ff4183f666617"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_V3",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_V3.uasset",
+      "bytes": 8340,
+      "sha256": "62d466287190c80a27986483cf7afd7305435281d8e808cbfabdba82701a0856"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_V4",
+      "relative_file": "Environment/Grassland/Materials/Decals/MI_Decal_Grassland_PaintedSymbol_V4.uasset",
+      "bytes": 8254,
+      "sha256": "a2d48a7713398e7350b7bb95844d130e2ac90672793a1139de0dbebe7b468978"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Materials/FountainTemple/MI_Grassland_FountainTemple_MetalLantern_TEST",
+      "relative_file": "Environment/Grassland/Materials/FountainTemple/MI_Grassland_FountainTemple_MetalLantern_TEST.uasset",
+      "bytes": 10505,
+      "sha256": "79defa9c7cc542f93d236b5c56e1a6c81f6fb4fee2b88dac6a61445dbd9585ab"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Clover/T_Decal_CloverPatch_V1_BC",
+      "relative_file": "Environment/Grassland/Textures/Clover/T_Decal_CloverPatch_V1_BC.uasset",
+      "bytes": 352564,
+      "sha256": "bb9387a52646ac8ac9187471952053d16d13c20fcd87bc195afcc33cdc7b69ab"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Clover/T_Decal_CloverPatch_V2_A",
+      "relative_file": "Environment/Grassland/Textures/Clover/T_Decal_CloverPatch_V2_A.uasset",
+      "bytes": 83874,
+      "sha256": "4554631dfe2b97e0570a981ebee84246c2afd1e06245b4225eb4707c6e1e29d2"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Clover/T_Decal_CloverPatch_V2_BC",
+      "relative_file": "Environment/Grassland/Textures/Clover/T_Decal_CloverPatch_V2_BC.uasset",
+      "bytes": 247898,
+      "sha256": "de6a180a72b3f99c38bf043d613e83e844871bce9566401cd66100e726610322"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Diamond_D",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Diamond_D.uasset",
+      "bytes": 191368,
+      "sha256": "42ddd8755a3b282fad1515c620af50cad6795a5ec5d34a7b619b22aeb1d3c527"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Diamond_Op",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Diamond_Op.uasset",
+      "bytes": 191510,
+      "sha256": "699126abfa53b7486da6ba54828aaac14703e3f177f3b7f95f24a58f406d2c92"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower1_Op",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower1_Op.uasset",
+      "bytes": 226374,
+      "sha256": "bc6b1be3938cd1fb7ba98086b87937207d63a31509494e6353a1904a9e76cb90"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower1_V2_D",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower1_V2_D.uasset",
+      "bytes": 225853,
+      "sha256": "f616cd9645b8c0329db2d8866c59ce87185ae689fbb6d920a50e4ccb696a087d"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower2_Op",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower2_Op.uasset",
+      "bytes": 326135,
+      "sha256": "2d019e4dd2634f0a5bc3a026581724260fce1a90d1c0f560c86df783dff4dc78"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower2_V1_D",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Flower2_V1_D.uasset",
+      "bytes": 323361,
+      "sha256": "840422a33e05edfc71ca668c0b2d79c4dbb77ef0f664e52c785f52965a5a0a2a"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Trim1_V1_D",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintedSymbol_Trim1_V1_D.uasset",
+      "bytes": 136128,
+      "sha256": "e9e4f87e992ebbe82b311ec0bf7adff3f683c5d4f4bc91d91cfd2a707a7723f1"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintingSymbol_Trim1_V1_Op",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_PaintingSymbol_Trim1_V1_Op.uasset",
+      "bytes": 164023,
+      "sha256": "8c86c272e510929615f182e549962c948a2f58917269f1defee413111b1d7866"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_paintedSymbol_Flower1_V1_D",
+      "relative_file": "Environment/Grassland/Textures/Paint_Symbols/T_Grassland_Decal_paintedSymbol_Flower1_V1_D.uasset",
+      "bytes": 225671,
+      "sha256": "826d634f7967283363639affe49f60bb639f578f6367af67a0d825246787b79d"
+    },
+    {
+      "package": "/Game/Environment/Grassland/Textures/T_Decal_Splatter_V1_A",
+      "relative_file": "Environment/Grassland/Textures/T_Decal_Splatter_V1_A.uasset",
+      "bytes": 208910,
+      "sha256": "4413443dfddbc1d6cefe5b43dc67a58db2f1547d2d562a29fc238e5f4c48df99"
+    },
+    {
+      "package": "/Game/Environment/Marshland/Materials/TheFishermansHut/MI_FH_Metal_01",
+      "relative_file": "Environment/Marshland/Materials/TheFishermansHut/MI_FH_Metal_01.uasset",
+      "bytes": 11431,
+      "sha256": "2ff0592d8d0ead09aee43b8a70e53697257919db5942a0ec0e0f31cfca6b2c09"
+    },
+    {
+      "package": "/Game/Environment/Marshland/Textures/TheFishermansHut/T_FH_01_N",
+      "relative_file": "Environment/Marshland/Textures/TheFishermansHut/T_FH_01_N.uasset",
+      "bytes": 1934606,
+      "sha256": "6fcd09196c1195ab19492861ff4f74aa0c083098377918a085d47a59f86d1a1d"
+    },
+    {
+      "package": "/Game/Environment/Marshland/Textures/TheFishermansHut/T_FH_01_RMOH_M",
+      "relative_file": "Environment/Marshland/Textures/TheFishermansHut/T_FH_01_RMOH_M.uasset",
+      "bytes": 861548,
+      "sha256": "68d0ef87c46e3218b6a3ef6ecc35f60da8b62ffbe2e0511959c4d04f06c4491e"
+    },
+    {
+      "package": "/Game/Environment/Marshland/Textures/TheFishermansHut/T_FH_01_base_D",
+      "relative_file": "Environment/Marshland/Textures/TheFishermansHut/T_FH_01_base_D.uasset",
+      "bytes": 234928,
+      "sha256": "9120e8d67604aa916a82b0f30d1d5578a90c2a6d0f85905922e14e677979f117"
+    },
+    {
+      "package": "/Game/Environment/Sulfur/Textures/Clay_01/T_Sulfur_Clay_01_D",
+      "relative_file": "Environment/Sulfur/Textures/Clay_01/T_Sulfur_Clay_01_D.uasset",
+      "bytes": 681362,
+      "sha256": "e4850ca96688735f76d853655c17869effb4640362391c37c06bbfbe4c986ad5"
+    },
+    {
+      "package": "/Game/Environment/Sulfur/Textures/Clay_01/T_Sulfur_Clay_01_N",
+      "relative_file": "Environment/Sulfur/Textures/Clay_01/T_Sulfur_Clay_01_N.uasset",
+      "bytes": 740164,
+      "sha256": "5a9c05cc6c1b1b7e59d0bb644221be0548cee3a422f190c0c0ab444fdb667806"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Actors/Steinrada/BP_Steinrada_Wall800",
+      "relative_file": "Environment/Volcanic/Actors/Steinrada/BP_Steinrada_Wall800.uasset",
+      "bytes": 36499,
+      "sha256": "12f5a4b6d3fa00be60066c2a253af712131456408832b2e2b19b137e22b3ae42"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Materials/Stone/MI_Obsidian_Stone",
+      "relative_file": "Environment/Volcanic/Materials/Stone/MI_Obsidian_Stone.uasset",
+      "bytes": 14757,
+      "sha256": "8b84ee64d1166ebc56aae901a1f9e7eb659eeb497d4b8be5ea380a8014188835"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Meshes/Steinrada/SM_Volcanic_Steinrada_BaseWall400",
+      "relative_file": "Environment/Volcanic/Meshes/Steinrada/SM_Volcanic_Steinrada_BaseWall400.uasset",
+      "bytes": 20364,
+      "sha256": "49e3079e9cca7ee8ad02694d20295d64718325f6b35c43c7add5cbe7ea0436b9"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Meshes/Steinrada/SM_Volcanic_Steinrada_Moulding02",
+      "relative_file": "Environment/Volcanic/Meshes/Steinrada/SM_Volcanic_Steinrada_Moulding02.uasset",
+      "bytes": 80247,
+      "sha256": "ae70f7aabe09411fbc8d179c7cd64898d7ef71ccd4ec2f3b9f00ee47796229e8"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Meshes/Steinrada/SM_Volcanic_Steinrada_Moulding03",
+      "relative_file": "Environment/Volcanic/Meshes/Steinrada/SM_Volcanic_Steinrada_Moulding03.uasset",
+      "bytes": 106662,
+      "sha256": "05f16a38e48294e024bd84b5b0e45204418a1f253e6c95f936da5ca9a7326555"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Textures/Obsidian/T_Volcanic_Stone_Obsidian_D",
+      "relative_file": "Environment/Volcanic/Textures/Obsidian/T_Volcanic_Stone_Obsidian_D.uasset",
+      "bytes": 822728,
+      "sha256": "50cc77d411e11323efb9836bcb45b97ff8068371ac38089fc700298c7c2ac19a"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Textures/Obsidian/T_Volcanic_Stone_Obsidian_N",
+      "relative_file": "Environment/Volcanic/Textures/Obsidian/T_Volcanic_Stone_Obsidian_N.uasset",
+      "bytes": 619750,
+      "sha256": "1737204a9fc20ddc99e2a8ce5610df7bfa851418a25d4ef6ae0975d08a4c56be"
+    },
+    {
+      "package": "/Game/Environment/Volcanic/Textures/Obsidian/T_Volcanic_Stone_Obsidian_REOH",
+      "relative_file": "Environment/Volcanic/Textures/Obsidian/T_Volcanic_Stone_Obsidian_REOH.uasset",
+      "bytes": 1268182,
+      "sha256": "c67bc9ae15e7e5e42ba68599e13124f595562e1c1766e6630b143885fda15144"
+    },
+    {
+      "package": "/Game/Environment/_Core/Materials/Functions/MF_BaseMaterialProfile",
+      "relative_file": "Environment/_Core/Materials/Functions/MF_BaseMaterialProfile.uasset",
+      "bytes": 160966,
+      "sha256": "343758d6baa4b51feb655851b23a3946d503f9715adc21c588bfe28b58b0df6c"
+    },
+    {
+      "package": "/Game/Environment/_Core/Materials/M_BaseMaterial",
+      "relative_file": "Environment/_Core/Materials/M_BaseMaterial.uasset",
+      "bytes": 32694,
+      "sha256": "503d889b98b9e42d610c5b0494ee9a65228ceee6137109a1624b37ae3799fa85"
+    },
+    {
+      "package": "/Game/Environment/_Core/Textures/T_Placeholder_D",
+      "relative_file": "Environment/_Core/Textures/T_Placeholder_D.uasset",
+      "bytes": 4581,
+      "sha256": "ba422a8652ee8964da6846767243af77c8f08f76af14d8cf23d59d331c799ae2"
+    },
+    {
+      "package": "/Game/Environment/_Core/Textures/T_Placeholder_D_VT",
+      "relative_file": "Environment/_Core/Textures/T_Placeholder_D_VT.uasset",
+      "bytes": 5850,
+      "sha256": "ebf083e46e5a14afaa988a59c19493427e9a7c1a9b064b02928a192d7315a0cb"
+    },
+    {
+      "package": "/Game/Environment/_Core/Textures/T_Placeholder_N",
+      "relative_file": "Environment/_Core/Textures/T_Placeholder_N.uasset",
+      "bytes": 4836,
+      "sha256": "89e6355b6fdfad3537db518a7e6ef85cbe2c420bea71d1870d9d115d7f42bf56"
+    },
+    {
+      "package": "/Game/Environment/_Core/Textures/T_Placeholder_N_VT",
+      "relative_file": "Environment/_Core/Textures/T_Placeholder_N_VT.uasset",
+      "bytes": 6127,
+      "sha256": "7242d1a5c9b7a334164650c8d55cbbbb358a7ec1b534de3469eecae94f52a482"
+    },
+    {
+      "package": "/Game/Environment/_Core/Textures/T_Placeholder_RMOH_VT",
+      "relative_file": "Environment/_Core/Textures/T_Placeholder_RMOH_VT.uasset",
+      "bytes": 5699,
+      "sha256": "15c7b0143fed47671808527023941c78d6856dd2d75765f59d941db9f7c2d982"
+    },
+    {
+      "package": "/Game/Environment/_Global/Blueprints/WaterfallGenerator/Curves/CA_DayTimePhase",
+      "relative_file": "Environment/_Global/Blueprints/WaterfallGenerator/Curves/CA_DayTimePhase.uasset",
+      "bytes": 4736,
+      "sha256": "ca77c1641919257be9c3ce119e87c8a424e44c4649d9be2e30c759aa4d9f0369"
+    },
+    {
+      "package": "/Game/Environment/_Global/Blueprints/WaterfallGenerator/Curves/C_DayTimePhase",
+      "relative_file": "Environment/_Global/Blueprints/WaterfallGenerator/Curves/C_DayTimePhase.uasset",
+      "bytes": 6776,
+      "sha256": "6100e5d91c686359a1b893e52d38683eb6977b8598162eaf0aeafafe951e4aaf"
+    },
+    {
+      "package": "/Game/Environment/_Global/Blueprints/WaterfallGenerator/MaterialFunctions/MF_DayTimePhase",
+      "relative_file": "Environment/_Global/Blueprints/WaterfallGenerator/MaterialFunctions/MF_DayTimePhase.uasset",
+      "bytes": 20178,
+      "sha256": "d6f60ba7d06aca01c6c8213f747b93804abb21e7f0d3e48de4e1784d21e61311"
+    },
+    {
+      "package": "/Game/Environment/_Global/MPC_WorldProfile",
+      "relative_file": "Environment/_Global/MPC_WorldProfile.uasset",
+      "bytes": 2371,
+      "sha256": "0232bf177cc5668c1f79c23451519b2f437525f2559b963a7a9686f64d0ea9d7"
+    },
+    {
+      "package": "/Game/Environment/_Global/MaterialFunctions/MF_DecalBase",
+      "relative_file": "Environment/_Global/MaterialFunctions/MF_DecalBase.uasset",
+      "bytes": 89918,
+      "sha256": "e6490fdb1e4f58dd014259975d43efbb39e84d2c8950b134e0308a0408333c7d"
+    },
+    {
+      "package": "/Game/Environment/_Global/MaterialFunctions/MF_DecalNormal",
+      "relative_file": "Environment/_Global/MaterialFunctions/MF_DecalNormal.uasset",
+      "bytes": 10371,
+      "sha256": "7cf04839c5912f6ff0ae88103b7e95b6e29738df05c84459331df5ec39bac22e"
+    },
+    {
+      "package": "/Game/Environment/_Global/MaterialFunctions/MF_PositionSeed",
+      "relative_file": "Environment/_Global/MaterialFunctions/MF_PositionSeed.uasset",
+      "bytes": 11255,
+      "sha256": "acd85d098f9841787bf45526f33b21c6953911ba883a715bdea8d02a6be64fbd"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/Decals/M_DecalBase_Full",
+      "relative_file": "Environment/_Global/Materials/Decals/M_DecalBase_Full.uasset",
+      "bytes": 20040,
+      "sha256": "b873f7a06f1a41ddb50162afb69d6f478bd46e12eeac65e86b949aad0c73aa73"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_Cobblestone_001",
+      "relative_file": "Environment/_Global/Materials/MI_Cobblestone_001.uasset",
+      "bytes": 13895,
+      "sha256": "1a967d2f93499e3c474897fbc255c6306b3d64a6d3c13bdaf404f881c74f4282"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_Cobblestone_001_Inst",
+      "relative_file": "Environment/_Global/Materials/MI_Cobblestone_001_Inst.uasset",
+      "bytes": 9927,
+      "sha256": "66dc214a16f7b6d53915ba932ceec157fe88f558ef1a81f4b47332660daf2721"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_Masonry_Light_01",
+      "relative_file": "Environment/_Global/Materials/MI_Masonry_Light_01.uasset",
+      "bytes": 15802,
+      "sha256": "8ef2b9d69d770d69409ece6e2cfd7662d0ce092d61311a4ea9324c8d10fb7f38"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_WrldAlign_Wood_Light",
+      "relative_file": "Environment/_Global/Materials/MI_WrldAlign_Wood_Light.uasset",
+      "bytes": 9301,
+      "sha256": "117b09d3e8b6b2482f3f5b16d899ce3cf3b3aa7b2285402b2393a6c4a8313804"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MM_WrldAlign_Wood",
+      "relative_file": "Environment/_Global/Materials/MM_WrldAlign_Wood.uasset",
+      "bytes": 48100,
+      "sha256": "56ec3574758eb4674a3bc541caec5768c33bc2ea2661725e4465c873ac3c9c6d"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Cobblestone/T_CobbleStone_001_D",
+      "relative_file": "Environment/_Global/Textures/Cobblestone/T_CobbleStone_001_D.uasset",
+      "bytes": 718220,
+      "sha256": "559b4e86b60024d67d579a85c5d71ff823c420d088ff2073fcb8cadf28ef7851"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Cobblestone/T_CobbleStone_001_N",
+      "relative_file": "Environment/_Global/Textures/Cobblestone/T_CobbleStone_001_N.uasset",
+      "bytes": 959647,
+      "sha256": "4941bb51e0638bd299e6fea68330960bb3804c0a5f4f87d56de61d1ab135264f"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Cobblestone/T_CobbleStone_001_RMOH",
+      "relative_file": "Environment/_Global/Textures/Cobblestone/T_CobbleStone_001_RMOH.uasset",
+      "bytes": 1138598,
+      "sha256": "e4c3f8e74bac0aa8d5dd31720a241e8b32683f62de29eae7ba600c04cde02577"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Masonry/T_Masonry_Light_01_Base_D",
+      "relative_file": "Environment/_Global/Textures/Masonry/T_Masonry_Light_01_Base_D.uasset",
+      "bytes": 1020856,
+      "sha256": "4fa8f519e0e68ad2b0339373198f5a2c44aeaaf27ade9ab97c5dc12e365e3e84"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Masonry/T_Masonry_Light_01_N",
+      "relative_file": "Environment/_Global/Textures/Masonry/T_Masonry_Light_01_N.uasset",
+      "bytes": 1464221,
+      "sha256": "09086029f7c992fc70b8d3a7fbc3c10fb9d6517ad005100c557bc2998ef59dd7"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Masonry/T_Masonry_Light_01_RMOH",
+      "relative_file": "Environment/_Global/Textures/Masonry/T_Masonry_Light_01_RMOH.uasset",
+      "bytes": 1537052,
+      "sha256": "c03407c3cacf945c22f5251ba58caaf6bc1566365ca7a6cf56cab4e7a595e2c4"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/T_Wood_Variation_Overlay_D",
+      "relative_file": "Environment/_Global/Textures/T_Wood_Variation_Overlay_D.uasset",
+      "bytes": 11578,
+      "sha256": "7ef614c3a857bbc2e04f370f8a4aee80042f48092bfc8e475c5e52564599065e"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Wood/T_Global_Wood_04_D",
+      "relative_file": "Environment/_Global/Textures/Wood/T_Global_Wood_04_D.uasset",
+      "bytes": 721251,
+      "sha256": "dc902b0c846e291563b8a318cefaf4d124909226cdbbd75e66c16c4ada568ec9"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Wood/T_Global_Wood_04_N",
+      "relative_file": "Environment/_Global/Textures/Wood/T_Global_Wood_04_N.uasset",
+      "bytes": 731823,
+      "sha256": "16076c5c9f3fae5ab8d4a2c10710c14fd4585558927e044263154f4be9a9250a"
+    },
+    {
+      "package": "/Game/Environment/_Global/Textures/Wood/T_Global_Wood_04_RMOH",
+      "relative_file": "Environment/_Global/Textures/Wood/T_Global_Wood_04_RMOH.uasset",
+      "bytes": 792681,
+      "sha256": "864d3c2656378577c4cfd975f125efd59f465eb53bcc92b90c1d442796bd249b"
+    },
+    {
+      "package": "/Game/Landscape/Gradients/CA_Landscape",
+      "relative_file": "Landscape/Gradients/CA_Landscape.uasset",
+      "bytes": 9524,
+      "sha256": "7f1c679da3d9e6a3772a51eba2b79dcf5a3dcd922f0dc4b290196fe7b21c7a67"
+    },
+    {
+      "package": "/Game/Landscape/Gradients/C_ArcticIce",
+      "relative_file": "Landscape/Gradients/C_ArcticIce.uasset",
+      "bytes": 5534,
+      "sha256": "1261238ac7c4201b19cac475a26769e2ada93a5e9ba07917bd622f5cb3973050"
+    },
+    {
+      "package": "/Game/Landscape/Gradients/C_Default",
+      "relative_file": "Landscape/Gradients/C_Default.uasset",
+      "bytes": 5092,
+      "sha256": "bc6b4154aa475ac46f20877b989389acb402547d3337ce465cc3d8fe4e1a7009"
+    },
+    {
+      "package": "/Game/Landscape/Gradients/C_Grass",
+      "relative_file": "Landscape/Gradients/C_Grass.uasset",
+      "bytes": 5544,
+      "sha256": "36c8cca730cb7c74051fc53a473bdcad04715e85634ec818a2404957e5374bfc"
+    },
+    {
+      "package": "/Game/Landscape/Gradients/C_Rock",
+      "relative_file": "Landscape/Gradients/C_Rock.uasset",
+      "bytes": 5188,
+      "sha256": "915cf50a97ab015bab172dcf1e26f19d15973a7f16ab07c901825d714ab4c587"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_BaseLandscapeLayer",
+      "relative_file": "Landscape/Materials/Functions/MF_BaseLandscapeLayer.uasset",
+      "bytes": 64524,
+      "sha256": "2f17031d9bc1f1eee92f5a5d4c0cbbc05575f4dc5ee8919af4815280bc9c0c1d"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Arctic_Snow",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Arctic_Snow.uasset",
+      "bytes": 22854,
+      "sha256": "7be97aaf4f710f5b9bff2f1d9a48779f0f9e1a6dd12836398029ddf643ed6433"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Desert_Rock",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Desert_Rock.uasset",
+      "bytes": 19120,
+      "sha256": "6d26bace519f8f13505a37599473a158e157cdfd17a0ba9eafa2e95f4f0f2ec8"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Grassland_Dirt",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Grassland_Dirt.uasset",
+      "bytes": 17130,
+      "sha256": "091241f4aff134bde3b2274f7651bde5a016e90347b724c3dd3b6bad3755607c"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Grassland_Grass",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Grassland_Grass.uasset",
+      "bytes": 22285,
+      "sha256": "b5e340681b596539f7c71d9d64339ff1366598936d802a9d76f6f30dca50c524"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Grassland_Sand",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Grassland_Sand.uasset",
+      "bytes": 19347,
+      "sha256": "fa20b9c98af9a6e6755247a986709d12ec5201428ba75098d6a135338574db75"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Marshlands_Grass",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Marshlands_Grass.uasset",
+      "bytes": 15267,
+      "sha256": "ff263e40fdae07f40da27a3d4228272f903e799e01959c432e1d160702532ac6"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Sulfur_Ground",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Sulfur_Ground.uasset",
+      "bytes": 17157,
+      "sha256": "a852fcc73d6d85e4229a05625cc127171c931067686bf232a16498b6f6c76ebe"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LL_Tropic_Grass1",
+      "relative_file": "Landscape/Materials/Functions/MF_LL_Tropic_Grass1.uasset",
+      "bytes": 16516,
+      "sha256": "32449afe03e771ce56b7f97a6afa6ec6f66c72b875d7c8bfc4fbe67bc465cbe1"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_LandscapeLayerSelect",
+      "relative_file": "Landscape/Materials/Functions/MF_LandscapeLayerSelect.uasset",
+      "bytes": 29628,
+      "sha256": "32f610b501d516bc1fc3ddb3d2482a6a503de5f1d35a7d40badd83466c94e694"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Functions/MF_WorldAlignNormalFix",
+      "relative_file": "Landscape/Materials/Functions/MF_WorldAlignNormalFix.uasset",
+      "bytes": 49262,
+      "sha256": "71b1d8ec87a22db833b2b375248d624457b49a550cfba98926f4ebddabd73b3e"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_CanyonWall_D",
+      "relative_file": "Landscape/Materials/Textures/T_CanyonWall_D.uasset",
+      "bytes": 4015985,
+      "sha256": "6413969ba4404f93bbbe74e48033f7e413b6cc18a6d051ed57c5e125f78ce3ba"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_CanyonWall_M",
+      "relative_file": "Landscape/Materials/Textures/T_CanyonWall_M.uasset",
+      "bytes": 1243442,
+      "sha256": "b052b728e11e1cc895dc53f13f6dca686881ea7406a959f48606e2557c62b78c"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_CanyonWall_N",
+      "relative_file": "Landscape/Materials/Textures/T_CanyonWall_N.uasset",
+      "bytes": 17267490,
+      "sha256": "ca74175719c17f61dc02ba947c92939417429925b8f95441c2c2976a8cc44fd4"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_DirtGround_D",
+      "relative_file": "Landscape/Materials/Textures/T_DirtGround_D.uasset",
+      "bytes": 2558121,
+      "sha256": "6d4f23a4d0b724da951af898a7be0fa4cbaeec0736b630fcab291ffe0902ffad"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_DirtGround_M",
+      "relative_file": "Landscape/Materials/Textures/T_DirtGround_M.uasset",
+      "bytes": 15558628,
+      "sha256": "aab611f631f6828688d3f707404dd248bc676f73cee4330e2facd5f812a3330e"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_DirtGround_N",
+      "relative_file": "Landscape/Materials/Textures/T_DirtGround_N.uasset",
+      "bytes": 18415388,
+      "sha256": "5dfa867749fd7429766f38f6e91db21d6bc1d03c9df5c1f126ed70aeab769759"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_GlobalBlend_M",
+      "relative_file": "Landscape/Materials/Textures/T_GlobalBlend_M.uasset",
+      "bytes": 170838,
+      "sha256": "67de780dfaf5ec28240726f60e5e6bbf3bbf0ec6ea55be5fd8c0151408641a2f"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Grass_D",
+      "relative_file": "Landscape/Materials/Textures/T_Grass_D.uasset",
+      "bytes": 2128148,
+      "sha256": "6bf6b3d261f0d1c58c33b139238bed547e98ac14c0d1d54275a8adc8d60ca80f"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Grass_M",
+      "relative_file": "Landscape/Materials/Textures/T_Grass_M.uasset",
+      "bytes": 3926198,
+      "sha256": "b51107973f4e0c5eff7087283449c72f528ecead319ae677d985905eda563823"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Grass_N",
+      "relative_file": "Landscape/Materials/Textures/T_Grass_N.uasset",
+      "bytes": 8701964,
+      "sha256": "03b772420dbc013c6fbf9163300df644e4b306be41ef54bfdcbfd3a217e010b3"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Landscape_Sulfur_a_d",
+      "relative_file": "Landscape/Materials/Textures/T_Landscape_Sulfur_a_d.uasset",
+      "bytes": 6162973,
+      "sha256": "7fc0ab1c75f6d36ef7b232ad5a759dd6aa9c9f0b5fecef4ae19c734991907388"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Landscape_Sulfur_a_n",
+      "relative_file": "Landscape/Materials/Textures/T_Landscape_Sulfur_a_n.uasset",
+      "bytes": 19785666,
+      "sha256": "73ae062d44d30cf721b5a62c4a9745a5d20ccbc90a58bc2eb472d0cdb212c526"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Landscape_Sulfur_a_rmoh",
+      "relative_file": "Landscape/Materials/Textures/T_Landscape_Sulfur_a_rmoh.uasset",
+      "bytes": 4991634,
+      "sha256": "32feede8876f1d8b69cd2b06f7ffbdbb65ff90504f7e0ac1454586e2baa0e146"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Tropic_PinkSand_RMOH1",
+      "relative_file": "Landscape/Materials/Textures/T_Tropic_PinkSand_RMOH1.uasset",
+      "bytes": 4823068,
+      "sha256": "d29815af74ee9d250a9dbedeef7ea173cd5ef96fc5f4a881c8c726c9ecd87c5f"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Tropic_PinkSand_basecolor1",
+      "relative_file": "Landscape/Materials/Textures/T_Tropic_PinkSand_basecolor1.uasset",
+      "bytes": 5607044,
+      "sha256": "b7b76445c4b1e036efa5a7acc25ce2e221aec92773aecbdecdd59a425411e11e"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_Tropic_PinkSand_normal1",
+      "relative_file": "Landscape/Materials/Textures/T_Tropic_PinkSand_normal1.uasset",
+      "bytes": 11896207,
+      "sha256": "08f5a6689acc1e1d0fb408f3348930d6d8747d31eaa0e7b289f63194600e5550"
+    },
+    {
+      "package": "/Game/Landscape/Materials/Textures/T_VariationNoise_M",
+      "relative_file": "Landscape/Materials/Textures/T_VariationNoise_M.uasset",
+      "bytes": 3157053,
+      "sha256": "18c280cecd8127786bb0c525f3539a38cc105eea9280dbb7b84f6d35451bb8e1"
+    },
+    {
+      "package": "/Game/Landscape/RVT/RVT_Titan_D",
+      "relative_file": "Landscape/RVT/RVT_Titan_D.uasset",
+      "bytes": 4279,
+      "sha256": "f524bb7c80abfa8f76e18833925bc0b533ce35070bb8bb9436ba01dbbc2d0876"
+    },
+    {
+      "package": "/Game/Landscape/RVT/RVT_Titan_H",
+      "relative_file": "Landscape/RVT/RVT_Titan_H.uasset",
+      "bytes": 8614,
+      "sha256": "bdf06f5b1e0184e73bd770d637d76cbdb8ed82df3949654121551d58cdddc9ae"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/0L/X8WA3W0X7LE1HH3RZ6SOHG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/0L/X8WA3W0X7LE1HH3RZ6SOHG.uasset",
+      "bytes": 7730,
+      "sha256": "38f75b7597a05ca326fbf8091cddbbcb65fe3575531f560123577c39a3e3e4bf"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/42/K88GY9MLNROOF17TJCR2WI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/42/K88GY9MLNROOF17TJCR2WI.uasset",
+      "bytes": 7961,
+      "sha256": "82483d8b76ba9e22ebdc286ed2faa601eaecde4ad38f365ae174fa31312cde60"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/48/EBZACQ143FBTCCYEE8XBDS",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/48/EBZACQ143FBTCCYEE8XBDS.uasset",
+      "bytes": 4663,
+      "sha256": "a707e4ecc92d59bb4e906cadb578ff41799b3912cb68ffe930580acf1b88a7e4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/49/HHRNDJQEWWSXWZL09ARUMK",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/49/HHRNDJQEWWSXWZL09ARUMK.uasset",
+      "bytes": 4734,
+      "sha256": "e2fbbaf511a70d93ad17b7b5ed7b272da5f83482ea58166dfc8ac153623ff553"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/4S/WVV4XGKV9MYQONOUZ26QO2",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/4S/WVV4XGKV9MYQONOUZ26QO2.uasset",
+      "bytes": 4740,
+      "sha256": "985cccb8bc92ff394239128cf7f281d9a9450abaa71dbc7431c4b59994f61fd9"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/8D/N70OTEEWRDH5ER5EERAW21",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/8D/N70OTEEWRDH5ER5EERAW21.uasset",
+      "bytes": 4740,
+      "sha256": "0d1739d77878b015a3c1f30cc928cb48b3ee804499efaf66d47addb205ce6da2"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/98/U7PUDAAPALLEUKWAL8RT9J",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/98/U7PUDAAPALLEUKWAL8RT9J.uasset",
+      "bytes": 4734,
+      "sha256": "0263b776da52aa7a060ab6e070e76d92f942c67b66cbfa8a04e296a7299cbedb"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/EN/TR3KYVLUW4GQMEOBMFGTVE",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/EN/TR3KYVLUW4GQMEOBMFGTVE.uasset",
+      "bytes": 7961,
+      "sha256": "6fbc0bb5154a274e0f4add6c244aeb4ccae5c8699a7cfc951c6ced6c5c52bb3c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/FZ/KIG4FLT2SEH7WVSDQCKXRQ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/FZ/KIG4FLT2SEH7WVSDQCKXRQ.uasset",
+      "bytes": 7961,
+      "sha256": "9a1422fea10f668442e202a7a3059ae35b4be19fdf97de9c174b7a4363c8e93a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/JI/97AHO75MNRNCWFXKCC9N4J",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/JI/97AHO75MNRNCWFXKCC9N4J.uasset",
+      "bytes": 4854,
+      "sha256": "22118ce793f322c13fe9589c1be4817f6fb33862dacf8f23908d41bac5c4d3e4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/MM/YQ14HSVJMM08FCYLLT6SVH",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/MM/YQ14HSVJMM08FCYLLT6SVH.uasset",
+      "bytes": 4740,
+      "sha256": "5ec728a348597ef1f16379a8abf3a5ad745be129b5f9cafab73a451bf434db0f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/OP/NSGF3ULJRJ95A7LIKRYYN4",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/OP/NSGF3ULJRJ95A7LIKRYYN4.uasset",
+      "bytes": 4734,
+      "sha256": "31aca87e8b08649f0d87f21bd1fd38a05b27b4ca3025b84c1bbbc550da741e63"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/PR/NKFKUJ4EHZQASCNLTV6952",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/PR/NKFKUJ4EHZQASCNLTV6952.uasset",
+      "bytes": 7961,
+      "sha256": "d239a1eff911bcf69c40301c47302ce584080fbcf29615acd3f446a75230c610"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/QM/FXZV47ETJT05J3UKQK02A4",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/QM/FXZV47ETJT05J3UKQK02A4.uasset",
+      "bytes": 7730,
+      "sha256": "712732c305da9bdfeb9ab551a4a4688f9cdb25ce057c21a646482b39723ea07c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/RY/XU5O37N52D3ZJ0CLF6BW1Q",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/RY/XU5O37N52D3ZJ0CLF6BW1Q.uasset",
+      "bytes": 4734,
+      "sha256": "3874902530925238f72ad89a56f9369103a43ebbbc40fe018b7d63415d7b02d8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/S1/3XWY0G4LPYWLD8DXNNWHWO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/S1/3XWY0G4LPYWLD8DXNNWHWO.uasset",
+      "bytes": 7961,
+      "sha256": "a96f9361f68766161c72abec910e47cbbe86c79afbec5504e7dda2cbee13b38b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/WA/O0V1Z8WUI1F17TU5FX7K8N",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/WA/O0V1Z8WUI1F17TU5FX7K8N.uasset",
+      "bytes": 4734,
+      "sha256": "49158451fa0c165294f4e389dfa85a567b8334b27cc94f92a8dca1b8d33dc963"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/XC/BJEKQP1O6M6YFXOLOW1YU8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/XC/BJEKQP1O6M6YFXOLOW1YU8.uasset",
+      "bytes": 7961,
+      "sha256": "27d9ac06fcb0a44d8b671c47168fb7f4a48b72b82e467e53d6ce93291274cc4a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/ZU/5YMGFZ5IWOCXKYKKH87CBC",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/0/ZU/5YMGFZ5IWOCXKYKKH87CBC.uasset",
+      "bytes": 7730,
+      "sha256": "cdb11289462c9c692401df38d560aab7ad53a90a69f676e6a355f462cb876266"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/1F/DMA4OEZUL6KR7AM25MR66I",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/1F/DMA4OEZUL6KR7AM25MR66I.uasset",
+      "bytes": 7730,
+      "sha256": "48df16de08fc4c1f190ac03d3748845537cdb836d2d86932b5618867b31d173a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/2F/S2HSJ5M93QQ8SZENNM35L6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/2F/S2HSJ5M93QQ8SZENNM35L6.uasset",
+      "bytes": 6100,
+      "sha256": "26f50c5b96c86f4b2b3a79be8ebef664c76d2cc1c42080767a7e5036e9bb5cc3"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/5R/T37JJTM7HZMUV3GYT61KEI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/5R/T37JJTM7HZMUV3GYT61KEI.uasset",
+      "bytes": 4734,
+      "sha256": "b2325b43a71330388259eb79223e00a1450b63d69145b7ad3641c5c948d97ba1"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/6K/ZB44MC9W3YX4IMIRJSCEVP",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/6K/ZB44MC9W3YX4IMIRJSCEVP.uasset",
+      "bytes": 6102,
+      "sha256": "63972c72721fe204c2ae8604480b90507338c72489b80db8626a6f740a5c21fd"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/6W/2QYO2VKEKVISBHPE8511R1",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/6W/2QYO2VKEKVISBHPE8511R1.uasset",
+      "bytes": 4734,
+      "sha256": "738b9d18144d163a0df4fecaac7f968f27018f2bbaa49145648cb4b6aa61c667"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/B1/7MHSU7M6EAFGPWB2LCTXJ6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/B1/7MHSU7M6EAFGPWB2LCTXJ6.uasset",
+      "bytes": 4732,
+      "sha256": "e6f2527820c7648a201b93b4658c7644bea05ff23506c5756ccc3657ce2b7a69"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/G4/QCCVHLV20NTZDT1W9158FI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/G4/QCCVHLV20NTZDT1W9158FI.uasset",
+      "bytes": 7730,
+      "sha256": "87d3b5804d5390d968f165ce07c9cc4b877b16822c1790eb787384d86a61d008"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/HB/9YAUSW8PJVY7VRVN4M3NEB",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/HB/9YAUSW8PJVY7VRVN4M3NEB.uasset",
+      "bytes": 4734,
+      "sha256": "c015ff31099768281703ba423d408efcd25d856252621a04c72693232fd55bb5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/IX/U4U6CAVL9EO4LDBBY57KQ5",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/IX/U4U6CAVL9EO4LDBBY57KQ5.uasset",
+      "bytes": 7730,
+      "sha256": "89dedd92b151c27411525779889bc3c5d18b8755811138157144e595a68e8417"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/M7/78G2X6BOWFAG89XZCT8U52",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/M7/78G2X6BOWFAG89XZCT8U52.uasset",
+      "bytes": 7961,
+      "sha256": "23b3597627ef0a253339695cabdaf3572c830bd3fdd35a506f7f3b3cd6d6a473"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/QT/ZIM45CCKTL8ZW3PHKOTS68",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/QT/ZIM45CCKTL8ZW3PHKOTS68.uasset",
+      "bytes": 7730,
+      "sha256": "24fd4ed5c6b6a31003ac6463c60cdb22ae48498a1bc0110f9e3b50545bf3c854"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/SN/W0KEBBCKOI33Y5EYANOH5F",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/SN/W0KEBBCKOI33Y5EYANOH5F.uasset",
+      "bytes": 7730,
+      "sha256": "d9f3e898a876dfba81dac29000ae32820aaa0f12f6c21fc94617ef7201aa906d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/W6/KNP84S3FOUMNNUWKXUWROD",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/W6/KNP84S3FOUMNNUWKXUWROD.uasset",
+      "bytes": 7730,
+      "sha256": "1ac211dc5dfc2ca949361c08b12c2d19ef0f3ea8680ba1b4e84d6368c936c377"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/XO/TIABIBV5IQ1MJ7IPM2QH06",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/1/XO/TIABIBV5IQ1MJ7IPM2QH06.uasset",
+      "bytes": 4734,
+      "sha256": "4c248fae934a1939ce2cc7341d488bdf4b0da186599e72e3dbcfeeef410a1bdc"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/0Q/9W3CQ0LUVYVQ6QQIQEMDY0",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/0Q/9W3CQ0LUVYVQ6QQIQEMDY0.uasset",
+      "bytes": 4740,
+      "sha256": "c472000074952b16af6f415de0992fc05ccf44bc9390c3bb4837ad8b28b736c5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/0V/1VJAZ47RUPYAWK3OJL6ZCO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/0V/1VJAZ47RUPYAWK3OJL6ZCO.uasset",
+      "bytes": 7961,
+      "sha256": "bcb70e49b9cc9310c728ae24f8d1821b7af4deba60f07fa3a9d19596b59766a4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/0Z/UH7YV39D0GMB15MLWBO7VK",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/0Z/UH7YV39D0GMB15MLWBO7VK.uasset",
+      "bytes": 4622,
+      "sha256": "96b6c1aeb11d4791c1d249dacfab32058e827b4ca9a9bc287c8ee9d7b00cf6ba"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/10/ND3JQWB2GYSIBKN0KO8J2E",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/10/ND3JQWB2GYSIBKN0KO8J2E.uasset",
+      "bytes": 4734,
+      "sha256": "b907c538229bc8fc8b350e4ec7b9cf203686c29458d3aca2cd73b8ab1b70732b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/14/ZLUQ4RK5AO8VII171PURY1",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/14/ZLUQ4RK5AO8VII171PURY1.uasset",
+      "bytes": 7961,
+      "sha256": "dc9baca507863302269ba4e8b3961743dbe3f9a690b7950df1b85d7768499847"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/2T/SZCSBO1UTLVNDQ0DEKLCKB",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/2T/SZCSBO1UTLVNDQ0DEKLCKB.uasset",
+      "bytes": 7730,
+      "sha256": "3fe22dd56bcf0bc4add693745fdf70e64956ad87828484b3aa644e02aa5d363e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/35/DDSCBMSYSDQY4GB4NQKL6B",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/35/DDSCBMSYSDQY4GB4NQKL6B.uasset",
+      "bytes": 7730,
+      "sha256": "ee020785df32e1c907e4114a333c24344af1cce88eb6f75981ebbcb6bdc4fdb2"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/3I/ZP22LMA3IRZ73MNXVW8H66",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/3I/ZP22LMA3IRZ73MNXVW8H66.uasset",
+      "bytes": 7730,
+      "sha256": "47e514a53e104cdb16d3eba292923b8efe795a34433cbd622d71d952ff9e1089"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/3K/CGPX4K4TL9232OXLKEN5BG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/3K/CGPX4K4TL9232OXLKEN5BG.uasset",
+      "bytes": 4854,
+      "sha256": "ca5dc3526b37c45393eb09e940d7c42e427c0157df85680b67a13b38396ad67e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/3V/3U8OTYUGAUFEXUBR7UCWXP",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/3V/3U8OTYUGAUFEXUBR7UCWXP.uasset",
+      "bytes": 7961,
+      "sha256": "d346e9c7e38fb46dab658a03f19b3f9f10f0c87eb8604dc43de8e527b869ff0b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/54/B3TKLDBN37VYKHRBLOYZ9C",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/54/B3TKLDBN37VYKHRBLOYZ9C.uasset",
+      "bytes": 7961,
+      "sha256": "36bd87408ab8288b1c20b7bb8e2ffef44f506312a82a1fbcb992fb2857ac4416"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/7R/DOBZNEKL2WYO9G7N0JQDNO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/7R/DOBZNEKL2WYO9G7N0JQDNO.uasset",
+      "bytes": 4734,
+      "sha256": "71fef4a9bfb725bdbd93a2da03984814128d4419039bb703db25effa43f481f5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/CR/VV3O7DJEH4M88L7S9OBN7X",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/CR/VV3O7DJEH4M88L7S9OBN7X.uasset",
+      "bytes": 4412,
+      "sha256": "8f36232ea34ed57fdd0c88c5b265bb913e4bd7245282da349ab5875b5ed95ed6"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/FF/LSGV9MGMH0J75L9BTMMI2R",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/FF/LSGV9MGMH0J75L9BTMMI2R.uasset",
+      "bytes": 4854,
+      "sha256": "dd559c1fee4d138194141e9071bda2bb4ad41101eb8c3451986cfb038bd4af4b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/GO/BV4YO4DGLF134LE0Y13C4L",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/GO/BV4YO4DGLF134LE0Y13C4L.uasset",
+      "bytes": 7730,
+      "sha256": "f964bc82294ffa5b781d90cd3f71bea2131eb7d67875d78c9918e7c6f7f907eb"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/GV/05BYQX1TCZIT4C3M5GX3KE",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/GV/05BYQX1TCZIT4C3M5GX3KE.uasset",
+      "bytes": 7730,
+      "sha256": "510b824c173a70712d8eaa8038941ad21f51d496ed75f8663639f743e9877847"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/KC/3CFG2SAPDCHCZP72K6A6YI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/KC/3CFG2SAPDCHCZP72K6A6YI.uasset",
+      "bytes": 7961,
+      "sha256": "ed83e785aaa05ab247f49fccba49bcc68ed6ec334609850247794a4909b984bf"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/KY/DE3E00EERUGPR1H7OVHVVQ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/KY/DE3E00EERUGPR1H7OVHVVQ.uasset",
+      "bytes": 7961,
+      "sha256": "9b009c176e7e8a448879d1bfde1ad311482c1641352db0aecc9325419d6d4838"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/ND/P4XJKFEO051ETYTGS74WGH",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/ND/P4XJKFEO051ETYTGS74WGH.uasset",
+      "bytes": 4854,
+      "sha256": "8cb5abe040a633b6433d0d8475e12e9e6064459180ac9a94e4e90f8fd2dfd0ec"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/OM/FC7L5P0YW2FGXS1LYP21H6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/OM/FC7L5P0YW2FGXS1LYP21H6.uasset",
+      "bytes": 7730,
+      "sha256": "c7ec854e5d43a40a56bf52d18c3987f20714ba94c229cfce12eafcc71c315a2d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/Q4/HYJAV36SDWGVNMPDS6EFTY",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/Q4/HYJAV36SDWGVNMPDS6EFTY.uasset",
+      "bytes": 7730,
+      "sha256": "3c8431bb2de5b78cbacf46b78eabbcc7e9dcb5391522c012437288760dd92051"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/SF/J8S9SW8XXICO36F4207TQY",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/SF/J8S9SW8XXICO36F4207TQY.uasset",
+      "bytes": 6100,
+      "sha256": "8f194f168c77465341e332887f165ec1bc6c462f171a003718333c9d6e3d5e15"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/XG/F2RULIR5TSAJHQDRNBHEJ2",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/2/XG/F2RULIR5TSAJHQDRNBHEJ2.uasset",
+      "bytes": 4734,
+      "sha256": "a19db1877ea1423c74e1d91a7b0e70199f148855c83b5e50cbe0c506dc5ad040"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/1A/DOI7LF4FNRYJ465TWVV9L8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/1A/DOI7LF4FNRYJ465TWVV9L8.uasset",
+      "bytes": 4740,
+      "sha256": "5305439721bfc7b5a0c8c172c4db1fb42a8e79068ebfb3240ba25f4c57b8104e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/1I/2A2RGT0CB1TBSTUA59S2EN",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/1I/2A2RGT0CB1TBSTUA59S2EN.uasset",
+      "bytes": 4763,
+      "sha256": "3fd6104d42040af85245c88aaaffe4fa74d3cc28ba6d3e09f96636159dff4370"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/1N/L5G5TVQJDD9JGJJQAY63E8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/1N/L5G5TVQJDD9JGJJQAY63E8.uasset",
+      "bytes": 7730,
+      "sha256": "0e6803eee2843b237d75eddb55e2fb6d92cbd220709d118f7f2effd07316cfa8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/3E/6X6NFYU78U0ASVCPQNDZAJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/3E/6X6NFYU78U0ASVCPQNDZAJ.uasset",
+      "bytes": 4734,
+      "sha256": "056449730f2b68aa7600b8c90cfa1e8f459f3e075a98608a7af4aa16b85e9192"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/8R/ZRV8BL0EV03F696QWYLE6J",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/8R/ZRV8BL0EV03F696QWYLE6J.uasset",
+      "bytes": 4734,
+      "sha256": "bb05babcd4a31cf808a582a68cdd94e5d4af923959b1de105b4afe46e624ca33"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/9B/6SXGB1LLPRO9DUCTV903NL",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/9B/6SXGB1LLPRO9DUCTV903NL.uasset",
+      "bytes": 2374,
+      "sha256": "3fd67d3fe9f05494a71790f4d8140518219d60feab02e3ef63aa408f12ddc83f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/AI/N2QNUR2WLTPTQ8OMS6QGXO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/AI/N2QNUR2WLTPTQ8OMS6QGXO.uasset",
+      "bytes": 4740,
+      "sha256": "248cf86f449b7c6c65caa47dfb448981695d0469686e0d1b9e9536b908202b8e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/CS/IH2P5B1QEFZZEBEXOOX0F6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/CS/IH2P5B1QEFZZEBEXOOX0F6.uasset",
+      "bytes": 4734,
+      "sha256": "72c1a0a15b1dc2873ff5f955af9ffd6811ddcc7378142f8c40a2683da8252404"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/DF/TIAZWNKL8QFT7U6R3ULAUM",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/DF/TIAZWNKL8QFT7U6R3ULAUM.uasset",
+      "bytes": 7730,
+      "sha256": "7767c64d1a2992dd112e2a3a4e8cdf97168c2ee5f2e5c8d894d037cba004b96f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/ET/032L9E3JSC51SQVG5WYMB7",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/ET/032L9E3JSC51SQVG5WYMB7.uasset",
+      "bytes": 4854,
+      "sha256": "486ebc159dc0406f9ba9352a09e5f1acb807c2cf64cf4845a822aabf16e36e74"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/OE/WD4W68LL71Y56KURTO7VH8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/OE/WD4W68LL71Y56KURTO7VH8.uasset",
+      "bytes": 4734,
+      "sha256": "7cf6b2785999cc28650fc6d34d7f88681574fea3bf9a8f6f738304f733e03350"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/SC/622EF8DU5HROEOFK5KQ535",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/SC/622EF8DU5HROEOFK5KQ535.uasset",
+      "bytes": 4740,
+      "sha256": "a3ffc63c38846f14a49eb091b9ac6d7397a1d860fe69315f3081b5b395c35daf"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/VB/KKWLFZJCCMZP7VPB8VYA0W",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/VB/KKWLFZJCCMZP7VPB8VYA0W.uasset",
+      "bytes": 4734,
+      "sha256": "e801b3d8a8036f7bea31b5ce33b8ad57f664344d937a6064f04b884b579f336b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/VR/2ZFU0TI08G7XZEXTUJ3BB5",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/VR/2ZFU0TI08G7XZEXTUJ3BB5.uasset",
+      "bytes": 4726,
+      "sha256": "3d6d82db4326483ae282730e761c9a114d1e7bd7dea9f73a41baf59d84340166"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/XD/9FLGF2LZDRA6BM30A36AF1",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/3/XD/9FLGF2LZDRA6BM30A36AF1.uasset",
+      "bytes": 7730,
+      "sha256": "64593cd07e4a73d3cd50e7bb8e67d249b7316505d298925fa12d133bf01a2d56"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/2L/UXN1EIT72036K7N2EFZG2U",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/2L/UXN1EIT72036K7N2EFZG2U.uasset",
+      "bytes": 7961,
+      "sha256": "d1ec494566d30b72797703cdcdf176c49b97965dca56b944e2bb7d0c9fc9c95b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/3F/MCHOL68G8IEFNNFFCCVDH3",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/3F/MCHOL68G8IEFNNFFCCVDH3.uasset",
+      "bytes": 4418,
+      "sha256": "18564ab0b90a755a077a4c0850769e7c1df7bd86133d1b6d4667a1604edb8db8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/5L/NBVS0A5SEBZIMBBM43E4PG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/5L/NBVS0A5SEBZIMBBM43E4PG.uasset",
+      "bytes": 7730,
+      "sha256": "14baf53510f766e94bbe52625a02a2aa824d1f5c5cdc2d0ff3f5b37e82fe15f4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/6G/NESI2J93YUU8G2PZLCAJJK",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/6G/NESI2J93YUU8G2PZLCAJJK.uasset",
+      "bytes": 7730,
+      "sha256": "b087b878e8dca818499c85d06f29fa2a1a047d9a466fc97d77e243738962ea76"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/B5/9YUQUQN5QS2UVVZS2WRD9Z",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/B5/9YUQUQN5QS2UVVZS2WRD9Z.uasset",
+      "bytes": 4740,
+      "sha256": "4b78bc0c36425209d539fcf30ccfe169690381ab03ade79e3d4976bf73729504"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/DX/HSMBUVE43I46707YG9UWRW",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/DX/HSMBUVE43I46707YG9UWRW.uasset",
+      "bytes": 4740,
+      "sha256": "9423ff27e6aef7804cdf9d1e6bb4cbe9be78d4966bde60e23eec4a658ca37704"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/L4/YR9673YIEHZTXCS38Z5B2E",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/L4/YR9673YIEHZTXCS38Z5B2E.uasset",
+      "bytes": 4730,
+      "sha256": "e0c533dba649ea5f10ba1dafa9455e4d07263c939ae3d8ac0529a42fc4233936"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/LL/K9JVFSC7EGQGLESGL1OERX",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/LL/K9JVFSC7EGQGLESGL1OERX.uasset",
+      "bytes": 7730,
+      "sha256": "9229bcce6022fce03dbc4a78cd138d2551b71d2b6e631f9a95a2153578318a30"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/PN/RB1Q6I5A4AG80YWQ6IGHTA",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/PN/RB1Q6I5A4AG80YWQ6IGHTA.uasset",
+      "bytes": 4740,
+      "sha256": "9d1e0ce9c5479c66a46e17b8defad50fd1025f2d6cd17c937aaa188b79a2a524"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/QD/RK8KZIXMPCG7NHKKZ85MFE",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/QD/RK8KZIXMPCG7NHKKZ85MFE.uasset",
+      "bytes": 4452,
+      "sha256": "cb5a33a9879d5cea7ad1afdd8109c5da27d1039217d59bf1ed4a8575bd3ea7ee"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/QG/NIF0ORXBS6LZ3AOI2FB3V6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/QG/NIF0ORXBS6LZ3AOI2FB3V6.uasset",
+      "bytes": 4726,
+      "sha256": "92c9aa05d7be725b6697e757c4f59f00273735d8daf55592e062485481d55509"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/V8/3ZU6XP25CV6AJKRY8XT2S4",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/V8/3ZU6XP25CV6AJKRY8XT2S4.uasset",
+      "bytes": 4734,
+      "sha256": "b1ba8815582f8a2d84f46a2ffa3b47c247465e670e73d846f6f8c94bde6634bf"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/VC/IOSYRP41T8ES6ODIHH0FSP",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/VC/IOSYRP41T8ES6ODIHH0FSP.uasset",
+      "bytes": 7961,
+      "sha256": "8585d7c86b53dbb6d359921585af7f4e156d75587d968644a6d94978388b1f0c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/XK/KD40OWOD39LG2JV4SLJ4TA",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/XK/KD40OWOD39LG2JV4SLJ4TA.uasset",
+      "bytes": 7730,
+      "sha256": "2cb5e626db49dc4b500c08146d7b17d926de2393f17cf7919be4f3cb96e9ad8a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/ZC/C4C7LB0DKCA29ZKT3GRMCI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/4/ZC/C4C7LB0DKCA29ZKT3GRMCI.uasset",
+      "bytes": 7961,
+      "sha256": "af83af20b8d9802ae595383a5b3e4f1256ffab3340722bf3bbfaabf748f6f5e5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/1C/JAL000S86VBNOQNMKUQP26",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/1C/JAL000S86VBNOQNMKUQP26.uasset",
+      "bytes": 7730,
+      "sha256": "eeafd128780e1b19ecc37ac3b428e1c4992460648bb98ad101f848cf2bddbf55"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/4W/ETV7LB30N86XJUFHPLIUFJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/4W/ETV7LB30N86XJUFHPLIUFJ.uasset",
+      "bytes": 7961,
+      "sha256": "1a00d82921916848c19e428fef6c6e9f1e4ddc106ca266655e52389686218692"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/56/QXHBSOL8FDUI0TFHUC6XVX",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/56/QXHBSOL8FDUI0TFHUC6XVX.uasset",
+      "bytes": 7730,
+      "sha256": "3533aa462b27ea842714c35d291439ddcac29bae054431e5d37418429a0d50b8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/BR/E31ZFNZ0FMWPS0380NTOE5",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/BR/E31ZFNZ0FMWPS0380NTOE5.uasset",
+      "bytes": 6100,
+      "sha256": "d826932c083adad3f62dbe25190803ec5da780874fa69fb30529d036917e2dda"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/MI/C9N4ADEXKLWIH5DO7WT9CD",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/MI/C9N4ADEXKLWIH5DO7WT9CD.uasset",
+      "bytes": 7961,
+      "sha256": "de5517d0c6de64235f74420b7ed70122592fd5a4650c7d072687609caceb98dc"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/NL/G2TJRY918JQOO6S01404JH",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/NL/G2TJRY918JQOO6S01404JH.uasset",
+      "bytes": 6098,
+      "sha256": "be3a3f6dd9002d5ab2df3e756442833dce5a8ac0ce9764dae9a11c9fcd5c0fdc"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/SB/9EZJPNLNPCJ8QPEA53VER9",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/SB/9EZJPNLNPCJ8QPEA53VER9.uasset",
+      "bytes": 4629,
+      "sha256": "87fe816048dd83e99f18e961ebcdda2a08cd7032c71f126487cfb4805431e96c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/VV/415DIMANG6S2CKNVXTCPG7",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/VV/415DIMANG6S2CKNVXTCPG7.uasset",
+      "bytes": 4740,
+      "sha256": "bb6c8c9c2e6dbc5e03a43632bdd1b227104585f2b05346030472dd8b8813b9bf"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/WS/U1YQD5P50PP8LLIVXPC9AO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/WS/U1YQD5P50PP8LLIVXPC9AO.uasset",
+      "bytes": 4734,
+      "sha256": "b60f87f98f8c65db74ce934a7c7c60139170682a810010400fa0c8ad395abb01"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/XN/65CMDEY63LOWZC2P0IJSVS",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/5/XN/65CMDEY63LOWZC2P0IJSVS.uasset",
+      "bytes": 6102,
+      "sha256": "97cc4a9a3768d40e309d1ed10c2b9bedaefa3d6e97965eed3853af8e46f257f4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/0O/M3W3Y53WIV1SQHX5IK5VSM",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/0O/M3W3Y53WIV1SQHX5IK5VSM.uasset",
+      "bytes": 4734,
+      "sha256": "a2d26295fb9377e068d96bb0c77a1470a1a61fb211dc8e0e6619e80adbe8cde1"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/2H/1MBSLEGKQGFH0ZKWKI46AU",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/2H/1MBSLEGKQGFH0ZKWKI46AU.uasset",
+      "bytes": 4418,
+      "sha256": "8d5a5201ace3732da5c8588bbb38d95d814a7c2611fc4fd224c07f990ad384c4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/31/70OY3X0FKIL7NUZ9EAQHO9",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/31/70OY3X0FKIL7NUZ9EAQHO9.uasset",
+      "bytes": 4854,
+      "sha256": "e246280955bcd9db57ef431bc66f31490c04014837ec3a0a55e07bf9436b859d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/8P/SKY7ZWQBDPJDBDH2PSDX04",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/8P/SKY7ZWQBDPJDBDH2PSDX04.uasset",
+      "bytes": 4740,
+      "sha256": "ef66290922527ef6984209a90f7a81ba481eb8cf4d00b48b0676f61b8a11e1e5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/9H/OYQYGPTZCHZL63XXPF01K0",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/9H/OYQYGPTZCHZL63XXPF01K0.uasset",
+      "bytes": 4740,
+      "sha256": "ff44e414bf48b199ba4d5778043cfb2111d48030cae77394fb05e0c92dc70cc1"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/AO/MZW0QTQA54P1668UY7F6RY",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/AO/MZW0QTQA54P1668UY7F6RY.uasset",
+      "bytes": 4734,
+      "sha256": "70603023de5c8ecb41c2200929170d57336e3f3ba2147b2024b437d97f85ec94"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/AY/VMTF0VVUGHXDDTARJIVJQN",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/AY/VMTF0VVUGHXDDTARJIVJQN.uasset",
+      "bytes": 4734,
+      "sha256": "5cc539089f48946c9bc999020d1a6225d054fb70b99fe48188742a2c460e5c3c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/BD/GY64KC8X97QIAQY4LT433T",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/BD/GY64KC8X97QIAQY4LT433T.uasset",
+      "bytes": 4740,
+      "sha256": "febd2daa41f3aabca4fc61089aab97bf888ec01c51211407347cc23129b24b18"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/I9/LBSBNLLAA3AH1PNLX1JHHZ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/I9/LBSBNLLAA3AH1PNLX1JHHZ.uasset",
+      "bytes": 7961,
+      "sha256": "ea8e13a8879d8db9b09fddd2d370e0d0db52c003a78d4083910c51db8af7269d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/IS/KE7JXO43TPQL6Y896GB0ZR",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/IS/KE7JXO43TPQL6Y896GB0ZR.uasset",
+      "bytes": 7730,
+      "sha256": "e470fd685b059c98d6b1df1f6319abe29dd88d223fdfb74a1d88164790b16341"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/LN/B9OONEQC6P1H971HD1HBYR",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/LN/B9OONEQC6P1H971HD1HBYR.uasset",
+      "bytes": 4854,
+      "sha256": "bdc72a360cf94c76b592628b9292f707b7ce0b9b2f8ee54ef339c4d34292cc51"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/R0/WR4XRNAWZOYYG5T8NT4A4A",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/R0/WR4XRNAWZOYYG5T8NT4A4A.uasset",
+      "bytes": 4740,
+      "sha256": "1257f5631f99539fec487219e91680befad8f378bdbd603f6f159adbe90dcb0d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/RR/8JPQR6TM98AEF2VJFB0QWR",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/RR/8JPQR6TM98AEF2VJFB0QWR.uasset",
+      "bytes": 7730,
+      "sha256": "1c8fcb475174d7d721b26c91c802c0421a6a7f751d58178e07b231ce71508f7d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/X4/TY97W1KBA21R9HXTS6Z8JC",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/6/X4/TY97W1KBA21R9HXTS6Z8JC.uasset",
+      "bytes": 7961,
+      "sha256": "3479379c64f4c227c7b2f0a718602bdde94be8a39e7078092a1d6c98d0a28614"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/00/6BK46ZEVMNQ8TE74UQYWKH",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/00/6BK46ZEVMNQ8TE74UQYWKH.uasset",
+      "bytes": 4734,
+      "sha256": "5ddcfb639ff8b1537a1bb8eec321d72ae93d95f04fb9e0cf582fb596abe1812c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/4O/GG4NU37H4GWSUV8WJMU1QG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/4O/GG4NU37H4GWSUV8WJMU1QG.uasset",
+      "bytes": 7730,
+      "sha256": "0edb918792339b59be0ff4ea25738f88a7a00f501d9b6075a817619dae9ba990"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/6K/Z3GBK79U2CT5GIZQIQ1CAG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/6K/Z3GBK79U2CT5GIZQIQ1CAG.uasset",
+      "bytes": 7961,
+      "sha256": "02a1350eb9857cb50f43c407b8d75ef596d5b77f7ff2ec7d84ee3475658816d5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/90/MTEEG8MR44IM3HZFO7YTYM",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/90/MTEEG8MR44IM3HZFO7YTYM.uasset",
+      "bytes": 6100,
+      "sha256": "49efd2821897ccff10fbeb71f6a3a1e3daedb41afb8f8ec8636e37708c64e66f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/C5/RTIHKACC5RW0D7OAT5A1TO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/C5/RTIHKACC5RW0D7OAT5A1TO.uasset",
+      "bytes": 4740,
+      "sha256": "ab45d355bef2af82ad267693afeef8a84e54df7fe15f6340f4aa521c5112ad93"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/JI/7JTPWJVKXM7YDWHL6RON9B",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/JI/7JTPWJVKXM7YDWHL6RON9B.uasset",
+      "bytes": 7730,
+      "sha256": "302122cb7ae004dd726f76758856d093cf267bc4495d5caed7510463181904d8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/L3/31ENABDA2M4PWOTPN8FOYH",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/L3/31ENABDA2M4PWOTPN8FOYH.uasset",
+      "bytes": 7730,
+      "sha256": "e24e674750f76c7f014a8c473d1e94371c273f20037eeea89a16827e15700770"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/LJ/P51QU32JQ30PCXX2CUGTM3",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/LJ/P51QU32JQ30PCXX2CUGTM3.uasset",
+      "bytes": 4740,
+      "sha256": "44a80778371c1b32766cbc7d52533ec34775cd67c8dcbaa41322e7701ca8e37c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/TH/G7XL0M5COT99XCX5HZBDFM",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/TH/G7XL0M5COT99XCX5HZBDFM.uasset",
+      "bytes": 4734,
+      "sha256": "b42abd291b2ab5e5f89e888a3b772f97fc82f1ddca853b922394873072846eae"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/YQ/LQILMNA004EVC8KBHK8CMT",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/YQ/LQILMNA004EVC8KBHK8CMT.uasset",
+      "bytes": 4629,
+      "sha256": "f73cfe33c5c8f1c9a01f028915124b1263346c55a69a65df612456ce213d1a6f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/ZJ/MS140Q135RKCP9BSVKDP4F",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/ZJ/MS140Q135RKCP9BSVKDP4F.uasset",
+      "bytes": 7730,
+      "sha256": "374647b9d5dc6a416618f7f40d122985cbf353684a9d8639b5ae6e5dbec3e68b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/ZJ/OSFHIY9T3G18C4NZFMN59E",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/ZJ/OSFHIY9T3G18C4NZFMN59E.uasset",
+      "bytes": 4734,
+      "sha256": "bd32b534bffab5d8e47bc49b5c1ed6d95dfd7e8b16c2b89f545e97000c33a96f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/ZX/YU0M6C0NC4KZLNIT8HZSFD",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/7/ZX/YU0M6C0NC4KZLNIT8HZSFD.uasset",
+      "bytes": 6100,
+      "sha256": "b8100eef2d831e0785614d0a2db891fcb14d257c72d954f10c58661ba127269d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/3T/REO1UAV4J1UOGHXK20KNZ0",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/3T/REO1UAV4J1UOGHXK20KNZ0.uasset",
+      "bytes": 7961,
+      "sha256": "f064c72683de8dba33a95ac61e08cf51727da27cb6c93f172d848066c1bd2ff9"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/5R/HLWGI4VML52J9CGUBE7G2P",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/5R/HLWGI4VML52J9CGUBE7G2P.uasset",
+      "bytes": 4734,
+      "sha256": "424fd421136420addee96be8a0c301085af93c27ed01c9b1bb238f421abf30b7"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/9A/47K5OS1OMW5EVOG6Q0873X",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/9A/47K5OS1OMW5EVOG6Q0873X.uasset",
+      "bytes": 4854,
+      "sha256": "8e7d3b5808d3add7073c693bc81c0725fa75e1b821a1fceba4562c3bb220ac3a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/G5/TQPVORXLTNVYXAEH2XZ23S",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/G5/TQPVORXLTNVYXAEH2XZ23S.uasset",
+      "bytes": 4734,
+      "sha256": "13ab7ba9a2e0f463ef63457c548a5792310190c5336aeadfc77b85b4acdcb781"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/HN/E94NVZ6RDI1L8U6WKXJAC5",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/HN/E94NVZ6RDI1L8U6WKXJAC5.uasset",
+      "bytes": 7961,
+      "sha256": "2d0a7a5bd7bcadbf03ddd351d8a72af54e773beabc980c7ce44e97289576eac8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/J2/NP79SWHD3U37FUTVIFTFKZ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/J2/NP79SWHD3U37FUTVIFTFKZ.uasset",
+      "bytes": 7730,
+      "sha256": "178579af1b26efa970169dae2b3f5687ded2c290646ff79396caf112da0796c9"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/TT/AU5BKT2VZ8U3LMWMEXBC7X",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/TT/AU5BKT2VZ8U3LMWMEXBC7X.uasset",
+      "bytes": 4740,
+      "sha256": "5ae07e7f34c82f9fe6a1a5757c480cc9453127b38d5d1ef736419b903b1bf5fd"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/WN/XD8FQDINLC9NZIJ2TLXZ1T",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/8/WN/XD8FQDINLC9NZIJ2TLXZ1T.uasset",
+      "bytes": 4740,
+      "sha256": "2ef4ba9038c3a4b55e22fac10bcfb7c778d4a9204989a7428ac5a8c1d703537c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/33/LZ786SUN6BVY7YZJPYFQ9O",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/33/LZ786SUN6BVY7YZJPYFQ9O.uasset",
+      "bytes": 4452,
+      "sha256": "090ce3e31ef65635813ac838dbf0fd1ca609ecc49278dd2a13c037bfa4782abc"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/3W/VU90KS3UFUS5E3CEWPIVZ5",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/3W/VU90KS3UFUS5E3CEWPIVZ5.uasset",
+      "bytes": 7730,
+      "sha256": "cc129097e126919e75ecf13fabc4939353ee406886d927a9724ae96565a4e434"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/4T/EULGCK38L956JZS74XUKBQ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/4T/EULGCK38L956JZS74XUKBQ.uasset",
+      "bytes": 4740,
+      "sha256": "13e968cb9460879111cb5a2864156748cb0a22e5e0b03129b13d5d8ec427be59"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/6V/CGP2D9RXRIFIA618G7SIWI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/6V/CGP2D9RXRIFIA618G7SIWI.uasset",
+      "bytes": 4734,
+      "sha256": "60bfe626e3bbca126e7f2ec07f914225bc7135e30e1974df09e240a5b5e4d5d4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/6W/QAF0UT16KF4BHX66MJTDMB",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/6W/QAF0UT16KF4BHX66MJTDMB.uasset",
+      "bytes": 4515,
+      "sha256": "9caed16b0ad60ec166e86f74aaa6468aafc86cae53b9bcd38aa64219068ce294"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/AF/RPO8UIUFLV582CJU42P4RV",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/AF/RPO8UIUFLV582CJU42P4RV.uasset",
+      "bytes": 4740,
+      "sha256": "d9f160f9d4f6e620ab60ff912997b5eba460367911f7964d1306cd0f46accd74"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/AV/32LYJFWHUB1JIRUZXQSALM",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/AV/32LYJFWHUB1JIRUZXQSALM.uasset",
+      "bytes": 7730,
+      "sha256": "3e058a497622f330ec3a7a120372bc25e88c65b0d18073269eb5d06672e13c4e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/DN/TV1BTUEY1KIV5HCAU688BL",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/DN/TV1BTUEY1KIV5HCAU688BL.uasset",
+      "bytes": 6100,
+      "sha256": "63f6339d21a17d4343d3c576d56b34cc9aad4c6121f4e550a1720e5385600dad"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/F7/C93MQFLE81IJ5NEP2KWBPT",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/F7/C93MQFLE81IJ5NEP2KWBPT.uasset",
+      "bytes": 7730,
+      "sha256": "66024a753b762f415913513328774587edbe25ee4660503e6eb66248d9e839a7"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/FN/7EF2RBUDEGVFUUOA5HNO2P",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/FN/7EF2RBUDEGVFUUOA5HNO2P.uasset",
+      "bytes": 7730,
+      "sha256": "ce736ea677577321c1419c6a93d9a085d2af4c32e0ac8c342d46d8957b1b9a84"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/FQ/BR5IBZQV02YPH24TMIG9AB",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/FQ/BR5IBZQV02YPH24TMIG9AB.uasset",
+      "bytes": 7961,
+      "sha256": "c051dac5560d20c83a8e7c7ddf75d2c3e092111bc3c159037faaf79498d29002"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/GS/KLB8ASM4KZU1KRCT8XW9W5",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/GS/KLB8ASM4KZU1KRCT8XW9W5.uasset",
+      "bytes": 4734,
+      "sha256": "81b73b29aebdbd57c18ab767c8680d35bd0242bd17212625ec933e60e495ed8e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/ID/8995NBJM5UAEHTCSG9D57X",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/ID/8995NBJM5UAEHTCSG9D57X.uasset",
+      "bytes": 4854,
+      "sha256": "2d09f4bb26946502685fc25574e1affc85c398c4c77e71523b463832c052f4f0"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/OP/P73F9D4AQOI4AVXBI5QJOV",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/OP/P73F9D4AQOI4AVXBI5QJOV.uasset",
+      "bytes": 7730,
+      "sha256": "98a526627ca34f945bb7ab85eb3524543d47d0b6463eff4517c180f2a82ca33a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/RS/EB2EY3YQRCCNOK0CNMSSMO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/RS/EB2EY3YQRCCNOK0CNMSSMO.uasset",
+      "bytes": 4740,
+      "sha256": "e7823434cd5de8084e29a3ba212c244a0b5315744846de155c248b805858459d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/S8/HQPWWD0R5XZG2ZIP6064P3",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/S8/HQPWWD0R5XZG2ZIP6064P3.uasset",
+      "bytes": 7730,
+      "sha256": "9321e4b4e5101bc1b29dc7e0943d41859d0149edb41b58005a293243ad63b50d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/UX/SZ7DNK09QO8AQ9C7JYIWCC",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/UX/SZ7DNK09QO8AQ9C7JYIWCC.uasset",
+      "bytes": 7961,
+      "sha256": "ea842541746f6e756d57c64a1537ead973ecd9145bd3ae2ef811edb9126746ad"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/W1/BUXDRLX9RW33OPVJW0HKHI",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/W1/BUXDRLX9RW33OPVJW0HKHI.uasset",
+      "bytes": 4854,
+      "sha256": "88c2f1c4410461f524cad894cd073a47083f04b8f8fb63d2364ac595ec0316fa"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/YQ/U4V1DI8G2TRNQS862H05Z3",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/YQ/U4V1DI8G2TRNQS862H05Z3.uasset",
+      "bytes": 7730,
+      "sha256": "a87c853ec36b500f16d0008635f1d2b46dec06241353b8b28451159e46ff6cae"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/ZG/9IHE3M7VA7CVF5M6LSR8VA",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/9/ZG/9IHE3M7VA7CVF5M6LSR8VA.uasset",
+      "bytes": 7730,
+      "sha256": "53756d268267766f50fe73b0c94a712774cd58b53d5d9eeb4dbe5f6d4298012c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/A4/8M2RZZGFJRP08TRAGW611R",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/A4/8M2RZZGFJRP08TRAGW611R.uasset",
+      "bytes": 4418,
+      "sha256": "a2216753feaebd2b321594f2c2070d6d5b2e773632d64c85b381f81afd92603d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/AC/WUQJISG1J4VEDJUAIT742L",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/AC/WUQJISG1J4VEDJUAIT742L.uasset",
+      "bytes": 7730,
+      "sha256": "f185072267da3f8a4c743af00ae4e44236091ee2c99f5d0c033e1306eaeb54b4"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/AW/GK23JHUG780NXO6QN5Y55A",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/AW/GK23JHUG780NXO6QN5Y55A.uasset",
+      "bytes": 7730,
+      "sha256": "005cab08ffc205c4f78dd7e9f31bbf6a305c48896674c20ca55dd263d9dba4b2"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/ER/01Y378SG5Z8RHBE0RQ66RG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/ER/01Y378SG5Z8RHBE0RQ66RG.uasset",
+      "bytes": 4734,
+      "sha256": "2b02616637b74c4adcdd11052be719cafd02340281bf131bd34302992e93a66f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/HK/DNKMA7L6JXNI0HX38A536G",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/HK/DNKMA7L6JXNI0HX38A536G.uasset",
+      "bytes": 4740,
+      "sha256": "295779dd1f36ffaf67033a7d3a7b8eb459cc8401c1fd0db63b60d6e43096f2f5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/IT/CTF6Z5VM7H6TSKPB5FAEIV",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/IT/CTF6Z5VM7H6TSKPB5FAEIV.uasset",
+      "bytes": 4854,
+      "sha256": "a5e7875564136b45c4f5c224d894fd6756da3428425de84a0ee5b9920aa5b6e2"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/JS/NXAJI9PWH5H1Y815HISI3D",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/JS/NXAJI9PWH5H1Y815HISI3D.uasset",
+      "bytes": 7730,
+      "sha256": "e81f9b4962f3eb69a03b20a50ebe07d249d0459f3c3189ce0eb9867d57316363"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/KW/JL06J1Y2V5LRY9SKBWAMLT",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/KW/JL06J1Y2V5LRY9SKBWAMLT.uasset",
+      "bytes": 4663,
+      "sha256": "c9241e13ca4cb8d1496d62448f3cfba6bbb13662f900b8fae70da746bbb84318"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/LB/2ILHLNJZQY564DL3UZRQ05",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/LB/2ILHLNJZQY564DL3UZRQ05.uasset",
+      "bytes": 6100,
+      "sha256": "c1f81f85807f18db4c25f60358ce416a0bf8011efa76717182a320da5a1b5f0a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/LR/C6OJ2QWXXFQHAFPXEP5LO0",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/LR/C6OJ2QWXXFQHAFPXEP5LO0.uasset",
+      "bytes": 4699,
+      "sha256": "560e04443058dad958ab565e4e35ee452ad863b9cd5b52c68e852b0d53cb5cba"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/MU/GU1SQ5P9PNM54KEDUDEB6G",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/MU/GU1SQ5P9PNM54KEDUDEB6G.uasset",
+      "bytes": 4734,
+      "sha256": "3841dc6f818bf842cd70e08d11ec766ceb56beffa526cb748a41c1230cac004f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/PW/21MOMOWYNJOTIZFWZN4LDB",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/PW/21MOMOWYNJOTIZFWZN4LDB.uasset",
+      "bytes": 4734,
+      "sha256": "1f31222936df1ea1e8ebc25ee02856bc536abd6c9f851a2536efd93b3d25bfc3"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/TI/7269ZJ3TLFQFZN8WID44NG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/TI/7269ZJ3TLFQFZN8WID44NG.uasset",
+      "bytes": 6100,
+      "sha256": "c1c049c512453a3daf2b53f677e24ec10337d08d4004f2fcc292eadb03fbf911"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/U2/N8P4KE9CI47KNVBBS0KD9N",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/U2/N8P4KE9CI47KNVBBS0KD9N.uasset",
+      "bytes": 6102,
+      "sha256": "db31d24827a6119d3bd724ce9306f4f7e54785e86ec50ee374d06dd4a6b2233a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/ZL/HJ8QHDGCEHLJQM4ZDN1XLC",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/ZL/HJ8QHDGCEHLJQM4ZDN1XLC.uasset",
+      "bytes": 4734,
+      "sha256": "18005d71f60e2e2118a7e554cd5dd1a9104ee10e5139d7072d7e6c4ed1a1b169"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/1W/RCCXSIMGOX6FUNWVX62DJL",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/1W/RCCXSIMGOX6FUNWVX62DJL.uasset",
+      "bytes": 7730,
+      "sha256": "8de7ca6d2f9356ddf01f45ef1c2ff175d724d571f05cbee9143fd4e2326a206d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/3W/RDXFUG2P8VRTF74RCWH9K8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/3W/RDXFUG2P8VRTF74RCWH9K8.uasset",
+      "bytes": 4734,
+      "sha256": "467c55ff0389940d507aebd48f41c97afd144b312a9190d4f166f8dea7921304"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/4W/G1FDSAG37N3DGJN3ZCM235",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/4W/G1FDSAG37N3DGJN3ZCM235.uasset",
+      "bytes": 4734,
+      "sha256": "c971e23fa3216629412d9cd1d845b178fbdb5ce22fd6a9d6747669489945fa2e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/5P/VJJF87SLDSD2X0DEERASIJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/5P/VJJF87SLDSD2X0DEERASIJ.uasset",
+      "bytes": 4740,
+      "sha256": "de2f56d2fc5ef978b73333a9957054fe1cf2ec0092fbbd9838cff3be7c8b2972"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/6E/62ERRY035SNM7F6SZGH433",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/6E/62ERRY035SNM7F6SZGH433.uasset",
+      "bytes": 7961,
+      "sha256": "68d9420c3496486a8494cee39f31aa1fb9c802c0f95c973ad820d4b08f044cc8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/AH/8OOB8X0ZXO4QM5PYTGDD19",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/AH/8OOB8X0ZXO4QM5PYTGDD19.uasset",
+      "bytes": 7961,
+      "sha256": "7bfda0a002b91bc071da3d60233f2ee704cbbaced4235aacaa6d1c813224c9ae"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/D9/6CDFTABIQLP07YN7F6XRSY",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/D9/6CDFTABIQLP07YN7F6XRSY.uasset",
+      "bytes": 4734,
+      "sha256": "6a0867cd4034095b99ba63f88425ecb07874987885f1d5550a798990ddb1879c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/E1/D59XHG78ADG4A75Z0MHJ08",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/E1/D59XHG78ADG4A75Z0MHJ08.uasset",
+      "bytes": 4536,
+      "sha256": "657eb9f4e2b5370f2065f8449c20d52423e4b6848f716f7cda902807b80d30c9"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/EV/J9Q04KSUBIVG78SW91F7ML",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/EV/J9Q04KSUBIVG78SW91F7ML.uasset",
+      "bytes": 7730,
+      "sha256": "3dbc49760b491e12c82e05d22b093873e6558f96cd168f7d9e2a860c1bb29810"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/J6/VNVHCGNBJFPU7B2BTRK7KT",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/J6/VNVHCGNBJFPU7B2BTRK7KT.uasset",
+      "bytes": 7961,
+      "sha256": "6e79132a58996388ce7a2b924562834cc267734c1bf0f20c722834ce0e7832e9"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/OB/4U79CRBBPD7HT0CJIFG8WN",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/OB/4U79CRBBPD7HT0CJIFG8WN.uasset",
+      "bytes": 7730,
+      "sha256": "0ffaf7c3ca417b6471ae7b04613316fad38d2b991c3f4d33f855542e3a7408f3"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/Q7/O3T3SFUGZJ1MNKJ4JFNQVU",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/Q7/O3T3SFUGZJ1MNKJ4JFNQVU.uasset",
+      "bytes": 7961,
+      "sha256": "fbd51f72507f0d51cfbc47ae48345dd19175cb0074e6fb8f307f9ea190460dd6"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/ZT/IO5O7S14KK5LY4ECU2UTO6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/B/ZT/IO5O7S14KK5LY4ECU2UTO6.uasset",
+      "bytes": 7961,
+      "sha256": "379f85e4a4af2fb97a666f8da5002b0c38f1cbdf6526a0f5e9f13ca12b9c8083"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/0F/IGAM9QE5SS58FYNDB1YZZS",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/0F/IGAM9QE5SS58FYNDB1YZZS.uasset",
+      "bytes": 4734,
+      "sha256": "1f3262f9609e165b77e75965dceaf56da58acd0cb08fd215df44b2045c754903"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/4U/GS6E3PWF2BT66VUDLXJ288",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/4U/GS6E3PWF2BT66VUDLXJ288.uasset",
+      "bytes": 4740,
+      "sha256": "740cd02cc77d573fc570d0923cc3dfe02a90f17801be5066275dccea83588a69"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/73/FTTGCDIS6PZ1UQD3CW0LFC",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/73/FTTGCDIS6PZ1UQD3CW0LFC.uasset",
+      "bytes": 7730,
+      "sha256": "116f0ffc122e4b5acdf64f14acb1a1592f4cfbc2b0989adba57772b8e79b8126"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/79/F1JUSD6HELNJSX7UJ7Q5WJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/79/F1JUSD6HELNJSX7UJ7Q5WJ.uasset",
+      "bytes": 6102,
+      "sha256": "f08fe54f3958edd793dec7a392a58990bc8b5f97f9b37398ac18208f971cc618"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/84/A88YDMIRMINMZGWXFPHO9J",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/84/A88YDMIRMINMZGWXFPHO9J.uasset",
+      "bytes": 7961,
+      "sha256": "ed4075c1667e6e051c7748c224da0745056c5a13542e7f4942905bbfb2f8917d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/8I/XWSUQUITW2BCI3KZW8QY3R",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/8I/XWSUQUITW2BCI3KZW8QY3R.uasset",
+      "bytes": 4765,
+      "sha256": "c9d8b4e0646883f0710992e1a2c1682b1e09f78acfa6311546c9393a7be4313f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/9U/GC5VFIC1KI7SI51UU9MFQ8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/9U/GC5VFIC1KI7SI51UU9MFQ8.uasset",
+      "bytes": 7730,
+      "sha256": "b5093c7e090073c6a6629326e4e7867c297cc1830bbae1b77121108e8ce7ff94"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/A5/WWCFLXC5DSNW8TCOJ4R6CD",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/A5/WWCFLXC5DSNW8TCOJ4R6CD.uasset",
+      "bytes": 7730,
+      "sha256": "d99fb328c79cc9f7b0815e7eb7d71bc82cbe93ff7e2248bff835bbfbcf3890e0"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/BK/RVJNMGWDAREOZCOGV3NIMV",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/BK/RVJNMGWDAREOZCOGV3NIMV.uasset",
+      "bytes": 7730,
+      "sha256": "b5f373a6cdce9184409c9e72dde00318a263d24f136c5318920d075b4b0f9c44"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/BQ/VPJZCI5BI1NPE46XAFX06C",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/BQ/VPJZCI5BI1NPE46XAFX06C.uasset",
+      "bytes": 7730,
+      "sha256": "dc6917e3dd8649bc151b220ad31b1e785a8be8ae81ed7617f3a9a8603ba69a0c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/EI/6P47G8ISZL4B3U64U9THEU",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/EI/6P47G8ISZL4B3U64U9THEU.uasset",
+      "bytes": 4734,
+      "sha256": "6820816757dffe93da9e663db747e8f2b03b21132a1da3052332df18f203a1b1"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/J3/NNX7KA50QSPZLISGQZ7LJB",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/J3/NNX7KA50QSPZLISGQZ7LJB.uasset",
+      "bytes": 7961,
+      "sha256": "247014747102b6196a22f29888733c3ecbfaa6cb08c304c58ab98fc2346727a2"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/J6/FH4GCGH4HZMX0XTKU5GVQG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/J6/FH4GCGH4HZMX0XTKU5GVQG.uasset",
+      "bytes": 7730,
+      "sha256": "23793f18f3c67865cfd7d1db6f43db92fa4fae8e657c8fad08a46ce21919d0d9"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/J7/KB5E86WGR3Z1JBENEJ4TBU",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/J7/KB5E86WGR3Z1JBENEJ4TBU.uasset",
+      "bytes": 7961,
+      "sha256": "399324b25a6ab8fb757b63a9c6d29f32d886e4f98de37b8932bc5d5bb6555fd7"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/KD/E4DZX5K8OAXO3QQ5CR7MVZ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/KD/E4DZX5K8OAXO3QQ5CR7MVZ.uasset",
+      "bytes": 2483,
+      "sha256": "4b3418a419ca8d65f533c3102f0447a179c9ba31039bd13ce16424d80030d357"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/LI/U3Y3F8J2JDD0LVAA4ZUGLY",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/LI/U3Y3F8J2JDD0LVAA4ZUGLY.uasset",
+      "bytes": 7961,
+      "sha256": "85a5784397f4ae9c7a68c30729f175c8f5ffc6b487a44397e99141b8e45c3116"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/Q9/CC76XP1ERIQFI6GIYYO31C",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/Q9/CC76XP1ERIQFI6GIYYO31C.uasset",
+      "bytes": 7961,
+      "sha256": "eed09b224276a0911fdacd9cc7d5f7db6468b62f3e402386493dd66dec0c6a77"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/U4/RDNAWOZ2PZOWJQBIEGDPKQ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/U4/RDNAWOZ2PZOWJQBIEGDPKQ.uasset",
+      "bytes": 7961,
+      "sha256": "a4c18c7e0d77985232b3fe7c7e4108390a9e86173798e047ac0f24e1585f1c06"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/UP/EZVO5ZGNXRPPOOP7V56AJV",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/UP/EZVO5ZGNXRPPOOP7V56AJV.uasset",
+      "bytes": 7961,
+      "sha256": "3e63cd2a1f2be25d15188ac81ee0fb9f2e78616f7c4685ec376b999794d0ead5"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/UY/XC96EAA1WRJ26IUBT3AOJA",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/UY/XC96EAA1WRJ26IUBT3AOJA.uasset",
+      "bytes": 7961,
+      "sha256": "fd9509f2d2a8ca80f74bab8405e9bc17e7458ad20b61c0e5e3b5bb7c4393b9b0"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/WT/RXLLQESXNTVSG8VXARXFWD",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/C/WT/RXLLQESXNTVSG8VXARXFWD.uasset",
+      "bytes": 7730,
+      "sha256": "f5a254a30c50c3216d367f25613b4072e16c1358ce7e9feac45ea1fca2175a57"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/38/HGO59Z8S4N0FXS9KQLH9NO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/38/HGO59Z8S4N0FXS9KQLH9NO.uasset",
+      "bytes": 7730,
+      "sha256": "d29c14ec045162816e66f957706af0721d2c21a91dc4ebd01c1f7873f784364b"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/5D/VJA2RWBLILRC3YSHAUYBAA",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/5D/VJA2RWBLILRC3YSHAUYBAA.uasset",
+      "bytes": 4734,
+      "sha256": "171d4f2fd31c87825230585c84b195d033b334ac701ff02ab9c79e5c8423e443"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/62/P4RORHGEIYO5461TO8F476",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/62/P4RORHGEIYO5461TO8F476.uasset",
+      "bytes": 7961,
+      "sha256": "93423a912a659180cf989a163460e5982eb9f8445b816e02ba739e7d3db9d40c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/7G/JYM9EK0EER80W7FN40IVXG",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/7G/JYM9EK0EER80W7FN40IVXG.uasset",
+      "bytes": 4740,
+      "sha256": "4797b8a32d159492e8df04ba38740020edd0aa7574713dbaffc8f4163399119a"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/7S/C12JCH8XF3JWBTQC52ITI8",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/7S/C12JCH8XF3JWBTQC52ITI8.uasset",
+      "bytes": 6102,
+      "sha256": "e1d9f791c1254f670b29140dba982e3263262e319313cd0613457f464ffba51c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/92/1F9R21OYPJHQN38828BVGF",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/92/1F9R21OYPJHQN38828BVGF.uasset",
+      "bytes": 4734,
+      "sha256": "9576ab55c017920b4b1a7007410592d05ff9830967cf558c384984543e489f7d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/BU/QG58X0NN0YLFVCMXHAVCXN",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/BU/QG58X0NN0YLFVCMXHAVCXN.uasset",
+      "bytes": 7730,
+      "sha256": "92e1ed644de1b46b6680de77d4889b7967f3968785a574dc113af716a0eb85b8"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/CY/6QL4ABGNT4GW82DTDC7EK4",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/CY/6QL4ABGNT4GW82DTDC7EK4.uasset",
+      "bytes": 7730,
+      "sha256": "cac4798e744265f5ebe312422065e444a9b648e4ba1482afbfbae6f32b91aca0"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/D1/4CRA7325SQ0D9BP2QN3GQF",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/D1/4CRA7325SQ0D9BP2QN3GQF.uasset",
+      "bytes": 4734,
+      "sha256": "72c5b2124cbf78706a87dacc8b5ff0c4c94a4432b9570389fbc3e1077ba1e524"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/F9/D8Q31K4GRNGKGGR5TR1H1L",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/F9/D8Q31K4GRNGKGGR5TR1H1L.uasset",
+      "bytes": 6102,
+      "sha256": "e2c62013ed957df0f0f29a5163c02e0dfaef83abfcbba63c9be3594357500c6c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/HY/R5TYP9TAU69D6GCESIR2VJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/HY/R5TYP9TAU69D6GCESIR2VJ.uasset",
+      "bytes": 7730,
+      "sha256": "0d51f6433aa445604b4c280740237a9389e855d477eb3d4318a0e2d2d787cc36"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/JA/T59A59E71W2M6FB9YIVBE0",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/JA/T59A59E71W2M6FB9YIVBE0.uasset",
+      "bytes": 4734,
+      "sha256": "0e3558af8d4a34922de5c59bf937c63bb6128383aba5e5be2c7359ddd8d9d0ee"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/KK/VQQVF3SXL9JXPEQ6UPC2ZT",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/KK/VQQVF3SXL9JXPEQ6UPC2ZT.uasset",
+      "bytes": 4734,
+      "sha256": "ddb0853d3290b0c55ab38d7a8f6c37e90559954c5a0944318960c8e94955e99d"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/KP/1IQNWGT32SP71VBF696MQ4",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/KP/1IQNWGT32SP71VBF696MQ4.uasset",
+      "bytes": 4734,
+      "sha256": "0cb30b75ba35e3255c29febcb6feaa63d9ad283724290d532a0c60080f687d42"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/L8/YBM2SSRC5NW317QW5HWLS0",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/L8/YBM2SSRC5NW317QW5HWLS0.uasset",
+      "bytes": 7730,
+      "sha256": "4aee363a4e660f17f6f8c91359970f896682c99a965e5ad3a8f9ea3d2ca9b4b2"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/NZ/KAWR8BW5C4MVWM9M2PXV01",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/NZ/KAWR8BW5C4MVWM9M2PXV01.uasset",
+      "bytes": 4740,
+      "sha256": "91ded71833f1a1012f029f0b5cf2ba8b191b1dd53e368ea26c4ff96683da6ce7"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/RZ/SZDIKX68SJSHAZUDPXUZ9S",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/RZ/SZDIKX68SJSHAZUDPXUZ9S.uasset",
+      "bytes": 4854,
+      "sha256": "8a8f8ef0d9f2a2a01973c4fdea361ff1345a5a4d26c7e1df05a29c75ba5d6a9f"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/V5/DF3GOYVU5MN6WUXJZI4R98",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/D/V5/DF3GOYVU5MN6WUXJZI4R98.uasset",
+      "bytes": 7730,
+      "sha256": "221e186d8a5d899a005bb1b0b34fd8b58815c3b650acf7785e906a3ee77186da"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/02/TLU9WXRGT2RQDYXO89WXWJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/02/TLU9WXRGT2RQDYXO89WXWJ.uasset",
+      "bytes": 7730,
+      "sha256": "3c09cf3a8fd1e4f7b5cc0a8b106671d1d8b0cb7b49008a9ee1972ae93e2d2582"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/3H/GDEAB7SDX8NJW707KUBL4N",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/3H/GDEAB7SDX8NJW707KUBL4N.uasset",
+      "bytes": 4740,
+      "sha256": "b2279fe0cdcc70594321183b0ef6231e8417fb4c01fca6d1af72ec3cf9361770"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/80/ITTZH5630W3JXQW8MV7DAE",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/80/ITTZH5630W3JXQW8MV7DAE.uasset",
+      "bytes": 7730,
+      "sha256": "237e82a597768652c1742886c74508e4c67defb767c57ecc90778898a0066e3e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/E1/NSGUAM70Y8CF3W2MXN8OCL",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/E1/NSGUAM70Y8CF3W2MXN8OCL.uasset",
+      "bytes": 7730,
+      "sha256": "406934949f0c8ae39f11a7efd06f5b8c2fcef40f3f3b9deabe26b06f2a4c2c24"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/F0/18S6LKZUSAQUL8QELKQ7AH",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/F0/18S6LKZUSAQUL8QELKQ7AH.uasset",
+      "bytes": 7730,
+      "sha256": "ac9fcdacd76b9bc0d52d94482a9c7def9ce3f77ebc828a4f1a1fef3aa4d3db74"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/F7/LO6GRBBWEFTYPJ7T1QB695",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/F7/LO6GRBBWEFTYPJ7T1QB695.uasset",
+      "bytes": 4734,
+      "sha256": "ec50bcd85739654a73ea49828f247ce22178f6282c7e88ca8fab93caf9a66117"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/HE/5X60G3OIP3AQUMNBWS6CRA",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/HE/5X60G3OIP3AQUMNBWS6CRA.uasset",
+      "bytes": 4734,
+      "sha256": "475fd68d4e7ac639491cbcd7e06494d129da1ae736de889c1591e51b29a0be3e"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/PX/GAOH2YZF10ONVJ3LO1JJ2Y",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/PX/GAOH2YZF10ONVJ3LO1JJ2Y.uasset",
+      "bytes": 7961,
+      "sha256": "b7ce91b70e9ea3896464d3f81bdc1882379948004a3db5076307c7a803dd98cb"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/Q6/49WCJMZ4ZMRNLV4CHJJNL7",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/Q6/49WCJMZ4ZMRNLV4CHJJNL7.uasset",
+      "bytes": 7730,
+      "sha256": "33d0aeb57b92ce443b59a7ec374ee1585f864fb15e14fdcc3f299ebcf049db44"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/TR/AE74GTA4BEEA6PPFXECPH6",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/TR/AE74GTA4BEEA6PPFXECPH6.uasset",
+      "bytes": 7730,
+      "sha256": "cce5782ae00d181f7a99e5c05be7f9e182b60977a46bae1d259d65c28cbc273c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/UC/HSSBEPIIE0FZKW8H24STWJ",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/UC/HSSBEPIIE0FZKW8H24STWJ.uasset",
+      "bytes": 7961,
+      "sha256": "99835e231aae7ec72101ba87be35c1b77a0fd48cc27c0aed5cae14ed82769f6c"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/X4/L184HA6PDE8YC41VF0QJ8W",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/X4/L184HA6PDE8YC41VF0QJ8W.uasset",
+      "bytes": 4854,
+      "sha256": "aff84944836de1a0de246870aab4aa3ffe90c816ffee166ebdc45aabe572aedf"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/ZL/4V7AFOJ2QH60A9S258V2MO",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/E/ZL/4V7AFOJ2QH60A9S258V2MO.uasset",
+      "bytes": 4734,
+      "sha256": "d2a0893e67b9b75b1e81917af73cca68ce0a159fa7248ebc59f9f61e0df445b6"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/F/2J/09GA0TXF151IBPQYWSE5SD",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/F/2J/09GA0TXF151IBPQYWSE5SD.uasset",
+      "bytes": 7730,
+      "sha256": "dbd79debcb08961de0183448ae06a06721d4e39c2e67e0629ccde3fa367dc560"
+    },
+    {
+      "package": "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/F/2R/67Q9L37CUHJ6UFLHIJBHWL",
+      "relative_file": "__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/F/2R/67Q9L37CUHJ6UFLHIJBHWL.uasset",
+      "bytes": 4854,
+      "sha256": "902cec237bb5ee566d53e67979c5f0eca1d649d44777de275f50990fe064916e"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_Cobblestone_003",
+      "relative_file": "Environment/_Global/Materials/MI_Cobblestone_003.uasset",
+      "bytes": 15125,
+      "sha256": "d5df36e45b1751a58985e19b045aa337aba848913658921e9f03bf5c49013f34"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_Masonry_Light_03",
+      "relative_file": "Environment/_Global/Materials/MI_Masonry_Light_03.uasset",
+      "bytes": 16091,
+      "sha256": "b828d1410a0701b64dfae99a9acf3dba465bb55b488344aa9945f8255552328a"
+    },
+    {
+      "package": "/Game/Environment/_Global/Materials/MI_Masonry_Light_03_Inst",
+      "relative_file": "Environment/_Global/Materials/MI_Masonry_Light_03_Inst.uasset",
+      "bytes": 11606,
+      "sha256": "f24117e0c53841e625660716e32ea011a7c35e90a5bf0a08fe8766a8e0e87016"
+    }
+  ],
+  "bytes": 152385152,
+  "file_count": 346,
+  "free_bytes_after": 28774977536
+}

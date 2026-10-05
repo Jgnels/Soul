@@ -94,9 +94,14 @@ class ExternalActorClassTests(unittest.TestCase):
         target.parent.mkdir(parents=True)
         target.write_bytes(b"existing")
         with self.assertRaises(ValueError): self.plan()
+        target.unlink()
+        Path(self.rows[1]["file"]).write_bytes(b"changed")
+        with self.assertRaises(ValueError): self.plan()
 
     def test_serialized_instance_read_required(self):
         self.rows[1]["serialized_read_complete"] = False
+        with self.assertRaisesRegex(ValueError, "serialized instance"): self.plan()
+        self.rows[1]["hard_query_found"] = self.rows[1]["all_query_found"] = True
         with self.assertRaisesRegex(ValueError, "serialized instance"): self.plan()
 
     def test_instance_material_override_recurses_and_checks_forbidden_plugins(self):
@@ -119,9 +124,6 @@ class ExternalActorClassTests(unittest.TestCase):
         target.write_bytes(b"changed")
         with self.assertRaises(ValueError):
             build_plan(self.report, self.donor, self.seed, self.target, receipt)
-        target.unlink()
-        Path(self.rows[1]["file"]).write_bytes(b"changed")
-        with self.assertRaises(ValueError): self.plan()
 
 
 if __name__ == "__main__":
