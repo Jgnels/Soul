@@ -1,0 +1,13 @@
+test_ansi_and_utf16_are_not_concatenated (test_audit_packages.AuditTests.test_ansi_and_utf16_are_not_concatenated) ... ok
+test_binary_preflight_cannot_authorize_migration (test_audit_packages.AuditTests.test_binary_preflight_cannot_authorize_migration) ... ok
+test_clean_plan_validates_nested_companions_and_hashes (test_audit_packages.AuditTests.test_clean_plan_validates_nested_companions_and_hashes) ... ok
+test_closure_budget_fails_closed (test_audit_packages.AuditTests.test_closure_budget_fails_closed) ... ok
+test_native_report_cannot_silently_drop_contamination (test_audit_packages.AuditTests.test_native_report_cannot_silently_drop_contamination) ... ok
+test_path_escape_is_rejected (test_audit_packages.AuditTests.test_path_escape_is_rejected) ... ok
+test_recursive_companions_and_contamination_chain (test_audit_packages.AuditTests.test_recursive_companions_and_contamination_chain) ... ok
+test_unreviewed_plugin_dependency_stops_plan (test_audit_packages.AuditTests.test_unreviewed_plugin_dependency_stops_plan) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.063s
+
+OK

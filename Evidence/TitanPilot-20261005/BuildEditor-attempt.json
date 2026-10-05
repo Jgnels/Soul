@@ -1,0 +1,30 @@
+﻿{
+    "stage":  "BuildEditor",
+    "started_utc":  "2026-10-05T14:45:17.5506611Z",
+    "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+    "branch":  "codex/soul-titan-pilot-20261005",
+    "competitors":  [
+                        {
+                            "Id":  21008,
+                            "ProcessName":  "UnrealEditor",
+                            "CPU":  2448.6875,
+                            "WorkingSet64":  888721408
+                        },
+                        {
+                            "Id":  25676,
+                            "ProcessName":  "UnrealEditor",
+                            "CPU":  2437.78125,
+                            "WorkingSet64":  1332350976
+                        },
+                        {
+                            "Id":  11592,
+                            "ProcessName":  "UnrealEditor-Cmd",
+                            "CPU":  2479.0625,
+                            "WorkingSet64":  1491890176
+                        }
+                    ],
+    "status":  "BLOCKED",
+    "reason":  "Pre-existing Unreal workloads occupy the lane; no process was terminated.",
+    "ended_utc":  "2026-10-05T14:45:17.7002607Z",
+    "free_bytes_after":  34047623168
+}

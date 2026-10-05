@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-10-05T14:50:47.381308+00:00",
+  "worktree": "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005",
+  "branch": "codex/soul-titan-pilot-20261005",
+  "base": "6d53714559d34a123b5394206866925a165373c4",
+  "free_bytes": 34047512576,
+  "donor_inputs": [
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\DONOR_AUDIT.md",
+      "bytes": 17410,
+      "sha256": "186339d31a93a4431cb7d04f10a6e70684714de9e76863ead2dbe34723638227"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\PASS3.md",
+      "bytes": 6659,
+      "sha256": "259222ee414a523d097b1ad5ecb5ef93ed3ffb5d7797971573a4c2e744fe4976"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\PASS4.md",
+      "bytes": 4968,
+      "sha256": "7f9956e6a724baef7e7798a644a851b83a300773b4630163fda9a2ff61e5b783"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\PASS5.md",
+      "bytes": 6250,
+      "sha256": "67260642adafba84a23d0466adf423ae6eddfa75a83422f33be557d0f3a9dddc"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\integration_manifest_v5.json",
+      "bytes": 2423,
+      "sha256": "e6b1e63f01a765a4898866873ae3ce2ae20aeee8c07eb1d379defd84032ff11b"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\clifftop_sulfur_contamination_scan.csv",
+      "bytes": 12087,
+      "sha256": "364287b3a2c14d69464f2c4141ae63d3a9c86518d2a2b8827fdaeae5ebdcfcbd"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\pilot_dependency_closure.json",
+      "bytes": 47085,
+      "sha256": "3558f17a2c3e1f644845df0432fc1ae5bb4e7d8bac1b8838a186658949b23bd4"
+    },
+    {
+      "file": "D:\\Unreal Projects\\ProjectTitan\\Saved\\RefinedBadgerAudit\\pilot_dependency_hard_only.json",
+      "bytes": 22964,
+      "sha256": "9574491eae90aea38c5894973aa0a8e2d26fee1008604446e6333effa3b773e5"
+    }
+  ],
+  "rechecked_unique_donor_files": 1464,
+  "donor_files_changed_since_scan": [],
+  "binary_census_unique_bytes": 664406963,
+  "migrated_package_count": 0,
+  "migrated_bytes": 0,
+  "tooling_test_exit_code": 0
+}

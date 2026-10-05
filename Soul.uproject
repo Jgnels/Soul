@@ -18,6 +18,11 @@
       "Name": "SoulRealtimeBattle",
       "Type": "Runtime",
       "LoadingPhase": "Default"
+    },
+    {
+      "Name": "SoulEditor",
+      "Type": "Editor",
+      "LoadingPhase": "Default"
     }
   ],
   "TargetPlatforms": [
