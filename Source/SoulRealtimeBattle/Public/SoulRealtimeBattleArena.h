@@ -22,6 +22,7 @@ class ACharacter;
 class USoulRealtimeBattlePBIL;
 class UAnimationAsset;
 class USkeletalMesh;
+class UParticleSystemComponent;
 class USpringArmComponent;
 class URBCombatRangedComponent;
 class URBMagicPresentationProfile;
@@ -77,6 +78,11 @@ struct FSoulRealtimeArenaCombatant
     FRBHostIdentity PendingMeleeTarget;
     bool bVisualAttackPlaying = false;
     int32 VisualAttackSequence = 0;
+    int32 VisualLocomotionMode = INDEX_NONE;
+    float VisualReactionCooldown = 0.f;
+    float AerialDeathSeconds = -1.f;
+    float AerialDeathStartZ = 0.f;
+    TWeakObjectPtr<UParticleSystemComponent> DragonBreath;
     ESoulRealtimeMovementArchetype Movement =
         ESoulRealtimeMovementArchetype::Infantry;
     float WardPoints = 0.0f;
@@ -356,6 +362,19 @@ private:
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     bool UsesEvilVisualRoster() const;
     void UpdateVisualAnimations();
+    void TickCombatPresentation(float Seconds);
+    void TickAnimationPoseProof();
+    float FieldStrengthEstimate(int32 Side) const;
+    void PlayAcceptedHitReaction(int32 Victim);
+    UAnimationAsset* ResolveVisualReaction(int32 Side, ESoulRealtimeFormationRole FormationRole) const;
+    UAnimationAsset* ResolveStanceAnimation(int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Mode) const;
+    UAnimationAsset* ResolveAerialFall(int32 Side) const;
+    float GuardPresentationElapsed = 0.f;
+    int32 GuardPresentationQueries = 0;
+    friend class FSoulBattleAnimationBehaviorTest;
+    friend class FSoulDragonBreathPresentationTest;
+    void PlayDragonBreath(int32 Attacker, int32 Target);
+    static FRotator VisualMeshRotation(ESoulRealtimeMovementArchetype Movement);
     void DressDragonBattlefield();
     friend class FSoulBattleAudioTest;
     void SetupBattleAudio();
@@ -408,6 +427,7 @@ private:
     bool bExternalEnvironment = false;
     bool bVisualUnits = false;
     bool bFinished = false;
+    FString BattleResultLabel = TEXT("RESOLVED");
     bool bAttackHeld = false;
     bool bAlliedCharge = true;
     float ProofElapsed = 0.0f;

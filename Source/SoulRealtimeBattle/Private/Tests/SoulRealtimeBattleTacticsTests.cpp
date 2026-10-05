@@ -70,6 +70,50 @@ bool FSoulTacticalMoraleTest::RunTest(const FString&)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulReserveCommitTest,
+    "Soul.RealtimeBattle.Tactics.ReservesReachCollapsingLine",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulReserveCommitTest::RunTest(const FString&)
+{
+    FSoulBattleOrderContext Context;
+    Context.Kind = ESoulBattleFormationKind::CommandReserve;
+    Context.Phase = ESoulBattlePhase::Maneuver;
+    Context.EnemyDistance = 2500.0f;
+    Context.bFriendlyLineCollapsing = FSoulRealtimeTacticalRules::IsFrontLineCollapsing(2, 0, 900);
+    TestEqual(TEXT("Healthy front keeps reserve held"),
+        FSoulRealtimeTacticalRules::ChooseOrder(Context), ERBHostGroupOrder::Hold);
+    TestTrue(TEXT("Eliminated front still needs the reserve"),
+        FSoulRealtimeTacticalRules::IsFrontLineCollapsing(0, 0, 1000));
+    TestTrue(TEXT("Routing front remains collapsed after numerical morale recovers"),
+        FSoulRealtimeTacticalRules::IsFrontLineCollapsing(2, 1, 900));
+    TestTrue(TEXT("Shaken front requests support before routing"),
+        FSoulRealtimeTacticalRules::IsFrontLineCollapsing(2, 0, 479));
+    Context.bFriendlyLineCollapsing = true;
+    TestEqual(TEXT("Distant reserve advances to collapse"),
+        FSoulRealtimeTacticalRules::ChooseOrder(Context), ERBHostGroupOrder::Advance);
+    const FVector Holding(-2000, 300, 100), Enemy(500, 300, 100), Facing(1, 0, 0);
+    const FVector Destination = FSoulRealtimeTacticalRules::AdvanceAnchor(Context, Holding, Enemy, Facing);
+    TestTrue(TEXT("Reserve leaves holding anchor and approaches within charge distance"),
+        Destination.Equals(FVector(80, 300, 100)) && FVector::Dist2D(Destination, Enemy) < 650.0f);
+    Context.EnemyDistance = FVector::Dist2D(Destination, Enemy);
+    TestEqual(TEXT("Arriving reserve charges"),
+        FSoulRealtimeTacticalRules::ChooseOrder(Context), ERBHostGroupOrder::Charge);
+    Context.Morale = ESoulBattleMoraleState::Routing;
+    TestEqual(TEXT("Routing reserve still withdraws"),
+        FSoulRealtimeTacticalRules::ChooseOrder(Context), ERBHostGroupOrder::FallBack);
+    Context.Kind = ESoulBattleFormationKind::MissileSupport;
+    TestTrue(TEXT("Operational missiles preserve standoff"),
+        FSoulRealtimeTacticalRules::AdvanceAnchor(Context, Holding, Enemy, Facing).Equals(Enemy - Facing * 1700));
+    Context.bRangedOperational = false;
+    TestTrue(TEXT("Empty missiles close for melee"),
+        FSoulRealtimeTacticalRules::AdvanceAnchor(Context, Holding, Enemy, Facing).Equals(Enemy - Facing * 240));
+    Context.Kind = ESoulBattleFormationKind::Strike;
+    Context.bFrontLineEngaged = false;
+    TestTrue(TEXT("Unengaged strike retains its staging anchor"),
+        FSoulRealtimeTacticalRules::AdvanceAnchor(Context, Holding, Enemy, Facing).Equals(Holding));
+    return true;
+}
+
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
     FSoulTacticalSafeArrivalTest,
     "Soul.RealtimeBattle.Tactics.SafeReinforcementAnchor",

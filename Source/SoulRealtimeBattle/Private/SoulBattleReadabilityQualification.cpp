@@ -1,6 +1,9 @@
 #include "SoulRealtimeBattleArena.h"
 #include "Camera/CameraActor.h"
 #include "GameFramework/Character.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "Animation/AnimationAsset.h"
 #include "Misc/Paths.h"
 #include "UnrealClient.h"
 #include "Engine/World.h"
@@ -30,6 +33,7 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         UE_LOG(LogTemp, Display, TEXT("SOUL_CAPTURE_ASSETS: ready pending=%d"), Compiler.GetNumRemainingAssets());
     }
 #endif
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulAnimationPoseProof"))) { TickAnimationPoseProof(); return; }
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulSpellbookProof"))) { TickSpellbookProof(); return; }
     const double Now = FPlatformTime::Seconds();
     if (ReadabilityStarted == 0.0) ReadabilityStarted = Now;
@@ -47,9 +51,13 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         ReadabilityCaptureName = Label;
         ReadabilityCaptureAt = FPlatformTime::Seconds() + 0.65; // Allow the camera and particles to render after the action.
     };
-    if (Elapsed > 210.0)
+    float TimeoutSeconds = 210.0f;
+    FParse::Value(FCommandLine::Get(), TEXT("SoulReadabilityTimeout="), TimeoutSeconds);
+    TimeoutSeconds = FMath::Clamp(TimeoutSeconds, 210.0f, 600.0f);
+    if (Elapsed > TimeoutSeconds)
     {
-        UE_LOG(LogTemp, Error, TEXT("SOUL_READABILITY_FAIL: battle/control qualification timed out"));
+        UE_LOG(LogTemp, Error, TEXT("SOUL_READABILITY_FAIL: timeout wall=%.2f battle=%.2f alive=%d/%d contacts=%d budget=%.0f"),
+            Elapsed, BattleElapsed, AliveForSide(0), AliveForSide(1), AcceptedContactCount(), TimeoutSeconds);
         FPlatformMisc::RequestExitWithStatus(false, 1);
         return;
     }
@@ -117,11 +125,24 @@ void ASoulRealtimeArenaGameMode::TickReadabilityProof()
         Capture(TEXT("deployment-commander"));
         break;
     case 3:
+    {
         SetupBattleCamera();
-        SelectAlliedFormationSlot(1);
+        int32 AlliedSlot = 0;
+        for (const auto& Formation : TacticalFormations)
+        {
+            if (Formation.Side != 0) continue;
+            if (Formation.Kind == ESoulBattleFormationKind::MissileSupport)
+            {
+                SelectAlliedFormationSlot(AlliedSlot);
+                UE_LOG(LogTemp, Display, TEXT("SOUL_READABILITY_MISSILE: slot=%d group=%d"), AlliedSlot, Formation.GroupIndex);
+                break;
+            }
+            ++AlliedSlot;
+        }
         CommandSelectedAllies(ERBHostGroupOrder::Hold);
         Capture(TEXT("missile-selected-hold"));
         break;
+    }
     case 4:
         if (FParse::Param(FCommandLine::Get(), TEXT("SoulBattleProfile")))
             PC->ConsoleCommand(TEXT("csvprofile FRAMES=1200"), true);
@@ -278,4 +299,99 @@ void ASoulRealtimeArenaGameMode::TickSpellbookProof()
         FPlatformMisc::RequestExitWithStatus(false,0);
         break;
     }
+}
+
+// Staged pose inspection, separate from the live battle qualification. Never
+// mutates donor assets, outcomes or ordinary play. Exit after all frames exist.
+void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
+{
+    const double Now=FPlatformTime::Seconds();
+    if(ReadabilityStarted==0) ReadabilityStarted=Now;
+    if(!ReadabilityCaptureName.IsEmpty())
+    {
+        if(Now<ReadabilityCaptureAt || FScreenshotRequest::IsScreenshotRequested()) return;
+        const FString Dir=FPaths::ProjectSavedDir()/TEXT("Screenshots/AnimationPoses");
+        IFileManager::Get().MakeDirectory(*Dir,true);
+        FScreenshotRequest::RequestScreenshot(Dir/(ReadabilityCaptureName+TEXT(".png")),false,false);
+        UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_CAPTURE: %s"),*ReadabilityCaptureName);
+        ReadabilityCaptureName.Reset();ReadabilityNextCapture=Now+1.0;
+        return;
+    }
+    if(Now-ReadabilityStarted<3 || Now<ReadabilityNextCapture) return;
+    if(ReadabilityStage>=24)
+    {
+        UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_PASS: captures=24 rosters=2"));
+        FPlatformMisc::RequestExitWithStatus(false,0);return;
+    }
+    const int32 CaptureIndex=ReadabilityStage++;
+    const int32 Side=CaptureIndex/12;
+    const int32 Stage=CaptureIndex%12;
+    const auto Wanted=Stage<8 ? ESoulRealtimeFormationRole::Guard : Stage<10 ? ESoulRealtimeFormationRole::Hero : ESoulRealtimeFormationRole::Apex;
+    int32 Subject=INDEX_NONE;
+    for(int32 I=0;I<Combatants.Num();++I)
+        if(Combatants[I].Side==Side && Combatants[I].Role==Wanted) { Subject=I;break; }
+    if(!Actors.IsValidIndex(Subject) || !Actors[Subject])
+    {
+        UE_LOG(LogTemp,Error,TEXT("SOUL_POSE_FAIL: missing subject side=%d role=%d capture=%d (use at least 30 active/pool per side)"),Side,int32(Wanted),CaptureIndex);
+        FPlatformMisc::RequestExitWithStatus(false,1);return;
+    }
+    for(int32 I=0;I<Actors.Num();++I) if(Actors[I]) Actors[I]->SetActorHiddenInGame(I!=Subject);
+    auto* Actor=Actors[Subject].Get();
+    Actor->SetActorHiddenInGame(false);
+    // Inspect each roster at the same clear patch. Enemy deployment positions
+    // can put the inspection camera inside boundary rocks, hiding a valid corpse.
+    FVector StageLocation=ResolveSpawnLocation(ArenaOrigin+FVector(0,0,100));
+    StageLocation.Z+=Actor->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()-96.f;
+    Actor->SetActorLocationAndRotation(StageLocation,FRotator::ZeroRotator);
+    UAnimationAsset* Clip=nullptr;
+    if(Stage==0) Clip=ResolveStanceAnimation(Side,Wanted,0);
+    else if(Stage==1) Clip=ResolveStanceAnimation(Side,Wanted,5);
+    else if(Stage<6) Clip=ResolveVisualAttack(Side,Wanted,Stage-2);
+    else if(Stage==6) Clip=ResolveVisualReaction(Side,Wanted);
+    else if(Stage==7) Clip=ResolveStanceAnimation(Side,Wanted,2);
+    else if(Stage<10) Clip=ResolveVisualAttack(Side,Wanted,Stage-7);
+    else if(Stage==10) Clip=ResolveAerialFall(Side);
+    else Clip=ResolveVisualDeath(Side,Wanted);
+    if(!Clip)
+    {
+        UE_LOG(LogTemp,Error,TEXT("SOUL_POSE_FAIL: missing clip side=%d role=%d capture=%d"),Side,int32(Wanted),CaptureIndex);
+        FPlatformMisc::RequestExitWithStatus(false,1);return;
+    }
+    Actor->GetMesh()->bPauseAnims=false;
+    Actor->GetMesh()->PlayAnimation(Clip,false);
+    Actor->GetMesh()->SetPosition(Clip->GetPlayLength()*(Stage==11?.95f:.42f),false);
+    Actor->GetMesh()->TickAnimation(0,false);
+    Actor->GetMesh()->RefreshBoneTransforms();
+    Actor->GetMesh()->bPauseAnims=true;
+    Combatants[Subject].bVisualAttackPlaying=true;
+    if(Stage==11)
+    {
+        FVector P=Actor->GetMesh()->GetRelativeLocation();P.Z=-Actor->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight();
+        Actor->GetMesh()->SetRelativeLocation(P);
+    }
+    // World pause prevents the usual component tick from publishing the sampled
+    // pose. Flush both attachments and GPU skinning before freezing this frame.
+    auto* Mesh=Actor->GetMesh();
+    Mesh->UpdateComponentToWorld();
+    Mesh->FinalizeBoneTransform();
+    Mesh->UpdateBounds();
+    Mesh->MarkRenderTransformDirty();
+    Mesh->MarkRenderDynamicDataDirty();
+    // A paused world can retain the previous GPU skinning buffer even after
+    // socket transforms update. Recreate only this staged subject's render
+    // state so the capture cannot pair an old body with newly posed equipment.
+    Mesh->MarkRenderStateDirty();
+    // Falling clips can move the body far from the character capsule. Frame the
+    // sampled skeleton, including wings/tail, instead of cropping at actor origin.
+    FBox PoseBounds(ForceInit);
+    for(int32 Bone=0;Bone<Mesh->GetNumBones();++Bone)
+        PoseBounds+=Mesh->GetBoneLocation(Mesh->GetBoneName(Bone));
+    if(!bTacticalCameraActive) ToggleBattleCamera();
+    TacticalFocus=PoseBounds.IsValid ? PoseBounds.GetCenter() : Actor->GetActorLocation();
+    TacticalDistance=PoseBounds.IsValid ? FMath::Max(900.f,float(PoseBounds.GetExtent().Size())*4.5f) : 1250.f;
+    TacticalRotation=FRotator(-20,140,0);
+    UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_FRAME: capture=%d bones=%d focus=%s distance=%.1f"),CaptureIndex,Mesh->GetNumBones(),*TacticalFocus.ToCompactString(),TacticalDistance);
+    Status=FString::Printf(TEXT("STAGED ANIMATION INSPECTION / %s"),*Clip->GetName());
+    ReadabilityCaptureName=FString::Printf(TEXT("%02d-%s"),CaptureIndex,*Clip->GetName());
+    ReadabilityCaptureAt=Now+.8;
 }

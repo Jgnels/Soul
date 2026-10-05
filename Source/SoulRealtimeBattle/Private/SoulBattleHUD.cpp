@@ -113,7 +113,18 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     int32 PhaseSeparator=INDEX_NONE;
     if(Phase.FindChar(TCHAR('|'),PhaseSeparator)) Phase.LeftInline(PhaseSeparator);
     Phase.TrimEndInline();
-    UI.FitText(Host->bFinished?TEXT("RESOLVED"):Host->bBattlePaused?TEXT("PAUSED"):Phase,465,24,W-900,UI.Bright);
+    UI.FitText(Host->bFinished?Host->BattleResultLabel:Host->bBattlePaused?TEXT("PAUSED"):Phase,465,18,W-900,UI.Bright);
+    const float Friendly=Host->FieldStrengthEstimate(0),Hostile=Host->FieldStrengthEstimate(1);
+    const float Balance=Friendly+Hostile>0 ? Friendly/(Friendly+Hostile) : .5f;
+    const float BalanceW=FMath::Min(210.f,W-900);
+    UI.Rect(465,39,BalanceW,5,Enemy);
+    UI.Rect(465,39,BalanceW*Balance,5,Ally);
+    UI.Line(465+BalanceW*.5f,37,465+BalanceW*.5f,46,UI.Ink,1);
+    if(UI.Button(TEXT("FieldStrength"),TEXT(""),465,36,BalanceW,12))
+        Tooltip=TEXT("FIELD STRENGTH: surviving health, with routing units discounted. Active fighters only; reserves are the (+counts). An estimate, not a victory prediction.");
+    // Draw after the transparent hover/click region so the bar remains visible.
+    UI.Rect(466,40,BalanceW-2,3,Enemy);
+    UI.Rect(466,40,(BalanceW-2)*Balance,3,Ally);
     UI.Button(TEXT("Pause"),Host->bFinished?TEXT("Resolved"):Host->bBattlePaused?TEXT("Start / Resume [P]"):
         Host->bAllowTacticalPause?TEXT("Pause [P]"):TEXT("No pause"),W-422,17,144,28,Host->bBattlePaused);
     UI.Button(TEXT("Camera"),Host->bTacticalCameraActive?TEXT("Hero [C]"):TEXT("Commander [C]"),W-270,17,142,28);
@@ -152,7 +163,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
 
     ShieldUI(TEXT("TopStrip"),12,12,W-24,38);
     const int32 Count=FMath::Max(1,Host->AlliedFormationCount());
-    const float ArmyWidth=W-474,CardW=FMath::Min(185.f,(ArmyWidth-(Count-1)*6)/Count);
+    const float ArmyWidth=W-474,CardW=FMath::Min(88.f,(ArmyWidth-(Count-1)*6)/Count);
     int32 Slot=0;
     for(const auto& Formation:Host->TacticalFormations)
     {
@@ -177,24 +188,48 @@ void ASoulRealtimeArenaHUD::DrawHUD()
                 100.f*Health/FMath::Max(1.f,Maximum),Arrows);
         }
         const int32 Alive=Host->AliveInGroup(Formation.GroupIndex);
-        UI.FitText(FString::Printf(TEXT("F%d %s  %d"),Slot+1,FSoulRealtimeTacticalRules::FormationKindLabel(Formation.Kind),Alive),X+10,Y+8,CardW-20,Selected?UI.Bright:UI.Ink);
-        const auto Morale=FSoulRealtimeTacticalRules::MoraleState(Formation.MoralePermille,Formation.bRouting,Formation.bRallied);
-        FString Summary=Host->AlliedFormationSummary(Slot);
-        const TCHAR* Order=TEXT("Hold");
-        if(Summary.Contains(TEXT("ADVANCE"))) Order=TEXT("Advance");
-        else if(Summary.Contains(TEXT("CHARGE"))) Order=TEXT("Charge");
-        else if(Summary.Contains(TEXT("FALL BACK"))) Order=TEXT("Withdraw");
-        else if(Summary.Contains(TEXT("FOLLOW"))) Order=TEXT("Follow");
-        else if(Summary.Contains(TEXT("FACE"))) Order=TEXT("Face");
-        UI.FitText(Alive?FString::Printf(TEXT("%s / %s"),Order,FSoulRealtimeTacticalRules::MoraleLabel(Morale)):TEXT("DEFEATED"),
-            X+10,Y+27,CardW-20,Alive?UI.Muted:Enemy,1.f);
-        UI.Bar(X+10,Y+46,CardW-20,Formation.MoralePermille/1000.f,Formation.bRouting?Enemy:Ally);
+        const FLinearColor Color=Alive ? Selected?UI.Bright:UI.Ink : UI.Muted;
+        const float CX=X+CardW*.5f,CY=Y+23;
+        if(Formation.Kind==ESoulBattleFormationKind::FrontLine)
+        {
+            for(int32 Soldier=-1;Soldier<=1;++Soldier)
+            {
+                const float SX=CX+Soldier*12;
+                UI.Rect(SX-3,CY-13,6,6,Color);
+                UI.Line(SX,CY-5,SX,CY+6,Color,3);
+                UI.Line(SX-4,CY-3,SX+4,CY-3,Color,2);
+                UI.Line(SX,CY+6,SX-4,CY+12,Color,2);
+                UI.Line(SX,CY+6,SX+4,CY+12,Color,2);
+            }
+        }
+        else if(Formation.Kind==ESoulBattleFormationKind::MissileSupport)
+        {
+            // Bow, string and nocked arrow; original vector artwork.
+            UI.Line(CX-7,CY-14,CX+4,CY-7,Color,2);
+            UI.Line(CX+4,CY-7,CX+7,CY,Color,2);
+            UI.Line(CX+7,CY,CX+4,CY+7,Color,2);
+            UI.Line(CX+4,CY+7,CX-7,CY+14,Color,2);
+            UI.Line(CX-7,CY-14,CX-7,CY+14,Color,1);
+            UI.Line(CX-15,CY,CX+17,CY,Color,2);
+            UI.Line(CX+17,CY,CX+11,CY-4,Color,2);
+            UI.Line(CX+17,CY,CX+11,CY+4,Color,2);
+        }
+        else if(Formation.Kind==ESoulBattleFormationKind::Strike)
+        {
+            UI.Line(CX-8,CY+10,CX+11,CY-13,Color,4);
+            UI.Line(CX-12,CY+1,CX+1,CY+12,Color,3);
+            UI.Line(CX-8,CY+10,CX-13,CY+16,UI.Gold,3);
+        }
+        else UI.Emblem(6,CX,CY,14,Color);
+        UI.Text(FString::Printf(TEXT("F%d"),Slot+1),X+5,Y+4,UI.Muted,.9f);
+        UI.Text(FString::FromInt(Alive),X+CardW-22,Y+30,Color,1.1f);
+        UI.Bar(X+6,Y+46,CardW-12,Formation.MoralePermille/1000.f,Formation.bRouting?Enemy:Ally);
         ++Slot;
     }
     static const TCHAR* Actions[]={TEXT("All"),TEXT("Move"),TEXT("Hold"),TEXT("Advance"),TEXT("Charge"),TEXT("Fallback"),TEXT("Face"),TEXT("AI")};
     static const TCHAR* Labels[]={TEXT("All"),TEXT("Move"),TEXT("Hold H"),TEXT("Advance V"),TEXT("Charge G"),TEXT("Back B"),TEXT("Face F"),TEXT("AI R")};
     static const TCHAR* Hints[]={TEXT("Select every surviving friendly formation."),TEXT("Select, then click clear ground for the formation destination."),
-        TEXT("Hold this ground. Engage nearby threats without chasing."),TEXT("Approach the enemy while keeping ranks together."),
+        TEXT("Brace on this ground in tighter ranks. Infantry guard nearby threats and do not chase."),TEXT("Approach the enemy while keeping ranks together."),
         TEXT("Commit to contact. Troops may break ranks to pursue."),TEXT("Withdraw toward a safe position."),
         TEXT("Face the threat without advancing."),TEXT("Return selected formations to their commander.")};
     const float OrderW=(ArmyWidth-28)/8.f;

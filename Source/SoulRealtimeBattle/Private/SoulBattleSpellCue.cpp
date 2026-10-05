@@ -79,7 +79,9 @@ void ASoulBattleSpellCue::UpdateGeometry()
     }
     else if(Kind==1 && !Points.IsEmpty())
     {
-        const FVector Center=Points[0]-FVector(0,0,65);
+        // Ground spell targets already lie on the terrain, unlike actor-centered
+        // auras. Subtracting a character offset buries the actual area boundary.
+        const FVector Center=Points[0];
         for(int32 I=0;I<72;++I)
         {
             FRandomStream Random(42+I*7919);

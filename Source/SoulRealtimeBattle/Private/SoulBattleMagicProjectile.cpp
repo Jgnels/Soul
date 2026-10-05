@@ -52,6 +52,9 @@ void ASoulRealtimeArenaGameMode::ResolveMagicProjectile(
     const bool Enemy=Source!=INDEX_NONE && Target!=INDEX_NONE &&
         Combatants[Source].Side!=Combatants[Target].Side;
     const bool Accepted=Enemy && ApplyMagicDamage(Target,Launch.Damage);
+    if(!Accepted && !bFinished && Source!=INDEX_NONE && Combatants[Source].Side==0)
+        PushBattleNotice(Enemy ? TEXT("Firebolt hit a fallen target") :
+            Target!=INDEX_NONE ? TEXT("Firebolt blocked by friendly troops") : TEXT("Firebolt blocked by terrain"),0);
     UE_LOG(LogTemp,Display,TEXT("SOUL_MAGIC_PROJECTILE_IMPACT: id=%s source=%d target=%d accepted=%d blocker=%s"),
         *Launch.ShotId.ToString(),Source,Target,Accepted,*GetNameSafe(Hit.GetActor()));
     if (Accepted) PlayBattleSound(ESoulBattleSound::MagicImpact, Hit.ImpactPoint);

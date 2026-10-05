@@ -110,6 +110,24 @@ ERBHostGroupOrder FSoulRealtimeTacticalRules::ChooseOrder(
     }
 }
 
+bool FSoulRealtimeTacticalRules::IsFrontLineCollapsing(
+    int32 LivingFormations, int32 RoutingFormations, int32 LowestMoralePermille)
+{
+    return LivingFormations == 0 || RoutingFormations > 0 || LowestMoralePermille < 480;
+}
+
+FVector FSoulRealtimeTacticalRules::AdvanceAnchor(const FSoulBattleOrderContext& Context,
+    const FVector& CurrentAnchor, const FVector& EnemyLocation, const FVector& Facing)
+{
+    if (Context.Kind == ESoulBattleFormationKind::MissileSupport)
+        return EnemyLocation - Facing * (Context.bRangedOperational ? 1700.0f : 240.0f);
+    if (Context.Kind == ESoulBattleFormationKind::FrontLine ||
+        Context.Kind == ESoulBattleFormationKind::CommandReserve ||
+        (Context.Kind == ESoulBattleFormationKind::Strike && Context.bFrontLineEngaged))
+        return EnemyLocation - Facing * 420.0f;
+    return CurrentAnchor;
+}
+
 int32 FSoulRealtimeTacticalRules::ScoreReinforcementAnchor(
     float NearestEnemyDistance,
     float DistanceToFriendlyCenter,

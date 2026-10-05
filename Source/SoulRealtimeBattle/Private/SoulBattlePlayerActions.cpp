@@ -44,6 +44,7 @@ void ASoulRealtimeArenaGameMode::SetupSpellBar()
     // while its short effect expires during shader/asset preparation.
     BattlePresentationAssets.Reset();
     const TCHAR* Particles[]={
+        TEXT("/Game/ParagonIggyScorch/FX/Particles/IggyScorch/Abilities/Turret/FX/P_IggyScorch_Turret_Flamethrower"),
         TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Primary/FX/P_Aurora_Melee_SucessfulImpact"),
         TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Freeze/FX/P_Aurora_Freeze_Whrilwind"),
         TEXT("/Game/ParagonAurora/FX/Particles/Abilities/Freeze/FX/P_Aurora_Freeze_Rooted"),

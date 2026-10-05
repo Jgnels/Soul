@@ -455,6 +455,7 @@ bool ASoulRealtimeArenaGameMode::CommitHit(
             Combatants[V].Side == 0 ? TEXT("Human") : TEXT("Enemy"),
             *RoleLabel(Combatants[V].Role));
     }
+    PlayAcceptedHitReaction(V);
     Error.Reset();
     return true;
 }
@@ -855,6 +856,9 @@ bool ASoulRealtimeArenaGameMode::ApplyMagicDamage(
     }
     const float Before = Target.Health;
     Target.Health = FMath::Max(0.0f, Before - Damage);
+    // Presentation follows actual accepted health loss. A fully absorbed ward
+    // hit must not flinch; lethal hits transition through the death path.
+    if (Target.Health < Before) PlayAcceptedHitReaction(TargetIndex);
     if (Before > 0.0f && Target.Health <= 0.0f)
     {
         UE_LOG(LogTemp, Display,
@@ -1214,9 +1218,22 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
     if(bVisualUnits)
         for(int32 Side=0;Side<2;++Side)
             for(int32 RoleIndex=0;RoleIndex<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++RoleIndex)
-                for(int32 Variant=0;Variant<2;++Variant)
+                for(int32 Variant=0;Variant<4;++Variant)
                     if(auto* Clip=ResolveVisualAttack(Side,static_cast<ESoulRealtimeFormationRole>(RoleIndex),Variant))
                         BattlePresentationAssets.AddUnique(Clip);
+    if(bVisualUnits)
+        for(int32 Side=0;Side<2;++Side)
+        {
+            if(auto* Fall=ResolveAerialFall(Side)) BattlePresentationAssets.AddUnique(Fall);
+            for(int32 RoleIndex=0;RoleIndex<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++RoleIndex)
+            {
+                const auto VisualRole=static_cast<ESoulRealtimeFormationRole>(RoleIndex);
+                if(auto* Clip=ResolveVisualReaction(Side,VisualRole)) BattlePresentationAssets.AddUnique(Clip);
+                if(auto* Clip=ResolveVisualDeath(Side,VisualRole)) BattlePresentationAssets.AddUnique(Clip);
+                for(int32 Mode=0;Mode<6;++Mode)
+                    if(auto* Clip=ResolveStanceAnimation(Side,VisualRole,Mode)) BattlePresentationAssets.AddUnique(Clip);
+            }
+        }
     InitialAlive[0] = AliveForSide(0);
     InitialAlive[1] = AliveForSide(1);
     SetupReinforcementState();
@@ -1758,6 +1775,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
     int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Variation) const
 {
+    if (FormationRole == ESoulRealtimeFormationRole::Ranged) return nullptr;
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Apex)
     {
@@ -1768,7 +1786,11 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
     }
     if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Hero)
     {
-        Path = TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Primary_Attack_A.Primary_Attack_A");
+        static const TCHAR* Attacks[]={
+            TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Primary_Attack_A.Primary_Attack_A"),
+            TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Primary_Attack_B.Primary_Attack_B"),
+            TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Primary_Attack_C.Primary_Attack_C")};
+        Path=Attacks[Variation%3];
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
     if (Side == 0 && FormationRole == ESoulRealtimeFormationRole::Breaker)
@@ -1782,20 +1804,27 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
         Path = Variation%2 ? TEXT("/Game/Kraken/Animations/KRAKEN_smashAttack.KRAKEN_smashAttack") : TEXT("/Game/Kraken/Animations/KRAKEN_sweepAttack.KRAKEN_sweepAttack");
         return LoadObject<UAnimationAsset>(nullptr, Path);
     }
+    static const TCHAR* WarriorAttacks[]={TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1"),TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2"),TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3.Anim_Warrior_Attack_3"),TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4.Anim_Warrior_Attack_4")};
     if (Side == 0)
     {
-        Path = Variation%2 ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2") : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+        Path = WarriorAttacks[Variation%4];
     }
     else if (!UsesEvilVisualRoster())
-        Path = Variation%2 ? TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2") : TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+        Path = WarriorAttacks[Variation%4];
     else if (FormationRole == ESoulRealtimeFormationRole::Guard ||
              FormationRole == ESoulRealtimeFormationRole::Hero)
-        Path = TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.Anim_Orc_Hummer_Attack_1");
+        {
+        static const TCHAR* Attacks[]={TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.Anim_Orc_Hummer_Attack_1"),TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_2.Anim_Orc_Hummer_Attack_2"),TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_3.Anim_Orc_Hummer_Attack_3")};
+        Path=Attacks[Variation%3];
+    }
     else if (FormationRole == ESoulRealtimeFormationRole::Breaker ||
              FormationRole == ESoulRealtimeFormationRole::Apex)
         Path = TEXT("/Game/Fantasy_Pack/Characters/Troll/Animations/Anim_Troll_Attack_1.Anim_Troll_Attack_1");
     else
-        Path = TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1");
+        {
+        static const TCHAR* Attacks[]={TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3.Anim_Warrior_Attack_3"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4.Anim_Warrior_Attack_4")};
+        Path=Attacks[Variation%4];
+    }
     return Path ? LoadObject<UAnimationAsset>(nullptr, Path) : nullptr;
 }
 
@@ -1854,52 +1883,6 @@ bool ASoulRealtimeArenaGameMode::UsesEvilVisualRoster() const
            EnemyVisualRegion == FName(TEXT("north_pass")) ||
            EnemyVisualRegion == FName(TEXT("orc_camp")) ||
            FParse::Param(FCommandLine::Get(), TEXT("SoulEvilVisualRoster"));
-}
-
-void ASoulRealtimeArenaGameMode::UpdateVisualAnimations()
-{
-    if (!bVisualUnits) return;
-    for (int32 I = 0; I < Actors.Num(); ++I)
-    {
-        if (!Actors[I] || !Combatants.IsValidIndex(I) || Combatants[I].Health <= 0 ||
-            !VisualRunning.IsValidIndex(I))
-            continue;
-        const FVector MovementDirection = Actors[I]->GetVelocity().GetSafeNormal2D();
-        if (!Combatants[I].bPlayerHero && !Combatants[I].bVisualAttackPlaying &&
-            !MovementDirection.IsNearlyZero())
-        {
-            // Direct PBIL steering does not always update controller yaw. Keep every
-            // creature's visible forward axis aligned to its actual travel direction.
-            Actors[I]->SetActorRotation(MovementDirection.Rotation());
-        }
-        bool bResumeLocomotion = false;
-        if (Combatants[I].bVisualAttackPlaying)
-        {
-            const UAnimSingleNodeInstance* Playback = Actors[I]->GetMesh()->GetSingleNodeInstance();
-            if (Playback && Playback->IsPlaying()) continue;
-            Combatants[I].bVisualAttackPlaying = false;
-            bResumeLocomotion = true;
-        }
-        const bool bRunning =
-            Actors[I]->GetVelocity().SizeSquared2D() > FMath::Square(12.0);
-        if (!bResumeLocomotion && VisualRunning[I] == bRunning)
-        {
-            if(bRunning)
-            {
-                const float SpeedFraction=Actors[I]->GetVelocity().Size2D()/FMath::Max(1.f,Combatants[I].BaseWalkSpeed);
-                Actors[I]->GetMesh()->SetPlayRate(FMath::Clamp(SpeedFraction,.65f,1.30f)*(0.97f+.015f*(I%5)));
-            }
-            continue;
-        }
-        if (UAnimationAsset* Animation =
-            ResolveVisualAnimation(Combatants[I].Side, bRunning, Combatants[I].Role))
-        {
-            Actors[I]->GetMesh()->PlayAnimation(Animation, true);
-            Actors[I]->GetMesh()->SetPosition(Animation->GetPlayLength() * FMath::Frac((I + 1) * 0.618034f));
-            Actors[I]->GetMesh()->SetPlayRate(0.95f + 0.025f * (I % 5));
-            VisualRunning[I] = bRunning;
-        }
-    }
 }
 
 bool ASoulRealtimeArenaGameMode::SpawnCombatant(
@@ -2022,11 +2005,11 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
 
         USkeletalMeshComponent* Visual = Actor->GetMesh();
         Visual->SetSkeletalMeshAsset(Mesh);
+        Visual->SetRelativeRotation(VisualMeshRotation(Data.Movement));
         if (Data.Movement == ESoulRealtimeMovementArchetype::Aerial)
         {
             const float ApexScale = Side == 0 ? 0.55f : 0.28f;
             Visual->SetRelativeLocation(FVector(0, 0, 180.0f));
-            Visual->SetRelativeRotation(FRotator::ZeroRotator);
             Visual->SetRelativeScale3D(FVector(ApexScale));
         }
         else if (Data.Movement == ESoulRealtimeMovementArchetype::LowProfile)
@@ -2041,7 +2024,6 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
             Visual->SetRelativeLocation(FVector(0,0,GroundOffset));
             UE_LOG(LogTemp,Display,TEXT("SOUL_LOW_PROFILE_GROUND: mesh=%s offset=%.2f"),
                 *Mesh->GetName(),GroundOffset);
-            Visual->SetRelativeRotation(FRotator::ZeroRotator);
             Visual->SetRelativeScale3D(FVector(
                 bKraken ? 0.20f : 0.78f));
         }
@@ -2053,7 +2035,6 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
             const FBoxSphereBounds Bounds = Mesh->GetBounds();
             const float Scale = 330.0f / FMath::Max(1.0f, float(Bounds.BoxExtent.Z * 2.0));
             Visual->SetRelativeScale3D(FVector(Scale));
-            Visual->SetRelativeRotation(FRotator(0, -90.0f, 0));
             Visual->SetRelativeLocation(FVector(0, 0,
                 -Actor->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()
                 - (Bounds.Origin.Z - Bounds.BoxExtent.Z) * Scale));
@@ -2064,7 +2045,6 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         else
         {
             Visual->SetRelativeLocation(FVector(0, 0, -90.0f));
-            Visual->SetRelativeRotation(FRotator(0, -90.0f, 0));
         }
         Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Visual->SetAnimationMode(EAnimationMode::AnimationSingleNode);
@@ -2583,6 +2563,7 @@ bool ASoulRealtimeArenaGameMode::PerformMelee(
     if (Data.Role != ESoulRealtimeFormationRole::Apex && Data.Role != ESoulRealtimeFormationRole::Breaker)
         PlayBattleSound((Data.VisualAttackSequence & 1) ? ESoulBattleSound::SwordSwing1 :
             ESoulBattleSound::SwordSwing2, Actor->GetActorLocation(), AttackerIndex);
+    if(Bindings.IsValidIndex(AttackerIndex) && Bindings[AttackerIndex]) Bindings[AttackerIndex]->SetGuardIntent(false);
     Data.MeleeCooldown = Duration;
     Data.PendingMeleeTarget = IntendedTarget;
     Data.PendingMeleeSeconds = Duration * 0.35f;
@@ -2950,10 +2931,16 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
         Actor->GetMesh()->bPauseAnims = true;
         if (bVisualUnits)
         {
-            if (auto* Death = ResolveVisualDeath(Combatants[I].Side, Combatants[I].Role))
+            const bool Airborne=Combatants[I].Movement==ESoulRealtimeMovementArchetype::Aerial;
+            if(Airborne)
+            {
+                Combatants[I].AerialDeathSeconds=0.f;
+                Combatants[I].AerialDeathStartZ=Actor->GetMesh()->GetRelativeLocation().Z;
+            }
+            if (auto* Death = Airborne ? ResolveAerialFall(Combatants[I].Side) : ResolveVisualDeath(Combatants[I].Side, Combatants[I].Role))
             {
                 Actor->GetMesh()->bPauseAnims = false;
-                Actor->GetMesh()->PlayAnimation(Death, false);
+                Actor->GetMesh()->PlayAnimation(Death, Airborne);
                 Actor->GetMesh()->SetPlayRate(1.0f);
             }
             else Actor->GetMesh()->SetRelativeRotation(FRotator(0, -90, 85));
@@ -3416,7 +3403,8 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (PlayerIndex == INDEX_NONE) return;
 
     PlayerBinding->SetGuardIntent(
-        PC->IsInputKeyDown(EKeys::RightMouseButton) || PC->GetInputAnalogKeyState(EKeys::Gamepad_LeftTriggerAxis)>.3f);
+        !bTacticalCameraActive && !WantsCursor && !OverUI &&
+        (PC->IsInputKeyDown(EKeys::RightMouseButton) || PC->GetInputAnalogKeyState(EKeys::Gamepad_LeftTriggerAxis)>.3f));
 
     if (!bTacticalCameraActive && !WantsCursor && !OverUI &&
         (PC->WasInputKeyJustPressed(EKeys::LeftMouseButton) || PC->GetInputAnalogKeyState(EKeys::Gamepad_RightTriggerAxis)>.3f))
@@ -3487,6 +3475,7 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
     if (bReadabilityProof) TickReadabilityProof();
     // Camera inspection remains available after resolution as well as during pause.
     if (!bAutobattle && !Combatants.IsEmpty()) PlayerTick(Seconds);
+    TickCombatPresentation(bBattlePaused ? 0.f : Seconds);
     if (bFinished)
     {
         if (bBattlePaused && PlayerCameraArm)
@@ -3521,10 +3510,13 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
                 PositionHash = HashCombine(PositionHash, GetTypeHash(A->GetActorLocation()));
                 auto* Mesh = A->GetMesh();
                 const FVector Root = Mesh->GetSocketLocation(Mesh->GetBoneName(0));
-                UE_LOG(LogTemp, Display, TEXT("SOUL_UNIT_RECEIPT: i=%d side=%d role=%s hp=%.1f hidden=%d visible=%d actor=%s root=%s bounds=%s ammo=%d"),
+                auto* Animation = Mesh->GetSingleNodeInstance();
+                UE_LOG(LogTemp, Display, TEXT("SOUL_UNIT_RECEIPT: i=%d side=%d role=%s hp=%.1f hidden=%d visible=%d actor=%s root=%s bounds=%s ammo=%d clip=%s animTime=%.3f playing=%d pauseAnims=%d"),
                     I, Combatants[I].Side, *RoleLabel(Combatants[I].Role), Combatants[I].Health,
                     A->IsHidden(), Mesh->IsVisible(), *A->GetActorLocation().ToCompactString(),
-                    *Root.ToCompactString(), *Mesh->Bounds.Origin.ToCompactString(), Combatants[I].Arrows);
+                    *Root.ToCompactString(), *Mesh->Bounds.Origin.ToCompactString(), Combatants[I].Arrows,
+                    *GetNameSafe(Animation ? Animation->GetCurrentAsset() : nullptr),
+                    Animation ? Animation->GetCurrentTime() : 0.f, Animation && Animation->IsPlaying(), Mesh->bPauseAnims);
             }
         }
         FVector CameraLocation;
@@ -3571,7 +3563,12 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
         {
             const FRBHostIdentity Target = C.PendingMeleeTarget;
             C.PendingMeleeTarget = FRBHostIdentity();
-            if (C.Health > 0.0f) CommitMeleeImpact(I, Target);
+            if (C.Health > 0.0f)
+            {
+                if (C.Side == 1 && C.Role == ESoulRealtimeFormationRole::Apex)
+                    PlayDragonBreath(I, Index(Target));
+                CommitMeleeImpact(I, Target);
+            }
         }
     }
     TickMagic(Seconds);
@@ -3711,6 +3708,10 @@ bool ASoulRealtimeArenaGameMode::IssueFormationOrder(
     if (!bAccepted) return false;
 
     const int32 StateIndex = FindFormationState(GroupIndex);
+    if(TacticalFormations.IsValidIndex(StateIndex) &&
+        TacticalFormations[StateIndex].Kind==ESoulBattleFormationKind::FrontLine)
+        Drivers[GroupIndex]->FormationSpacing=Order==ERBHostGroupOrder::Hold || Order==ERBHostGroupOrder::Face ? 115.f :
+            Order==ERBHostGroupOrder::Charge ? 165.f : 135.f;
     if (TacticalFormations.IsValidIndex(StateIndex))
     {
         TacticalFormations[StateIndex].TacticalAnchor = Anchor;
@@ -3870,7 +3871,9 @@ void ASoulRealtimeArenaGameMode::TickFormationTactics()
     RefreshBattlePhase();
 
     bool bFrontEngaged[2] = {false, false};
-    bool bFrontCollapsing[2] = {false, false};
+    int32 LivingFronts[2] = {0, 0};
+    int32 RoutingFronts[2] = {0, 0};
+    int32 LowestFrontMorale[2] = {1000, 1000};
     for (const FSoulBattleFormationState& State : TacticalFormations)
     {
         if (State.Kind != ESoulBattleFormationKind::FrontLine ||
@@ -3878,11 +3881,11 @@ void ASoulRealtimeArenaGameMode::TickFormationTactics()
             continue;
         float Distance = 0.0f;
         FindNearestEnemyToGroup(State.GroupIndex, Distance);
+        ++LivingFronts[State.Side];
+        RoutingFronts[State.Side] += State.bRouting || State.bShattered ? 1 : 0;
+        LowestFrontMorale[State.Side] = FMath::Min(LowestFrontMorale[State.Side], State.MoralePermille);
         bFrontEngaged[State.Side] =
-            bFrontEngaged[State.Side] || Distance < 720.0f;
-        bFrontCollapsing[State.Side] =
-            bFrontCollapsing[State.Side] ||
-            State.MoralePermille < 480;
+            bFrontEngaged[State.Side] || (!State.bRouting && !State.bShattered && Distance < 720.0f);
     }
 
     for (FSoulBattleFormationState& State : TacticalFormations)
@@ -3911,7 +3914,8 @@ void ASoulRealtimeArenaGameMode::TickFormationTactics()
         Context.bRangedOperational=Combatants.ContainsByPredicate([&State](const FSoulRealtimeArenaCombatant& Unit)
         { return Unit.GroupIndex==State.GroupIndex && Unit.Health>0 && Unit.bRanged && Unit.Arrows>0; });
         Context.bFriendlyLineCollapsing =
-            bFrontCollapsing[State.Side];
+            FSoulRealtimeTacticalRules::IsFrontLineCollapsing(
+                LivingFronts[State.Side], RoutingFronts[State.Side], LowestFrontMorale[State.Side]);
 
         ERBHostGroupOrder Order =
             FSoulRealtimeTacticalRules::ChooseOrder(Context);
@@ -3923,10 +3927,10 @@ void ASoulRealtimeArenaGameMode::TickFormationTactics()
         }
         else if (Order == ERBHostGroupOrder::Advance)
         {
-            Anchor = State.TacticalAnchor;
-            if(State.Kind==ESoulBattleFormationKind::MissileSupport)
-                Anchor=EnemyLocation-Facing*(Context.bRangedOperational ? 1700.0f : 240.0f);
+            Anchor = FSoulRealtimeTacticalRules::AdvanceAnchor(Context,
+                State.TacticalAnchor, EnemyLocation, Facing);
             if (State.Kind == ESoulBattleFormationKind::FrontLine ||
+                State.Kind == ESoulBattleFormationKind::CommandReserve ||
                 (State.Kind == ESoulBattleFormationKind::Strike &&
                  bFrontEngaged[State.Side]))
             {
@@ -3935,8 +3939,6 @@ void ASoulRealtimeArenaGameMode::TickFormationTactics()
                         Actors[Index(Groups[State.GroupIndex].Leader)],
                         State.Side == 1, EnemyLocation, Approach))
                     Anchor = Approach;
-                else
-                    Anchor = EnemyLocation - Facing * 420.0f;
             }
         }
         else if (Order == ERBHostGroupOrder::Charge)
@@ -4084,6 +4086,8 @@ void ASoulRealtimeArenaGameMode::TickBattleResolution(float Seconds)
 
 void ASoulRealtimeArenaGameMode::FinishBattle()
 {
+    for (auto& Unit : Combatants)
+        if (Unit.DragonBreath.IsValid()) Unit.DragonBreath->DestroyComponent();
     for (USoulRealtimeArenaGroupDriver* Driver : Drivers) if (Driver) Driver->SetComponentTickEnabled(false);
     for (ACharacter* Actor : Actors)
     {
@@ -4115,6 +4119,9 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         FinishProof(false, TEXT("Battle resolved without required PBIL query and RB Combat order participation"));
         return;
     }
+    BattleResultLabel = bWon
+        ? (bSideMoraleDefeated[1] ? TEXT("VICTORY / ENEMY ROUTED") : TEXT("VICTORY"))
+        : (bSideMoraleDefeated[0] ? TEXT("DEFEAT / ARMY ROUTED") : TEXT("DEFEAT"));
     if (bCampaignBattle)
     {
         auto* Bridge = GetGameInstance()->GetSubsystem<USoulCampaignBattleBridge>();
@@ -4143,10 +4150,10 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         { FinishProof(false, TEXT("Battle did not meet combat contact checks")); return; }
         bFinished = true;
         ResultHoldSeconds = 0;
-        Status = bWon ? TEXT("VICTORY - hostile reserves exhausted") : TEXT("DEFEAT - allied reserves exhausted");
+        Status = BattleResultLabel;
         FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/Vertical_Result.png"), false, false);
         return;
     }
     bFinished = true;
-    Status = bWon ? TEXT("VICTORY") : TEXT("DEFEAT");
+    Status = BattleResultLabel;
 }

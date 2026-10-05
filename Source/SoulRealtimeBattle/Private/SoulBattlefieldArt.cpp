@@ -54,6 +54,7 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
         FormationRole==ESoulRealtimeFormationRole::Apex ||
         FormationRole==ESoulRealtimeFormationRole::Breaker) return;
     const TCHAR* Weapon=nullptr;
+    FName WeaponHand=TEXT("hand_r");
     if(Side==0)
     {
         // Aurora carries her authored weapon as part of the hero mesh.
@@ -66,11 +67,16 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
             : TEXT("/Game/Dwarf_Pack/Bedvar/Mesh/SM_Dwarf_Bedvar_Hammer_Mesh");
     else
     {
-        // The hammer orc already includes its weapon. Barbarian weapons are separate.
-        if(FormationRole==ESoulRealtimeFormationRole::Guard || FormationRole==ESoulRealtimeFormationRole::Hero) return;
-        Weapon=FormationRole==ESoulRealtimeFormationRole::Support
-            ? TEXT("/Game/Fantasy_Pack/Characters/Fantasy_Barbarian/Mesh/SM_Fantasy_Barbarian_Weapon_01")
-            : TEXT("/Game/Fantasy_Pack/Characters/Barbarian/Mesh/SM_Axel");
+        if(FormationRole==ESoulRealtimeFormationRole::Guard || FormationRole==ESoulRealtimeFormationRole::Hero)
+        {
+            // This donor uses a CAT rig and a separate hammer, not the warrior
+            // hand_r chain. Keep the attachment cosmetic and leave contact to RB.
+            Weapon=TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SM_Hummer");
+            WeaponHand=TEXT("CATRigRArmPalm");
+        }
+        else Weapon=FormationRole==ESoulRealtimeFormationRole::Support
+                ? TEXT("/Game/Fantasy_Pack/Characters/Fantasy_Barbarian/Mesh/SM_Fantasy_Barbarian_Weapon_01")
+                : TEXT("/Game/Fantasy_Pack/Characters/Barbarian/Mesh/SM_Axel");
     }
     auto Attach=[&](const TCHAR* Path,FName Hand)
     {
@@ -79,6 +85,18 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
         auto* Piece=NewObject<UStaticMeshComponent>(Actor);
         Actor->AddInstanceComponent(Piece);
         Piece->SetupAttachment(Actor->GetMesh(),Hand);
+        if(Hand==TEXT("CATRigRArmPalm"))
+        {
+            // The CAT bones carry the donor's 2.54 authoring-unit conversion;
+            // the separate static mesh is already in centimeters. Cancel that
+            // inherited bone scale, while still following character scale.
+            const FVector BoneScale=Actor->GetMesh()->GetSocketTransform(Hand,RTS_Component).GetScale3D();
+            Piece->SetRelativeScale3D(BoneScale.Reciprocal());
+            // The hammer's +Z shaft is opposite this palm's grip direction.
+            // Grip ten centimeters above the butt, rather than at its end.
+            Piece->SetRelativeRotation(FRotator(0,0,180));
+            Piece->SetRelativeLocation(FVector(0,0,10)*BoneScale.Reciprocal());
+        }
         Piece->SetStaticMesh(Mesh);
         Piece->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Piece->SetCanEverAffectNavigation(false);
@@ -88,7 +106,7 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
     };
     // The qualified Dwarf Warrior rig's Weapon_Soket is identity on hand_r.
     // The knight shares that parent chain, so use the bone without modifying a donor socket.
-    Attach(Weapon,TEXT("hand_r"));
+    Attach(Weapon,WeaponHand);
     if(Side==0 && FormationRole==ESoulRealtimeFormationRole::Guard)
         Attach(TEXT("/Game/Knights_Pack/Meshes/Knight_04/Weapon/SM_Knight_04_Shield"),TEXT("hand_l"));
 }

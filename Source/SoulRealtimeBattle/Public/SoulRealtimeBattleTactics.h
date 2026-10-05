@@ -100,6 +100,12 @@ public:
     static ERBHostGroupOrder ChooseOrder(
         const FSoulBattleOrderContext& Context);
 
+    static bool IsFrontLineCollapsing(int32 LivingFormations,
+        int32 RoutingFormations, int32 LowestMoralePermille);
+
+    static FVector AdvanceAnchor(const FSoulBattleOrderContext& Context,
+        const FVector& CurrentAnchor, const FVector& EnemyLocation, const FVector& Facing);
+
     static FVector StrikeWaypoint(int32 Side, const FVector& Origin,
         const FVector& Center, const FVector& Target, float FlankSign, int32& Stage);
 
