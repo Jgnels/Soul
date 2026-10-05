@@ -1,29 +1,21 @@
-# Titan pilot verification tools
+# Soul Titan pilot tools
 
-Scope: isolated `codex/soul-titan-pilot-20261005` branch only. Titan is read-only.
-No tool here copies donor assets or changes gameplay, renderer, input, save, or combat authority.
+Scope: `codex/soul-titan-pilot-20261005` in the isolated Soul worktree. Titan remains read-only. Clifftop is qualified; Sulfur remains stopped.
 
-1. `audit_packages.py` reads the two named donor maps, both companion trees and recursively discovered environment packages. It hashes every scanned file and preserves chains to prohibited references. This string census includes import metadata and historical names: **it is not a hard-reference or missing-runtime-asset verdict**.
-2. `Run-TitanPilot.ps1 -Stage BuildEditor` participates in the existing Studio Control machine mutex, refuses pre-existing UE/dotnet workloads and builds only this worktree with two compiler actions. It writes its receipt here, not into shared orchestration state. Direct UBT invocation follows the implementation used by existing `RB_BUILD.ps1`, avoiding global status writes and the known Build.bat lock problem. `-Stage Audit` invokes the new editor-only `SoulTitanAudit` commandlet.
-3. The commandlet mounts the donor's Content directory under `/Game/` **in its own process**, scans package metadata with UE AssetRegistry, and never loads/saves donor UObjects or starts Titan modules. Every map's external actors and external objects enter the closure, including nested maps. Hard and soft edges are separate. Blocked paths stay visible and do not expand gameplay branches. Missing/query failures cannot unlock migration.
-4. `prepare_migration.py` accepts only that native report. It refuses unresolved contamination, missing packages, failed registry queries, unknown plugin/script dependencies, an incomplete companion tree, changed source size, destination collisions, closure over 1 GiB, and free space below 15 GiB after migration. A successful result is a hashed plan for review, **not asset copying or pilot acceptance**.
+The final result and limits are in [HANDOFF.md](../../Evidence/TitanPilot-20261005/HANDOFF.md). Exact commands, including build, audit, transfer, cook and local packaged runtime, are in [COMMANDS.md](../../Evidence/TitanPilot-20261005/COMMANDS.md).
 
-The initial native commandlet remains UNCOMPILED until the existing editor lane is freed. Do not call it qualified based on Python tests.
+- `audit_packages.py` is a read-only binary string census. Historical strings alone do not establish live dependencies.
+- `SoulTitanAudit` scans native AssetRegistry hard/soft edges, concrete classes, complete external actor/object companion trees and external-actor serialized imports/soft references without loading or saving donor UObjects.
+- `prepare_migration.py` validates recursive closure, forbidden/plugin edges, files, companions, hashes, the 1 GiB cap and 15 GiB reserve. The sole incomplete-query exception requires a concrete environment Blueprint actor class whose own native queries are complete, plus complete serialized instance references. Unknown classes still fail. See [MIGRATION_DESIGN.md](../../Evidence/TitanPilot-20261005/MIGRATION_DESIGN.md).
+- `transfer_clifftop.py` copies only exact Clifftop packages with exclusive file creation and hash checks. Existing files require a matching prior receipt and are never overwritten.
+- `Run-TitanPilot.ps1` guards the worktree/branch, storage and Studio Unreal mutex. Stages: BuildEditor, Audit, CreatePilot, Runtime, BuildGame, CookWindows, PackageWindows, PackagedRuntime. It never terminates another worker's process.
+- `SoulTitanPilotBuild` creates the Soul-owned world/navigation and refuses an existing map. Donor packages are not resaved.
+- `review_unreal_log.py` rejects unresolved loads. The exact known editor HLOD-template warning is recorded separately only if its module subsequently loads; other missing references remain failures.
+- `qualify_evidence.py` checks destination hashes, eight native stage receipts, map check and required editor-hosted/packaged runtime markers.
+- `Play-TitanPilot.bat` opens interactive traversal: WASD/mouse/Space and existing Soul F5/F9 RBSave handlers. Automatic exit requires the separate proof flag.
 
-Commands from repository root:
+Run all regressions: `python -m unittest discover -s Tools/TitanPilot -p 'test_*.py' -v` (27 passing).
 
-```powershell
-python Tools/TitanPilot/audit_packages.py --donor 'D:\Unreal Projects\ProjectTitan' --output Evidence/TitanPilot-20261005/binary_preflight.json
-python -m unittest discover -s Tools/TitanPilot -p 'test_*.py' -v
-powershell -NoProfile -ExecutionPolicy RemoteSigned -File Tools/TitanPilot/Run-TitanPilot.ps1 -Stage BuildEditor
-powershell -NoProfile -ExecutionPolicy RemoteSigned -File Tools/TitanPilot/Run-TitanPilot.ps1 -Stage Audit
-python Tools/TitanPilot/prepare_migration.py --audit Evidence/TitanPilot-20261005/asset_registry_closure.json --donor 'D:\Unreal Projects\ProjectTitan' --seed ClifftopMine --output Evidence/TitanPilot-20261005/clifftop_migration_plan.json
-```
+The opt-in `Config/Custom/TitanPilot/DefaultGame.ini` cook profile excludes unused Landmass editor brush materials while retaining missing-dependency validation. It does not change the normal campaign cook. Local packaging is not a release/deployment.
 
-`RemoteSigned` is invocation-scoped for this locally authored script; no machine/user execution policy is changed. Build and audit receipts distinguish lane rejection from an actual compiler/editor exit. No automatic retries or termination of another worker's process.
-
-Before copying, review the two `Blueprint/FoliageInteraction` data assets by native class and dependency edges. They are deliberately still rejected; changing a prefix allowlist alone is not qualification. For Sulfur, determine whether `BP_Clifftop_Stall3_Bar` character/animation references are actual dependencies or historical/editor metadata. If actual contamination is confirmed, stop that donor under the mission's explicit rule. Do not import Characters or TitanMain to satisfy it.
-
-After a clean native plan: preserve `/Game/...` names with a hash-checked, no-overwrite package transfer including all sidecars and companion trees; validate package loads in Soul. Create `/Game/Soul/Maps/Soul_TitanPilot` only from qualified content. Navigation and optional HLOD belong to this new Soul map. No Titan renderer/configuration files, DDC, Intermediate or Saved trees are migration inputs.
-
-Rollback of this checkpoint is the ordinary Git revert of its commits. No imported binary files, project map defaults, or donor package mutations need reversal.
+Preserve receipts/map backups for rollback. Revert checkpoint commits in dependency order if retiring the pilot; do not reset/clean unrelated work or edit the donor.

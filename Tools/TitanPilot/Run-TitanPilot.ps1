@@ -1,5 +1,5 @@
 param(
-    [Parameter(Mandatory=$true)][ValidateSet('BuildEditor','Audit','CreatePilot','Runtime','CookWindows')][string]$Stage
+    [Parameter(Mandatory=$true)][ValidateSet('BuildEditor','BuildGame','Audit','CreatePilot','Runtime','CookWindows','PackageWindows','PackagedRuntime')][string]$Stage
 )
 $ErrorActionPreference = 'Stop'
 $workspace = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..'))
@@ -28,10 +28,11 @@ try {
     $receipt.free_bytes_before = [IO.DriveInfo]::new('D').AvailableFreeSpace
     if ($receipt.free_bytes_before -lt 15GB) { throw 'Less than 15 GiB free; refusing heavy work.' }
     $log = Join-Path $evidence ($Stage + '.log')
-    if ($Stage -eq 'BuildEditor') {
+    if ($Stage -in @('BuildEditor','BuildGame')) {
         $exe = Join-Path $engine 'Binaries\ThirdParty\DotNet\10.0\win-x64\dotnet.exe'
+        $target = if ($Stage -eq 'BuildEditor') { 'SoulEditor' } else { 'Soul' }
         $arguments = @((Join-Path $engine 'Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll'),
-            'SoulEditor','Win64','Development',("-Project="+$project),'-WaitMutex',
+            $target,'Win64','Development',("-Project="+$project),'-WaitMutex',
             '-NoHotReloadFromIDE','-NoUBA','-MaxParallelActions=2',("-Log="+$log))
     } elseif ($Stage -eq 'Audit') {
         $exe = Join-Path $engine 'Binaries\Win64\UnrealEditor-Cmd.exe'
@@ -48,10 +49,47 @@ try {
         $exe = Join-Path $engine 'Binaries\Win64\UnrealEditor-Cmd.exe'
         $arguments = @($project,'-run=Cook','-TargetPlatform=Windows','-Map=/Game/Soul/Maps/Soul_TitanPilot',
             '-CookMapsOnly','-SkipEditorContent','-unattended','-nosplash','-nullrhi','-nosound',
+            '-CustomConfig=TitanPilot',
             '-NoSourceControl',("-abslog="+$log))
+    } elseif ($Stage -eq 'PackageWindows') {
+        # Reuse the existing Windows build and exact pilot cook. This is a local
+        # qualification stage, not the separate weekend release/archive workflow.
+        foreach ($requiredStage in @('BuildGame','CookWindows')) {
+            $prior = Get-Content -LiteralPath (Join-Path $evidence ($requiredStage + '-attempt.json')) -Raw | ConvertFrom-Json
+            if ($prior.status -ne 'EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW' -or $prior.exit_code -ne 0) {
+                throw ('Require successful ' + $requiredStage + ' before packaging.')
+            }
+        }
+        $exe = Join-Path $engine 'Build\BatchFiles\RunUAT.bat'
+        $stamp = [DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss')
+        $packageDir = Join-Path $workspace ('Saved\StagedBuilds\TitanPilot-' + $stamp)
+        if (Test-Path -LiteralPath $packageDir) { throw 'Package output must be new.' }
+        $receipt.package_directory = $packageDir
+        $env:uebp_LogFolder = Join-Path $evidence ('UAT-' + $stamp)
+        $env:uebp_FinalLogFolder = $env:uebp_LogFolder
+        if ([string]::IsNullOrWhiteSpace($env:TMP)) {
+            $env:TMP = Join-Path $workspace 'Saved\TitanPilotTemp'
+            New-Item -ItemType Directory -Force -Path $env:TMP | Out-Null
+        }
+        $arguments = @('BuildCookRun','-nocompileuat','-noturnkeyvariables','-nop4','-unattended','-utf8output',
+            ("-project="+$project),'-target=Soul','-platform=Win64','-clientconfig=Development',
+            '-skipbuild','-skipcook','-stage','-pak','-iostore','-nodebuginfo','-nocleanstage',
+            '-CustomConfig=TitanPilot',
+            ("-stagingdirectory="+$packageDir))
     } else {
         $exe = Join-Path $engine 'Binaries\Win64\UnrealEditor-Cmd.exe'
-        $arguments = @($project,'/Game/Soul/Maps/Soul_TitanPilot','-game','-windowed','-ResX=1280','-ResY=720',
+        $prefix = @($project)
+        if ($Stage -eq 'PackagedRuntime') {
+            $packageReceipt = Get-Content -LiteralPath (Join-Path $evidence 'PackageWindows-attempt.json') -Raw | ConvertFrom-Json
+            if ($packageReceipt.exit_code -ne 0) { throw 'Require successful local package stage.' }
+            $packageRoot = [IO.Path]::GetFullPath($packageReceipt.package_directory)
+            if (-not $packageRoot.StartsWith($workspace + '\', [StringComparison]::OrdinalIgnoreCase)) { throw 'Package outside isolated worktree.' }
+            $exe = Join-Path $packageRoot 'Windows\Soul\Binaries\Win64\Soul.exe'
+            if (-not (Test-Path -LiteralPath $exe)) { throw 'Staged Soul executable missing.' }
+            $prefix = @('-NotInstalled','-CustomConfig=TitanPilot', ('-UserDir=' + (Join-Path $packageRoot 'PilotUser')))
+            $receipt.package_directory = $packageRoot
+        }
+        $arguments = $prefix + @('/Game/Soul/Maps/Soul_TitanPilot','-game','-windowed','-ResX=1280','-ResY=720',
             '-d3d11','-nosplash','-unattended','-nosound','-SoulTitanPilotProof',
             '-ExecCmds=r.DynamicGlobalIlluminationMethod 0,r.ReflectionMethod 0,r.Shadow.Virtual.Enable 0,sg.ViewDistanceQuality 1,sg.ShadowQuality 1,sg.EffectsQuality 0,sg.PostProcessQuality 0,r.Streaming.PoolSize 2048,t.MaxFPS 60',
             ("-abslog="+$log))
@@ -62,13 +100,22 @@ try {
     $receipt | ConvertTo-Json -Depth 6 | Set-Content -Encoding UTF8 (Join-Path $evidence ($Stage + '-attempt.json'))
     # Call directly so the exact child exit is observed and there is no detached editor.
     $env:UE_SKIP_UBT_SDK_SETUP = '1'
-    & $exe @arguments
-    $receipt.exit_code = $LASTEXITCODE
-    $receipt.status = if ($LASTEXITCODE -eq 0) { 'EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW' } else { 'FAILED' }
-    if ($Stage -in @('Runtime','CreatePilot') -and $receipt.exit_code -eq 0) {
-        $text = Get-Content -LiteralPath $log -Raw
-        $receipt.load_error_count = ([regex]::Matches($text, '(?m)LoadErrors:|LogLinker: Warning:.*(?:Failed|Can.t find)|Fatal error:')).Count
-        if ($receipt.load_error_count -gt 0 -or ($Stage -eq 'Runtime' -and $text -notmatch 'SOUL_TITAN_PASS')) {
+    if ($Stage -eq 'PackagedRuntime') {
+        # The GUI game target must be explicitly waited; PowerShell otherwise
+        # reports the launcher return before the game has qualified anything.
+        $quoted = ($arguments | ForEach-Object { '"' + $_ + '"' }) -join ' '
+        $child = Start-Process -FilePath $exe -ArgumentList $quoted -Wait -PassThru -WindowStyle Hidden
+        $receipt.exit_code = $child.ExitCode
+    } else {
+        & $exe @arguments
+        $receipt.exit_code = $LASTEXITCODE
+    }
+    $receipt.status = if ($receipt.exit_code -eq 0) { 'EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW' } else { 'FAILED' }
+    if ($Stage -in @('Runtime','PackagedRuntime','CreatePilot') -and $receipt.exit_code -eq 0) {
+        $reviewArgs = @((Join-Path $PSScriptRoot 'review_unreal_log.py'), $log)
+        if ($Stage -in @('Runtime','PackagedRuntime')) { $reviewArgs += '--runtime' }
+        & python @reviewArgs | Set-Content -Encoding UTF8 (Join-Path $evidence ($Stage + '-log-review.json'))
+        if ($LASTEXITCODE -ne 0) {
             $receipt.status = 'FAILED_QUALIFICATION'
             $receipt.reason = 'Exit zero is insufficient: missing runtime pass marker or unresolved package load errors.'
         }

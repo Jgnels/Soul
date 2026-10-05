@@ -11,6 +11,7 @@ class SOUL_API ASoulTitanPilotPawn : public ACharacter
     GENERATED_BODY()
 public:
     ASoulTitanPilotPawn();
+    virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* Input) override;
 private:
@@ -41,6 +42,8 @@ private:
     float Elapsed = 0, PhaseTime = 0;
     int32 Phase = 0, Frames = 0;
     bool bProof = false, bDone = false;
+    bool bSpawnReleased = false;
+    float SpawnWait = 0;
     FVector MoveStart = FVector::ZeroVector;
     TArray<FVector> InteriorRoute;
     int32 RoutePoint = 1;

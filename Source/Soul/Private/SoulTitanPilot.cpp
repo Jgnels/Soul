@@ -6,6 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/PlayerStart.h"
 #include "InputKeyEventArgs.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -32,6 +33,13 @@ void ASoulTitanPilotPawn::SetupPlayerInputComponent(UInputComponent* Input)
     Input->BindAxisKey(EKeys::MouseY, this, &ASoulTitanPilotPawn::LookPitch);
     Input->BindKey(EKeys::SpaceBar, IE_Pressed, this, &ACharacter::Jump);
     Input->BindKey(EKeys::SpaceBar, IE_Released, this, &ACharacter::StopJumping);
+}
+void ASoulTitanPilotPawn::BeginPlay()
+{
+    Super::BeginPlay();
+    // The persistent world's player starts before its streamed donor physics.
+    // Soul releases movement only after geometry and navigation are ready.
+    GetCharacterMovement()->DisableMovement();
 }
 void ASoulTitanPilotPawn::LookYaw(float Value) { AddControllerYawInput(Value); }
 void ASoulTitanPilotPawn::LookPitch(float Value) { AddControllerPitchInput(-Value); }
@@ -75,15 +83,43 @@ void ASoulTitanPilotGameMode::Finish(bool Passed, const FString& Reason)
 void ASoulTitanPilotGameMode::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
-    if (!bProof || bDone) return;
-    Elapsed += DeltaSeconds;
-    PhaseTime += DeltaSeconds;
-    if (Elapsed > 180) { Finish(false, TEXT("qualification timeout")); return; }
-    if (Elapsed > 10) { ++Frames; FrameTotal += DeltaSeconds; MaxFrame = FMath::Max(MaxFrame, double(DeltaSeconds)); }
+    if (bDone) return;
     auto* PC = GetWorld()->GetFirstPlayerController();
     auto* Pawn = PC ? Cast<ASoulTitanPilotPawn>(PC->GetPawn()) : nullptr;
     auto* State = GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>();
     auto* Nav = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+    if (!bSpawnReleased)
+    {
+        SpawnWait += DeltaSeconds;
+        if (SpawnWait > 90) { if (bProof) Finish(false, TEXT("streamed spawn readiness timeout")); return; }
+        if (!Pawn || !Nav || Nav->IsNavigationBuildInProgress()) return;
+        int32 ReadyMeshes = 0;
+        for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+        {
+            TArray<UStaticMeshComponent*> Components; It->GetComponents(Components);
+            for (auto* Component : Components) if (Component->GetStaticMesh()) ++ReadyMeshes;
+        }
+        if (ReadyMeshes < 200) return;
+        for (TActorIterator<APlayerStart> It(GetWorld()); It; ++It)
+        {
+            FNavLocation SpawnNav;
+            if (!Nav->ProjectPointToNavigation(It->GetActorLocation(), SpawnNav, FVector(150,150,250)) || SpawnNav.Location.Z < 300) return;
+            FHitResult Floor;
+            FCollisionQueryParams SpawnQuery(SCENE_QUERY_STAT(SoulPilotSpawn),false,Pawn);
+            if (!GetWorld()->LineTraceSingleByChannel(Floor,It->GetActorLocation(),It->GetActorLocation()-FVector(0,0,400),
+                ECC_Pawn,SpawnQuery) || Floor.ImpactNormal.Z<0.7 || Floor.ImpactPoint.Z<300) return;
+            Pawn->SetActorLocation(It->GetActorLocation(), false, nullptr, ETeleportType::TeleportPhysics);
+            Pawn->GetCharacterMovement()->SetMovementMode(MOVE_Walking);
+            bSpawnReleased = true;
+            UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_SPAWN_READY wait_seconds=%.2f position=%s meshes=%d"), SpawnWait, *Pawn->GetActorLocation().ToString(), ReadyMeshes);
+            break;
+        }
+    }
+    if (!bProof || !bSpawnReleased) return;
+    Elapsed += DeltaSeconds;
+    PhaseTime += DeltaSeconds;
+    if (Elapsed > 180) { Finish(false, TEXT("qualification timeout")); return; }
+    if (Elapsed > 10) { ++Frames; FrameTotal += DeltaSeconds; MaxFrame = FMath::Max(MaxFrame, double(DeltaSeconds)); }
     if (!Pawn || !State || !State->bInitialized || !Nav) return;
     if (Phase == 0 && Elapsed > 10 && !Nav->IsNavigationBuildInProgress())
     {
@@ -96,7 +132,7 @@ void ASoulTitanPilotGameMode::Tick(float DeltaSeconds)
             if (ClassPath.StartsWith(TEXT("/Script/Titan")) || ClassPath.StartsWith(TEXT("/Game/Blueprint/Framework/"))) ++Foreign;
         }
         UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_LOADED meshes=%d foreign_authority=%d spawn=%s falling=%d"), Meshes, Foreign, *Pawn->GetActorLocation().ToString(), Pawn->GetCharacterMovement()->IsFalling());
-        if (Meshes < 200 || Foreign || Pawn->GetCharacterMovement()->IsFalling()) { Finish(false, TEXT("load/spawn")); return; }
+        if (Meshes < 200 || Foreign || Pawn->GetActorLocation().Z < 300 || Pawn->GetCharacterMovement()->IsFalling()) { Finish(false, TEXT("load/spawn terrace")); return; }
         FNavLocation Start;
         if (!Nav->ProjectPointToNavigation(Pawn->GetActorLocation(), Start, FVector(150,150,300))) { Finish(false, TEXT("spawn nav projection")); return; }
         int32 Paths = 0;
@@ -111,33 +147,44 @@ void ASoulTitanPilotGameMode::Tick(float DeltaSeconds)
         if (Paths < 2) { Finish(false, TEXT("navigation routes")); return; }
         int32 InteriorPaths = 0, WallHits = 0;
         double BestInterior = TNumericLimits<double>::Max();
-        for (int32 X=-4000; X<=4000; X+=1000) for (int32 Y=-4000; Y<=4000; Y+=1000)
+        for (int32 X=-4000; X<=4000; X+=500) for (int32 Y=-4000; Y<=4000; Y+=500)
         {
             FNavLocation End;
-            if (!Nav->ProjectPointToNavigation(FVector(X,Y,100), End, FVector(150,150,200))) continue;
+            if (!Nav->ProjectPointToNavigation(FVector(X,Y,Start.Location.Z), End, FVector(150,150,250))) continue;
             auto* Path = UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(), Start.Location, End.Location, Pawn);
             if (!Path || !Path->IsValid() || Path->IsPartial()) continue;
             ++InteriorPaths;
-            if (End.Location.SizeSquared2D() < BestInterior)
+            const double Score = FVector::DistSquared2D(End.Location, FVector(0,3000,0));
+            if (FVector::Dist2D(Start.Location, End.Location) > 2000 && Score < BestInterior)
             {
-                BestInterior = End.Location.SizeSquared2D(); InteriorRoute = Path->PathPoints;
+                BestInterior = Score; InteriorRoute = Path->PathPoints;
             }
         }
         FCollisionQueryParams Query(SCENE_QUERY_STAT(SoulPilotWall), false, Pawn);
         for (int32 Y=-4000; Y<=4000; Y+=1000)
         {
             FHitResult Hit;
-            if (GetWorld()->SweepSingleByChannel(Hit, FVector(-6000,Y,100), FVector(6000,Y,100),
+            if (GetWorld()->SweepSingleByChannel(Hit, FVector(-6000,Y,Start.Location.Z+90), FVector(6000,Y,Start.Location.Z+90),
                 FQuat::Identity, ECC_Pawn, FCollisionShape::MakeCapsule(32,86), Query)) ++WallHits;
         }
         UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_INTERIOR reachable_samples=%d route_points=%d wall_sweeps_blocked=%d"), InteriorPaths, InteriorRoute.Num(), WallHits);
         if (InteriorPaths < 10 || InteriorRoute.Num()<2 || WallHits == 0) { Finish(false, TEXT("interior navigation/collision")); return; }
         MoveStart = Pawn->GetActorLocation();
-        PC->SetControlRotation(FRotator::ZeroRotator);
+        bool bClearInputRoute = false;
+        for (const FVector Direction : {FVector(1,0,0),FVector(0,1,0),FVector(-1,0,0),FVector(0,-1,0)})
+        {
+            FNavLocation End; FHitResult Hit;
+            const FVector Target = Start.Location+Direction*500;
+            if (!Nav->ProjectPointToNavigation(Target,End,FVector(50,50,100)) || FVector::Dist2D(Target,End.Location)>60) continue;
+            if (GetWorld()->SweepSingleByChannel(Hit,MoveStart,MoveStart+Direction*500,FQuat::Identity,
+                ECC_Pawn,FCollisionShape::MakeCapsule(32,86),Query)) continue;
+            PC->SetControlRotation(Direction.Rotation()); bClearInputRoute=true; break;
+        }
+        if (!bClearInputRoute) { Finish(false,TEXT("no clear keyboard test route on terrace")); return; }
         PC->InputKey(FInputKeyEventArgs(nullptr, FInputDeviceId::CreateFromInternalId(0), EKeys::W, IE_Pressed, FPlatformTime::Cycles64()));
         Phase = 1; PhaseTime = 0;
     }
-    else if (Phase == 1 && PhaseTime > 2)
+    else if (Phase == 1 && PhaseTime > 1)
     {
         PC->InputKey(FInputKeyEventArgs(nullptr, FInputDeviceId::CreateFromInternalId(0), EKeys::W, IE_Released, FPlatformTime::Cycles64()));
         const double Distance = FVector::Dist2D(MoveStart, Pawn->GetActorLocation());
@@ -155,12 +202,15 @@ void ASoulTitanPilotGameMode::Tick(float DeltaSeconds)
             else { Pawn->AddMovementInput(Direction.GetSafeNormal()); PC->SetControlRotation(Direction.Rotation()); }
             return;
         }
-        UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_TRAVERSED interior=%s route_seconds=%.2f falling=%d"), *Pawn->GetActorLocation().ToString(), PhaseTime, Pawn->GetCharacterMovement()->IsFalling());
-        if (Pawn->GetCharacterMovement()->IsFalling()) { Finish(false, TEXT("interior grounding")); return; }
+        const double ExpectedHeight = InteriorRoute.Last().Z + Pawn->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+        UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_TRAVERSED interior=%s expected_z=%.2f route_seconds=%.2f falling=%d"), *Pawn->GetActorLocation().ToString(), ExpectedHeight, PhaseTime, Pawn->GetCharacterMovement()->IsFalling());
+        if (Pawn->GetCharacterMovement()->IsFalling() || FMath::Abs(Pawn->GetActorLocation().Z-ExpectedHeight)>100)
+        { Finish(false, TEXT("interior grounding on expected terrace")); return; }
         FRBSaveDomainState Before; FString Error;
         if (!State->CaptureRBSaveDomain_Implementation(Before, Error)) { Finish(false, Error); return; }
         Snapshot = Before.Fields[0].StringValue;
         State->SaveCampaign(); Phase = 2; PhaseTime = 0;
+        PC->SetControlRotation((InteriorRoute[0]-Pawn->GetActorLocation()).Rotation());
         FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/TitanPilot_Traversal.png"), false, false);
     }
     else if (Phase == 2 && !State->bPersistenceBusy)

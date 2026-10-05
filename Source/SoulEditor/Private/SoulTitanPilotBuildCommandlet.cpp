@@ -10,6 +10,8 @@
 #include "Components/SkyAtmosphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Editor.h"
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonSerializer.h"
 #include "Engine/DirectionalLight.h"
 #include "Engine/SkyLight.h"
 #include "Engine/StaticMeshActor.h"
@@ -27,6 +29,7 @@
 #include "NavMesh/NavMeshBoundsVolume.h"
 #include "NavMesh/RecastNavMesh.h"
 #include "NavigationSystem.h"
+#include "NavigationPath.h"
 #include "UObject/UnrealType.h"
 
 namespace
@@ -85,6 +88,27 @@ int32 USoulTitanPilotBuildCommandlet::Main(const FString& Params)
     Instance->SetActorLocation(Offset);
     Instance->PostEditMove(true);
     Bounds = Bounds.ShiftBy(Offset);
+    TArray<TSharedPtr<FJsonValue>> Geometry;
+    Subsystem->ForEachActorInLevelInstance(Instance, [&](AActor* Actor)
+    {
+        TArray<UStaticMeshComponent*> Components; Actor->GetComponents(Components);
+        for (auto* Component : Components) if (Component->GetStaticMesh())
+        {
+            Component->UpdateBounds();
+            auto Row=MakeShared<FJsonObject>();
+            Row->SetStringField(TEXT("mesh"), Component->GetStaticMesh()->GetPathName());
+            Row->SetStringField(TEXT("actor"),Actor->GetActorLabel());
+            Row->SetStringField(TEXT("bounds"),Component->Bounds.GetBox().ToString());
+            Row->SetStringField(TEXT("profile"),Component->GetCollisionProfileName().ToString());
+            Row->SetNumberField(TEXT("pawn_response"),int32(Component->GetCollisionResponseToChannel(ECC_Pawn)));
+            Row->SetNumberField(TEXT("collision_enabled"),int32(Component->GetCollisionEnabled()));
+            Geometry.Add(MakeShared<FJsonValueObject>(Row));
+        }
+        return true;
+    });
+    FString GeometryJson;
+    FJsonSerializer::Serialize(Geometry,TJsonWriterFactory<>::Create(&GeometryJson));
+    FFileHelper::SaveStringToFile(GeometryJson,*(FPaths::ProjectDir()/TEXT("Evidence/TitanPilot-20261005/donor_component_geometry.json")));
     const FVector Extent = Bounds.GetExtent() + FVector(1800,1800,500);
     auto* Ground = World->SpawnActor<AStaticMeshActor>(FVector(0,0,-50), FRotator::ZeroRotator);
     Ground->SetActorLabel(TEXT("Soul_Pilot_TraversalGround"));
@@ -141,6 +165,45 @@ int32 USoulTitanPilotBuildCommandlet::Main(const FString& Params)
     }
     UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_NAV_BUILD remaining=%d"), Nav->GetNumRemainingBuildTasks());
     if (Nav->IsNavigationBuildInProgress()) return 8;
+    // The donor is raised architecture with no surrounding Titan terrain.
+    // Spawn on its walkable terrace, not on the staging floor underneath it.
+    FNavLocation Terrace;
+    int32 BestConnected = 0;
+    int32 ProjectedCandidates = 0, EligibleCandidates = 0;
+    double BestSpawnScore = TNumericLimits<double>::Max();
+    for (int32 X=-3000; X<=3000; X+=1000) for (int32 Y=-3000; Y<=3000; Y+=1000)
+    for (int32 Z=600; Z<=3000; Z+=200)
+    {
+        FNavLocation Candidate;
+        if (!Nav->ProjectPointToNavigation(FVector(X,Y,Z), Candidate, FVector(100,100,120)) || Candidate.Location.Z<300) continue;
+        ++ProjectedCandidates;
+        auto Reachable = [&](const FVector& Point)
+        {
+            FNavLocation End;
+            if (!Nav->ProjectPointToNavigation(Point, End, FVector(150,150,250))) return false;
+            auto* Path = UNavigationSystemV1::FindPathToLocationSynchronously(World, Candidate.Location, End.Location);
+            return Path && Path->IsValid() && !Path->IsPartial();
+        };
+        int32 LocalRoutes = 0;
+        for (const FVector ProbeOffset : {FVector(600,0,0), FVector(0,600,0), FVector(1000,1000,0)})
+            if (Reachable(Candidate.Location+ProbeOffset)) ++LocalRoutes;
+        if (LocalRoutes < 2) continue;
+        ++EligibleCandidates;
+        int32 Connected = 0;
+        // Five-metre samples capture this narrow, connected terrace network;
+        // ten-metre spacing misses much of the actual walkable surface.
+        for (int32 TX=-4000; TX<=4000; TX+=500) for (int32 TY=-4000; TY<=4000; TY+=500)
+            if (Reachable(FVector(TX,TY,Candidate.Location.Z))) ++Connected;
+        const double Score = FVector::DistSquared2D(Candidate.Location,FVector(-1500,-1500,0));
+        if (Connected>BestConnected || (Connected==BestConnected && Score<BestSpawnScore))
+        { Terrace=Candidate; BestConnected=Connected; BestSpawnScore=Score; }
+    }
+    if (BestConnected < 10)
+    {
+        UE_LOG(LogTemp, Error, TEXT("SOUL_TITAN_NAV_BUILD no upper donor terrace projected=%d eligible=%d best_connected=%d best=%s"),ProjectedCandidates,EligibleCandidates,BestConnected,*Terrace.Location.ToString()); return 8;
+    }
+    Start->SetActorLocation(Terrace.Location + FVector(0,0,100));
+    UE_LOG(LogTemp, Display, TEXT("SOUL_TITAN_TERRACE_START nav=%s connected_samples=%d"), *Terrace.Location.ToString(), BestConnected);
     FNavLocation SpawnNav;
     if (!Nav->ProjectPointToNavigation(Start->GetActorLocation(), SpawnNav, FVector(200,200,300)))
     {
