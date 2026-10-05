@@ -2,6 +2,7 @@
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "AssetRegistry/AssetData.h"
 #include "AssetRegistry/IAssetRegistry.h"
+#include "AssetRegistry/PackageReader.h"
 #include "Dom/JsonObject.h"
 #include "HAL/FileManager.h"
 #include "Misc/FileHelper.h"
@@ -125,6 +126,30 @@ int32 USoulTitanAuditCommandlet::Main(const FString& Params)
                 }
             }
             for (FName Dep : Hard) HardStrings.Add(Dep.ToString());
+            // Read serialized instance overrides without loading or executing donor
+            // objects. The planner additionally requires a concrete environment BP
+            // with complete registry queries; this is not a general fallback.
+            TArray<FString> Serialized;
+            bool bSerializedRead = false;
+            if (Package.StartsWith(TEXT("/Game/__ExternalActors__/Environment/")))
+            {
+                FPackageReader Reader;
+                TMap<FSoftObjectPath, FPackageReader::FObjectData> Exports, Imports;
+                TMap<FName, bool> SoftPackages;
+                bSerializedRead = Reader.OpenPackageFile(Package, Filename)
+                    && Reader.ReadLinkerObjects(Exports, Imports, SoftPackages);
+                if (bSerializedRead)
+                {
+                    for (const auto& Entry : Imports)
+                    {
+                        Serialized.AddUnique(Entry.Key.GetLongPackageName());
+                        if (!Entry.Value.ClassPath.IsNull()) Serialized.AddUnique(Entry.Value.ClassPath.GetLongPackageName());
+                    }
+                    for (const auto& Entry : SoftPackages) Serialized.AddUnique(Entry.Key.ToString());
+                    Serialized.Remove(Package);
+                    Queue.Append(Serialized);
+                }
+            }
             for (FName Dep : All)
             {
                 if (!Hard.Contains(Dep)) SoftStrings.Add(Dep.ToString());
@@ -152,6 +177,8 @@ int32 USoulTitanAuditCommandlet::Main(const FString& Params)
             Record->SetBoolField(TEXT("all_query_found"), bAllQuery);
             Record->SetArrayField(TEXT("classes"), Strings(Classes));
             Record->SetArrayField(TEXT("class_dependencies"), Strings(ClassPackages));
+            Record->SetBoolField(TEXT("serialized_read_complete"), bSerializedRead);
+            Record->SetArrayField(TEXT("serialized_dependencies"), Strings(Serialized));
             Record->SetArrayField(TEXT("hard"), Strings(HardStrings));
             Record->SetArrayField(TEXT("soft"), Strings(SoftStrings));
             Record->SetArrayField(TEXT("companions"), Strings(Companions));

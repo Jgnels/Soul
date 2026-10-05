@@ -37,6 +37,30 @@ class TransferTests(unittest.TestCase):
             plan["seed"] = SEEDS["SulfurBandit"]
             with self.assertRaises(ValueError): transfer(plan, donor, soul, soul / "receipt.json")
 
+    def test_supplement_reuses_exact_files_without_overwriting(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            donor, soul = Path(tmp) / "donor", Path(tmp) / "soul"
+            soul.mkdir()
+            rows = []
+            for name in ("Existing", "New"):
+                relative = "Environment/" + name + ".uasset"
+                src = donor / "Content" / relative
+                src.parent.mkdir(parents=True, exist_ok=True)
+                src.write_bytes(name.encode())
+                rows.append(dict(relative_file=relative, bytes=len(name), sha256=hashlib.sha256(name.encode()).hexdigest()))
+            existing = soul / "Content" / rows[0]["relative_file"]
+            existing.parent.mkdir(parents=True)
+            existing.write_bytes(b"Existing")
+            before = existing.stat().st_mtime_ns
+            plan = dict(seed=SEEDS["ClifftopMine"], files=rows, bytes=11, verified_existing_files=[rows[0]])
+            result = transfer(plan, donor, soul, soul / "receipt.json")
+            self.assertEqual(result["new_file_count"], 1)
+            self.assertEqual(result["file_count"], 2)
+            self.assertEqual(existing.stat().st_mtime_ns, before)
+            existing.write_bytes(b"modified")
+            with self.assertRaisesRegex(ValueError, "destination changed"):
+                transfer(plan, donor, soul, soul / "receipt2.json")
+
 
 if __name__ == "__main__":
     unittest.main()

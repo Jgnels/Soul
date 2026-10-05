@@ -1,13 +1,59 @@
-test_ansi_and_utf16_are_not_concatenated (test_audit_packages.AuditTests.test_ansi_and_utf16_are_not_concatenated) ... ok
-test_binary_preflight_cannot_authorize_migration (test_audit_packages.AuditTests.test_binary_preflight_cannot_authorize_migration) ... ok
-test_clean_plan_validates_nested_companions_and_hashes (test_audit_packages.AuditTests.test_clean_plan_validates_nested_companions_and_hashes) ... ok
+﻿python : test_ansi_and_utf16_are_not_concatenated 
+(test_audit_packages.AuditTests.test_ansi_and_utf16_are_not_concatenated) ... ok
+At line:2 char:1
++ python -m unittest discover -s Tools/TitanPilot -p 'test_*.py' -v 2>& ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_ansi_and_u...tenated) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_binary_preflight_cannot_authorize_migration 
+(test_audit_packages.AuditTests.test_binary_preflight_cannot_authorize_migration) ... ok
+test_clean_plan_validates_nested_companions_and_hashes 
+(test_audit_packages.AuditTests.test_clean_plan_validates_nested_companions_and_hashes) ... ok
 test_closure_budget_fails_closed (test_audit_packages.AuditTests.test_closure_budget_fails_closed) ... ok
-test_native_report_cannot_silently_drop_contamination (test_audit_packages.AuditTests.test_native_report_cannot_silently_drop_contamination) ... ok
+test_exact_foliage_support_requires_native_passive_classes 
+(test_audit_packages.AuditTests.test_exact_foliage_support_requires_native_passive_classes) ... ok
+test_external_actor_query_gap_requires_class_package_in_closure 
+(test_audit_packages.AuditTests.test_external_actor_query_gap_requires_class_package_in_closure) ... ok
+test_native_report_cannot_silently_drop_contamination 
+(test_audit_packages.AuditTests.test_native_report_cannot_silently_drop_contamination) ... ok
 test_path_escape_is_rejected (test_audit_packages.AuditTests.test_path_escape_is_rejected) ... ok
-test_recursive_companions_and_contamination_chain (test_audit_packages.AuditTests.test_recursive_companions_and_contamination_chain) ... ok
-test_unreviewed_plugin_dependency_stops_plan (test_audit_packages.AuditTests.test_unreviewed_plugin_dependency_stops_plan) ... ok
+test_recursive_companions_and_contamination_chain 
+(test_audit_packages.AuditTests.test_recursive_companions_and_contamination_chain) ... ok
+test_unreviewed_plugin_dependency_stops_plan 
+(test_audit_packages.AuditTests.test_unreviewed_plugin_dependency_stops_plan) ... ok
+test_actor_file_change_or_destination_collision_fails 
+(test_external_actor_classes.ExternalActorClassTests.test_actor_file_change_or_destination_collision_fails) ... ok
+test_blueprint_plugin_and_gameplay_dependencies_still_fail 
+(test_external_actor_classes.ExternalActorClassTests.test_blueprint_plugin_and_gameplay_dependencies_still_fail) ... ok
+test_class_must_be_native_blueprint_asset 
+(test_external_actor_classes.ExternalActorClassTests.test_class_must_be_native_blueprint_asset) ... ok
+test_class_package_must_exist_and_have_complete_native_queries 
+(test_external_actor_classes.ExternalActorClassTests.test_class_package_must_exist_and_have_complete_native_queries) 
+... ok
+test_explicit_class_edge_and_companion_membership_required 
+(test_external_actor_classes.ExternalActorClassTests.test_explicit_class_edge_and_companion_membership_required) ... ok
+test_external_object_or_regular_package_does_not_get_exception 
+(test_external_actor_classes.ExternalActorClassTests.test_external_object_or_regular_package_does_not_get_exception) 
+... ok
+test_instance_material_override_recurses_and_checks_forbidden_plugins (test_external_actor_classes.ExternalActorClassTe
+sts.test_instance_material_override_recurses_and_checks_forbidden_plugins) ... ok
+test_prior_receipt_requires_unchanged_hashes_and_subset 
+(test_external_actor_classes.ExternalActorClassTests.test_prior_receipt_requires_unchanged_hashes_and_subset) ... ok
+test_serialized_instance_read_required 
+(test_external_actor_classes.ExternalActorClassTests.test_serialized_instance_read_required) ... ok
+test_unknown_native_or_non_environment_classes_fail 
+(test_external_actor_classes.ExternalActorClassTests.test_unknown_native_or_non_environment_classes_fail) ... ok
+test_valid_fallback_preserves_actor_class_mesh_and_hash 
+(test_external_actor_classes.ExternalActorClassTests.test_valid_fallback_preserves_actor_class_mesh_and_hash) ... ok
+test_bad_source_hash_and_sulfur_refused_before_copy 
+(test_transfer_clifftop.TransferTests.test_bad_source_hash_and_sulfur_refused_before_copy) ... ok
+test_hash_verification_and_no_overwrite (test_transfer_clifftop.TransferTests.test_hash_verification_and_no_overwrite) 
+... ok
+test_supplement_reuses_exact_files_without_overwriting 
+(test_transfer_clifftop.TransferTests.test_supplement_reuses_exact_files_without_overwriting) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 0.063s
+Ran 24 tests in 0.486s
 
 OK

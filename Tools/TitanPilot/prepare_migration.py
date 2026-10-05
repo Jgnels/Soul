@@ -45,6 +45,8 @@ def environment_actor_class(row, by_package, covered_companions):
     class_package = match[1]
     if row.get("class_dependencies") != [class_package]:
         raise ValueError("Missing explicit native class edge: " + package)
+    if row.get("serialized_read_complete") is not True or not isinstance(row.get("serialized_dependencies"), list):
+        raise ValueError("Incomplete serialized instance dependency read: " + package)
     blueprint = by_package.get(class_package)
     if (not blueprint or not blueprint["hard_query_found"] or not blueprint["all_query_found"]
             or set(blueprint["classes"]) != {"/Script/Engine.Blueprint"}):
@@ -52,7 +54,12 @@ def environment_actor_class(row, by_package, covered_companions):
     return class_package
 
 
-def build_plan(report, donor, seed, destination):
+def build_plan(report, donor, seed, destination, prior_receipt=None):
+    existing = {}
+    if prior_receipt is not None:
+        if prior_receipt.get("status") != "VERIFIED" or prior_receipt.get("seed") != seed:
+            raise ValueError("Existing transfer receipt is not verified for this donor")
+        existing = {r["relative_file"]: r for r in prior_receipt["files"]}
     if report.get("method") != METHOD:
         raise ValueError("Requires native UE AssetRegistry audit; binary evidence is insufficient")
     if seed not in SEEDS.values():
@@ -84,7 +91,7 @@ def build_plan(report, donor, seed, destination):
             continue
         reachable.add(package)
         row = by_package[package]
-        pending.extend(row["hard"] + row["soft"] + row["companions"] + row.get("class_dependencies", []))
+        pending.extend(row["hard"] + row["soft"] + row["companions"] + row.get("class_dependencies", []) + row.get("serialized_dependencies", []))
     if packages != reachable:
         raise ValueError("Unreferenced packages cannot be admitted: " + ", ".join(sorted(packages - reachable)))
     files, actor_class_fallbacks = [], []
@@ -106,7 +113,7 @@ def build_plan(report, donor, seed, destination):
             actor_class_fallbacks.append(dict(package=package, class_package=class_package))
         if any("WorldPartitionHLOD" in cls or "/Script/Titan" in cls for cls in row["classes"]):
             raise ValueError("Excluded actor class: " + package)
-        for dep in row["hard"] + row["soft"] + row["companions"] + row.get("class_dependencies", []):
+        for dep in row["hard"] + row["soft"] + row["companions"] + row.get("class_dependencies", []) + row.get("serialized_dependencies", []):
             if dep.startswith("/Game/") and dep not in packages:
                 raise ValueError("Closure is incomplete at: " + dep)
             if not dep.startswith(("/Game/", "/Engine/")) and dep not in ENGINE_SCRIPTS:
@@ -124,10 +131,17 @@ def build_plan(report, donor, seed, destination):
         for path in [source] + [source.with_suffix(e) for e in (".uexp", ".ubulk", ".uptnl") if source.with_suffix(e).exists()]:
             relative = path.relative_to(content)
             target = destination / "Content" / relative
+            record = dict(package=package, relative_file=relative.as_posix(),
+                          bytes=path.stat().st_size, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
             if target.exists():
-                raise ValueError("Refuse existing destination, preserve rollback: " + str(target))
-            files.append(dict(package=package, relative_file=relative.as_posix(),
-                              bytes=path.stat().st_size, sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+                if (existing.get(relative.as_posix()) != record
+                        or hashlib.sha256(target.read_bytes()).hexdigest() != record["sha256"]):
+                    raise ValueError("Refuse existing destination, preserve rollback: " + str(target))
+            elif relative.as_posix() in existing:
+                raise ValueError("Previously transferred file is missing: " + str(target))
+            files.append(record)
+    if set(existing) - {r["relative_file"] for r in files}:
+        raise ValueError("Prior transfer is not a subset of the current native closure")
     total = sum(row["bytes"] for row in files)
     if total > 1024**3:
         raise ValueError("Pilot closure exceeded 1 GiB safety budget")
@@ -137,6 +151,7 @@ def build_plan(report, donor, seed, destination):
     return dict(seed=seed, status="REVIEW_REQUIRED_NO_COPY_PERFORMED", bytes=total,
                 package_count=len(rows), file_count=len(files), free_bytes_before=free,
                 actor_class_fallbacks=actor_class_fallbacks,
+                verified_existing_files=sorted(existing.values(), key=lambda f: f["relative_file"]),
                 files=sorted(files, key=lambda f: f["relative_file"]))
 
 
@@ -146,14 +161,16 @@ def main():
     parser.add_argument("--donor", type=Path, required=True)
     parser.add_argument("--seed", choices=SEEDS, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--prior-receipt", type=Path)
     args = parser.parse_args()
     workspace = Path(__file__).resolve().parents[2]
     if not args.output.resolve().is_relative_to(workspace):
         parser.error("Plan output must remain inside this Soul worktree")
     plan = build_plan(json.loads(args.audit.read_text(encoding="utf-8-sig")), args.donor,
-                      SEEDS[args.seed], workspace)
+                      SEEDS[args.seed], workspace,
+                      json.loads(args.prior_receipt.read_text(encoding="utf-8-sig")) if args.prior_receipt else None)
     args.output.write_text(json.dumps(plan, indent=2), encoding="utf-8")
-    print(json.dumps({k: v for k, v in plan.items() if k != "files"}))
+    print(json.dumps({k: v for k, v in plan.items() if k not in ("files", "verified_existing_files", "actor_class_fallbacks")}))
 
 
 if __name__ == "__main__":

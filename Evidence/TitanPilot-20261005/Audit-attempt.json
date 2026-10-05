@@ -1,0 +1,29 @@
+﻿{
+    "stage":  "Audit",
+    "started_utc":  "2026-10-05T17:22:14.2015654Z",
+    "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+    "branch":  "codex/soul-titan-pilot-20261005",
+    "competitors":  [
+
+                    ],
+    "free_bytes_before":  28774948864,
+    "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
+    "arguments":  [
+                      "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+                      "-run=SoulTitanAudit",
+                      "-unattended",
+                      "-nosplash",
+                      "-nullrhi",
+                      "-nosound",
+                      "-NoAssetRegistryCache",
+                      "-NoAutoSave",
+                      "-NoSourceControl",
+                      "-Donor=D:\\Unreal Projects\\ProjectTitan",
+                      "-Output=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\asset_registry_closure-20261005-172214.json",
+                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\Audit.log"
+                  ],
+    "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
+    "exit_code":  0,
+    "ended_utc":  "2026-10-05T17:22:49.4687504Z",
+    "free_bytes_after":  28773036032
+}

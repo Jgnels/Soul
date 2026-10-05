@@ -33,6 +33,7 @@ class ExternalActorClassTests(unittest.TestCase):
             self.rows.append(dict(package=package, file=str(source), bytes=source.stat().st_size,
                 classes=[cls], hard=hard, soft=[], companions=companions,
                 class_dependencies=[self.bp] if package == self.actor else [],
+                serialized_read_complete=not complete, serialized_dependencies=[],
                 hard_query_found=complete, all_query_found=complete))
         self.report = dict(method=METHOD, donor_content=str(self.donor / "Content"), donors=[dict(
             seed=self.seed, packages=self.rows, blocked=[], missing=[], external=[])])
@@ -93,6 +94,31 @@ class ExternalActorClassTests(unittest.TestCase):
         target.parent.mkdir(parents=True)
         target.write_bytes(b"existing")
         with self.assertRaises(ValueError): self.plan()
+
+    def test_serialized_instance_read_required(self):
+        self.rows[1]["serialized_read_complete"] = False
+        with self.assertRaisesRegex(ValueError, "serialized instance"): self.plan()
+
+    def test_instance_material_override_recurses_and_checks_forbidden_plugins(self):
+        self.rows[2]["hard"] = []
+        self.rows[1]["serialized_dependencies"] = [self.mesh]
+        self.assertEqual(self.plan()["package_count"], 4)
+        for dep in ("/Game/Environment/MissingOverride", "/Script/Titan", "/UnknownPlugin/Asset", "/Game/Characters/NPC"):
+            self.rows[1]["serialized_dependencies"] = [self.mesh, dep]
+            with self.subTest(dep=dep), self.assertRaises(ValueError): self.plan()
+
+    def test_prior_receipt_requires_unchanged_hashes_and_subset(self):
+        plan = self.plan()
+        actor = next(r for r in plan["files"] if r["package"] == self.actor)
+        target = self.target / "Content" / actor["relative_file"]
+        target.parent.mkdir(parents=True)
+        target.write_bytes(self.actor.encode())
+        receipt = dict(status="VERIFIED", seed=self.seed, files=[actor])
+        updated = build_plan(self.report, self.donor, self.seed, self.target, receipt)
+        self.assertEqual(updated["verified_existing_files"], [actor])
+        target.write_bytes(b"changed")
+        with self.assertRaises(ValueError):
+            build_plan(self.report, self.donor, self.seed, self.target, receipt)
         target.unlink()
         Path(self.rows[1]["file"]).write_bytes(b"changed")
         with self.assertRaises(ValueError): self.plan()

@@ -134,7 +134,8 @@ class AuditTests(unittest.TestCase):
                 rows.append(dict(package=package, file=str(source), bytes=source.stat().st_size,
                                  classes=classes, hard_query_found=hard_ok, all_query_found=all_ok,
                                  hard=hard, soft=[], companions=comps,
-                                 class_dependencies=[actor_class] if package == actor else []))
+                                 class_dependencies=[actor_class] if package == actor else [],
+                                 serialized_read_complete=True, serialized_dependencies=[]))
             report = dict(method=METHOD, donor_content=str(root), donors=[dict(
                 seed=seed, blocked=[], missing=[], external=["/Script/Engine"], packages=rows)])
             plan = build_plan(report, donor, seed, target)

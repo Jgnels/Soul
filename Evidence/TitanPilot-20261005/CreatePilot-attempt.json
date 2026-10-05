@@ -1,0 +1,25 @@
+﻿{
+    "stage":  "CreatePilot",
+    "started_utc":  "2026-10-05T17:13:49.3447139Z",
+    "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+    "branch":  "codex/soul-titan-pilot-20261005",
+    "competitors":  [
+
+                    ],
+    "free_bytes_before":  28783513600,
+    "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
+    "arguments":  [
+                      "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+                      "-run=SoulTitanPilotBuild",
+                      "-unattended",
+                      "-nosplash",
+                      "-nullrhi",
+                      "-nosound",
+                      "-NoSourceControl",
+                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\CreatePilot.log"
+                  ],
+    "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
+    "exit_code":  0,
+    "ended_utc":  "2026-10-05T17:14:07.4873523Z",
+    "free_bytes_after":  28782661632
+}

@@ -1,0 +1,30 @@
+﻿{
+    "stage":  "Runtime",
+    "started_utc":  "2026-10-05T17:24:14.0885968Z",
+    "project":  "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+    "branch":  "codex/soul-titan-pilot-20261005",
+    "competitors":  [
+
+                    ],
+    "free_bytes_before":  28772577280,
+    "executable":  "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
+    "arguments":  [
+                      "D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Soul.uproject",
+                      "/Game/Soul/Maps/Soul_TitanPilot",
+                      "-game",
+                      "-windowed",
+                      "-ResX=1280",
+                      "-ResY=720",
+                      "-d3d11",
+                      "-nosplash",
+                      "-unattended",
+                      "-nosound",
+                      "-SoulTitanPilotProof",
+                      "-ExecCmds=r.DynamicGlobalIlluminationMethod 0,r.ReflectionMethod 0,r.Shadow.Virtual.Enable 0,sg.ViewDistanceQuality 1,sg.ShadowQuality 1,sg.EffectsQuality 0,sg.PostProcessQuality 0,r.Streaming.PoolSize 2048,t.MaxFPS 60",
+                      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-titan-pilot-20261005\\Evidence\\TitanPilot-20261005\\Runtime.log"
+                  ],
+    "status":  "EXIT_ZERO_REQUIRES_EVIDENCE_REVIEW",
+    "exit_code":  0,
+    "ended_utc":  "2026-10-05T17:25:58.7928978Z",
+    "free_bytes_after":  28769484800
+}

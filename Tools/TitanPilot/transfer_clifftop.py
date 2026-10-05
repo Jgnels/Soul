@@ -17,6 +17,7 @@ def transfer(plan, donor, workspace, receipt_path):
     content = (donor / "Content").resolve()
     destination = (workspace / "Content").resolve()
     pairs = []
+    existing = {r["relative_file"]: r for r in plan.get("verified_existing_files", [])}
     # Verify the whole set before writing the first file. Recheck each source
     # during transfer to catch concurrent donor changes.
     for row in plan["files"]:
@@ -24,15 +25,20 @@ def transfer(plan, donor, workspace, receipt_path):
         src, dst = (content / relative).resolve(), (destination / relative).resolve()
         if not src.is_relative_to(content) or not dst.is_relative_to(destination) or relative.is_absolute():
             raise ValueError("Path escapes approved roots")
-        if dst.exists():
+        if row["relative_file"] in existing:
+            if existing[row["relative_file"]] != row or not dst.is_file() or hashlib.sha256(dst.read_bytes()).hexdigest() != row["sha256"]:
+                raise ValueError("Previously verified destination changed: " + str(dst))
+        elif dst.exists():
             raise ValueError("No-overwrite collision: " + str(dst))
         if src.stat().st_size != row["bytes"] or hashlib.sha256(src.read_bytes()).hexdigest() != row["sha256"]:
             raise ValueError("Source fingerprint changed: " + str(src))
-        pairs.append((row, src, dst))
+        if row["relative_file"] not in existing:
+            pairs.append((row, src, dst))
     if shutil.disk_usage(workspace).free - plan["bytes"] < 15 * 1024**3:
         raise ValueError("15 GiB reserve would be violated")
     receipt = dict(started_utc=datetime.now(timezone.utc).isoformat(), seed=plan["seed"],
-                   status="COPYING", free_bytes_before=shutil.disk_usage(workspace).free, files=[])
+                   status="COPYING", free_bytes_before=shutil.disk_usage(workspace).free,
+                   verified_existing_count=len(existing), new_file_count=len(pairs), files=list(existing.values()))
 
     def save():
         receipt_path.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
@@ -64,6 +70,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--audit", type=Path, required=True)
+    parser.add_argument("--prior-receipt", type=Path)
+    parser.add_argument("--receipt", type=Path)
     args = parser.parse_args()
     workspace = Path(__file__).resolve().parents[2]
     if str(workspace).lower() != r"D:\RefinedBadger\Worktrees\Soul-titan-pilot-20261005".lower():
@@ -74,11 +82,15 @@ def main():
     donor = Path("D:/Unreal Projects/ProjectTitan")
     plan = json.loads(args.plan.read_text(encoding="utf-8-sig"))
     native = json.loads(args.audit.read_text(encoding="utf-8-sig"))
-    current = build_plan(native, donor, SEEDS["ClifftopMine"], workspace)
-    for key in ("seed", "bytes", "package_count", "file_count", "files", "actor_class_fallbacks"):
+    prior = json.loads(args.prior_receipt.read_text(encoding="utf-8-sig")) if args.prior_receipt else None
+    current = build_plan(native, donor, SEEDS["ClifftopMine"], workspace, prior)
+    for key in ("seed", "bytes", "package_count", "file_count", "files", "actor_class_fallbacks", "verified_existing_files"):
         if current[key] != plan[key]:
             raise ValueError("Plan changed; refuse transfer: " + key)
-    receipt = transfer(plan, donor, workspace, workspace / "Evidence/TitanPilot-20261005/clifftop_transfer.json")
+    receipt_path = args.receipt or workspace / "Evidence/TitanPilot-20261005/clifftop_transfer.json"
+    if not receipt_path.resolve().is_relative_to(workspace) or receipt_path.exists():
+        raise ValueError("Receipt must be a new file inside the isolated worktree")
+    receipt = transfer(plan, donor, workspace, receipt_path)
     print(json.dumps({k: v for k, v in receipt.items() if k != "files"}, indent=2))
 
 
