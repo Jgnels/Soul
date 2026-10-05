@@ -21,7 +21,98 @@ def fixture(identity="first", source="river_ford", target="orc_watch", cap=15, p
     return lines
 
 
+def routed_fixture(player_won=True):
+    """R7 victory's exact physical ledger, mirrored for a routed defeat."""
+    forces, deaths = ([46, 30], [12, 27]) if player_won else ([30, 46], [27, 12])
+    lines = [f"SOUL_CAMPAIGN_ENCOUNTER id=rout source=river_ford target=orc_watch map=Dragon forces={forces[0]}/{forces[1]} cap=15 mana=80",
+             f"SOUL_RT_RESERVES_READY: human={forces[0]-15} enemy={forces[1]-15}"]
+    waves = []
+    for side in (0, 1):
+        active, reserve, wave = 15, forces[side] - 15, 0
+        for actor in range(deaths[side]):
+            lines.append(f"SOUL_UNIT_DEFEATED: side={side} id=Side_{side}_Actor_{actor}")
+            active -= 1
+            if active * 1000 < 15 * 700 and reserve:
+                bodies = min(4, reserve, 15-active)
+                reserve -= bodies
+                active += bodies
+                wave += 1
+                lines.append(f"SOUL_RT_REINFORCEMENT_WAVE: side={side} bodies={bodies} wave={wave}")
+        waves.append(wave)
+    physical = "34/3" if player_won else "3/34"
+    routed = "0/1" if player_won else "1/0"
+    survivors = [34, 0] if player_won else [0, 34]
+    region = "orc_watch" if player_won else "river_ford"
+    lines += [f"SOUL_BATTLE_RESOLVED: won={int(player_won)} playerSurvivors={survivors[0]} enemySurvivors={survivors[1]} physical={physical} routed={routed} waves={waves[0]}/{waves[1]} magic=5 contacts=612 seconds=111.51 mana=18",
+              "SOUL_CAMPAIGN_MANA id=rout before=80 after=18 casts=5",
+              f"SOUL_CAMPAIGN_RESULT id=rout target=orc_watch victory={int(player_won)} survivors={survivors[0]}/{survivors[1]} player_region={region}"]
+    return lines
+
+
 class LogAuditTests(unittest.TestCase):
+    def test_routed_victory_and_defeat_conserve_physical_force(self):
+        for player_won in (True, False):
+            with self.subTest(player_won=player_won):
+                record = analyze("\n".join(routed_fixture(player_won)))["encounters"][0]
+                self.assertEqual(record["log_consistency"], "CONSISTENT", record["issues"])
+                self.assertEqual(record["casualty_counts"], [12, 27] if player_won else [27, 12])
+                self.assertEqual(record["active"], [11, 3] if player_won else [3, 11])
+                self.assertEqual(record["reserves"], [23, 0] if player_won else [0, 23])
+                self.assertEqual([len(w) for w in record["waves"]], [2, 4] if player_won else [4, 2])
+
+    def test_rout_does_not_waive_physical_conservation_or_wave_ledger(self):
+        for token in ("id=Side_1_Actor_0", "side=1 bodies=4 wave=1"):
+            lines = [line for line in routed_fixture() if token not in line]
+            record = analyze("\n".join(lines))["encounters"][0]
+            self.assertEqual(record["log_consistency"], "INCONSISTENT")
+            expected = "physical and reserve ledger" if "id=" in token else "resolved wave counts"
+            self.assertIn(expected, " ".join(record["issues"]))
+        for physical in ("34/0", "34/4", "35/3"):
+            lines = routed_fixture()
+            lines[-3] = lines[-3].replace("physical=34/3", "physical=" + physical)
+            record = analyze("\n".join(lines))["encounters"][0]
+            self.assertIn("do not conserve initial force", " ".join(record["issues"]))
+
+    def test_routed_fields_require_well_formed_paired_inventory_and_binary_flags(self):
+        for original, replacement in ((" physical=34/3", ""), (" routed=0/1", ""),
+                                      ("physical=34/3", "physical=34"),
+                                      ("physical=34/3", "physical=34/3/0"),
+                                      ("physical=34/3", "physical=34/-1"),
+                                      ("physical=34/3", "physical=34/31"),
+                                      ("routed=0/1", "routed=0"),
+                                      ("routed=0/1", "routed=0/1/0"),
+                                      ("routed=0/1", "routed=0/2"),
+                                      ("routed=0/1", "routed=0/-1"),
+                                      ("routed=0/1", "routed=0/1.0")):
+            with self.subTest(replacement=replacement):
+                lines = routed_fixture()
+                lines[-3] = lines[-3].replace(original, replacement)
+                record = analyze("\n".join(lines))["encounters"][0]
+                self.assertEqual(record["log_consistency"], "INCONSISTENT")
+                self.assertIn("malformed event", " ".join(record["issues"]))
+
+    def test_strategic_result_must_follow_rout_and_campaign_return(self):
+        for original, replacement in (("routed=0/1", "routed=0/0"),
+                                      ("routed=0/1", "routed=1/1"),
+                                      ("playerSurvivors=34", "playerSurvivors=33"),
+                                      ("enemySurvivors=0", "enemySurvivors=3")):
+            lines = routed_fixture()
+            lines[-3] = lines[-3].replace(original, replacement)
+            record = analyze("\n".join(lines))["encounters"][0]
+            self.assertIn("strategic survivors differ", " ".join(record["issues"]))
+        lines = routed_fixture()
+        lines[-1] = lines[-1].replace("survivors=34/0", "survivors=34/3")
+        self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+
+    def test_nonrouted_new_and_legacy_logs_keep_strict_conservation(self):
+        for with_fields in (False, True):
+            lines = fixture()
+            if with_fields:
+                lines[-2] += " physical=45/0 routed=0/0"
+            self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "CONSISTENT")
+            lines = [line for line in lines if "id=Enemy_0" not in line]
+            self.assertEqual(analyze("\n".join(lines))["encounters"][0]["log_consistency"], "INCONSISTENT")
+
     def test_70_active_large_pool_and_three_encounters(self):
         lines = (fixture(cap=35, player=300, enemy=250)
                  + fixture("second", "orc_watch", "orc_camp", cap=35, player=300, enemy=400)

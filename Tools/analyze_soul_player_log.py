@@ -116,11 +116,25 @@ def analyze(text):
                     issue("winner contradicts surviving forces")
                 if min(survivors) != 0:
                     issue("result published with both forces still alive")
+                physical = survivors
+                if "physical" in fields or "routed" in fields:
+                    # Arena FinishBattle keeps living bodies in the physical ledger,
+                    # but a routed force has zero effective campaign survivors.
+                    # Both fields are required together; legacy logs remain strict.
+                    physical = [int(n) for n in fields["physical"].split("/")]
+                    routed = [int(n) for n in fields["routed"].split("/")]
+                    if len(physical) != 2 or any(not 0 <= n <= force[s] for s, n in enumerate(physical)):
+                        raise ValueError("invalid physical survivor pair")
+                    if len(routed) != 2 or any(n not in (0, 1) for n in routed):
+                        raise ValueError("invalid routed side pair")
+                    for side in (0, 1):
+                        if survivors[side] != (0 if routed[side] else physical[side]):
+                            issue(f"side {side} strategic survivors differ from physical/routed resolution")
                 for side in (0, 1):
-                    if force[side] - len(r["deaths"][side]) != survivors[side]:
-                        issue(f"side {side} casualties plus survivors do not conserve initial force")
-                    if r["active"] is not None and r["active"][side] + r["reserves"][side] != survivors[side]:
-                        issue(f"side {side} physical and reserve ledger differs from survivors")
+                    if force[side] - len(r["deaths"][side]) != physical[side]:
+                        issue(f"side {side} casualties plus physical survivors do not conserve initial force")
+                    if r["active"] is not None and r["active"][side] + r["reserves"][side] != physical[side]:
+                        issue(f"side {side} physical and reserve ledger differs from physical survivors")
                 if [int(n) for n in fields["waves"].split("/")] != [len(w) for w in r["waves"]]:
                     issue("resolved wave counts differ from deliveries")
             elif kind == "SOUL_CAMPAIGN_MANA":
