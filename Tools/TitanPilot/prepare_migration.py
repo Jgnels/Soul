@@ -9,18 +9,47 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import re
 
 from audit_packages import FORBIDDEN, SEEDS, package_file
 
 METHOD = "UE AssetRegistry per-file hard+soft closure with recursive map companions"
 PASSIVE_ROOTS = ("/Game/Environment/", "/Game/__ExternalActors__/Environment/",
                  "/Game/__ExternalObjects__/Environment/")
+PASSIVE_SUPPORT = {
+    "/Game/Blueprint/FoliageInteraction/MPC_Player": {"/Script/Engine.MaterialParameterCollection"},
+    "/Game/Blueprint/FoliageInteraction/RT_Player": {"/Script/Engine.CanvasRenderTarget2D"},
+}
+# Exact native-class-reviewed material dependencies of Clifftop's base shader.
+# This is not permission to copy Landscape actors, HLODs or the whole directory.
+PASSIVE_LANDSCAPE = {p: set(classes) for p, classes in json.loads(
+    Path(__file__).with_name("clifftop_passive_landscape.json").read_text(encoding="utf-8")).items()}
 ENGINE_SCRIPTS = {
     "/Script/CoreUObject", "/Script/Engine", "/Script/NavigationSystem", "/Script/UnrealEd",
     "/Script/BlueprintGraph", "/Script/PhysicsCore", "/Script/Landscape", "/Script/Foliage",
     "/Script/InterchangeCore", "/Script/InterchangeEngine", "/Script/InterchangeFactoryNodes",
     "/Script/InterchangePipelines",
 }
+
+
+def environment_actor_class(row, by_package, covered_companions):
+    """Only a covered external actor with a fully scanned environment BP qualifies."""
+    package = row["package"]
+    if not package.startswith("/Game/__ExternalActors__/Environment/") or package not in covered_companions:
+        raise ValueError("Incomplete registry scan outside covered external actor: " + package)
+    if len(row["classes"]) != 1:
+        raise ValueError("Unresolved external actor class: " + package)
+    match = re.fullmatch(r"(/Game/Environment/(?:[A-Za-z0-9_]+/)*([A-Za-z0-9_]+))\.\2_C", row["classes"][0])
+    if not match:
+        raise ValueError("Unresolved external actor class: " + package)
+    class_package = match[1]
+    if row.get("class_dependencies") != [class_package]:
+        raise ValueError("Missing explicit native class edge: " + package)
+    blueprint = by_package.get(class_package)
+    if (not blueprint or not blueprint["hard_query_found"] or not blueprint["all_query_found"]
+            or set(blueprint["classes"]) != {"/Script/Engine.Blueprint"}):
+        raise ValueError("Class package lacks complete native Blueprint queries: " + class_package)
+    return class_package
 
 
 def build_plan(report, donor, seed, destination):
@@ -46,18 +75,42 @@ def build_plan(report, donor, seed, destination):
     packages = {r["package"] for r in rows}
     if len(packages) != len(rows) or seed not in packages:
         raise ValueError("Duplicate packages or missing root map")
-    files = []
+    explicit_companions = {dep for r in rows for dep in r["companions"] if dep.startswith("/Game/")}
+    by_package = {r["package"]: r for r in rows}
+    reachable, pending = set(), [seed]
+    while pending:
+        package = pending.pop()
+        if package in reachable or package not in by_package:
+            continue
+        reachable.add(package)
+        row = by_package[package]
+        pending.extend(row["hard"] + row["soft"] + row["companions"] + row.get("class_dependencies", []))
+    if packages != reachable:
+        raise ValueError("Unreferenced packages cannot be admitted: " + ", ".join(sorted(packages - reachable)))
+    files, actor_class_fallbacks = [], []
+    passive_support = dict(PASSIVE_SUPPORT)
+    if seed == SEEDS["ClifftopMine"]:
+        passive_support.update(PASSIVE_LANDSCAPE)
     for row in rows:
         package = row["package"]
-        if package.startswith(FORBIDDEN) or not package.startswith(PASSIVE_ROOTS):
+        is_passive_support = package in passive_support
+        if (package.startswith(FORBIDDEN) or not package.startswith(PASSIVE_ROOTS)) and not is_passive_support:
             raise ValueError("Package needs explicit environment-only review: " + package)
-        if not row["hard_query_found"] or not row["all_query_found"] or not row["classes"]:
+        if is_passive_support and set(row["classes"]) != passive_support[package]:
+            raise ValueError("Passive support class mismatch: " + package)
+        if not row["classes"]:
             raise ValueError("Incomplete registry scan: " + package)
+        query_complete = row["hard_query_found"] and row["all_query_found"]
+        if not query_complete:
+            class_package = environment_actor_class(row, by_package, explicit_companions)
+            actor_class_fallbacks.append(dict(package=package, class_package=class_package))
         if any("WorldPartitionHLOD" in cls or "/Script/Titan" in cls for cls in row["classes"]):
             raise ValueError("Excluded actor class: " + package)
-        for dep in row["hard"] + row["soft"] + row["companions"]:
+        for dep in row["hard"] + row["soft"] + row["companions"] + row.get("class_dependencies", []):
             if dep.startswith("/Game/") and dep not in packages:
                 raise ValueError("Closure is incomplete at: " + dep)
+            if not dep.startswith(("/Game/", "/Engine/")) and dep not in ENGINE_SCRIPTS:
+                raise ValueError("External dependencies require explicit review: " + dep)
         source = package_file(content, package)
         if source is None or source.resolve() != Path(row["file"]).resolve():
             raise ValueError("Package/source mismatch: " + package)
@@ -83,6 +136,7 @@ def build_plan(report, donor, seed, destination):
         raise ValueError("Plan would consume the 15 GiB build/cook reserve")
     return dict(seed=seed, status="REVIEW_REQUIRED_NO_COPY_PERFORMED", bytes=total,
                 package_count=len(rows), file_count=len(files), free_bytes_before=free,
+                actor_class_fallbacks=actor_class_fallbacks,
                 files=sorted(files, key=lambda f: f["relative_file"]))
 
 

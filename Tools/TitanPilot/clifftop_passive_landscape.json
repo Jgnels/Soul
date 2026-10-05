@@ -1,0 +1,107 @@
+{
+  "/Game/Landscape/Gradients/CA_Landscape": [
+    "/Script/Engine.CurveLinearColorAtlas"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_BaseLandscapeLayer": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LandscapeLayerSelect": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Arctic_Snow": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Desert_Rock": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Grassland_Dirt": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Grassland_Grass": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Grassland_Sand": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Marshlands_Grass": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Sulfur_Ground": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_LL_Tropic_Grass1": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Functions/MF_WorldAlignNormalFix": [
+    "/Script/Engine.MaterialFunction"
+  ],
+  "/Game/Landscape/Materials/Textures/T_CanyonWall_D": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_CanyonWall_M": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_CanyonWall_N": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_DirtGround_D": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_DirtGround_M": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_DirtGround_N": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Grass_D": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Grass_M": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Grass_N": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Landscape_Sulfur_a_d": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Landscape_Sulfur_a_n": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Landscape_Sulfur_a_rmoh": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Tropic_PinkSand_basecolor1": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Tropic_PinkSand_normal1": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_Tropic_PinkSand_RMOH1": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/Materials/Textures/T_VariationNoise_M": [
+    "/Script/Engine.Texture2D"
+  ],
+  "/Game/Landscape/RVT/RVT_Titan_D": [
+    "/Script/Engine.RuntimeVirtualTexture"
+  ],
+  "/Game/Landscape/RVT/RVT_Titan_H": [
+    "/Script/Engine.RuntimeVirtualTexture"
+  ],
+  "/Game/Landscape/Gradients/C_ArcticIce": [
+    "/Script/Engine.CurveLinearColor"
+  ],
+  "/Game/Landscape/Gradients/C_Default": [
+    "/Script/Engine.CurveLinearColor"
+  ],
+  "/Game/Landscape/Gradients/C_Grass": [
+    "/Script/Engine.CurveLinearColor"
+  ],
+  "/Game/Landscape/Gradients/C_Rock": [
+    "/Script/Engine.CurveLinearColor"
+  ],
+  "/Game/Landscape/Materials/Textures/T_GlobalBlend_M": [
+    "/Script/Engine.Texture2D"
+  ]
+}

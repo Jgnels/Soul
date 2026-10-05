@@ -27,6 +27,11 @@ TArray<TSharedPtr<FJsonValue>> Strings(TArray<FString> Values)
 
 bool Forbidden(const FString& Package)
 {
+    // Exact passive material-support exception. The migration planner still
+    // verifies these packages' native classes before it can produce a plan.
+    if (Package == TEXT("/Game/Blueprint/FoliageInteraction/MPC_Player")
+        || Package == TEXT("/Game/Blueprint/FoliageInteraction/RT_Player"))
+        return false;
     for (const TCHAR* Prefix : { TEXT("/Game/Characters/"), TEXT("/Game/Blueprint/"),
         TEXT("/Game/BlueprintDEV/"), TEXT("/Game/Maps/"), TEXT("/Script/Titan"),
         TEXT("/Game/__ExternalActors__/Maps/"), TEXT("/Game/__ExternalObjects__/Maps/") })
@@ -100,8 +105,25 @@ int32 USoulTitanAuditCommandlet::Main(const FString& Params)
             const bool bAllQuery = Registry.K2_GetDependencies(FName(*Package), AllOptions, All);
             TArray<FAssetData> Assets;
             Registry.GetAssetsByPackageName(FName(*Package), Assets, true);
-            TArray<FString> Classes, HardStrings, SoftStrings, Companions;
-            for (const FAssetData& Asset : Assets) Classes.AddUnique(Asset.AssetClassPath.ToString());
+            TArray<FString> Classes, ClassPackages, HardStrings, SoftStrings, Companions;
+            for (const FAssetData& Asset : Assets)
+            {
+                const FString ClassPath = Asset.AssetClassPath.ToString();
+                Classes.AddUnique(ClassPath);
+                // External-actor package dependency queries can legitimately return false
+                // while AssetData still exposes the actor Blueprint class. Treat that class
+                // package as a real dependency and recurse into it rather than silently
+                // accepting an incomplete World Partition closure.
+                if (ClassPath.StartsWith(TEXT("/Game/")))
+                {
+                    int32 DotIndex = INDEX_NONE;
+                    if (ClassPath.FindChar(TEXT('.'), DotIndex) && DotIndex > 0)
+                    {
+                        ClassPackages.AddUnique(ClassPath.Left(DotIndex));
+                        Queue.Add(ClassPath.Left(DotIndex));
+                    }
+                }
+            }
             for (FName Dep : Hard) HardStrings.Add(Dep.ToString());
             for (FName Dep : All)
             {
@@ -129,6 +151,7 @@ int32 USoulTitanAuditCommandlet::Main(const FString& Params)
             Record->SetBoolField(TEXT("hard_query_found"), bHardQuery);
             Record->SetBoolField(TEXT("all_query_found"), bAllQuery);
             Record->SetArrayField(TEXT("classes"), Strings(Classes));
+            Record->SetArrayField(TEXT("class_dependencies"), Strings(ClassPackages));
             Record->SetArrayField(TEXT("hard"), Strings(HardStrings));
             Record->SetArrayField(TEXT("soft"), Strings(SoftStrings));
             Record->SetArrayField(TEXT("companions"), Strings(Companions));

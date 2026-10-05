@@ -82,6 +82,67 @@ class AuditTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Companion tree"):
                 build_plan(report, donor, seed, target)
 
+
+    def test_exact_foliage_support_requires_native_passive_classes(self):
+        seed = "/Game/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid"
+        mpc = "/Game/Blueprint/FoliageInteraction/MPC_Player"
+        rt = "/Game/Blueprint/FoliageInteraction/RT_Player"
+        with tempfile.TemporaryDirectory() as folder:
+            donor, target = Path(folder) / "donor", Path(folder) / "target"
+            target.mkdir()
+            root = donor / "Content"
+            specs = [
+                (seed, ".umap", ["/Script/Engine.World"], [mpc, rt]),
+                (mpc, ".uasset", ["/Script/Engine.MaterialParameterCollection"], []),
+                (rt, ".uasset", ["/Script/Engine.CanvasRenderTarget2D"], []),
+            ]
+            rows = []
+            for package, suffix, classes, hard in specs:
+                source = root / (package[6:] + suffix)
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_bytes(package.encode("utf-8"))
+                rows.append(dict(package=package, file=str(source), bytes=source.stat().st_size,
+                                 classes=classes, hard_query_found=True, all_query_found=True,
+                                 hard=hard, soft=[], companions=[]))
+            report = dict(method=METHOD, donor_content=str(root), donors=[dict(
+                seed=seed, blocked=[], missing=[], external=["/Script/Engine"], packages=rows)])
+            plan = build_plan(report, donor, seed, target)
+            self.assertEqual(plan["package_count"], 3)
+            rows[1]["classes"] = ["/Script/Engine.Blueprint"]
+            with self.assertRaisesRegex(ValueError, "Passive support class mismatch"):
+                build_plan(report, donor, seed, target)
+
+
+    def test_external_actor_query_gap_requires_class_package_in_closure(self):
+        seed = "/Game/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid"
+        actor = "/Game/__ExternalActors__/Environment/Clifftop/Level_Instance/IL_Clifftop_Mine_TownGrid/A/Actor"
+        actor_class = "/Game/Environment/Clifftop/Actors/BP_Wall"
+        with tempfile.TemporaryDirectory() as folder:
+            donor, target = Path(folder) / "donor", Path(folder) / "target"
+            target.mkdir()
+            root = donor / "Content"
+            specs = [
+                (seed, ".umap", ["/Script/Engine.World"], True, True, [], [actor]),
+                (actor, ".uasset", [actor_class + ".BP_Wall_C"], False, False, [], []),
+                (actor_class, ".uasset", ["/Script/Engine.Blueprint"], True, True, [], []),
+            ]
+            rows = []
+            for package, suffix, classes, hard_ok, all_ok, hard, comps in specs:
+                source = root / (package[6:] + suffix)
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_bytes(package.encode("utf-8"))
+                rows.append(dict(package=package, file=str(source), bytes=source.stat().st_size,
+                                 classes=classes, hard_query_found=hard_ok, all_query_found=all_ok,
+                                 hard=hard, soft=[], companions=comps,
+                                 class_dependencies=[actor_class] if package == actor else []))
+            report = dict(method=METHOD, donor_content=str(root), donors=[dict(
+                seed=seed, blocked=[], missing=[], external=["/Script/Engine"], packages=rows)])
+            plan = build_plan(report, donor, seed, target)
+            self.assertEqual(plan["package_count"], 3)
+            report["donors"][0]["packages"] = rows[:2]
+            with self.assertRaisesRegex(ValueError, "Class package lacks complete native Blueprint queries"):
+                build_plan(report, donor, seed, target)
+
     def test_unreviewed_plugin_dependency_stops_plan(self):
         seed = "/Game/Environment/Sulfur/Level_Instances/LI_Sulfur_BanditRestOutpost"
         with tempfile.TemporaryDirectory() as folder:
