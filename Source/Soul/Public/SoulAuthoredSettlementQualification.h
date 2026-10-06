@@ -36,6 +36,8 @@ private:
     bool bBattleWarmCapture = false;
     bool bReturnedBattleViewWarmed = false;
     bool bCleanCapturePending = false, bSavedHUDVisible = true;
+    bool bCityGPUProfileQueued = false;
+    int32 SavedMaterialDrawEvents = 0;
     double Started = 0, NextTime = 0, StepStarted = 0;
     FString Prefix, ExpectedCampaign, ExpectedSettlement, PreBattleSettlement;
     FString SavePath;

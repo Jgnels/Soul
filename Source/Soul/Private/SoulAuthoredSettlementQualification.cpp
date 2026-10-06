@@ -211,13 +211,21 @@ bool USoulAuthoredSettlementQualification::MeasureView(const TCHAR* Label)
     {
         auto* Cap = IConsoleManager::Get().FindConsoleVariable(TEXT("t.MaxFPS"));
         auto* VSync = IConsoleManager::Get().FindConsoleVariable(TEXT("r.VSync"));
+        auto* Screen = IConsoleManager::Get().FindConsoleVariable(TEXT("r.ScreenPercentage"));
+        auto* Secondary = IConsoleManager::Get().FindConsoleVariable(TEXT("r.SecondaryScreenPercentage.GameViewport"));
+        auto* Dynamic = IConsoleManager::Get().FindConsoleVariable(TEXT("r.DynamicRes.OperationMode"));
         // Loading/input checks use the safe functional cap. Only the entire
         // 20-second warmup and 30-second measured window run uncapped.
         if (Cap) Cap->Set(0.f, ECVF_SetByConsole);
+        if (Screen) Screen->Set(100.f, ECVF_SetByConsole);
+        if (Secondary) Secondary->Set(100.f, ECVF_SetByConsole);
+        if (Dynamic) Dynamic->Set(0, ECVF_SetByConsole);
         int32 Width = 0, Height = 0;
         GetWorld()->GetFirstPlayerController()->GetViewportSize(Width, Height);
         if (!Check(Cap && VSync && Cap->GetFloat() == 0 && VSync->GetInt() == 0
-            && Width == 1920 && Height == 1080, TEXT("performance run is uncapped, VSync off, actual 1920x1080"))) return false;
+            && Width == 1920 && Height == 1080 && Screen && Screen->GetFloat() == 100.f
+            && Secondary && Secondary->GetFloat() == 100.f && Dynamic && Dynamic->GetInt() == 0,
+            TEXT("performance run is uncapped, VSync off, native 1920x1080 at 100% primary/secondary scale, dynamic resolution off"))) return false;
         MeasureStarted = Now;
         MeasureStartedUTC = FDateTime::UtcNow().ToIso8601();
         FrameSamples.Reset();
@@ -243,7 +251,7 @@ bool USoulAuthoredSettlementQualification::MeasureView(const TCHAR* Label)
     }
     FrameSamples.Sort();
     const int32 N = FrameSamples.Num();
-    const FString Report = FString::Printf(TEXT("{\"view\":\"%s\",\"started_utc\":\"%s\",\"finished_utc\":\"%s\",\"warmup_seconds\":20,\"requested_sample_seconds\":30,\"sample_seconds\":%.6f,\"frames\":%d,\"mean_ms\":%.6f,\"p95_ms\":%.6f,\"p99_ms\":%.6f,\"below_30\":%d,\"below_40\":%d,\"below_60\":%d,\"viewport\":[1920,1080],\"max_fps\":0,\"vsync\":0,\"scope\":\"game-thread wall-clock frame intervals; separate GPU telemetry in runner\"}\n"),
+    const FString Report = FString::Printf(TEXT("{\"view\":\"%s\",\"started_utc\":\"%s\",\"finished_utc\":\"%s\",\"warmup_seconds\":20,\"requested_sample_seconds\":30,\"sample_seconds\":%.6f,\"frames\":%d,\"mean_ms\":%.6f,\"p95_ms\":%.6f,\"p99_ms\":%.6f,\"below_30\":%d,\"below_40\":%d,\"below_60\":%d,\"viewport\":[1920,1080],\"max_fps\":0,\"vsync\":0,\"primary_screen_percentage\":100,\"secondary_screen_percentage\":100,\"dynamic_resolution_mode\":0,\"scope\":\"game-thread wall-clock frame intervals; separate GPU telemetry in runner\"}\n"),
         Label, *MeasureStartedUTC, *FDateTime::UtcNow().ToIso8601(), Sum / 1000., N, Sum / N,
         FrameSamples[FMath::Min(N-1, FMath::FloorToInt(N*.95))], FrameSamples[FMath::Min(N-1, FMath::FloorToInt(N*.99))], Below30, Below40, Below60);
     const FString Base = FPaths::ProjectSavedDir() / (Prefix + TEXT("_performance_") + Label);
@@ -488,7 +496,30 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
         if (!WaitVisit() || !Matches() || !Presentation(true, true)) return;
         Capture(TEXT("fresh_city")); Next(); break;
     case 103:
+        if (bCityGPUProfileQueued)
+        {
+            if (auto* Events = IConsoleManager::Get().FindConsoleVariable(TEXT("r.ShowMaterialDrawEvents")))
+                Events->Set(SavedMaterialDrawEvents, ECVF_SetByConsole);
+            Key(EKeys::Escape); Next(20); break;
+        }
         if (!MeasureView(TEXT("city"))) return;
+        if (FParse::Param(FCommandLine::Get(), TEXT("SoulAuthoredGPUProfile")))
+        {
+            // Capture the actual warmed 1080p game view after the measured
+            // interval, so profiler overhead cannot contaminate its samples.
+            auto* PC = GetWorld()->GetFirstPlayerController();
+            if (auto* Events = IConsoleManager::Get().FindConsoleVariable(TEXT("r.ShowMaterialDrawEvents")))
+            {
+                SavedMaterialDrawEvents = Events->GetInt();
+                Events->Set(1, ECVF_SetByConsole);
+            }
+            PC->ConsoleCommand(TEXT("r.ProfileGPU.ShowUI 0"), true);
+            PC->ConsoleCommand(TEXT("ProfileGPU"), true);
+            bCityGPUProfileQueued = true;
+            NextTime = Now + 3;
+            UE_LOG(LogTemp, Display, TEXT("SOUL_AUTHORED_GPU_PROFILE_QUEUED view=city outside_measured_window=1"));
+            return;
+        }
         Key(EKeys::Escape); Next(20); break;
     case 104:
         if (!WaitCampaign() || !Matches() || !Presentation(true, false)) return;

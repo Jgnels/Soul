@@ -22,7 +22,9 @@ p.add_argument('--run', required=True)
 p.add_argument('--restore-checkpoint', type=Path)
 p.add_argument('--expected-campaign', type=Path)
 p.add_argument('--expected-settlement', type=Path)
+p.add_argument('--gpu-profile', action='store_true', help='Profile the warmed city GPU after its frame measurement, before return')
 a = p.parse_args()
+assert not a.gpu_profile or a.mode == 'fresh-performance'
 assert a.run and all(c.isalnum() or c in '-_' for c in a.run)
 run = evidence / 'Local' / a.run
 assert not run.exists(), 'Never reuse a qualification run or player save'
@@ -78,10 +80,13 @@ files = [
     'Data/SettlementEnvironments/DwarfHoldDevelopmentProof.json',
     'Content/Soul/Data/Settlements/DA_Soul_DwarfHold_DevelopmentProof.uasset',
     'Content/Soul/Maps/Settlements/L_DwarfHold_Authored.umap',
-    'Content/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Base_r5.uasset',
-    'Content/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Upgrade_r2.uasset',
     'Binaries/Win64/UnrealEditor-Soul.dll',
 ]
+recipe = json.loads((root/'Data/SettlementEnvironments/DwarfHoldDevelopmentProof.json').read_text())
+for key in ('miniature_base_mesh', 'miniature_upgrade_mesh'):
+    path = recipe[key]
+    assert path.startswith('/Game/Soul/CampaignProxies/') and '..' not in path
+    files.append('Content/'+path.removeprefix('/Game/')+'.uasset')
 receipt['payload'] = [record(root/file) for file in files]
 command = [sys.executable, str(root/'Tools/qualify_soul_vertical.py'),
     '--ue-exe', 'C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe',
@@ -103,8 +108,9 @@ flags = ['-ForceRes', '-RenderOffscreen', '-unattended', '-nosound',
     # English source-content qualification does not exercise translated package
     # remapping. The installed CoreUObject documents this startup optimization;
     # apply only to this process, never protected project configuration.
-    '-ini:Engine:[SystemSettings]:r.AntiAliasingMethod=2,[SystemSettings]:r.Streaming.PoolSize=1600,[SystemSettings]:localization.EnablePackageRemapping=0']
+    '-ini:Engine:[SystemSettings]:r.AntiAliasingMethod=2,[SystemSettings]:r.Streaming.PoolSize=1600,[SystemSettings]:localization.EnablePackageRemapping=0,[SystemSettings]:r.ScreenPercentage=100,[SystemSettings]:r.SecondaryScreenPercentage.GameViewport=100,[SystemSettings]:r.DynamicRes.OperationMode=0']
 if a.mode == 'fresh-performance': flags.append('-SoulAuthoredSettlementFreshLoad')
+if a.gpu_profile: flags.append('-SoulAuthoredGPUProfile')
 command += ['--ue-arg='+flag for flag in flags]
 receipt['command'] = command
 (run/'source-receipt.json').write_text(json.dumps(receipt, indent=2)+'\n')
