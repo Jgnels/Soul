@@ -24,6 +24,8 @@ class WeekendPackagingTests(unittest.TestCase):
                 # Also handle C++ adjacent string literals.
                 text = re.sub(r'"\s*"', '', text)
                 for package in re.findall(r'"(/(?:Game|Engine|RBWeather)/[^"\s]+)"', text):
+                    if package.endswith("/"):  # A directory guard is not a loadable package.
+                        continue
                     package = package.split(".")[0]
                     if "%s" in package:
                         required.update(package.replace("%s", spell) for spell in

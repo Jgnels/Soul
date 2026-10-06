@@ -22,6 +22,8 @@ public:
     void EndDay();
     void HandleNumberKey(int32 Index);
     void HireTavernHero();
+    void BuildTavern();
+    void VisitSettlement();
     void ToggleTownPanel();
     void StartBattle();
     void CastTailwind();

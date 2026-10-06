@@ -8,6 +8,8 @@
 #include "Engine/GameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
+#include "SoulSettlementScenarioData.h"
+#include "SoulSettlementVisitGameMode.h"
 #include "SoulPlaytestRegionActor.h"
 
 ASoulFounderPlaytestCampaignActor::ASoulFounderPlaytestCampaignActor()
@@ -265,8 +267,24 @@ void ASoulFounderPlaytestCampaignActor::HireTavernHero()
     {
         LastMessage = State->bSecondHeroHired
             ? TEXT("The tavern hero is already in your service.")
+            : !State->IsTavernOperational() ? TEXT("Complete the tavern before hiring a companion.")
             : TEXT("Need 1200 gold to hire the tavern hero.");
     }
+}
+
+void ASoulFounderPlaytestCampaignActor::BuildTavern()
+{
+    if (!State || !bTownPanelOpen || !State->IsSettlementDevelopmentEnabled()) return;
+    if (State->BeginSettlementConstruction(TEXT("human.tavern"), LastMessage))
+        LastMessage = TEXT("Tavern construction started. Advance the day to make progress.");
+}
+
+void ASoulFounderPlaytestCampaignActor::VisitSettlement()
+{
+    if (!State || !bTownPanelOpen || !State->IsSettlementDevelopmentEnabled()) return;
+    if (!ASoulSettlementVisitGameMode::CanVisit(State, LastMessage)) return;
+    const FString Map = State->GetSettlementScenario()->OwnedEnvironmentMap.ToSoftObjectPath().GetLongPackageName();
+    UGameplayStatics::OpenLevel(this, FName(*Map), true, TEXT("game=/Script/Soul.SoulSettlementVisitGameMode"));
 }
 
 void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()

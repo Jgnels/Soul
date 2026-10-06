@@ -9,7 +9,9 @@
 #include "InputCoreTypes.h"
 #include "InputKeyEventArgs.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
+#include "SoulSettlementVisitGameMode.h"
 #include "Engine/GameInstance.h"
+#include "Engine/World.h"
 #include "SoulFounderPlaytestCampaignActor.h"
 #include "SoulPlaytestRegionActor.h"
 
@@ -50,6 +52,8 @@ void ASoulFounderPlaytestPlayerController::SetupInputComponent()
     InputComponent->BindKey(EKeys::SpaceBar, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::EndDay);
     InputComponent->BindKey(EKeys::T, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ToggleTown);
     InputComponent->BindKey(EKeys::H, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::HireHero);
+    InputComponent->BindKey(EKeys::U, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::BuildTavern);
+    InputComponent->BindKey(EKeys::V, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::VisitSettlement);
     InputComponent->BindKey(EKeys::B, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::StartBattle);
     InputComponent->BindKey(EKeys::LeftMouseButton, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::PrimaryClick);
     InputComponent->BindKey(EKeys::D, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Defend);
@@ -114,19 +118,21 @@ void ASoulFounderPlaytestPlayerController::Number4() { if (auto* C = GetCampaign
 void ASoulFounderPlaytestPlayerController::Number5() { if (auto* C = GetCampaign()) C->HandleNumberKey(5); }
 void ASoulFounderPlaytestPlayerController::Number6() { if (auto* C = GetCampaign()) C->HandleNumberKey(6); }
 void ASoulFounderPlaytestPlayerController::Number7() { if (auto* C = GetCampaign()) C->HandleNumberKey(7); }
-void ASoulFounderPlaytestPlayerController::EndDay() { if (auto* C = GetCampaign()) C->EndDay(); }
+void ASoulFounderPlaytestPlayerController::EndDay() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("EndDay")); else if (auto* C = GetCampaign()) C->EndDay(); }
 void ASoulFounderPlaytestPlayerController::ToggleTown() { if (auto* C = GetCampaign()) C->ToggleTownPanel(); }
-void ASoulFounderPlaytestPlayerController::HireHero() { if (auto* C = GetCampaign()) C->HireTavernHero(); }
+void ASoulFounderPlaytestPlayerController::HireHero() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("Hire")); else if (auto* C = GetCampaign()) C->HireTavernHero(); }
+void ASoulFounderPlaytestPlayerController::BuildTavern() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("BuildTavern")); else if (auto* C = GetCampaign()) C->BuildTavern(); }
+void ASoulFounderPlaytestPlayerController::VisitSettlement() { if (auto* C = GetCampaign()) C->VisitSettlement(); }
 void ASoulFounderPlaytestPlayerController::StartBattle() { if (auto* C = GetCampaign()) C->StartBattle(); }
 void ASoulFounderPlaytestPlayerController::Defend() {}
 void ASoulFounderPlaytestPlayerController::Wait() {}
 void ASoulFounderPlaytestPlayerController::Spell1() {}
 void ASoulFounderPlaytestPlayerController::Spell2() {}
 void ASoulFounderPlaytestPlayerController::Spell3() {}
-void ASoulFounderPlaytestPlayerController::Spell4() { if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>())S->LoadCampaign(); }
-void ASoulFounderPlaytestPlayerController::Spell5() { if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>())S->SaveCampaign(); }
+void ASoulFounderPlaytestPlayerController::Spell4() { if(auto* V=GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>())V->HandleAction(TEXT("Load"));else if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>())S->LoadCampaign(); }
+void ASoulFounderPlaytestPlayerController::Spell5() { if(auto* V=GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>())V->HandleAction(TEXT("Save"));else if(auto* S=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>())S->SaveCampaign(); }
 void ASoulFounderPlaytestPlayerController::Spell6() {}
-void ASoulFounderPlaytestPlayerController::CancelPanel() { if (auto* C = GetCampaign()) C->CancelPanel(); }
+void ASoulFounderPlaytestPlayerController::CancelPanel() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("Return")); else if (auto* C = GetCampaign()) C->CancelPanel(); }
 
 void ASoulFounderPlaytestPlayerController::ZoomIn() { if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) C->Zoom(1); }
 void ASoulFounderPlaytestPlayerController::ZoomOut() { if(auto* C=Cast<ASoulCampaignCamera>(GetViewTarget())) C->Zoom(-1); }

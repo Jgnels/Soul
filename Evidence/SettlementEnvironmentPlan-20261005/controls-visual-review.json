@@ -1,0 +1,21 @@
+{
+  "scope": "Root inspected all six original 1920x1080 controls-run screenshots; functional UI evidence only.",
+  "directory": "Local/development-controls-r1/User/Saved/Screenshots",
+  "images": [
+    {"file": "development-controls-r1_start.png", "day": 1, "gold": 3000, "visible_state": "Tavern Unbuilt / level 0; hiring locked; 200 gold / 2 days"},
+    {"file": "development-controls-r1_mid.png", "day": 2, "gold": 3250, "visible_state": "Tavern Building / level 0; 1 day remaining; hiring locked"},
+    {"file": "development-controls-r1_completed.png", "day": 3, "gold": 3700, "visible_state": "Tavern Intact / level 1; companion hiring available for 1200 gold"},
+    {"file": "development-controls-r1_loaded.png", "day": 2, "gold": 3250, "visible_state": "Campaign reloaded; Building / level 0; 1 day remaining; hiring locked again"},
+    {"file": "development-controls-r1_hired.png", "day": 3, "gold": 2500, "visible_state": "Intact / level 1; companion hired; duplicate hiring rejection visible"},
+    {"file": "development-controls-r1_loaded_completed.png", "day": 3, "gold": 2500, "visible_state": "Campaign reloaded; Intact / level 1; companion remains hired"}
+  ],
+  "ui_result": "PASS: development state and service access are legible and agree with the audited snapshots.",
+  "art_result": "NOT ACCEPTED: screenshots still show the temporary sparse corridor settlement, not the chosen authored capital or its derived miniature.",
+  "physical_building_reveal": "Not demonstrated. The data fixture deliberately has no owned environment binding or miniature actor group.",
+  "terrain": "Existing L_evil_waterfront retained; no terrain mutation in this settlement pass.",
+  "remaining_visual_defects": [
+    "Temporary Crownstead scatter does not read as a major authored city.",
+    "The full authored city, meaningful hinterland composition and matching strategic representation are still absent.",
+    "These UI screenshots provide no basis for a Bannerlord/Warhammer quality-category claim."
+  ]
+}

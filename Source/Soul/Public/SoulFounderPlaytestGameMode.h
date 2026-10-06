@@ -12,6 +12,14 @@ public:
     virtual void Tick(float Seconds) override;
 private:
     void TickVisualQualification(float Seconds);
+    void TickSettlementDevelopmentQualification(float Seconds);
+    bool bSettlementDevelopmentQualification=false;
+    double DevelopmentQualificationStart=0,DevelopmentQualificationNextStep=0;
+    int32 DevelopmentInitialGold=0,DevelopmentInitialDay=0,DevelopmentGoldIncome=0;
+    uint32 DevelopmentExpectedLoadRevision=0,DevelopmentExpectedStateRevision=0;
+    FString DevelopmentSettlementSnapshot;
+    TArray<uint8> DevelopmentSaveBefore;
+    bool bDevelopmentObservedPersistenceBusy=false;
     float VisualElapsed=0;
     int32 VisualStep=0;
     int32 VisualFrames=0;

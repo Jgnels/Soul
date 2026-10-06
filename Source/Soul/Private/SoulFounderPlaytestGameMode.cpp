@@ -78,6 +78,7 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
         if(auto* PC=GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
     }
     bVisualQualification=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignVisualProof"));
+    bSettlementDevelopmentQualification=FParse::Param(FCommandLine::Get(),TEXT("SoulSettlementDevelopmentQualification"));
     FParse::Value(FCommandLine::Get(),TEXT("SoulCampaignCapturePrefix="),CapturePrefix);
     CapturePrefix=FPaths::MakeValidFileName(CapturePrefix.IsEmpty()?TEXT("World"):CapturePrefix);
     bQualification=FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignQualification"));
@@ -91,6 +92,8 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if(bSettlementDevelopmentQualification)
+    {if(!bDone)TickSettlementDevelopmentQualification(Seconds);return;}
     // Separate-process F9 proof: a fresh game must restore the preceding F5 snapshot.
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignLoadProof"))&&!bDone&&State&&Campaign)
     {

@@ -34,6 +34,8 @@ private:
     void EndDay();
     void ToggleTown();
     void HireHero();
+    void BuildTavern();
+    void VisitSettlement();
     void StartBattle();
     void Defend();
     void Wait();

@@ -1,0 +1,1640 @@
+{
+  "recorded_utc": "2026-10-06T04:16:41.961508+00:00",
+  "status": "CONTROLS_PASS",
+  "authored_environment": 0,
+  "miniature": 0,
+  "battle_environment": 0,
+  "performance_acceptance": false,
+  "run": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1",
+  "summary": {
+    "stage": "G0",
+    "command": [
+      "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+      "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "/Engine/Maps/Entry?game=/Script/Soul.SoulFounderPlaytestGameMode",
+      "-game",
+      "-windowed",
+      "-ResX=1920",
+      "-ResY=1080",
+      "-nosplash",
+      "-ExecCmds=t.MaxFPS 20,r.VSync 0",
+      "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\SettlementEnvironmentPlan-20261005\\Local\\development-controls-r1\\runtime\\unreal.log",
+      "-d3d11",
+      "-ForceRes",
+      "-RenderOffscreen",
+      "-unattended",
+      "-nosound",
+      "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+      "-DDC=InstalledNoZenLocalFallback",
+      "-SoulMesaTerrain",
+      "-SoulEvilCorridor",
+      "-SoulActivePerSide=15",
+      "-UserDir=D:/RefinedBadger/Worktrees/Soul-bannerlord-campaign-map-20260929/Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User",
+      "-SoulCampaignCapturePrefix=development-controls-r1",
+      "-SoulSettlementDevelopmentProof",
+      "-SoulSettlementDevelopmentQualification"
+    ],
+    "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\SettlementEnvironmentPlan-20261005\\Local\\development-controls-r1\\runtime",
+    "runtime_kind": "editor_game",
+    "working_directory": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929",
+    "executable_sha256": "5db233608a7d82102cc92cf9f591b8a9657ae16a5b7b09b131d00bbe0a4cc715",
+    "expected_active_units": 0,
+    "diagnostic_rhi": "d3d11",
+    "observation_seconds_after_ready": 60.0,
+    "completion_marker": "SOUL_SETTLEMENT_DEVELOPMENT_CONTROLS_PASS",
+    "completion_timeout": 600.0,
+    "mesa_payload_sha256": {
+      "Data/CampaignMesa/presentation.json": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "Data/CampaignMesaLocal/MesaHeight.r16": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "Content/SoulCampaignMountain/L_evil_waterfront.umap": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "Binaries/Win64/UnrealEditor-Soul.dll": "f3d25802357a9e7b9b0d79a8cd2175ecf4fcb9b80ba57023790e986ca7e4ccf5"
+    },
+    "evil_corridor_profile_sha256": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+    "started_utc": "2026-10-06T04:03:12.445269+00:00",
+    "initial_gpu": [
+      {
+        "name": "NVIDIA GeForce GTX 1080",
+        "memory_total_mib": 8192.0,
+        "memory_used_mib": 3847.0,
+        "temperature_c": 46.0,
+        "utilization_percent": 14.0
+      }
+    ],
+    "automatic_acceptance": false,
+    "pid": 15792,
+    "ready_utc": "2026-10-06T04:10:47.208142+00:00",
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "stopped_utc": "2026-10-06T04:12:10.253407+00:00",
+    "stop_reason": "completion_marker_process_exit",
+    "cleanup": "already_exited",
+    "elapsed_seconds": 537.8,
+    "observed_after_ready_seconds": 83.14,
+    "crash_signatures": [],
+    "rhi_log_lines": [
+      "[2026.10.06-04.03.16:208][  0]LogD3D11RHI: Creating D3DDevice using adapter:"
+    ],
+    "completion_marker_observed": true,
+    "alive_observed_after_ready_seconds": 78.02,
+    "preserved_crashes": []
+  },
+  "runtime_receipt": {
+    "status": "CONTROLS_PASS",
+    "authored_environment": 0,
+    "miniature": 0,
+    "battle_environment": 0,
+    "viewport": [
+      1920,
+      1080
+    ],
+    "fps_cap": 20,
+    "warmup_seconds": 20,
+    "screenshot_count": 6,
+    "initial_gold": 3000,
+    "final_gold": 2500,
+    "final_day": 3,
+    "load_revision": 2,
+    "both_domain_snapshots_exact": true,
+    "last_operation_busy_observed": false
+  },
+  "checks_count": 116,
+  "paced_steps": 24,
+  "inputs_count": 20,
+  "input_counts": {
+    "T": 6,
+    "H": 3,
+    "U": 1,
+    "LeftMouseButton": 2,
+    "SpaceBar": 4,
+    "F5": 2,
+    "F9": 2
+  },
+  "audit_checks": [
+    {
+      "check": "wrapper clean exit0 and completion marker",
+      "pass": true
+    },
+    {
+      "check": "one actual controls PASS and no error/fatal/assertion/fail markers",
+      "pass": true
+    },
+    {
+      "check": "runtime receipt reports CONTROLS_PASS",
+      "pass": true
+    },
+    {
+      "check": "explicit nonvisual scope flags remain zero",
+      "pass": true
+    },
+    {
+      "check": "1920x1080 and20FPS functional run with20s warmup",
+      "pass": true
+    },
+    {
+      "check": "all24 steps0..23 observed",
+      "pass": true
+    },
+    {
+      "check": "steps ordered monotonically",
+      "pass": true
+    },
+    {
+      "check": "exact20 logged input actions including2F5/2F9",
+      "pass": true
+    },
+    {
+      "check": "every logged check label exists in frozen qualifier source",
+      "pass": true
+    },
+    {
+      "check": "step0: loaded data fixture is human.tavern:200 gold,2 days,level1,tavern hero service",
+      "pass": true
+    },
+    {
+      "check": "step1: T opens real town UI with construction visible and hiring absent",
+      "pass": true
+    },
+    {
+      "check": "step2: blocked hiring preserves both domains",
+      "pass": true
+    },
+    {
+      "check": "step3: U starts construction once and deducts exactly200 gold without advancing day",
+      "pass": true
+    },
+    {
+      "check": "step4: rendered BuildTavern duplicate reached its handler and reported rejection",
+      "pass": true
+    },
+    {
+      "check": "step5: one Space advances one campaign/construction day; hiring remains locked",
+      "pass": true
+    },
+    {
+      "check": "step6: mid-construction town UI is reopened and rendered",
+      "pass": true
+    },
+    {
+      "check": "step7: F5 does not mutate either domain",
+      "pass": true
+    },
+    {
+      "check": "step8: second Space completes tavern and unlocks existing service",
+      "pass": true
+    },
+    {
+      "check": "step9: completed town UI is reopened and rendered before capture",
+      "pass": true
+    },
+    {
+      "check": "step10: actual viewport is 1920x1080",
+      "pass": true
+    },
+    {
+      "check": "step11: F9 restores exact mid-construction campaign and settlement snapshots",
+      "pass": true
+    },
+    {
+      "check": "step12: reopened loaded town still hides locked hiring",
+      "pass": true
+    },
+    {
+      "check": "step13: H after rollback stays blocked and preserves both restored domains",
+      "pass": true
+    },
+    {
+      "check": "step14: restored remaining day completes once and EndDay closes town",
+      "pass": true
+    },
+    {
+      "check": "step15: completed town remains closed after EndDay",
+      "pass": true
+    },
+    {
+      "check": "step16: T reopens completed town with rendered hiring hitbox",
+      "pass": true
+    },
+    {
+      "check": "step17: H hires existing companion once for exactly1200 gold",
+      "pass": true
+    },
+    {
+      "check": "step18: rendered Hire duplicate reached its handler and reported already hired",
+      "pass": true
+    },
+    {
+      "check": "step19: completed-plus-hired F5 preserves both live domains",
+      "pass": true
+    },
+    {
+      "check": "step20: ordinary day input changes live checkpoint before final F9",
+      "pass": true
+    },
+    {
+      "check": "step21: final F9 restores exact completed-plus-hired campaign and settlement snapshots",
+      "pass": true
+    },
+    {
+      "check": "step22: loaded completed state is visible in real town panel",
+      "pass": true
+    },
+    {
+      "check": "step23: final rendered town still matches both saved domains",
+      "pass": true
+    },
+    {
+      "check": "step0 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step1 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step2 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step3 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step4 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step5 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step6 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step7 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step8 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step9 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step10 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step11 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step12 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step13 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step14 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step15 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step16 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step17 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step18 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step19 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step20 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step21 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step22 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "step23 actual viewport checked once",
+      "pass": true
+    },
+    {
+      "check": "two successful scoped saves, loads and presentation revisions",
+      "pass": true
+    },
+    {
+      "check": "runtime final revision2 and exact two-domain assertion",
+      "pass": true
+    },
+    {
+      "check": "both F5 completions require changed checkpoint bytes",
+      "pass": true
+    },
+    {
+      "check": "both F9 completions require current success and exact revision increments",
+      "pass": true
+    },
+    {
+      "check": "start realPNG1920x1080",
+      "pass": true
+    },
+    {
+      "check": "mid realPNG1920x1080",
+      "pass": true
+    },
+    {
+      "check": "completed realPNG1920x1080",
+      "pass": true
+    },
+    {
+      "check": "loaded realPNG1920x1080",
+      "pass": true
+    },
+    {
+      "check": "hired realPNG1920x1080",
+      "pass": true
+    },
+    {
+      "check": "loaded_completed realPNG1920x1080",
+      "pass": true
+    },
+    {
+      "check": "all six screenshot completion log events in order",
+      "pass": true
+    },
+    {
+      "check": "completed screenshot logged before first F9",
+      "pass": true
+    },
+    {
+      "check": "persisted snapshots match actual day/gold/hire/tavern sequence",
+      "pass": true
+    },
+    {
+      "check": "final economy balances200build+2x450income-1200hire",
+      "pass": true
+    },
+    {
+      "check": "other four settlement buildings unchanged across persisted snapshots",
+      "pass": true
+    },
+    {
+      "check": "all campaign fields except day/gold/hired remain exactly equal",
+      "pass": true
+    },
+    {
+      "check": "all settlement fields except tavern remain exactly equal",
+      "pass": true
+    },
+    {
+      "check": "all source/proofDA/map/presentation/height/DLL frozen hashes match",
+      "pass": true
+    }
+  ],
+  "failed_audit_checks": [],
+  "actual_checks": [
+    {
+      "step": 0,
+      "label": "explicit development proof enabled without competing qualification modes",
+      "log_line": 1591
+    },
+    {
+      "step": 0,
+      "label": "controls proof uses unchanged retained EvilCorridor terrain",
+      "log_line": 1592
+    },
+    {
+      "step": 0,
+      "label": "explicit valid unique capture prefix required",
+      "log_line": 1593
+    },
+    {
+      "step": 0,
+      "label": "isolated absolute UserDir owns this run's Saved directory",
+      "log_line": 1594
+    },
+    {
+      "step": 0,
+      "label": "fresh prefix and absent campaign save prevent reused evidence or player-save overwrite",
+      "log_line": 1595
+    },
+    {
+      "step": 0,
+      "label": "fresh-run marker reserved",
+      "log_line": 1596
+    },
+    {
+      "step": 0,
+      "label": "functional frame cap available",
+      "log_line": 1597
+    },
+    {
+      "step": 0,
+      "label": "20 FPS functional cap applied; not a performance benchmark",
+      "log_line": 1599
+    },
+    {
+      "step": 0,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1607
+    },
+    {
+      "step": 0,
+      "label": "actual tavern state exists",
+      "log_line": 1608
+    },
+    {
+      "step": 0,
+      "label": "loaded data fixture is human.tavern:200 gold,2 days,level1,tavern hero service",
+      "log_line": 1609
+    },
+    {
+      "step": 0,
+      "label": "fresh initial state has an unbuilt tavern and no hired companion",
+      "log_line": 1610
+    },
+    {
+      "step": 0,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1611
+    },
+    {
+      "step": 0,
+      "label": "both expected snapshots written to isolated run evidence",
+      "log_line": 1612
+    },
+    {
+      "step": 1,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1614
+    },
+    {
+      "step": 1,
+      "label": "actual tavern state exists",
+      "log_line": 1615
+    },
+    {
+      "step": 1,
+      "label": "T opens real town UI with construction visible and hiring absent",
+      "log_line": 1616
+    },
+    {
+      "step": 2,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1619
+    },
+    {
+      "step": 2,
+      "label": "actual tavern state exists",
+      "log_line": 1620
+    },
+    {
+      "step": 2,
+      "label": "H is blocked before construction without spending gold",
+      "log_line": 1621
+    },
+    {
+      "step": 2,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1622
+    },
+    {
+      "step": 2,
+      "label": "blocked hiring preserves both domains",
+      "log_line": 1623
+    },
+    {
+      "step": 3,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1625
+    },
+    {
+      "step": 3,
+      "label": "actual tavern state exists",
+      "log_line": 1626
+    },
+    {
+      "step": 3,
+      "label": "U starts construction once and deducts exactly200 gold without advancing day",
+      "log_line": 1627
+    },
+    {
+      "step": 3,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1628
+    },
+    {
+      "step": 3,
+      "label": "requested action has an actual rendered HUD hitbox",
+      "log_line": 1629
+    },
+    {
+      "step": 4,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1631
+    },
+    {
+      "step": 4,
+      "label": "actual tavern state exists",
+      "log_line": 1632
+    },
+    {
+      "step": 4,
+      "label": "rendered BuildTavern duplicate reached its handler and reported rejection",
+      "log_line": 1633
+    },
+    {
+      "step": 4,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1634
+    },
+    {
+      "step": 4,
+      "label": "duplicate rendered BuildTavern click preserves exact cost and both domains",
+      "log_line": 1635
+    },
+    {
+      "step": 4,
+      "label": "rejected duplicate has no development revision",
+      "log_line": 1636
+    },
+    {
+      "step": 5,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1638
+    },
+    {
+      "step": 5,
+      "label": "actual tavern state exists",
+      "log_line": 1639
+    },
+    {
+      "step": 5,
+      "label": "one Space advances one campaign/construction day; hiring remains locked",
+      "log_line": 1640
+    },
+    {
+      "step": 5,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1641
+    },
+    {
+      "step": 5,
+      "label": "both expected snapshots written to isolated run evidence",
+      "log_line": 1642
+    },
+    {
+      "step": 6,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1644
+    },
+    {
+      "step": 6,
+      "label": "actual tavern state exists",
+      "log_line": 1645
+    },
+    {
+      "step": 6,
+      "label": "mid-construction town UI is reopened and rendered",
+      "log_line": 1646
+    },
+    {
+      "step": 7,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1651
+    },
+    {
+      "step": 7,
+      "label": "actual tavern state exists",
+      "log_line": 1652
+    },
+    {
+      "step": 7,
+      "label": "new F5 operation completed and changed actual RBSave checkpoint bytes",
+      "log_line": 1653
+    },
+    {
+      "step": 7,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1654
+    },
+    {
+      "step": 7,
+      "label": "F5 does not mutate either domain",
+      "log_line": 1655
+    },
+    {
+      "step": 8,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1657
+    },
+    {
+      "step": 8,
+      "label": "actual tavern state exists",
+      "log_line": 1658
+    },
+    {
+      "step": 8,
+      "label": "second Space completes tavern and unlocks existing service",
+      "log_line": 1659
+    },
+    {
+      "step": 9,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1661
+    },
+    {
+      "step": 9,
+      "label": "actual tavern state exists",
+      "log_line": 1662
+    },
+    {
+      "step": 9,
+      "label": "completed town UI is reopened and rendered before capture",
+      "log_line": 1663
+    },
+    {
+      "step": 10,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1665
+    },
+    {
+      "step": 10,
+      "label": "actual tavern state exists",
+      "log_line": 1666
+    },
+    {
+      "step": 11,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1670
+    },
+    {
+      "step": 11,
+      "label": "actual tavern state exists",
+      "log_line": 1671
+    },
+    {
+      "step": 11,
+      "label": "new F9 callback completed with exact load and settlement revisions",
+      "log_line": 1672
+    },
+    {
+      "step": 11,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1673
+    },
+    {
+      "step": 11,
+      "label": "F9 restores exact mid-construction campaign and settlement snapshots",
+      "log_line": 1674
+    },
+    {
+      "step": 11,
+      "label": "loaded checkpoint restores one remaining day and synchronizes closed town UI",
+      "log_line": 1675
+    },
+    {
+      "step": 12,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1677
+    },
+    {
+      "step": 12,
+      "label": "actual tavern state exists",
+      "log_line": 1678
+    },
+    {
+      "step": 12,
+      "label": "reopened loaded town still hides locked hiring",
+      "log_line": 1679
+    },
+    {
+      "step": 13,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1682
+    },
+    {
+      "step": 13,
+      "label": "actual tavern state exists",
+      "log_line": 1683
+    },
+    {
+      "step": 13,
+      "label": "H after rollback reaches the locked-service handler",
+      "log_line": 1684
+    },
+    {
+      "step": 13,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1685
+    },
+    {
+      "step": 13,
+      "label": "H after rollback stays blocked and preserves both restored domains",
+      "log_line": 1686
+    },
+    {
+      "step": 14,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1688
+    },
+    {
+      "step": 14,
+      "label": "actual tavern state exists",
+      "log_line": 1689
+    },
+    {
+      "step": 14,
+      "label": "restored remaining day completes once and EndDay closes town",
+      "log_line": 1690
+    },
+    {
+      "step": 15,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1691
+    },
+    {
+      "step": 15,
+      "label": "actual tavern state exists",
+      "log_line": 1692
+    },
+    {
+      "step": 15,
+      "label": "completed town remains closed after EndDay",
+      "log_line": 1693
+    },
+    {
+      "step": 16,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1695
+    },
+    {
+      "step": 16,
+      "label": "actual tavern state exists",
+      "log_line": 1696
+    },
+    {
+      "step": 16,
+      "label": "T reopens completed town with rendered hiring hitbox",
+      "log_line": 1697
+    },
+    {
+      "step": 17,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1699
+    },
+    {
+      "step": 17,
+      "label": "actual tavern state exists",
+      "log_line": 1700
+    },
+    {
+      "step": 17,
+      "label": "H hires existing companion once for exactly1200 gold",
+      "log_line": 1701
+    },
+    {
+      "step": 17,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1702
+    },
+    {
+      "step": 17,
+      "label": "both expected snapshots written to isolated run evidence",
+      "log_line": 1703
+    },
+    {
+      "step": 17,
+      "label": "requested action has an actual rendered HUD hitbox",
+      "log_line": 1704
+    },
+    {
+      "step": 18,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1707
+    },
+    {
+      "step": 18,
+      "label": "actual tavern state exists",
+      "log_line": 1708
+    },
+    {
+      "step": 18,
+      "label": "rendered Hire duplicate reached its handler and reported already hired",
+      "log_line": 1709
+    },
+    {
+      "step": 18,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1710
+    },
+    {
+      "step": 18,
+      "label": "duplicate rendered Hire click preserves completed town, hired hero and gold",
+      "log_line": 1711
+    },
+    {
+      "step": 19,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1715
+    },
+    {
+      "step": 19,
+      "label": "actual tavern state exists",
+      "log_line": 1716
+    },
+    {
+      "step": 19,
+      "label": "new F5 operation completed and changed actual RBSave checkpoint bytes",
+      "log_line": 1717
+    },
+    {
+      "step": 19,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1718
+    },
+    {
+      "step": 19,
+      "label": "completed-plus-hired F5 preserves both live domains",
+      "log_line": 1719
+    },
+    {
+      "step": 20,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1721
+    },
+    {
+      "step": 20,
+      "label": "actual tavern state exists",
+      "log_line": 1722
+    },
+    {
+      "step": 20,
+      "label": "ordinary day input changes live checkpoint before final F9",
+      "log_line": 1723
+    },
+    {
+      "step": 21,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1727
+    },
+    {
+      "step": 21,
+      "label": "actual tavern state exists",
+      "log_line": 1728
+    },
+    {
+      "step": 21,
+      "label": "new F9 callback completed with exact load and settlement revisions",
+      "log_line": 1729
+    },
+    {
+      "step": 21,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1730
+    },
+    {
+      "step": 21,
+      "label": "final F9 restores exact completed-plus-hired campaign and settlement snapshots",
+      "log_line": 1731
+    },
+    {
+      "step": 21,
+      "label": "completed building, companion, gold and day persist together",
+      "log_line": 1732
+    },
+    {
+      "step": 22,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1734
+    },
+    {
+      "step": 22,
+      "label": "actual tavern state exists",
+      "log_line": 1735
+    },
+    {
+      "step": 22,
+      "label": "loaded completed state is visible in real town panel",
+      "log_line": 1736
+    },
+    {
+      "step": 23,
+      "label": "actual viewport is 1920x1080",
+      "log_line": 1738
+    },
+    {
+      "step": 23,
+      "label": "actual tavern state exists",
+      "log_line": 1739
+    },
+    {
+      "step": 23,
+      "label": "both actual RBSave domain snapshots captured",
+      "log_line": 1740
+    },
+    {
+      "step": 23,
+      "label": "final rendered town still matches both saved domains",
+      "log_line": 1741
+    },
+    {
+      "step": 23,
+      "label": "requested screenshot was actually written",
+      "log_line": 1742
+    },
+    {
+      "step": 23,
+      "label": "requested screenshot was actually written",
+      "log_line": 1743
+    },
+    {
+      "step": 23,
+      "label": "requested screenshot was actually written",
+      "log_line": 1744
+    },
+    {
+      "step": 23,
+      "label": "requested screenshot was actually written",
+      "log_line": 1745
+    },
+    {
+      "step": 23,
+      "label": "requested screenshot was actually written",
+      "log_line": 1746
+    },
+    {
+      "step": 23,
+      "label": "requested screenshot was actually written",
+      "log_line": 1747
+    },
+    {
+      "step": 23,
+      "label": "controls receipt written",
+      "log_line": 1748
+    }
+  ],
+  "actual_inputs": [
+    {
+      "step": 0,
+      "key": "T",
+      "log_line": 1613
+    },
+    {
+      "step": 1,
+      "key": "H",
+      "log_line": 1617
+    },
+    {
+      "step": 2,
+      "key": "U",
+      "log_line": 1624
+    },
+    {
+      "step": 3,
+      "key": "LeftMouseButton",
+      "log_line": 1630
+    },
+    {
+      "step": 4,
+      "key": "SpaceBar",
+      "log_line": 1637
+    },
+    {
+      "step": 5,
+      "key": "T",
+      "log_line": 1643
+    },
+    {
+      "step": 6,
+      "key": "F5",
+      "log_line": 1647
+    },
+    {
+      "step": 7,
+      "key": "SpaceBar",
+      "log_line": 1656
+    },
+    {
+      "step": 8,
+      "key": "T",
+      "log_line": 1660
+    },
+    {
+      "step": 10,
+      "key": "F9",
+      "log_line": 1667
+    },
+    {
+      "step": 11,
+      "key": "T",
+      "log_line": 1676
+    },
+    {
+      "step": 12,
+      "key": "H",
+      "log_line": 1680
+    },
+    {
+      "step": 13,
+      "key": "SpaceBar",
+      "log_line": 1687
+    },
+    {
+      "step": 15,
+      "key": "T",
+      "log_line": 1694
+    },
+    {
+      "step": 16,
+      "key": "H",
+      "log_line": 1698
+    },
+    {
+      "step": 17,
+      "key": "LeftMouseButton",
+      "log_line": 1705
+    },
+    {
+      "step": 18,
+      "key": "F5",
+      "log_line": 1712
+    },
+    {
+      "step": 19,
+      "key": "SpaceBar",
+      "log_line": 1720
+    },
+    {
+      "step": 20,
+      "key": "F9",
+      "log_line": 1724
+    },
+    {
+      "step": 21,
+      "key": "T",
+      "log_line": 1733
+    }
+  ],
+  "pass_markers": [
+    {
+      "log_line": 1749,
+      "text": "[2026.10.06-04.11.56:027][242]LogTemp: Display: SOUL_SETTLEMENT_DEVELOPMENT_CONTROLS_PASS authored_environment=0 miniature=0 battle_environment=0 two_domain_roundtrips=2 screenshots=6 gold=2500 day=3"
+    }
+  ],
+  "unexpected_errors": [],
+  "save_events": [
+    {
+      "log_line": 1650,
+      "text": "[2026.10.06-04.11.23:556][634]LogSoulCampaign: Display: SOUL_CAMPAIGN_SAVE success=1 path=D:/RefinedBadger/Worktrees/Soul-bannerlord-campaign-map-20260929/Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/RBSave/Domains/Soul.VerticalCampaign.domain.rbsave message=domain save complete"
+    },
+    {
+      "log_line": 1714,
+      "text": "[2026.10.06-04.11.46:318][ 53]LogSoulCampaign: Display: SOUL_CAMPAIGN_SAVE success=1 path=D:/RefinedBadger/Worktrees/Soul-bannerlord-campaign-map-20260929/Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/RBSave/Domains/Soul.VerticalCampaign.domain.rbsave message=domain save complete"
+    }
+  ],
+  "load_events": [
+    {
+      "log_line": 1668,
+      "text": "[2026.10.06-04.11.30:142][754]LogSoulCampaign: Display: SOUL_CAMPAIGN_LOAD success=1 region=human_capital knights=45 xp=0"
+    },
+    {
+      "log_line": 1725,
+      "text": "[2026.10.06-04.11.49:969][126]LogSoulCampaign: Display: SOUL_CAMPAIGN_LOAD success=1 region=human_capital knights=45 xp=0"
+    }
+  ],
+  "save_scope_events": [
+    {
+      "log_line": 1648,
+      "text": "[2026.10.06-04.11.20:868][596]LogSoulCampaign: Display: SOUL_CAMPAIGN_SAVE_SCOPE domains=Soul.Campaign,Soul.Settlements"
+    },
+    {
+      "log_line": 1713,
+      "text": "[2026.10.06-04.11.45:869][ 44]LogSoulCampaign: Display: SOUL_CAMPAIGN_SAVE_SCOPE domains=Soul.Campaign,Soul.Settlements"
+    }
+  ],
+  "load_presented_events": [
+    {
+      "log_line": 1669,
+      "text": "[2026.10.06-04.11.30:192][755]LogTemp: Display: SOUL_CAMPAIGN_LOAD_PRESENTED region=human_capital revision=1"
+    },
+    {
+      "log_line": 1726,
+      "text": "[2026.10.06-04.11.50:119][129]LogTemp: Display: SOUL_CAMPAIGN_LOAD_PRESENTED region=human_capital revision=2"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/Screenshots/development-controls-r1_start.png",
+      "bytes": 2078746,
+      "sha256": "a7dbb8369feaa9e43a289f236be089301ca49c3c18638ea295ff90a2fa336260",
+      "label": "start",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/Screenshots/development-controls-r1_mid.png",
+      "bytes": 2086893,
+      "sha256": "3711f51b270182186d5b2c8eb3cbb6c24fcc1e46a7c0e424172f7ac850f447c9",
+      "label": "mid",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/Screenshots/development-controls-r1_completed.png",
+      "bytes": 2051485,
+      "sha256": "dd869fa2a7982a5e16e198be35126047724d2d2858dd54764a3604a302bd6eed",
+      "label": "completed",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/Screenshots/development-controls-r1_loaded.png",
+      "bytes": 2049724,
+      "sha256": "868a8dd2a5a1b142bfac092670793272819b59d5bd98fb4a00b6342c68499041",
+      "label": "loaded",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/Screenshots/development-controls-r1_hired.png",
+      "bytes": 2043376,
+      "sha256": "111f9fc6823ceda4fab850febdeb8e2a549d8f06ded1efb8fdc80f062edd4109",
+      "label": "hired",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/Screenshots/development-controls-r1_loaded_completed.png",
+      "bytes": 2048789,
+      "sha256": "a64844675799a2e53893309f3f16bf6a3228d0cdb54450a480a0fefcfe6a0677",
+      "label": "loaded_completed",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "screenshot_log_events": [
+    {
+      "name": "development-controls-r1_start",
+      "width": 1920,
+      "height": 1080,
+      "log_line": 1618
+    },
+    {
+      "name": "development-controls-r1_mid",
+      "width": 1920,
+      "height": 1080,
+      "log_line": 1649
+    },
+    {
+      "name": "development-controls-r1_completed",
+      "width": 1920,
+      "height": 1080,
+      "log_line": 1664
+    },
+    {
+      "name": "development-controls-r1_loaded",
+      "width": 1920,
+      "height": 1080,
+      "log_line": 1681
+    },
+    {
+      "name": "development-controls-r1_hired",
+      "width": 1920,
+      "height": 1080,
+      "log_line": 1706
+    },
+    {
+      "name": "development-controls-r1_loaded_completed",
+      "width": 1920,
+      "height": 1080,
+      "log_line": 1737
+    }
+  ],
+  "snapshot_values": [
+    {
+      "label": "start",
+      "day": 1,
+      "gold": 3000,
+      "daily_gold_income": 450,
+      "hired": false,
+      "tavern": {
+        "id": "human.tavern",
+        "level": 0,
+        "integrity": 0,
+        "days": 0,
+        "condition": 0
+      },
+      "settlement_id": "human_capital",
+      "files": [
+        {
+          "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_start_Soul.Campaign.json",
+          "bytes": 1198,
+          "sha256": "c5a5ae4c0a734b0cb410568dcf310c3623516556caa7e6c0db1fb1552dfabc6e"
+        },
+        {
+          "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_start_Soul.Settlements.json",
+          "bytes": 829,
+          "sha256": "b40069b1385abf546addf89a69d7c1aa449ef8ebc48fb9ff91833258982b78c0"
+        }
+      ]
+    },
+    {
+      "label": "mid",
+      "day": 2,
+      "gold": 3250,
+      "daily_gold_income": 450,
+      "hired": false,
+      "tavern": {
+        "id": "human.tavern",
+        "level": 0,
+        "integrity": 0,
+        "days": 1,
+        "condition": 1
+      },
+      "settlement_id": "human_capital",
+      "files": [
+        {
+          "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_mid_Soul.Campaign.json",
+          "bytes": 1198,
+          "sha256": "c1b97fdb154aa5474a2218eadf50fabfc95f9781b9dcc7dadbb5b7f1f469c4f1"
+        },
+        {
+          "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_mid_Soul.Settlements.json",
+          "bytes": 829,
+          "sha256": "75fa0860506e3e6318450cb987666f825c8665bafed11a41175768609a96bb4a"
+        }
+      ]
+    },
+    {
+      "label": "completed_hired",
+      "day": 3,
+      "gold": 2500,
+      "daily_gold_income": 450,
+      "hired": true,
+      "tavern": {
+        "id": "human.tavern",
+        "level": 1,
+        "integrity": 1000,
+        "days": 0,
+        "condition": 2
+      },
+      "settlement_id": "human_capital",
+      "files": [
+        {
+          "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_completed_hired_Soul.Campaign.json",
+          "bytes": 1197,
+          "sha256": "5095019ab880a4e9b6511bdc4c1135c48d1d056ee98e21c26364bf5a253d5cda"
+        },
+        {
+          "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_completed_hired_Soul.Settlements.json",
+          "bytes": 832,
+          "sha256": "d5b574da69a92c639e9fe4be33308d26f40f3cef44baf3e4faa35074a19e1739"
+        }
+      ]
+    }
+  ],
+  "source_and_payload_hashes": [
+    {
+      "path": "Binaries/Win64/UnrealEditor-Soul.dll",
+      "bytes": 1400320,
+      "sha256": "f3d25802357a9e7b9b0d79a8cd2175ecf4fcb9b80ba57023790e986ca7e4ccf5",
+      "expected_sha256": "f3d25802357a9e7b9b0d79a8cd2175ecf4fcb9b80ba57023790e986ca7e4ccf5",
+      "matches_frozen": true
+    },
+    {
+      "path": "Config/DefaultGame.ini",
+      "bytes": 18610,
+      "sha256": "bc1f8e9ba196cdcf76a67c26aa0fea2151b151ebe16bd046c02d48d6d6c580a2",
+      "expected_sha256": "bc1f8e9ba196cdcf76a67c26aa0fea2151b151ebe16bd046c02d48d6d6c580a2",
+      "matches_frozen": true
+    },
+    {
+      "path": "Content/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof.uasset",
+      "bytes": 3231,
+      "sha256": "6adaff37ce1e6ed931f79015ac7edf27520700cdaa63f284b42ebdc490210284",
+      "expected_sha256": "6adaff37ce1e6ed931f79015ac7edf27520700cdaa63f284b42ebdc490210284",
+      "matches_frozen": true
+    },
+    {
+      "path": "Content/SoulCampaignMountain/L_evil_waterfront.umap",
+      "bytes": 30029432,
+      "sha256": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "expected_sha256": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "matches_frozen": true
+    },
+    {
+      "path": "Data/CampaignEvilCorridor/presentation.json",
+      "bytes": 97996,
+      "sha256": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+      "expected_sha256": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+      "matches_frozen": true
+    },
+    {
+      "path": "Data/CampaignMesa/presentation.json",
+      "bytes": 58034,
+      "sha256": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "expected_sha256": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "matches_frozen": true
+    },
+    {
+      "path": "Data/CampaignMesaLocal/MesaHeight.r16",
+      "bytes": 8331362,
+      "sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "expected_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+      "bytes": 16786,
+      "sha256": "7a737833db5a787ffa9ec52f442deaec427987e9c276a0061c6a5cf694a21291",
+      "expected_sha256": "7a737833db5a787ffa9ec52f442deaec427987e9c276a0061c6a5cf694a21291",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "bytes": 25772,
+      "sha256": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+      "expected_sha256": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "bytes": 15487,
+      "sha256": "0f6c4e4db78508e170f3e3af0d652c5611bd832c9c86d05ffe5a1a16ca9acba6",
+      "expected_sha256": "0f6c4e4db78508e170f3e3af0d652c5611bd832c9c86d05ffe5a1a16ca9acba6",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "bytes": 10894,
+      "sha256": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72",
+      "expected_sha256": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "bytes": 40097,
+      "sha256": "ce21003d68bd9a7bcb7098de6798c8ce04d92f5f47d99c696f739f0fbfebe5e5",
+      "expected_sha256": "ce21003d68bd9a7bcb7098de6798c8ce04d92f5f47d99c696f739f0fbfebe5e5",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBootstrapActor.cpp",
+      "bytes": 1659,
+      "sha256": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab",
+      "expected_sha256": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBuildingActor.cpp",
+      "bytes": 3357,
+      "sha256": "fb5f332ab0185b39a51b803dc8aeba9133284f30b3267987b695754639ce5f56",
+      "expected_sha256": "fb5f332ab0185b39a51b803dc8aeba9133284f30b3267987b695754639ce5f56",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp",
+      "bytes": 20732,
+      "sha256": "592b819dd8588e80410f99ff54ab35f692547676fac77549332a5d4439ce3d15",
+      "expected_sha256": "592b819dd8588e80410f99ff54ab35f692547676fac77549332a5d4439ce3d15",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementScenarioData.cpp",
+      "bytes": 4034,
+      "sha256": "dc88d9d4812313f5e390432e919f2af2b262ef8c5942d0f57e9a668f98f1b13b",
+      "expected_sha256": "dc88d9d4812313f5e390432e919f2af2b262ef8c5942d0f57e9a668f98f1b13b",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementStateSubsystem.cpp",
+      "bytes": 15506,
+      "sha256": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864",
+      "expected_sha256": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementVisitGameMode.cpp",
+      "bytes": 6430,
+      "sha256": "e53ebe4d69337cd920876397f512412247a6007fa5ba164959b2bdf1b83450be",
+      "expected_sha256": "e53ebe4d69337cd920876397f512412247a6007fa5ba164959b2bdf1b83450be",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "bytes": 15868,
+      "sha256": "4a39a441a2afd4f037a1e190bb9ab16b452879e2e5e04387753557f111a2e741",
+      "expected_sha256": "4a39a441a2afd4f037a1e190bb9ab16b452879e2e5e04387753557f111a2e741",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp",
+      "bytes": 3401,
+      "sha256": "3d0d146224d5b477563918c131d54514cc907b3c3b55de23a280e8068a243906",
+      "expected_sha256": "3d0d146224d5b477563918c131d54514cc907b3c3b55de23a280e8068a243906",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+      "bytes": 2006,
+      "sha256": "cc72721337cc735354af0b727d2ce7de87447f6c7d383b570f04003fd4b48166",
+      "expected_sha256": "cc72721337cc735354af0b727d2ce7de87447f6c7d383b570f04003fd4b48166",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "bytes": 1741,
+      "sha256": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+      "expected_sha256": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestPlayerController.h",
+      "bytes": 1176,
+      "sha256": "bc446d2c9409404a97b0424b13e2adf044ee5cf689d743ac0cc96ec3be1846a2",
+      "expected_sha256": "bc446d2c9409404a97b0424b13e2adf044ee5cf689d743ac0cc96ec3be1846a2",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "bytes": 4367,
+      "sha256": "62202f5f275201fb7237f8689211255c5b95b7337106106ffc1cfc6fd980ba0a",
+      "expected_sha256": "62202f5f275201fb7237f8689211255c5b95b7337106106ffc1cfc6fd980ba0a",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementScenarioData.h",
+      "bytes": 3219,
+      "sha256": "744d25e8475670cb0f03d1148d56358e9265693d6e93435327e4299e71ddeb74",
+      "expected_sha256": "744d25e8475670cb0f03d1148d56358e9265693d6e93435327e4299e71ddeb74",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementStateSubsystem.h",
+      "bytes": 2357,
+      "sha256": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d",
+      "expected_sha256": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d",
+      "matches_frozen": true
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementVisitGameMode.h",
+      "bytes": 1098,
+      "sha256": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5",
+      "expected_sha256": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5",
+      "matches_frozen": true
+    },
+    {
+      "path": "Tools/package_soul_weekend.ps1",
+      "bytes": 10022,
+      "sha256": "83b911ee3f4c0678efef79c4dea6fb99efa0529cbc4be9207705a1366dd32cf2",
+      "expected_sha256": "83b911ee3f4c0678efef79c4dea6fb99efa0529cbc4be9207705a1366dd32cf2",
+      "matches_frozen": true
+    },
+    {
+      "path": "Tools/test_package_soul_weekend.py",
+      "bytes": 12411,
+      "sha256": "168f32f441e737fa129320879c16f6ba81c22e81e4faa8a5b01ac7420af53253",
+      "expected_sha256": "168f32f441e737fa129320879c16f6ba81c22e81e4faa8a5b01ac7420af53253",
+      "matches_frozen": true
+    },
+    {
+      "path": "Data/SettlementEnvironments/CrownsteadDevelopmentProof.json",
+      "bytes": 1626,
+      "sha256": "a6fa7868c233495b703c90ae115a8a3739b1f1f40ad3f95862e9a32d31069e40"
+    }
+  ],
+  "run_evidence_hashes": [
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/runtime/summary.json",
+      "bytes": 3276,
+      "sha256": "8f355782f06b718a4948251f0f4fb1168e822c17c35767a8096e2b80ab217f64"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/runtime/launch.json",
+      "bytes": 2698,
+      "sha256": "3ed3b246bed27bccdaeb87d3497b68950ec015d120fdf0ce8424e53d8f0c8bef"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/runtime/unreal.log",
+      "bytes": 229611,
+      "sha256": "8670e2a12d0e341e10fa46e716f564c32fdf0f590d2377fb96ef377b919944f3"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/runtime/telemetry.jsonl",
+      "bytes": 37916,
+      "sha256": "6a25d47ddba8f49023e73995ece283b0bdeba348a4c934b57085f8d1506a1d1e"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_controls.json",
+      "bytes": 308,
+      "sha256": "ef8344d414f42e199d562572c5c50e6f63a1d6ec865c5c88120e92a0539b798d"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/development-controls-r1_controls_started.txt",
+      "bytes": 85,
+      "sha256": "c5ac820f27280c8fa303dcb988ad8cf88bf335c433268c8f27dbe997d25e26cb"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/RBSave/Domains/Soul.VerticalCampaign.domain.rbsave",
+      "bytes": 2182,
+      "sha256": "2f2a8dcee1a5e6fcd004d54681b4a55c762387c79e5a975720b6464eec53addd"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/RBSave/Domains/Soul.VerticalCampaign.domain.rbsave.history/00639268566809900000-B2D2877D.rbsave",
+      "bytes": 2180,
+      "sha256": "23694b9fcf758497350708a1f0cfa3c0b21d550f73d900a49fda3c7990a4ff56"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Local/development-controls-r1/User/Saved/RBSave/Domains/Soul.VerticalCampaign.domain.rbsave.bak",
+      "bytes": 2180,
+      "sha256": "23694b9fcf758497350708a1f0cfa3c0b21d550f73d900a49fda3c7990a4ff56"
+    }
+  ],
+  "telemetry": {
+    "telemetry_samples": 105,
+    "start_utc": "2026-10-06T04:03:12.455281+00:00",
+    "end_utc": "2026-10-06T04:12:05.141428+00:00",
+    "peak_gpu_temperature_c": {
+      "value": 58.0,
+      "utc": "2026-10-06T04:11:49.730262+00:00"
+    },
+    "peak_gpu_utilization_percent": {
+      "value": 48.0,
+      "utc": "2026-10-06T04:10:47.208142+00:00"
+    },
+    "peak_device_vram_used_mib": {
+      "value": 5111.0,
+      "utc": "2026-10-06T04:11:07.814158+00:00"
+    },
+    "peak_sampled_process_working_set_mib": {
+      "value": 3801.66,
+      "utc": "2026-10-06T04:11:34.207003+00:00"
+    },
+    "peak_process_reported_working_set_mib": {
+      "value": 3812.36,
+      "utc": "2026-10-06T04:11:54.890272+00:00"
+    },
+    "peak_process_private_commit_mib": {
+      "value": 4919.09,
+      "utc": "2026-10-06T04:11:34.207003+00:00"
+    },
+    "scope": "Full launch/load/warmup/controls/shutdown sample series; VRAM is whole-device usage, not per-process. Working set and private commit are different measures. Capped functional run; no throughput/performance acceptance."
+  },
+  "warning_count": 25,
+  "warning_categories": {
+    "LogEditorDataStorageUI": 21,
+    "LogLinker": 1,
+    "LogDerivedDataCache": 2,
+    "LogConsoleManager": 1
+  },
+  "important_warning": "t.MaxFPS SetByCode was rejected because existing SetByConsole had higher priority; effective value remained20 and qualifier verified20.",
+  "independent_snapshot_cross_check": "integration_audit independently confirmed all three numeric states and unchanged campaign/settlement fields; no cold-start restore is inferred.",
+  "message_evidence": {
+    "method": "Frozen source predicates read actual Campaign.LastMessage after ordinary input and emit CHECK_PASS; raw message strings are not separately logged.",
+    "build_success": "Tavern construction started. Advance the day to make progress.",
+    "duplicate_build_rejection": "Construction prerequisites, resources or building level do not permit this upgrade.",
+    "blocked_hire_substring": "Complete the tavern",
+    "hire_success": "Tavern hero hired for 1200 gold.",
+    "duplicate_hire_rejection": "The tavern hero is already in your service."
+  },
+  "limitations": [
+    "Saved JSON files are three expected checkpoint pairs. Restored-state byte equality is independently audited from frozen qualifier predicates and their successful runtime log checks; separate restored JSON files were not written.",
+    "last_operation_busy_observed=false is allowed: final load completed between ticks. Success still required current bLastLoadSucceeded, no busy operation, exact load/development revision increments and exact two-domain equality.",
+    "PNG headers and completion order verified here; root owns actual UI image review. No visual/art acceptance is inferred.",
+    "Proof DA owned_environment_map is null; no authored settlement, miniature, visit, battle environment or full-capital payload qualification.",
+    "Existing retained presentation/dressing remains visible and was not redesigned by this audit."
+  ]
+}
