@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-06T16:53:15.563311+00:00",
+  "checks": [
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
+      "resolved": "D:\\RefinedBadger\\AssetLibraries\\MedievalKingdom-42d4a792\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
+      "sha256": "d8cd81d8d536b2ed6f285fc4a0663899f52e97441ffe66931396db0a06c3541c",
+      "expected": "d8cd81d8d536b2ed6f285fc4a0663899f52e97441ffe66931396db0a06c3541c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\CastleTown\\Levels\\SubLevels\\SL_Houses.umap",
+      "resolved": "D:\\RefinedBadger\\AssetLibraries\\MedievalKingdom-42d4a792\\Content\\CastleTown\\Levels\\SubLevels\\SL_Houses.umap",
+      "sha256": "a0438419abffca9634f063d2648f753e945a4c294ab0c13b98bae91a03707796",
+      "expected": "a0438419abffca9634f063d2648f753e945a4c294ab0c13b98bae91a03707796",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\CastleTown\\Levels\\SubLevels\\SL_Town_Props.umap",
+      "resolved": "D:\\RefinedBadger\\AssetLibraries\\MedievalKingdom-42d4a792\\Content\\CastleTown\\Levels\\SubLevels\\SL_Town_Props.umap",
+      "sha256": "eece2f5f2571d51d4bc5ddd32c6e2b1d19b7d83e8f766bfbd8925fff1459ab63",
+      "expected": "eece2f5f2571d51d4bc5ddd32c6e2b1d19b7d83e8f766bfbd8925fff1459ab63",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_05_Fix.umap",
+      "resolved": "D:\\RefinedBadger\\AssetLibraries\\MedievalKingdom-42d4a792\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_05_Fix.umap",
+      "sha256": "b63384b3ad74127439319e6cab245490dcf98fce9db9d4c61a681117521e41e0",
+      "expected": "b63384b3ad74127439319e6cab245490dcf98fce9db9d4c61a681117521e41e0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignMountain\\L_evil_waterfront.umap",
+      "resolved": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\Content\\SoulCampaignMountain\\L_evil_waterfront.umap",
+      "sha256": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "expected": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "unchanged": true
+    }
+  ],
+  "scope": "exact key donor maps and accepted campaign Landscape; not a claim to rehash every source texture"
+}

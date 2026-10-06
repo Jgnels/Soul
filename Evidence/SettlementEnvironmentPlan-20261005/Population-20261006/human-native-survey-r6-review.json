@@ -1,0 +1,24 @@
+{
+  "scope": "Native Human source/state-binding inspection at capped 5 FPS; NOT gameplay or performance acceptance",
+  "native_survey_completed": true,
+  "started_utc": "2026-10-06T15:55:15.722101+00:00",
+  "finished_utc": "2026-10-06T16:15:06.006423+00:00",
+  "actors": 56448,
+  "visible_levels": 161,
+  "original_cameras": 17,
+  "exported_architecture_instances": 47077,
+  "native_level_instances": 150,
+  "mesh_sources": 186,
+  "ground_grid_points": 6561,
+  "static_mesh_actors_unchanged": 53529,
+  "peak_gpu_c": 80.0,
+  "peak_device_vram_mib": 3959.0,
+  "peak_private_mib": 13581.49,
+  "screenshots": [
+    "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-native-survey-r6-state\\User\\Saved\\Screenshots\\human-runtime-survey_human_castle.png",
+    "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-native-survey-r6-state\\User\\Saved\\Screenshots\\human-runtime-survey_human_houses.png",
+    "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-native-survey-r6-state\\User\\Saved\\Screenshots\\human-runtime-survey_human_market.png",
+    "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-native-survey-r6-state\\User\\Saved\\Screenshots\\human-runtime-survey_human_overview.png"
+  ],
+  "review": "Authored waterfront houses and complete city composition retained. No new external-actor warnings relative to prior r5. Dedicated gameplay-controlled tavern comparison remains pending."
+}

@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-06T15:37:16.597061+00:00",
+  "settlement": "human_capital",
+  "building": "human.tavern",
+  "groups": [
+    {
+      "map": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
+      "state_actor": "SoulSettlementBuildingActor_0",
+      "roots": [
+        "NiagaraActor_5",
+        "StaticMeshActor_710",
+        "StaticMeshActor_713",
+        "StaticMeshActor_715",
+        "StaticMeshActor_717",
+        "StaticMeshActor_719",
+        "BP_Crates_01_C_26",
+        "BP_Crates_05_C_59",
+        "BP_Crates_05_C_61",
+        "BP_Crates_05_C_63"
+      ]
+    },
+    {
+      "map": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses",
+      "state_actor": "SoulSettlementBuildingActor_0",
+      "roots": [
+        "LevelInstance_149"
+      ]
+    },
+    {
+      "map": "/Game/Soul/Maps/Settlements/SL_HumanCapital_TownProps",
+      "state_actor": "SoulSettlementBuildingActor_0",
+      "roots": [
+        "BP_Crates_03_C_1",
+        "BP_Crates_04_C_1",
+        "StaticMeshActor_1",
+        "StaticMeshActor_2",
+        "StaticMeshActor_3",
+        "StaticMeshActor_4",
+        "StaticMeshActor_6",
+        "StaticMeshActor_7",
+        "StaticMeshActor_8",
+        "StaticMeshActor_10",
+        "StaticMeshActor_14",
+        "BP_Table_02_C_1",
+        "BP_Table_02_C_3"
+      ]
+    }
+  ],
+  "persistent_roots": 24,
+  "expected_groups": 3,
+  "classification": {
+    "starting": "Complete authored city except one native tavern and its 23 independently placed local props/smoke",
+    "buildable": "LI_Building_05_Fix root and its loaded children, ten root-world dressing/effect actors, thirteen town-prop roots",
+    "decoration": "All remaining original city composition retained",
+    "incompatible": "No additional donor actors removed"
+  },
+  "native_tavern": "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+  "native_instance": "SL_Houses:PersistentLevel.LevelInstance_149",
+  "donor_hashes": {
+    "/Game/CastleTown/Levels/SubLevels/SL_Houses": "a0438419abffca9634f063d2648f753e945a4c294ab0c13b98bae91a03707796",
+    "/Game/CastleTown/Levels/SubLevels/SL_Town_Props": "eece2f5f2571d51d4bc5ddd32c6e2b1d19b7d83e8f766bfbd8925fff1459ab63"
+  },
+  "owned_hashes": {
+    "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored": "030cb256f00404712d2b834b1bc83c3212438e06f12f6aafaab1a860b5b8b698",
+    "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses": "5771463de5bfe0aaf27dd25aa61ea9e760979bf50e2ab73df0f61ecb79835238",
+    "/Game/Soul/Maps/Settlements/SL_HumanCapital_TownProps": "79c268496c1c8ed50ec343b99643d98e1ecabe7a82ff66f16a235746ba7753bc"
+  },
+  "backup": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\SettlementEnvironmentPlan-20261005\\Local\\HumanCapital_before_state.umap",
+  "camera_position": [
+    -7000,
+    -1300,
+    4500
+  ],
+  "camera_target": [
+    -4350,
+    2700,
+    900
+  ],
+  "acceptance": "Owned data binding only; absent/present render, real construction, save, visit, miniature and battle qualification still required"
+}

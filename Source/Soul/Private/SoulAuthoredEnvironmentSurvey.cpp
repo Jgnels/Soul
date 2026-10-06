@@ -2,6 +2,9 @@
 #include "Camera/CameraActor.h"
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/InstancedStaticMeshComponent.h"
+#include "LevelInstance/LevelInstanceInterface.h"
+#include "Materials/MaterialInterface.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/Level.h"
 #include "Engine/LevelStreaming.h"
@@ -17,6 +20,110 @@
 #include "Json.h"
 #include "UObject/Package.h"
 #include "UObject/UObjectGlobals.h"
+
+namespace
+{
+TArray<TSharedPtr<FJsonValue>> HumanVector(const FVector& V)
+{
+    return {MakeShared<FJsonValueNumber>(V.X), MakeShared<FJsonValueNumber>(V.Y), MakeShared<FJsonValueNumber>(V.Z)};
+}
+void HumanTransform(const FTransform& T, TSharedPtr<FJsonObject> Row)
+{
+    Row->SetArrayField(TEXT("location"), HumanVector(T.GetLocation()));
+    Row->SetArrayField(TEXT("scale"), HumanVector(T.GetScale3D()));
+    const FRotator R = T.Rotator();
+    Row->SetArrayField(TEXT("rotation"), HumanVector(FVector(R.Pitch, R.Yaw, R.Roll)));
+}
+bool ExportHumanArchitecture(UWorld* World, const FString& Prefix)
+{
+    // Native authored placements and lowest render LODs only. This observer
+    // produces source data, never a replacement city or a saved donor edit.
+    TArray<TSharedPtr<FJsonValue>> Instances, Families, Ground;
+    auto Meshes = MakeShared<FJsonObject>();
+    for (TActorIterator<AActor> It(World); It; ++It)
+    {
+        if (const auto* Instance = Cast<ILevelInstanceInterface>(*It))
+            if (const ULevel* Loaded = Instance->GetLoadedLevel())
+            {
+                auto Row = MakeShared<FJsonObject>();
+                Row->SetStringField(TEXT("actor"), It->GetPathName());
+                Row->SetStringField(TEXT("source"), Instance->GetWorldAssetPackage());
+                Row->SetStringField(TEXT("loaded_level"), Loaded->GetOutermost()->GetName());
+                Row->SetStringField(TEXT("parent_level"), It->GetLevel()->GetOutermost()->GetName());
+                HumanTransform(It->GetActorTransform(), Row);
+                Families.Add(MakeShared<FJsonValueObject>(Row));
+            }
+        TInlineComponentArray<UStaticMeshComponent*> Components;
+        It->GetComponents(Components);
+        for (const auto* Component : Components)
+        {
+            const UStaticMesh* Mesh = Component->GetStaticMesh();
+            if (!Mesh) continue;
+            const FString Path = Mesh->GetPathName();
+            if (!(Path.StartsWith(TEXT("/Game/CastleTown/Static_Mesh/Village/Building_Kit/"))
+                || Path.StartsWith(TEXT("/Game/CastleTown/Static_Mesh/Castle_Kit/"))
+                || Path.StartsWith(TEXT("/Game/CastleTown/Static_Mesh/DockWalls/"))
+                || Path.StartsWith(TEXT("/Game/CastleTown/Static_Mesh/Brick_Kit/")))) continue;
+            if (!Meshes->HasField(Path))
+            {
+                auto Detail = MakeShared<FJsonObject>();
+                const int32 LOD = FMath::Max(0, Mesh->GetNumLODs() - 1);
+                Detail->SetNumberField(TEXT("lod"), LOD);
+                Detail->SetNumberField(TEXT("triangles"), Mesh->GetNumTriangles(LOD));
+                Meshes->SetObjectField(Path, Detail);
+            }
+            auto Add = [&](const FTransform& Transform)
+            {
+                auto Row = MakeShared<FJsonObject>();
+                Row->SetStringField(TEXT("actor"), It->GetPathName());
+                Row->SetStringField(TEXT("level"), It->GetLevel()->GetOutermost()->GetName());
+                Row->SetStringField(TEXT("mesh"), Path);
+                Row->SetStringField(TEXT("component"), Component->GetName());
+                TArray<TSharedPtr<FJsonValue>> Materials;
+                for (int32 Index = 0; Index < Component->GetNumMaterials(); ++Index)
+                    Materials.Add(MakeShared<FJsonValueString>(GetPathNameSafe(Component->GetMaterial(Index))));
+                Row->SetArrayField(TEXT("materials"), Materials);
+                HumanTransform(Transform, Row);
+                Instances.Add(MakeShared<FJsonValueObject>(Row));
+            };
+            if (const auto* Instanced = Cast<UInstancedStaticMeshComponent>(Component))
+                for (int32 Index = 0; Index < Instanced->GetInstanceCount(); ++Index)
+                {
+                    FTransform Transform;
+                    if (Instanced->GetInstanceTransform(Index, Transform, true)) Add(Transform);
+                }
+            else Add(Component->GetComponentTransform());
+        }
+    }
+    // Coarse read-only collision observations, not a playable-arena acceptance.
+    // The exact formation and reinforcement checks still precede real battle.
+    FCollisionObjectQueryParams Objects(ECC_WorldStatic);
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(SoulHumanSourceGround), false);
+    for (int32 X = -40000; X <= 40000; X += 1000)
+        for (int32 Y = -40000; Y <= 40000; Y += 1000)
+        {
+            FHitResult Hit;
+            if (!World->LineTraceSingleByObjectType(Hit, FVector(X,Y,15000), FVector(X,Y,-6000), Objects, Params)) continue;
+            auto Row = MakeShared<FJsonObject>();
+            Row->SetArrayField(TEXT("position"), HumanVector(Hit.ImpactPoint));
+            Row->SetNumberField(TEXT("normal_z"), Hit.ImpactNormal.Z);
+            Row->SetStringField(TEXT("actor"), GetPathNameSafe(Hit.GetActor()));
+            Row->SetStringField(TEXT("component"), GetPathNameSafe(Hit.GetComponent()));
+            Ground.Add(MakeShared<FJsonValueObject>(Row));
+        }
+    auto Root = MakeShared<FJsonObject>();
+    Root->SetStringField(TEXT("scope"), TEXT("Actual streamed architecture and transforms; no donor changes; ground grid is not battle qualification"));
+    Root->SetArrayField(TEXT("instances"), Instances);
+    Root->SetArrayField(TEXT("level_instances"), Families);
+    Root->SetObjectField(TEXT("meshes"), Meshes);
+    Root->SetArrayField(TEXT("ground_grid"), Ground);
+    FString Text;
+    FJsonSerializer::Serialize(Root, TJsonWriterFactory<>::Create(&Text));
+    UE_LOG(LogTemp, Display, TEXT("SOUL_HUMAN_ARCHITECTURE_EXPORT instances=%d families=%d meshes=%d ground=%d"),
+        Instances.Num(), Families.Num(), Meshes->Values.Num(), Ground.Num());
+    return FFileHelper::SaveStringToFile(Text, *(FPaths::ProjectSavedDir() / (Prefix + TEXT("_architecture.json"))));
+}
+}
 
 // Read-only, opt-in source-content diagnostic. It observes the existing native
 // world and its authored cameras; it never initializes a campaign, saves a
@@ -66,6 +173,7 @@ void USoulAuthoredSettlementQualification::TickHumanEnvironmentSurvey(double Now
     if (!AwaitVisualAssets(Now) || !PC) return;
     if (Step == 1)
     {
+        if (!Check(ExportHumanArchitecture(World, Prefix), TEXT("native architectural placements and collision grid recorded"))) return;
         int32 Actors = 0, Cameras = 0, Loaded = 0;
         FString Report = TEXT("Read-only native runtime survey; not a settlement-development or battle acceptance.\n");
         for (TActorIterator<AActor> It(World); It; ++It)

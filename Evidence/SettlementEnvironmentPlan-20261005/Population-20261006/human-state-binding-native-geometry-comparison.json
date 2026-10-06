@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-06T16:20:27.840338+00:00",
+  "before": {
+    "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-runtime-survey-r5-waterfront\\User\\Saved\\human-runtime-survey_actors.json",
+    "sha256": "bf1cc9a39c9a445a19b05073c07220ff093dfb10e1cb456e6f865c720906b5c5",
+    "static_mesh_actors": 53529,
+    "total_actors": 56443
+  },
+  "after": {
+    "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-native-survey-r6-state\\User\\Saved\\human-runtime-survey_actors.json",
+    "sha256": "5948a76993e1c95a81203c7dbb3c33b536de6b1a1de3ed1d5e3b2cdade4a0eb8",
+    "static_mesh_actors": 53529,
+    "total_actors": 56448
+  },
+  "matching": 53529,
+  "removed": 0,
+  "added": 0,
+  "unchanged": true,
+  "scope": "StaticMeshActor native transforms and mesh paths including duplicate multiplicity; material overrides intentionally excluded. No foliage/component/collision equality claim.",
+  "removed_examples": [],
+  "added_examples": []
+}
