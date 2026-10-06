@@ -18,6 +18,18 @@ const FSoulBuildingDevelopmentSpec* USoulSettlementScenarioData::FindDevelopment
     return DevelopmentDefinitions.FindByPredicate([Id](const auto& Definition) { return Definition.BuildingId == Id; });
 }
 
+const FSoulBuildingDevelopmentSpec* USoulSettlementScenarioData::FindUniqueServiceDefinition(FName UnlockId) const
+{
+    const FSoulBuildingDevelopmentSpec* Found = nullptr;
+    for (const auto& Definition : DevelopmentDefinitions)
+        if (Definition.UnlockIds.Contains(UnlockId))
+        {
+            if (Found) return nullptr; // A single-building proof must be unambiguous.
+            Found = &Definition;
+        }
+    return Found;
+}
+
 bool USoulSettlementScenarioData::ValidateDefinition(FString& OutError) const
 {
     auto Reject = [&OutError](const FString& Reason) { OutError = Reason; return false; };

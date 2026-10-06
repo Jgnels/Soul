@@ -6,6 +6,7 @@
 #include "SoulSettlementScenarioData.generated.h"
 
 class UWorld;
+class UStaticMesh;
 
 USTRUCT(BlueprintType)
 struct SOUL_API FSoulInitialBuildingSpec
@@ -45,6 +46,8 @@ struct SOUL_API FSoulBuildingDevelopmentSpec
     TArray<FName> Prerequisites;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement")
     TArray<FName> UnlockIds;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement")
+    FText DisplayName;
 
     FSoulBuildingDefinition ToDefinition() const;
 };
@@ -83,6 +86,18 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement|Presentation")
     TSoftObjectPtr<UWorld> OwnedEnvironmentMap;
 
+    // Deterministic derivatives of the same authored scene. The optional
+    // completed piece reads the service building's existing saved condition.
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement|Presentation")
+    TSoftObjectPtr<UStaticMesh> MiniatureBaseMesh;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement|Presentation")
+    TSoftObjectPtr<UStaticMesh> MiniatureUpgradeMesh;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement|Presentation")
+    FTransform MiniatureTransform = FTransform::Identity;
+
     bool ValidateDefinition(FString& OutError) const;
     const FSoulBuildingDevelopmentSpec* FindDevelopmentDefinition(FName BuildingId) const;
+    // The proof's existing service is data-bound, so another approved faction
+    // environment does not masquerade as the Human capital or its building IDs.
+    const FSoulBuildingDevelopmentSpec* FindUniqueServiceDefinition(FName UnlockId) const;
 };

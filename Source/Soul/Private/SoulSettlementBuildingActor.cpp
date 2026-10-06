@@ -1,10 +1,18 @@
 #include "SoulSettlementBuildingActor.h"
 
 #include "Components/SceneComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/GameInstance.h"
+#include "Engine/Level.h"
+#include "Engine/World.h"
+#include "LevelInstance/LevelInstanceInterface.h"
+#include "SoulSettlementStateSubsystem.h"
 
 ASoulSettlementBuildingActor::ASoulSettlementBuildingActor()
 {
-    PrimaryActorTick.bCanEverTick = false;
+    PrimaryActorTick.bCanEverTick = true;
+    PrimaryActorTick.bStartWithTickEnabled = false;
+    PrimaryActorTick.TickInterval = .2f;
 
     SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
     SetRootComponent(SceneRoot);
@@ -24,6 +32,46 @@ ASoulSettlementBuildingActor::ASoulSettlementBuildingActor()
     ShowOnly(nullptr);
 }
 
+bool ASoulSettlementBuildingActor::ConfigureMiniature(UStaticMesh* BaseMesh, UStaticMesh* UpgradeMesh)
+{
+    if (!BaseMesh || !UpgradeMesh || GetInstanceComponents().Num() != 0) return false;
+    auto AddMesh = [&](UStaticMesh* Mesh, USceneComponent* Branch)
+    {
+        auto* Component = NewObject<UStaticMeshComponent>(this);
+        Component->SetupAttachment(Branch);
+        Component->SetStaticMesh(Mesh);
+        Component->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Component->SetGenerateOverlapEvents(false);
+        Component->SetCanEverAffectNavigation(false);
+        AddInstanceComponent(Component);
+        Component->RegisterComponent();
+    };
+    AddMesh(BaseMesh, SceneRoot);
+    AddMesh(UpgradeMesh, IntactRoot);
+    bFollowSettlementState = true;
+    SetActorTickEnabled(true);
+    Tick(0);
+    return true;
+}
+
+void ASoulSettlementBuildingActor::BeginPlay()
+{
+    Super::BeginPlay();
+    SetActorTickEnabled(bFollowSettlementState);
+    if (bFollowSettlementState) Tick(0);
+}
+
+void ASoulSettlementBuildingActor::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    if (!bFollowSettlementState || SettlementId.IsNone() || BuildingId.IsNone()) return;
+    auto* GI = GetWorld() ? GetWorld()->GetGameInstance() : nullptr;
+    auto* State = GI ? GI->GetSubsystem<USoulSettlementStateSubsystem>() : nullptr;
+    // Reapply to catch nested level instances that finish loading after this
+    // wrapper. Only this explicitly authored group is traversed, not the city.
+    ApplyConditionName(State ? State->GetBuildingConditionName(SettlementId, BuildingId) : NAME_None);
+}
+
 void ASoulSettlementBuildingActor::SetBranchVisible(USceneComponent* Branch, bool bVisible)
 {
     if (!Branch) return;
@@ -35,18 +83,30 @@ void ASoulSettlementBuildingActor::SetActorGroupVisible(
     const TArray<TObjectPtr<AActor>>& Group,
     bool bVisible)
 {
+    TSet<AActor*> Visited;
     for (AActor* Actor : Group)
     {
-        if (!IsValid(Actor) || Actor == this)
-        {
-            continue;
-        }
-        Actor->SetActorHiddenInGame(!bVisible);
-#if WITH_EDITOR
-        Actor->SetIsTemporarilyHiddenInEditor(!bVisible);
-#endif
-        Actor->SetActorEnableCollision(bVisible);
+        SetAuthoredActorVisible(Actor, bVisible, Visited);
     }
+}
+
+void ASoulSettlementBuildingActor::SetAuthoredActorVisible(AActor* Actor, bool bVisible, TSet<AActor*>& Visited)
+{
+    if (!IsValid(Actor) || Actor == this || Visited.Contains(Actor)) return;
+    Visited.Add(Actor);
+    const TWeakObjectPtr<AActor> Key(Actor);
+    if (!AuthoredCollision.Contains(Key)) AuthoredCollision.Add(Key, Actor->GetActorEnableCollision());
+    Actor->SetActorHiddenInGame(!bVisible);
+#if WITH_EDITOR
+    Actor->SetIsTemporarilyHiddenInEditor(!bVisible);
+#endif
+    Actor->SetActorEnableCollision(bVisible && AuthoredCollision.FindChecked(Key));
+    TArray<AActor*> AttachedActors;
+    Actor->GetAttachedActors(AttachedActors);
+    for (AActor* Child : AttachedActors) SetAuthoredActorVisible(Child, bVisible, Visited);
+    if (auto* Instance = Cast<ILevelInstanceInterface>(Actor))
+        if (ULevel* Level = Instance->GetLoadedLevel())
+            for (AActor* Child : Level->Actors) SetAuthoredActorVisible(Child, bVisible, Visited);
 }
 
 void ASoulSettlementBuildingActor::ShowOnly(USceneComponent* VisibleRoot)
