@@ -99,9 +99,15 @@ except BaseException as exc:
     record['error'] = repr(exc)
     raise
 finally:
+    # Preserve the guard decision even if a memory-bound editor takes longer
+    # than the bounded cleanup wait to exit.
+    (out/'session.json').write_text(json.dumps(record, indent=2))
     if process:
-        record['cleanup'] = close_owned_process(process)
-        record['exit_code'] = process.returncode
+        try:
+            record['cleanup'] = close_owned_process(process)
+        except BaseException as cleanup_error:
+            record['cleanup_error'] = repr(cleanup_error)
+        record['exit_code'] = process.poll()
     record['finished_utc'] = utc()
     (out/'session.json').write_text(json.dumps(record, indent=2))
     print(json.dumps(record, indent=2), flush=True)

@@ -12,7 +12,9 @@ import unreal
 root = Path(unreal.Paths.convert_relative_path_to_full(unreal.Paths.project_dir()))
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 assert world.get_name() == 'L_DwarfHold_Authored'
-actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors()
+# Include transformed children of loaded level instances, which the editor's
+# actor-list helper filters out. Never dereference a soft source-world asset.
+actors = unreal.GameplayStatics.get_all_actors_of_class(world, unreal.Actor)
 building = next(a for a in actors if isinstance(a, unreal.SoulSettlementBuildingActor))
 building.apply_condition_name('Intact')
 upgrade = {a.get_name() for a in building.get_editor_property('intact_actors')}

@@ -6,7 +6,7 @@ from pathlib import Path
 import unreal
 
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
-actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors()
+actors = unreal.GameplayStatics.get_all_actors_of_class(world, unreal.Actor)
 rows = []
 def vec(v):
     return [round(v.x, 3), round(v.y, 3), round(v.z, 3)]
@@ -27,7 +27,11 @@ for actor in actors:
             entry['instances'] = c.get_instance_count()
         row['meshes'].append(entry)
     if isinstance(actor, unreal.LevelInstance):
-        row['world_asset'] = str(actor.get_editor_property('world_asset'))
+        # Python conversion of a soft world_asset can load the original world
+        # again, alongside its live instance. Survey the loaded level only.
+        level = actor.get_loaded_level()
+        row['loaded_level'] = level.get_path_name() if level else None
+        row['loaded'] = actor.is_loaded()
     rows.append(row)
 root = Path(unreal.Paths.convert_relative_path_to_full(unreal.Paths.project_dir()))
 out = root/'Evidence/SettlementEnvironmentPlan-20261005/Continuation-20261006'

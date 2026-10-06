@@ -14,13 +14,16 @@ def inspect():
     world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
     package = '/Game/Soul/Maps/Settlements/L_HumanCapital_Authored'
     assert world.get_path_name().split('.')[0] == package
-    actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors()
+    actors = unreal.GameplayStatics.get_all_actors_of_class(world, unreal.Actor)
     def vec(v): return [v.x, v.y, v.z]
     instances, cameras = [], []
     for actor in actors:
         if isinstance(actor, unreal.LevelInstance):
+            # Reading the soft world_asset property through Python can load a
+            # second source UWorld. Inspect the already loaded instance only.
+            loaded_level = actor.get_loaded_level()
             instances.append(dict(path=actor.get_path_name(), label=actor.get_actor_label(),
-                source=str(actor.get_editor_property('world_asset')),
+                loaded_level=loaded_level.get_path_name() if loaded_level else None,
                 loaded=actor.is_loaded(), location=vec(actor.get_actor_location()),
                 behavior=str(actor.get_editor_property('desired_runtime_behavior'))))
         for camera in actor.get_components_by_class(unreal.CameraComponent):
