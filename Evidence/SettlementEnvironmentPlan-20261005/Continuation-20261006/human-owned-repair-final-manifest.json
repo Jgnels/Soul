@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-06T14:50:06.437091+00:00",
+  "scope": "Local licensed derivatives, not Git payload; verified r5 rendered repair is limited to waterfront",
+  "files": [
+    {
+      "path": "Content\\Soul\\Maps\\Settlements\\L_HumanCapital_Authored.umap",
+      "bytes": 11022357,
+      "sha256": "e2c43bba3d6682cb5d12614cf779c2a289f86e2470747acada52d7f046c12dde"
+    },
+    {
+      "path": "Content\\Soul\\Maps\\Settlements\\SL_HumanCapital_Waterfront.umap",
+      "bytes": 19849372,
+      "sha256": "1ada397f4db1b7d8a5b11b9161d55209d37ae5835b32b5cab49f7436b510e96c"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\MI_Stab_Algae.uasset",
+      "bytes": 22396,
+      "sha256": "8bcec64785858eab210207e7fe357a8420f778274b28c3e0ff7091c0735c4503"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\MI_StoneWall_Algae1.uasset",
+      "bytes": 22835,
+      "sha256": "b801e149a42308a744ba87640cf991fae5d7314318a5c0a0abe995eeac3dc466"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\MI_Wood_Algae.uasset",
+      "bytes": 22067,
+      "sha256": "ee080efc2d8324075f9a52d091c9e7f2f6f3d36da9ad1f323c7b67b44f133006"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\MLI_Moss.uasset",
+      "bytes": 10706,
+      "sha256": "93c503e0401744bda8c095363649adcec46e7e8dda8e7749b32710b78f5ae74f"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\MLI_Moss_Inst_02.uasset",
+      "bytes": 7985,
+      "sha256": "15b315983ebeed7ce3ef1408e4d6744e2fec910502bded2c7a0c64ca2c5a6a83"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\ML_BasicTextured_01.uasset",
+      "bytes": 30744,
+      "sha256": "151149de48959e16aaf068864b9a6f581abb3758bca9bd3ab06223626470faf5"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\ML_Slab_Inst1.uasset",
+      "bytes": 6461,
+      "sha256": "ffb008b67e5f3adee281070123a5c06c7689e6a6a4620c6370572c004daed6c5"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\ML_StoneWall_Inst.uasset",
+      "bytes": 6330,
+      "sha256": "0e63d4c691c7070c2be3cb77b36711bde1e138ae12b53dc557586ef91576f3bb"
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\HumanCapital\\ML_Wood_01_Inst.uasset",
+      "bytes": 13472,
+      "sha256": "2c72068e6e831b19ec81a1ce8a34e3f947416a5270f5cb6c193f91d4d98922eb"
+    }
+  ]
+}

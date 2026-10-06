@@ -1,5 +1,6 @@
 #include "SoulAuthoredSettlementQualification.h"
 #include "Camera/CameraActor.h"
+#include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/Level.h"
@@ -145,6 +146,27 @@ void USoulAuthoredSettlementQualification::TickHumanEnvironmentSurvey(double Now
             Capture(Labels[Index]); Next(2);
         }
         return;
+    }
+    if (Step == 8)
+    {
+        // An unsaved inspection camera shows the whole authored city. It is
+        // not a campaign footprint, settlement placement or player camera.
+        const FVector Position(-35000, 42000, 30000), Target(-2500, 3500, 0);
+        FActorSpawnParameters Params;
+        Params.Name = TEXT("SoulHumanInspectionOverview");
+        Params.ObjectFlags |= RF_Transient;
+        auto* Camera = World->SpawnActor<ACameraActor>(Position, (Target - Position).Rotation(), Params);
+        if (!Check(Camera != nullptr, TEXT("transient whole-city inspection camera"))) return;
+        Camera->GetCameraComponent()->SetFieldOfView(65);
+        PC->SetViewTarget(Camera);
+        Next(12);
+        return;
+    }
+    if (Step == 9)
+    {
+        if (!Check(PC->GetViewTarget() && PC->GetViewTarget()->GetFName() == TEXT("SoulHumanInspectionOverview"),
+            TEXT("whole-city inspection camera active"))) return;
+        Capture(TEXT("human_overview")); Next(2); return;
     }
     UE_LOG(LogTemp, Display, TEXT("SOUL_HUMAN_ENVIRONMENT_SURVEY_COMPLETE rendered_capture_requests=%d gameplay_proof=0"), Captures.Num());
     bDone = true;

@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-06T14:50:06.437091+00:00",
+  "run": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-runtime-survey-r5-waterfront",
+  "fully_streamed_native_load": true,
+  "native_actors": 56443,
+  "visible_levels": 161,
+  "original_cameras": 17,
+  "clean_exit": true,
+  "inspected_images": [
+    {
+      "path": "Local\\human-runtime-survey-r5-waterfront\\User\\Saved\\Screenshots\\human-runtime-survey_human_castle.png",
+      "sha256": "cc95ff0678856a30da4982463dfbb4f0d6035004012f50fcf1359bedd8ea2732"
+    },
+    {
+      "path": "Local\\human-runtime-survey-r5-waterfront\\User\\Saved\\Screenshots\\human-runtime-survey_human_market.png",
+      "sha256": "eeaa8be6c1574cb92e2ce8b73ba8c27966c39a0aedc6a16de39df725ad37c0d5"
+    },
+    {
+      "path": "Local\\human-runtime-survey-r5-waterfront\\User\\Saved\\Screenshots\\human-runtime-survey_human_houses.png",
+      "sha256": "d513a16dad455668a4a674605a43c3c4ecdf13035407e8f808d82ff1ddb10c07"
+    },
+    {
+      "path": "Local\\human-runtime-survey-r5-waterfront\\User\\Saved\\Screenshots\\human-runtime-survey_human_overview.png",
+      "sha256": "a385df10d57c65163afb43a445a85a617572fdf9b7a2463ee2a4bd2598e12ad0"
+    }
+  ],
+  "render_acceptance": "Owned waterfront repair verified in the same houses/quay camera: stone, algae and wood restored. Market retains native detail. Castle parapets still have gray material fallback outside repaired waterfront. Overview shows intact authored multi-island town/castle, but heavy native haze reduces distant contrast.",
+  "gameplay_qualified": false,
+  "cap_fps": 5,
+  "performance_claim": false,
+  "total_process_seconds": 1102.263601,
+  "peak_private_mib": 13899.38,
+  "peak_working_set_mib": 9266.21,
+  "peak_gpu_c": 78.0,
+  "peak_gpu_mib": 4222.0,
+  "static_geometry_comparison": "human-waterfront-static-geometry-comparison.json",
+  "material_scope": "Nine owned material/function copies, one owned waterfront sublevel, 1016 material-slot overrides; native layer parameters retained. Three original donor MI compile warnings remain; no zero-error claim.",
+  "owned_root_sha256": "e2c43bba3d6682cb5d12614cf779c2a289f86e2470747acada52d7f046c12dde",
+  "next_action": "Inspect one actual tavern instance and independent street props/smoke; create a bounded owned state group, derive matching miniature states, then qualify visit/battle. Repair remaining castle-material users through owned copies only."
+}

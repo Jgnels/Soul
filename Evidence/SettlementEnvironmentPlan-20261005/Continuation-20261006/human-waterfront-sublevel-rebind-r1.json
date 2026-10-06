@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-06T14:18:26.081967+00:00",
+  "map": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
+  "before_sha256": "e0b33d354ccf689cbf75bdab0876d4ec37374f2e7a1bb75e2c53fa3a3317373b",
+  "after_sha256": "e2c43bba3d6682cb5d12614cf779c2a289f86e2470747acada52d7f046c12dde",
+  "original_sublevel": "/Game/CastleTown/Levels/SubLevels/SL_BridgesAndWalls",
+  "owned_sublevel": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Waterfront",
+  "scope": "one native streaming reference only; no full-city editor initialization or gameplay admission"
+}
