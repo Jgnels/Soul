@@ -1,5 +1,6 @@
 #include "Misc/AutomationTest.h"
 #include "Engine/GameInstance.h"
+#include "UObject/Package.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "SoulCampaignBattleBridge.h"
 #include "SoulSettlementStateSubsystem.h"
