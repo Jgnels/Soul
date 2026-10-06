@@ -1,0 +1,78 @@
+{
+  "utc": "2026-10-06T14:37:28.404543+00:00",
+  "builds": [
+    {
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\ContinuationBuilds\\editor-human-waterfront-r1.log.result.json",
+      "result": {
+        "target": "SoulEditor",
+        "configuration": "Win64 Development",
+        "started_utc": "2026-10-06T14:21:16.0780051Z",
+        "finished_utc": "2026-10-06T14:21:38.2738063Z",
+        "exit_code": 0,
+        "arguments": [
+          "SoulEditor",
+          "Win64",
+          "Development",
+          "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+          "-WaitMutex",
+          "-NoPCH",
+          "-NoUBA",
+          "-MaxParallelActions=2",
+          "-ForceRulesCompile",
+          "-OverrideBuildEnvironment",
+          "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+        ],
+        "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+      }
+    },
+    {
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\ContinuationBuilds\\game-human-waterfront-r1.log.result.json",
+      "result": {
+        "target": "Soul",
+        "configuration": "Win64 Development",
+        "started_utc": "2026-10-06T14:22:11.5838026Z",
+        "finished_utc": "2026-10-06T14:24:40.5129088Z",
+        "exit_code": 0,
+        "arguments": [
+          "Soul",
+          "Win64",
+          "Development",
+          "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+          "-WaitMutex",
+          "-NoPCH",
+          "-NoUBA",
+          "-MaxParallelActions=2",
+          "-ForceRulesCompile",
+          "-gather"
+        ],
+        "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+      }
+    }
+  ],
+  "tests": [
+    {
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\continuation-tools-tests-final.txt",
+      "passed": 99,
+      "sha256": "cedc8cc82adcf58aed832723ce3164abe49ffd24764ceb87d957d7e36c21fc4a"
+    },
+    {
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\continuation-campaign-tests-final.txt",
+      "passed": 18,
+      "sha256": "40f09390fdba42efaae3aba346cdec8bcdd3a16d44d546a3006a4daa0516b323"
+    },
+    {
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Continuation-20261006\\native-settlement-r10.txt",
+      "passed": 7,
+      "scope": "earlier native suite for unchanged gameplay/save adapters; later changes are authoring/diagnostic only",
+      "sha256": "b1d6c3faf40aa74bd83b2c26744e1e4b582ff7b91f02118c0e6e9d82941c99eb"
+    },
+    {
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Continuation-20261006\\native-integration-r11.txt",
+      "passed": 29,
+      "scope": "earlier native suite for unchanged gameplay/save adapters; later changes are authoring/diagnostic only",
+      "sha256": "9df139cb80e0f8fb5890ea036e2f0214998fb781b2ca3009d3e278acb54e01b1"
+    }
+  ],
+  "working_tree_scope": "Combined preserved worker state; source commits intentionally exclude pre-existing R10/config/licensed local state",
+  "new_cooked_package_qualified": false
+}

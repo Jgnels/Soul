@@ -78,16 +78,24 @@
           "exists": true
         }
       ],
-      "candidate_note": "Candidate city; exact listing linkage and loaded layout require qualification. LF remains actual forge-role candidate, not a second city pasted into this one.",
-      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "candidate_note": "Approved Citadel full authored wrapper qualified for visit/construction/save and corrected-approach natural victory; miniature art remains provisional",
+      "scene_binding_status": "OPT_IN_DWARF_PROOF_NOT_PRODUCTION_GEOGRAPHY",
       "canonical_xy": [
         850,
         150
       ],
       "battle_recipe_id": "dwarf.forge_approach",
-      "required_at_start_physical_groups": null,
-      "buildable_physical_groups": null,
-      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "required_at_start_physical_groups": [
+        "Excavated shell/floor, perimeter architecture, adjoining halls, monumental gate and cliff approach"
+      ],
+      "buildable_physical_groups": [
+        {
+          "building_id": "dwarf.caravan_hall",
+          "persistent_roots": 56,
+          "receipt": "Continuation-20261006/dwarven-qualified-groups-r9.json"
+        }
+      ],
+      "physical_group_status": "Qualified physical fit-out of an existing mountain hall; not freestanding city construction",
       "existing_logical_building_ids": [
         "dwarf.stoneguard_hall",
         "dwarf.crossbow_workshop",
@@ -102,7 +110,8 @@
         "dwarf.caravan_hall",
         "dwarf.gates"
       ],
-      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them",
+      "owned_wrapper": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored"
     },
     {
       "region_id": "human_capital",
@@ -116,14 +125,14 @@
       "candidate_demo_package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
       "live_demo_files": [
         {
-          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
           "package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+          "file": "D:\\RefinedBadger\\AssetLibraries\\MedievalKingdom-42d4a792\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
           "bytes": 9326488,
           "sha256": "d8cd81d8d536b2ed6f285fc4a0663899f52e97441ffe66931396db0a06c3541c"
         }
       ],
-      "candidate_note": "Jeff-selected exact capital; blocked on full external actor closure",
-      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "candidate_note": "Complete supplied source; r5 fully streamed 56,443 actors / 161 levels with four reviewed captures. Owned waterfront repair verified; some castle parapets remain gray. Physical development, miniature and visit/battle routing remain unbound. No further source recovery/download.",
+      "scene_binding_status": "OWNED_WRAPPER_ONLY_NOT_GAMEPLAY_BOUND",
       "canonical_xy": [
         180,
         450
@@ -131,7 +140,7 @@
       "battle_recipe_id": "human.fortress_outskirts",
       "required_at_start_physical_groups": null,
       "buildable_physical_groups": null,
-      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "physical_group_status": "Five actual tavern-sign native instances identified from fully streamed actors; final official building group remains unbound pending footprint/clutter/smoke review.",
       "existing_logical_building_ids": [
         "human.muster_yard",
         "human.archery_range",
@@ -146,7 +155,9 @@
         "human.market",
         "human.walls"
       ],
-      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them",
+      "owned_wrapper": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
+      "native_actor_candidates": "Continuation-20261006/human-native-tavern-candidates.json"
     },
     {
       "region_id": "nature_treehold",
@@ -1087,5 +1098,6 @@
       "GT"
     ],
     "reason": "No additional canonical town/harbor settlement IDs in the current14slot layer. Keep as faction role coverage; do not invent new city IDs or attach them to an incompatible coastal/inland location."
-  }
+  },
+  "updated_utc": "2026-10-06T14:50:06.437091+00:00"
 }

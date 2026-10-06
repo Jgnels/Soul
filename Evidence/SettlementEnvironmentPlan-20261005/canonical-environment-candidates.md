@@ -1,12 +1,14 @@
 # Existing settlement candidate bindings
 
-Six major city IDs and eight existing noncanonical minor slots are preserved. These are proposed environment candidates, not runtime bindings. Every required-at-start/buildable physical actor group is **unknown until actual complete-scene inspection**. Existing logical building IDs are copied separately into the JSON.
+**2026-10-06 continuation:** the selected Human source is complete at `D:/RefinedBadger/AssetLibraries/MedievalKingdom-42d4a792`. Its owned wrapper is `/Game/Soul/Maps/Settlements/L_HumanCapital_Authored`; full rendered/state qualification remains pending because of editor memory pressure. Dwarf Hold now has a functional authored wrapper at `/Game/Soul/Maps/Settlements/L_DwarfHold_Authored`, verified construction/visit/save and a corrected-approach natural victory with real reserves on both sides. Its temporary cutaway miniature and geography are not final capital art. See `Continuation-20261006/dwarven-proof-review.md` and `human-wrapper-progress.md`. No strategic assignment is changed.
+
+Six major city IDs and eight existing noncanonical minor slots are preserved. These are proposed environment candidates except the explicitly opt-in Dwarf proof. Human physical groups remain unbound; the Dwarf Caravan Hall has 56 qualified persistent roots. Existing logical building IDs are copied separately into the JSON.
 
 | Region ID | Existing settlement ID | Candidate source | Actual candidate map | Status |
 |---|---|---|---|---|
 | `dark_fortress` | `city.dark_fortress` | AC | `/Game/AlienPlanet/Levels/L_Showcase` | Jeff-selected capital; local complete package paths available; actual fortress/approach qualification pending |
-| `dwarf_hold` | `city.dwarf_hold` | DC, LF | `/Game/DwarvenCitadel/Maps/DwarvenCitadel` | Candidate city; exact listing linkage and loaded layout require qualification. LF remains actual forge-role candidate, not a second city pasted into this one. |
-| `human_capital` | `city.human_capital` | MK | `/Game/CastleTown/Levels/Persistant/PL_CastleTown` | Jeff-selected exact capital; blocked on full external actor closure |
+| `dwarf_hold` | `city.dwarf_hold` | DC, LF | `/Game/DwarvenCitadel/Maps/DwarvenCitadel` | Full Citadel wrapper qualified for development, visit, save and real battle; temporary proof geography and miniature art remain provisional. LF keeps its separate forge role. |
+| `human_capital` | `city.human_capital` | MK | `/Game/CastleTown/Levels/Persistant/PL_CastleTown` | Jeff-selected complete source supplied; owned wrapper created; full editor preparation memory-bound. No recovery/download task. |
 | `nature_treehold` | `city.nature_treehold` | FF | `/Game/Forest_village/Level/L_showcase_level` | Town source available; promotion to full Nature capital is a candidate, not explicit Jeff capital assignment. Great-tree requirement unresolved. |
 | `orc_camp` | `city.orc_ruinhold` | RH, CD | `/Game/Ravenhold/Scenes/HM-FortCastle_Kit_Demo` | Candidate occupied fortress/ruin; preserve authored layout and existing city.orc_ruinhold identity; style/layout not yet accepted |
 | `viking_harbour` | `city.viking_harbour` | VK | Unverified / not selected | Jeff-selected capital payload missing; historical MainVillage path is not currently a live map |
@@ -22,3 +24,5 @@ Six major city IDs and eight existing noncanonical minor slots are preserved. Th
 No new harbor/city slot is created to accommodate a pack. TS, DO, LV, AV and GT remain available faction-family coverage until an existing suitable node/slot is explicitly chosen. This preserves the current strategic scope.
 
 [canonical-environment-candidates.json](canonical-environment-candidates.json) also records all 36 existing biome/landform/feature/battle-recipe contexts, exact source hashes and the 51-edge source authority. It does not rewrite any recipe. The old recipe donor strings are kept as historical inputs; a capital battle scene for the new MK proof must be explicitly qualified against the existing battle bridge.
+
+Continuation closeout (2026-10-06): Complete supplied source; r5 fully streamed 56,443 actors / 161 levels with four reviewed captures. Owned waterfront repair verified; some castle parapets remain gray. Physical development, miniature and visit/battle routing remain unbound. No further source recovery/download. See [final Human review](Continuation-20261006/human-runtime-r5-review.json), [visual comparison](Continuation-20261006/visual-evidence.html), and [handoff](HANDOFF.md). Earlier source/runtime blockers above are historical.

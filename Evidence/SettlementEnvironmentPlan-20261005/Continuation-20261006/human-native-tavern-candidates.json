@@ -1,0 +1,96 @@
+{
+  "scope": "Derived from the fully streamed r4 actor inventory, no assignment or donor edit",
+  "candidates": [
+    {
+      "runtime_level": "/Temp/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix_LevelInstance_a184acba1d3214d8_1",
+      "actor_count": 825,
+      "sign_count": 2,
+      "nearest_native_root": {
+        "path": "/Game/CastleTown/Levels/SubLevels/SL_Houses.SL_Houses:PersistentLevel.LevelInstance_181",
+        "class": "/Script/Engine.LevelInstance",
+        "label": "LI_Building_43",
+        "level": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+        "transform": "2505.673376,13028.115443,-60.000000|0.000000,75.763208,-0.000000|1.000000,1.000000,1.000000",
+        "parent": "None",
+        "bounds_origin": "X=2990.876 Y=13452.395 Z=939.715",
+        "bounds_extent": "X=970.038 Y=984.765 Z=1011.623",
+        "meshes": []
+      },
+      "classification": "BUILDABLE CANDIDATE ONLY; inspect its full footprint and independently placed props/smoke before assigning the official tavern"
+    },
+    {
+      "runtime_level": "/Temp/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix_LevelInstance_8ed51a3ece0561ed_1",
+      "actor_count": 825,
+      "sign_count": 2,
+      "nearest_native_root": {
+        "path": "/Game/CastleTown/Levels/SubLevels/SL_Houses.SL_Houses:PersistentLevel.LevelInstance_165",
+        "class": "/Script/Engine.LevelInstance",
+        "label": "LI_Building_35",
+        "level": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+        "transform": "-5037.737539,15132.698817,-40.000000|0.000000,-135.804052,0.000000|1.000000,1.000000,1.000000",
+        "parent": "None",
+        "bounds_origin": "X=-5816.368 Y=14962.978 Z=959.715",
+        "bounds_extent": "X=996.442 Y=1111.456 Z=1011.623",
+        "meshes": []
+      },
+      "classification": "BUILDABLE CANDIDATE ONLY; inspect its full footprint and independently placed props/smoke before assigning the official tavern"
+    },
+    {
+      "runtime_level": "/Temp/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix_LevelInstance_112fa244b523496e_1",
+      "actor_count": 825,
+      "sign_count": 2,
+      "nearest_native_root": {
+        "path": "/Game/CastleTown/Levels/SubLevels/SL_Houses.SL_Houses:PersistentLevel.LevelInstance_149",
+        "class": "/Script/Engine.LevelInstance",
+        "label": "LI_Building_05",
+        "level": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+        "transform": "-4503.263491,3485.432414,-40.000000|0.000000,-47.553883,0.000000|1.000000,1.000000,1.000000",
+        "parent": "None",
+        "bounds_origin": "X=-4348.473 Y=2705.563 Z=959.715",
+        "bounds_extent": "X=1117.269 Y=997.710 Z=1011.623",
+        "meshes": []
+      },
+      "classification": "BUILDABLE CANDIDATE ONLY; inspect its full footprint and independently placed props/smoke before assigning the official tavern"
+    },
+    {
+      "runtime_level": "/Temp/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix_LevelInstance_f7a3e89a12829311_1",
+      "actor_count": 825,
+      "sign_count": 2,
+      "nearest_native_root": {
+        "path": "/Game/CastleTown/Levels/SubLevels/SL_Houses.SL_Houses:PersistentLevel.LevelInstance_85",
+        "class": "/Script/Engine.LevelInstance",
+        "label": "LI_Building_20",
+        "level": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+        "transform": "-14508.929625,7484.495405,190.000000|0.000000,134.483864,-0.000000|1.000000,1.000000,1.000000",
+        "parent": "None",
+        "bounds_origin": "X=-14681.092 Y=8262.852 Z=1189.715",
+        "bounds_extent": "X=1110.400 Y=996.144 Z=1011.623",
+        "meshes": []
+      },
+      "classification": "BUILDABLE CANDIDATE ONLY; inspect its full footprint and independently placed props/smoke before assigning the official tavern"
+    },
+    {
+      "runtime_level": "/Temp/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix_LevelInstance_6f86a6e24830ec78_1",
+      "actor_count": 825,
+      "sign_count": 2,
+      "nearest_native_root": {
+        "path": "/Game/CastleTown/Levels/SubLevels/SL_Houses.SL_Houses:PersistentLevel.LevelInstance_35",
+        "class": "/Script/Engine.LevelInstance",
+        "label": "LI_Building_6",
+        "level": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+        "transform": "-15860.000000,-8130.000000,120.000000|0.000000,28.146666,-0.000000|1.000000,1.000000,1.000000",
+        "parent": "None",
+        "bounds_origin": "X=-15097.212 Y=-8101.356 Z=1119.715",
+        "bounds_extent": "X=973.289 Y=1125.461 Z=1011.623",
+        "meshes": []
+      },
+      "classification": "BUILDABLE CANDIDATE ONLY; inspect its full footprint and independently placed props/smoke before assigning the official tavern"
+    }
+  ],
+  "shared_adapter": "Existing SoulSettlementBuildingActor already follows native loaded LevelInstance children; no new settlement/save authority required",
+  "constraints": [
+    "There are five native instances of this tavern-sign building, so a single official upgrade assignment needs explicit physical-state review",
+    "Persistent street dressing and chimney effects may sit outside the instance; do not hide a root blindly",
+    "Create a Soul-owned houses sublevel or equivalent native wrapper before serializing development groups; never edit the donor"
+  ]
+}

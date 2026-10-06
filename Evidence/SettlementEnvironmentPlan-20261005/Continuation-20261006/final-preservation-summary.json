@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-06T14:26:43.705732+00:00",
+  "donors": [
+    {
+      "name": "DwarvenCitadel",
+      "unchanged": true,
+      "files": 2569,
+      "hashed_maps_and_external_packages": 1117,
+      "other_files": "size and mtime only",
+      "before_receipt": "dwarven-donor-before.json",
+      "after_receipt": "dwarven-donor-final.json"
+    },
+    {
+      "name": "CastleTown",
+      "unchanged": true,
+      "files": 8083,
+      "hashed_maps_and_external_packages": 6328,
+      "other_files": "size and mtime only",
+      "before_receipt": "human-complete-donor-before.json",
+      "after_receipt": "human-complete-donor-final.json"
+    }
+  ],
+  "additional_human_material_hashes": {
+    "count": 9,
+    "unchanged": true,
+    "baseline": "human-owned-material-repair-r1.json"
+  },
+  "previously_modified_tracked_files_changed_by_continuation": [
+    "Config/DefaultGame.ini",
+    "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+    "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+    "Source/Soul/Soul.Build.cs",
+    "Tools/package_soul_weekend.ps1",
+    "Tools/test_package_soul_weekend.py"
+  ],
+  "protected_local_config_unchanged": true,
+  "final_tracked_recheck_utc": "2026-10-06T14:53:43.227397+00:00",
+  "final_tracked_recheck_matches_intended_seven_files": true
+}
