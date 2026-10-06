@@ -14,6 +14,7 @@ rows = [json.loads(line) for line in (a.run/'runtime/telemetry.jsonl').read_text
 log = (a.run/'runtime/unreal.log').read_text(encoding='utf-8-sig', errors='replace')
 guard = json.loads((a.run/'runtime/summary.json').read_text(encoding='utf-8-sig'))
 native_pass = 'SOUL_AUTHORED_FRESH_LOAD_PASS' in log
+human = '-SoulHumanSettlementProof' in guard.get('command', [])
 guard_pass = (guard.get('clean_shutdown') is True and guard.get('exit_code') == 0
     and guard.get('stop_reason') == 'completion_marker_process_exit')
 def time(value): return datetime.datetime.fromisoformat(value.replace('Z', '+00:00'))
@@ -45,7 +46,7 @@ result = dict(run=str(a.run), profiles=profiles, process=peaks(rows),
         stop_reason=guard.get('stop_reason'), accepted=guard_pass),
     native_load_times=[dict(map=m, seconds=float(s)) for s,m in re.findall(r'Took ([\d.]+) seconds to LoadMap\(([^)]+)\)', log)],
     limitations=['Editor-game source-content qualification, not a cooked package.',
-        'City is one fixed Caravan Hall view; campaign is the three-region opt-in proof view.',
+        ('City is one fixed native Human tavern view; campaign is the three-region opt-in proof view.' if human else 'City is one fixed Caravan Hall view; campaign is the three-region opt-in proof view.'),
         'GPU memory is device-wide allocation, not exclusive process VRAM.',
         'Native map-load time excludes subsequent asset preparation and visual readiness.',
         'Older reports without explicit 100% scale checks establish viewport size only, not native scene resolution.',

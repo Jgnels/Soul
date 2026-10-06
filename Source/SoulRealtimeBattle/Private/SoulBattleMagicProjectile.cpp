@@ -1,3 +1,4 @@
+#include "TimerManager.h"
 #include "SoulRealtimeBattleArena.h"
 #include "SoulBattleArrow.h"
 #include "Engine/World.h"

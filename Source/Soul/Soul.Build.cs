@@ -19,6 +19,7 @@ public class Soul : ModuleRules
             {
                 "Data/soul_vertical_scenario_20260925.json",
                 "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json",
+                "Data/SettlementEnvironments/HumanCapitalRuntimeProof.json",
                 "Data/CampaignTerrainV2/FounderHeight.r16",
                 "Data/CampaignTerrainV2/presentation.json",
                 "Data/CampaignMesa/presentation.json",

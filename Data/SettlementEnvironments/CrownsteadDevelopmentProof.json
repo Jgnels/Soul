@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "explicit opt-in development proof; complete source recovered, owned wrapper visual/state qualification pending",
+  "status": "Opt-in native Human second proof: construction, physical state, service purchase, exact F5/F9, matching miniature, visit/return and real authored battle pass; fresh uncapped combined run thermally stopped at 85 C.",
   "asset_path": "/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof",
   "settlement_id": "human_capital",
   "world_settlement_slot": "city.human_capital",
@@ -8,16 +8,41 @@
   "faction_id": "humans",
   "environment_listing": "https://www.fab.com/listings/42d4a792-2b66-423d-9b20-84d6b2c578d8",
   "source_environment": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
-  "owned_environment_map": null,
-  "physical_groups_status": "not selected; inspect the complete authored city before binding development actors",
+  "owned_environment_map": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
+  "physical_groups_status": "Three existing state adapters bind native LI_Building_05_Fix at LevelInstance_149 and 23 independent dressing/effect roots; absent/completed/mid-construction restore and fresh loaded visibility reviewed.",
   "fortification_level": 1,
   "wall_integrity_permille": 1000,
   "buildings": [
-    {"building_id": "human.keep", "level": 1, "integrity_permille": 1000, "built": true},
-    {"building_id": "human.walls", "level": 1, "integrity_permille": 1000, "built": true},
-    {"building_id": "human.market", "level": 1, "integrity_permille": 1000, "built": true},
-    {"building_id": "human.barracks", "level": 1, "integrity_permille": 1000, "built": true},
-    {"building_id": "human.tavern", "level": 0, "integrity_permille": 0, "built": false}
+    {
+      "building_id": "human.keep",
+      "level": 1,
+      "integrity_permille": 1000,
+      "built": true
+    },
+    {
+      "building_id": "human.walls",
+      "level": 1,
+      "integrity_permille": 1000,
+      "built": true
+    },
+    {
+      "building_id": "human.market",
+      "level": 1,
+      "integrity_permille": 1000,
+      "built": true
+    },
+    {
+      "building_id": "human.barracks",
+      "level": 1,
+      "integrity_permille": 1000,
+      "built": true
+    },
+    {
+      "building_id": "human.tavern",
+      "level": 0,
+      "integrity_permille": 0,
+      "built": false
+    }
   ],
   "development_definitions": [
     {
@@ -25,12 +50,32 @@
       "category": "civic",
       "max_level": 1,
       "build_days": 2,
-      "build_cost": {"gold": 200},
-      "prerequisites": ["human.keep"],
-      "unlock_ids": ["service.tavern_hero"],
+      "build_cost": {
+        "gold": 200
+      },
+      "prerequisites": [
+        "human.keep"
+      ],
+      "unlock_ids": [
+        "service.tavern_hero"
+      ],
       "balance_status": "provisional proof values; existing hire price remains 1200 gold",
-      "environment_actor_group": null,
-      "campaign_miniature_group": null
+      "environment_actor_group": [
+        "L_HumanCapital_Authored:SoulSettlementBuildingActor_0",
+        "SL_HumanCapital_Houses:SoulSettlementBuildingActor_0",
+        "SL_HumanCapital_TownProps:SoulSettlementBuildingActor_0"
+      ],
+      "campaign_miniature_group": "SM_HumanCapital_Upgrade_r6: same native tavern, same human.tavern state"
     }
-  ]
+  ],
+  "miniature_base_mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r6",
+  "miniature_upgrade_mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Upgrade_r6",
+  "miniature_translation": [
+    -500,
+    0,
+    0
+  ],
+  "miniature_yaw": 0,
+  "miniature_scale": 0.12,
+  "miniature_quality_status": "R6 native central keep and thirty nearby authored blocks; welded RenderLOD0 castle restores roof surfaces. Same native tavern follows shared state. Campaign-only foundation fitting; full city unchanged. Functional correspondence accepted; detached gate and campaign streets/hinterland remain provisional art. See Population-20261006 receipts."
 }

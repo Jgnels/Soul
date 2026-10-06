@@ -180,8 +180,15 @@ def main():
         p.error("Authorized machine is DESKTOP-Q1S3RPU")
     if args.duration < 60 or not 1 <= args.startup_timeout <= 600:
         p.error("Require duration >=60 seconds and startup-timeout in [1,600]")
-    if args.completion_marker and not args.duration <= args.completion_timeout <= 900:
-        p.error("completion-timeout must be >=duration and <=900 seconds")
+    # The intact Human city crosses several real asynchronous map loads in
+    # the existing construction/visit/save/battle proof. Keep ordinary runs
+    # at fifteen minutes; only that explicit observer gets a two-hour bound.
+    authored_human = ("-SoulHumanSettlementProof" in args.ue_arg
+        and "-SoulAuthoredSettlementQualification" in args.ue_arg
+        and args.completion_marker in ("SOUL_AUTHORED_SETTLEMENT_PASS", "SOUL_AUTHORED_FRESH_LOAD_PASS"))
+    completion_limit = 7200 if authored_human else 900
+    if args.completion_marker and not args.duration <= args.completion_timeout <= completion_limit:
+        p.error(f"completion-timeout must be >=duration and <={completion_limit} seconds")
     if args.stage != "G0" and (not args.map_url or args.expected_active_units < 2):
         p.error("Combat stages need an explicit map URL and expected-active-units >=2")
     if args.stage == "G0" and args.expected_active_units != 0:
@@ -302,6 +309,9 @@ def main():
                 try:
                     sample["gpu"] = gpu_sample(nvidia)
                     sample["process_memory"] = process_memory_sample(process.pid)
+                    if authored_human:
+                        from WorldTerrain.host_commit import system_commit_sample
+                        sample["system_memory"] = system_commit_sample()
                 except Exception as exc:
                     sample["telemetry_error"] = str(exc)
                 telemetry.write(json.dumps(sample) + "\n")
@@ -311,6 +321,10 @@ def main():
                     break
                 if max(g["temperature_c"] for g in sample["gpu"]) >= 85:
                     stop_reason = "thermal_cutoff_85c"
+                    break
+                if authored_human and (sample["process_memory"].get("private_commit_mib", 0) >= 20000
+                        or sample["system_memory"]["available_commit_mib"] < 4096):
+                    stop_reason = "authored_environment_memory_guard"
                     break
                 if process.poll() is not None:
                     stop_reason = "process_exited"

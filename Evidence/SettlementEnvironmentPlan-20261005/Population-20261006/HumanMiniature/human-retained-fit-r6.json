@@ -1,0 +1,370 @@
+{
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "origin": [
+    12352.94118,
+    20882.35294,
+    1696.0
+  ],
+  "miniature_scale": 0.12,
+  "miniature_translation": [
+    -500,
+    0,
+    0
+  ],
+  "miniature_yaw": 0,
+  "counts": {
+    "base": 1977742,
+    "upgrade": 58888
+  },
+  "fit": [
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_59",
+      "state": "base",
+      "native_min_z": -85.63658142089844,
+      "delta_z": -6.945900321218389,
+      "ground_relief_cm": 59.019091509342616,
+      "campaign_center": [
+        9725.34118,
+        22468.752940000002
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_10",
+      "state": "base",
+      "native_min_z": 124.36341857910156,
+      "delta_z": 541.4089817411308,
+      "ground_relief_cm": 35.978091428408334,
+      "campaign_center": [
+        10190.94118,
+        21646.752940000002
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_161",
+      "state": "base",
+      "native_min_z": -35.63658142089844,
+      "delta_z": -365.21011413862027,
+      "ground_relief_cm": 56.633559361216385,
+      "campaign_center": [
+        10518.111138173954,
+        22855.496687341645
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_12",
+      "state": "base",
+      "native_min_z": -85.63658142089844,
+      "delta_z": 981.6338371449219,
+      "ground_relief_cm": 20.87902942755386,
+      "campaign_center": [
+        9433.74118,
+        21392.35294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_27",
+      "state": "base",
+      "native_min_z": 94.36341857910156,
+      "delta_z": 713.5706595853707,
+      "ground_relief_cm": 27.03558024389622,
+      "campaign_center": [
+        10009.74118,
+        21293.95294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_61",
+      "state": "base",
+      "native_min_z": -95.63658142089844,
+      "delta_z": -835.578354517502,
+      "ground_relief_cm": 82.76043053190187,
+      "campaign_center": [
+        9480.54118,
+        22898.35294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_73",
+      "state": "base",
+      "native_min_z": 44.36341857910156,
+      "delta_z": 61.51035821554714,
+      "ground_relief_cm": 54.25305560038532,
+      "campaign_center": [
+        9496.14118,
+        22441.15294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_67",
+      "state": "base",
+      "native_min_z": 147.66037940979004,
+      "delta_z": 434.4984386589234,
+      "ground_relief_cm": 28.56983377997949,
+      "campaign_center": [
+        9128.448775553912,
+        22233.4788199328
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_33",
+      "state": "base",
+      "native_min_z": -22.33962059020996,
+      "delta_z": 727.6643434051668,
+      "ground_relief_cm": 31.712958357352363,
+      "campaign_center": [
+        9874.14118,
+        21164.35294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_170",
+      "state": "base",
+      "native_min_z": -42.33962059020996,
+      "delta_z": -574.2402441994789,
+      "ground_relief_cm": 79.16066957995963,
+      "campaign_center": [
+        10668.53816323865,
+        22980.349467070104
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_172",
+      "state": "base",
+      "native_min_z": 17.66037940979004,
+      "delta_z": -1032.338036460747,
+      "ground_relief_cm": 81.13426401019933,
+      "campaign_center": [
+        10362.06053872,
+        23084.29694056
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_0",
+      "state": "base",
+      "native_min_z": -52.33962059020996,
+      "delta_z": 551.1722558171672,
+      "ground_relief_cm": 31.11356207478957,
+      "campaign_center": [
+        10308.54118,
+        21827.95294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_68",
+      "state": "base",
+      "native_min_z": 161.1390676498413,
+      "delta_z": -802.6018796457518,
+      "ground_relief_cm": 98.97457883712855,
+      "campaign_center": [
+        9350.94118,
+        22768.752940000002
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_83",
+      "state": "base",
+      "native_min_z": 221.1390676498413,
+      "delta_z": -103.30812065509295,
+      "ground_relief_cm": 51.222371385493716,
+      "campaign_center": [
+        9240.104622077864,
+        22520.19610462185
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_151",
+      "state": "base",
+      "native_min_z": 51.13906764984131,
+      "delta_z": 689.1826854141593,
+      "ground_relief_cm": 25.242650099513412,
+      "campaign_center": [
+        9730.69684032114,
+        21727.28249599463
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_31",
+      "state": "base",
+      "native_min_z": 181.13906666108358,
+      "delta_z": 596.0298908920519,
+      "ground_relief_cm": 23.676650260636052,
+      "campaign_center": [
+        9559.560168509863,
+        21242.21981099138
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_14",
+      "state": "base",
+      "native_min_z": 127.50582616292854,
+      "delta_z": 653.4292532544837,
+      "ground_relief_cm": 26.6762471396853,
+      "campaign_center": [
+        10106.941180510423,
+        21519.552940387628
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_16",
+      "state": "base",
+      "native_min_z": -28.86092758178711,
+      "delta_z": 882.5611859483473,
+      "ground_relief_cm": 16.397485255751462,
+      "campaign_center": [
+        9644.593695449901,
+        21521.617614587234
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_153",
+      "state": "base",
+      "native_min_z": 51.13907241821289,
+      "delta_z": 10.045443996623895,
+      "ground_relief_cm": 14.61684293424264,
+      "campaign_center": [
+        10840.984456119231,
+        22612.73818231495
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_65",
+      "state": "base",
+      "native_min_z": 21.13906764984131,
+      "delta_z": 398.42265898872313,
+      "ground_relief_cm": 32.47944334954286,
+      "campaign_center": [
+        9431.34118,
+        22311.55294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_18",
+      "state": "base",
+      "native_min_z": 61.13907432556152,
+      "delta_z": 887.2376109092847,
+      "ground_relief_cm": 8.469565790016304,
+      "campaign_center": [
+        9869.34118,
+        21563.95294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_24",
+      "state": "base",
+      "native_min_z": -36.119902890341564,
+      "delta_z": 531.5044825302832,
+      "ground_relief_cm": 31.695993562433387,
+      "campaign_center": [
+        9888.54118,
+        21880.75294013564
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_155",
+      "state": "base",
+      "native_min_z": -128.86092567443848,
+      "delta_z": 80.06713963754828,
+      "ground_relief_cm": 20.50195805083058,
+      "campaign_center": [
+        11000.199823338073,
+        22805.08387014102
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_149",
+      "state": "upgrade",
+      "native_min_z": -48.86093711853027,
+      "delta_z": 520.6213395639563,
+      "ground_relief_cm": 17.969493811963503,
+      "campaign_center": [
+        10112.549561131444,
+        22080.60482966254
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_25",
+      "state": "base",
+      "native_min_z": 81.1390733718872,
+      "delta_z": 793.8589195925473,
+      "ground_relief_cm": 16.361362223564356,
+      "campaign_center": [
+        9823.74118,
+        21580.752940000002
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_26",
+      "state": "base",
+      "native_min_z": -78.8609266281128,
+      "delta_z": 1063.6924501458168,
+      "ground_relief_cm": 17.567329293478224,
+      "campaign_center": [
+        9260.94118,
+        21320.35294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_37",
+      "state": "base",
+      "native_min_z": 61.13907337188721,
+      "delta_z": 822.7703268466632,
+      "ground_relief_cm": 17.833525350542914,
+      "campaign_center": [
+        9803.34118,
+        21371.95294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_51",
+      "state": "base",
+      "native_min_z": -18.860926628112793,
+      "delta_z": 776.9299096557938,
+      "ground_relief_cm": 16.156747959836594,
+      "campaign_center": [
+        9702.54118,
+        21171.55294
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_79",
+      "state": "base",
+      "native_min_z": -108.8609266281128,
+      "delta_z": 775.9710380488863,
+      "ground_relief_cm": 20.8983972243268,
+      "campaign_center": [
+        9239.160954627412,
+        22074.89020373206
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_177",
+      "state": "base",
+      "native_min_z": -78.8609266281128,
+      "delta_z": 187.35838306140522,
+      "ground_relief_cm": 14.938693897251596,
+      "campaign_center": [
+        10734.35047828,
+        22600.885451680002
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_224",
+      "state": "base",
+      "native_min_z": 61.13907337188721,
+      "delta_z": -589.0052759238135,
+      "ground_relief_cm": 45.45784656776368,
+      "campaign_center": [
+        9787.783433701636,
+        22753.49003973851
+      ]
+    },
+    {
+      "actor": "complete native central keep assembly",
+      "parts": 7,
+      "native_min_z": 107.18157182327275,
+      "delta_z": -245.55185657668613,
+      "ground_relief_cm": 65.4787320461769
+    }
+  ],
+  "status": "Candidate: requires rendered review, road clearance and physical state comparison"
+}

@@ -1,0 +1,128 @@
+{
+  "utc": "2026-10-06T18:38:23.984068+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r6.SM_HumanCapital_Base_r6",
+  "sha256": "66852ec839ac4f2798ac7944574645402515039748cbb58e72b44f528937b1ee",
+  "source_manifest_sha256": "648fc8c341e874d53b743a18a253c8c3a2734dc83f3cc1cf270428e481456f20",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    10000,
+    -6500,
+    0
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 37,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01a_Fix_r1.SM_LI_Building_01a_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 5
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1",
+      "lod": 0,
+      "triangles": 5988,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03a_Fix_r1.SM_LI_Building_03a_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04_Fix_r1.SM_LI_Building_04_Fix_r1",
+      "lod": 0,
+      "triangles": 5988,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04a_Fix_r1.SM_LI_Building_04a_Fix_r1",
+      "lod": 0,
+      "triangles": 5994,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04b_Fix_r1.SM_LI_Building_04b_Fix_r1",
+      "lod": 0,
+      "triangles": 5994,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 7
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Front_Gate_surface_r3.SM_LI_Front_Gate_surface_r3",
+      "lod": 0,
+      "triangles": 102755,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Front_Hall_surface_r3.SM_LI_Front_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 249734,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Full_Castle_surface_r3.SM_LI_Full_Castle_surface_r3",
+      "lod": 0,
+      "triangles": 225236,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Kings_Hall_surface_r3.SM_LI_Kings_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 289649,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Side_Hall_surface_r3.SM_LI_Side_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 323269,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Top_Level_surface_r3.SM_LI_Top_Level_surface_r3",
+      "lod": 0,
+      "triangles": 350180,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_SM_Main_Hall_surface_r3.SM_SM_Main_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 256919,
+      "instances": 1
+    }
+  ],
+  "input_triangles": 1977664,
+  "reduced_triangles": 1977664,
+  "saved_triangles": 1977644,
+  "material_count": 35,
+  "recipe_sha256": "478954f53a92c5a84292c89170cde021672141f51742c39e047a61f5f5928593",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

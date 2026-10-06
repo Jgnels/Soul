@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-06T17:15:23.033475+00:00",
+  "run": "human-authored-input-r1",
+  "review": "Actual 1920x1080 images inspected side by side. Starting central waterfront plot lacks native tavern; completed state contains the recognizable native timber/plaster/slate tavern, chimney and associated props. Same camera and surrounding authored composition. Physical state appearance accepted for this proof; campaign miniature R3 explicitly not art-accepted.",
+  "images": [
+    {
+      "state": "city_start_clean",
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-authored-input-r1\\User\\Saved\\Screenshots\\human-authored-input-r1_city_start_clean.png",
+      "sha256": "e1510aa8476aaba441e9b1c2629338b2fd52bc0f736318a78c3b227554373668"
+    },
+    {
+      "state": "city_completed_clean",
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-authored-input-r1\\User\\Saved\\Screenshots\\human-authored-input-r1_city_completed_clean.png",
+      "sha256": "624f91133f41cf5730816ed621f9b84ca975f8e30f28700673a7197c1ce4535f"
+    }
+  ],
+  "remaining": [
+    "F5/F9 exact restoration",
+    "fresh-process restoration",
+    "authored battle and return",
+    "corrected miniature art/fit",
+    "performance"
+  ]
+}

@@ -168,6 +168,7 @@ class SOULREALTIMEBATTLE_API ASoulRealtimeArenaGameMode
 public:
     ASoulRealtimeArenaGameMode();
     virtual void BeginPlay() override;
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void Tick(float Seconds) override;
 
     void PresentBowLaunch(const FRBProjectileLaunch& Launch);
@@ -422,6 +423,11 @@ private:
     FVector ArenaOrigin = FVector::ZeroVector;
     FName EnemyVisualFaction = NAME_None;
     FName EnemyVisualRegion = NAME_None;
+    void InitializeLoadedArena();
+    bool bAwaitingAuthoredEnvironment = false;
+    double AuthoredLoadStarted = 0, AuthoredLoadQuietSince = 0;
+    bool bAuthoredLoadingRenderingSuppressed = false, bPriorWorldRenderingDisabled = false;
+    void RestoreAuthoredLoadingRendering();
     bool bProof = false;
     bool bMagicProof = false;
     bool bExternalEnvironment = false;

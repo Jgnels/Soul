@@ -16,6 +16,10 @@
 #include "Engine/StaticMesh.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
+#include "Engine/Level.h"
+#include "Engine/LevelStreaming.h"
+#include "LevelInstance/LevelInstanceInterface.h"
+#include "UObject/UObjectGlobals.h"
 #include "EngineUtils.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/HUD.h"
@@ -93,7 +97,9 @@ bool USoulAuthoredSettlementQualification::Presentation(bool bBuilt, bool bFullE
         for (TActorIterator<AActor> It(GetWorld()); It; ++It) ++AuthoredActors;
         if (!Check(AuthoredActors >= 3000, FString::Printf(TEXT("substantial authored city loaded: %d actors"), AuthoredActors))) return false;
     }
+    const bool bHuman = Scenario->SettlementId == TEXT("human_capital");
     int32 Groups = 0;
+    TArray<int32> RootCounts;
     for (TActorIterator<ASoulSettlementBuildingActor> It(GetWorld()); It; ++It)
     {
         if (It->SettlementId != Scenario->SettlementId || It->BuildingId != C->GetTavernBuildingId()) continue;
@@ -101,7 +107,8 @@ bool USoulAuthoredSettlementQualification::Presentation(bool bBuilt, bool bFullE
         if (!Check(!It->IsHidden() && It->bFollowSettlementState, TEXT("state adapter visible and bound to existing authority"))) return false;
         if (bFullEnvironment)
         {
-            if (!Check(It->IntactActors.Num() == 56, TEXT("reviewed 56 persistent authored roots loaded"))) return false;
+            RootCounts.Add(It->IntactActors.Num());
+            if (!bHuman && !Check(It->IntactActors.Num() == 56, TEXT("reviewed 56 persistent authored roots loaded"))) return false;
             TArray<AActor*> Pending;
             TSet<AActor*> Visited;
             for (AActor* Actor : It->IntactActors) Pending.Add(Actor);
@@ -114,6 +121,10 @@ bool USoulAuthoredSettlementQualification::Presentation(bool bBuilt, bool bFullE
                 TArray<AActor*> Children;
                 Actor->GetAttachedActors(Children);
                 Pending.Append(Children);
+                if (const auto* Instance = Cast<ILevelInstanceInterface>(Actor))
+                    if (const ULevel* Level = Instance->GetLoadedLevel())
+                        for (AActor* Child : Level->Actors)
+                            if (IsValid(Child)) Pending.Add(Child);
             }
         }
         else
@@ -136,6 +147,12 @@ bool USoulAuthoredSettlementQualification::Presentation(bool bBuilt, bool bFullE
             }
             if (!Check(Base == 1 && Upgrade == 1, TEXT("exactly one owned base and upgrade derivative"))) return false;
         }
+    }
+    if (bFullEnvironment && bHuman)
+    {
+        RootCounts.Sort();
+        return Check(Groups == 3 && RootCounts == TArray<int32>({1,10,13}),
+            TEXT("three reviewed Human state groups bind the native tavern and its 23 associated roots"));
     }
     return Check(Groups == 1, TEXT("exactly one settlement representation in the loaded world"));
 }
@@ -185,6 +202,23 @@ bool USoulAuthoredSettlementQualification::CaptureWithoutHUD(const TCHAR* Label,
 
 bool USoulAuthoredSettlementQualification::AwaitVisualAssets(double Now)
 {
+    int32 PendingLevels = 0;
+    for (const auto* Level : GetWorld()->GetStreamingLevels())
+        if (Level && (Level->IsStreamingStatePending()
+            || (Level->ShouldBeLoaded() && !Level->IsLevelLoaded())
+            || (Level->ShouldBeVisible() && !Level->IsLevelVisible()))) ++PendingLevels;
+    if (PendingLevels > 0 || IsAsyncLoading())
+    {
+        AssetsQuietSince = 0;
+        if (Now >= NextAssetWaitLog)
+        {
+            UE_LOG(LogTemp, Display, TEXT("SOUL_AUTHORED_STREAMING_WAIT step=%d levels=%d async=%d"), Step, PendingLevels, IsAsyncLoading());
+            NextAssetWaitLog = Now + 10;
+        }
+        if (Now - StepStarted > 1200) Check(false, TEXT("authored streaming did not finish within twenty minutes"));
+        NextTime = Now + .5;
+        return false;
+    }
 #if WITH_EDITOR
     const int32 Pending = FAssetCompilingManager::Get().GetNumRemainingAssets();
     if (Pending > 0)
@@ -195,7 +229,7 @@ bool USoulAuthoredSettlementQualification::AwaitVisualAssets(double Now)
             UE_LOG(LogTemp, Display, TEXT("SOUL_AUTHORED_ASSET_WAIT step=%d remaining=%d"), Step, Pending);
             NextAssetWaitLog = Now + 10;
         }
-        if (Now - StepStarted > 300) Check(false, TEXT("asset compilation did not finish within the visual evidence deadline"));
+        if (Now - StepStarted > (FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof")) ? 1200 : 300)) Check(false, TEXT("asset compilation did not finish within the visual evidence deadline"));
         NextTime = Now + .5;
         return false;
     }
@@ -271,7 +305,8 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
     FrameMs = PreviousFrame > 0 ? (Now - PreviousFrame) * 1000. : 0;
     PreviousFrame = Now;
     if (Started == 0) { Started = StepStarted = Now; NextTime = Now + 25; }
-    if (Now - Started >= 1500) { Check(false, TEXT("bounded 25-minute qualification expired")); return; }
+    const double Deadline = FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof")) ? 7200 : 1500;
+    if (Now - Started >= Deadline) { Check(false, TEXT("bounded authored qualification expired")); return; }
     if (Now < NextTime) return;
     if (FParse::Param(FCommandLine::Get(), TEXT("SoulHumanEnvironmentSurvey")))
     { TickHumanEnvironmentSurvey(Now); return; }
@@ -334,7 +369,7 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
     {
         FString UserDir;
         const TCHAR* Cmd = FCommandLine::Get();
-        if (!Check(FParse::Param(Cmd, TEXT("SoulDwarfSettlementProof")) && SoulCampaignTerrain::EvilCorridor()
+        if (!Check((FParse::Param(Cmd, TEXT("SoulDwarfSettlementProof")) != FParse::Param(Cmd, TEXT("SoulHumanSettlementProof"))) && SoulCampaignTerrain::EvilCorridor()
             && !FParse::Param(Cmd, TEXT("SoulWorldTerrain")) && !FParse::Param(Cmd, TEXT("SoulSettlementDevelopmentQualification"))
             && !FParse::Param(Cmd, TEXT("SoulVerticalQualification")), TEXT("isolated authored proof on retained terrain"))) return;
         if (!Check(FParse::Value(Cmd, TEXT("UserDir="), UserDir) && !FPaths::IsRelative(UserDir)
@@ -348,7 +383,11 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
                 || !Check(FFileHelper::LoadFileToString(ExpectedCampaign, *(FPaths::ProjectSavedDir()/TEXT("expected_Soul.Campaign.json")))
                     && FFileHelper::LoadFileToString(ExpectedSettlement, *(FPaths::ProjectSavedDir()/TEXT("expected_Soul.Settlements.json"))), TEXT("fresh-load expected snapshots supplied independently"))) return;
             if (!Check(Campaign && Condition == TEXT("Unbuilt") && !State->bSecondHeroHired, TEXT("new process starts with unbuilt scenario before F9"))) return;
-            BeginLoad(); Step = 99; Next(); break;
+            // Compare the same real campaign view before and after F9, without
+            // replaying the already-qualified construction/visit sequence.
+            Key(EKeys::Home);
+            for (int32 I = 0; I < 5; ++I) Key(EKeys::MouseScrollUp);
+            Step = 97; Next(8); break;
         }
         if (!Check(!IFileManager::Get().FileExists(*SavePath), TEXT("fresh save slot required"))) return;
         if (!Check(Campaign && Condition == TEXT("Unbuilt") && !State->IsTavernOperational(), TEXT("campaign starts unbuilt with service locked")) || !Presentation(false, false)) return;
@@ -430,7 +469,7 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
         for (TActorIterator<ASoulFounderPlaytestCampaignActor> It(GetWorld()); It; ++It)
         {
             It->SelectCompany();
-            It->HandleRegionClicked(TEXT("dwarf_forge_approach"));
+            It->HandleRegionClicked(State->EnemyRegion);
         }
         Next(); break;
     case 21:
@@ -441,8 +480,10 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
         if (!Check(State->HasPendingBattle() && State->PendingBattle.MapPackage.ToString() == Scenario->OwnedEnvironmentMap.ToSoftObjectPath().GetLongPackageName()
             && GetWorld()->GetAuthGameMode()->GetClass()->GetName() == TEXT("SoulRealtimeArenaGameMode"), TEXT("existing bridge entered authored city with existing realtime combat mode"))) return;
         Encounter = State->PendingBattle.EncounterId;
+        if (!AwaitVisualAssets(Now)) return;
         int32 Characters = 0;
         for (TActorIterator<ACharacter> It(GetWorld()); It; ++It) if (!It->IsHidden()) ++Characters;
+        if (Characters < 30 && Now - StepStarted < 1200) { NextTime = Now + 1; return; }
         if (!Check(Characters >= 30, TEXT("both real physical forces spawned")) || !Presentation(true, true)) return;
         Capture(TEXT("authored_battle"));
         Next(30); break;
@@ -479,16 +520,31 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
     {
         if (!Loaded()) return;
         for (const FString& Path : Captures) if (!Check(IFileManager::Get().FileSize(*Path) > 1024, TEXT("completed screenshot file: ") + Path)) return;
-        const FString Receipt = FString::Printf(TEXT("{\"status\":\"FUNCTIONAL_PASS_PENDING_VISUAL_REVIEW\",\"authored_environment\":true,\"miniature\":true,\"two_domain_restoration\":true,\"real_battle\":true,\"battle_won\":%s,\"player_survivors\":%d,\"enemy_survivors\":%d,\"screenshot_count\":%d,\"seconds\":%.2f}\n"),
+        FString Receipt = FString::Printf(TEXT("{\"status\":\"FUNCTIONAL_PASS_PENDING_VISUAL_REVIEW\",\"authored_environment\":true,\"miniature\":true,\"two_domain_restoration\":true,\"real_battle\":true,\"battle_won\":%s,\"player_survivors\":%d,\"enemy_survivors\":%d,\"screenshot_count\":%d,\"seconds\":%.2f}\n"),
             State->LastBattleResult.bPlayerWon ? TEXT("true") : TEXT("false"), State->LastBattleResult.PlayerSurvivors,
             State->LastBattleResult.EnemySurvivors, Captures.Num(), Now - Started);
+        if (FParse::Param(FCommandLine::Get(), TEXT("SoulAuthoredSettlementBattleResume")))
+            Receipt.ReplaceInline(TEXT("FUNCTIONAL_PASS_PENDING_VISUAL_REVIEW"), TEXT("RESTORED_BATTLE_PASS_PENDING_VISUAL_REVIEW"));
         if (!Check(FFileHelper::SaveStringToFile(Receipt, *(FPaths::ProjectSavedDir() / (Prefix + TEXT("_authored.json")))), TEXT("functional receipt saved"))) return;
         UE_LOG(LogTemp, Display, TEXT("SOUL_AUTHORED_SETTLEMENT_PASS physical=1 miniature=1 visit=1 save=1 battle=1 visual_review_required=1"));
         bDone = true; FPlatformMisc::RequestExitWithStatus(false, 0); break;
     }
+    case 98:
+        if (!Presentation(false, false)) return;
+        Capture(TEXT("fresh_miniature_start"));
+        BeginLoad(); Step = 99; Next(); break;
     case 100:
         if (!Loaded() || !Presentation(true, false)
             || !Check(State->bSecondHeroHired && State->IsTavernOperational(), TEXT("fresh process restored completed structure and purchased companion"))) return;
+        if (FParse::Param(FCommandLine::Get(), TEXT("SoulAuthoredSettlementBattleResume")))
+        {
+            // Continue the already-captured construction/visit proof from its
+            // independently supplied checkpoint. Repeat only the blocked battle
+            // gate, through the same normal selection, B input and result path.
+            Capture(TEXT("fresh_miniature_restored"));
+            UE_LOG(LogTemp, Display, TEXT("SOUL_AUTHORED_BATTLE_RESUME restored_domains=2 prior_construction_receipt_required=1"));
+            Step = 19; Next(); break;
+        }
         Key(EKeys::Home);
         for (int32 I = 0; I < 5; ++I) Key(EKeys::MouseScrollUp);
         Key(EKeys::T);

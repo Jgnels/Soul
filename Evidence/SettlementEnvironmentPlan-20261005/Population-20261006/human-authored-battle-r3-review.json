@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-06T20:15:30.384102+00:00",
+  "run": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-authored-battle-r3",
+  "decision": "PASS: corrected real authored-environment battle and campaign/save return; actual screenshots reviewed",
+  "result": {
+    "status": "RESTORED_BATTLE_PASS_PENDING_VISUAL_REVIEW",
+    "authored_environment": true,
+    "miniature": true,
+    "two_domain_restoration": true,
+    "real_battle": true,
+    "battle_won": true,
+    "player_survivors": 27,
+    "enemy_survivors": 0,
+    "screenshot_count": 5,
+    "seconds": 1120.07
+  },
+  "reinforcements": {
+    "bodies_arrived": [
+      16,
+      15
+    ],
+    "both_sides_observed": true,
+    "scope": "actual existing reinforcement events in this fixed authored-environment fixture"
+  },
+  "guard": {
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "elapsed_seconds": 1232.5
+  },
+  "visual_review": {
+    "images": [
+      "human-authored-battle-r3_authored_battle.png",
+      "human-authored-battle-r3_authored_battle_warm.png",
+      "human-authored-battle-r3_campaign_after_battle.png"
+    ],
+    "findings": [
+      "Both physical forces visible on retained native ground.",
+      "Original authored town buildings and waterfront remain recognizable behind the approach.",
+      "Native city architecture remains intact; only 202 tree instances within the bounded battle-only ellipse are omitted at runtime.",
+      "Visit environment and donor maps are unchanged.",
+      "Returned campaign screenshot reviewed: victory HUD records 27 allied / 0 hostile, restored campaign army and native retained geography render correctly."
+    ],
+    "limits": [
+      "Initial and warmed fixed battle views, not a full siege or every manual camera angle.",
+      "This functional run uses 20 FPS and is not a performance claim."
+    ]
+  },
+  "telemetry": {
+    "peak_gpu_c": 83.0,
+    "peak_device_vram_mib": 7613.0,
+    "peak_private_commit_mib": 17433.23,
+    "peak_working_set_mib": 7604.4
+  },
+  "external_actor_warnings": {
+    "count": 61,
+    "baseline_count": 61,
+    "new_paths": []
+  },
+  "framework_decision": "Second and final deep authored proof has generalized the existing system. Freeze framework development; only real blocking integration defects may justify changes. No third city proof or Dwarf polish.",
+  "remaining": [
+    "Fresh visit/return performance window at native uncapped 1920x1080.",
+    "Retained nine-node population rendering, input, selection, build and performance receipts.",
+    "Human campaign art remains medium-detail and needs roads/hinterland review; no Bannerlord-tier claim."
+  ]
+}

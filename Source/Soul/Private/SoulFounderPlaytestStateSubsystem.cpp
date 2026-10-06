@@ -106,11 +106,15 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
 {
     if (bInitialized) return;
     const bool bDwarfEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"));
-    if (bDwarfEnvironmentProof && !SoulCampaignTerrain::EvilCorridor())
-    { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_DWARF_PROOF_FAIL requires the retained EvilCorridor terrain profile")); return; }
+    const bool bHumanEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"));
+    const bool bAuthoredEnvironmentProof = bDwarfEnvironmentProof || bHumanEnvironmentProof;
+    if ((bAuthoredEnvironmentProof && !SoulCampaignTerrain::EvilCorridor())
+        || (bDwarfEnvironmentProof && bHumanEnvironmentProof))
+    { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_AUTHORED_PROOF_FAIL requires one explicit settlement and the retained EvilCorridor terrain profile")); return; }
     TSharedPtr<FJsonObject> Config,Geography,Starts,Handoffs;
     const bool bConfigLoaded = bDwarfEnvironmentProof
         ? ReadData(TEXT("SettlementEnvironments/DwarfHoldRuntimeProof.json"), Config)
+        : bHumanEnvironmentProof ? ReadData(TEXT("SettlementEnvironments/HumanCapitalRuntimeProof.json"), Config)
         : ReadData(TEXT("soul_vertical_scenario_20260925.json"), Config);
     if (!bConfigLoaded
         ||!ReadData(TEXT("soul_world_overmap_v1_20260922.json"),Geography)
@@ -119,7 +123,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     { UE_LOG(LogSoulCampaign,Error,TEXT("Campaign authority data unavailable; refusing fallback geography.")); return; }
     // This opt-in content qualification uses existing Crownspine nodes/edges and
     // a captured-hold starting owner. It does not alter the canonical world graph.
-    const auto Scenario=bDwarfEnvironmentProof ? Config->GetObjectField(TEXT("start_state"))
+    const auto Scenario=bAuthoredEnvironmentProof ? Config->GetObjectField(TEXT("start_state"))
         : Starts->GetObjectField(TEXT("scenarios"))->GetObjectField(TEXT("founder_human_orc_micro"));
     TSet<FName> RegionIds;
     for (const auto& Id:Scenario->GetArrayField(TEXT("region_ids"))) RegionIds.Add(FName(*Id->AsString()));
@@ -167,6 +171,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     FSoulBattlefieldTemplate DefaultBattlefield;
     DefaultBattlefield.Id = TEXT("dragon_graveyard");
     if (bDwarfEnvironmentProof) DefaultBattlefield.Id = TEXT("dwarf_hold_approach");
+    if (bHumanEnvironmentProof) DefaultBattlefield.Id = TEXT("human_capital_approach");
     DefaultBattlefield.MapPackage = BattleMap;
     DefaultBattlefield.bPlayable = true;
     DefaultBattlefield.ArenaOrigin = BattleOrigin;
@@ -252,7 +257,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
     LastAIReport=TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
-    if (bDwarfEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
+    if (bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
     {
         FString Error;
         auto* DevelopmentScenario = LoadObject<USoulSettlementScenarioData>(nullptr,

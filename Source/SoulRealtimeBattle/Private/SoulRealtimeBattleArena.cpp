@@ -30,11 +30,16 @@
 #include "Components/DirectionalLightComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/InstancedStaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Engine/DirectionalLight.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/World.h"
+#include "Engine/GameViewportClient.h"
+#include "Engine/LevelStreaming.h"
+#include "HAL/PlatformTime.h"
+#include "UObject/UObjectGlobals.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerController.h"
@@ -1061,6 +1066,45 @@ bool ASoulRealtimeArenaGameMode::TryCommitMagicCast(
 void ASoulRealtimeArenaGameMode::BeginPlay()
 {
     Super::BeginPlay();
+    // The intact Human city has nested authored level instances. Its root
+    // begins play before their collision arrives; do not deploy armies into
+    // an incomplete world. Other qualified environments retain their path.
+    if (GetWorld()->GetOutermost()->GetName() == TEXT("/Game/Soul/Maps/Settlements/L_HumanCapital_Authored"))
+    {
+        bAwaitingAuthoredEnvironment = true;
+        AuthoredLoadStarted = FPlatformTime::Seconds();
+        // The root world starts before its battle camera and streamed collision.
+        // Rendering that temporary default view exhausted the guarded GPU load
+        // budget. Keep the existing loading HUD, then restore world rendering
+        // before initializing the real battle. No runtime/performance cap changes.
+        if (auto* Viewport = GetWorld()->GetGameViewport())
+        {
+            bPriorWorldRenderingDisabled = Viewport->bDisableWorldRendering;
+            Viewport->bDisableWorldRendering = true;
+            bAuthoredLoadingRenderingSuppressed = true;
+        }
+        Status = TEXT("Loading the authored battlefield...");
+        return;
+    }
+    InitializeLoadedArena();
+}
+
+void ASoulRealtimeArenaGameMode::RestoreAuthoredLoadingRendering()
+{
+    if (!bAuthoredLoadingRenderingSuppressed) return;
+    if (auto* Viewport = GetWorld() ? GetWorld()->GetGameViewport() : nullptr)
+        Viewport->bDisableWorldRendering = bPriorWorldRenderingDisabled;
+    bAuthoredLoadingRenderingSuppressed = false;
+}
+
+void ASoulRealtimeArenaGameMode::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+    RestoreAuthoredLoadingRendering();
+    Super::EndPlay(EndPlayReason);
+}
+
+void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
+{
     bControlDiagnostics = FParse::Param(FCommandLine::Get(), TEXT("SoulControlDiagnostics"));
     bReadabilityProof = FParse::Param(FCommandLine::Get(), TEXT("SoulBattleReadabilityProof"));
     bProof = FParse::Param(
@@ -1196,6 +1240,40 @@ void ASoulRealtimeArenaGameMode::BeginPlay()
                 *Encounter->PlayerFaction.ToString(), *Encounter->PlayerUnitId.ToString(), StrategicBodies[0],
                 *Encounter->EnemyFaction.ToString(), *Encounter->EnemyUnitId.ToString(), StrategicBodies[1], ActiveCap);
         }
+    }
+    // The reviewed native city has wooded banks, not a ready-made arena. Keep
+    // its architecture, ground and low vegetation; clear only tree trunks from
+    // the bounded northwestern approach in this transient battle world. Native
+    // packages and the independently loaded visit world are never modified.
+    if (GetWorld()->GetOutermost()->GetName() == TEXT("/Game/Soul/Maps/Settlements/L_HumanCapital_Authored")
+        && ArenaOrigin.Equals(FVector(-9000, 21000, 400), 1.0))
+    {
+        int32 Removed = 0;
+        for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+        {
+            TInlineComponentArray<UInstancedStaticMeshComponent*> Components(*It);
+            for (auto* Component : Components)
+            {
+                const UStaticMesh* Mesh = Component->GetStaticMesh();
+                if (!Mesh) continue;
+                const FString Path = Mesh->GetPathName();
+                if (!Path.StartsWith(TEXT("/Game/CastleTown/Scanned_Foliage/Foliage/"))
+                    || !(Mesh->GetName().StartsWith(TEXT("SM_EuropeanBeech_"))
+                        || Mesh->GetName().StartsWith(TEXT("SM_SilverFir_")))) continue;
+                TArray<int32> Indices;
+                for (int32 I = 0; I < Component->GetInstanceCount(); ++I)
+                {
+                    FTransform Transform;
+                    if (!Component->GetInstanceTransform(I, Transform, true)) continue;
+                    const FVector Delta = Transform.GetLocation() - ArenaOrigin;
+                    // Elliptical edge keeps the surrounding authored woodland.
+                    if (FMath::Square(Delta.X / 5000.) + FMath::Square(Delta.Y / 4300.) < 1.)
+                        Indices.Add(I);
+                }
+                if (!Indices.IsEmpty() && Component->RemoveInstances(Indices)) Removed += Indices.Num();
+            }
+        }
+        UE_LOG(LogTemp, Display, TEXT("SOUL_HUMAN_APPROACH_CLEARING trees=%d origin=%s radii_cm=5000,4300 donor_writes=0"), Removed, *ArenaOrigin.ToCompactString());
     }
     Spatial = NewObject<USoulRealtimeBattlePBIL>(this);
     if (!Spatial->Configure(GetWorld(), ArenaOrigin))
@@ -3439,6 +3517,32 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
 void ASoulRealtimeArenaGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if (bAwaitingAuthoredEnvironment)
+    {
+        const double Now = FPlatformTime::Seconds();
+        int32 Pending = 0;
+        for (const auto* Level : GetWorld()->GetStreamingLevels())
+            if (Level && (Level->IsStreamingStatePending()
+                || (Level->ShouldBeLoaded() && !Level->IsLevelLoaded())
+                || (Level->ShouldBeVisible() && !Level->IsLevelVisible()))) ++Pending;
+        if (Now - AuthoredLoadStarted > 1200)
+        {
+            // Keep the encounter pending; never invent a result for a load
+            // failure. The bounded qualification launcher records this error.
+            Status = TEXT("The authored battlefield did not finish loading.");
+            UE_LOG(LogTemp, Error, TEXT("SOUL_AUTHORED_BATTLE_LOAD_FAIL pending=%d async=%d"), Pending, IsAsyncLoading());
+            SetActorTickEnabled(false);
+            return;
+        }
+        if (Pending > 0 || IsAsyncLoading()) { AuthoredLoadQuietSince = 0; return; }
+        if (AuthoredLoadQuietSince == 0) AuthoredLoadQuietSince = Now;
+        if (Now - AuthoredLoadQuietSince < 2) return;
+        bAwaitingAuthoredEnvironment = false;
+        RestoreAuthoredLoadingRendering();
+        UE_LOG(LogTemp, Display, TEXT("SOUL_AUTHORED_BATTLE_LOAD_READY seconds=%.2f levels=%d"), Now - AuthoredLoadStarted, GetWorld()->GetStreamingLevels().Num());
+        InitializeLoadedArena();
+        return;
+    }
     if (auto* PC = GetWorld()->GetFirstPlayerController())
         if (PC->WasInputKeyJustPressed(EKeys::Escape))
         {
@@ -3602,10 +3706,11 @@ void ASoulRealtimeArenaGameMode::SetupBattleCamera()
 {
     const FVector Center = ResolveSpawnLocation(ArenaOrigin + FVector(0, 0, 100));
     const bool bDragonShowcase = GetWorld()->GetOutermost()->GetName().Contains(TEXT("Dragon_graveyard"));
-    const FVector CameraOffset = bDragonShowcase
+    const bool bHumanApproach = GetWorld()->GetOutermost()->GetName() == TEXT("/Game/Soul/Maps/Settlements/L_HumanCapital_Authored");
+    const FVector CameraOffset = bHumanApproach ? FVector(-850, 3400, 2400) : bDragonShowcase
         ? (bMapOnly ? FVector(3200, -4200, 3000) : FVector(0, -4200, 2500))
         : (bMapOnly ? FVector(-1800, -3200, 1700) : FVector(-850, -1800, 1000));
-    const FVector FocusOffset = bDragonShowcase
+    const FVector FocusOffset = bHumanApproach ? FVector(350, -300, 150) : bDragonShowcase
         ? (bMapOnly ? FVector(-200, 500, 150) : FVector(0, -450, 100))
         : (bMapOnly ? FVector(500, 1800, 600) : FVector(250, 0, 100));
     if (!IsValid(TacticalCamera))
