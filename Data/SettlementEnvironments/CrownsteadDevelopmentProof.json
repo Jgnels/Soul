@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "explicit opt-in development proof; complete environment source recovery pending",
+  "status": "explicit opt-in development proof; complete source recovered, owned wrapper visual/state qualification pending",
   "asset_path": "/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof",
   "settlement_id": "human_capital",
   "world_settlement_slot": "city.human_capital",
@@ -9,7 +9,7 @@
   "environment_listing": "https://www.fab.com/listings/42d4a792-2b66-423d-9b20-84d6b2c578d8",
   "source_environment": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
   "owned_environment_map": null,
-  "physical_groups_status": "not selected; incomplete donor must not become a substitute city",
+  "physical_groups_status": "not selected; inspect the complete authored city before binding development actors",
   "fortification_level": 1,
   "wall_integrity_permille": 1000,
   "buildings": [
