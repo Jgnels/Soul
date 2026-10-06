@@ -37,7 +37,8 @@ bool USoulAuthoredSettlementQualification::ShouldCreateSubsystem(UObject* Outer)
 #if UE_BUILD_SHIPPING
     return false;
 #else
-    return FParse::Param(FCommandLine::Get(), TEXT("SoulAuthoredSettlementQualification"));
+    return FParse::Param(FCommandLine::Get(), TEXT("SoulAuthoredSettlementQualification"))
+        || FParse::Param(FCommandLine::Get(), TEXT("SoulHumanEnvironmentSurvey"));
 #endif
 }
 
@@ -272,6 +273,8 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
     if (Started == 0) { Started = StepStarted = Now; NextTime = Now + 25; }
     if (Now - Started >= 1500) { Check(false, TEXT("bounded 25-minute qualification expired")); return; }
     if (Now < NextTime) return;
+    if (FParse::Param(FCommandLine::Get(), TEXT("SoulHumanEnvironmentSurvey")))
+    { TickHumanEnvironmentSurvey(Now); return; }
     auto* State = GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>();
     auto* Authority = GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>();
     auto* Save = GetGameInstance()->GetSubsystem<URBSaveSubsystem>();

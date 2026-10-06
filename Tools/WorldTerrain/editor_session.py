@@ -6,6 +6,7 @@ Create OUTPUT/stop to close this child after authoring through Nwiro.
 """
 from pathlib import Path
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -34,6 +35,8 @@ p.add_argument('--ini-override', action='append', default=[],
                help='Process-local Unreal ini override, e.g. Engine:[section]:key=value; does not edit project configuration')
 p.add_argument('--sm6', action='store_true', help='Request Shader Model 6 for a DX12 donor qualification')
 p.add_argument('--world-profile',action='store_true',help='Select the full-world adapter for native automation in this authoring session')
+p.add_argument('--runtime-environment-survey', choices=('human',),
+               help='Read-only native game load of the intact Human wrapper, without the editor UI or campaign binding')
 args = p.parse_args()
 assert not conflicting_processes(), 'Another Unreal/Soul session is active'
 out = args.output.resolve()
@@ -48,6 +51,34 @@ command = ['C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEdito
            '-ExecCmds='+','.join(['t.MaxFPS 20', 'r.VSync 0']+args.exec_command), '-windowed', '-ResX=1920', '-ResY=1080',
            '-ForceRes', '-abslog='+str(out/'unreal.log')]
 if args.world_profile:command.append('-SoulWorldTerrain')
+cache_seed = []
+if args.runtime_environment_survey:
+    assert not args.world_profile, 'The environment survey does not load campaign terrain'
+    user = out/'User'
+    user.mkdir()
+    # Reuse only the current validated registry references, as the authored
+    # Dwarf runner already does. Cold discovery is not part of this load test.
+    cache = args.project.resolve().parent/'Intermediate/CachedAssetRegistry'
+    target = user/'Intermediate/CachedAssetRegistry'
+    for ref in sorted(cache.glob('*.ref')):
+        name = ref.read_text(encoding='utf-8-sig').strip()
+        assert Path(name).name == name and name.endswith('.bin')
+        source = cache/name
+        if not source.is_file(): continue
+        target.mkdir(parents=True, exist_ok=True)
+        for file in (source, ref):
+            destination = target/file.name
+            shutil.copy2(file, destination)
+            with destination.open('rb') as stream:
+                cache_seed.append(dict(path=str(destination), bytes=destination.stat().st_size,
+                    sha256=hashlib.file_digest(stream, 'sha256').hexdigest()))
+    command[2] = '/Game/Soul/Maps/Settlements/L_HumanCapital_Authored?game=/Script/Engine.GameModeBase'
+    command[command.index('-DisablePlugins=AndroidFileServer')] = '-DisablePlugins=AndroidFileServer,NwiroIntegrationKit'
+    # This mode is content inspection, never a performance benchmark. Native
+    # city preparation can saturate the GPU even at twenty frames per second.
+    command = [arg.replace('t.MaxFPS 20', 't.MaxFPS 5') if arg.startswith('-ExecCmds=') else arg for arg in command]
+    command += ['-game', '-SoulHumanEnvironmentSurvey', '-SoulCampaignCapturePrefix=human-runtime-survey',
+                '-UserDir='+user.as_posix()]
 if args.enable_plugin:command.append('-EnablePlugins='+','.join(args.enable_plugin))
 if args.sm6:
     assert args.rhi == 'd3d12', 'SM6 qualification requires DX12'
@@ -64,6 +95,7 @@ env = os.environ.copy()
 scratch = tempfile.mkdtemp(prefix='SoulWorldEditor_')
 env['TEMP'] = env['TMP'] = scratch
 record = {'command': command, 'started_utc': utc(), 'temporary_directory': scratch}
+if cache_seed: record['asset_registry_cache_seed'] = cache_seed
 process = None
 try:
     with (out/'console.log').open('w') as console, (out/'telemetry.jsonl').open('w') as telemetry:
@@ -109,5 +141,9 @@ finally:
             record['cleanup_error'] = repr(cleanup_error)
         record['exit_code'] = process.poll()
     record['finished_utc'] = utc()
+    if args.runtime_environment_survey:
+        log = (out/'unreal.log').read_text(encoding='utf-8-sig', errors='replace') if (out/'unreal.log').exists() else ''
+        record['native_survey_completed'] = (record.get('exit_code') == 0 and not record.get('stop_reason')
+            and 'SOUL_HUMAN_ENVIRONMENT_SURVEY_COMPLETE' in log)
     (out/'session.json').write_text(json.dumps(record, indent=2))
     print(json.dumps(record, indent=2), flush=True)

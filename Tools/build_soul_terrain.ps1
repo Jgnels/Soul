@@ -1,4 +1,4 @@
-param([ValidateSet('SoulEditor','Soul')][string]$Target='SoulEditor', [string]$Log)
+param([ValidateSet('SoulEditor','Soul')][string]$Target='SoulEditor', [string]$Log, [switch]$RegatherSource)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
 if($Log -and (Test-Path -LiteralPath $Log)) { throw 'Build log already exists; use a fresh run path.' }
@@ -7,6 +7,7 @@ $previousCompat=$env:SOUL_NO_PCH_COMPAT
 try {
     $env:SOUL_NO_PCH_COMPAT=if($Target -eq 'SoulEditor'){'1'}else{$null}
     $arguments=@($Target,'Win64','Development',('-Project='+(Join-Path $root 'Soul.uproject')),'-WaitMutex','-NoPCH','-NoUBA','-MaxParallelActions=2','-ForceRulesCompile')
+    if($RegatherSource) { $arguments += '-gather' }
     # Encode this machine workaround in the target command as well as the
     # environment. A cached UBT target may otherwise reuse response files from
     # a preceding invocation that did not set SOUL_NO_PCH_COMPAT.

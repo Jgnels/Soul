@@ -29,6 +29,7 @@ private:
     void Next(double Delay = 4.0);
     bool MeasureView(const TCHAR* Label);
     bool AwaitVisualAssets(double Now);
+    void TickHumanEnvironmentSurvey(double Now);
     int32 Step = 0;
     int32 LastLoggedStep = -1;
     bool bDone = false;
@@ -37,6 +38,7 @@ private:
     bool bReturnedBattleViewWarmed = false;
     bool bCleanCapturePending = false, bSavedHUDVisible = true;
     bool bCityGPUProfileQueued = false;
+    bool bHumanStreamingReady = false;
     int32 SavedMaterialDrawEvents = 0;
     double Started = 0, NextTime = 0, StepStarted = 0;
     FString Prefix, ExpectedCampaign, ExpectedSettlement, PreBattleSettlement;

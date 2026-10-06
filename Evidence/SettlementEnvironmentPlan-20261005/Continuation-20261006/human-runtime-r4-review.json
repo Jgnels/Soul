@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-06T13:45:42.066240+00:00",
+  "run": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\human-runtime-survey-r4",
+  "fully_streamed_native_load": true,
+  "native_actors": 56443,
+  "visible_levels": 161,
+  "original_cameras": 17,
+  "clean_exit": true,
+  "inspected_images": [
+    "human_castle",
+    "human_market",
+    "human_houses"
+  ],
+  "render_acceptance": "authored geometry present; not visual completion: three gray waterfront material instances fail normal-texture compilation",
+  "gameplay_qualified": false,
+  "cap_fps": 5,
+  "performance_claim": false,
+  "total_process_seconds": 1067.456366,
+  "peak_private_mib": 13549.75,
+  "peak_working_set_mib": 9584.3,
+  "peak_gpu_c": 78.0,
+  "peak_gpu_mib": 3864.0,
+  "next_action": "inspect the three null-normal material bindings in a blank editor, without loading the complete city or saving donors"
+}
