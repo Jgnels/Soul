@@ -15,6 +15,7 @@ public:
     void Configure(FName InRegionId,const FString& DisplayName,const FVector& Location);
     void SetVisualState(const FLinearColor& Color,bool bExplored,bool bCurrent,bool bVisible=true,bool bSelected=false,int32 Defenders=0);
 private:
+    UPROPERTY() TObjectPtr<class ASoulSettlementBuildingActor> AuthoredMiniature;
     UPROPERTY() TObjectPtr<class UInstancedStaticMeshComponent> Standard;
     UPROPERTY() TObjectPtr<class UInstancedStaticMeshComponent> Selection;
     UPROPERTY() TObjectPtr<class UInstancedStaticMeshComponent> Garrison;

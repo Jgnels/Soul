@@ -74,6 +74,7 @@ void ASoulFounderPlaytestCampaignActor::SpawnRegions()
 
     for (const TPair<FName, FVector>& Pair : RegionPositions())
     {
+        if (!State->World.Regions.Contains(Pair.Key)) continue;
         ASoulPlaytestRegionActor* Node = GetWorld()->SpawnActor<ASoulPlaytestRegionActor>(
             ASoulPlaytestRegionActor::StaticClass(), Pair.Value, FRotator::ZeroRotator);
         if (!Node) continue;
@@ -139,10 +140,10 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     if (RegionId == State->PlayerRegion)
     {
         bCompanySelected = false;
-        if (RegionId == TEXT("human_capital"))
+        if (RegionId == State->GetDevelopmentRegion())
         {
             bTownPanelOpen = true;
-            LastMessage = TEXT("Capital panel opened. [1] recruits a Knight; [H] hires a tavern hero.");
+            LastMessage = TEXT("Settlement panel opened. Choose construction, services or a visit.");
         }
         RefreshRegionVisuals();
         return;
@@ -275,8 +276,8 @@ void ASoulFounderPlaytestCampaignActor::HireTavernHero()
 void ASoulFounderPlaytestCampaignActor::BuildTavern()
 {
     if (!State || !bTownPanelOpen || !State->IsSettlementDevelopmentEnabled()) return;
-    if (State->BeginSettlementConstruction(TEXT("human.tavern"), LastMessage))
-        LastMessage = TEXT("Tavern construction started. Advance the day to make progress.");
+    if (State->BeginSettlementConstruction(State->GetTavernBuildingId(), LastMessage))
+        LastMessage = State->GetDevelopmentBuildingName() + TEXT(" construction started. Advance the day to make progress.");
 }
 
 void ASoulFounderPlaytestCampaignActor::VisitSettlement()
@@ -289,16 +290,16 @@ void ASoulFounderPlaytestCampaignActor::VisitSettlement()
 
 void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()
 {
-    if (!State || State->PlayerRegion != TEXT("human_capital"))
+    if (!State || State->PlayerRegion != State->GetDevelopmentRegion())
     {
-        LastMessage = TEXT("Return to the Human Capital to recruit.");
+        LastMessage = TEXT("Return to your settlement to open its services.");
         return;
     }
     bTownPanelOpen = !bTownPanelOpen;
     bBattlePromptOpen = false;
     bCompanySelected = false;
     LastMessage = bTownPanelOpen
-        ? TEXT("Capital panel opened. [1] recruits a Knight; [H] hires a tavern hero.")
+        ? TEXT("Settlement panel opened. Choose construction, services or a visit.")
         : TEXT("Capital panel closed.");
     RefreshRegionVisuals();
 }

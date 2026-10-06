@@ -8,6 +8,8 @@
 #include "EngineUtils.h"
 #include "Engine/StaticMesh.h"
 #include "Math/RandomStream.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/SceneComponent.h"
@@ -16,6 +18,17 @@
 
 namespace
 {
+bool DwarfSettlementProof()
+{
+    return FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof")) && SoulCampaignTerrain::EvilCorridor();
+}
+FName RetainedProofAnchor(FName Region)
+{
+    if (Region == TEXT("dwarf_hold")) return TEXT("old_quarry");
+    if (Region == TEXT("dwarf_forge_approach")) return TEXT("crossroads");
+    if (Region == TEXT("dwarf_snow_basin")) return TEXT("ancient_shrine");
+    return Region;
+}
 float RawHeight(float X, float Y)
 {
     const float Rolling = 100.f + 55.f*FMath::Sin(X/800.f)*FMath::Cos(Y/650.f) + 25.f*FMath::Sin((X+Y)/310.f);
@@ -67,6 +80,24 @@ float ASoulCampaignWorldActor::RiverX(float Y) {
 }
 const TMap<FName,FVector>& ASoulCampaignWorldActor::Locations()
 {
+    if (DwarfSettlementProof())
+    {
+        // Temporary content-qualification placement on existing physical pads.
+        // No heightfield, route graph, terrain asset or production seat is changed.
+        static const TMap<FName,FVector> ProofPositions = []
+        {
+            auto Result = SoulCampaignTerrain::Locations();
+            for (FName Id : {FName(TEXT("dwarf_hold")), FName(TEXT("dwarf_forge_approach")), FName(TEXT("dwarf_snow_basin"))})
+            {
+                const FName Anchor = RetainedProofAnchor(Id);
+                const FVector Position = Result.FindChecked(Anchor);
+                Result.Remove(Anchor);
+                Result.Add(Id, Position);
+            }
+            return Result;
+        }();
+        return ProofPositions;
+    }
     if(SoulCampaignTerrain::Enabled())return SoulCampaignTerrain::Locations();
     static const TMap<FName,FVector> Positions={
         {TEXT("human_capital"),FVector(-3000,0,105)},
@@ -198,6 +229,7 @@ void ASoulCampaignWorldActor::BuildTerrain()
 }
 FVector ASoulCampaignWorldActor::RoadPoint(FName From,FName To,float Alpha)
 {
+    if(DwarfSettlementProof())return SoulCampaignTerrain::Road(RetainedProofAnchor(From),RetainedProofAnchor(To),Alpha);
     if(SoulCampaignTerrain::Enabled())return SoulCampaignTerrain::Road(From,To,Alpha);
     // Stable unordered-pair orientation gives the same physical path in both directions.
     bool Reverse=From.ToString()>To.ToString();

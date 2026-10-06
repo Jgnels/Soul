@@ -2,6 +2,7 @@
 #include "SoulSettlementScenarioData.h"
 #include "SoulSettlementStateSubsystem.h"
 #include "SoulTown.h"
+#include "SoulCampaignTerrain.h"
 #include "Dom/JsonObject.h"
 #include "Engine/GameInstance.h"
 #include "Misc/FileHelper.h"
@@ -104,13 +105,22 @@ const TArray<FName>& USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster()
 void USoulFounderPlaytestStateSubsystem::InitializeScenario()
 {
     if (bInitialized) return;
+    const bool bDwarfEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"));
+    if (bDwarfEnvironmentProof && !SoulCampaignTerrain::EvilCorridor())
+    { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_DWARF_PROOF_FAIL requires the retained EvilCorridor terrain profile")); return; }
     TSharedPtr<FJsonObject> Config,Geography,Starts,Handoffs;
-    if (!ReadData(TEXT("soul_vertical_scenario_20260925.json"),Config)
+    const bool bConfigLoaded = bDwarfEnvironmentProof
+        ? ReadData(TEXT("SettlementEnvironments/DwarfHoldRuntimeProof.json"), Config)
+        : ReadData(TEXT("soul_vertical_scenario_20260925.json"), Config);
+    if (!bConfigLoaded
         ||!ReadData(TEXT("soul_world_overmap_v1_20260922.json"),Geography)
         ||!ReadData(TEXT("soul_campaign_start_states_v1_20260922.json"),Starts)
         ||!ReadData(TEXT("soul_overmap_battle_handoff_v1_20260922.json"),Handoffs))
     { UE_LOG(LogSoulCampaign,Error,TEXT("Campaign authority data unavailable; refusing fallback geography.")); return; }
-    const auto Scenario=Starts->GetObjectField(TEXT("scenarios"))->GetObjectField(TEXT("founder_human_orc_micro"));
+    // This opt-in content qualification uses existing Crownspine nodes/edges and
+    // a captured-hold starting owner. It does not alter the canonical world graph.
+    const auto Scenario=bDwarfEnvironmentProof ? Config->GetObjectField(TEXT("start_state"))
+        : Starts->GetObjectField(TEXT("scenarios"))->GetObjectField(TEXT("founder_human_orc_micro"));
     TSet<FName> RegionIds;
     for (const auto& Id:Scenario->GetArrayField(TEXT("region_ids"))) RegionIds.Add(FName(*Id->AsString()));
     const auto Owners=Scenario->GetObjectField(TEXT("owners"));
@@ -156,6 +166,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     BattleOrigin=FVector(Origin[0]->AsNumber(),Origin[1]->AsNumber(),Origin[2]->AsNumber());
     FSoulBattlefieldTemplate DefaultBattlefield;
     DefaultBattlefield.Id = TEXT("dragon_graveyard");
+    if (bDwarfEnvironmentProof) DefaultBattlefield.Id = TEXT("dwarf_hold_approach");
     DefaultBattlefield.MapPackage = BattleMap;
     DefaultBattlefield.bPlayable = true;
     DefaultBattlefield.ArenaOrigin = BattleOrigin;
@@ -241,11 +252,12 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
     LastAIReport=TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
-    if (FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
+    if (bDwarfEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
     {
         FString Error;
         auto* DevelopmentScenario = LoadObject<USoulSettlementScenarioData>(nullptr,
-            TEXT("/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof"));
+            bDwarfEnvironmentProof ? TEXT("/Game/Soul/Data/Settlements/DA_Soul_DwarfHold_DevelopmentProof")
+                : TEXT("/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof"));
         if (!InitializeSettlementDevelopment(DevelopmentScenario, GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>(), Error))
             UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_SETTLEMENT_DEVELOPMENT_UNREADY %s"), *Error);
     }
@@ -262,12 +274,13 @@ bool USoulFounderPlaytestStateSubsystem::InitializeSettlementDevelopment(
     if (!bInitialized || !Scenario || !Authority || Authority->GetGameInstance() != GetGameInstance())
         return Reject(TEXT("Settlement development requires an initialized campaign, scenario and its GameInstance settlement authority."));
     if (!Scenario->ValidateDefinition(OutError)) return Reject(OutError);
-    if (Scenario->SettlementId != TEXT("human_capital") || Scenario->RegionId != TEXT("human_capital")
-        || Scenario->FactionId != PlayerFaction || !World.Regions.Contains(Scenario->RegionId))
-        return Reject(TEXT("The bounded development proof must bind the existing Human Capital and player faction."));
-    const auto* Tavern = Scenario->FindDevelopmentDefinition(TEXT("human.tavern"));
-    if (!Tavern || !Tavern->UnlockIds.Contains(TEXT("service.tavern_hero")))
-        return Reject(TEXT("The proof scenario requires human.tavern with its service.tavern_hero binding."));
+    const auto* Region = World.Regions.Find(Scenario->RegionId);
+    if (Scenario->SettlementId != Scenario->RegionId || Scenario->FactionId != PlayerFaction
+        || !Region || !Region->bSettlement || Region->OwnerFactionId != PlayerFaction)
+        return Reject(TEXT("Development must bind an existing owned settlement region and the player faction."));
+    const auto* Tavern = Scenario->FindUniqueServiceDefinition(TEXT("service.tavern_hero"));
+    if (!Tavern)
+        return Reject(TEXT("The proof scenario requires one building bound to service.tavern_hero."));
     if (!Authority->EnsureScenario(Scenario, OutError)) return Reject(OutError);
     SettlementScenario = Scenario;
     SettlementAuthority = Authority;
@@ -319,11 +332,29 @@ bool USoulFounderPlaytestStateSubsystem::BeginSettlementConstruction(FName Build
     return true;
 }
 
+FName USoulFounderPlaytestStateSubsystem::GetTavernBuildingId() const
+{
+    const auto* Definition = SettlementScenario
+        ? SettlementScenario->FindUniqueServiceDefinition(TEXT("service.tavern_hero")) : nullptr;
+    return Definition ? Definition->BuildingId : NAME_None;
+}
+
+FName USoulFounderPlaytestStateSubsystem::GetDevelopmentRegion() const
+{
+    return bSettlementDevelopmentRequested && SettlementScenario ? SettlementScenario->RegionId : FName(TEXT("human_capital"));
+}
+
+FString USoulFounderPlaytestStateSubsystem::GetDevelopmentBuildingName() const
+{
+    const auto* Definition = SettlementScenario ? SettlementScenario->FindDevelopmentDefinition(GetTavernBuildingId()) : nullptr;
+    return Definition && !Definition->DisplayName.IsEmpty() ? Definition->DisplayName.ToString() : TEXT("Tavern");
+}
+
 bool USoulFounderPlaytestStateSubsystem::IsTavernOperational() const
 {
     if (!bSettlementDevelopmentRequested) return true; // Existing founder behavior outside the explicit proof.
     if (!IsSettlementDevelopmentReady()) return false;
-    const auto* Definition = SettlementScenario->FindDevelopmentDefinition(TEXT("human.tavern"));
+    const auto* Definition = SettlementScenario->FindUniqueServiceDefinition(TEXT("service.tavern_hero"));
     const auto* Settlement = SettlementAuthority->FindSettlement(SettlementScenario->SettlementId);
     const auto* Region = World.Regions.Find(SettlementScenario->RegionId);
     return Definition && Definition->UnlockIds.Contains(TEXT("service.tavern_hero")) && Settlement
@@ -440,7 +471,7 @@ bool USoulFounderPlaytestStateSubsystem::ChooseSkill(FName Id)
 }
 bool USoulFounderPlaytestStateSubsystem::HireTavernHero()
 {
-    if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||!IsTavernOperational()||bSecondHeroHired||Economy.Resources.FindRef(TEXT("gold"))<1200)return false;
+    if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=GetDevelopmentRegion()||!IsTavernOperational()||bSecondHeroHired||Economy.Resources.FindRef(TEXT("gold"))<1200)return false;
     Economy.Resources.FindOrAdd(TEXT("gold"))-=1200;bSecondHeroHired=true;return true;
 }
 FString USoulFounderPlaytestStateSubsystem::BuildSummary() const

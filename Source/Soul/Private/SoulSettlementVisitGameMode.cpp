@@ -79,7 +79,7 @@ void ASoulSettlementVisitGameMode::Tick(float Seconds)
                 && It->ActivateForPlayer(GetWorld()->GetFirstPlayerController(), 0))
             {
                 bCameraReady = true;
-                LastMessage = TEXT("Visit the settlement. Build its tavern to open companion hiring.");
+                LastMessage = TEXT("Visit the settlement. Complete the ") + State->GetDevelopmentBuildingName() + TEXT(" to open companion hiring.");
                 RefreshPresentation();
                 UE_LOG(LogTemp, Display, TEXT("SOUL_SETTLEMENT_VISIT_READY settlement=%s map=%s"),
                     *It->SettlementId.ToString(), *GetWorld()->GetOutermost()->GetName());
@@ -114,7 +114,7 @@ void ASoulSettlementVisitGameMode::HandleAction(FName Action)
     if (!IsVisitReady() || !CanVisit(State, LastMessage)) return;
     if (Action == TEXT("BuildTavern"))
     {
-        if (State->BeginSettlementConstruction(TEXT("human.tavern"), LastMessage)) LastMessage = TEXT("Tavern construction started.");
+        if (State->BeginSettlementConstruction(State->GetTavernBuildingId(), LastMessage)) LastMessage = State->GetDevelopmentBuildingName() + TEXT(" construction started.");
     }
     else if (Action == TEXT("EndDay")) { State->AdvanceDay(); LastMessage = TEXT("A new day begins."); }
     else if (Action == TEXT("Hire"))

@@ -38,6 +38,9 @@ public:
     const FString& GetSettlementDevelopmentError() const { return SettlementDevelopmentError; }
     bool BeginSettlementConstruction(FName BuildingId, FString& OutError);
     bool IsTavernOperational() const;
+    FName GetTavernBuildingId() const;
+    FName GetDevelopmentRegion() const;
+    FString GetDevelopmentBuildingName() const;
     uint32 SettlementDevelopmentRevision = 0; // Presentation invalidation only, not saved game truth.
     void SaveCampaign();
     void LoadCampaign();

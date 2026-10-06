@@ -32,8 +32,10 @@ class WeekendPackagingTests(unittest.TestCase):
                             ("Firebolt", "ChainLightning", "Blizzard", "TidalWard", "Tailwind"))
                     else:
                         required.add(package)
-        scenario = json.loads((ROOT / "Data/soul_vertical_scenario_20260925.json").read_text())
-        required.update((scenario["campaign_map"], scenario["battle_map"]))
+        for scenario_path in ("Data/soul_vertical_scenario_20260925.json",
+                              "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json"):
+            scenario = json.loads((ROOT / scenario_path).read_text())
+            required.update((scenario["campaign_map"], scenario["battle_map"]))
         self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
         self.assertFalse(any("%" in package for package in COOK_ROOTS))
@@ -52,7 +54,7 @@ class WeekendPackagingTests(unittest.TestCase):
         required.add("Data/CampaignEvilCorridor/presentation.json")
         staged = set(re.findall(r'"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"', RULES))
         self.assertEqual(staged, required)
-        self.assertEqual(len(staged), 8)
+        self.assertEqual(len(staged), 9)
         self.assertIn('"Data/CampaignMesaLocal/MesaHeight.r16"', RULES)
         self.assertIn('"Data/CampaignTerrainV2/FounderHeight.r16"', RULES)
         self.assertIn('RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS)', RULES)
@@ -93,7 +95,7 @@ class WeekendPackagingTests(unittest.TestCase):
         preflight = (ROOT / "Tools/package_soul_weekend.ps1").read_text()
         self.assertIn("Assert-File (Join-Path $projectRoot ('Content/MagicSpells/' + $fx + '.uasset'))", preflight)
         self.assertIn(f"$packages.Count -ne {len(COOK_ROOTS)}", preflight)
-        self.assertIn("$dataFiles.Count -ne 8", preflight)
+        self.assertIn("$dataFiles.Count -ne 9", preflight)
 
     def test_battle_spell_bar_uses_bounded_cooked_spells(self):
         actions = (ROOT / "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp").read_text()

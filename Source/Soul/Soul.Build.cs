@@ -18,6 +18,7 @@ public class Soul : ModuleRules
             foreach (string File in new[]
             {
                 "Data/soul_vertical_scenario_20260925.json",
+                "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json",
                 "Data/CampaignTerrainV2/FounderHeight.r16",
                 "Data/CampaignTerrainV2/presentation.json",
                 "Data/CampaignMesa/presentation.json",

@@ -1,8 +1,14 @@
 #include "SoulPlaytestRegionActor.h"
 #include "Engine/World.h"
 #include "Engine/StaticMesh.h"
+#include "Engine/GameInstance.h"
+#include "SoulFounderPlaytestStateSubsystem.h"
+#include "SoulSettlementScenarioData.h"
+#include "SoulSettlementBuildingActor.h"
 #include "SoulCampaignWorldActor.h"
 #include "SoulCampaignTerrain.h"
+#include "Misc/Parse.h"
+#include "Misc/CommandLine.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -40,7 +46,48 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
     SetActorScale3D(FVector(SettlementScale));
     auto Make=[this](const TCHAR* Shape,FLinearColor Color){return ASoulCampaignWorldActor::MakeInstances(this,Shape,Color);};
     auto Add=[](UInstancedStaticMeshComponent* M,FVector P,FVector S,FRotator R=FRotator::ZeroRotator){M->AddInstance(FTransform(R,P,S));};
-    if(!SoulCampaignTerrain::DressRegion(this,RegionId))
+    bool bAuthoredBinding = false;
+    if (auto* GI = GetWorld()->GetGameInstance())
+        if (auto* State = GI->GetSubsystem<USoulFounderPlaytestStateSubsystem>())
+            if (const auto* Scenario = State->GetSettlementScenario(); Scenario && Scenario->RegionId == RegionId
+                && !Scenario->MiniatureBaseMesh.IsNull() && !Scenario->MiniatureUpgradeMesh.IsNull())
+            {
+                bAuthoredBinding = true;
+                AuthoredMiniature = GetWorld()->SpawnActor<ASoulSettlementBuildingActor>();
+                if (AuthoredMiniature)
+                {
+                    AuthoredMiniature->SetOwner(this);
+                    AuthoredMiniature->SettlementId = Scenario->SettlementId;
+                    AuthoredMiniature->BuildingId = State->GetTavernBuildingId();
+                    FTransform Transform = Scenario->MiniatureTransform;
+                    Transform.AddToTranslation(Location);
+                    AuthoredMiniature->SetActorTransform(Transform);
+                    if (!AuthoredMiniature->ConfigureMiniature(Scenario->MiniatureBaseMesh.LoadSynchronous(),
+                        Scenario->MiniatureUpgradeMesh.LoadSynchronous()))
+                    {
+                        UE_LOG(LogTemp, Error, TEXT("SOUL_SETTLEMENT_MINIATURE_FAIL region=%s"), *RegionId.ToString());
+                    }
+                    else
+                    {
+                        FVector Center, Extent;
+                        AuthoredMiniature->GetActorBounds(false, Center, Extent);
+                        Marker->SetWorldLocation(Center);
+                        Marker->SetWorldScale3D((Extent + FVector(150,150,100))/50.f);
+                        Marker->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+                        Marker->SetCollisionResponseToAllChannels(ECR_Ignore);
+                        Marker->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
+                        Marker->SetCanEverAffectNavigation(false);
+                        UE_LOG(LogTemp, Display, TEXT("SOUL_SETTLEMENT_MINIATURE_READY settlement=%s building=%s base=%s upgrade=%s"),
+                            *Scenario->SettlementId.ToString(), *AuthoredMiniature->BuildingId.ToString(),
+                            *Scenario->MiniatureBaseMesh.ToString(), *Scenario->MiniatureUpgradeMesh.ToString());
+                    }
+                }
+            }
+    const bool bProofRouteOnly = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"))
+        && (RegionId == TEXT("dwarf_forge_approach") || RegionId == TEXT("dwarf_snow_basin"));
+    // These canonical nodes are route locations, not towns. The authored-city
+    // qualification must not dress them with generic placeholder houses.
+    if(!bAuthoredBinding && !bProofRouteOnly && !SoulCampaignTerrain::DressRegion(this,RegionId))
     {
     auto* Stone=Make(TEXT("Cube"),FLinearColor(.42f,.40f,.32f));
     auto* DarkStone=Make(TEXT("Cube"),FLinearColor(.20f,.23f,.22f));
@@ -161,6 +208,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
 void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bExplored,bool bCurrent,bool bVisible,bool bSelected,int32 Defenders)
 {
     SetActorHiddenInGame(!bExplored);
+    if (AuthoredMiniature) AuthoredMiniature->SetActorHiddenInGame(!bExplored);
     SetActorEnableCollision(bExplored);
     if(!bExplored)return;
     if(BannerMaterial)BannerMaterial->SetVectorParameterValue(TEXT("Tint"),bVisible?Color:FLinearColor(.22f,.25f,.27f));

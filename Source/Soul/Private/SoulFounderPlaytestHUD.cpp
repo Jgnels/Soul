@@ -48,12 +48,13 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         if(!S->IsSettlementDevelopmentReady())
         {Wrapped(S->GetSettlementDevelopmentError(),AtX,AtY,Width,Gold,3);return;}
         const auto* Scenario=S->GetSettlementScenario();
-        const auto* Definition=Scenario->FindDevelopmentDefinition(TEXT("human.tavern"));
+        const FName TavernId=S->GetTavernBuildingId();
+        const auto* Definition=Scenario->FindDevelopmentDefinition(TavernId);
         const auto* Authority=GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>();
         const auto* Town=Authority?Authority->FindSettlement(Scenario->SettlementId):nullptr;
-        const auto* Building=Town?Town->Buildings.Find(TEXT("human.tavern")):nullptr;
-        const FString Condition=Authority?Authority->GetBuildingConditionName(Scenario->SettlementId,TEXT("human.tavern")).ToString():TEXT("Unavailable");
-        Text(FString::Printf(TEXT("Tavern: %s  /  level %d"),*Condition,Building?Building->Level:0),AtX,AtY,Gold);
+        const auto* Building=Town?Town->Buildings.Find(TavernId):nullptr;
+        const FString Condition=Authority?Authority->GetBuildingConditionName(Scenario->SettlementId,TavernId).ToString():TEXT("Unavailable");
+        Text(FString::Printf(TEXT("%s: %s  /  level %d"),*S->GetDevelopmentBuildingName(),*Condition,Building?Building->Level:0),AtX,AtY,Gold);
         TArray<FName> Resources;Definition->BuildCost.GetKeys(Resources);Resources.Sort(FNameLexicalLess());
         FString Cost;
         for(FName Resource:Resources)
@@ -61,7 +62,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         UI.FitText(FString::Printf(TEXT("Build: %s  /  %d days"),Cost.IsEmpty()?TEXT("no resource cost"):*Cost,Definition->BuildDays),AtX,AtY+23,Width,Ink);
         const FString Progress=Building&&Building->Condition==ESoulBuildingCondition::Building
             ?FString::Printf(TEXT("Construction: %d days remaining"),Building->ConstructionDaysRemaining)
-            :S->IsTavernOperational()?TEXT("Companion hiring is available."):TEXT("Complete the tavern to unlock companion hiring.");
+            :S->IsTavernOperational()?TEXT("Companion hiring is available."):TEXT("Complete construction to unlock companion hiring.");
         UI.FitText(Progress,AtX,AtY+46,Width,Muted);
     };
     if(Visit)
@@ -71,7 +72,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         Panel(28,108,500,340);Development(45,126,465);
         if(Visit->IsVisitReady())
         {
-            Button(TEXT("BuildTavern"),TEXT("[U] Build tavern"),45,212,465);
+            Button(TEXT("BuildTavern"),TEXT("[U] Build ")+S->GetDevelopmentBuildingName(),45,212,465);
             Button(TEXT("EndDay"),TEXT("[Space] Advance day"),45,247,465);
             if(S->IsTavernOperational()&&!S->bSecondHeroHired)Button(TEXT("Hire"),TEXT("[H] Hire companion / 1200 gold"),45,282,465);
             else Text(S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("Companion hiring locked"),45,290,Muted);
@@ -131,7 +132,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         else Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,237,282);
     }
     else if(C->IsCompanySelected())Button(TEXT("Focus"),TEXT("ARMY SELECTED / choose a highlighted road"),X+15,237,282);
-    else if(S->PlayerRegion==TEXT("human_capital"))Button(TEXT("Town"),TEXT("Visit the capital  [T]"),X+15,237,282);
+    else if(S->PlayerRegion==S->GetDevelopmentRegion())Button(TEXT("Town"),TEXT("Settlement services  [T]"),X+15,237,282);
     else Button(TEXT("Focus"),TEXT("Select your army  [Home]"),X+15,237,282);
     Panel(14,H-85,W-28,42);
     Wrapped(C->LastMessage,28,H-74,W-56,Ink,2);
@@ -161,25 +162,26 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     if(C->IsTownPanelOpen())
     {
         const auto& Roster=USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
-        const float TavernY=190.f+Roster.Num()*31.f;
+        const int32 RecruitCount=S->PlayerRegion==TEXT("human_capital")?Roster.Num():0;
+        const float TavernY=190.f+RecruitCount*31.f;
         const bool DevelopmentEnabled=S->IsSettlementDevelopmentEnabled();
         Panel(28,112,454,TavernY-102.f+77.f+(DevelopmentEnabled?154.f:0.f));
-        Text(TEXT("HUMAN CAPITAL"),45,129,Gold,1.3f);
-        Text(TEXT("Recruit from the available weekly pools"),45,158,Muted);
-        for(int32 I=0;I<Roster.Num();++I)
+        Text(C->DisplayName(S->PlayerRegion).ToUpper(),45,129,Gold,1.3f);
+        Text(RecruitCount?TEXT("Recruit from the available weekly pools"):TEXT("Construction and companion services"),45,158,Muted);
+        for(int32 I=0;I<RecruitCount;++I)
         {
             const auto* Pool=S->Economy.RecruitmentPools.Find(Roster[I]);
             FString Name=Roster[I].ToString().Replace(TEXT("human_"),TEXT("")).Replace(TEXT("_"),TEXT(" "));
             Button(FName(*FString::Printf(TEXT("Recruit%d"),I+1)),FString::Printf(TEXT("[%d] %s  %dg  pool %d  army %d"),I+1,*Name,Pool?Pool->CostPerUnit.FindRef(TEXT("gold")):0,Pool?Pool->Available:0,S->PlayerArmy.FindRef(Roster[I])),45,188+I*31,420);
         }
-        if(DevelopmentEnabled&&!S->IsTavernOperational())Text(TEXT("Complete the tavern to unlock hiring"),45,TavernY+18,Muted);
+        if(DevelopmentEnabled&&!S->IsTavernOperational())Text(TEXT("Complete construction to unlock hiring"),45,TavernY+18,Muted);
         else Button(TEXT("Hire"),S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("[H] Hire companion  /  1200 gold"),45,TavernY+10,420);
         if(DevelopmentEnabled)
         {
             Development(45,TavernY+51,420);
             if(S->IsSettlementDevelopmentReady())
             {
-                Button(TEXT("BuildTavern"),TEXT("[U] Build tavern"),45,TavernY+125,201);
+                Button(TEXT("BuildTavern"),TEXT("[U] Construct"),45,TavernY+125,201);
                 Button(TEXT("VisitSettlement"),TEXT("[V] Visit settlement"),254,TavernY+125,211);
             }
             Text(TEXT("[F5] Save / [F9] Load / [T / Esc] Close town"),45,TavernY+167,Muted);

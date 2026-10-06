@@ -213,4 +213,42 @@ bool FSoulDevelopmentSaveBattleTest::RunTest(const FString&)
     }
     return true;
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulDevelopmentFactionBindingTest,
+    "Soul.Integration.Settlement.AuthoredFactionUsesItsOwnBuildingAndRegion",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulDevelopmentFactionBindingTest::RunTest(const FString&)
+{
+    auto* GI = NewObject<UGameInstance>(GetTransientPackage());
+    auto* State = NewObject<USoulFounderPlaytestStateSubsystem>(GI); State->InitializeScenario();
+    auto* Authority = NewObject<USoulSettlementStateSubsystem>(GI);
+    auto* Scenario = DevelopmentScenario();
+    Scenario->SettlementId = Scenario->RegionId = TEXT("dwarf_hold");
+    Scenario->FactionId = TEXT("dwarves");
+    Scenario->Buildings[0].BuildingId = TEXT("dwarf.keep");
+    Scenario->Buildings[1].BuildingId = TEXT("dwarf.tavern");
+    Scenario->DevelopmentDefinitions[0].BuildingId = TEXT("dwarf.tavern");
+    Scenario->DevelopmentDefinitions[0].Prerequisites = {TEXT("dwarf.keep")};
+    State->PlayerFaction = TEXT("dwarves");
+    State->PlayerRegion = TEXT("dwarf_hold");
+    FString Error;
+    TestFalse(TEXT("data cannot invent a campaign region"), State->InitializeSettlementDevelopment(Scenario, Authority, Error));
+    FSoulRegionState Hold;
+    Hold.Id = TEXT("dwarf_hold"); Hold.OwnerFactionId = TEXT("dwarves"); Hold.bSettlement = true;
+    State->World.Regions.Add(Hold.Id, Hold);
+    TestTrue(TEXT("explicit owned settlement can bind the existing authority"), State->InitializeSettlementDevelopment(Scenario, Authority, Error));
+    TestEqual(TEXT("faction-specific service building"), State->GetTavernBuildingId(), FName(TEXT("dwarf.tavern")));
+    TestFalse(TEXT("Human building id is not substituted"), State->BeginSettlementConstruction(TEXT("human.tavern"), Error));
+    TestTrue(TEXT("existing construction rules accept the bound building"), State->BeginSettlementConstruction(State->GetTavernBuildingId(), Error));
+    State->AdvanceDay(); State->AdvanceDay();
+    TestTrue(TEXT("same completed service unlock"), State->IsTavernOperational());
+    State->PlayerRegion = TEXT("human_capital");
+    TestFalse(TEXT("cannot hire from a different capital"), State->HireTavernHero());
+    State->PlayerRegion = TEXT("dwarf_hold");
+    TestTrue(TEXT("existing service purchase at the actual bound settlement"), State->HireTavernHero());
+    TestFalse(TEXT("no Human settlement was seeded by this proof"), Authority->HasSettlement(TEXT("human_capital")));
+    const auto DuplicateService = Scenario->DevelopmentDefinitions[0];
+    Scenario->DevelopmentDefinitions.Add(DuplicateService);
+    TestNull(TEXT("ambiguous proof service never chooses an arbitrary building"), Scenario->FindUniqueServiceDefinition(TEXT("service.tavern_hero")));
+    return true;
+}
 #endif

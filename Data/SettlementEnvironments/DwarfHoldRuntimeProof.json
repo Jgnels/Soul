@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "scenario_id": "dwarf_hold_authored_environment_qualification",
+  "status": "Opt-in content qualification; deployment collision qualified; real battle/return qualification pending",
+  "description": "A Human expedition owns the existing Dwarf Hold for construction/visit qualification. Dwarven architecture and canonical Crownspine region IDs/adjacency are retained. This is not a new Human capital or production-world placement.",
+  "player_faction": "humans",
+  "enemy_faction": "dwarves",
+  "player_unit_id": "human_knight",
+  "enemy_unit_id": "dwarf_warrior",
+  "player_strategic_count": 45,
+  "enemy_strategic_count": 30,
+  "active_cap_per_side": 15,
+  "battle_map": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+  "campaign_map": "/Engine/Maps/Entry",
+  "arena_origin": [-13500, 0, 0],
+  "start_state": {
+    "region_ids": ["dwarf_hold", "dwarf_forge_approach", "dwarf_snow_basin"],
+    "owners": {"dwarf_hold": "humans", "dwarf_forge_approach": "dwarves"},
+    "player_start_region": "dwarf_hold",
+    "enemy_primary_region": "dwarf_forge_approach"
+  },
+  "presentation_only_retained_anchors": {
+    "dwarf_hold": "old_quarry",
+    "dwarf_forge_approach": "crossroads",
+    "dwarf_snow_basin": "ancient_shrine"
+  }
+}
