@@ -1,0 +1,22 @@
+[
+  {
+    "path": "Source/Soul/Private/Tests/SoulBattlefieldSelectionTests.cpp",
+    "sha256": "890d1fce7dcc4b1da2997a139a4824601e394b9ebf670962a0f94d076b9e8e03"
+  },
+  {
+    "path": "Source/Soul/Private/Tests/SoulBattleResultValidationTests.cpp",
+    "sha256": "c9dcf639d6963aace434208d87ca9a455af1fe245a1069f6a2fc2c222c72f5ec"
+  },
+  {
+    "path": "Source/Soul/Private/Tests/SoulCampaignManaTests.cpp",
+    "sha256": "c8f19e5777a4e3d835838ba7ce72f271b8de04d0e6f0d4946cdad4ed8a9689d6"
+  },
+  {
+    "path": "Source/Soul/Private/Tests/SoulSettlementSaveTests.cpp",
+    "sha256": "bd128df73d19bd6373f1e470296ab0c737362cc72cd823ee6e131a166b4d8860"
+  },
+  {
+    "path": "Source/Soul/Private/SoulCampaignWorldCapture.cpp",
+    "sha256": "52bb6d964a06428829e165f5f1ecdebb5434259664b9f4e28b0c882aaa56a97a"
+  }
+]

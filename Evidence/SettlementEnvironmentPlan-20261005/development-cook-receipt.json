@@ -1,0 +1,16 @@
+{
+  "before": {
+    "Config/DefaultGame.ini": "42ad3b990b947b87017fbe8df128efb6e510988548446aea982ff672ea6426de",
+    "Tools/package_soul_weekend.ps1": "affb9c5ebd713d3c8851fada74c46729f67d2ee9ff78dae2561e94c417ff5b9f",
+    "Tools/test_package_soul_weekend.py": "a3b85fa9e43ae6a1176f86a7e8b82c30a1327dd3b3701fff4e63fbdd3c37786c"
+  },
+  "added_root": "/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof",
+  "expected_root_count": 205,
+  "payload_exists": false,
+  "note": "Owned proof data asset authoring pending; full asset-existence preflight is expected to fail until then.",
+  "after": {
+    "Config/DefaultGame.ini": "bc1f8e9ba196cdcf76a67c26aa0fea2151b151ebe16bd046c02d48d6d6c580a2",
+    "Tools/package_soul_weekend.ps1": "83b911ee3f4c0678efef79c4dea6fb99efa0529cbc4be9207705a1366dd32cf2",
+    "Tools/test_package_soul_weekend.py": "168f32f441e737fa129320879c16f6ba81c22e81e4faa8a5b01ac7420af53253"
+  }
+}

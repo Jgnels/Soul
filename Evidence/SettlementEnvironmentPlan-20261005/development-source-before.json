@@ -1,0 +1,35 @@
+{
+  "Source/Soul/Public/SoulSettlementScenarioData.h": {
+    "sha256": "098bc18c505990976070ceea5620e55e5e402d07c88f10950e03604938cf40de",
+    "bytes": 1657
+  },
+  "Source/Soul/Private/SoulSettlementScenarioData.cpp": {
+    "exists": false
+  },
+  "Source/Soul/Public/SoulSettlementStateSubsystem.h": {
+    "sha256": "0fa124a9360acb10486fd66202412db11a5a39d42c1dcbde4f3dfa6de4393674",
+    "bytes": 2220
+  },
+  "Source/Soul/Private/SoulSettlementStateSubsystem.cpp": {
+    "sha256": "019bf1162afc4114e635fca87a2e84d290796b17eb55be32474f59da8d8cd1fe",
+    "bytes": 13936
+  },
+  "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h": {
+    "sha256": "bb9ac69af9cdaabc7ca7d7963da3e7f62dbebf94012227c4c33f8a6707d5345b",
+    "bytes": 3215
+  },
+  "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp": {
+    "sha256": "d396c832138acfaa9f73ba10f3b1bbc86959155b377ff8bab1df569dc61c69e6",
+    "bytes": 33424
+  },
+  "Source/Soul/Private/SoulSettlementBootstrapActor.cpp": {
+    "sha256": "67339d6d4a03097a79afee87551168ba2cf26585246afb88e1dab637ea3dc37d",
+    "bytes": 2954
+  },
+  "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp": {
+    "exists": false
+  },
+  "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp": {
+    "exists": false
+  }
+}

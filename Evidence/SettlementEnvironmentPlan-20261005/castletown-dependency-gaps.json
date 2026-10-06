@@ -1,0 +1,616 @@
+{
+  "utc": "2026-10-06T03:25:51.728738+00:00",
+  "status": "CORRECT_LICENSED_IDENTITY_INCOMPLETE_DEMO_DEPENDENCIES",
+  "listing_id": "42d4a792-2b66-423d-9b20-84d6b2c578d8",
+  "identity_receipt": "human-capital-local-identity.json",
+  "source_hash_manifest": "castletown-donor-maps-before.json",
+  "donor_root": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown",
+  "demo": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+  "maps": [
+    {
+      "package": "/Game/CastleTown/Levels/AssetZoo/L_AssetZoo",
+      "bytes": 2358874,
+      "name_table_scan_bytes": 2358874,
+      "map_references": [
+        "/Game/CastleTown/Levels/AssetZoo/L_AssetZoo",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Hall",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Side_Hall",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Top_Level",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/SM_Main_Hall",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_02_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/Construction/L_Castle_Construction",
+      "bytes": 33599,
+      "name_table_scan_bytes": 33599,
+      "map_references": [
+        "/Game/CastleTown/Levels/Construction/L_Castle_Construction",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+      "bytes": 6661,
+      "name_table_scan_bytes": 6661,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02",
+      "bytes": 6661,
+      "name_table_scan_bytes": 6661,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01",
+      "bytes": 6661,
+      "name_table_scan_bytes": 6661,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+      "bytes": 6655,
+      "name_table_scan_bytes": 6655,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate",
+      "bytes": 6595,
+      "name_table_scan_bytes": 6595,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Hall",
+      "bytes": 6595,
+      "name_table_scan_bytes": 6595,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Hall"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle",
+      "bytes": 8894,
+      "name_table_scan_bytes": 8894,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall",
+      "bytes": 6595,
+      "name_table_scan_bytes": 6595,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 661
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Side_Hall",
+      "bytes": 8763,
+      "name_table_scan_bytes": 8763,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Side_Hall"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Top_Level",
+      "bytes": 8881,
+      "name_table_scan_bytes": 8881,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Top_Level"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/SM_Main_Hall",
+      "bytes": 6589,
+      "name_table_scan_bytes": 6589,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/SM_Main_Hall"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+      "bytes": 25992938,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b",
+      "bytes": 9738,
+      "name_table_scan_bytes": 9738,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b_Fix",
+      "bytes": 26120960,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_02_Fix",
+      "bytes": 2219447,
+      "name_table_scan_bytes": 2219447,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_02_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix",
+      "bytes": 10306419,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03a_Fix",
+      "bytes": 2022406,
+      "name_table_scan_bytes": 2022406,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03a_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b",
+      "bytes": 9221,
+      "name_table_scan_bytes": 9221,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+      "bytes": 1783519,
+      "name_table_scan_bytes": 1783519,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04_Fix",
+      "bytes": 11188719,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04a_Fix",
+      "bytes": 2647266,
+      "name_table_scan_bytes": 2647266,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04a_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04b_Fix",
+      "bytes": 2630385,
+      "name_table_scan_bytes": 2630385,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04b_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+      "bytes": 3911870,
+      "name_table_scan_bytes": 3911870,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+      "bytes": 18140136,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+      "bytes": 8749,
+      "name_table_scan_bytes": 8749,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02",
+      "bytes": 8749,
+      "name_table_scan_bytes": 8749,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+      "bytes": 9326488,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+        "/Game/CastleTown/Levels/SubLevels/SL_BridgesAndWalls",
+        "/Game/CastleTown/Levels/SubLevels/SL_Castle",
+        "/Game/CastleTown/Levels/SubLevels/SL_Castle_Walls",
+        "/Game/CastleTown/Levels/SubLevels/SL_Courtyard",
+        "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+        "/Game/CastleTown/Levels/SubLevels/SL_Landscape",
+        "/Game/CastleTown/Levels/SubLevels/SL_Lighting",
+        "/Game/CastleTown/Levels/SubLevels/SL_Mountain",
+        "/Game/CastleTown/Levels/SubLevels/SL_Roads",
+        "/Game/CastleTown/Levels/SubLevels/SL_Town_Props"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_BridgesAndWalls",
+      "bytes": 11191025,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/SubLevels/SL_BridgesAndWalls"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Castle",
+      "bytes": 1958634,
+      "name_table_scan_bytes": 1958634,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle",
+        "/Game/CastleTown/Levels/SubLevels/SL_Castle"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Castle_Walls",
+      "bytes": 1116260,
+      "name_table_scan_bytes": 1116260,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate",
+        "/Game/CastleTown/Levels/SubLevels/SL_Castle_Walls"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Courtyard",
+      "bytes": 689261,
+      "name_table_scan_bytes": 689261,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02",
+        "/Game/CastleTown/Levels/SubLevels/SL_Courtyard"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+      "bytes": 235309,
+      "name_table_scan_bytes": 235309,
+      "map_references": [
+        "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_02_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04a_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_04b_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+        "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02",
+        "/Game/CastleTown/Levels/SubLevels/SL_Houses"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Landscape",
+      "bytes": 12248,
+      "name_table_scan_bytes": 12248,
+      "map_references": [
+        "/Game/CastleTown/Levels/SubLevels/SL_Landscape",
+        "/Game/CastleTown/Levels/SubLevels/bloking_HLOD0_Instancing"
+      ],
+      "external_actor_refs": [
+        "/Game/__ExternalActors__/CastleTown/Levels/SubLevels/SL_Landscape/3/4I/QAJBPTNNYMTSJIXOOYLT2I"
+      ],
+      "external_actor_tokens_present": true,
+      "world_partition_tokens_present": true,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Lighting",
+      "bytes": 23170,
+      "name_table_scan_bytes": 23170,
+      "map_references": [
+        "/Game/CastleTown/Levels/SubLevels/SL_Lighting"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Mountain",
+      "bytes": 143285033,
+      "name_table_scan_bytes": 4194304,
+      "map_references": [
+        "/Game/CastleTown/Levels/SubLevels/SL_Mountain"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Roads",
+      "bytes": 266454,
+      "name_table_scan_bytes": 266454,
+      "map_references": [
+        "/Game/CastleTown/Levels/SubLevels/SL_Roads"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    },
+    {
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Town_Props",
+      "bytes": 672725,
+      "name_table_scan_bytes": 672725,
+      "map_references": [
+        "/Game/CastleTown/Levels/SubLevels/SL_Town_Props"
+      ],
+      "external_actor_refs": [],
+      "external_actor_tokens_present": false,
+      "world_partition_tokens_present": false,
+      "local_exact_external_actor_packages": 0
+    }
+  ],
+  "externally_stored_maps_with_no_exact_local_external_packages": [
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Hall",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Side_Hall",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Top_Level",
+    "/Game/CastleTown/Levels/LevelInstances/Castle/SM_Main_Hall",
+    "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b",
+    "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b",
+    "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+    "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02",
+    "/Game/CastleTown/Levels/SubLevels/SL_Landscape"
+  ],
+  "limits": [
+    "Package name/property strings scanned in first4MiB; this is a dependency warning, not a full Unreal package parser.",
+    "Do not equate a loaded parent map with complete nested LevelInstances.",
+    "World Partition is observed in SL_Landscape; other external-actor maps are not automatically World Partition.",
+    "Root alone owns editor loads and captures; this subagent issued no UE call."
+  ],
+  "missing_payload_assets": {
+    "/Game/CastleTown/Scanned_Foliage/Foliage/EuropeanBeech/Textures/T_EuropeanBeech_01_Snow_M": {
+      "references_found": [
+        "/Game/CastleTown/Scanned_Foliage/Foliage/EuropeanBeech/Materials/MI_EuropeanBeech_Atlas_01",
+        "/Game/CastleTown/Scanned_Foliage/Foliage/EuropeanBeech/Materials/MI_EuropeanBeech_Atlas_NW_01"
+      ],
+      "basis": "Exact string scan of Levels, existing externalactors, Materials and Scanned_Foliage"
+    },
+    "/Game/CastleTown/Static_Mesh/Brick_Kit/SM_BrickI": {
+      "references_found_in_bounded_scan": [],
+      "limitation": "No whole-content dependency exclusion claimed; Blueprint/other-mesh imports not exhaustively inspected."
+    }
+  },
+  "source_transfer_receipts": [
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\castletown-transfer.json",
+      "bytes": 687,
+      "sha256": "6e4ad90295f35dd0f8494a28ed9b09a0dad3f252c342ef4aaae025bfa8b1a7d6"
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\hall-closure-transfer.json",
+      "bytes": 287,
+      "sha256": "11bb3d1535c8147973059df4e78bb72fe19bd485b5fb6851303f84dbf7c0e4b0"
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\hall-layout-audit.json",
+      "bytes": 794,
+      "sha256": "1d2d5a09a913e47467b8d2d5f4fd197b4c2d14d13c96b099d83a54c686313748"
+    }
+  ],
+  "recovery_server_probe": {
+    "urls": [
+      "http://10.0.0.10:8899/",
+      "http://10.0.0.10:8899/CastleTown/"
+    ],
+    "method": "HEAD",
+    "result": "Both timeout at3seconds",
+    "downloads": 0
+  },
+  "mutations": "Evidence only; no donor or Source edits"
+}

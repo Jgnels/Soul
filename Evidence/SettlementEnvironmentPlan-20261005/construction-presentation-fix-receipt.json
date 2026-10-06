@@ -1,0 +1,9 @@
+{
+  "source": "Source/Soul/Private/SoulSettlementBuildingActor.cpp",
+  "sha256_before": "9458c1e88d6b568743097ebcb690fb43c7dc687f60367c6e6e3fd044bd335fce",
+  "original_apply_integrity": "void ASoulSettlementBuildingActor::ApplyIntegrity(int32 IntegrityPermille, bool bBuilt, bool bConstructing)\r\n{\r\n    if (!bBuilt)\r\n    {\r\n        ShowOnly(bConstructing ? ConstructionRoot : nullptr);\r\n        return;\r\n    }\r\n\r\n    const int32 Integrity = FMath::Clamp(IntegrityPermille, 0, 1000);\r\n    if (Integrity <= 0) ShowOnly(RuinedRoot);\r\n    else if (Integrity < 1000) ShowOnly(DamagedRoot);\r\n    else ShowOnly(IntactRoot);\r\n}\r\n",
+  "native_tests": "not yet built/run; root owns heavy processes",
+  "sha256_after": "fb5f332ab0185b39a51b803dc8aeba9133284f30b3267987b695754639ce5f56",
+  "source_checks": "18/18 campaign source checks pass; these do not replace native construction-presentation automation.",
+  "native_test": "Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity"
+}

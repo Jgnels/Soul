@@ -1,0 +1,664 @@
+[
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\DragonGr9ee1a3847e21V1\\manifest",
+    "sha256": "0e527201a299ef753cdec13ba006395d31b8ca9f5b3f6fed49ae81accd124129",
+    "roots": {
+      "Dragon_graveyard": 95
+    },
+    "map_files": [
+      "Content/Dragon_graveyard/Level/L_assets_showcase.umap",
+      "Content/Dragon_graveyard/Level/L_showcase_level.umap"
+    ],
+    "package_file_count": 95,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/9ee42cda-1455-4539-b5a9-ba6c9682a6dd"
+    ],
+    "package_path_list_sha256": "81122f1e0f6fe943847de678d555f3ba9b566afb2bc459dd22efd6da31b91654"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\manifest",
+    "sha256": "c3b69ea1ca71127d08a42db4c3bdbb50e285c50afbdb215e0b2a4c0aaf134202",
+    "roots": {
+      "AlienPlanet": 533
+    },
+    "map_files": [
+      "Content/AlienPlanet/BluePrints/LI_Entrance.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockFormation01.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockFormation02.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockFormation03.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockTopPlants.umap",
+      "Content/AlienPlanet/Levels/L_Overview.umap",
+      "Content/AlienPlanet/Levels/L_Showcase.umap"
+    ],
+    "package_file_count": 533,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/454baa93-0c78-4a53-a57e-47943160d591"
+    ],
+    "package_path_list_sha256": "2784465a71410f06328a4f6874ddde7aec274d73e9b1f4487fb5a6079450e8ba"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyF13339fb08df5V2\\manifest",
+    "sha256": "0a93b7312e49ad4f2e7a5be4a0cf76958ca7ff011228da466efb5345db6f657d",
+    "roots": {
+      "__ExternalActors__": 559,
+      "Forest_village": 263
+    },
+    "map_files": [
+      "Content/Forest_village/Level/Asset_showcase.umap",
+      "Content/Forest_village/Level/L_showcase_level.umap",
+      "Content/Forest_village/Level/Level_instance/Build_update.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_02.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_03.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_04.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_Update_01.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_Update_02.umap",
+      "Content/Forest_village/Level/Level_instance/Prefab_01.umap"
+    ],
+    "package_file_count": 822,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/d8d7b289-dfed-4236-97ab-941c2c6c3790"
+    ],
+    "package_path_list_sha256": "247d7eeaa03331310c8f88c64839de54a96800b2ee69afd6077f0cbdb0f7d8b1"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyKc5724e9f5bc1V1\\manifest",
+    "sha256": "bd9e415976109ed4408174c36a43645532bde010c209431b3b7f23b90b3929b1",
+    "roots": {
+      "Kingdom_Capital": 287
+    },
+    "map_files": [
+      "Content/Kingdom_Capital/Levels/L_assets.umap",
+      "Content/Kingdom_Capital/Levels/L_showcase_map.umap",
+      "Content/Kingdom_Capital/Levels/L_showcase_map_lighting_02.umap",
+      "Content/Kingdom_Capital/Levels/Packed_level/L_cypress.umap",
+      "Content/Kingdom_Capital/Levels/Packed_level/L_Decorative_tree_02.umap"
+    ],
+    "package_file_count": 287,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/09a1119d-feb6-4cf1-b7e7-a7651e9ac149"
+    ],
+    "package_path_list_sha256": "3d8836f2eca870c3cfd63c2e2c64599ed238f75a847ffe1cec887f8a12e11390"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\ModularL835384215387V4\\manifest",
+    "sha256": "992abaf18855272dc998997d9400dcedbca5579bae05f5a859a53d989a50906e",
+    "roots": {
+      "Legendary_Forge": 333
+    },
+    "map_files": [
+      "Content/Legendary_Forge/Maps/L_showcase_forge.umap"
+    ],
+    "package_file_count": 333,
+    "metadata": {
+      "AppNameString": "ModularL835384215387V4",
+      "BuildVersionString": "5.4.0-28144321+++UE5+Dev-Marketplace-Windows",
+      "LaunchExeString": "",
+      "CustomFields": {
+        "BaseUrl": "https://egdownload.fastly-edge.com/Builds/Rocket/Automated/ModularL835384215387V4/CloudDir,https://epicgames-download1.akamaized.net/Builds/Rocket/Automated/ModularL835384215387V4/CloudDir,https://egs-cloudfront-chunks.epicgamescdn.com/Builds/Rocket/Automated/ModularL835384215387V4/CloudDir",
+        "BuildLabel": "",
+        "CatalogNamespace": "89efe5924d3d467c839449ab6ab52e7f",
+        "CatalogItemId": "bf013eb27085437f9c071cf318019c26",
+        "CatalogAssetName": "ModularL835384215387V4",
+        "CompatibleApps": "UE_5.3,UE_5.4,UE_5.5,UE_5.6,UE_5.7,UE_5.8",
+        "Vault.TitleText": "Modular Legendary Forge",
+        "Categories": "",
+        "Vault.ThumbnailUrl": "https://media.fab.com/image_previews/gallery_images/0794205e-9f8e-4b54-866f-928052405a67/1b6649e7-dbda-443a-8a59-04296d07b9a1.jpg",
+        "Vault.ActionUrl": "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee",
+        "Vault.IsCodeProject": "false",
+        "Vault.Filters": "Fantasy",
+        "Vault.Tags": "Fantasy",
+        "Vault.Type": "AssetPack",
+        "Vault.AutoInstallWithEngine": "false",
+        "Vault.LegacyItemId": "8353842153874dfa8795809f83cdd55a"
+      }
+    },
+    "listing_urls": [
+      "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee"
+    ],
+    "package_path_list_sha256": "9e54ad0542118999d6e8f5c03cf07ad2cbfbb5445373f6b42faa1d7f9ce876c6"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\ModularM10f0b86d84c7V1\\manifest",
+    "sha256": "f7638ddf34350c4c41eb4f4d64bbadf6e7fd8da1ff59c5f06f02df33ccbacae3",
+    "roots": {
+      "__ExternalActors__": 2005,
+      "Medieval_Megapack": 994
+    },
+    "map_files": [
+      "Content/Medieval_Megapack/Diner_Colection/Maps/Overview/Diner_Collection.umap",
+      "Content/Medieval_Megapack/Levels/PL_AssetZoo.umap",
+      "Content/Medieval_Megapack/Levels/PL_Fortress_Day.umap",
+      "Content/Medieval_Megapack/Levels/PL_Fortress_Day1.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_A.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_A_02.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_B.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_C.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_D.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Forge.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Foliage.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Lighting_Day.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Lighting_Night.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Mountains.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Scaffolding.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Splines.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Walls_B.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Tavern.umap",
+      "Content/Medieval_Megapack/Meshes/Scaffolding/Scaffolding_Prefabs/L_Scaffold_01.umap",
+      "Content/Medieval_Megapack/Meshes/Scaffolding/Scaffolding_Prefabs/L_Scaffold_02.umap",
+      "Content/Medieval_Megapack/Meshes/Scaffolding/Scaffolding_Prefabs/L_Scaffold_03.umap",
+      "Content/Medieval_Megapack/Scanned_Foliage/Maps/MAP_FoliageZoo_01.umap"
+    ],
+    "package_file_count": 2999,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/826f1b55-01e2-4272-993d-ea142a264f9f"
+    ],
+    "package_path_list_sha256": "f09d1a8a29f7745bf6f250725b37adc149867928703522eaba73d8666b8add6d"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\ModularW747c1db855b6V1\\manifest",
+    "sha256": "795c2b8e7435429dedcc5f26920d1afd63599477ef99232b627bf8c3fdf9acaa",
+    "roots": {
+      "__ExternalActors__": 492,
+      "JustBStudios": 566
+    },
+    "map_files": [
+      "Content/JustBStudios/Water_City/Levels/BPP/BigCliff_01.umap",
+      "Content/JustBStudios/Water_City/Levels/BPP/BigCliff_02.umap",
+      "Content/JustBStudios/Water_City/Levels/BPP/BigCliff_03.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_DayLighting.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_NightLighting.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_Overview.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_WaterVillage.umap"
+    ],
+    "package_file_count": 1058,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/fd908d45-b194-4a7d-97c9-942c0cd22095"
+    ],
+    "package_path_list_sha256": "0b6cf52b446683569f9959035c1ce2c8045bacd068a137a9cfd22499e6792de6"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\Ravenhola22b2a72d300V1\\manifest",
+    "sha256": "2d568659154959f6b67d9ba6f79358522d74963c97f046b9c3768a1e9d19b8f2",
+    "roots": {
+      "__ExternalActors__": 20338,
+      "__ExternalObjects__": 67,
+      "Ravenhold": 1597
+    },
+    "map_files": [
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Curtain_Wall_Corner_45_Int.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_10m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_2m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_4m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_6m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Converter.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Corner_45_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Crn.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Crn_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Drain_10m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Tower_A_Cnctr.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Turret.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_GateHouse_Tower_L.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_GateHouse_Tower_R.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_CurtainWall_Corner_Crv_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_2m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_4m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_6m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Archway_6m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Bridge_16m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Crn_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Crn_Int.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Roof_Lucarne.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Grand_Arch_Window_Base.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Grand_Arch_Window_Cap.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Single_Window_C.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Single_Window_D.umap",
+      "Content/Ravenhold/Demo/ThirdPerson/Lvl_ThirdPerson.umap",
+      "Content/Ravenhold/Scenes/Asset_Vid_Renders.umap",
+      "Content/Ravenhold/Scenes/HM-FortCastle_Kit_Asset_Gym.umap",
+      "Content/Ravenhold/Scenes/HM-FortCastle_Kit_Demo.umap"
+    ],
+    "package_file_count": 22002,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/3bfee149-0741-4892-ba2c-b7a245e45de7"
+    ],
+    "package_path_list_sha256": "e7d1b43797079d224e22bc28b6bf6aca30dbe82a505af8028266125130ffad68"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Dragon_Graveyard_Kit-9ee42cda\\unreal-engine\\manifest",
+    "sha256": "739f3c0a008cdf336a02012c6df33ab5841047889dc0ed31f537350ad95cd76b",
+    "roots": {
+      "Dragon_graveyard": 95
+    },
+    "map_files": [
+      "Content/Dragon_graveyard/Level/L_assets_showcase.umap",
+      "Content/Dragon_graveyard/Level/L_showcase_level.umap"
+    ],
+    "package_file_count": 95,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/9ee42cda-1455-4539-b5a9-ba6c9682a6dd"
+    ],
+    "package_path_list_sha256": "81122f1e0f6fe943847de678d555f3ba9b566afb2bc459dd22efd6da31b91654"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Fantasy_Alien_Castle-454baa93\\unreal-engine\\manifest",
+    "sha256": "5b58fe8cdcc357a86e1a2c610c3eb2e8d767b333ea4a5b458557374a25804538",
+    "roots": {
+      "AlienPlanet": 533
+    },
+    "map_files": [
+      "Content/AlienPlanet/BluePrints/LI_Entrance.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockFormation01.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockFormation02.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockFormation03.umap",
+      "Content/AlienPlanet/BluePrints/LI_RockTopPlants.umap",
+      "Content/AlienPlanet/Levels/L_Overview.umap",
+      "Content/AlienPlanet/Levels/L_Showcase.umap"
+    ],
+    "package_file_count": 533,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/454baa93-0c78-4a53-a57e-47943160d591"
+    ],
+    "package_path_list_sha256": "2784465a71410f06328a4f6874ddde7aec274d73e9b1f4487fb5a6079450e8ba"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Fantasy_Forest_Village_Kit-d8d7b289\\unreal-engine\\manifest",
+    "sha256": "7e3da2b32b1a6f18b461e79e67fe11b1573fc5b3d08d6db77bc76b2baf9c1400",
+    "roots": {
+      "__ExternalActors__": 559,
+      "Forest_village": 263
+    },
+    "map_files": [
+      "Content/Forest_village/Level/Asset_showcase.umap",
+      "Content/Forest_village/Level/L_showcase_level.umap",
+      "Content/Forest_village/Level/Level_instance/Build_update.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_02.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_03.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_04.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_Update_01.umap",
+      "Content/Forest_village/Level/Level_instance/PLA_Update_02.umap",
+      "Content/Forest_village/Level/Level_instance/Prefab_01.umap"
+    ],
+    "package_file_count": 822,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/d8d7b289-dfed-4236-97ab-941c2c6c3790"
+    ],
+    "package_path_list_sha256": "247d7eeaa03331310c8f88c64839de54a96800b2ee69afd6077f0cbdb0f7d8b1"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Fantasy_Kingdom_Capital_Kit-09a1119d\\unreal-engine\\manifest",
+    "sha256": "7f20d05a0c3e59199306c7ff293dfc905c09139a09aa8e4be5ed0789299f2d8c",
+    "roots": {
+      "Kingdom_Capital": 287
+    },
+    "map_files": [
+      "Content/Kingdom_Capital/Levels/L_assets.umap",
+      "Content/Kingdom_Capital/Levels/L_showcase_map.umap",
+      "Content/Kingdom_Capital/Levels/L_showcase_map_lighting_02.umap",
+      "Content/Kingdom_Capital/Levels/Packed_level/L_cypress.umap",
+      "Content/Kingdom_Capital/Levels/Packed_level/L_Decorative_tree_02.umap"
+    ],
+    "package_file_count": 287,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/09a1119d-feb6-4cf1-b7e7-a7651e9ac149"
+    ],
+    "package_path_list_sha256": "3d8836f2eca870c3cfd63c2e2c64599ed238f75a847ffe1cec887f8a12e11390"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Medieval_Village_Megapack-e49a4e1a\\unreal-engine\\manifest",
+    "sha256": "41283d9d9eff5531c8e685327c72612a33de6f645433bd717113b626c3154a0e",
+    "roots": {
+      "Village": 1518
+    },
+    "map_files": [
+      "Content/Village/Map/LV_Info.umap",
+      "Content/Village/Map/LV_MedievalTown_Lighting_Overcast.umap",
+      "Content/Village/Map/LV_MedievalTown_Lighting_Sunny.umap",
+      "Content/Village/Map/LV_MedievalTown_Main.umap",
+      "Content/Village/Map/LV_MedievalTown_VFX_Clear.umap",
+      "Content/Village/Map/LV_MedievalTown_VFX_Rain.umap",
+      "Content/Village/Map/LV_MedievalTown_VFX_Snow.umap",
+      "Content/Village/Map/LV_StaticLights.umap",
+      "Content/Village/Map/Overview/LV_Overview.umap",
+      "Content/Village/Master_Material/MasterShader_Meshingun/Map/LV_MasterShader_Showcase.umap"
+    ],
+    "package_file_count": 1518,
+    "metadata": {
+      "AppNameString": "Medieval0066bd864f73V2",
+      "BuildVersionString": "5.1.0-20520058+++UE5+Dev-Marketplace-Windows",
+      "LaunchExeString": "",
+      "CustomFields": {
+        "Vault.IsCodeProject": "false",
+        "CatalogNamespace": "89efe5924d3d467c839449ab6ab52e7f",
+        "CatalogItemId": "4943022a71f84a92893adc59e3834677",
+        "CatalogAssetName": "Medieval0066bd864f73V2",
+        "Vault.TitleText": "Medieval Village Megapack",
+        "Vault.ActionURL": "https://www.fab.com/listings/e49a4e1a-63a4-4472-9026-8c2339164c29",
+        "Vault.ThumbnailUrl": "https://media.fab.com/image_previews/gallery_images/a1b7cb42-50c8-4413-a10d-165a1ece44af/d0a7b955-dc0b-480c-a407-e575a7e9d5a0.jpg",
+        "BaseUrl": "https://egdownload.fastly-edge.com/Builds/Rocket/Automated/Medieval0066bd864f73V2/CloudDir,https://epicgames-download1.akamaized.net/Builds/Rocket/Automated/Medieval0066bd864f73V2/CloudDir,https://egs-cloudfront-chunks.epicgamescdn.com/Builds/Rocket/Automated/Medieval0066bd864f73V2/CloudDir",
+        "CompatibleApps": "UE_5.0,UE_5.1,UE_5.2,UE_5.3,UE_5.4,UE_5.5,UE_5.6,UE_5.7,UE_5.8",
+        "Vault.Type": "AssetPack",
+        "Vault.Filters": "Medieval",
+        "Vault.Tags": "Medieval",
+        "Vault.AutoInstallWithEngine": "false",
+        "Vault.LegacyItemId": "0066bd864f734e8ba97bf567db364cf4"
+      }
+    },
+    "listing_urls": [
+      "https://www.fab.com/listings/e49a4e1a-63a4-4472-9026-8c2339164c29"
+    ],
+    "package_path_list_sha256": "de4af401dd23c6c17b98bbaf62d0ed010ae0f4ab066e7e441238defb7488c18b"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Modular_Castle__Medieval_Castle__Medieval_Town__Medieval_Fortress__Castle_-826f1b55\\unreal-engine\\manifest",
+    "sha256": "9dfe500d3e334d8f1b7d7e5f9000ba02b7e2310c6fb73bc5d62dcb0ec1660dc2",
+    "roots": {
+      "__ExternalActors__": 2005,
+      "Medieval_Megapack": 994
+    },
+    "map_files": [
+      "Content/Medieval_Megapack/Diner_Colection/Maps/Overview/Diner_Collection.umap",
+      "Content/Medieval_Megapack/Levels/PL_AssetZoo.umap",
+      "Content/Medieval_Megapack/Levels/PL_Fortress_Day.umap",
+      "Content/Medieval_Megapack/Levels/PL_Fortress_Day1.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_A.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_A_02.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_B.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_C.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Building_D.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Forge.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Foliage.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Lighting_Day.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Lighting_Night.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Mountains.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Scaffolding.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Splines.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/SL_Walls_B.umap",
+      "Content/Medieval_Megapack/Levels/Prefabs/Tavern.umap",
+      "Content/Medieval_Megapack/Meshes/Scaffolding/Scaffolding_Prefabs/L_Scaffold_01.umap",
+      "Content/Medieval_Megapack/Meshes/Scaffolding/Scaffolding_Prefabs/L_Scaffold_02.umap",
+      "Content/Medieval_Megapack/Meshes/Scaffolding/Scaffolding_Prefabs/L_Scaffold_03.umap",
+      "Content/Medieval_Megapack/Scanned_Foliage/Maps/MAP_FoliageZoo_01.umap"
+    ],
+    "package_file_count": 2999,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/826f1b55-01e2-4272-993d-ea142a264f9f"
+    ],
+    "package_path_list_sha256": "f09d1a8a29f7745bf6f250725b37adc149867928703522eaba73d8666b8add6d"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Modular_Legendary_Forge-b91e0942\\unreal-engine\\manifest",
+    "sha256": "fed5406626751998276a3b89b06bac8e79d5acbd60d07718eab9bcad315348d7",
+    "roots": {
+      "Legendary_Forge": 333
+    },
+    "map_files": [
+      "Content/Legendary_Forge/Maps/L_showcase_forge.umap"
+    ],
+    "package_file_count": 333,
+    "metadata": {
+      "AppNameString": "ModularL835384215387V4",
+      "BuildVersionString": "5.4.0-28144321+++UE5+Dev-Marketplace-Windows",
+      "LaunchExeString": "",
+      "CustomFields": {
+        "Vault.IsCodeProject": "false",
+        "CatalogNamespace": "89efe5924d3d467c839449ab6ab52e7f",
+        "CatalogItemId": "bf013eb27085437f9c071cf318019c26",
+        "CatalogAssetName": "ModularL835384215387V4",
+        "Vault.TitleText": "Modular Legendary Forge",
+        "Vault.ActionURL": "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee",
+        "Vault.ThumbnailUrl": "https://media.fab.com/image_previews/gallery_images/0794205e-9f8e-4b54-866f-928052405a67/1b6649e7-dbda-443a-8a59-04296d07b9a1.jpg",
+        "BaseUrl": "https://egdownload.fastly-edge.com/Builds/Rocket/Automated/ModularL835384215387V4/CloudDir,https://epicgames-download1.akamaized.net/Builds/Rocket/Automated/ModularL835384215387V4/CloudDir,https://egs-cloudfront-chunks.epicgamescdn.com/Builds/Rocket/Automated/ModularL835384215387V4/CloudDir",
+        "Categories": "",
+        "CompatibleApps": "UE_5.3,UE_5.4,UE_5.5,UE_5.6,UE_5.7,UE_5.8",
+        "TechnicalType": "",
+        "Vault.Filters": "Fantasy",
+        "Vault.Tags": "Fantasy",
+        "Vault.Type": "AssetPack",
+        "Vault.AutoInstallWithEngine": "false",
+        "Vault.LegacyItemId": "8353842153874dfa8795809f83cdd55a"
+      }
+    },
+    "listing_urls": [
+      "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee"
+    ],
+    "package_path_list_sha256": "9e54ad0542118999d6e8f5c03cf07ad2cbfbb5445373f6b42faa1d7f9ce876c6"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Modular_Water_City_Environment__Water_Village_Town_Seaside_-fd908d45\\unreal-engine\\manifest",
+    "sha256": "e78767cec06669f800ba2ca513283e146e648e83f3ed1262fbbede280992e1d0",
+    "roots": {
+      "__ExternalActors__": 492,
+      "JustBStudios": 566
+    },
+    "map_files": [
+      "Content/JustBStudios/Water_City/Levels/BPP/BigCliff_01.umap",
+      "Content/JustBStudios/Water_City/Levels/BPP/BigCliff_02.umap",
+      "Content/JustBStudios/Water_City/Levels/BPP/BigCliff_03.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_DayLighting.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_NightLighting.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_Overview.umap",
+      "Content/JustBStudios/Water_City/Levels/LV_WaterVillage.umap"
+    ],
+    "package_file_count": 1058,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/fd908d45-b194-4a7d-97c9-942c0cd22095"
+    ],
+    "package_path_list_sha256": "0b6cf52b446683569f9959035c1ce2c8045bacd068a137a9cfd22499e6792de6"
+  },
+  {
+    "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Ravenhold__Modular_Medieval_Castle__Fortress___Dungeon_Megapack-3bfee149\\unreal-engine\\manifest",
+    "sha256": "7f1d9dabedfa02ac6ef4c90e5edc13ab7d1168d0b8a16baff57493c7db305a3b",
+    "roots": {
+      "__ExternalActors__": 20338,
+      "__ExternalObjects__": 67,
+      "Ravenhold": 1597
+    },
+    "map_files": [
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Curtain_Wall_Corner_45_Int.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_10m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_2m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_4m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_6m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Converter.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Corner_45_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Crn.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Crn_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Drain_10m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Tower_A_Cnctr.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Turret.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_GateHouse_Tower_L.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_GateHouse_Tower_R.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_CurtainWall_Corner_Crv_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_2m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_4m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_6m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Archway_6m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Bridge_16m.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Crn_Ext.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Crn_Int.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Roof_Lucarne.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Grand_Arch_Window_Base.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Grand_Arch_Window_Cap.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Single_Window_C.umap",
+      "Content/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Single_Window_D.umap",
+      "Content/Ravenhold/Demo/ThirdPerson/Lvl_ThirdPerson.umap",
+      "Content/Ravenhold/Scenes/Asset_Vid_Renders.umap",
+      "Content/Ravenhold/Scenes/HM-FortCastle_Kit_Asset_Gym.umap",
+      "Content/Ravenhold/Scenes/HM-FortCastle_Kit_Demo.umap"
+    ],
+    "package_file_count": 22002,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/3bfee149-0741-4892-ba2c-b7a245e45de7"
+    ],
+    "package_path_list_sha256": "e7d1b43797079d224e22bc28b6bf6aca30dbe82a505af8028266125130ffad68"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medieval9ff219ea5d87V1\\manifest",
+    "sha256": "4911cfc4547c67e5d390731bc5116c0e0568a1159c91416c6615f4f45ca7f184",
+    "roots": {
+      "Medieval_Fantasy_Village": 199
+    },
+    "map_files": [
+      "Content/Medieval_Fantasy_Village/Levels/L_assets.umap",
+      "Content/Medieval_Fantasy_Village/Levels/L_Medieval_Town.umap"
+    ],
+    "package_file_count": 199,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/b8d49812-57f8-4e6e-bf95-aa5696efc25f"
+    ],
+    "package_path_list_sha256": "a624d7ded8f3f6b21a07219f87451ca44224644b86e105bbf1c12b6c7e38a2f1"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medievale5e3853f44baV1\\manifest",
+    "sha256": "61447b03bc059c4d32eaa9bdd67ded2125ee080d21fce401b0e09e9780ccf4b6",
+    "roots": {
+      "__ExternalActors__": 1,
+      "Medieval_Warzone": 566
+    },
+    "map_files": [
+      "Content/Medieval_Warzone/Levels/L_Overview.umap",
+      "Content/Medieval_Warzone/Levels/L_Showcase.umap"
+    ],
+    "package_file_count": 567,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/33d8621e-c444-4b7a-b12e-e49614a4ebc8"
+    ],
+    "package_path_list_sha256": "c3da6e8b9716d6a8cb0d7782f6314e2bf683ec2be3a3994529b132de4199f45e"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\NaniteMee1c943429865V1\\manifest",
+    "sha256": "a5b863b9af1520f5430e7fa67f19fa3c3eaf7181edbd4e5915d29584a12f65db",
+    "roots": {
+      "WarCamp_Collection": 258
+    },
+    "map_files": [
+      "Content/WarCamp_Collection/Maps/Overview/Camp_Garrison_War_Collection.umap"
+    ],
+    "package_file_count": 258,
+    "metadata": {
+      "AppNameString": "NaniteMee1c943429865V1",
+      "BuildVersionString": "5.3.0-25265656+++UE5+Dev-Marketplace-Windows",
+      "CustomFields": {
+        "Vault.IsCodeProject": "false",
+        "CatalogNamespace": "89efe5924d3d467c839449ab6ab52e7f",
+        "CatalogItemId": "dcbc9e0643c84964b04425596605d785",
+        "CatalogAssetName": "NaniteMee1c943429865V1",
+        "Vault.TitleText": "[Nanite] Medieval War Camp Kit (War Camp Props, Medieval Props)",
+        "Vault.ActionURL": "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9",
+        "Vault.ThumbnailUrl": "https://media.fab.com/image_previews/gallery_images/0b6a4389-17a7-4114-b036-0af0daae7cb7/8f078986-ce1f-4772-918d-e6dbb37bc2b6.jpg",
+        "BaseUrl": "https://egdownload.fastly-edge.com/Builds/Rocket/Automated/NaniteMee1c943429865V1/CloudDir,https://epicgames-download1.akamaized.net/Builds/Rocket/Automated/NaniteMee1c943429865V1/CloudDir,https://egs-cloudfront-chunks.epicgamescdn.com/Builds/Rocket/Automated/NaniteMee1c943429865V1/CloudDir",
+        "CompatibleApps": "UE_5.1,UE_5.2,UE_5.3,UE_5.4,UE_5.5,UE_5.6,UE_5.7,UE_5.8",
+        "Categories": "",
+        "Vault.Filters": "Tools, Objects & Decor",
+        "Vault.Tags": "Tools, Objects & Decor",
+        "Vault.Type": "AssetPack",
+        "Vault.AutoInstallWithEngine": "false",
+        "Vault.LegacyItemId": "e1c9434298654508829a513b03284be3"
+      }
+    },
+    "listing_urls": [
+      "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9"
+    ],
+    "package_path_list_sha256": "97363906c50cc99df001b7ef0de17435f7d18a914a8a1d20d7f5008ba0d7762d"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\Fantasy_Kingdom_Capital_Kit-09a1119d\\unreal-engine\\manifest",
+    "sha256": "8dbbac72e8fac060e771bc41b2915441afe2a1170eb6adecddef15eb3b7bef53",
+    "roots": {
+      "Kingdom_Capital": 287
+    },
+    "map_files": [
+      "Content/Kingdom_Capital/Levels/L_assets.umap",
+      "Content/Kingdom_Capital/Levels/L_showcase_map.umap",
+      "Content/Kingdom_Capital/Levels/L_showcase_map_lighting_02.umap",
+      "Content/Kingdom_Capital/Levels/Packed_level/L_cypress.umap",
+      "Content/Kingdom_Capital/Levels/Packed_level/L_Decorative_tree_02.umap"
+    ],
+    "package_file_count": 287,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/09a1119d-feb6-4cf1-b7e7-a7651e9ac149"
+    ],
+    "package_path_list_sha256": "3d8836f2eca870c3cfd63c2e2c64599ed238f75a847ffe1cec887f8a12e11390"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\Medieval_Fantasy_Village-b8d49812\\unreal-engine\\manifest",
+    "sha256": "a3bd0bb5351ce9493b454e0a9e2dea59f711013587b0e934590d3f3651d6e126",
+    "roots": {
+      "Medieval_Fantasy_Village": 199
+    },
+    "map_files": [
+      "Content/Medieval_Fantasy_Village/Levels/L_assets.umap",
+      "Content/Medieval_Fantasy_Village/Levels/L_Medieval_Town.umap"
+    ],
+    "package_file_count": 199,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/b8d49812-57f8-4e6e-bf95-aa5696efc25f"
+    ],
+    "package_path_list_sha256": "a624d7ded8f3f6b21a07219f87451ca44224644b86e105bbf1c12b6c7e38a2f1"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\Medieval_Warzone_Environment-33d8621e\\unreal-engine\\manifest",
+    "sha256": "f74e62120e63b570804a9e0f870bc66a31cb58b6278c4b3bd9a6bae7ac9d9331",
+    "roots": {
+      "__ExternalActors__": 1,
+      "Medieval_Warzone": 566
+    },
+    "map_files": [
+      "Content/Medieval_Warzone/Levels/L_Overview.umap",
+      "Content/Medieval_Warzone/Levels/L_Showcase.umap"
+    ],
+    "package_file_count": 567,
+    "metadata": {},
+    "listing_urls": [
+      "https://www.fab.com/listings/33d8621e-c444-4b7a-b12e-e49614a4ebc8"
+    ],
+    "package_path_list_sha256": "c3da6e8b9716d6a8cb0d7782f6314e2bf683ec2be3a3994529b132de4199f45e"
+  },
+  {
+    "path": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\_Nanite__Medieval_War_Camp_Kit__War_Camp_Props__Medieval_Props_-3cc08b13\\unreal-engine\\manifest",
+    "sha256": "e4a3965e887178e7e861357f5ec82687a597eafe7dae55a73e763adae9e70265",
+    "roots": {
+      "WarCamp_Collection": 258
+    },
+    "map_files": [
+      "Content/WarCamp_Collection/Maps/Overview/Camp_Garrison_War_Collection.umap"
+    ],
+    "package_file_count": 258,
+    "metadata": {
+      "AppNameString": "NaniteMee1c943429865V1",
+      "BuildVersionString": "5.3.0-25265656+++UE5+Dev-Marketplace-Windows",
+      "CustomFields": {
+        "Vault.IsCodeProject": "false",
+        "CatalogNamespace": "89efe5924d3d467c839449ab6ab52e7f",
+        "CatalogItemId": "dcbc9e0643c84964b04425596605d785",
+        "CatalogAssetName": "NaniteMee1c943429865V1",
+        "Vault.TitleText": "[Nanite] Medieval War Camp Kit (War Camp Props, Medieval Props)",
+        "Vault.ActionURL": "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9",
+        "Vault.ThumbnailUrl": "https://media.fab.com/image_previews/gallery_images/bd9c84af-1bfd-4112-93b6-187deedf559a/1bd78a94-a5ea-48ca-aa41-290469027b8e.png",
+        "BaseUrl": "https://egdownload.fastly-edge.com/Builds/Rocket/Automated/NaniteMee1c943429865V1/CloudDir,https://epicgames-download1.akamaized.net/Builds/Rocket/Automated/NaniteMee1c943429865V1/CloudDir,https://egs-cloudfront-chunks.epicgamescdn.com/Builds/Rocket/Automated/NaniteMee1c943429865V1/CloudDir"
+      }
+    },
+    "listing_urls": [
+      "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9"
+    ],
+    "package_path_list_sha256": "97363906c50cc99df001b7ef0de17435f7d18a914a8a1d20d7f5008ba0d7762d"
+  }
+]

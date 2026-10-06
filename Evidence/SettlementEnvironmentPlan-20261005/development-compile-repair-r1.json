@@ -1,0 +1,19 @@
+{
+  "initial_build": "root Editor r1 failed after232.83 seconds; no Editor PASS claimed",
+  "changes": [
+    {
+      "path": "Source/Soul/Private/SoulSettlementStateSubsystem.cpp",
+      "before_sha256": "8bc3fb37adfca2ad51ffe8f440a1a40b0060e8d74d702d031ae0eb75e0f7db50",
+      "after_sha256": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864",
+      "change": "Include Engine/GameInstance.h explicitly for GetGameInstance subsystem access."
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "before_sha256": "52154cc1071b05027f9b7c0b18a443e9ba3b110cd19f2bea10a3a4a821d99325",
+      "after_sha256": "ce21003d68bd9a7bcb7098de6798c8ce04d92f5f47d99c696f739f0fbfebe5e5",
+      "change": "Rename local Scenario to DevelopmentScenario to fix C4456 shadowing; no behavior change."
+    }
+  ],
+  "source_tests": "18/18 PASS",
+  "scoped_diff_check": "PASS"
+}

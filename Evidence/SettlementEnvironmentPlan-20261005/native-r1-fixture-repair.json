@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-06T03:58:44.609004+00:00",
+  "status": "native r1 FAILED/ASSERT; test-only repair frozen; fresh rebuild/native rerun required",
+  "native_log": "Local/editor-development-r1/unreal.log",
+  "native_log_sha256": "5ffc7c9c4236172f2a38a49a0b9dcd958dc81bcb7e2f347518bcadf15ec027f5",
+  "editor_exit_code": 3,
+  "editor_exit_confirmation": "root confirmed no UE active before repair",
+  "cause": "Duplicate-fixture TArray::Add took an element reference from the same destination array; UE CheckAddress rejects that alias before data validation runs. This is test-fixture failure, not a production settlement rule failure.",
+  "repair": {
+    "path": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+    "before_sha256": "514eb27b088b93dbe798b765b086b913dde58429b0b64bca96f66e12a82cc0a1",
+    "after_sha256": "4a39a441a2afd4f037a1e190bb9ab16b452879e2e5e04387753557f111a2e741",
+    "changes": [
+      "Copy Buildings[0] into local const value before Buildings.Add(Duplicate)",
+      "Copy DevelopmentDefinitions[0] into local const value before DevelopmentDefinitions.Add(Duplicate)"
+    ]
+  },
+  "other_alias_review": "No additional same-TArray aliases found in the two new settlement test files. Presentation Add(Groups[i]) copies from a separate fixed actor array.",
+  "source_checks": {
+    "passed": 18,
+    "failed": 0,
+    "log": "source-checks-native-repair.log"
+  },
+  "diff_check": "PASS",
+  "native_evidence_lines": [
+    "[2026.10.06-03.57.01:093][838]LogAutomationController: Display: Test Started. Name={PersistentDamageProjection} Path={Soul.Core.Settlement.PersistentDamageProjection}",
+    "[2026.10.06-03.57.01:239][841]LogAutomationController: Display: Test Completed. Result={Success} Name={PersistentDamageProjection} Path={Soul.Core.Settlement.PersistentDamageProjection}",
+    "[2026.10.06-03.57.01:244][841]LogAutomationController: Display: Test Started. Name={Prerequisites} Path={Soul.Core.Settlement.Prerequisites}",
+    "[2026.10.06-03.57.01:388][844]LogAutomationController: Display: Test Completed. Result={Success} Name={Prerequisites} Path={Soul.Core.Settlement.Prerequisites}",
+    "[2026.10.06-03.57.02:540][862]LogAutomationController: Display: Test Started. Name={ConstructionGatesCostsDaysAndExistingService} Path={Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService}",
+    "[2026.10.06-03.57.02:647][864]LogAutomationController: Display: Test Completed. Result={Success} Name={ConstructionGatesCostsDaysAndExistingService} Path={Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService}",
+    "[2026.10.06-03.57.02:648][865]LogAutomationController: Display: Test Started. Name={ConstructionPresentationPrecedesIntegrity} Path={Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity}",
+    "[2026.10.06-03.57.02:754][866]LogAutomationController: Display: Test Completed. Result={Success} Name={ConstructionPresentationPrecedesIntegrity} Path={Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity}",
+    "[2026.10.06-03.57.02:755][867]LogAutomationController: Display: Test Started. Name={DevelopmentDefinitionsRejectInvalidData} Path={Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData}",
+    "[2026.10.06-03.57.02:859][867]LogWindows: Error: appError called: Assertion failed: Addr < GetData() || Addr >= (GetData() + ArrayMax) [File:C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Source\\Runtime\\Core\\Public\\Containers\\Array.h] [Line: 2196] ",
+    "Attempting to use a container element (000001A6F74B9360) which already comes from the container being modified (000001A6F74B9360, ArrayMax: 4, ArrayNum: 2, SizeofElement: 24)!",
+    "[2026.10.06-03.57.12:693][867]LogWindows: Error: Assertion failed: Addr < GetData() || Addr >= (GetData() + ArrayMax) [File:C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Source\\Runtime\\Core\\Public\\Containers\\Array.h] [Line: 2196] ",
+    "[2026.10.06-03.57.12:693][867]LogWindows: Error: Attempting to use a container element (000001A6F74B9360) which already comes from the container being modified (000001A6F74B9360, ArrayMax: 4, ArrayNum: 2, SizeofElement: 24)!"
+  ],
+  "native_after_repair": "not yet built or run",
+  "production_source_changed": false
+}

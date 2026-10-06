@@ -1,0 +1,44 @@
+{
+  "captured_utc": "2026-10-06T03:34:02.119778+00:00",
+  "listing_id": "42d4a792-2b66-423d-9b20-84d6b2c578d8",
+  "identity": "Exact Medieval Kingdom catalog linkage proven by existing Macbeth receipts",
+  "live_partial_root": "D:/RefinedBadger/Games/Macbeth/Content/CastleTown",
+  "local_family_packages": 1796,
+  "local_family_umaps": 43,
+  "local_external_actor_packages": 661,
+  "external_actor_scope": "Kings Hall targeted closure only",
+  "full_capital_ready": false,
+  "reason": "Full authored city external actor/object closure unavailable; empty/incomplete sublevels cannot represent the real authored capital.",
+  "two_known_ordinary_package_errors_still_missing": [
+    "CastleTown/Scanned_Foliage/Foliage/EuropeanBeech/Textures/T_EuropeanBeech_01_Snow_M.uasset",
+    "CastleTown/Static_Mesh/Brick_Kit/SM_BrickI.uasset"
+  ],
+  "historical_whole_pack_catalog_packages": 10673,
+  "historical_count_limit": "Different snapshots may contain version differences; catalog count minus live count is not a certified per-file missing list.",
+  "mounted_local_drives": [
+    "C:/",
+    "D:/"
+  ],
+  "bounded_search": [
+    "Current and relocated Unreal Projects roots",
+    "D:/RefinedBadger/Games, Worktrees, Parallel, Recovery, BakeoffAssets, Donors",
+    "C:/RefinedBadger/Games and LAN-Staging",
+    "C:/ProgramData/Epic/EpicGamesLauncher/VaultCache historical exact cache path absent",
+    "C:/Users/Jeff/Desktop/VaultCache and its FabLibrary",
+    "D:/Unreal Projects/AoEAssetRenderLab/Content/VaultCache",
+    "D:/AssetCaches/EpicVaultCache: empty FabLibrary only",
+    "D:/EpicGamesLauncher/VaultCache: empty FabLibrary only",
+    "C:/Users/Jeff/Desktop/New folder moved-cache/storage audit records, exact KeepSmith/CastleTown/cache-name search",
+    "D:/ColdStorage/Relocated-C/Users/Jeff/Documents/Unreal Projects: CarmillaRoleAuditDownload only"
+  ],
+  "complete_second_copy_found": false,
+  "known_original_source": {
+    "machine": "DESKTOP-4EKS7LL",
+    "project": "KeepSmith-founder-p4",
+    "content_http": "http://10.0.0.10:8899/CastleTown/",
+    "root_http": "http://10.0.0.10:8899/",
+    "reachability_evidence": "terrain_asset_audit reported one HEAD each with3-second timeout; both timed out. No download or retries loop."
+  },
+  "next_meaningful_action": "Restore/reach the original owned source or another exact full payload, inventory/copy immutable external actors plus ordinary missing packages, then inspect actual full scene in the sole root-owned editor. Do not rebuild or substitute the city.",
+  "no_changes": "No source/asset/donor writes, UE/build, purchase or download were performed by this audit."
+}

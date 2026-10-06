@@ -1,0 +1,26 @@
+{
+  "captured_utc": "2026-10-06T03:35:10.887885+00:00",
+  "status": "PASS",
+  "checks": {
+    "all22_approved_IDs_exact_order": true,
+    "all22_unique_codes": true,
+    "all_recorded_live_demo_files_exist": true,
+    "all36_recipe_IDs_resolve": true,
+    "six_existing_city_IDs_and_eight_minor_candidates_preserved": true,
+    "source_Data_hashes_unchanged_since_binding_read": true
+  },
+  "limits": [
+    "No UE/runtime/layout/visual acceptance implied.",
+    "Evidence inventory does not change existing bindings or ownership."
+  ],
+  "outputs": {
+    "local-environment-inventory.json": "b02f284324f75dca402908d3734619f12baae8cc89303cc6416ed2c7668046f2",
+    "local-environment-inventory.md": "061195b71f6c5c59ce1a1193707b3369d29040f41bbfd0bf8822061c17f6e725",
+    "faction-role-matrix.md": "3d41bd4572388e3b8b687c9546b8e1ff113b0b489c1b0bfc3ff30a4a16e21b77",
+    "canonical-environment-candidates.json": "05d0859fa914af4c12c16acefcaf03c8137abfc274d241ba5141622a571b261e",
+    "canonical-environment-candidates.md": "1dc82977e7e72ad321b56f9ac86100c1fec737f56a72a8cd5bccdcf74f771844",
+    "human-capital-local-identity.json": "656628936538daed85a3c4df2837a185cc0de87421b3972625ffdaef325cb6c4",
+    "human-capital-recovery-availability.json": "5074cdc561c1c8008c55034cae51a0a00ee06514600fda52c1f3c9147e869e0f",
+    "local-manifest-index.json": "455a5a614cc4f26bb6c0c848c179e50489f78a533e5597d3da8963de2c082b53"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-06T03:31:06.174439+00:00",
+  "outcome": "ABORTED_INCOMPLETE_DONOR_NOT_QUALIFIED",
+  "reason": "Full CastleTown external-actor closures absent; abort partial native load under increasing memory pressure; no source package save issued.",
+  "loaded_scene_probe_completed": false,
+  "runtime_acceptance": false,
+  "protected_packages_checked": 704,
+  "hash_mismatches": [],
+  "peak_gpu_c": 49.0,
+  "peak_editor_working_set_mib": 7271.54,
+  "peak_editor_private_commit_mib": 7989.96,
+  "session_receipt": "Local/editor-capital-survey-r1/session.json",
+  "native_log": "Local/editor-capital-survey-r1/unreal.log"
+}

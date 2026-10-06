@@ -1,0 +1,140 @@
+{
+  "utc": "2026-10-06T03:11:05.317356+00:00",
+  "head": "11cd71cd20ab936c2f32d28c4c2f4f18c8c290a7",
+  "origin": "4842eeb403f6b9be6effdf9fe18fc5c24b499887",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "preserved_before": {
+    ".gitignore": {
+      "sha256": "bb724806566e53475449ed79784bd9244241bd5e6c0e308bf662b6d53bb3cffa",
+      "bytes": 1613
+    },
+    "Config/DefaultEngine.ini": {
+      "sha256": "dd1b81a0935755cad20e3ba9aac144943d267e2e0f012aa35eee8813c0aeccad",
+      "bytes": 766
+    },
+    "Config/DefaultGame.ini": {
+      "sha256": "42ad3b990b947b87017fbe8df128efb6e510988548446aea982ff672ea6426de",
+      "bytes": 18518
+    },
+    "Data/CampaignWorldTerrain/presentation.json": {
+      "sha256": "9a98618ef9747bcc3baf652c97672cd2ca7651fd51b9d944134fb9c69cd2dc8b",
+      "bytes": 660459
+    },
+    "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md": {
+      "sha256": "bace68c4ce1c107053dd418a8ba973e4e716a5326560e4b5fd52b026c9095353",
+      "bytes": 6558
+    },
+    "Soul.uproject": {
+      "sha256": "9a46e4c95ca753c2fb944f41e7d3c8b48730cdae4bfc78a0f05b49b6395c971c",
+      "bytes": 1787
+    },
+    "Source/Soul/Private/SoulCampaignCamera.cpp": {
+      "sha256": "d0ca9691f91a1245f9c0eac3ff637eeb135836685f949999acc964d1ed6dec24",
+      "bytes": 10827
+    },
+    "Source/Soul/Private/SoulCampaignTerrain.cpp": {
+      "sha256": "236c8be371b7d0aa0aa98bd4bc2d27f83243f35b845ecb2463a67f015dcaabac",
+      "bytes": 82781
+    },
+    "Source/Soul/Private/SoulCampaignVisualQualification.cpp": {
+      "sha256": "01776a1d8c38666982cc1f084218194f52a845b3b2c82f7b6d0987175426dc9e",
+      "bytes": 23963
+    },
+    "Source/Soul/Private/SoulCampaignWorldActor.cpp": {
+      "sha256": "5094058c87f06184c0f005bfa564900a1e12ddf2c5f89136f76d0b1e817d1bcd",
+      "bytes": 28070
+    },
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp": {
+      "sha256": "c285fd55194e1cf08d22ebca9ad72b37d3d52ab1fa17731d75af62fe898bd14f",
+      "bytes": 25534
+    },
+    "Source/Soul/Private/SoulFounderPlaytestHUD.cpp": {
+      "sha256": "ac59e25e69e282004d6b9d80e1c3673c8c7b02c9c6167ceda4be178e4868852d",
+      "bytes": 11422
+    },
+    "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp": {
+      "sha256": "cf3e44f7e0415a7f595c6cbe7bb4e836cd7b5a66c82601cedf0053aed3521746",
+      "bytes": 9722
+    },
+    "Source/Soul/Private/SoulPlaytestRegionActor.cpp": {
+      "sha256": "2027e50f1754423e1c67e2e2435fc1b9aa6925fd36e4c005e60e2a948dd2a850",
+      "bytes": 11465
+    },
+    "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp": {
+      "sha256": "bd2e6fcacd00654abeb9db692eaca846b01d44771d31f44c3a5ce7b884fb6ccb",
+      "bytes": 5490
+    },
+    "Source/Soul/Private/Tests/test_weekend_campaign_view.py": {
+      "sha256": "7490519c1915e8abc8e55dc84f05f1db12881b554092a2e6ab266ba53953c859",
+      "bytes": 23322
+    },
+    "Source/Soul/Public/SoulCampaignCamera.h": {
+      "sha256": "511efb723fa1777b4dcc9f5d1969ce75b0ee318ca3544b3df0f96b263ea9c730",
+      "bytes": 1477
+    },
+    "Source/Soul/Public/SoulCampaignTerrain.h": {
+      "sha256": "7f433f83c3948605330fd3e6f30f22149ea24a27bfd0c196aedc8388b79fcc99",
+      "bytes": 1271
+    },
+    "Source/Soul/Public/SoulFounderPlaytestGameMode.h": {
+      "sha256": "9014872689b11cf75b2f58eeb6b0e575762a3296f38ebaa8c548cc8b079b3f60",
+      "bytes": 1245
+    },
+    "Source/Soul/Soul.Build.cs": {
+      "sha256": "4dbd94f15fcf7a03975991036e2600dc6ea4cfa8211b102f16c1a5cb313e8374",
+      "bytes": 1815
+    },
+    "Tools/WorldTerrain/README.md": {
+      "sha256": "fdf4c3c819ef5095bd46f74589c31d2ab11258ef8da45c5238f00e39507cc69c",
+      "bytes": 13357
+    },
+    "Tools/WorldTerrain/author_world.py": {
+      "sha256": "b2eb076e6f22932932c501f7d2039840bedd892ec23be1ad4f527e10862f9d64",
+      "bytes": 4873
+    },
+    "Tools/WorldTerrain/bake_surface.py": {
+      "sha256": "eba7d1d2393268ca42e346fdc30a872395cb9dc8a39f3d6fcc5edb6a909bcb16",
+      "bytes": 6926
+    },
+    "Tools/WorldTerrain/bake_world.py": {
+      "sha256": "fdfce4e95a81242d3636f0caf213b9242f2093b1f9a2a09595ff73a6e4ff9e78",
+      "bytes": 78192
+    },
+    "Tools/WorldTerrain/dress_world.py": {
+      "sha256": "6dc3bc3fb5a7d61d69132945c9d51098cab25ee60940d10f90bff7ff2bc01919",
+      "bytes": 14803
+    },
+    "Tools/WorldTerrain/import_masks.py": {
+      "sha256": "6259b58ba27fb29876e2d4cb46b108ba74660e504c1675da8e05929dbbf2862c",
+      "bytes": 4349
+    },
+    "Tools/WorldTerrain/qualify_world.py": {
+      "sha256": "6b97626aca48fc0acfb7ba617b0386a319c1d3ec0e175a1ec45047a8db4ab98a",
+      "bytes": 28009
+    },
+    "Tools/WorldTerrain/test_world.py": {
+      "sha256": "c5d3a2e6ad351a51a9942a604186aa662903b875ac7f14487a777e8a24ec5d88",
+      "bytes": 8570
+    },
+    "Tools/package_soul_weekend.ps1": {
+      "sha256": "affb9c5ebd713d3c8851fada74c46729f67d2ee9ff78dae2561e94c417ff5b9f",
+      "bytes": 10022
+    },
+    "Tools/qualify_soul_vertical.py": {
+      "sha256": "4d41cba4a590856b6aa1940fbf5003c06cbd20812f0ab659cfdd95a78af9043f",
+      "bytes": 20437
+    },
+    "Tools/test_package_soul_weekend.py": {
+      "sha256": "a3b85fa9e43ae6a1176f86a7e8b82c30a1327dd3b3701fff4e63fbdd3c37786c",
+      "bytes": 12282
+    },
+    "Tools/test_qualify_soul_vertical.py": {
+      "sha256": "3db5a1def908a871316d0a664b91af145929da099af53bbd01c70e202e6102cc",
+      "bytes": 9752
+    },
+    ".mcp.json": {
+      "sha256": "75fb39fcb7f93295c59d15ea5b1845962fad2340a124c4d0b55dbe1306481912",
+      "bytes": 109
+    }
+  }
+}

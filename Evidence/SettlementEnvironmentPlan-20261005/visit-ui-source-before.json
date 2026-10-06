@@ -1,0 +1,28 @@
+{
+  "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h": {
+    "sha256": "40236a470aef2e962800fbff8e816568592cf0291a8963d58c0bde19d77c4688",
+    "bytes": 1955
+  },
+  "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp": {
+    "sha256": "245eb47bd66004f7dd9a0a48617fdd0f2b01bae39816519f888ac622df599bc8",
+    "bytes": 15836
+  },
+  "Source/Soul/Private/SoulFounderPlaytestHUD.cpp": {
+    "sha256": "ac59e25e69e282004d6b9d80e1c3673c8c7b02c9c6167ceda4be178e4868852d",
+    "bytes": 11422
+  },
+  "Source/Soul/Public/SoulFounderPlaytestPlayerController.h": {
+    "sha256": "45a89014d6ca6d89030db190a74c7f2b95f42711be3f146855861680995b53bb",
+    "bytes": 1125
+  },
+  "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp": {
+    "sha256": "cf3e44f7e0415a7f595c6cbe7bb4e836cd7b5a66c82601cedf0053aed3521746",
+    "bytes": 9722
+  },
+  "Source/Soul/Public/SoulSettlementVisitGameMode.h": {
+    "exists": false
+  },
+  "Source/Soul/Private/SoulSettlementVisitGameMode.cpp": {
+    "exists": false
+  }
+}

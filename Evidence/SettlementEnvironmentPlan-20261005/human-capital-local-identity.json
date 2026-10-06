@@ -1,0 +1,446 @@
+{
+  "captured_utc": "2026-10-06T03:20:43.330772+00:00",
+  "listing_id": "42d4a792-2b66-423d-9b20-84d6b2c578d8",
+  "identity_status": "Exact catalog-ID linkage in two existing Macbeth receipts; live CastleTown local content verified. Not a claim of full-map dependency closure or current visual acceptance.",
+  "catalog_path": "D:\\RefinedBadger\\Vendor\\Copperlight-Asset-Catalog\\catalog\\products.json",
+  "catalog_record": {
+    "AssetCatalogId": "fab_879a536feaa0407d88d5cf92f68b9add",
+    "ProductName": "Medieval Kingdom (Medieval Castle, Medieval Town, Modular Castle, Castle)",
+    "Publisher": "Hivemind",
+    "SourceURL": "https://www.fab.com/listings/42d4a792-2b66-423d-9b20-84d6b2c578d8",
+    "Owned": true,
+    "LocalPath": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\ModularM43deebcc3fd4V1",
+    "LocalPaths": [
+      "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\ModularM43deebcc3fd4V1"
+    ],
+    "FileSummary": {
+      "fileCount": 10674,
+      "sizeBytes": 8707060989,
+      "extensionCounts": {
+        ".uasset": 10630,
+        ".umap": 43,
+        "[none]": 1
+      }
+    }
+  },
+  "local_content": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown",
+  "package_counts": {
+    "uasset": 1753,
+    "umap": 43
+  },
+  "demo_map": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+  "demo_file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
+  "maps": [
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Demo\\ThirdPerson\\Maps\\ThirdPersonMap.umap",
+      "package": "/Game/CastleTown/Demo/ThirdPerson/Maps/ThirdPersonMap",
+      "bytes": 20281,
+      "sha256": "fa57c58e8bdbc9c521bdbc8712cb30d16fa78c51cda9dd26246fc5d8a83123dc"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\AssetZoo\\L_AssetZoo.umap",
+      "package": "/Game/CastleTown/Levels/AssetZoo/L_AssetZoo",
+      "bytes": 2358874,
+      "sha256": "0ec9137064254b02bbad77dbc1a1f6f7f8b4935c0d8afc0d5fba3df207a15b37"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Construction\\L_Castle_Construction.umap",
+      "package": "/Game/CastleTown/Levels/Construction/L_Castle_Construction",
+      "bytes": 33599,
+      "sha256": "f3839508418abffdda1ee81ada5bab24118d884e3a737d3a5e297093e29e806c"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Corner_01.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+      "bytes": 6661,
+      "sha256": "ced27f4dc83bcce73a80fc477000f058488a5f3402d2c10f787e352e3e568de9"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Corner_02.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02",
+      "bytes": 6661,
+      "sha256": "1c73d9b8dfeeb10596799d1bd87849e52e08abcb86867fc99b60065a7e547146"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Stairs_01.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01",
+      "bytes": 6661,
+      "sha256": "821cb4d52aa9c2fcdf763086dee6c08bfc27db89bb4e5dc54d92e9777fce91de"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Tower_01.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+      "bytes": 6655,
+      "sha256": "4361d51eb74f90194cbcc07d6c9c7f75a8d56710d137503695093de5a572b328"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Front_Gate.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate",
+      "bytes": 6595,
+      "sha256": "d2a425da8c049309a67494d8dbcce6aee864f92ae38ccee13fa897a7a43c3027"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Front_Hall.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Hall",
+      "bytes": 6595,
+      "sha256": "f2dd270338812dd0a863daebfdabb763ce2a48ec78ee271eebf0a131bf877004"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Full_Castle.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle",
+      "bytes": 8894,
+      "sha256": "73396da362d864c7ef5cc6a0906c48d00aec084f519190c3b04e8c617047a555"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Kings_Hall.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall",
+      "bytes": 6595,
+      "sha256": "dcff08ff1d2072279b1302025a1b9576e30e690628c85c666160d5b8d4a64857"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Side_Hall.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Side_Hall",
+      "bytes": 8763,
+      "sha256": "c831fab6a6fd75275ee0533aebef3403ad51e637069ca0a1cd25b10c40887877"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Top_Level.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Top_Level",
+      "bytes": 8881,
+      "sha256": "1a45aad4614da97df11550f8e6fc2472e11d5832a699449b5feaec0aceebf916"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\SM_Main_Hall.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/Castle/SM_Main_Hall",
+      "bytes": 6589,
+      "sha256": "0cc3e28173b9d0359550dc1f2aa67f04aee13c20affd002c5ffcf96be2328e38"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_01a_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+      "bytes": 25992938,
+      "sha256": "e81372ea2080b1193ecabe19bb9d9268cdd7b728d8d12d3caf19085d9361d654"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_01b.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b",
+      "bytes": 9738,
+      "sha256": "e195f989cc58a28e00d86f042f9ceebfdd952e4d4620346c1c91fc856beb1ec7"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_01b_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b_Fix",
+      "bytes": 26120960,
+      "sha256": "9728969df32feb568e9acdb1bebb27bd4c9cde19cba74352159f68c748981e8f"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_02_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_02_Fix",
+      "bytes": 2219447,
+      "sha256": "857e911264134d19f7f03e8db94f417ee85cbe38216e9f954db4d89091b0c868"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix",
+      "bytes": 10306419,
+      "sha256": "1d61c3f42ebeef08b9dd23a4ff1fae3151817d4b616a77cf0be25567a241c641"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03a_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03a_Fix",
+      "bytes": 2022406,
+      "sha256": "2fd71f53e611f0af37710eca27890d275d512b98840886d9fb1f15bd6e00dfbd"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03b.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b",
+      "bytes": 9221,
+      "sha256": "72bfaf94aec2aec00cf1c69897bab0a4972254220f46c9dd96a73197c91a0bd2"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03b_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+      "bytes": 1783519,
+      "sha256": "17184689bcc53d54566e2cf3db3d004681324150c631b15fcfa323b2686a0066"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_04_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04_Fix",
+      "bytes": 11188719,
+      "sha256": "e31371f83deb0cfdb85e4857709d63211c70af7787ac1c668982be4ce1ebb321"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_04a_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04a_Fix",
+      "bytes": 2647266,
+      "sha256": "d48c7b8096a3516b3d2a3c6d5e602886a0d12f5893f9b54280af9a39dfbe2cad"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_04b_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04b_Fix",
+      "bytes": 2630385,
+      "sha256": "8512ec47f12cde43d3e135d9010feed8be56a93cfe5799869e07fcd7962e544d"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_05_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+      "bytes": 3911870,
+      "sha256": "b63384b3ad74127439319e6cab245490dcf98fce9db9d4c61a681117521e41e0"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_06_Fix.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+      "bytes": 18140136,
+      "sha256": "8c97627caba221c0f9f6834f062b50534f811dfd955117ae6c3af497db236392"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_LogStore_01.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+      "bytes": 8749,
+      "sha256": "0560568b4ae4d8101605ef64145f7f054aacfa421c8cd4f69bebf3eb1f22175e"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_LogStore_02.umap",
+      "package": "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02",
+      "bytes": 8749,
+      "sha256": "7f0daf0fac8f6b7be72ac3224a2fa59d51d114f107b8b064b7a6534915eecd99"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
+      "package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+      "bytes": 9326488,
+      "sha256": "d8cd81d8d536b2ed6f285fc4a0663899f52e97441ffe66931396db0a06c3541c"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_BridgesAndWalls.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_BridgesAndWalls",
+      "bytes": 11191025,
+      "sha256": "dc6608dd6eff0d2e3ca4fa52d593bdbc7b2e984e4555eec1855976becf0eaa7e"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Castle.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Castle",
+      "bytes": 1958634,
+      "sha256": "8f112139c7cb2d1051421c4c19fc0a36c87f9c48370defe9a6d4aab19570865c"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Castle_Walls.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Castle_Walls",
+      "bytes": 1116260,
+      "sha256": "343701692759dc43fa7c2c7a3218599f7de82130050047936644256470ab8c04"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Courtyard.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Courtyard",
+      "bytes": 689261,
+      "sha256": "c67a15092d9624bc79626f33765fb1d43b4d95ab19603c4c187ee69b89baab5a"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Houses.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+      "bytes": 235309,
+      "sha256": "a0438419abffca9634f063d2648f753e945a4c294ab0c13b98bae91a03707796"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Landscape.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Landscape",
+      "bytes": 12248,
+      "sha256": "980d743f635657e211407cbfc48b375c570fdd26453903c0068dad5930de6083"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Lighting.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Lighting",
+      "bytes": 23170,
+      "sha256": "2ab1a18e96c0c03c799ae2df0332d50d8ade005d1326ef859b3455575ee5d03b"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Mountain.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Mountain",
+      "bytes": 143285033,
+      "sha256": "eb583341cbbf6b3e078292e903a3f5007af5a5f2eefdbe592efc5e68b1e21c8d"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Roads.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Roads",
+      "bytes": 266454,
+      "sha256": "1d879b170418ed0f5d6cc403d3b5932226072738c80484ed8f8c55d1d86512da"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Town_Props.umap",
+      "package": "/Game/CastleTown/Levels/SubLevels/SL_Town_Props",
+      "bytes": 672725,
+      "sha256": "eece2f5f2571d51d4bc5ddd32c6e2b1d19b7d83e8f766bfbd8925fff1459ab63"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Scanned_Foliage\\Maps\\MAP_FoliageZoo_01.umap",
+      "package": "/Game/CastleTown/Scanned_Foliage/Maps/MAP_FoliageZoo_01",
+      "bytes": 86564,
+      "sha256": "9f6a744a2e89ac78bc54a7420dde34882ab319b421d19cae90d1b81b83819c9e"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Water\\FluidSimulation\\Fluidsim_Terrain.umap",
+      "package": "/Game/CastleTown/Water/FluidSimulation/Fluidsim_Terrain",
+      "bytes": 1198613,
+      "sha256": "b6bc7d823043071224e4694b4025f39086cabb872272550ba00be6d5fb9fb0e0"
+    },
+    {
+      "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Water\\FluidSimulation\\WaterFluidSimtestShallow.umap",
+      "package": "/Game/CastleTown/Water/FluidSimulation/WaterFluidSimtestShallow",
+      "bytes": 74339,
+      "sha256": "92a1c4b0a04e3d55081e7d9a750b65c11d60440571522a08a148d7547b3f0a9f"
+    }
+  ],
+  "external_packages": [
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\__ExternalActors__\\CastleTown",
+      "exists": true,
+      "uassets": 661
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\__ExternalObjects__\\CastleTown",
+      "exists": false,
+      "uassets": 0
+    }
+  ],
+  "previous_transfer_error_files_now": [
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Scanned_Foliage\\Foliage\\EuropeanBeech\\Textures\\T_EuropeanBeech_01_Snow_M.uasset",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Static_Mesh\\Brick_Kit\\SM_BrickI.uasset",
+      "exists": false,
+      "bytes": null
+    }
+  ],
+  "proof": [
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Config\\MacbethPresentation.plan.json",
+      "sha256": "94c736bafe6791c9dce4111f540f7044c1c3d7cf757b6c930652ebb3e138bed7",
+      "content": {
+        "status": "staged; visual fit still requires Unreal inspection",
+        "environment": {
+          "asset": "Hivemind Medieval Kingdom - King's Hall",
+          "catalog_id": "fab_879a536feaa0407d88d5cf92f68b9add",
+          "map": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall"
+        },
+        "cast": {
+          "Lady": "/Game/NPC_Characters_Pack/Mesh/NPC_Character_female_01/Mesh_UE5/Full/SKM_NPC_Character_female_01_Full_01",
+          "Ross": "/Game/NPC_Characters_Pack/Mesh/NPC_Character_01/Mesh_UE5/Full/SKM_NPC_Character_01_Full_01",
+          "Lennox": "/Game/NPC_Characters_Pack/Mesh/NPC_Character_02/Mesh_UE5/Full/SKM_NPC_Character_02_Full_01",
+          "Angus": "/Game/NPC_Characters_Pack/Mesh/NPC_Character_03/Mesh_UE5/Full/SKM_NPC_Character_03_Full_01",
+          "Seyton": "/Game/NPC_Characters_Pack/Mesh/NPC_Character_04/Mesh_UE5/Full/SKM_NPC_Character_04_Full_01",
+          "Steward": "/Game/NPC_Characters_Pack/Mesh/NPC_Character_female_02/Mesh_UE5/Full/SKM_NPC_Character_female_02_Full_01"
+        },
+        "animation_sources": [
+          "male_idle.fbx",
+          "female_idle.fbx",
+          "looking_idle.fbx",
+          "Drinking.fbx",
+          "angry gesture.fbx",
+          "dismissing gesture.fbx",
+          "look away gesture.fbx"
+        ],
+        "audio_sources": [
+          "Fire Fireplace Pops Crackle 01.wav",
+          "Fire Torch Burning Long 01.wav",
+          "Human Crowd Mumbling 02.wav",
+          "Human Crowd Gasp Soft 04.wav",
+          "Human Crowd Sigh Soft 04.wav",
+          "Human Drink Slurp And Shake Glass 01.wav",
+          "Impact Chair Wood Chair Impact Scrape With Wood Floor 01.wav",
+          "Impact Glass Clink Two Bottles 03.wav"
+        ],
+        "owned_optional_props": [
+          "fab_78f38edf34544755862d8a29204fbf79",
+          "fab_ae4a6c995c974ce88a6e5be6d595cdb3",
+          "fab_7060812ac2a9420ea769832ddd26cc6b"
+        ],
+        "rule": "Use the coherent hall first; add only props that improve banquet readability. Vendor bytes remain local and ignored by Git."
+      }
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\hall-layout-audit.json",
+      "sha256": "1d2d5a09a913e47467b8d2d5f4fd197b4c2d14d13c96b099d83a54c686313748",
+      "content": {
+        "source_machine": "DESKTOP-4EKS7LL",
+        "source_project": "KeepSmith-founder-p4",
+        "source_map": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall",
+        "asset_provenance": "Hivemind Medieval Kingdom; canonical catalog id fab_879a536feaa0407d88d5cf92f68b9add",
+        "audit_method": "UE 5.8 editor Python through RB_UNREAL.ps1; read-only map inspection",
+        "actor_count": 661,
+        "interesting_actor_count": 257,
+        "location_bounds_cm": {
+          "min": [
+            -500.0000434062294,
+            -100.00005962302504,
+            0.0
+          ],
+          "max": [
+            2500.000097216856,
+            3300.0,
+            2200.0
+          ]
+        },
+        "main_floor_z_cm": 500,
+        "principal_door_frame_cm": [
+          1000.0,
+          3276.1,
+          1500.0
+        ],
+        "derived_player_capsule_z_cm": 588,
+        "integration_note": "Runtime banquet dressing is additive; donor map/vendor bytes are not modified or committed."
+      }
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\castletown-transfer.json",
+      "sha256": "6e4ad90295f35dd0f8494a28ed9b09a0dad3f252c342ef4aaae025bfa8b1a7d6",
+      "content": {
+        "source": "http://10.0.0.10:8899/CastleTown/",
+        "destination": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown",
+        "discovered_files": 1798,
+        "copied_files": 1374,
+        "already_present_files": 422,
+        "bytes_verified": 8253272714,
+        "errors": [
+          "http://10.0.0.10:8899/CastleTown/Scanned_Foliage/Foliage/EuropeanBeech/Textures/T_EuropeanBeech_01_Snow_M.uasset :: [WinError 10054] An existing connection was forcibly closed by the remote host",
+          "http://10.0.0.10:8899/CastleTown/Static_Mesh/Brick_Kit/SM_BrickI.uasset :: [WinError 10054] An existing connection was forcibly closed by the remote host"
+        ],
+        "elapsed_seconds": 4572.28,
+        "complete": false
+      }
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\hall-closure-transfer.json",
+      "sha256": "11bb3d1535c8147973059df4e78bb72fe19bd485b5fb6851303f84dbf7c0e4b0",
+      "content": {
+        "archive": "Local/macbeth_hall_closure.tar",
+        "bytes": 761630720,
+        "sha256": "334A389381FF59766BA97182CF3FE9CD0AF229FDFFB98F1166D765437083302E",
+        "entries": 774,
+        "source": "owned Hivemind Medieval Kingdom Kings Hall closure from KeepSmith-founder-p4"
+      }
+    },
+    {
+      "path": "D:\\RefinedBadger\\Games\\Macbeth\\Evidence\\hall-closure-local-verification.json",
+      "sha256": "7408351680d8f66f69c5470194e0b342cb63f1213a954dd69133cb1b87318aba",
+      "content": {
+        "kind": "King hall targeted closure extraction verification",
+        "archive_sha256": "334a389381ff59766ba97182cf3fe9cd0af229fdffb98f1166d765437083302e",
+        "archive_entries": 774,
+        "present_files": 774,
+        "missing_files": [],
+        "size_mismatches": [],
+        "present_bytes": 760188713,
+        "complete": true
+      }
+    }
+  ],
+  "limits": [
+    "Earlier whole-family transfer recorded incomplete with two errors; present file checks below do not prove transitive full-scene closure.",
+    "Kings Hall has existing 661-actor audit; that 30x34m actor-location envelope is a hall-only measurement, not full capital footprint.",
+    "Full PL_CastleTown needs root-owned read-only UE dependency/layout inspection before integration.",
+    "Do not substitute Kingdom_Capital: it is separate Fantasy Kingdom Capital Kit listing09a1119d."
+  ]
+}

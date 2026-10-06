@@ -1,0 +1,73 @@
+{
+  "captured_utc": "2026-10-06T03:42:38.302165+00:00",
+  "status": "SOURCE_READY_RUNTIME_UNRUN",
+  "scope": "Explicit controls-only qualifier; no authored environment, miniature or battle-environment proof",
+  "source_before": "controls-qualifier-before.json",
+  "source_after": [
+    {
+      "path": "Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp",
+      "sha256": "8fbed3f9b36c8b3f01ee5c4e77849ed1313f7dc23723c6ae6ee8871c15cd1d51"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "sha256": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "sha256": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f"
+    }
+  ],
+  "flags": [
+    "-SoulSettlementDevelopmentQualification",
+    "-SoulSettlementDevelopmentProof",
+    "-SoulMesaTerrain",
+    "-SoulEvilCorridor",
+    "-UserDir=<fresh absolute isolated run/User>",
+    "-SoulCampaignCapturePrefix=<fresh unique name>",
+    "-ResX=1920",
+    "-ResY=1080",
+    "-ForceRes"
+  ],
+  "guardrails": [
+    "No competing qualifier/review/benchmark mode",
+    "Explicit fresh prefix, absent run marker and actual RBSave checkpoint",
+    "Saved directory must be under explicit absolute UserDir",
+    "Actual viewport1920x1080;20FPS cap;20s warmup;180s wall timeout",
+    "Loaded data fixture must match human.tavern200gold2days/maxlevel1/service.tavern_hero",
+    "Fresh Day1, no prior load/hire, unbuilt tavern at existing Human capital",
+    "Input actions only via real PC InputKey; duplicate build/hire uses real rendered HUD hitboxes",
+    "Asynchronous persistence waits for bPersistenceBusy; save requires bLastSaveSucceeded and changed real checkpoint bytes; load requires bLastLoadSucceeded and exact load/development revision increments",
+    "Compare exact Soul.Campaign and Soul.Settlements snapshots at both rollback boundaries"
+  ],
+  "steps": [
+    "T opens real town panel, H blocked without mutation",
+    "U purchases tavern once; duplicate BuildTavern hitbox click spends nothing",
+    "Space advances one day; F5 saves both domains",
+    "Space completes; F9 restores exact one-day checkpoint and locked service",
+    "T reopens loaded town; H remains blocked; Space completes",
+    "T closes/reopens; H hires exactly once for1200gold; duplicate rendered Hire click spends nothing",
+    "F5 saves completed+hired; ordinary Space changes live day/gold; F9 restores exact both-domain snapshot",
+    "T shows final loaded state; verify six PNGs written; emit controls-only PASS"
+  ],
+  "png_labels": [
+    "start",
+    "mid",
+    "completed",
+    "loaded",
+    "hired",
+    "loaded_completed"
+  ],
+  "expected_snapshot_labels": [
+    "start",
+    "mid",
+    "completed_hired"
+  ],
+  "pass_marker": "SOUL_SETTLEMENT_DEVELOPMENT_CONTROLS_PASS authored_environment=0 miniature=0 battle_environment=0",
+  "validation": {
+    "source_python_tests": 18,
+    "source_python_result": "PASS",
+    "scoped_git_diff_check": "PASS",
+    "UE_build": "not run by geography agent; root owns",
+    "runtime": "not run"
+  }
+}

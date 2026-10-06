@@ -1,0 +1,1091 @@
+{
+  "captured_utc": "2026-10-06T03:34:52.385018+00:00",
+  "status": "CANDIDATE_EVIDENCE_ONLY",
+  "authority_note": "Copy existing IDs and graph context exactly. World source labels full-world ownership as candidate; eight minor slots remain noncanonical. No runtime/data/source/assets changed.",
+  "source_hashes": {
+    "Data\\soul_world_overmap_v1_20260922.json": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+    "Data\\soul_overmap_settlement_slots_v1_20260922.json": "c9bb4005915587af6a8763c8dc43248cb272bd6ec797a7724cd833d219296ae4",
+    "Data\\settlement_blueprints.json": "ae091726f4d3a19b1c30ab8e1b2c31a555848356c15aeb2737ead0a0f5e4f2f5",
+    "Data\\battlefield_recipes.json": "c57c2c94311c87d14eae5883fcc8caf59d2d510b1220da037e56c89e8da42200"
+  },
+  "counts": {
+    "regions": 36,
+    "edges": 51,
+    "major_city_ids": 6,
+    "minor_candidate_slots": 8,
+    "battle_context_rows": 36
+  },
+  "settlement_candidates": [
+    {
+      "region_id": "dark_fortress",
+      "settlement_id": "city.dark_fortress",
+      "slot_tier": "major",
+      "existing_slot_authority": "LOCKED_MAJOR_SEAT",
+      "faction_affinity": "dark",
+      "candidate_listing_codes": [
+        "AC"
+      ],
+      "candidate_demo_package": "/Game/AlienPlanet/Levels/L_Showcase",
+      "live_demo_files": [
+        {
+          "package": "/Game/AlienPlanet/Levels/L_Showcase",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\Levels\\L_Showcase.umap",
+          "exists": true,
+          "bytes": 73872020
+        }
+      ],
+      "candidate_note": "Jeff-selected capital; local complete package paths available; actual fortress/approach qualification pending",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        900,
+        840
+      ],
+      "battle_recipe_id": "dark.castle_approach",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [
+        "dark.black_guard_bastion",
+        "dark.dread_gallery",
+        "dark.execution_court",
+        "dark.demon_gate",
+        "dark.fallen_hall",
+        "dark.befouler_sanctum",
+        "dark.dragon_roost",
+        "dark.throne_sanctum",
+        "dark.occult_armory",
+        "dark.crypt_market",
+        "dark.ward_spire",
+        "dark.outer_works"
+      ],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "dwarf_hold",
+      "settlement_id": "city.dwarf_hold",
+      "slot_tier": "major",
+      "existing_slot_authority": "LOCKED_MAJOR_SEAT",
+      "faction_affinity": "dwarves",
+      "candidate_listing_codes": [
+        "DC",
+        "LF"
+      ],
+      "candidate_demo_package": "/Game/DwarvenCitadel/Maps/DwarvenCitadel",
+      "live_demo_files": [
+        {
+          "package": "/Game/DwarvenCitadel/Maps/DwarvenCitadel",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\DwarvenCitadel.umap",
+          "exists": true
+        }
+      ],
+      "candidate_note": "Candidate city; exact listing linkage and loaded layout require qualification. LF remains actual forge-role candidate, not a second city pasted into this one.",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        850,
+        150
+      ],
+      "battle_recipe_id": "dwarf.forge_approach",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [
+        "dwarf.stoneguard_hall",
+        "dwarf.crossbow_workshop",
+        "dwarf.hammer_hall",
+        "dwarf.rune_forge",
+        "dwarf.construct_foundry",
+        "dwarf.kings_guard_hall",
+        "dwarf.dragon_eyrie",
+        "dwarf.great_forge",
+        "dwarf.kings_hall",
+        "dwarf.mine",
+        "dwarf.caravan_hall",
+        "dwarf.gates"
+      ],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "human_capital",
+      "settlement_id": "city.human_capital",
+      "slot_tier": "major",
+      "existing_slot_authority": "LOCKED_MAJOR_SEAT",
+      "faction_affinity": "humans",
+      "candidate_listing_codes": [
+        "MK"
+      ],
+      "candidate_demo_package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+      "live_demo_files": [
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
+          "package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+          "bytes": 9326488,
+          "sha256": "d8cd81d8d536b2ed6f285fc4a0663899f52e97441ffe66931396db0a06c3541c"
+        }
+      ],
+      "candidate_note": "Jeff-selected exact capital; blocked on full external actor closure",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        180,
+        450
+      ],
+      "battle_recipe_id": "human.fortress_outskirts",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [
+        "human.muster_yard",
+        "human.archery_range",
+        "human.guardhouse",
+        "human.barracks",
+        "human.witch_collegium",
+        "human.royal_chapterhouse",
+        "human.griffon_roost",
+        "human.keep",
+        "human.forge",
+        "human.tavern",
+        "human.market",
+        "human.walls"
+      ],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "nature_treehold",
+      "settlement_id": "city.nature_treehold",
+      "slot_tier": "major",
+      "existing_slot_authority": "LOCKED_MAJOR_SEAT",
+      "faction_affinity": "nature",
+      "candidate_listing_codes": [
+        "FF"
+      ],
+      "candidate_demo_package": "/Game/Forest_village/Level/L_showcase_level",
+      "live_demo_files": [
+        {
+          "package": "/Game/Forest_village/Level/L_showcase_level",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\L_showcase_level.umap",
+          "exists": true,
+          "bytes": 53757613
+        }
+      ],
+      "candidate_note": "Town source available; promotion to full Nature capital is a candidate, not explicit Jeff capital assignment. Great-tree requirement unresolved.",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        150,
+        800
+      ],
+      "battle_recipe_id": "nature.forest_clearing",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [
+        "nature.tribal_hall",
+        "nature.centaur_range",
+        "nature.animal_lodge",
+        "nature.canopy_guard",
+        "nature.guardian_circle",
+        "nature.druid_circle",
+        "nature.beast_grove",
+        "nature.great_tree",
+        "nature.healing_spring",
+        "nature.trade_clearing",
+        "nature.ancient_shrine",
+        "nature.root_barrier"
+      ],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "orc_camp",
+      "settlement_id": "city.orc_ruinhold",
+      "slot_tier": "major",
+      "existing_slot_authority": "LOCKED_MAJOR_SEAT",
+      "faction_affinity": "orcs",
+      "candidate_listing_codes": [
+        "RH",
+        "CD"
+      ],
+      "candidate_demo_package": "/Game/Ravenhold/Scenes/HM-FortCastle_Kit_Demo",
+      "live_demo_files": [
+        {
+          "package": "/Game/Ravenhold/Scenes/HM-FortCastle_Kit_Demo",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Scenes\\HM-FortCastle_Kit_Demo.umap",
+          "exists": true,
+          "bytes": 69922
+        }
+      ],
+      "candidate_note": "Candidate occupied fortress/ruin; preserve authored layout and existing city.orc_ruinhold identity; style/layout not yet accepted",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        780,
+        460
+      ],
+      "battle_recipe_id": "orc.war_camp",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [
+        "orc.grunt_barracks",
+        "orc.hunter_range",
+        "orc.shield_pit",
+        "orc.berserker_pit",
+        "orc.brute_hall",
+        "orc.shaman_court",
+        "orc.elephant_yard",
+        "orc.warchief_hall",
+        "orc.salvage_forge",
+        "orc.spoils_market",
+        "orc.war_drum_tower",
+        "orc.patched_walls"
+      ],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "viking_harbour",
+      "settlement_id": "city.viking_harbour",
+      "slot_tier": "major",
+      "existing_slot_authority": "LOCKED_MAJOR_SEAT",
+      "faction_affinity": "vikings",
+      "candidate_listing_codes": [
+        "VK"
+      ],
+      "candidate_demo_package": null,
+      "live_demo_files": [],
+      "candidate_note": "Jeff-selected capital payload missing; historical MainVillage path is not currently a live map",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        120,
+        140
+      ],
+      "battle_recipe_id": "viking.harbour_edge",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [
+        "viking.raider_longhouse",
+        "viking.hunter_range",
+        "viking.shield_hall",
+        "viking.berserker_mead_hall",
+        "viking.shaman_lodge",
+        "viking.huscarl_hall",
+        "viking.wolf_kennels",
+        "viking.great_hall",
+        "viking.shipyard",
+        "viking.smithy",
+        "viking.market",
+        "viking.watch"
+      ],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "coastal_ruins",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": null,
+      "candidate_listing_codes": [],
+      "candidate_demo_package": null,
+      "live_demo_files": [],
+      "candidate_note": "Retain existing approved Coastal Ruins setting; no new listing substituted",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        100,
+        600
+      ],
+      "battle_recipe_id": "neutral.coastal_ruins",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "crossroads",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": "humans",
+      "candidate_listing_codes": [
+        "FV"
+      ],
+      "candidate_demo_package": "/Game/Medieval_Fantasy_Village/Levels/L_Medieval_Town",
+      "live_demo_files": [
+        {
+          "package": "/Game/Medieval_Fantasy_Village/Levels/L_Medieval_Town",
+          "file": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medieval9ff219ea5d87V1\\data\\Content\\Medieval_Fantasy_Village\\Levels\\L_Medieval_Town.umap",
+          "exists": true,
+          "bytes": 29782451
+        }
+      ],
+      "candidate_note": "Existing noncanonical market-town slot; use a coherent authored subset only after inspection",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        320,
+        450
+      ],
+      "battle_recipe_id": "human.grassland_crossroads",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "dark_castle_approach",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": "dark",
+      "candidate_listing_codes": [
+        "AC"
+      ],
+      "candidate_demo_package": "/Game/AlienPlanet/BluePrints/LI_Entrance",
+      "live_demo_files": [
+        {
+          "package": "/Game/AlienPlanet/BluePrints/LI_Entrance",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\BluePrints\\LI_Entrance.umap",
+          "exists": true,
+          "bytes": 2790778
+        }
+      ],
+      "candidate_note": "Existing ward-bastion candidate; entrance scene needs actual bounds and route inspection",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        840,
+        760
+      ],
+      "battle_recipe_id": "dark.castle_approach",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "dwarf_forge_approach",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": "dwarves",
+      "candidate_listing_codes": [
+        "LF"
+      ],
+      "candidate_demo_package": "/Game/Legendary_Forge/Maps/L_showcase_forge",
+      "live_demo_files": [
+        {
+          "package": "/Game/Legendary_Forge/Maps/L_showcase_forge",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Legendary_Forge\\Maps\\L_showcase_forge.umap",
+          "exists": true,
+          "bytes": 1014348
+        }
+      ],
+      "candidate_note": "Existing forge-outpost candidate; bounded authored outer-works subset rather than whole duplicate city",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        740,
+        200
+      ],
+      "battle_recipe_id": "dwarf.forge_approach",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "nature_forest_clearing",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": "nature",
+      "candidate_listing_codes": [
+        "FF"
+      ],
+      "candidate_demo_package": "/Game/Forest_village/Level/L_showcase_level",
+      "live_demo_files": [
+        {
+          "package": "/Game/Forest_village/Level/L_showcase_level",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\L_showcase_level.umap",
+          "exists": true,
+          "bytes": 53757613
+        }
+      ],
+      "candidate_note": "Existing grove-village candidate; retain coherent authored clearing/subset",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        280,
+        750
+      ],
+      "battle_recipe_id": "nature.forest_clearing",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "northwest_march",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": null,
+      "candidate_listing_codes": [
+        "FV",
+        "VT"
+      ],
+      "candidate_demo_package": null,
+      "live_demo_files": [],
+      "candidate_note": "Existing neutral trade-post candidate; neither harbor nor new city ID is implied",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        215,
+        315
+      ],
+      "battle_recipe_id": "human.rolling_ridge",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "orc_war_camp",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": "orcs",
+      "candidate_listing_codes": [
+        "WC",
+        "WZ"
+      ],
+      "candidate_demo_package": "/Game/WarCamp_Collection/Maps/Overview/Camp_Garrison_War_Collection",
+      "live_demo_files": [
+        {
+          "package": "/Game/WarCamp_Collection/Maps/Overview/Camp_Garrison_War_Collection",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\WarCamp_Collection\\Maps\\Overview\\Camp_Garrison_War_Collection.umap",
+          "exists": true,
+          "bytes": 118838
+        }
+      ],
+      "candidate_note": "Existing camp candidate; actual native tent/prop group to be selected",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        860,
+        400
+      ],
+      "battle_recipe_id": "orc.war_camp",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    },
+    {
+      "region_id": "viking_forest_track",
+      "settlement_id": null,
+      "slot_tier": "minor",
+      "existing_slot_authority": "CANDIDATE_NONCANONICAL",
+      "faction_affinity": "vikings",
+      "candidate_listing_codes": [
+        "VT",
+        "VK"
+      ],
+      "candidate_demo_package": null,
+      "live_demo_files": [],
+      "candidate_note": "Existing village candidate; exact selected Viking local payloads missing",
+      "scene_binding_status": "EVIDENCE_ONLY_NOT_RUNTIME_BINDING",
+      "canonical_xy": [
+        260,
+        220
+      ],
+      "battle_recipe_id": "viking.forest_track",
+      "required_at_start_physical_groups": null,
+      "buildable_physical_groups": null,
+      "physical_group_status": "UNKNOWN until complete authored-scene inspection; do not infer group/actor bindings from logical names",
+      "existing_logical_building_ids": [],
+      "legacy_donor_mapping_status": "Historical Data donor strings require later explicit reconciliation; this receipt does not mutate them"
+    }
+  ],
+  "battle_context_candidates": [
+    {
+      "region_id": "viking_harbour",
+      "settlement_id": "city.viking_harbour",
+      "macro_region": "northern_fjords",
+      "biome": "cold_coast",
+      "landform": "cliff_harbour",
+      "feature": "shore_bridge",
+      "existing_battle_recipe_id": "viking.harbour_edge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "JustBStudios/Water_City/Levels/LV_WaterVillage.umap outer harbour crop",
+      "candidate_environment_codes": [
+        "VK"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "viking_fjord_ridge",
+      "settlement_id": null,
+      "macro_region": "northern_fjords",
+      "biome": "snow_coast",
+      "landform": "ridge",
+      "feature": "water_edge",
+      "existing_battle_recipe_id": "viking.fjord_ridge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/SnowyMountain_02.umap + WaterPlane if needed",
+      "candidate_environment_codes": [
+        "FN"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "viking_forest_track",
+      "settlement_id": null,
+      "macro_region": "northern_fjords",
+      "biome": "boreal",
+      "landform": "wooded_track",
+      "feature": "village_edge",
+      "existing_battle_recipe_id": "viking.forest_track",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Viking_Village/Levels/MainVillage/LV_MainVillage.umap outskirts crop",
+      "candidate_environment_codes": [
+        "VT",
+        "VK"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "viking_snow_pass",
+      "settlement_id": null,
+      "macro_region": "northern_fjords",
+      "biome": "snow",
+      "landform": "mountain_pass",
+      "feature": "narrow_pass",
+      "existing_battle_recipe_id": "viking.snow_pass",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/SnowyMountain_01.umap",
+      "candidate_environment_codes": [
+        "FN"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "mountain_shrine",
+      "settlement_id": null,
+      "macro_region": "crownspine",
+      "biome": "mountain",
+      "landform": "terrace",
+      "feature": "shrine",
+      "existing_battle_recipe_id": "neutral.mountain_shrine",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Ancient Mountain/Shrine",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "northwest_march",
+      "settlement_id": null,
+      "macro_region": "heartland",
+      "biome": "temperate",
+      "landform": "rolling_plain",
+      "feature": "trade_road",
+      "existing_battle_recipe_id": "human.rolling_ridge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Grassland_02.umap",
+      "candidate_environment_codes": [
+        "FV",
+        "VT"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dwarf_high_quarry",
+      "settlement_id": null,
+      "macro_region": "crownspine",
+      "biome": "mountain",
+      "landform": "terraced_slope",
+      "feature": "quarry",
+      "existing_battle_recipe_id": "dwarf.high_quarry",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/Mountain_04.umap",
+      "candidate_environment_codes": [
+        "IF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dwarf_snow_basin",
+      "settlement_id": null,
+      "macro_region": "crownspine",
+      "biome": "snow_mountain",
+      "landform": "basin",
+      "feature": "bowl",
+      "existing_battle_recipe_id": "dwarf.snow_basin",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/SnowyMountain_03.umap",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dwarf_forge_approach",
+      "settlement_id": null,
+      "macro_region": "crownspine",
+      "biome": "mountain",
+      "landform": "industrial_approach",
+      "feature": "forge_gate",
+      "existing_battle_recipe_id": "dwarf.forge_approach",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Modular Legendary Forge showcase exterior",
+      "candidate_environment_codes": [
+        "LF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dwarf_hold",
+      "settlement_id": "city.dwarf_hold",
+      "macro_region": "crownspine",
+      "biome": "mountain",
+      "landform": "fortified_hold",
+      "feature": "great_forge",
+      "existing_battle_recipe_id": "dwarf.forge_approach",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Modular Legendary Forge showcase exterior",
+      "candidate_environment_codes": [
+        "DC",
+        "LF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dwarf_mountain_pass",
+      "settlement_id": null,
+      "macro_region": "crownspine",
+      "biome": "mountain",
+      "landform": "pass",
+      "feature": "switchback",
+      "existing_battle_recipe_id": "dwarf.mountain_pass",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/Mountain_01.umap",
+      "candidate_environment_codes": [
+        "DC"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "human_capital",
+      "settlement_id": "city.human_capital",
+      "macro_region": "heartland",
+      "biome": "temperate",
+      "landform": "fortified",
+      "feature": "capital",
+      "existing_battle_recipe_id": "human.fortress_outskirts",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Medieval_Megapack/Levels/PL_Fortress_Day.umap exterior zone",
+      "candidate_environment_codes": [
+        "MK"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "crossroads",
+      "settlement_id": null,
+      "macro_region": "heartland",
+      "biome": "temperate",
+      "landform": "rolling_plain",
+      "feature": "crossroads",
+      "existing_battle_recipe_id": "human.grassland_crossroads",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Grassland_01.umap",
+      "candidate_environment_codes": [
+        "FV"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "old_quarry",
+      "settlement_id": null,
+      "macro_region": "heartland",
+      "biome": "temperate",
+      "landform": "ridge",
+      "feature": "resource",
+      "existing_battle_recipe_id": "human.rolling_ridge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Grassland_02.umap",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "river_ford",
+      "settlement_id": null,
+      "macro_region": "heartland",
+      "biome": "temperate",
+      "landform": "valley",
+      "feature": "river_crossing",
+      "existing_battle_recipe_id": "human.river_road",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Elite_CoastalRuins/Maps/CoastalRuins_01.umap",
+      "candidate_environment_codes": [
+        "TS",
+        "DO"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "forest_edge",
+      "settlement_id": null,
+      "macro_region": "heartland",
+      "biome": "forest",
+      "landform": "woodland",
+      "feature": "grove",
+      "existing_battle_recipe_id": "nature.grassland_edge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Grassland_02.umap",
+      "candidate_environment_codes": [
+        "FF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "ancient_shrine",
+      "settlement_id": null,
+      "macro_region": "heartland",
+      "biome": "mountain_forest",
+      "landform": "shrine_terrace",
+      "feature": "ancient_shrine",
+      "existing_battle_recipe_id": "neutral.mountain_shrine",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Ancient Mountain/Shrine",
+      "candidate_environment_codes": [
+        "ST"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "orc_watch",
+      "settlement_id": null,
+      "macro_region": "eastern_badlands",
+      "biome": "badlands",
+      "landform": "mesa",
+      "feature": "watch",
+      "existing_battle_recipe_id": "orc.badlands",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Mesa_01.umap",
+      "candidate_environment_codes": [
+        "RH",
+        "WZ"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "north_pass",
+      "settlement_id": null,
+      "macro_region": "eastern_badlands",
+      "biome": "mountain",
+      "landform": "pass",
+      "feature": "narrow_pass",
+      "existing_battle_recipe_id": "dwarf.mountain_pass",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/Mountain_01.umap",
+      "candidate_environment_codes": [
+        "RH"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "orc_camp",
+      "settlement_id": "city.orc_ruinhold",
+      "macro_region": "eastern_badlands",
+      "biome": "badlands",
+      "landform": "ruined_city_edge",
+      "feature": "stronghold",
+      "existing_battle_recipe_id": "orc.war_camp",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Elite_CoastalRuins/Maps/CoastalRuins_02.umap or Medieval Ruins + YI_BanditCamp tents",
+      "candidate_environment_codes": [
+        "RH",
+        "CD"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "orc_badlands",
+      "settlement_id": null,
+      "macro_region": "eastern_badlands",
+      "biome": "badlands",
+      "landform": "mesa",
+      "feature": "dry_gully",
+      "existing_battle_recipe_id": "orc.badlands",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Mesa_01.umap",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "orc_war_camp",
+      "settlement_id": null,
+      "macro_region": "eastern_badlands",
+      "biome": "ruined_lowland",
+      "landform": "open_ruin",
+      "feature": "camp",
+      "existing_battle_recipe_id": "orc.war_camp",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Elite_CoastalRuins/Maps/CoastalRuins_02.umap or Medieval Ruins + YI_BanditCamp tents",
+      "candidate_environment_codes": [
+        "WC",
+        "WZ",
+        "MT"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "orc_ruined_field",
+      "settlement_id": null,
+      "macro_region": "eastern_badlands",
+      "biome": "temperate_ruins",
+      "landform": "broken_city_edge",
+      "feature": "ruins",
+      "existing_battle_recipe_id": "orc.ruined_field",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Medieval Ruins showcase",
+      "candidate_environment_codes": [
+        "RH",
+        "CD"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "orc_broken_bridge",
+      "settlement_id": null,
+      "macro_region": "eastern_badlands",
+      "biome": "ruined_valley",
+      "landform": "ravine",
+      "feature": "broken_bridge",
+      "existing_battle_recipe_id": "orc.broken_bridge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Ravenhold ruined bridge pieces + Elite_CoastalRuins/Maps/CoastalRuins_03.umap",
+      "candidate_environment_codes": [
+        "RH",
+        "CD"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "coastal_ruins",
+      "settlement_id": null,
+      "macro_region": "greenwood",
+      "biome": "coast",
+      "landform": "valley_hill",
+      "feature": "ruins",
+      "existing_battle_recipe_id": "neutral.coastal_ruins",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Elite_CoastalRuins/Maps/CoastalRuins_01..04.umap",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "nature_shrine",
+      "settlement_id": null,
+      "macro_region": "greenwood",
+      "biome": "mountain_forest",
+      "landform": "shrine_terrace",
+      "feature": "ancient_shrine",
+      "existing_battle_recipe_id": "nature.ancient_shrine",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Ancient Mountain/Shrine showcase",
+      "candidate_environment_codes": [
+        "ST"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "nature_forest_clearing",
+      "settlement_id": null,
+      "macro_region": "greenwood",
+      "biome": "forest",
+      "landform": "clearing",
+      "feature": "dense_treeline",
+      "existing_battle_recipe_id": "nature.forest_clearing",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Fantasy Forest Village showcase clearing",
+      "candidate_environment_codes": [
+        "FF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "nature_treehold",
+      "settlement_id": "city.nature_treehold",
+      "macro_region": "greenwood",
+      "biome": "forest",
+      "landform": "treehold",
+      "feature": "great_tree",
+      "existing_battle_recipe_id": "nature.forest_clearing",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Fantasy Forest Village showcase clearing",
+      "candidate_environment_codes": [
+        "FF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "nature_river_woodland",
+      "settlement_id": null,
+      "macro_region": "greenwood",
+      "biome": "forest",
+      "landform": "river_valley",
+      "feature": "river",
+      "existing_battle_recipe_id": "nature.river_woodland",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Fantasy Forest Village river area",
+      "candidate_environment_codes": [
+        "FF"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "nature_grassland_edge",
+      "settlement_id": null,
+      "macro_region": "greenwood",
+      "biome": "meadow_edge",
+      "landform": "rolling_plain",
+      "feature": "forest_edge",
+      "existing_battle_recipe_id": "nature.grassland_edge",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Grassland_02.umap",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "southern_crossing",
+      "settlement_id": null,
+      "macro_region": "greenwood",
+      "biome": "temperate",
+      "landform": "river_valley",
+      "feature": "road_crossing",
+      "existing_battle_recipe_id": "neutral.open_grassland",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Grassland_01..02.umap",
+      "candidate_environment_codes": [],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dark_corrupted_valley",
+      "settlement_id": null,
+      "macro_region": "ashen_south",
+      "biome": "corrupted_mountain",
+      "landform": "valley",
+      "feature": "mist",
+      "existing_battle_recipe_id": "dark.corrupted_valley",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackOne/Maps/Mountain_05.umap",
+      "candidate_environment_codes": [
+        "DG"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dark_ruined_causeway",
+      "settlement_id": null,
+      "macro_region": "ashen_south",
+      "biome": "corrupted_ruins",
+      "landform": "causeway",
+      "feature": "ruined_bridge",
+      "existing_battle_recipe_id": "dark.ruined_causeway",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Ravenhold ruined bridge/wall pieces + Elite_CoastalRuins/Maps/CoastalRuins_04.umap",
+      "candidate_environment_codes": [
+        "RH",
+        "CD"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dark_ash_plain",
+      "settlement_id": null,
+      "macro_region": "ashen_south",
+      "biome": "ash_waste",
+      "landform": "open_plain",
+      "feature": "dead_ground",
+      "existing_battle_recipe_id": "dark.ash_plain",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "LandscapePackTwo/Maps/Desert_01.umap",
+      "candidate_environment_codes": [
+        "DG"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dark_castle_approach",
+      "settlement_id": null,
+      "macro_region": "ashen_south",
+      "biome": "corrupted",
+      "landform": "fortress_approach",
+      "feature": "alien_castle",
+      "existing_battle_recipe_id": "dark.castle_approach",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Fantasy Alien Castle preassembled scene exterior",
+      "candidate_environment_codes": [
+        "AC"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    },
+    {
+      "region_id": "dark_fortress",
+      "settlement_id": "city.dark_fortress",
+      "macro_region": "ashen_south",
+      "biome": "corrupted",
+      "landform": "fortress",
+      "feature": "throne_sanctum",
+      "existing_battle_recipe_id": "dark.castle_approach",
+      "recipe_present": true,
+      "existing_recipe_donor_string": "Fantasy Alien Castle preassembled scene exterior",
+      "candidate_environment_codes": [
+        "AC"
+      ],
+      "proposal_scope": "Retain existing geography and recipe ID; qualify authored local approach/dressing or settlement battle scene. These candidates do not imply graph, route, terrain or campaign-start ownership changes.",
+      "runtime_qualification": "UNKNOWN; file presence does not certify traversability, battle scale or spawn/approach fit"
+    }
+  ],
+  "unplaced_approved_town_families": {
+    "codes": [
+      "TS",
+      "DO",
+      "LV",
+      "AV",
+      "GT"
+    ],
+    "reason": "No additional canonical town/harbor settlement IDs in the current14slot layer. Keep as faction role coverage; do not invent new city IDs or attach them to an incompatible coastal/inland location."
+  }
+}

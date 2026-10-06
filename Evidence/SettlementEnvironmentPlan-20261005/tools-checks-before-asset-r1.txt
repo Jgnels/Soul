@@ -1,0 +1,15 @@
+........................F..........................................................................
+======================================================================
+FAIL: test_exact_roots_cover_runtime_string_loads_and_scenario_maps (test_package_soul_weekend.WeekendPackagingTests.test_exact_roots_cover_runtime_string_loads_and_scenario_maps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\RefinedBadger\Worktrees\Soul-bannerlord-campaign-map-20260929\Tools\test_package_soul_weekend.py", line 43, in test_exact_roots_cover_runtime_string_loads_and_scenario_maps
+    self.assertTrue(asset.with_suffix(".uasset").is_file() or
+AssertionError: False is not true : /Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof
+
+----------------------------------------------------------------------
+Ran 99 tests in 14.760s
+
+FAILED (failures=1)
+Mesa road triangle worst sampled penetration: 0.000 cm
+Mesa road triangle worst sampled penetration: 0.000 cm

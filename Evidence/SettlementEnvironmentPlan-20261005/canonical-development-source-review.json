@@ -1,0 +1,106 @@
+{
+  "schema": "soul.source-review.v1",
+  "reviewed_utc": "2026-10-06T03:38:06.4894078Z",
+  "reviewer": "terrain_asset_audit",
+  "git_head": "11cd71cd20ab936c2f32d28c4c2f4f18c8c290a7",
+  "scope": "Canonical settlement development, saved binding, construction presentation and four native tests",
+  "disposition": "NO_OUTSTANDING_SOURCE_REVIEW_BLOCKER",
+  "validation_mode": "read_only_source_and_installed_header_review",
+  "build_run": false,
+  "native_tests_run": false,
+  "source_edits_by_reviewer": false,
+  "donor_edits_by_reviewer": false,
+  "findings": [
+    {
+      "id": "SETTLEMENT-LOAD-BINDING",
+      "priority": "P2",
+      "status": "REPAIRED_IN_SOURCE_RUNTIME_CONFIRMATION_PENDING",
+      "original_trigger": "Successful F9 restores existing human_capital with incompatible saved RegionId",
+      "repair": "Common region/faction/owner validation in setup, readiness and successful load; preserves saved state and supports later valid restore",
+      "source": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "source_lines": [
+        254,
+        281,
+        288,
+        594
+      ],
+      "regression_test": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp:186"
+    }
+  ],
+  "native_tests": [
+    "Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData",
+    "Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService",
+    "Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary",
+    "Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity"
+  ],
+  "pending_acceptance": [
+    "Native Editor/Game compilation and UHT",
+    "Four native automation tests",
+    "Real asynchronous campaign save/load callback path",
+    "Complete authored donor dependency closure",
+    "Canonical state parity across miniature, visit and battle",
+    "Native nested actor-group visibility/collision and rendered quality"
+  ],
+  "files": [
+    {
+      "path": "Source/Soul/Public/SoulSettlementScenarioData.h",
+      "sha256": "744d25e8475670cb0f03d1148d56358e9265693d6e93435327e4299e71ddeb74",
+      "size_bytes": 3219
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementScenarioData.cpp",
+      "sha256": "dc88d9d4812313f5e390432e919f2af2b262ef8c5942d0f57e9a668f98f1b13b",
+      "size_bytes": 4034
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementStateSubsystem.h",
+      "sha256": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d",
+      "size_bytes": 2357
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementStateSubsystem.cpp",
+      "sha256": "8bc3fb37adfca2ad51ffe8f440a1a40b0060e8d74d702d031ae0eb75e0f7db50",
+      "size_bytes": 15473
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "sha256": "62202f5f275201fb7237f8689211255c5b95b7337106106ffc1cfc6fd980ba0a",
+      "size_bytes": 4367
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "sha256": "52154cc1071b05027f9b7c0b18a443e9ba3b110cd19f2bea10a3a4a821d99325",
+      "size_bytes": 40075
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBootstrapActor.cpp",
+      "sha256": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab",
+      "size_bytes": 1659
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBuildingActor.cpp",
+      "sha256": "fb5f332ab0185b39a51b803dc8aeba9133284f30b3267987b695754639ce5f56",
+      "size_bytes": 3357
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "sha256": "514eb27b088b93dbe798b765b086b913dde58429b0b64bca96f66e12a82cc0a1",
+      "size_bytes": 15800
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp",
+      "sha256": "3d0d146224d5b477563918c131d54514cc907b3c3b55de23a280e8068a243906",
+      "size_bytes": 3401
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulTown.cpp",
+      "sha256": "38463795976d451ce447dfeef8eb943dc1ee87bf72c57c81b99ceb13a974ab5d",
+      "size_bytes": 3191
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSettlement.cpp",
+      "sha256": "af2519c1cd494d195c2551951a300be5c40ad8a1b8dc307478209dbd81d1fc3f",
+      "size_bytes": 5938
+    }
+  ]
+}

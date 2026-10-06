@@ -1,0 +1,1673 @@
+{
+  "captured_utc": "2026-10-06T03:30:27.275581+00:00",
+  "authority_input": "approved-environments.json",
+  "scope": "Read-only filesystem, existing receipts, catalog and Epic/Fab manifests; no UE, donor/source/asset edits, download or purchase.",
+  "method_limits": [
+    "A manifest URL proves listing identity; path presence is a separate test.",
+    "All-manifest-paths-present does not prove byte integrity, resolved engine/plugin dependencies, complete loaded scene, battle fit or visual quality.",
+    "Every .umap is listed in demo_maps, including level instances and asset overview maps; the name alone does not prove playable demo status.",
+    "Unavailable local payload does not mean unowned."
+  ],
+  "bounded_roots": [
+    "D:/Unreal Projects/AoEAssetRenderLab/Content",
+    "C:/Users/Jeff/Desktop/VaultCache",
+    "D:/RefinedBadger/Games",
+    "D:/RefinedBadger/AssetLibraries",
+    "D:/RefinedBadger/BakeoffAssets",
+    "D:/RefinedBadger/Donors",
+    "D:/kitbash",
+    "D:/AssetCaches/EpicVaultCache",
+    "D:/EpicGamesLauncher/VaultCache",
+    "D:/ColdStorage/Relocated-C/Users/Jeff/Documents/Unreal Projects",
+    "C:/Users/Jeff/Documents/Unreal Projects",
+    "C:/RefinedBadger"
+  ],
+  "entries": [
+    {
+      "id": "a72879ea-577a-4125-bde8-25fdd51060cf",
+      "url": "https://www.fab.com/listings/a72879ea-577a-4125-bde8-25fdd51060cf",
+      "user_role": "Viking capital",
+      "verified_listing_title": "Modular Viking Village",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "VK",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_in_catalog; recorded_cache_path_missing",
+      "local_completeness": "Recorded cache absent; Soul/Content/Viking_Village is a dangling junction to absent AoE Viking_Village",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Preserve authored capital first; use the same longhouse, quay and palisade families for Viking secondary settlements after payload recovery.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": [
+        {
+          "catalog_id": "fab_9a2467f766654e4fb5f3da9875105bab",
+          "recorded_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\ModularV35970b841911V2",
+          "recorded_path_exists": false,
+          "historical_file_summary": {
+            "fileCount": 710,
+            "sizeBytes": 1781134264,
+            "extensionCounts": {
+              ".uasset": 706,
+              ".umap": 3,
+              "[none]": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "7cdd67b0-ff96-403b-afbf-54542f562357",
+      "url": "https://www.fab.com/listings/7cdd67b0-ff96-403b-afbf-54542f562357",
+      "user_role": "Human harbor town",
+      "verified_listing_title": "Townsmith: Modular Medieval Town",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "TS",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_in_catalog; recorded_cache_path_missing",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Use authored harbor/town demo; smaller waterfront subsets can supply Human major towns and port approaches.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": [
+        {
+          "catalog_id": "fab_0eba8defe69f4d4589c3f12022c34fcf",
+          "recorded_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\Townsmit094f63255fc3V1",
+          "recorded_path_exists": false,
+          "historical_file_summary": {
+            "fileCount": 932,
+            "sizeBytes": 6368302536,
+            "extensionCounts": {
+              ".uasset": 921,
+              ".umap": 10,
+              "[none]": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "9bec871e-2d9b-4261-aa26-868d4300f81a",
+      "url": "https://www.fab.com/listings/9bec871e-2d9b-4261-aa26-868d4300f81a",
+      "user_role": "Second Human harbor town",
+      "verified_listing_title": "Modular Medieval Town, Docks",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "DO",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Second authored harbor identity; docks and quays can supply maritime chokepoints without copying a whole city.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    },
+    {
+      "id": "b8d49812-57f8-4e6e-bf95-aa5696efc25f",
+      "url": "https://www.fab.com/listings/b8d49812-57f8-4e6e-bf95-aa5696efc25f",
+      "user_role": "Human town",
+      "verified_listing_title": "Medieval Fantasy Village",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "FV",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Existing coherent town demo can supply a Human minor town; select authored street/building subsets for villages.",
+      "local_sources": [
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medieval9ff219ea5d87V1\\data\\Content",
+          "present": 199
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/Medieval_Fantasy_Village/Levels/L_assets",
+          "file": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medieval9ff219ea5d87V1\\data\\Content\\Medieval_Fantasy_Village\\Levels\\L_assets.umap",
+          "exists": true,
+          "bytes": 152658
+        },
+        {
+          "package": "/Game/Medieval_Fantasy_Village/Levels/L_Medieval_Town",
+          "file": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medieval9ff219ea5d87V1\\data\\Content\\Medieval_Fantasy_Village\\Levels\\L_Medieval_Town.umap",
+          "exists": true,
+          "bytes": 29782451
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medieval9ff219ea5d87V1\\manifest",
+          "sha256": "4911cfc4547c67e5d390731bc5116c0e0568a1159c91416c6615f4f45ca7f184",
+          "listing_urls": [
+            "https://www.fab.com/listings/b8d49812-57f8-4e6e-bf95-aa5696efc25f"
+          ]
+        },
+        {
+          "manifest": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\Medieval_Fantasy_Village-b8d49812\\unreal-engine\\manifest",
+          "sha256": "a3bd0bb5351ce9493b454e0a9e2dea59f711013587b0e934590d3f3651d6e126",
+          "listing_urls": [
+            "https://www.fab.com/listings/b8d49812-57f8-4e6e-bf95-aa5696efc25f"
+          ]
+        }
+      ],
+      "manifest_package_count": 199,
+      "manifest_presence_qualification": {
+        "expected": 199,
+        "cache_present": 199,
+        "primary_AoE_present": 0,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "Medieval_Fantasy_Village"
+      ]
+    },
+    {
+      "id": "7d67384d-acb8-4ff8-9e71-c5036b5ea34a",
+      "url": "https://www.fab.com/listings/7d67384d-acb8-4ff8-9e71-c5036b5ea34a",
+      "user_role": "Human town",
+      "verified_listing_title": "Medieval Lake Village Environment",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "LV",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Use authored shore village and waterfront subsets after local payload identification.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    },
+    {
+      "id": "8b612415-9db4-404b-9dbf-fcf503b4ff14",
+      "url": "https://www.fab.com/listings/8b612415-9db4-404b-9dbf-fcf503b4ff14",
+      "user_role": "Viking mountain pass",
+      "verified_listing_title": "Frozen Norse Environment",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "FN",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Pass/approach environment and regional battlefield source, not a generic replacement for Viking capital.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    },
+    {
+      "id": "836bcc0d-025f-437c-bc0c-42c8b644b0eb",
+      "url": "https://www.fab.com/listings/836bcc0d-025f-437c-bc0c-42c8b644b0eb",
+      "user_role": "Dwarven city",
+      "verified_listing_title": "Dwarven Citadel Megapack",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "DC",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "strong_named_local_family; exact836bcc0d manifest linkage not recovered",
+      "local_completeness": "1509 family packages +1060 external actors observed; no exact manifest coverage or runtime qualification",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Citadel plus authored entrance/exterior sections are candidates for Dwarven city, fortress and pass gate; inspect complete sections before reducing.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content"
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/DwarvenCitadel/Maps/DwarvenCitadel",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\DwarvenCitadel.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/ModulesAssembly",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\ModulesAssembly.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_CenteralHall",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_CenteralHall.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_Entrance",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_Entrance.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_Exterior_V2",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_Exterior_V2.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateBase_A_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateBase_A_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateBase_A_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateBase_A_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateBase_B_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateBase_B_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateBase_B_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateBase_B_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateColumn_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateColumn_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateColumn_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateColumn_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateColumn_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateColumn_03.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateColumn_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateColumn_04.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateColumn_05",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateColumn_05.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GateColumn_06",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GateColumn_06.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GatePillar_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GatePillar_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_GatePillar_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_GatePillar_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_LightPillar",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_LightPillar.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallColumn_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallColumn_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallColumn_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallColumn_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallFloor",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallFloor.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallRibvault_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallRibvault_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallRibvault_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallRibvault_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallRibvault_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallRibvault_03.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallRibvault_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallRibvault_04.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallRibvault_05",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallRibvault_05.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_MainHallWall_A_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_MainHallWall_A_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_RibVaults",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_RibVaults.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_SideRibvault_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_SideRibvault_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_SideRibvault_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_SideRibvault_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_SideRibvault_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_SideRibvault_03.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_SideRibvault_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_SideRibvault_04.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_SideRibvault_05",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_SideRibvault_05.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_ST_ExteriorGateOuterPart01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_ST_ExteriorGateOuterPart01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_TreasureRoomEntrance",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_TreasureRoomEntrance.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_TreasureRoomRibvault_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_TreasureRoomRibvault_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_TreasureRoomRibvault_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_TreasureRoomRibvault_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_TresureRoomRibvault_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_TresureRoomRibvault_03.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LI_TresureRoomRibvault_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LI_TresureRoomRibvault_04.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LL_CenteralHall",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LL_CenteralHall.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LL_MainStructure2",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LL_MainStructure2.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LL_SideHall_LongShot",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LL_SideHall_LongShot.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/LL_TreasureRoom",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\LL_TreasureRoom.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/MainHall",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\MainHall.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_Debris_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_Debris_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_Debris_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_Debris_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_Debris_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_Debris_03.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_Debris_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_Debris_04.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_DebrisMerged_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_DebrisMerged_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_ExteriorFloor_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_ExteriorFloor_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_ExteriorFloor_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_ExteriorFloor_02.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_ExteriorFloor_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_ExteriorFloor_03.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_FloorTile_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_FloorTile_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_FloorTile_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_FloorTile_04.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/PLA_TrimMesh_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\PLA_TrimMesh_01.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/SideHall",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\SideHall.umap",
+          "exists": true
+        },
+        {
+          "package": "/Game/DwarvenCitadel/Maps/Section/TreasureRoom",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\DwarvenCitadel\\Maps\\Section\\TreasureRoom.umap",
+          "exists": true
+        }
+      ],
+      "evidence": [
+        "../CampaignWorldTerrain-20261005/Pivot/dwarven-assembly-offline-receipt.json",
+        "../CampaignWorldTerrain-20261005/Pivot/asset-inventory-files.json"
+      ],
+      "families": [
+        "DwarvenCitadel"
+      ]
+    },
+    {
+      "id": "9ee42cda-1455-4539-b5a9-ba6c9682a6dd",
+      "url": "https://www.fab.com/listings/9ee42cda-1455-4539-b5a9-ba6c9682a6dd",
+      "user_role": "Evil regional land",
+      "verified_listing_title": "Dragon Graveyard Kit",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "DG",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Regional land/landmark source: retain large skeletal landmarks, rock composition and coherent local setting.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+          "present": 95
+        },
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\DragonGr9ee1a3847e21V1\\data\\Content",
+          "present": 95
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/Dragon_graveyard/Level/L_assets_showcase",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Dragon_graveyard\\Level\\L_assets_showcase.umap",
+          "exists": true,
+          "bytes": 102597
+        },
+        {
+          "package": "/Game/Dragon_graveyard/Level/L_showcase_level",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Dragon_graveyard\\Level\\L_showcase_level.umap",
+          "exists": true,
+          "bytes": 3023480
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\DragonGr9ee1a3847e21V1\\manifest",
+          "sha256": "0e527201a299ef753cdec13ba006395d31b8ca9f5b3f6fed49ae81accd124129",
+          "listing_urls": [
+            "https://www.fab.com/listings/9ee42cda-1455-4539-b5a9-ba6c9682a6dd"
+          ]
+        },
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Dragon_Graveyard_Kit-9ee42cda\\unreal-engine\\manifest",
+          "sha256": "739f3c0a008cdf336a02012c6df33ab5841047889dc0ed31f537350ad95cd76b",
+          "listing_urls": [
+            "https://www.fab.com/listings/9ee42cda-1455-4539-b5a9-ba6c9682a6dd"
+          ]
+        }
+      ],
+      "manifest_package_count": 95,
+      "manifest_presence_qualification": {
+        "expected": 95,
+        "cache_present": 95,
+        "primary_AoE_present": 95,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "Dragon_graveyard"
+      ]
+    },
+    {
+      "id": "454baa93-0c78-4a53-a57e-47943160d591",
+      "url": "https://www.fab.com/listings/454baa93-0c78-4a53-a57e-47943160d591",
+      "user_role": "Evil capital",
+      "verified_listing_title": "Fantasy Alien Castle",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "AC",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Preserve alien castle showcase for Evil capital; entrance and rock-formation level instances offer bounded reuse.",
+      "local_sources": [
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content",
+          "present": 533
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/AlienPlanet/BluePrints/LI_Entrance",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\BluePrints\\LI_Entrance.umap",
+          "exists": true,
+          "bytes": 2790778
+        },
+        {
+          "package": "/Game/AlienPlanet/BluePrints/LI_RockFormation01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\BluePrints\\LI_RockFormation01.umap",
+          "exists": true,
+          "bytes": 25704
+        },
+        {
+          "package": "/Game/AlienPlanet/BluePrints/LI_RockFormation02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\BluePrints\\LI_RockFormation02.umap",
+          "exists": true,
+          "bytes": 20405
+        },
+        {
+          "package": "/Game/AlienPlanet/BluePrints/LI_RockFormation03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\BluePrints\\LI_RockFormation03.umap",
+          "exists": true,
+          "bytes": 17618
+        },
+        {
+          "package": "/Game/AlienPlanet/BluePrints/LI_RockTopPlants",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\BluePrints\\LI_RockTopPlants.umap",
+          "exists": true,
+          "bytes": 67208
+        },
+        {
+          "package": "/Game/AlienPlanet/Levels/L_Overview",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\Levels\\L_Overview.umap",
+          "exists": true,
+          "bytes": 143950
+        },
+        {
+          "package": "/Game/AlienPlanet/Levels/L_Showcase",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\data\\Content\\AlienPlanet\\Levels\\L_Showcase.umap",
+          "exists": true,
+          "bytes": 73872020
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyA4185fb9ca8f8V1\\manifest",
+          "sha256": "c3b69ea1ca71127d08a42db4c3bdbb50e285c50afbdb215e0b2a4c0aaf134202",
+          "listing_urls": [
+            "https://www.fab.com/listings/454baa93-0c78-4a53-a57e-47943160d591"
+          ]
+        },
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Fantasy_Alien_Castle-454baa93\\unreal-engine\\manifest",
+          "sha256": "5b58fe8cdcc357a86e1a2c610c3eb2e8d767b333ea4a5b458557374a25804538",
+          "listing_urls": [
+            "https://www.fab.com/listings/454baa93-0c78-4a53-a57e-47943160d591"
+          ]
+        }
+      ],
+      "manifest_package_count": 533,
+      "manifest_presence_qualification": {
+        "expected": 533,
+        "cache_present": 533,
+        "primary_AoE_present": 0,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "AlienPlanet"
+      ]
+    },
+    {
+      "id": "42d4a792-2b66-423d-9b20-84d6b2c578d8",
+      "url": "https://www.fab.com/listings/42d4a792-2b66-423d-9b20-84d6b2c578d8",
+      "user_role": "Human capital",
+      "verified_listing_title": "Medieval Kingdom",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "MK",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_catalog_ID_in_existing_Macbeth_plan_and_hall_audit",
+      "local_completeness": "PARTIAL:43 maps+1753 uassets; only661 KingsHall external actors; full capital cannot be reconstructed from this closure",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Preserve full CastleTown authored city/castle, derive strategic silhouette from that same scene; castle, courtyard, houses, bridges and roads are authored levels.",
+      "local_sources": [
+        {
+          "kind": "Macbeth_imported_partial_content",
+          "content_root": "D:/RefinedBadger/Games/Macbeth/Content"
+        }
+      ],
+      "demo_maps": [
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Demo\\ThirdPerson\\Maps\\ThirdPersonMap.umap",
+          "package": "/Game/CastleTown/Demo/ThirdPerson/Maps/ThirdPersonMap",
+          "bytes": 20281,
+          "sha256": "fa57c58e8bdbc9c521bdbc8712cb30d16fa78c51cda9dd26246fc5d8a83123dc"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\AssetZoo\\L_AssetZoo.umap",
+          "package": "/Game/CastleTown/Levels/AssetZoo/L_AssetZoo",
+          "bytes": 2358874,
+          "sha256": "0ec9137064254b02bbad77dbc1a1f6f7f8b4935c0d8afc0d5fba3df207a15b37"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Construction\\L_Castle_Construction.umap",
+          "package": "/Game/CastleTown/Levels/Construction/L_Castle_Construction",
+          "bytes": 33599,
+          "sha256": "f3839508418abffdda1ee81ada5bab24118d884e3a737d3a5e297093e29e806c"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Corner_01.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_01",
+          "bytes": 6661,
+          "sha256": "ced27f4dc83bcce73a80fc477000f058488a5f3402d2c10f787e352e3e568de9"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Corner_02.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Corner_02",
+          "bytes": 6661,
+          "sha256": "1c73d9b8dfeeb10596799d1bd87849e52e08abcb86867fc99b60065a7e547146"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Stairs_01.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Stairs_01",
+          "bytes": 6661,
+          "sha256": "821cb4d52aa9c2fcdf763086dee6c08bfc27db89bb4e5dc54d92e9777fce91de"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_CurtainWall_Tower_01.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_CurtainWall_Tower_01",
+          "bytes": 6655,
+          "sha256": "4361d51eb74f90194cbcc07d6c9c7f75a8d56710d137503695093de5a572b328"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Front_Gate.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Gate",
+          "bytes": 6595,
+          "sha256": "d2a425da8c049309a67494d8dbcce6aee864f92ae38ccee13fa897a7a43c3027"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Front_Hall.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Front_Hall",
+          "bytes": 6595,
+          "sha256": "f2dd270338812dd0a863daebfdabb763ce2a48ec78ee271eebf0a131bf877004"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Full_Castle.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle",
+          "bytes": 8894,
+          "sha256": "73396da362d864c7ef5cc6a0906c48d00aec084f519190c3b04e8c617047a555"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Kings_Hall.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Kings_Hall",
+          "bytes": 6595,
+          "sha256": "dcff08ff1d2072279b1302025a1b9576e30e690628c85c666160d5b8d4a64857"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Side_Hall.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Side_Hall",
+          "bytes": 8763,
+          "sha256": "c831fab6a6fd75275ee0533aebef3403ad51e637069ca0a1cd25b10c40887877"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\LI_Top_Level.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/LI_Top_Level",
+          "bytes": 8881,
+          "sha256": "1a45aad4614da97df11550f8e6fc2472e11d5832a699449b5feaec0aceebf916"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\Castle\\SM_Main_Hall.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/Castle/SM_Main_Hall",
+          "bytes": 6589,
+          "sha256": "0cc3e28173b9d0359550dc1f2aa67f04aee13c20affd002c5ffcf96be2328e38"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_01a_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01a_Fix",
+          "bytes": 25992938,
+          "sha256": "e81372ea2080b1193ecabe19bb9d9268cdd7b728d8d12d3caf19085d9361d654"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_01b.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b",
+          "bytes": 9738,
+          "sha256": "e195f989cc58a28e00d86f042f9ceebfdd952e4d4620346c1c91fc856beb1ec7"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_01b_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_01b_Fix",
+          "bytes": 26120960,
+          "sha256": "9728969df32feb568e9acdb1bebb27bd4c9cde19cba74352159f68c748981e8f"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_02_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_02_Fix",
+          "bytes": 2219447,
+          "sha256": "857e911264134d19f7f03e8db94f417ee85cbe38216e9f954db4d89091b0c868"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03_Fix",
+          "bytes": 10306419,
+          "sha256": "1d61c3f42ebeef08b9dd23a4ff1fae3151817d4b616a77cf0be25567a241c641"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03a_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03a_Fix",
+          "bytes": 2022406,
+          "sha256": "2fd71f53e611f0af37710eca27890d275d512b98840886d9fb1f15bd6e00dfbd"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03b.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b",
+          "bytes": 9221,
+          "sha256": "72bfaf94aec2aec00cf1c69897bab0a4972254220f46c9dd96a73197c91a0bd2"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_03b_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_03b_Fix",
+          "bytes": 1783519,
+          "sha256": "17184689bcc53d54566e2cf3db3d004681324150c631b15fcfa323b2686a0066"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_04_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04_Fix",
+          "bytes": 11188719,
+          "sha256": "e31371f83deb0cfdb85e4857709d63211c70af7787ac1c668982be4ce1ebb321"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_04a_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04a_Fix",
+          "bytes": 2647266,
+          "sha256": "d48c7b8096a3516b3d2a3c6d5e602886a0d12f5893f9b54280af9a39dfbe2cad"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_04b_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_04b_Fix",
+          "bytes": 2630385,
+          "sha256": "8512ec47f12cde43d3e135d9010feed8be56a93cfe5799869e07fcd7962e544d"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_05_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_05_Fix",
+          "bytes": 3911870,
+          "sha256": "b63384b3ad74127439319e6cab245490dcf98fce9db9d4c61a681117521e41e0"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_Building_06_Fix.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_Building_06_Fix",
+          "bytes": 18140136,
+          "sha256": "8c97627caba221c0f9f6834f062b50534f811dfd955117ae6c3af497db236392"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_LogStore_01.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_01",
+          "bytes": 8749,
+          "sha256": "0560568b4ae4d8101605ef64145f7f054aacfa421c8cd4f69bebf3eb1f22175e"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\LevelInstances\\LI_LogStore_02.umap",
+          "package": "/Game/CastleTown/Levels/LevelInstances/LI_LogStore_02",
+          "bytes": 8749,
+          "sha256": "7f0daf0fac8f6b7be72ac3224a2fa59d51d114f107b8b064b7a6534915eecd99"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\Persistant\\PL_CastleTown.umap",
+          "package": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+          "bytes": 9326488,
+          "sha256": "d8cd81d8d536b2ed6f285fc4a0663899f52e97441ffe66931396db0a06c3541c"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_BridgesAndWalls.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_BridgesAndWalls",
+          "bytes": 11191025,
+          "sha256": "dc6608dd6eff0d2e3ca4fa52d593bdbc7b2e984e4555eec1855976becf0eaa7e"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Castle.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Castle",
+          "bytes": 1958634,
+          "sha256": "8f112139c7cb2d1051421c4c19fc0a36c87f9c48370defe9a6d4aab19570865c"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Castle_Walls.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Castle_Walls",
+          "bytes": 1116260,
+          "sha256": "343701692759dc43fa7c2c7a3218599f7de82130050047936644256470ab8c04"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Courtyard.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Courtyard",
+          "bytes": 689261,
+          "sha256": "c67a15092d9624bc79626f33765fb1d43b4d95ab19603c4c187ee69b89baab5a"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Houses.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Houses",
+          "bytes": 235309,
+          "sha256": "a0438419abffca9634f063d2648f753e945a4c294ab0c13b98bae91a03707796"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Landscape.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Landscape",
+          "bytes": 12248,
+          "sha256": "980d743f635657e211407cbfc48b375c570fdd26453903c0068dad5930de6083"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Lighting.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Lighting",
+          "bytes": 23170,
+          "sha256": "2ab1a18e96c0c03c799ae2df0332d50d8ade005d1326ef859b3455575ee5d03b"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Mountain.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Mountain",
+          "bytes": 143285033,
+          "sha256": "eb583341cbbf6b3e078292e903a3f5007af5a5f2eefdbe592efc5e68b1e21c8d"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Roads.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Roads",
+          "bytes": 266454,
+          "sha256": "1d879b170418ed0f5d6cc403d3b5932226072738c80484ed8f8c55d1d86512da"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Levels\\SubLevels\\SL_Town_Props.umap",
+          "package": "/Game/CastleTown/Levels/SubLevels/SL_Town_Props",
+          "bytes": 672725,
+          "sha256": "eece2f5f2571d51d4bc5ddd32c6e2b1d19b7d83e8f766bfbd8925fff1459ab63"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Scanned_Foliage\\Maps\\MAP_FoliageZoo_01.umap",
+          "package": "/Game/CastleTown/Scanned_Foliage/Maps/MAP_FoliageZoo_01",
+          "bytes": 86564,
+          "sha256": "9f6a744a2e89ac78bc54a7420dde34882ab319b421d19cae90d1b81b83819c9e"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Water\\FluidSimulation\\Fluidsim_Terrain.umap",
+          "package": "/Game/CastleTown/Water/FluidSimulation/Fluidsim_Terrain",
+          "bytes": 1198613,
+          "sha256": "b6bc7d823043071224e4694b4025f39086cabb872272550ba00be6d5fb9fb0e0"
+        },
+        {
+          "file": "D:\\RefinedBadger\\Games\\Macbeth\\Content\\CastleTown\\Water\\FluidSimulation\\WaterFluidSimtestShallow.umap",
+          "package": "/Game/CastleTown/Water/FluidSimulation/WaterFluidSimtestShallow",
+          "bytes": 74339,
+          "sha256": "92a1c4b0a04e3d55081e7d9a750b65c11d60440571522a08a148d7547b3f0a9f"
+        }
+      ],
+      "evidence": [
+        "human-capital-local-identity.json",
+        "human-capital-recovery-availability.json"
+      ],
+      "families": [
+        "CastleTown"
+      ],
+      "full_capital_blocker": "Recover full CastleTown external actor/object closure. Historical whole-family transfer is incomplete; two ordinary packages also remain absent.",
+      "footprint_evidence": {
+        "full_capital": "not measured; cannot infer from empty/incomplete levels",
+        "KingsHall_only_actor_location_extent_cm": [
+          3000,
+          3400,
+          2200
+        ],
+        "hall_actor_count": 661,
+        "warning": "Actor-location envelope is not aggregate architectural bounds and is not capital footprint."
+      }
+    },
+    {
+      "id": "d8d7b289-dfed-4236-97ab-941c2c6c3790",
+      "url": "https://www.fab.com/listings/d8d7b289-dfed-4236-97ab-941c2c6c3790",
+      "user_role": "Nature town",
+      "verified_listing_title": "Fantasy Forest Village Kit",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "FF",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Nature town, with smaller authored stilt/platform dwelling groups for villages; keep support structures with buildings.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+          "present": 822
+        },
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyF13339fb08df5V2\\data\\Content",
+          "present": 822
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/Forest_village/Level/Asset_showcase",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Asset_showcase.umap",
+          "exists": true,
+          "bytes": 458129
+        },
+        {
+          "package": "/Game/Forest_village/Level/L_showcase_level",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\L_showcase_level.umap",
+          "exists": true,
+          "bytes": 53757613
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/Build_update",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\Build_update.umap",
+          "exists": true,
+          "bytes": 8760
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/PLA_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\PLA_02.umap",
+          "exists": true,
+          "bytes": 8612
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/PLA_03",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\PLA_03.umap",
+          "exists": true,
+          "bytes": 8612
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/PLA_04",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\PLA_04.umap",
+          "exists": true,
+          "bytes": 8612
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/PLA_Update_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\PLA_Update_01.umap",
+          "exists": true,
+          "bytes": 8642
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/PLA_Update_02",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\PLA_Update_02.umap",
+          "exists": true,
+          "bytes": 8642
+        },
+        {
+          "package": "/Game/Forest_village/Level/Level_instance/Prefab_01",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Forest_village\\Level\\Level_instance\\Prefab_01.umap",
+          "exists": true,
+          "bytes": 8745
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FantasyF13339fb08df5V2\\manifest",
+          "sha256": "0a93b7312e49ad4f2e7a5be4a0cf76958ca7ff011228da466efb5345db6f657d",
+          "listing_urls": [
+            "https://www.fab.com/listings/d8d7b289-dfed-4236-97ab-941c2c6c3790"
+          ]
+        },
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Fantasy_Forest_Village_Kit-d8d7b289\\unreal-engine\\manifest",
+          "sha256": "7e3da2b32b1a6f18b461e79e67fe11b1573fc5b3d08d6db77bc76b2baf9c1400",
+          "listing_urls": [
+            "https://www.fab.com/listings/d8d7b289-dfed-4236-97ab-941c2c6c3790"
+          ]
+        }
+      ],
+      "manifest_package_count": 822,
+      "manifest_presence_qualification": {
+        "expected": 822,
+        "cache_present": 822,
+        "primary_AoE_present": 822,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "Forest_village"
+      ]
+    },
+    {
+      "id": "b91e0942-7668-44cc-8b3a-6b977bd831ee",
+      "url": "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee",
+      "user_role": "Dwarven city / forge",
+      "verified_listing_title": "Modular Legendary Forge",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "LF",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Dwarven forge city/industrial landmark; use complete forge composition before selecting furnace/chimney modules.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+          "present": 333
+        },
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\ModularL835384215387V4\\data\\Content",
+          "present": 333
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/Legendary_Forge/Maps/L_showcase_forge",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Legendary_Forge\\Maps\\L_showcase_forge.umap",
+          "exists": true,
+          "bytes": 1014348
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\ModularL835384215387V4\\manifest",
+          "sha256": "992abaf18855272dc998997d9400dcedbca5579bae05f5a859a53d989a50906e",
+          "listing_urls": [
+            "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee"
+          ]
+        },
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Modular_Legendary_Forge-b91e0942\\unreal-engine\\manifest",
+          "sha256": "fed5406626751998276a3b89b06bac8e79d5acbd60d07718eab9bcad315348d7",
+          "listing_urls": [
+            "https://www.fab.com/listings/b91e0942-7668-44cc-8b3a-6b977bd831ee"
+          ]
+        }
+      ],
+      "manifest_package_count": 333,
+      "manifest_presence_qualification": {
+        "expected": 333,
+        "cache_present": 333,
+        "primary_AoE_present": 333,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "Legendary_Forge"
+      ]
+    },
+    {
+      "id": "034c5671-ada5-41dd-9c1b-426ac2df44c3",
+      "url": "https://www.fab.com/listings/034c5671-ada5-41dd-9c1b-426ac2df44c3",
+      "user_role": "Viking town",
+      "verified_listing_title": "Viking Village Modular kit",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "VT",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Secondary Viking town and modular harbor/longhouse vocabulary once local payload identified.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": [
+        {
+          "catalog_id": "fab_ca87fe290bad4a2fb9548fc1b8ae7b87",
+          "title": "Viking Village Modular kit",
+          "publisher": "LAYA DESIGN",
+          "owned": true,
+          "local_paths": [],
+          "limit": "Title/publisher ownership record only; exact listing URL not recorded in this catalog row."
+        }
+      ]
+    },
+    {
+      "id": "bfcd8a0e-9ff6-4787-900a-bf716ce19176",
+      "url": "https://www.fab.com/listings/bfcd8a0e-9ff6-4787-900a-bf716ce19176",
+      "user_role": "Orc village",
+      "verified_listing_title": "African Village",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "AV",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Jeff-assigned Orc village source; inspect coherent village and retain family proportions/materials before faction adaptation.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": [
+        {
+          "catalog_id": "fab_120ac46dc65f49e6801626b8fab4581d",
+          "title": "African Village",
+          "publisher": "No Mad Studios",
+          "owned": true,
+          "local_paths": [],
+          "limit": "Title/publisher ownership record only; exact listing URL not recorded in this catalog row."
+        }
+      ]
+    },
+    {
+      "id": "338af1ae-80da-4d94-b3ef-38368e287678",
+      "url": "https://www.fab.com/listings/338af1ae-80da-4d94-b3ef-38368e287678",
+      "user_role": "Evil town",
+      "verified_listing_title": "Free Sample Dark Fantasy Gothic Environment Kitbash",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "GT",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Jeff-assigned Evil town source; free sample scope may be a modular subset, not a complete town.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": [
+        {
+          "catalog_id": "fab_e63cbdfd2dad483ba1ae6e3716a47c24",
+          "title": "Free Sample Dark Fantasy Gothic Environment Kitbash",
+          "publisher": "Oleg Ushenok",
+          "owned": true,
+          "local_paths": [],
+          "limit": "Title/publisher ownership record only; exact listing URL not recorded in this catalog row."
+        }
+      ]
+    },
+    {
+      "id": "3bfee149-0741-4892-ba2c-b7a245e45de7",
+      "url": "https://www.fab.com/listings/3bfee149-0741-4892-ba2c-b7a245e45de7",
+      "user_role": "Orc/Evil castle or ruins",
+      "verified_listing_title": "Ravenhold: Modular Medieval Castle, Fortress & Dungeon Megapack",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "RH",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Orc/Evil fortress or ruins; actual gatehouse and curtain-wall level assemblies can preserve authored military silhouette.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+          "present": 22002
+        },
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\Ravenhola22b2a72d300V1\\data\\Content",
+          "present": 22002
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Curtain_Wall_Corner_45_Int",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Curtain_Wall_Corner_45_Int.umap",
+          "exists": true,
+          "bytes": 8829
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_10m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_10m.umap",
+          "exists": true,
+          "bytes": 8762
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_2m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_2m.umap",
+          "exists": true,
+          "bytes": 8756
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_4m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_4m.umap",
+          "exists": true,
+          "bytes": 8756
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_6m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_6m.umap",
+          "exists": true,
+          "bytes": 8756
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Converter",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Converter.umap",
+          "exists": true,
+          "bytes": 8798
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Corner_45_Ext",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Corner_45_Ext.umap",
+          "exists": true,
+          "bytes": 8822
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Crn",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Crn.umap",
+          "exists": true,
+          "bytes": 8762
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Crn_Ext",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Crn_Ext.umap",
+          "exists": true,
+          "bytes": 8786
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Drain_10m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Drain_10m.umap",
+          "exists": true,
+          "bytes": 8798
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Tower_A_Cnctr",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Tower_A_Cnctr.umap",
+          "exists": true,
+          "bytes": 8822
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_CurtainWall_Turret",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_CurtainWall_Turret.umap",
+          "exists": true,
+          "bytes": 8780
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_GateHouse_Tower_L",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_GateHouse_Tower_L.umap",
+          "exists": true,
+          "bytes": 8891
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_GateHouse_Tower_R",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_GateHouse_Tower_R.umap",
+          "exists": true,
+          "bytes": 8890
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_CurtainWall_Corner_Crv_Ext",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_CurtainWall_Corner_Crv_Ext.umap",
+          "exists": true,
+          "bytes": 8852
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_2m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_2m.umap",
+          "exists": true,
+          "bytes": 8737
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_4m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_4m.umap",
+          "exists": true,
+          "bytes": 8738
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_6m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_6m.umap",
+          "exists": true,
+          "bytes": 8738
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Archway_6m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_Archway_6m.umap",
+          "exists": true,
+          "bytes": 8786
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Bridge_16m",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_Bridge_16m.umap",
+          "exists": true,
+          "bytes": 8786
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Crn_Ext",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_Crn_Ext.umap",
+          "exists": true,
+          "bytes": 8768
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Lrg_Wall_Crn_Int",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Lrg_Wall_Crn_Int.umap",
+          "exists": true,
+          "bytes": 8768
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Med_Roof_Lucarne",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Med_Roof_Lucarne.umap",
+          "exists": true,
+          "bytes": 13716
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Grand_Arch_Window_Base",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Med_Wall_Grand_Arch_Window_Base.umap",
+          "exists": true,
+          "bytes": 8856
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Grand_Arch_Window_Cap",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Med_Wall_Grand_Arch_Window_Cap.umap",
+          "exists": true,
+          "bytes": 8850
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Single_Window_C",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Med_Wall_Single_Window_C.umap",
+          "exists": true,
+          "bytes": 8814
+        },
+        {
+          "package": "/Game/Ravenhold/Art/3_BPP/Levels/FCK_Med_Wall_Single_Window_D",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Art\\3_BPP\\Levels\\FCK_Med_Wall_Single_Window_D.umap",
+          "exists": true,
+          "bytes": 8814
+        },
+        {
+          "package": "/Game/Ravenhold/Demo/ThirdPerson/Lvl_ThirdPerson",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Demo\\ThirdPerson\\Lvl_ThirdPerson.umap",
+          "exists": true,
+          "bytes": 12885
+        },
+        {
+          "package": "/Game/Ravenhold/Scenes/Asset_Vid_Renders",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Scenes\\Asset_Vid_Renders.umap",
+          "exists": true,
+          "bytes": 1167806
+        },
+        {
+          "package": "/Game/Ravenhold/Scenes/HM-FortCastle_Kit_Asset_Gym",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Scenes\\HM-FortCastle_Kit_Asset_Gym.umap",
+          "exists": true,
+          "bytes": 4502148
+        },
+        {
+          "package": "/Game/Ravenhold/Scenes/HM-FortCastle_Kit_Demo",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Ravenhold\\Scenes\\HM-FortCastle_Kit_Demo.umap",
+          "exists": true,
+          "bytes": 69922
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\Ravenhola22b2a72d300V1\\manifest",
+          "sha256": "2d568659154959f6b67d9ba6f79358522d74963c97f046b9c3768a1e9d19b8f2",
+          "listing_urls": [
+            "https://www.fab.com/listings/3bfee149-0741-4892-ba2c-b7a245e45de7"
+          ]
+        },
+        {
+          "manifest": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\VaultCache\\FabLibrary\\Ravenhold__Modular_Medieval_Castle__Fortress___Dungeon_Megapack-3bfee149\\unreal-engine\\manifest",
+          "sha256": "7f1d9dabedfa02ac6ef4c90e5edc13ab7d1168d0b8a16baff57493c7db305a3b",
+          "listing_urls": [
+            "https://www.fab.com/listings/3bfee149-0741-4892-ba2c-b7a245e45de7"
+          ]
+        }
+      ],
+      "manifest_package_count": 22002,
+      "manifest_presence_qualification": {
+        "expected": 22002,
+        "cache_present": 22002,
+        "primary_AoE_present": 22002,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "Ravenhold"
+      ]
+    },
+    {
+      "id": "580d5f13-5e27-4f99-8b6b-a2223874d7cc",
+      "url": "https://www.fab.com/listings/580d5f13-5e27-4f99-8b6b-a2223874d7cc",
+      "user_role": "Orc/Evil castle or ruins",
+      "verified_listing_title": "Modular Castle & Dungeon",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "CD",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Second Orc/Evil castle/ruin family; local payload and authored layout unverified.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    },
+    {
+      "id": "33d8621e-c444-4b7a-b12e-e49614a4ebc8",
+      "url": "https://www.fab.com/listings/33d8621e-c444-4b7a-b12e-e49614a4ebc8",
+      "user_role": "War machines / siege camps",
+      "verified_listing_title": "Medieval Warzone Environment",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "WZ",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Approved shared war machines/siege camps; authored showcase and outpost blueprints provide reusable military clusters.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+          "present": 567
+        },
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medievale5e3853f44baV1\\data\\Content",
+          "present": 567
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/Medieval_Warzone/Levels/L_Overview",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Medieval_Warzone\\Levels\\L_Overview.umap",
+          "exists": true,
+          "bytes": 296020912
+        },
+        {
+          "package": "/Game/Medieval_Warzone/Levels/L_Showcase",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Medieval_Warzone\\Levels\\L_Showcase.umap",
+          "exists": true,
+          "bytes": 413179347
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "C:\\Users\\Jeff\\Desktop\\VaultCache\\Medievale5e3853f44baV1\\manifest",
+          "sha256": "61447b03bc059c4d32eaa9bdd67ded2125ee080d21fce401b0e09e9780ccf4b6",
+          "listing_urls": [
+            "https://www.fab.com/listings/33d8621e-c444-4b7a-b12e-e49614a4ebc8"
+          ]
+        },
+        {
+          "manifest": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\Medieval_Warzone_Environment-33d8621e\\unreal-engine\\manifest",
+          "sha256": "f74e62120e63b570804a9e0f870bc66a31cb58b6278c4b3bd9a6bae7ac9d9331",
+          "listing_urls": [
+            "https://www.fab.com/listings/33d8621e-c444-4b7a-b12e-e49614a4ebc8"
+          ]
+        }
+      ],
+      "manifest_package_count": 567,
+      "manifest_presence_qualification": {
+        "expected": 567,
+        "cache_present": 567,
+        "primary_AoE_present": 567,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "Medieval_Warzone"
+      ]
+    },
+    {
+      "id": "720ccb75-32a9-4130-acab-532239760d22",
+      "url": "https://www.fab.com/listings/720ccb75-32a9-4130-acab-532239760d22",
+      "user_role": "War machines / siege camps",
+      "verified_listing_title": "Modular Medieval Town",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "MT",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Jeff assigned siege/camp support; exact listing payload must be identified before claiming it contains a particular siege asset.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    },
+    {
+      "id": "3cc08b13-9cb1-46a5-9bd2-47d743ee82b9",
+      "url": "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9",
+      "user_role": "Additional war camp",
+      "verified_listing_title": "[Nanite] Medieval War Camp Kit",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "WC",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "exact_listing_URL_in_local_manifest",
+      "local_completeness": "all_manifest_package_paths_present; UE dependency closure and runtime unqualified",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Approved additional camp: overview and native tent/prop family support small camp/outpost groups.",
+      "local_sources": [
+        {
+          "kind": "primary_imported_content",
+          "content_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+          "present": 258
+        },
+        {
+          "kind": "owned_vault_payload",
+          "content_root": "C:\\Users\\Jeff\\Desktop\\VaultCache\\NaniteMee1c943429865V1\\data\\Content",
+          "present": 258
+        }
+      ],
+      "demo_maps": [
+        {
+          "package": "/Game/WarCamp_Collection/Maps/Overview/Camp_Garrison_War_Collection",
+          "file": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\WarCamp_Collection\\Maps\\Overview\\Camp_Garrison_War_Collection.umap",
+          "exists": true,
+          "bytes": 118838
+        }
+      ],
+      "evidence": [
+        {
+          "manifest": "C:\\Users\\Jeff\\Desktop\\VaultCache\\NaniteMee1c943429865V1\\manifest",
+          "sha256": "a5b863b9af1520f5430e7fa67f19fa3c3eaf7181edbd4e5915d29584a12f65db",
+          "listing_urls": [
+            "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9"
+          ]
+        },
+        {
+          "manifest": "C:\\Users\\Jeff\\Desktop\\VaultCache\\FabLibrary\\_Nanite__Medieval_War_Camp_Kit__War_Camp_Props__Medieval_Props_-3cc08b13\\unreal-engine\\manifest",
+          "sha256": "e4a3965e887178e7e861357f5ec82687a597eafe7dae55a73e763adae9e70265",
+          "listing_urls": [
+            "https://www.fab.com/listings/3cc08b13-9cb1-46a5-9bd2-47d743ee82b9"
+          ]
+        }
+      ],
+      "manifest_package_count": 258,
+      "manifest_presence_qualification": {
+        "expected": 258,
+        "cache_present": 258,
+        "primary_AoE_present": 258,
+        "method": "Checked every manifest-relative .uasset/.umap path with is_file; no content hash or UE dependency claim."
+      },
+      "families": [
+        "WarCamp_Collection"
+      ]
+    },
+    {
+      "id": "9bb2bb76-a67d-4aff-a2da-0724e23fde50",
+      "url": "https://www.fab.com/listings/9bb2bb76-a67d-4aff-a2da-0724e23fde50",
+      "user_role": "Nature landmark",
+      "verified_listing_title": "Asian Spirit Tree Temple Environment",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "verified_via": "Official Fab listing read 2026-10-06 UTC",
+      "local_mapping_status": "pending",
+      "code": "ST",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Nature unique landmark environment; preserve authored temple/tree relationship after payload recovery.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    },
+    {
+      "id": "kitbash3d-iron-forge",
+      "url": "https://kitbash3d.com/products/iron-forge",
+      "user_role": "Dwarven industrial / mining / forge",
+      "verified_listing_title": "Iron Forge",
+      "ownership_authority": "Jeff explicitly states ownership; purchase forbidden",
+      "local_mapping_status": "pending",
+      "code": "IF",
+      "ownership_status": "Owned per Jeff; no purchase required or authorized",
+      "identity_confidence": "unresolved_local_mapping",
+      "local_completeness": "not_located_in_bounded_search",
+      "visual_acceptance": "not claimed by this file-only audit",
+      "proposed_modular_reuse": "Dwarven industry/mining/forge family; no local payload found in bounded search, so no fabricated demo path.",
+      "local_sources": [],
+      "demo_maps": [],
+      "evidence": []
+    }
+  ]
+}
