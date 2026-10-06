@@ -1,4 +1,6 @@
 #include "SoulSettlementStateSubsystem.h"
+#include "Engine/GameInstance.h"
+#include "SoulSettlementScenarioData.h"
 
 #include "Dom/JsonObject.h"
 #include "RBSaveSubsystem.h"
@@ -101,6 +103,35 @@ FSoulSettlementState* USoulSettlementStateSubsystem::FindSettlement(FName Settle
 const FSoulSettlementState* USoulSettlementStateSubsystem::FindSettlement(FName SettlementId) const
 {
     return Settlements.Find(SettlementId);
+}
+
+bool USoulSettlementStateSubsystem::EnsureScenario(
+    const USoulSettlementScenarioData* Scenario, FString& OutError, bool bOnlyCreateIfMissing)
+{
+    if (!Scenario) { OutError = TEXT("Missing settlement scenario asset."); return false; }
+    if (!Scenario->ValidateDefinition(OutError)) return false;
+    if (bOnlyCreateIfMissing && HasSettlement(Scenario->SettlementId)) { OutError.Reset(); return true; }
+    FSoulSettlementState Settlement;
+    Settlement.SettlementId = Scenario->SettlementId;
+    Settlement.FactionId = Scenario->FactionId;
+    Settlement.RegionId = Scenario->RegionId;
+    Settlement.FortificationLevel = Scenario->FortificationLevel;
+    Settlement.WallIntegrityPermille = Scenario->WallIntegrityPermille;
+    Settlement.PermanentScars = Scenario->PermanentScars;
+    for (const auto& Spec : Scenario->Buildings)
+    {
+        FSoulBuildingState Building;
+        Building.Id = Spec.BuildingId;
+        Building.Level = Spec.bBuilt ? Spec.Level : 0;
+        Building.IntegrityPermille = Spec.bBuilt ? Spec.IntegrityPermille : 0;
+        Building.Condition = !Spec.bBuilt ? ESoulBuildingCondition::Unbuilt
+            : Building.IntegrityPermille <= 0 ? ESoulBuildingCondition::Ruined
+            : Building.IntegrityPermille < 1000 ? ESoulBuildingCondition::Damaged : ESoulBuildingCondition::Intact;
+        Settlement.Buildings.Add(Building.Id, Building);
+    }
+    Settlements.Add(Scenario->SettlementId, MoveTemp(Settlement));
+    OutError.Reset();
+    return true;
 }
 
 bool USoulSettlementStateSubsystem::ApplySiegeAftermath(

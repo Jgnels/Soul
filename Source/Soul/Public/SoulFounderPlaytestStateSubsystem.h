@@ -29,6 +29,16 @@ public:
     bool Recruit(FName UnitId);
     bool ChooseSkill(FName SkillId);
     bool HireTavernHero();
+    // The explicit proof binds an existing settlement authority; definitions are immutable inputs.
+    bool InitializeSettlementDevelopment(class USoulSettlementScenarioData* Scenario,
+        class USoulSettlementStateSubsystem* Authority, FString& OutError);
+    bool IsSettlementDevelopmentEnabled() const { return bSettlementDevelopmentRequested; }
+    bool IsSettlementDevelopmentReady() const;
+    const class USoulSettlementScenarioData* GetSettlementScenario() const { return SettlementScenario.Get(); }
+    const FString& GetSettlementDevelopmentError() const { return SettlementDevelopmentError; }
+    bool BeginSettlementConstruction(FName BuildingId, FString& OutError);
+    bool IsTavernOperational() const;
+    uint32 SettlementDevelopmentRevision = 0; // Presentation invalidation only, not saved game truth.
     void SaveCampaign();
     void LoadCampaign();
     virtual FName GetRBSaveDomainId_Implementation() const override;
@@ -64,4 +74,9 @@ private:
     UFUNCTION() void OnCampaignLoaded(const FRBSaveOperationResult& Result);
     TWeakObjectPtr<class URBSaveSubsystem> SaveSubsystem;
     TWeakObjectPtr<USoulCampaignBattleBridge> BattleBridge;
+    bool bSettlementDevelopmentRequested = false;
+    FString SettlementDevelopmentError;
+    UPROPERTY(Transient) TObjectPtr<class USoulSettlementScenarioData> SettlementScenario;
+    TWeakObjectPtr<class USoulSettlementStateSubsystem> SettlementAuthority;
+    bool ValidateSettlementDevelopmentBinding(FString& OutError) const;
 };

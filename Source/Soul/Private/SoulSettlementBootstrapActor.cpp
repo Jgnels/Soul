@@ -34,43 +34,11 @@ bool ASoulSettlementBootstrapActor::ApplyScenario()
         return false;
     }
 
-    if (bOnlyCreateIfMissing && State->HasSettlement(Scenario->SettlementId))
+    FString Error;
+    if (!State->EnsureScenario(Scenario, Error, bOnlyCreateIfMissing))
     {
-        return true;
-    }
-
-    FSoulSettlementState& Settlement =
-        State->FindOrAddSettlement(Scenario->SettlementId);
-    Settlement.SettlementId = Scenario->SettlementId;
-    Settlement.FactionId = Scenario->FactionId;
-    Settlement.RegionId = Scenario->RegionId;
-    Settlement.FortificationLevel = FMath::Max(0, Scenario->FortificationLevel);
-    Settlement.WallIntegrityPermille =
-        FMath::Clamp(Scenario->WallIntegrityPermille, 0, 1000);
-    Settlement.PermanentScars = Scenario->PermanentScars;
-    Settlement.Buildings.Reset();
-
-    for (const FSoulInitialBuildingSpec& Spec : Scenario->Buildings)
-    {
-        if (Spec.BuildingId.IsNone())
-        {
-            continue;
-        }
-
-        FSoulBuildingState Building;
-        Building.Id = Spec.BuildingId;
-        Building.Level = Spec.bBuilt ? FMath::Max(1, Spec.Level) : 0;
-        Building.IntegrityPermille = Spec.bBuilt
-            ? FMath::Clamp(Spec.IntegrityPermille, 0, 1000)
-            : 0;
-        Building.Condition = !Spec.bBuilt
-            ? ESoulBuildingCondition::Unbuilt
-            : Building.IntegrityPermille <= 0
-                ? ESoulBuildingCondition::Ruined
-                : Building.IntegrityPermille < 1000
-                    ? ESoulBuildingCondition::Damaged
-                    : ESoulBuildingCondition::Intact;
-        Settlement.Buildings.Add(Building.Id, Building);
+        UE_LOG(LogTemp, Error, TEXT("SOUL_SETTLEMENT_BOOTSTRAP_FAIL %s"), *Error);
+        return false;
     }
 
     // A map can bootstrap before or after presentation actors. Refresh all matching

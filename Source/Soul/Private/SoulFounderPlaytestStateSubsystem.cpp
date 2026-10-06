@@ -1,8 +1,13 @@
 #include "SoulFounderPlaytestStateSubsystem.h"
+#include "SoulSettlementScenarioData.h"
+#include "SoulSettlementStateSubsystem.h"
+#include "SoulTown.h"
 #include "Dom/JsonObject.h"
 #include "Engine/GameInstance.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 #include "RBSaveSubsystem.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
@@ -78,6 +83,7 @@ void USoulFounderPlaytestStateSubsystem::Initialize(FSubsystemCollectionBase& Co
     Super::Initialize(Collection);
     Collection.InitializeDependency<URBSaveSubsystem>();
     Collection.InitializeDependency<USoulCampaignBattleBridge>();
+    Collection.InitializeDependency<USoulSettlementStateSubsystem>();
     SaveSubsystem=GetGameInstance()->GetSubsystem<URBSaveSubsystem>();
     BattleBridge=GetGameInstance()->GetSubsystem<USoulCampaignBattleBridge>();
     FString Error;
@@ -235,6 +241,95 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
     LastAIReport=TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
+    if (FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
+    {
+        FString Error;
+        auto* DevelopmentScenario = LoadObject<USoulSettlementScenarioData>(nullptr,
+            TEXT("/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof"));
+        if (!InitializeSettlementDevelopment(DevelopmentScenario, GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>(), Error))
+            UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_SETTLEMENT_DEVELOPMENT_UNREADY %s"), *Error);
+    }
+}
+
+bool USoulFounderPlaytestStateSubsystem::InitializeSettlementDevelopment(
+    USoulSettlementScenarioData* Scenario, USoulSettlementStateSubsystem* Authority, FString& OutError)
+{
+    bSettlementDevelopmentRequested = true;
+    SettlementScenario = nullptr;
+    SettlementAuthority.Reset();
+    auto Reject = [&](const FString& Reason)
+    { SettlementDevelopmentError = Reason; OutError = Reason; return false; };
+    if (!bInitialized || !Scenario || !Authority || Authority->GetGameInstance() != GetGameInstance())
+        return Reject(TEXT("Settlement development requires an initialized campaign, scenario and its GameInstance settlement authority."));
+    if (!Scenario->ValidateDefinition(OutError)) return Reject(OutError);
+    if (Scenario->SettlementId != TEXT("human_capital") || Scenario->RegionId != TEXT("human_capital")
+        || Scenario->FactionId != PlayerFaction || !World.Regions.Contains(Scenario->RegionId))
+        return Reject(TEXT("The bounded development proof must bind the existing Human Capital and player faction."));
+    const auto* Tavern = Scenario->FindDevelopmentDefinition(TEXT("human.tavern"));
+    if (!Tavern || !Tavern->UnlockIds.Contains(TEXT("service.tavern_hero")))
+        return Reject(TEXT("The proof scenario requires human.tavern with its service.tavern_hero binding."));
+    if (!Authority->EnsureScenario(Scenario, OutError)) return Reject(OutError);
+    SettlementScenario = Scenario;
+    SettlementAuthority = Authority;
+    if (!ValidateSettlementDevelopmentBinding(OutError)) return Reject(OutError);
+    SettlementDevelopmentError.Reset();
+    OutError.Reset();
+    ++SettlementDevelopmentRevision;
+    return true;
+}
+
+bool USoulFounderPlaytestStateSubsystem::IsSettlementDevelopmentReady() const
+{
+    FString Error;
+    return bSettlementDevelopmentRequested && SettlementScenario && SettlementAuthority.IsValid()
+        && SettlementDevelopmentError.IsEmpty() && ValidateSettlementDevelopmentBinding(Error);
+}
+
+bool USoulFounderPlaytestStateSubsystem::ValidateSettlementDevelopmentBinding(FString& OutError) const
+{
+    const auto* Settlement = SettlementScenario && SettlementAuthority.IsValid()
+        ? SettlementAuthority->FindSettlement(SettlementScenario->SettlementId) : nullptr;
+    const auto* Region = SettlementScenario ? World.Regions.Find(SettlementScenario->RegionId) : nullptr;
+    if (!Settlement || !Region || Settlement->RegionId != SettlementScenario->RegionId
+        || Settlement->FactionId != SettlementScenario->FactionId || Settlement->FactionId != PlayerFaction
+        || Region->OwnerFactionId != PlayerFaction)
+    {
+        OutError = TEXT("Saved settlement region or ownership differs from the proof binding; saved state was preserved.");
+        return false;
+    }
+    OutError.Reset();
+    return true;
+}
+
+bool USoulFounderPlaytestStateSubsystem::BeginSettlementConstruction(FName BuildingId, FString& OutError)
+{
+    if (!IsSettlementDevelopmentReady())
+    { OutError = TEXT("Settlement development is unavailable; the proof scenario must load successfully."); return false; }
+    const auto* Region = World.Regions.Find(SettlementScenario->RegionId);
+    auto* Settlement = SettlementAuthority->FindSettlement(SettlementScenario->SettlementId);
+    const auto* Definition = SettlementScenario->FindDevelopmentDefinition(BuildingId);
+    if (HasPendingBattle() || bPersistenceBusy || PlayerRegion != SettlementScenario->RegionId
+        || !Region || Region->OwnerFactionId != PlayerFaction || !Settlement
+        || Settlement->FactionId != PlayerFaction || Settlement->RegionId != PlayerRegion || !Definition)
+    { OutError = TEXT("Construction requires the owned current settlement, a defined building and no active battle or save operation."); return false; }
+    if (!FSoulTownRules::BeginConstruction(Economy, *Settlement, Definition->ToDefinition()))
+    { OutError = TEXT("Construction prerequisites, resources or building level do not permit this upgrade."); return false; }
+    ++SettlementDevelopmentRevision;
+    OutError.Reset();
+    return true;
+}
+
+bool USoulFounderPlaytestStateSubsystem::IsTavernOperational() const
+{
+    if (!bSettlementDevelopmentRequested) return true; // Existing founder behavior outside the explicit proof.
+    if (!IsSettlementDevelopmentReady()) return false;
+    const auto* Definition = SettlementScenario->FindDevelopmentDefinition(TEXT("human.tavern"));
+    const auto* Settlement = SettlementAuthority->FindSettlement(SettlementScenario->SettlementId);
+    const auto* Region = World.Regions.Find(SettlementScenario->RegionId);
+    return Definition && Definition->UnlockIds.Contains(TEXT("service.tavern_hero")) && Settlement
+        && Region && Region->OwnerFactionId == PlayerFaction && Settlement->FactionId == PlayerFaction
+        && Settlement->RegionId == SettlementScenario->RegionId
+        && FSoulSettlementRules::IsOperational(*Settlement, Definition->BuildingId);
 }
 bool USoulFounderPlaytestStateSubsystem::IsHostile(FName RegionId) const
 {
@@ -320,7 +415,19 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
 void USoulFounderPlaytestStateSubsystem::HandleBattleResolved(const FSoulCampaignBattleResult& R)
 {if(ApplyBattleResult(R)) SaveCampaign();else UE_LOG(LogSoulCampaign,Error,TEXT("Rejected campaign result"));}
 void USoulFounderPlaytestStateSubsystem::AdvanceDay()
-{InitializeScenario();if(HasPendingBattle()||bPersistenceBusy)return;FSoulCampaignRules::AdvanceDay(Economy);Hero.Mana=FMath::Min(Hero.MaxMana,Hero.Mana+6);AdvanceEnemyAI();}
+{
+    InitializeScenario();if(HasPendingBattle()||bPersistenceBusy)return;
+    FSoulSettlementState* Settlement = nullptr;
+    if (bSettlementDevelopmentRequested)
+    {
+        if (!IsSettlementDevelopmentReady()) return;
+        Settlement = SettlementAuthority->FindSettlement(SettlementScenario->SettlementId);
+        if (!Settlement) return;
+    }
+    FSoulCampaignRules::AdvanceDay(Economy);
+    if (Settlement) { FSoulSettlementRules::AdvanceDay(*Settlement); ++SettlementDevelopmentRevision; }
+    Hero.Mana=FMath::Min(Hero.MaxMana,Hero.Mana+6);AdvanceEnemyAI();
+}
 void USoulFounderPlaytestStateSubsystem::AdvanceEnemyAI()
 {LastAIReport=TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
 bool USoulFounderPlaytestStateSubsystem::Recruit(FName Id)
@@ -333,7 +440,7 @@ bool USoulFounderPlaytestStateSubsystem::ChooseSkill(FName Id)
 }
 bool USoulFounderPlaytestStateSubsystem::HireTavernHero()
 {
-    if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||bSecondHeroHired||Economy.Resources.FindRef(TEXT("gold"))<1200)return false;
+    if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||!IsTavernOperational()||bSecondHeroHired||Economy.Resources.FindRef(TEXT("gold"))<1200)return false;
     Economy.Resources.FindOrAdd(TEXT("gold"))-=1200;bSecondHeroHired=true;return true;
 }
 FString USoulFounderPlaytestStateSubsystem::BuildSummary() const
@@ -487,6 +594,14 @@ void USoulFounderPlaytestStateSubsystem::OnCampaignSaved(const FRBSaveOperationR
 void USoulFounderPlaytestStateSubsystem::OnCampaignLoaded(const FRBSaveOperationResult& R)
 {
     if(R.bSuccess)++CampaignLoadRevision;
+    if (R.bSuccess && bSettlementDevelopmentRequested && SettlementScenario && SettlementAuthority.IsValid())
+    {
+        // Old saves may have no settlement entry. Seed only that absence; never overwrite saved progress.
+        if (!SettlementAuthority->EnsureScenario(SettlementScenario, SettlementDevelopmentError)
+            || !ValidateSettlementDevelopmentBinding(SettlementDevelopmentError))
+            UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_SETTLEMENT_DEVELOPMENT_UNREADY %s"), *SettlementDevelopmentError);
+        ++SettlementDevelopmentRevision;
+    }
     bPersistenceBusy=false;bLastLoadSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?TEXT("Campaign reloaded with RB Save."):R.Message;
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_LOAD success=%d region=%s knights=%d xp=%d"),R.bSuccess,*PlayerRegion.ToString(),PlayerArmy.FindRef(PlayerUnitId),Hero.Experience);
 }

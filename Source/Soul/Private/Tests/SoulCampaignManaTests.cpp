@@ -1,5 +1,6 @@
 #include "Misc/AutomationTest.h"
 #include "Engine/GameInstance.h"
+#include "UObject/Package.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"

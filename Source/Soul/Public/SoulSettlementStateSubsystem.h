@@ -32,6 +32,9 @@ public:
     FSoulSettlementState* FindSettlement(FName SettlementId);
     const FSoulSettlementState* FindSettlement(FName SettlementId) const;
 
+    bool EnsureScenario(const class USoulSettlementScenarioData* Scenario, FString& OutError,
+        bool bOnlyCreateIfMissing = true);
+
     bool ApplySiegeAftermath(
         FName SettlementId,
         const FSoulSiegeAftermath& Aftermath);

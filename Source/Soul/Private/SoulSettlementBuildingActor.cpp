@@ -93,9 +93,15 @@ void ASoulSettlementBuildingActor::ApplyConditionName(FName ConditionName)
 
 void ASoulSettlementBuildingActor::ApplyIntegrity(int32 IntegrityPermille, bool bBuilt, bool bConstructing)
 {
+    // Construction is authoritative even when an upgrade retains its old integrity.
+    if (bConstructing)
+    {
+        ShowOnly(ConstructionRoot);
+        return;
+    }
     if (!bBuilt)
     {
-        ShowOnly(bConstructing ? ConstructionRoot : nullptr);
+        ShowOnly(nullptr);
         return;
     }
 

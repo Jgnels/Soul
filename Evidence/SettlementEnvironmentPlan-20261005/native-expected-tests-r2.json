@@ -1,0 +1,579 @@
+{
+  "captured_utc": "2026-10-06T04:01:51.055089+00:00",
+  "status": "EXPECTED_SOURCE_SET_ONLY_NOT_EXECUTION_RESULT",
+  "requested_filters": [
+    "Soul.Core",
+    "Soul.Integration.Vertical",
+    "Soul.Integration.Settlement",
+    "Soul.Integration.Save.SettlementDomainRoundTrip"
+  ],
+  "expected_count": 51,
+  "counts_by_group": {
+    "Soul.Core": 28,
+    "Soul.Integration.Vertical": 18,
+    "Soul.Integration.Settlement": 4,
+    "Soul.Integration.Save.SettlementDomainRoundTrip": 1
+  },
+  "expected_names": [
+    "Soul.Core.AI.MemoryChangesChoice",
+    "Soul.Core.Battlefield.StrategicContextSelectsMap",
+    "Soul.Core.Campaign.ActionEconomyGrowth",
+    "Soul.Core.Campaign.Logistics",
+    "Soul.Core.Combat.DeterministicDamage",
+    "Soul.Core.Combat.InitiativeWait",
+    "Soul.Core.Combat.RetaliationOnce",
+    "Soul.Core.Combat.RetreatConsequences",
+    "Soul.Core.Faction.SevenUnitContract",
+    "Soul.Core.Hero.ProgressionAndMagic",
+    "Soul.Core.HeroRecruitment.CandidatesCanDepart",
+    "Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring",
+    "Soul.Core.Hex.LineOfSight",
+    "Soul.Core.Hex.MultiHexFootprint",
+    "Soul.Core.Hex.Pathfinding",
+    "Soul.Core.Magic.HexArea",
+    "Soul.Core.Memory.CommanderOnlyContext",
+    "Soul.Core.Objectives.ControlAndSurvival",
+    "Soul.Core.Regiment.Veterancy",
+    "Soul.Core.Settlement.PersistentDamageProjection",
+    "Soul.Core.Settlement.Prerequisites",
+    "Soul.Core.Siege.AnnexesPersistentSettlementDamage",
+    "Soul.Core.Siege.PreparedLayeredDefense",
+    "Soul.Core.Terrain.TacticalModifiers",
+    "Soul.Core.Town.ConstructionCostAtomic",
+    "Soul.Core.Town.RecruitmentRequiresBuilding",
+    "Soul.Core.Town.RuinedBuildingRequiresRepair",
+    "Soul.Core.World.GeographyDrivesBattle",
+    "Soul.Integration.Save.SettlementDomainRoundTrip",
+    "Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService",
+    "Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity",
+    "Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData",
+    "Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary",
+    "Soul.Integration.Vertical.BattlefieldSelectionUsesDestinationGeography",
+    "Soul.Integration.Vertical.BridgeRejectsPrematureVictory",
+    "Soul.Integration.Vertical.ContinuedVictoryAfterReload",
+    "Soul.Integration.Vertical.DefeatConsequence",
+    "Soul.Integration.Vertical.DefeatRecruitmentAfterReload",
+    "Soul.Integration.Vertical.EncounterContract",
+    "Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership",
+    "Soul.Integration.Vertical.ManaPersistsAcrossBattleReloadAndDay",
+    "Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation",
+    "Soul.Integration.Vertical.RBSaveDomainRoundTrip",
+    "Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains",
+    "Soul.Integration.Vertical.RBSaveScopedDomains",
+    "Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation",
+    "Soul.Integration.Vertical.ResourceReceiptMigrationAndAtomicRejection",
+    "Soul.Integration.Vertical.ResultTelemetryRejectedBeforeMutation",
+    "Soul.Integration.Vertical.SupportedMatchupContract",
+    "Soul.Integration.Vertical.ThreeEncountersAcrossReloads",
+    "Soul.Integration.Vertical.VictoryCorrectTarget"
+  ],
+  "tests": [
+    {
+      "name": "Soul.Core.AI.MemoryChangesChoice",
+      "group": "Soul.Core",
+      "test_class": "FSoulStrategyAITest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 174,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Battlefield.StrategicContextSelectsMap",
+      "group": "Soul.Core",
+      "test_class": "FSoulBattlefieldRecipeTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 260,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Campaign.ActionEconomyGrowth",
+      "group": "Soul.Core",
+      "test_class": "FSoulCampaignTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 212,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Campaign.Logistics",
+      "group": "Soul.Core",
+      "test_class": "FSoulLogisticsTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 347,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Combat.DeterministicDamage",
+      "group": "Soul.Core",
+      "test_class": "FSoulDamageDeterminismTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 119,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Combat.InitiativeWait",
+      "group": "Soul.Core",
+      "test_class": "FSoulInitiativeTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 85,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Combat.RetaliationOnce",
+      "group": "Soul.Core",
+      "test_class": "FSoulRetaliationTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 105,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Combat.RetreatConsequences",
+      "group": "Soul.Core",
+      "test_class": "FSoulRetreatTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 509,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Faction.SevenUnitContract",
+      "group": "Soul.Core",
+      "test_class": "FSoulFactionContractTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 538,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Hero.ProgressionAndMagic",
+      "group": "Soul.Core",
+      "test_class": "FSoulHeroProgressionTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 452,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.HeroRecruitment.CandidatesCanDepart",
+      "group": "Soul.Core",
+      "test_class": "FSoulHeroRecruitmentExpiryTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulHeroRecruitmentTests.cpp",
+      "line": 77,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring",
+      "group": "Soul.Core",
+      "test_class": "FSoulHeroRecruitmentVenueTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulHeroRecruitmentTests.cpp",
+      "line": 6,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Hex.LineOfSight",
+      "group": "Soul.Core",
+      "test_class": "FSoulLineOfSightTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 307,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Hex.MultiHexFootprint",
+      "group": "Soul.Core",
+      "test_class": "FSoulHexFootprintTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 72,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Hex.Pathfinding",
+      "group": "Soul.Core",
+      "test_class": "FSoulHexPathTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 58,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Magic.HexArea",
+      "group": "Soul.Core",
+      "test_class": "FSoulMagicTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 284,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Memory.CommanderOnlyContext",
+      "group": "Soul.Core",
+      "test_class": "FSoulCommanderMemoryTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 160,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Objectives.ControlAndSurvival",
+      "group": "Soul.Core",
+      "test_class": "FSoulObjectiveTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 479,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Regiment.Veterancy",
+      "group": "Soul.Core",
+      "test_class": "FSoulVeterancyTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 141,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Settlement.PersistentDamageProjection",
+      "group": "Soul.Core",
+      "test_class": "FSoulSettlementPersistenceTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 400,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Settlement.Prerequisites",
+      "group": "Soul.Core",
+      "test_class": "FSoulSettlementPrerequisiteTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 433,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Siege.AnnexesPersistentSettlementDamage",
+      "group": "Soul.Core",
+      "test_class": "FSoulSiegeAftermathTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 584,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Siege.PreparedLayeredDefense",
+      "group": "Soul.Core",
+      "test_class": "FSoulSiegeTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 239,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Terrain.TacticalModifiers",
+      "group": "Soul.Core",
+      "test_class": "FSoulTerrainTacticsTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 317,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Town.ConstructionCostAtomic",
+      "group": "Soul.Core",
+      "test_class": "FSoulTownConstructionCostTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 616,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Town.RecruitmentRequiresBuilding",
+      "group": "Soul.Core",
+      "test_class": "FSoulTownRecruitmentBuildingTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 665,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.Town.RuinedBuildingRequiresRepair",
+      "group": "Soul.Core",
+      "test_class": "FSoulRuinedBuildingRepairBoundaryTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 635,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Core.World.GeographyDrivesBattle",
+      "group": "Soul.Core",
+      "test_class": "FSoulWorldTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "line": 363,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Save.SettlementDomainRoundTrip",
+      "group": "Soul.Integration.Save.SettlementDomainRoundTrip",
+      "test_class": "FSoulSettlementDomainRoundTripTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulSettlementSaveTests.cpp",
+      "line": 8,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService",
+      "group": "Soul.Integration.Settlement",
+      "test_class": "FSoulDevelopmentCommandTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "line": 70,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity",
+      "group": "Soul.Integration.Settlement",
+      "test_class": "FSoulSettlementConstructionPresentationTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp",
+      "line": 8,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData",
+      "group": "Soul.Integration.Settlement",
+      "test_class": "FSoulDevelopmentDefinitionValidationTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "line": 37,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary",
+      "group": "Soul.Integration.Settlement",
+      "test_class": "FSoulDevelopmentSaveBattleTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "line": 136,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.BattlefieldSelectionUsesDestinationGeography",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulPlayableBattlefieldSelectionTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulBattlefieldSelectionTests.cpp",
+      "line": 7,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.BridgeRejectsPrematureVictory",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalBridgeTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 111,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ContinuedVictoryAfterReload",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalContinuedVictoryTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 390,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.DefeatConsequence",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalDefeatTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 93,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.DefeatRecruitmentAfterReload",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalDefeatRecoveryTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 427,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.EncounterContract",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalEncounterTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 32,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalLegacyOwnershipTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 522,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ManaPersistsAcrossBattleReloadAndDay",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulCampaignManaContinuationTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulCampaignManaTests.cpp",
+      "line": 11,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalMutualExhaustionTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 594,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RBSaveDomainRoundTrip",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalSaveTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 138,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalLoadRecoveryTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 311,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RBSaveScopedDomains",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalScopedSaveTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 219,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalCheckpointValidationTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 546,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ResourceReceiptMigrationAndAtomicRejection",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulCampaignResourceReceiptTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulCampaignManaTests.cpp",
+      "line": 50,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ResultTelemetryRejectedBeforeMutation",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulResultTelemetryValidationTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulBattleResultValidationTests.cpp",
+      "line": 8,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.SupportedMatchupContract",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalSupportedMatchupTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 168,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.ThreeEncountersAcrossReloads",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalThreeEncountersTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 471,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    },
+    {
+      "name": "Soul.Integration.Vertical.VictoryCorrectTarget",
+      "group": "Soul.Integration.Vertical",
+      "test_class": "FSoulVerticalVictoryTargetsTest",
+      "macro": "IMPLEMENT_SIMPLE_AUTOMATION_TEST",
+      "source": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "line": 65,
+      "flags": "EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter"
+    }
+  ],
+  "source_sha256": {
+    "Source/Soul/Private/Tests/SoulBattlefieldSelectionTests.cpp": "c1a629f270a5d3c3c7c4d326a6af8db9c6dea6fe6858461a250d18e1d7c8bd6d",
+    "Source/Soul/Private/Tests/SoulBattleResultValidationTests.cpp": "27e0e9838e892fb78c93742c6d03ba52b38c7f596b607173a41e1b2c3c9ccf6b",
+    "Source/Soul/Private/Tests/SoulCampaignManaTests.cpp": "0eeca49a83770595591f521c713bf2e84543b3eafb8fb468db171ac0f2f60f06",
+    "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp": "4a39a441a2afd4f037a1e190bb9ab16b452879e2e5e04387753557f111a2e741",
+    "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp": "3d0d146224d5b477563918c131d54514cc907b3c3b55de23a280e8068a243906",
+    "Source/Soul/Private/Tests/SoulSettlementSaveTests.cpp": "3bc65042471a0c38d0df7c63340660cc6ce5459e5a3199c2c0143da212972d0b",
+    "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp": "f6d746535284ed9f1b4e72850b7a6375ac1cd2a46f25359ad464b65367b6038b",
+    "Source/SoulCore/Private/Tests/SoulHeroRecruitmentTests.cpp": "6ea7a612b299649dbb687921601fd5b9120db4fa93d920c84e01eeab0cc4953d",
+    "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp": "5494912953d4dbd7b5b2beac8a583bae4fed8e788ac7f8974989e23f56f4bfda"
+  },
+  "source_scan_validation": {
+    "unique_names": true,
+    "all_selected_name_literals_resolve_to_simple_automation_macros": true,
+    "all_editor_context_engine_filter": true
+  },
+  "later_native_log_acceptance": {
+    "required": "Each expected full path must appear in a completed native automation result with Success. Expected and successful-completed name sets must match for these filters.",
+    "never_count_as_success": [
+      "queued",
+      "requested",
+      "discovered",
+      "started",
+      "source declaration",
+      "summary count without exact completed result names"
+    ],
+    "reject_or_report": [
+      "missing expected completed results",
+      "completed Fail/Skipped/NotRun results",
+      "duplicate completion paths unless separate runs are explicitly identified",
+      "source hash changes since this expected-set receipt",
+      "crash/aborted run before completion"
+    ],
+    "scope": "Native tests are functional evidence only; no authored environment, miniature, battle environment or visual acceptance."
+  },
+  "attempt": "editor-development-r2",
+  "r1_name_set_unchanged": true,
+  "preserved_prior_manifests": {
+    "native-expected-tests.json": "ca6b3b0caa15994d98edc200492fa555e9afcf715e5349b7a7637937e5e66d3f",
+    "native-expected-tests-r1.json": "ca6b3b0caa15994d98edc200492fa555e9afcf715e5349b7a7637937e5e66d3f"
+  },
+  "source_changes_from_r1": [
+    {
+      "source": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "r1_sha256": "514eb27b088b93dbe798b765b086b913dde58429b0b64bca96f66e12a82cc0a1",
+      "r2_sha256": "4a39a441a2afd4f037a1e190bb9ab16b452879e2e5e04387753557f111a2e741"
+    }
+  ]
+}

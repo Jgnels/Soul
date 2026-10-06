@@ -1,6 +1,7 @@
 #include "Misc/AutomationTest.h"
 #include "SoulSettlementStateSubsystem.h"
 #include "Engine/GameInstance.h"
+#include "UObject/Package.h"
 
 #if WITH_DEV_AUTOMATION_TESTS
 

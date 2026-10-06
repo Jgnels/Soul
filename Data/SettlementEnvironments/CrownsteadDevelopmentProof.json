@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "status": "explicit opt-in development proof; complete environment source recovery pending",
+  "asset_path": "/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof",
+  "settlement_id": "human_capital",
+  "world_settlement_slot": "city.human_capital",
+  "region_id": "human_capital",
+  "faction_id": "humans",
+  "environment_listing": "https://www.fab.com/listings/42d4a792-2b66-423d-9b20-84d6b2c578d8",
+  "source_environment": "/Game/CastleTown/Levels/Persistant/PL_CastleTown",
+  "owned_environment_map": null,
+  "physical_groups_status": "not selected; incomplete donor must not become a substitute city",
+  "fortification_level": 1,
+  "wall_integrity_permille": 1000,
+  "buildings": [
+    {"building_id": "human.keep", "level": 1, "integrity_permille": 1000, "built": true},
+    {"building_id": "human.walls", "level": 1, "integrity_permille": 1000, "built": true},
+    {"building_id": "human.market", "level": 1, "integrity_permille": 1000, "built": true},
+    {"building_id": "human.barracks", "level": 1, "integrity_permille": 1000, "built": true},
+    {"building_id": "human.tavern", "level": 0, "integrity_permille": 0, "built": false}
+  ],
+  "development_definitions": [
+    {
+      "building_id": "human.tavern",
+      "category": "civic",
+      "max_level": 1,
+      "build_days": 2,
+      "build_cost": {"gold": 200},
+      "prerequisites": ["human.keep"],
+      "unlock_ids": ["service.tavern_hero"],
+      "balance_status": "provisional proof values; existing hire price remains 1200 gold",
+      "environment_actor_group": null,
+      "campaign_miniature_group": null
+    }
+  ]
+}

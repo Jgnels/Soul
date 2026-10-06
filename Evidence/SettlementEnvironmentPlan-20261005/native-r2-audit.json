@@ -1,0 +1,438 @@
+{
+  "captured_utc": "2026-10-06T04:04:01.576372+00:00",
+  "attempt": "editor-development-r2",
+  "status": "PASS",
+  "scope": "Native functional tests only; not runtime controls or authored environment/miniature/battle-environment visual acceptance.",
+  "log": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\SettlementEnvironmentPlan-20261005\\Local\\editor-development-r2\\unreal.log",
+  "log_snapshot_bytes": 351424,
+  "log_snapshot_sha256": "d16eea7487beddd99802abcfceb3f6bee7beda49856c4f1983b629c1b556b9f7",
+  "log_hash_scope": "Exact bytes0..log_snapshot_bytes captured at audit time; the still-open editor may append unrelated later lines.",
+  "expected_manifest": "native-expected-tests-r2.json",
+  "expected_manifest_sha256": "8f9f53207c615bb1410dd420b381e17cd9024d982009ce7fc31955d5c07e429d",
+  "counts": {
+    "expected": 51,
+    "completed": 51,
+    "completed_success": 51,
+    "failed_completed": 0,
+    "missing_success": 0,
+    "duplicate_completion_paths": 0,
+    "unexpected_completion_paths": 0,
+    "queue_empty_markers": 1
+  },
+  "counts_by_group": {
+    "Soul.Core": {
+      "expected": 28,
+      "completed_success": 28
+    },
+    "Soul.Integration.Vertical": {
+      "expected": 18,
+      "completed_success": 18
+    },
+    "Soul.Integration.Settlement": {
+      "expected": 4,
+      "completed_success": 4
+    },
+    "Soul.Integration.Save.SettlementDomainRoundTrip": {
+      "expected": 1,
+      "completed_success": 1
+    }
+  },
+  "completed_results": [
+    {
+      "result": "Success",
+      "short_name": "MemoryChangesChoice",
+      "path": "Soul.Core.AI.MemoryChangesChoice",
+      "line": 2087,
+      "log_line": "[2026.10.06-04.02.03:841][882]LogAutomationController: Display: Test Completed. Result={Success} Name={MemoryChangesChoice} Path={Soul.Core.AI.MemoryChangesChoice}"
+    },
+    {
+      "result": "Success",
+      "short_name": "StrategicContextSelectsMap",
+      "path": "Soul.Core.Battlefield.StrategicContextSelectsMap",
+      "line": 2093,
+      "log_line": "[2026.10.06-04.02.03:990][885]LogAutomationController: Display: Test Completed. Result={Success} Name={StrategicContextSelectsMap} Path={Soul.Core.Battlefield.StrategicContextSelectsMap}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ActionEconomyGrowth",
+      "path": "Soul.Core.Campaign.ActionEconomyGrowth",
+      "line": 2099,
+      "log_line": "[2026.10.06-04.02.04:137][888]LogAutomationController: Display: Test Completed. Result={Success} Name={ActionEconomyGrowth} Path={Soul.Core.Campaign.ActionEconomyGrowth}"
+    },
+    {
+      "result": "Success",
+      "short_name": "Logistics",
+      "path": "Soul.Core.Campaign.Logistics",
+      "line": 2105,
+      "log_line": "[2026.10.06-04.02.04:240][890]LogAutomationController: Display: Test Completed. Result={Success} Name={Logistics} Path={Soul.Core.Campaign.Logistics}"
+    },
+    {
+      "result": "Success",
+      "short_name": "DeterministicDamage",
+      "path": "Soul.Core.Combat.DeterministicDamage",
+      "line": 2111,
+      "log_line": "[2026.10.06-04.02.04:342][892]LogAutomationController: Display: Test Completed. Result={Success} Name={DeterministicDamage} Path={Soul.Core.Combat.DeterministicDamage}"
+    },
+    {
+      "result": "Success",
+      "short_name": "InitiativeWait",
+      "path": "Soul.Core.Combat.InitiativeWait",
+      "line": 2117,
+      "log_line": "[2026.10.06-04.02.04:441][894]LogAutomationController: Display: Test Completed. Result={Success} Name={InitiativeWait} Path={Soul.Core.Combat.InitiativeWait}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RetaliationOnce",
+      "path": "Soul.Core.Combat.RetaliationOnce",
+      "line": 2123,
+      "log_line": "[2026.10.06-04.02.04:590][897]LogAutomationController: Display: Test Completed. Result={Success} Name={RetaliationOnce} Path={Soul.Core.Combat.RetaliationOnce}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RetreatConsequences",
+      "path": "Soul.Core.Combat.RetreatConsequences",
+      "line": 2129,
+      "log_line": "[2026.10.06-04.02.04:690][899]LogAutomationController: Display: Test Completed. Result={Success} Name={RetreatConsequences} Path={Soul.Core.Combat.RetreatConsequences}"
+    },
+    {
+      "result": "Success",
+      "short_name": "SevenUnitContract",
+      "path": "Soul.Core.Faction.SevenUnitContract",
+      "line": 2135,
+      "log_line": "[2026.10.06-04.02.04:836][902]LogAutomationController: Display: Test Completed. Result={Success} Name={SevenUnitContract} Path={Soul.Core.Faction.SevenUnitContract}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ProgressionAndMagic",
+      "path": "Soul.Core.Hero.ProgressionAndMagic",
+      "line": 2141,
+      "log_line": "[2026.10.06-04.02.04:941][904]LogAutomationController: Display: Test Completed. Result={Success} Name={ProgressionAndMagic} Path={Soul.Core.Hero.ProgressionAndMagic}"
+    },
+    {
+      "result": "Success",
+      "short_name": "CandidatesCanDepart",
+      "path": "Soul.Core.HeroRecruitment.CandidatesCanDepart",
+      "line": 2147,
+      "log_line": "[2026.10.06-04.02.05:042][906]LogAutomationController: Display: Test Completed. Result={Success} Name={CandidatesCanDepart} Path={Soul.Core.HeroRecruitment.CandidatesCanDepart}"
+    },
+    {
+      "result": "Success",
+      "short_name": "PhysicalVenueGatesHiring",
+      "path": "Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring",
+      "line": 2153,
+      "log_line": "[2026.10.06-04.02.05:141][908]LogAutomationController: Display: Test Completed. Result={Success} Name={PhysicalVenueGatesHiring} Path={Soul.Core.HeroRecruitment.PhysicalVenueGatesHiring}"
+    },
+    {
+      "result": "Success",
+      "short_name": "LineOfSight",
+      "path": "Soul.Core.Hex.LineOfSight",
+      "line": 2159,
+      "log_line": "[2026.10.06-04.02.05:241][910]LogAutomationController: Display: Test Completed. Result={Success} Name={LineOfSight} Path={Soul.Core.Hex.LineOfSight}"
+    },
+    {
+      "result": "Success",
+      "short_name": "MultiHexFootprint",
+      "path": "Soul.Core.Hex.MultiHexFootprint",
+      "line": 2165,
+      "log_line": "[2026.10.06-04.02.05:390][913]LogAutomationController: Display: Test Completed. Result={Success} Name={MultiHexFootprint} Path={Soul.Core.Hex.MultiHexFootprint}"
+    },
+    {
+      "result": "Success",
+      "short_name": "Pathfinding",
+      "path": "Soul.Core.Hex.Pathfinding",
+      "line": 2171,
+      "log_line": "[2026.10.06-04.02.05:491][915]LogAutomationController: Display: Test Completed. Result={Success} Name={Pathfinding} Path={Soul.Core.Hex.Pathfinding}"
+    },
+    {
+      "result": "Success",
+      "short_name": "HexArea",
+      "path": "Soul.Core.Magic.HexArea",
+      "line": 2177,
+      "log_line": "[2026.10.06-04.02.05:590][917]LogAutomationController: Display: Test Completed. Result={Success} Name={HexArea} Path={Soul.Core.Magic.HexArea}"
+    },
+    {
+      "result": "Success",
+      "short_name": "CommanderOnlyContext",
+      "path": "Soul.Core.Memory.CommanderOnlyContext",
+      "line": 2183,
+      "log_line": "[2026.10.06-04.02.05:737][920]LogAutomationController: Display: Test Completed. Result={Success} Name={CommanderOnlyContext} Path={Soul.Core.Memory.CommanderOnlyContext}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ControlAndSurvival",
+      "path": "Soul.Core.Objectives.ControlAndSurvival",
+      "line": 2189,
+      "log_line": "[2026.10.06-04.02.05:840][922]LogAutomationController: Display: Test Completed. Result={Success} Name={ControlAndSurvival} Path={Soul.Core.Objectives.ControlAndSurvival}"
+    },
+    {
+      "result": "Success",
+      "short_name": "Veterancy",
+      "path": "Soul.Core.Regiment.Veterancy",
+      "line": 2195,
+      "log_line": "[2026.10.06-04.02.05:992][925]LogAutomationController: Display: Test Completed. Result={Success} Name={Veterancy} Path={Soul.Core.Regiment.Veterancy}"
+    },
+    {
+      "result": "Success",
+      "short_name": "PersistentDamageProjection",
+      "path": "Soul.Core.Settlement.PersistentDamageProjection",
+      "line": 2201,
+      "log_line": "[2026.10.06-04.02.06:140][928]LogAutomationController: Display: Test Completed. Result={Success} Name={PersistentDamageProjection} Path={Soul.Core.Settlement.PersistentDamageProjection}"
+    },
+    {
+      "result": "Success",
+      "short_name": "Prerequisites",
+      "path": "Soul.Core.Settlement.Prerequisites",
+      "line": 2207,
+      "log_line": "[2026.10.06-04.02.06:241][930]LogAutomationController: Display: Test Completed. Result={Success} Name={Prerequisites} Path={Soul.Core.Settlement.Prerequisites}"
+    },
+    {
+      "result": "Success",
+      "short_name": "AnnexesPersistentSettlementDamage",
+      "path": "Soul.Core.Siege.AnnexesPersistentSettlementDamage",
+      "line": 2213,
+      "log_line": "[2026.10.06-04.02.06:341][932]LogAutomationController: Display: Test Completed. Result={Success} Name={AnnexesPersistentSettlementDamage} Path={Soul.Core.Siege.AnnexesPersistentSettlementDamage}"
+    },
+    {
+      "result": "Success",
+      "short_name": "PreparedLayeredDefense",
+      "path": "Soul.Core.Siege.PreparedLayeredDefense",
+      "line": 2219,
+      "log_line": "[2026.10.06-04.02.06:490][935]LogAutomationController: Display: Test Completed. Result={Success} Name={PreparedLayeredDefense} Path={Soul.Core.Siege.PreparedLayeredDefense}"
+    },
+    {
+      "result": "Success",
+      "short_name": "TacticalModifiers",
+      "path": "Soul.Core.Terrain.TacticalModifiers",
+      "line": 2225,
+      "log_line": "[2026.10.06-04.02.06:637][938]LogAutomationController: Display: Test Completed. Result={Success} Name={TacticalModifiers} Path={Soul.Core.Terrain.TacticalModifiers}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ConstructionCostAtomic",
+      "path": "Soul.Core.Town.ConstructionCostAtomic",
+      "line": 2231,
+      "log_line": "[2026.10.06-04.02.06:743][940]LogAutomationController: Display: Test Completed. Result={Success} Name={ConstructionCostAtomic} Path={Soul.Core.Town.ConstructionCostAtomic}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RecruitmentRequiresBuilding",
+      "path": "Soul.Core.Town.RecruitmentRequiresBuilding",
+      "line": 2237,
+      "log_line": "[2026.10.06-04.02.06:841][942]LogAutomationController: Display: Test Completed. Result={Success} Name={RecruitmentRequiresBuilding} Path={Soul.Core.Town.RecruitmentRequiresBuilding}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RuinedBuildingRequiresRepair",
+      "path": "Soul.Core.Town.RuinedBuildingRequiresRepair",
+      "line": 2243,
+      "log_line": "[2026.10.06-04.02.06:987][945]LogAutomationController: Display: Test Completed. Result={Success} Name={RuinedBuildingRequiresRepair} Path={Soul.Core.Town.RuinedBuildingRequiresRepair}"
+    },
+    {
+      "result": "Success",
+      "short_name": "GeographyDrivesBattle",
+      "path": "Soul.Core.World.GeographyDrivesBattle",
+      "line": 2249,
+      "log_line": "[2026.10.06-04.02.07:091][947]LogAutomationController: Display: Test Completed. Result={Success} Name={GeographyDrivesBattle} Path={Soul.Core.World.GeographyDrivesBattle}"
+    },
+    {
+      "result": "Success",
+      "short_name": "SettlementDomainRoundTrip",
+      "path": "Soul.Integration.Save.SettlementDomainRoundTrip",
+      "line": 2255,
+      "log_line": "[2026.10.06-04.02.07:190][949]LogAutomationController: Display: Test Completed. Result={Success} Name={SettlementDomainRoundTrip} Path={Soul.Integration.Save.SettlementDomainRoundTrip}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ConstructionGatesCostsDaysAndExistingService",
+      "path": "Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService",
+      "line": 2261,
+      "log_line": "[2026.10.06-04.02.07:388][952]LogAutomationController: Display: Test Completed. Result={Success} Name={ConstructionGatesCostsDaysAndExistingService} Path={Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ConstructionPresentationPrecedesIntegrity",
+      "path": "Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity",
+      "line": 2270,
+      "log_line": "[2026.10.06-04.02.07:498][954]LogAutomationController: Display: Test Completed. Result={Success} Name={ConstructionPresentationPrecedesIntegrity} Path={Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity}"
+    },
+    {
+      "result": "Success",
+      "short_name": "DevelopmentDefinitionsRejectInvalidData",
+      "path": "Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData",
+      "line": 2276,
+      "log_line": "[2026.10.06-04.02.07:638][957]LogAutomationController: Display: Test Completed. Result={Success} Name={DevelopmentDefinitionsRejectInvalidData} Path={Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData}"
+    },
+    {
+      "result": "Success",
+      "short_name": "DevelopmentSurvivesScopedSaveAndBattleBoundary",
+      "path": "Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary",
+      "line": 2291,
+      "log_line": "[2026.10.06-04.02.07:743][959]LogAutomationController: Display: Test Completed. Result={Success} Name={DevelopmentSurvivesScopedSaveAndBattleBoundary} Path={Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary}"
+    },
+    {
+      "result": "Success",
+      "short_name": "BattlefieldSelectionUsesDestinationGeography",
+      "path": "Soul.Integration.Vertical.BattlefieldSelectionUsesDestinationGeography",
+      "line": 2298,
+      "log_line": "[2026.10.06-04.02.07:892][962]LogAutomationController: Display: Test Completed. Result={Success} Name={BattlefieldSelectionUsesDestinationGeography} Path={Soul.Integration.Vertical.BattlefieldSelectionUsesDestinationGeography}"
+    },
+    {
+      "result": "Success",
+      "short_name": "BridgeRejectsPrematureVictory",
+      "path": "Soul.Integration.Vertical.BridgeRejectsPrematureVictory",
+      "line": 2304,
+      "log_line": "[2026.10.06-04.02.07:993][964]LogAutomationController: Display: Test Completed. Result={Success} Name={BridgeRejectsPrematureVictory} Path={Soul.Integration.Vertical.BridgeRejectsPrematureVictory}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ContinuedVictoryAfterReload",
+      "path": "Soul.Integration.Vertical.ContinuedVictoryAfterReload",
+      "line": 2316,
+      "log_line": "[2026.10.06-04.02.08:138][967]LogAutomationController: Display: Test Completed. Result={Success} Name={ContinuedVictoryAfterReload} Path={Soul.Integration.Vertical.ContinuedVictoryAfterReload}"
+    },
+    {
+      "result": "Success",
+      "short_name": "DefeatConsequence",
+      "path": "Soul.Integration.Vertical.DefeatConsequence",
+      "line": 2325,
+      "log_line": "[2026.10.06-04.02.08:288][970]LogAutomationController: Display: Test Completed. Result={Success} Name={DefeatConsequence} Path={Soul.Integration.Vertical.DefeatConsequence}"
+    },
+    {
+      "result": "Success",
+      "short_name": "DefeatRecruitmentAfterReload",
+      "path": "Soul.Integration.Vertical.DefeatRecruitmentAfterReload",
+      "line": 2335,
+      "log_line": "[2026.10.06-04.02.08:438][973]LogAutomationController: Display: Test Completed. Result={Success} Name={DefeatRecruitmentAfterReload} Path={Soul.Integration.Vertical.DefeatRecruitmentAfterReload}"
+    },
+    {
+      "result": "Success",
+      "short_name": "EncounterContract",
+      "path": "Soul.Integration.Vertical.EncounterContract",
+      "line": 2342,
+      "log_line": "[2026.10.06-04.02.08:492][974]LogAutomationController: Display: Test Completed. Result={Success} Name={EncounterContract} Path={Soul.Integration.Vertical.EncounterContract}"
+    },
+    {
+      "result": "Success",
+      "short_name": "LegacyCheckpointPreservesOwnership",
+      "path": "Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership",
+      "line": 2348,
+      "log_line": "[2026.10.06-04.02.08:638][977]LogAutomationController: Display: Test Completed. Result={Success} Name={LegacyCheckpointPreservesOwnership} Path={Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ManaPersistsAcrossBattleReloadAndDay",
+      "path": "Soul.Integration.Vertical.ManaPersistsAcrossBattleReloadAndDay",
+      "line": 2361,
+      "log_line": "[2026.10.06-04.02.08:742][979]LogAutomationController: Display: Test Completed. Result={Success} Name={ManaPersistsAcrossBattleReloadAndDay} Path={Soul.Integration.Vertical.ManaPersistsAcrossBattleReloadAndDay}"
+    },
+    {
+      "result": "Success",
+      "short_name": "MutualExhaustionAllowsRecoveredOccupation",
+      "path": "Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation",
+      "line": 2371,
+      "log_line": "[2026.10.06-04.02.08:841][981]LogAutomationController: Display: Test Completed. Result={Success} Name={MutualExhaustionAllowsRecoveredOccupation} Path={Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RBSaveDomainRoundTrip",
+      "path": "Soul.Integration.Vertical.RBSaveDomainRoundTrip",
+      "line": 2383,
+      "log_line": "[2026.10.06-04.02.08:988][984]LogAutomationController: Display: Test Completed. Result={Success} Name={RBSaveDomainRoundTrip} Path={Soul.Integration.Vertical.RBSaveDomainRoundTrip}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RBSaveFailedLoadRecoversAllDomains",
+      "path": "Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains",
+      "line": 2401,
+      "log_line": "[2026.10.06-04.02.09:151][987]LogAutomationController: Display: Test Completed. Result={Success} Name={RBSaveFailedLoadRecoversAllDomains} Path={Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RBSaveScopedDomains",
+      "path": "Soul.Integration.Vertical.RBSaveScopedDomains",
+      "line": 2410,
+      "log_line": "[2026.10.06-04.02.09:305][990]LogAutomationController: Display: Test Completed. Result={Success} Name={RBSaveScopedDomains} Path={Soul.Integration.Vertical.RBSaveScopedDomains}"
+    },
+    {
+      "result": "Success",
+      "short_name": "RejectIncompleteCheckpointWithoutMutation",
+      "path": "Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation",
+      "line": 2419,
+      "log_line": "[2026.10.06-04.02.09:451][993]LogAutomationController: Display: Test Completed. Result={Success} Name={RejectIncompleteCheckpointWithoutMutation} Path={Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ResourceReceiptMigrationAndAtomicRejection",
+      "path": "Soul.Integration.Vertical.ResourceReceiptMigrationAndAtomicRejection",
+      "line": 2425,
+      "log_line": "[2026.10.06-04.02.09:555][995]LogAutomationController: Display: Test Completed. Result={Success} Name={ResourceReceiptMigrationAndAtomicRejection} Path={Soul.Integration.Vertical.ResourceReceiptMigrationAndAtomicRejection}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ResultTelemetryRejectedBeforeMutation",
+      "path": "Soul.Integration.Vertical.ResultTelemetryRejectedBeforeMutation",
+      "line": 2434,
+      "log_line": "[2026.10.06-04.02.09:655][997]LogAutomationController: Display: Test Completed. Result={Success} Name={ResultTelemetryRejectedBeforeMutation} Path={Soul.Integration.Vertical.ResultTelemetryRejectedBeforeMutation}"
+    },
+    {
+      "result": "Success",
+      "short_name": "SupportedMatchupContract",
+      "path": "Soul.Integration.Vertical.SupportedMatchupContract",
+      "line": 2440,
+      "log_line": "[2026.10.06-04.02.09:756][999]LogAutomationController: Display: Test Completed. Result={Success} Name={SupportedMatchupContract} Path={Soul.Integration.Vertical.SupportedMatchupContract}"
+    },
+    {
+      "result": "Success",
+      "short_name": "ThreeEncountersAcrossReloads",
+      "path": "Soul.Integration.Vertical.ThreeEncountersAcrossReloads",
+      "line": 2455,
+      "log_line": "[2026.10.06-04.02.09:855][  1]LogAutomationController: Display: Test Completed. Result={Success} Name={ThreeEncountersAcrossReloads} Path={Soul.Integration.Vertical.ThreeEncountersAcrossReloads}"
+    },
+    {
+      "result": "Success",
+      "short_name": "VictoryCorrectTarget",
+      "path": "Soul.Integration.Vertical.VictoryCorrectTarget",
+      "line": 2467,
+      "log_line": "[2026.10.06-04.02.09:955][  3]LogAutomationController: Display: Test Completed. Result={Success} Name={VictoryCorrectTarget} Path={Soul.Integration.Vertical.VictoryCorrectTarget}"
+    }
+  ],
+  "missing_success": [],
+  "duplicate_completions": {},
+  "unexpected_completions": [],
+  "failed_completions": [],
+  "fatal_events": [],
+  "queue_empty_evidence": [
+    {
+      "line": 2471,
+      "performed": 51,
+      "log_line": "[2026.10.06-04.02.09:957][  4]LogAutomationCommandLine: Display: ...Automation Test Queue Empty 51 tests performed."
+    }
+  ],
+  "source_hash_differences_at_audit": [],
+  "all9_source_hashes_match_frozen_r2": true,
+  "r1_preserved": "native-r1-audit.json and native-expected-tests-r1.json remain unchanged; r2 does not overwrite failed-attempt history.",
+  "acceptance_rule": "Exact expected completed-Success set equality, one completion per test, no failure/fatal/drift/unexpected names, and one queue-empty51 marker. Queued/requested/started lines never count as pass.",
+  "expected_error_audit": {
+    "status": "PASS",
+    "declared_pattern": "SOUL_SETTLEMENT_DEVELOPMENT_UNREADY",
+    "source": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+    "source_line": 189,
+    "declared_occurrences": 2,
+    "observed_occurrences": 2,
+    "owning_test": "Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary",
+    "owning_test_completed_result": "Success",
+    "observed_log_severity": "Verbose",
+    "messages": [
+      {
+        "line": 2285,
+        "text": "[2026.10.06-04.02.07:730][958]LogSoulCampaign: Verbose: SOUL_SETTLEMENT_DEVELOPMENT_UNREADY Saved settlement region or ownership differs from the proof binding; saved state was preserved."
+      },
+      {
+        "line": 2288,
+        "text": "[2026.10.06-04.02.07:731][958]LogSoulCampaign: Verbose: SOUL_SETTLEMENT_DEVELOPMENT_UNREADY Saved settlement region or ownership differs from the proof binding; saved state was preserved."
+      }
+    ],
+    "unexpected_error_or_fatal_lines": [],
+    "note": "The expected-error declaration is scoped to the negative loaded-binding test; it is not a blanket log suppression or suite acceptance rule."
+  }
+}

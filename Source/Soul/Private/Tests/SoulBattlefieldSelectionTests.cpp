@@ -1,5 +1,6 @@
 #include "Misc/AutomationTest.h"
 #include "Engine/GameInstance.h"
+#include "UObject/Package.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
 
 #if WITH_DEV_AUTOMATION_TESTS
