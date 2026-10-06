@@ -1,0 +1,333 @@
+{
+  "utc": "2026-10-06T13:33:55.501515+00:00",
+  "scope": "Consolidated existing authoring receipts after native r9 qualification; not a new map mutation",
+  "owned_map": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+  "owned_map_sha256": "2535e6ef1a32f17cecacf98329a102be1e1018fa8baafd8efcf5829ee0e7f4db",
+  "settlement_id": "dwarf_hold",
+  "building_id": "dwarf.caravan_hall",
+  "starting": "original excavated shell, foundation, perimeter walls, adjoining halls, monumental gate and cliff approach",
+  "buildable": "56 persistent native roots plus regenerated children: inner colonnade, furnishings, chests and fixtures",
+  "actor_roots": [
+    {
+      "name": "StaticMeshActor_13168",
+      "label": "Chest_low39",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13169",
+      "label": "Chest_low40",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13170",
+      "label": "Chest_low41",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13177",
+      "label": "Chest_low42",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13178",
+      "label": "SM_PB_Lamp_A3",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13179",
+      "label": "SM_PR_SkullBook_2",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13180",
+      "label": "SM_PR_Candle_29",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13181",
+      "label": "SM_PR_Candle_30",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13182",
+      "label": "SM_PB_Table_B3",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13183",
+      "label": "SM_PB_Chair_B3",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13184",
+      "label": "SM_PB_Chair_B6",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13185",
+      "label": "SM_PB_Chair_B7",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13186",
+      "label": "SM_PB_Chair_B8",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13187",
+      "label": "SM_PB_Table_B4",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13188",
+      "label": "SM_PR_Fabric_A_3",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13189",
+      "label": "SM_PB_Shield_A3",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13190",
+      "label": "SM_PR_SimpleBook_15",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13191",
+      "label": "SM_PR_SimpleBook_17",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13192",
+      "label": "SM_PR_SimpleBook_18",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13193",
+      "label": "SM_PR_SimpleBook_16",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13194",
+      "label": "SM_PR_SimpleBook_19",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13195",
+      "label": "SM_PR_SimpleBook_20",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13196",
+      "label": "SM_PR_SimpleBook_9",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13197",
+      "label": "SM_PR_SimpleBook_8",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13198",
+      "label": "SM_PR_SimpleBook_7",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13199",
+      "label": "SM_PR_SimpleBook_5",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13200",
+      "label": "SM_PR_SimpleBook_2",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13201",
+      "label": "SM_PR_SimpleBook_4",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "FireStand_A_C_0",
+      "label": "FireStand_A2",
+      "actor_class": "BP_FireStand_A_C"
+    },
+    {
+      "name": "Candles_C_0",
+      "label": "Candles2",
+      "actor_class": "BP_Candles_C"
+    },
+    {
+      "name": "FireStand_B_C_0",
+      "label": "FireStand_B4",
+      "actor_class": "BP_FireStand_B_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_1",
+      "label": "BPP_SideRibvault_78",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_2",
+      "label": "BPP_SideRibvault_79",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_3",
+      "label": "BPP_SideRibvault_80",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_4",
+      "label": "BPP_SideRibvault_81",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_7",
+      "label": "BPP_SideRibvault_84",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_8",
+      "label": "BPP_SideRibvault_85",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_12",
+      "label": "BPP_SideRibvault_89",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_20",
+      "label": "BPP_SideRibvault_97",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_21",
+      "label": "BPP_SideRibvault_98",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_22",
+      "label": "BPP_SideRibvault_99",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_23",
+      "label": "BPP_SideRibvault_100",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_24",
+      "label": "BPP_SideRibvault_101",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_25",
+      "label": "BPP_SideRibvault_102",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "BPP_SideRibvault_05_C_26",
+      "label": "BPP_SideRibvault_103",
+      "actor_class": "BPP_SideRibvault_05_C"
+    },
+    {
+      "name": "FireStand_B_C_1",
+      "label": "FireStand_B5",
+      "actor_class": "BP_FireStand_B_C"
+    },
+    {
+      "name": "StaticMeshActor_13207",
+      "label": "SM_PB_Lamp_A4",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "StaticMeshActor_13208",
+      "label": "SM_PB_Shield_A4",
+      "actor_class": "StaticMeshActor"
+    },
+    {
+      "name": "Torch_A_C_0",
+      "label": "Torch_A35",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_1",
+      "label": "Torch_A36",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_2",
+      "label": "Torch_A41",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_3",
+      "label": "Torch_A42",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_4",
+      "label": "Torch_A43",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_5",
+      "label": "Torch_A44",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_6",
+      "label": "Torch_A45",
+      "actor_class": "BP_Torch_A_C"
+    },
+    {
+      "name": "Torch_A_C_7",
+      "label": "Torch_A46",
+      "actor_class": "BP_Torch_A_C"
+    }
+  ],
+  "removed_unstable_child_references": [
+    "CandleFlames_GEN_VARIABLE_CandleFlames_C_CAT_0",
+    "CandleFlames_GEN_VARIABLE_CandleFlames_C_CAT_1",
+    "CandleFlames_GEN_VARIABLE_CandleFlames_C_CAT_2",
+    "CandleFlames_GEN_VARIABLE_CandleFlames_C_CAT_3",
+    "CandleFlames1_GEN_VARIABLE_CandleFlames_C_CAT_0",
+    "CandleFlames1_GEN_VARIABLE_CandleFlames_C_CAT_1",
+    "CandleFlames1_GEN_VARIABLE_CandleFlames_C_CAT_2",
+    "CandleFlames_GEN_VARIABLE_CandleFlames_C_CAT_4",
+    "CandleFlames1_GEN_VARIABLE_CandleFlames_C_CAT_3",
+    "CandleFlames1_GEN_VARIABLE_CandleFlames_C_CAT_4",
+    "CandleFlames1_GEN_VARIABLE_CandleFlames_C_CAT_5"
+  ],
+  "gameplay": {
+    "gold": 200,
+    "days": 2,
+    "unlock": "service.tavern_hero",
+    "companion_hire_gold": 1200
+  },
+  "miniatures": {
+    "miniature_base_mesh": "/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Base_r9",
+    "miniature_upgrade_mesh": "/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Upgrade_r2",
+    "miniature_translation": [
+      55.1814,
+      543.8416,
+      67.5196
+    ],
+    "miniature_yaw": 180,
+    "miniature_scale": 0.5
+  },
+  "qualification_run": "Local/authored-runtime-r9-native1080",
+  "limitations": [
+    "proof miniature on temporary quarry anchor; not finished Crownspine art",
+    "native city mean 36.94 FPS, below 40+ target",
+    "no new cooked acceptance",
+    "no corrected-origin defeat/recruit/retry qualification"
+  ],
+  "provenance": {
+    "dwarven-authored-groups.json": "f6764748c37833a592f2e4d1335a0ac8fb2368490e2af3add44aaacf8707ffc0",
+    "dwarven-persistent-root-repair.json": "effb452d136cb462590dbe5db6b80fb059f6d4d2665c8ca8b9cf7605f95feb8c"
+  }
+}
