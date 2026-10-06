@@ -1,0 +1,121 @@
+{
+  "run": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\authored-fresh-r6-shadows-native1080",
+  "profiles": [
+    {
+      "view": "campaign",
+      "started_utc": "2026-10-06T12:14:01.346Z",
+      "finished_utc": "2026-10-06T12:14:51.358Z",
+      "warmup_seconds": 20,
+      "requested_sample_seconds": 30,
+      "sample_seconds": 30.004168,
+      "frames": 3417,
+      "mean_ms": 8.780851,
+      "p95_ms": 9.8105,
+      "p99_ms": 10.3864,
+      "below_30": 1,
+      "below_40": 1,
+      "below_60": 1,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "max_fps": 0,
+      "vsync": 0,
+      "primary_screen_percentage": 100,
+      "secondary_screen_percentage": 100,
+      "dynamic_resolution_mode": 0,
+      "scope": "game-thread wall-clock frame intervals; separate GPU telemetry in runner",
+      "warmup_and_sample_telemetry": {
+        "peak_gpu_c": 84.0,
+        "peak_gpu_used_mib": 1544.0,
+        "peak_working_set_mib": 4166.35,
+        "peak_private_commit_mib": 4920.89
+      },
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\authored-fresh-r6-shadows-native1080\\User\\Saved\\authored-fresh-r6-shadows-native1080_performance_campaign.json",
+      "average_fps_from_intervals": 113.88417819639577,
+      "native_1080p_scale_verified": true
+    },
+    {
+      "view": "city",
+      "started_utc": "2026-10-06T12:12:37.859Z",
+      "finished_utc": "2026-10-06T12:13:27.878Z",
+      "warmup_seconds": 20,
+      "requested_sample_seconds": 30,
+      "sample_seconds": 29.993063,
+      "frames": 1108,
+      "mean_ms": 27.069552,
+      "p95_ms": 32.875702,
+      "p99_ms": 36.940999,
+      "below_30": 49,
+      "below_40": 815,
+      "below_60": 1108,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "max_fps": 0,
+      "vsync": 0,
+      "primary_screen_percentage": 100,
+      "secondary_screen_percentage": 100,
+      "dynamic_resolution_mode": 0,
+      "scope": "game-thread wall-clock frame intervals; separate GPU telemetry in runner",
+      "warmup_and_sample_telemetry": {
+        "peak_gpu_c": 80.0,
+        "peak_gpu_used_mib": 2548.0,
+        "peak_working_set_mib": 4188.92,
+        "peak_private_commit_mib": 5714.62
+      },
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\authored-fresh-r6-shadows-native1080\\User\\Saved\\authored-fresh-r6-shadows-native1080_performance_city.json",
+      "average_fps_from_intervals": 36.9418747676356,
+      "native_1080p_scale_verified": true
+    }
+  ],
+  "process": {
+    "peak_gpu_c": 84.0,
+    "peak_gpu_used_mib": 2551.0,
+    "peak_working_set_mib": 4227.34,
+    "peak_private_commit_mib": 5805.37
+  },
+  "taa_resolution_observations": [
+    {
+      "input": [
+        1920,
+        1080
+      ],
+      "output": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "native_fresh_load_marker": true,
+  "fresh_load_pass": true,
+  "guarded_run": {
+    "clean_shutdown": true,
+    "exit_code": 0,
+    "stop_reason": "completion_marker_process_exit",
+    "accepted": true
+  },
+  "native_load_times": [
+    {
+      "map": "/Engine/Maps/Entry",
+      "seconds": 14.348773
+    },
+    {
+      "map": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+      "seconds": 5.543486
+    },
+    {
+      "map": "/Engine/Maps/Entry",
+      "seconds": 4.732997
+    }
+  ],
+  "limitations": [
+    "Editor-game source-content qualification, not a cooked package.",
+    "City is one fixed Caravan Hall view; campaign is the three-region opt-in proof view.",
+    "GPU memory is device-wide allocation, not exclusive process VRAM.",
+    "Native map-load time excludes subsequent asset preparation and visual readiness.",
+    "Older reports without explicit 100% scale checks establish viewport size only, not native scene resolution.",
+    "Peak measurements are sampled by the existing guarded runner."
+  ]
+}

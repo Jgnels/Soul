@@ -1,0 +1,290 @@
+{
+  "utc": "2026-10-06T11:18:36.489318+00:00",
+  "map": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+  "before_sha256": "03a65e211b95d7027d091679b443061b330f6ec3655b8426792e05837b65e1c5",
+  "after_sha256": "34c49d31a2ef87594328124ef2280c11702b8c4677766accb2b15befe02dddf4",
+  "components": [
+    {
+      "actor": "Emitter_3",
+      "component": "ParticleSystemComponent0",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Emitter_4",
+      "component": "ParticleSystemComponent0",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_0",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_1",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_2",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_3",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_4",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_5",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_6",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_7",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_8",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_9",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_10",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_11",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_12",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_13",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_14",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_15",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_16",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_17",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_18",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_19",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_20",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_21",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_22",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_23",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_24",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_25",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_26",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_27",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_28",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_29",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_30",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_31",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_32",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_33",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_34",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_35",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_36",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    },
+    {
+      "actor": "Torch_A_C_37",
+      "component": "P_Fire",
+      "before_distance": 0.0,
+      "after_distance": 4000,
+      "seconds_before_inactive": 1
+    }
+  ],
+  "scope": "tiny decorative fire particles draw within 40m; original near appearance and illumination retained",
+  "status": "candidate; requires runtime image and performance comparison"
+}

@@ -1,0 +1,1444 @@
+{
+  "utc": "2026-10-06T12:09:47.274195+00:00",
+  "map": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+  "before_sha256": "34c49d31a2ef87594328124ef2280c11702b8c4677766accb2b15befe02dddf4",
+  "after_sha256": "2535e6ef1a32f17cecacf98329a102be1e1018fa8baafd8efcf5829ee0e7f4db",
+  "lights": [
+    {
+      "actor": "SpotLight_0",
+      "label": "SpotLight6",
+      "radius": 1995.445068359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_1",
+      "label": "SpotLight14",
+      "radius": 2487.73779296875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_3",
+      "label": "RectLight110",
+      "radius": 379.306884765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_4",
+      "label": "RectLight124",
+      "radius": 168.3191375732422,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_7",
+      "label": "SpotLight18",
+      "radius": 1000.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_11",
+      "label": "RectLight128",
+      "radius": 850.125732421875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_12",
+      "label": "RectLight129",
+      "radius": 850.125732421875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_13",
+      "label": "RectLight130",
+      "radius": 850.125732421875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_6",
+      "label": "SpotLight17",
+      "radius": 1650.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_20",
+      "label": "RectLight47",
+      "radius": 184.5602264404297,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_0",
+      "label": "PointLight144",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_21",
+      "label": "RectLight81",
+      "radius": 525.5509033203125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_22",
+      "label": "RectLight141",
+      "radius": 495.86907958984375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_23",
+      "label": "RectLight142",
+      "radius": 495.87005615234375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_24",
+      "label": "RectLight143",
+      "radius": 466.40789794921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_25",
+      "label": "RectLight144",
+      "radius": 599.4493408203125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_26",
+      "label": "RectLight145",
+      "radius": 466.40789794921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_27",
+      "label": "RectLight146",
+      "radius": 466.40789794921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_28",
+      "label": "RectLight147",
+      "radius": 466.40789794921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_29",
+      "label": "RectLight148",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_30",
+      "label": "RectLight149",
+      "radius": 741.4561157226562,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_31",
+      "label": "RectLight150",
+      "radius": 1000.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_32",
+      "label": "RectLight151",
+      "radius": 1172.013427734375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_33",
+      "label": "RectLight152",
+      "radius": 708.4829711914062,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_1",
+      "label": "PointLight74",
+      "radius": 539.7431640625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_34",
+      "label": "RectLight153",
+      "radius": 495.87005615234375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_35",
+      "label": "RectLight154",
+      "radius": 739.8163452148438,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_2",
+      "label": "PointLight145",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_36",
+      "label": "RectLight155",
+      "radius": 250.91746520996094,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_37",
+      "label": "RectLight156",
+      "radius": 250.91746520996094,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_3",
+      "label": "PointLight106",
+      "radius": 600.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_38",
+      "label": "RectLight157",
+      "radius": 278.8305969238281,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_39",
+      "label": "RectLight158",
+      "radius": 250.92137145996094,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_40",
+      "label": "RectLight159",
+      "radius": 392.45867919921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_41",
+      "label": "RectLight160",
+      "radius": 1842.9620361328125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_42",
+      "label": "RectLight161",
+      "radius": 1259.4833984375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_43",
+      "label": "RectLight162",
+      "radius": 915.3906860351562,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_44",
+      "label": "RectLight163",
+      "radius": 1015.4121704101562,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_45",
+      "label": "RectLight164",
+      "radius": 997.7830810546875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_46",
+      "label": "RectLight165",
+      "radius": 1031.5537109375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_47",
+      "label": "RectLight166",
+      "radius": 1015.4121704101562,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_48",
+      "label": "RectLight167",
+      "radius": 691.5820922851562,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_49",
+      "label": "RectLight168",
+      "radius": 882.61669921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_50",
+      "label": "RectLight169",
+      "radius": 1065.3876953125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_51",
+      "label": "RectLight170",
+      "radius": 1240.44287109375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_52",
+      "label": "RectLight171",
+      "radius": 1500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_53",
+      "label": "RectLight172",
+      "radius": 1500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_54",
+      "label": "RectLight173",
+      "radius": 1500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_55",
+      "label": "RectLight174",
+      "radius": 1500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_56",
+      "label": "RectLight175",
+      "radius": 1500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_57",
+      "label": "RectLight176",
+      "radius": 1015.4111938476562,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_58",
+      "label": "RectLight177",
+      "radius": 754.2223510742188,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_60",
+      "label": "RectLight179",
+      "radius": 2590.300048828125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_61",
+      "label": "RectLight180",
+      "radius": 1188.1373291015625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_62",
+      "label": "RectLight181",
+      "radius": 1276.44384765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_63",
+      "label": "RectLight182",
+      "radius": 1423.9888916015625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_64",
+      "label": "RectLight183",
+      "radius": 1443.9869384765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_65",
+      "label": "RectLight184",
+      "radius": 1083.56640625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_66",
+      "label": "RectLight185",
+      "radius": 1259.482421875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_67",
+      "label": "RectLight186",
+      "radius": 2590.300048828125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_68",
+      "label": "RectLight187",
+      "radius": 882.61767578125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_69",
+      "label": "RectLight188",
+      "radius": 1049.3458251953125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_71",
+      "label": "RectLight190",
+      "radius": 1223.6434326171875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_72",
+      "label": "RectLight191",
+      "radius": 1369.0919189453125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_73",
+      "label": "RectLight192",
+      "radius": 1240.44580078125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_74",
+      "label": "RectLight193",
+      "radius": 599.4444580078125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_4",
+      "label": "PointLight107",
+      "radius": 335.7617492675781,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_5",
+      "label": "PointLight108",
+      "radius": 335.7617492675781,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_75",
+      "label": "RectLight194",
+      "radius": 997.7830810546875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_76",
+      "label": "RectLight195",
+      "radius": 1598.4368896484375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_79",
+      "label": "RectLight198",
+      "radius": 1971.6724853515625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_80",
+      "label": "RectLight199",
+      "radius": 1971.6724853515625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_81",
+      "label": "RectLight200",
+      "radius": 1971.6724853515625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_6",
+      "label": "PointLight48",
+      "radius": 569.7578125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_7",
+      "label": "PointLight55",
+      "radius": 569.7578125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_8",
+      "label": "PointLight59",
+      "radius": 692.147216796875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_9",
+      "label": "PointLight76",
+      "radius": 539.7431640625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_10",
+      "label": "PointLight77",
+      "radius": 692.147216796875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_11",
+      "label": "PointLight80",
+      "radius": 692.147216796875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_12",
+      "label": "PointLight81",
+      "radius": 692.147216796875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_13",
+      "label": "PointLight89",
+      "radius": 692.147216796875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_14",
+      "label": "PointLight93",
+      "radius": 692.147216796875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_15",
+      "label": "PointLight94",
+      "radius": 569.7568359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_16",
+      "label": "PointLight96",
+      "radius": 509.9549865722656,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_17",
+      "label": "PointLight97",
+      "radius": 630.4761962890625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_18",
+      "label": "PointLight98",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_10",
+      "label": "SpotLight23",
+      "radius": 1995.445068359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_20",
+      "label": "PointLight117",
+      "radius": 190.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_21",
+      "label": "PointLight113",
+      "radius": 129.0154266357422,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_11",
+      "label": "SpotLight24",
+      "radius": 1598.4368896484375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_12",
+      "label": "SpotLight25",
+      "radius": 1598.4368896484375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_22",
+      "label": "PointLight121",
+      "radius": 377.2727355957031,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_13",
+      "label": "SpotLight26",
+      "radius": 1188.1363525390625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_23",
+      "label": "PointLight122",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_82",
+      "label": "RectLight201",
+      "radius": 1381.5379638671875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_83",
+      "label": "RectLight202",
+      "radius": 1502.800048828125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_84",
+      "label": "RectLight203",
+      "radius": 466.40789794921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_85",
+      "label": "RectLight204",
+      "radius": 1083.56640625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_86",
+      "label": "RectLight205",
+      "radius": 50.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_87",
+      "label": "RectLight206",
+      "radius": 50.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_88",
+      "label": "RectLight207",
+      "radius": 80.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_89",
+      "label": "RectLight208",
+      "radius": 50.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_25",
+      "label": "PointLight127",
+      "radius": 60.74181365966797,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_26",
+      "label": "PointLight128",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_14",
+      "label": "SpotLight27",
+      "radius": 1598.4368896484375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_90",
+      "label": "RectLight209",
+      "radius": 100.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_91",
+      "label": "RectLight210",
+      "radius": 2365.72509765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_27",
+      "label": "PointLight129",
+      "radius": 100.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_A_C_0",
+      "label": "FireStand_A2",
+      "radius": 180.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_94",
+      "label": "RectLight213",
+      "radius": 30.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_B_C_0",
+      "label": "FireStand_B4",
+      "radius": 508.89788818359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_B_C_0",
+      "label": "FireStand_B4",
+      "radius": 368.2654113769531,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_B_C_0",
+      "label": "FireStand_B4",
+      "radius": 368.2654113769531,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_28",
+      "label": "PointLight130",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_29",
+      "label": "PointLight131",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_30",
+      "label": "PointLight146",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_31",
+      "label": "PointLight147",
+      "radius": 300.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_32",
+      "label": "PointLight148",
+      "radius": 231.1466827392578,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_33",
+      "label": "PointLight149",
+      "radius": 231.1466827392578,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_34",
+      "label": "PointLight150",
+      "radius": 231.1466827392578,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_35",
+      "label": "PointLight151",
+      "radius": 231.1466827392578,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_B_C_1",
+      "label": "FireStand_B5",
+      "radius": 508.89788818359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_B_C_1",
+      "label": "FireStand_B5",
+      "radius": 368.2654113769531,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "FireStand_B_C_1",
+      "label": "FireStand_B5",
+      "radius": 368.2654113769531,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_95",
+      "label": "RectLight214",
+      "radius": 1885.3563232421875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_36",
+      "label": "PointLight152",
+      "radius": 746.4614868164062,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_37",
+      "label": "PointLight153",
+      "radius": 746.4614868164062,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_38",
+      "label": "PointLight154",
+      "radius": 1109.583984375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_39",
+      "label": "PointLight155",
+      "radius": 1359.9820556640625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_40",
+      "label": "PointLight156",
+      "radius": 1549.636474609375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_41",
+      "label": "PointLight157",
+      "radius": 1917.656005859375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_100",
+      "label": "RectLight219",
+      "radius": 1718.657470703125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_43",
+      "label": "PointLight30",
+      "radius": 2975.59619140625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_104",
+      "label": "RectLight223",
+      "radius": 2696.018798828125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_105",
+      "label": "RectLight224",
+      "radius": 1995.445068359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_45",
+      "label": "PointLight42",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_46",
+      "label": "PointLight43",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_47",
+      "label": "PointLight44",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_48",
+      "label": "PointLight45",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_49",
+      "label": "PointLight46",
+      "radius": 1454.23681640625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_50",
+      "label": "PointLight49",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_51",
+      "label": "PointLight50",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_52",
+      "label": "PointLight51",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_53",
+      "label": "PointLight52",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_54",
+      "label": "PointLight53",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_55",
+      "label": "PointLight56",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_56",
+      "label": "PointLight57",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_57",
+      "label": "PointLight82",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_58",
+      "label": "PointLight83",
+      "radius": 700.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_63",
+      "label": "PointLight100",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_64",
+      "label": "PointLight158",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_65",
+      "label": "PointLight159",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_66",
+      "label": "PointLight160",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_67",
+      "label": "PointLight161",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_68",
+      "label": "PointLight162",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_69",
+      "label": "PointLight163",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_70",
+      "label": "PointLight164",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_71",
+      "label": "PointLight165",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_72",
+      "label": "PointLight166",
+      "radius": 500.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_107",
+      "label": "RectLight226",
+      "radius": 1842.9620361328125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_73",
+      "label": "PointLight167",
+      "radius": 764.8226318359375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_74",
+      "label": "PointLight168",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_75",
+      "label": "PointLight169",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_108",
+      "label": "RectLight227",
+      "radius": 1900.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_76",
+      "label": "PointLight170",
+      "radius": 1482.855712890625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_77",
+      "label": "PointLight171",
+      "radius": 893.576171875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_78",
+      "label": "PointLight172",
+      "radius": 893.576171875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_79",
+      "label": "PointLight173",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_80",
+      "label": "PointLight174",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_81",
+      "label": "PointLight175",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_110",
+      "label": "RectLight229",
+      "radius": 1598.4427490234375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_111",
+      "label": "RectLight230",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_112",
+      "label": "RectLight231",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_113",
+      "label": "RectLight232",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_114",
+      "label": "RectLight233",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_115",
+      "label": "RectLight234",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_116",
+      "label": "RectLight235",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_117",
+      "label": "RectLight236",
+      "radius": 522.5269775390625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_118",
+      "label": "RectLight237",
+      "radius": 522.5269775390625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_119",
+      "label": "RectLight238",
+      "radius": 522.5269775390625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_120",
+      "label": "RectLight239",
+      "radius": 643.4385986328125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_121",
+      "label": "RectLight240",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_122",
+      "label": "RectLight241",
+      "radius": 1275.4072265625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_82",
+      "label": "PointLight176",
+      "radius": 815.638671875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_123",
+      "label": "RectLight242",
+      "radius": 800.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_83",
+      "label": "PointLight177",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_84",
+      "label": "PointLight178",
+      "radius": 1200.0,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_85",
+      "label": "PointLight179",
+      "radius": 1053.4033203125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_126",
+      "label": "RectLight245",
+      "radius": 1759.634521484375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_127",
+      "label": "RectLight246",
+      "radius": 1520.4300537109375,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_128",
+      "label": "RectLight247",
+      "radius": 1188.1588134765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_129",
+      "label": "RectLight248",
+      "radius": 1188.1588134765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_130",
+      "label": "RectLight249",
+      "radius": 1444.0025634765625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_131",
+      "label": "RectLight250",
+      "radius": 1295.6658935546875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_132",
+      "label": "RectLight251",
+      "radius": 996.5863647460938,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_135",
+      "label": "RectLight254",
+      "radius": 2696.032470703125,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "SpotLight_19",
+      "label": "SpotLight32",
+      "radius": 1739.4149169921875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_137",
+      "label": "RectLight256",
+      "radius": 1782.06103515625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_138",
+      "label": "RectLight257",
+      "radius": 2590.297119140625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_139",
+      "label": "RectLight258",
+      "radius": 785.9334106445312,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "RectLight_140",
+      "label": "RectLight259",
+      "radius": 785.9334106445312,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_86",
+      "label": "PointLight180",
+      "radius": 2823.74462890625,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_87",
+      "label": "PointLight181",
+      "radius": 1381.5535888671875,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_88",
+      "label": "PointLight182",
+      "radius": 230.42747497558594,
+      "before": 1.0,
+      "after": 0.5
+    },
+    {
+      "actor": "PointLight_91",
+      "label": "PointLight185",
+      "radius": 230.42747497558594,
+      "before": 1.0,
+      "after": 0.5
+    }
+  ],
+  "status": "candidate; all shadows retained; native image/performance review required"
+}
