@@ -7,6 +7,12 @@ $previousCompat=$env:SOUL_NO_PCH_COMPAT
 try {
     $env:SOUL_NO_PCH_COMPAT=if($Target -eq 'SoulEditor'){'1'}else{$null}
     $arguments=@($Target,'Win64','Development',('-Project='+(Join-Path $root 'Soul.uproject')),'-WaitMutex','-NoPCH','-NoUBA','-MaxParallelActions=2','-ForceRulesCompile')
+    # Encode this machine workaround in the target command as well as the
+    # environment. A cached UBT target may otherwise reuse response files from
+    # a preceding invocation that did not set SOUL_NO_PCH_COMPAT.
+    if($Target -eq 'SoulEditor') {
+        $arguments += @('-OverrideBuildEnvironment',('-CompilerArguments=/FI'+(Join-Path $PSScriptRoot 'SoulNoPchCompatibility.h')))
+    }
     if($Log) {
         & 'C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat' @arguments > $Log 2>&1
     } else {

@@ -1,0 +1,96 @@
+"""Build one deterministic miniature piece from explicit native RenderData LODs.
+
+Set MINIATURE_STATE to 'base' or 'upgrade' in the live execution namespace.
+Unlike the rejected actor merge, this never reconstructs high-resolution source
+MeshDescriptions or creates thousands of temporary actors. Donors stay read-only.
+"""
+import collections
+import datetime
+import hashlib
+import json
+from pathlib import Path
+import unreal
+
+assert MINIATURE_STATE in ('base', 'upgrade')
+revision = globals().get('MINIATURE_REVISION', 'r2')
+bounds = globals().get('MINIATURE_BOUNDS', (-12000, 20000, -20000, 10500, -100000, 100000))
+budget_override = globals().get('MINIATURE_TRIANGLE_BUDGET', None)
+excluded_actors = set(globals().get('MINIATURE_EXCLUDED_ACTORS', []))
+assert revision in ('r2', 'r3', 'r4', 'r5') and len(bounds) == 6
+root = Path(unreal.Paths.convert_relative_path_to_full(unreal.Paths.project_dir()))
+source = root / 'Evidence/SettlementEnvironmentPlan-20261005/Continuation-20261006/dwarven-miniature-source.json'
+data = json.loads(source.read_text())
+package = '/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_' + MINIATURE_STATE.title() + '_' + revision
+receipt = source.with_name('dwarven-miniature-renderlod-' + MINIATURE_STATE + '-' + revision + '.json')
+assert not receipt.exists() and not unreal.EditorAssetLibrary.does_asset_exist(package)
+groups = collections.defaultdict(list)
+for row in data['instances']:
+    if row['state'] != MINIATURE_STATE: continue
+    if row['actor'] in excluded_actors: continue
+    if not all(bounds[2*i] <= row['location'][i] <= bounds[2*i+1] for i in range(3)): continue
+    groups[(row['mesh'], tuple(row['materials']))].append(row)
+target = unreal.DynamicMesh()
+piece = unreal.DynamicMesh()
+materials = []
+constant = unreal.Transform()
+constant.translation = unreal.Vector(*[-v for v in data['common_pivot']])
+copied = []
+for index, ((mesh_path, material_paths), rows) in enumerate(sorted(groups.items())):
+    source_mesh = unreal.load_asset(mesh_path)
+    assert source_mesh
+    lod = data['meshes'][mesh_path]['lod']
+    read = unreal.GeometryScriptMeshReadLOD()
+    read.set_editor_property('lod_type', unreal.GeometryScriptLODType.RENDER_DATA)
+    read.set_editor_property('lod_index', lod)
+    options = unreal.GeometryScriptCopyMeshFromAssetOptions()
+    options.set_editor_property('apply_build_settings', False)
+    options.set_editor_property('use_build_scale', False)
+    piece.reset()
+    _, outcome = unreal.GeometryScript_AssetUtils.copy_mesh_from_static_mesh_v2(source_mesh, piece, options, read, False)
+    assert outcome == unreal.GeometryScriptOutcomePins.SUCCESS
+    count = piece.get_triangle_count()
+    assert 0 < count <= data['meshes'][mesh_path]['triangles'], 'Requested render LOD was not respected'
+    transforms = []
+    for row in rows:
+        transform = unreal.Transform()
+        transform.translation = unreal.Vector(*row['location'])
+        pitch, yaw, roll = row['rotation']
+        transform.rotation = unreal.Rotator(pitch=pitch, yaw=yaw, roll=roll).quaternion()
+        transform.scale3d = unreal.Vector(*row['scale'])
+        transforms.append(transform)
+    source_materials = [unreal.load_asset(p) if p else None for p in material_paths]
+    _, materials = unreal.GeometryScript_MeshEdits.append_mesh_transformed_with_materials(
+        target, materials, piece, source_materials, transforms, constant, False, True)
+    copied.append(dict(mesh=mesh_path, lod=lod, triangles=count, instances=len(rows)))
+    if index % 25 == 0:
+        print('SOUL_MINIATURE_APPEND', MINIATURE_STATE, index, len(groups), target.get_triangle_count())
+        unreal.SystemLibrary.collect_garbage()
+before = target.get_triangle_count()
+budget = 180000 if MINIATURE_STATE == 'base' else 20000
+if budget_override is not None: budget = budget_override
+if budget > 0 and before > budget:
+    unreal.GeometryScript_MeshSimplification.apply_simplify_to_triangle_count(
+        target, budget, unreal.GeometryScriptSimplifyMeshOptions())
+reduced = target.get_triangle_count()
+assert reduced > 0
+options = unreal.GeometryScriptCreateNewStaticMeshAssetOptions()
+options.set_editor_property('enable_nanite', False)
+options.set_editor_property('enable_collision', False)
+mesh, outcome = unreal.GeometryScript_NewAssetUtils.create_new_static_mesh_asset_from_mesh(target, package, options)
+assert outcome == unreal.GeometryScriptOutcomePins.SUCCESS and mesh
+mesh.set_editor_property('static_materials', [unreal.StaticMaterial(material_interface=m, material_slot_name=unreal.Name('Mat_' + str(i))) for i, m in enumerate(materials)])
+assert unreal.EditorAssetLibrary.save_loaded_asset(mesh, False)
+disk = root / 'Content' / (package.removeprefix('/Game/') + '.uasset')
+receipt.write_text(json.dumps(dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    state=MINIATURE_STATE, mesh=mesh.get_path_name(), sha256=hashlib.sha256(disk.read_bytes()).hexdigest(),
+    source_manifest_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+    method='explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction',
+    pivot=data['common_pivot'], selection_bounds=bounds, triangle_budget=budget,
+    excluded_actors=sorted(excluded_actors),
+    source_instances=sum(x['instances'] for x in copied),
+    source_render_lods=copied, input_triangles=before, reduced_triangles=reduced,
+    saved_triangles=mesh.get_num_triangles(0), material_count=len(materials),
+    status='derived mesh saved; rendered state comparison and campaign placement pending'), indent=2) + '\n')
+print('SOUL_DWARF_RENDERLOD_MINIATURE', MINIATURE_STATE, before, reduced, mesh.get_num_triangles(0), str(receipt))
+target.reset()
+piece.reset()
