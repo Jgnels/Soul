@@ -1,0 +1,83 @@
+{
+  "player_loop_acceptance": "UNVERIFIED_FROM_LOGS",
+  "encounters": [
+    {
+      "encounter": {
+        "id": "encounter.3.1.dwarf_hold.dwarf_forge_approach",
+        "source": "dwarf_hold",
+        "target": "dwarf_forge_approach",
+        "map": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+        "forces": "45/30",
+        "cap": "15",
+        "recipe": "dwarf_hold_approach",
+        "landform": "industrial_approach",
+        "approach": "None",
+        "mana": "80"
+      },
+      "start_line": 3264,
+      "waves": [
+        [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4,
+          3
+        ]
+      ],
+      "issues": [],
+      "active": [
+        11,
+        3
+      ],
+      "reserves": [
+        10,
+        0
+      ],
+      "peak_active": [
+        15,
+        15
+      ],
+      "battle_result": {
+        "won": "1",
+        "playerSurvivors": "21",
+        "enemySurvivors": "0",
+        "physical": "21/3",
+        "routed": "0/1",
+        "waves": "5/4",
+        "magic": "0",
+        "contacts": "728",
+        "pbilQueries": "77",
+        "pbilSuccess": "77",
+        "pbilOrders": "1237",
+        "seconds": "196.48",
+        "mana": "80"
+      },
+      "campaign_result": {
+        "id": "encounter.3.1.dwarf_hold.dwarf_forge_approach",
+        "target": "dwarf_forge_approach",
+        "victory": "1",
+        "survivors": "21/0",
+        "player_region": "dwarf_forge_approach"
+      },
+      "mana_result": {
+        "id": "encounter.3.1.dwarf_hold.dwarf_forge_approach",
+        "before": "80",
+        "after": "80",
+        "casts": "0"
+      },
+      "log_consistency": "CONSISTENT",
+      "casualty_counts": [
+        24,
+        27
+      ]
+    }
+  ],
+  "orphan_events": [],
+  "limitations": "Logs alone do not prove ordinary input, rendered physical behavior, HOLD inheritance, frame times, stuck actors, Firebolt timing, save recovery or process lifecycle."
+}

@@ -16,9 +16,11 @@ revision = globals().get('MINIATURE_REVISION', 'r2')
 bounds = globals().get('MINIATURE_BOUNDS', (-12000, 20000, -20000, 10500, -100000, 100000))
 budget_override = globals().get('MINIATURE_TRIANGLE_BUDGET', None)
 excluded_actors = set(globals().get('MINIATURE_EXCLUDED_ACTORS', []))
-assert revision in ('r2', 'r3', 'r4', 'r5') and len(bounds) == 6
+assert revision in ('r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9') and len(bounds) == 6
 root = Path(unreal.Paths.convert_relative_path_to_full(unreal.Paths.project_dir()))
-source = root / 'Evidence/SettlementEnvironmentPlan-20261005/Continuation-20261006/dwarven-miniature-source.json'
+source_name = globals().get('MINIATURE_SOURCE_NAME', 'dwarven-miniature-source.json')
+assert source_name in ('dwarven-miniature-source.json', 'dwarven-gate-miniature-source.json', 'dwarven-gate-miniature-source-r7.json', 'dwarven-gate-miniature-source-r8.json', 'dwarven-gate-miniature-source-r9.json')
+source = root / 'Evidence/SettlementEnvironmentPlan-20261005/Continuation-20261006' / source_name
 data = json.loads(source.read_text())
 package = '/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_' + MINIATURE_STATE.title() + '_' + revision
 receipt = source.with_name('dwarven-miniature-renderlod-' + MINIATURE_STATE + '-' + revision + '.json')
