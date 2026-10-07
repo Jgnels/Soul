@@ -1,0 +1,1250 @@
+{
+  "utc": "2026-10-06T18:42:59.449762+00:00",
+  "source_prefab": "/Game/Forest_village/BP/Prefab/BPP_PLA_04",
+  "approved_family": "FF",
+  "intended_context": "ancient_shrine",
+  "common_pivot": [
+    -3.0517578125e-05,
+    0.0,
+    -128.0
+  ],
+  "bounds_center": [
+    -3.0517578125e-05,
+    0.0,
+    263.8907165527344
+  ],
+  "bounds_extent": [
+    679.1071472167969,
+    676.2720336914062,
+    391.8907165527344
+  ],
+  "meshes": {
+    "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank": {
+      "lod": 0,
+      "triangles": 44,
+      "native_lod_triangles": [
+        44,
+        44,
+        44,
+        44
+      ]
+    },
+    "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02": {
+      "lod": 0,
+      "triangles": 652,
+      "native_lod_triangles": [
+        652,
+        326,
+        162,
+        82
+      ]
+    },
+    "/Game/Forest_village/Meshes/Ropes/SM_rope_06.SM_rope_06": {
+      "lod": 0,
+      "triangles": 10908,
+      "native_lod_triangles": [
+        10908,
+        5454,
+        2726,
+        1364
+      ]
+    },
+    "/Game/Forest_village/Meshes/Ropes/SM_rope_07.SM_rope_07": {
+      "lod": 0,
+      "triangles": 10908,
+      "native_lod_triangles": [
+        10908,
+        5454,
+        2726,
+        1364
+      ]
+    },
+    "/Game/Forest_village/Meshes/Ropes/SM_rope_05.SM_rope_05": {
+      "lod": 0,
+      "triangles": 14544,
+      "native_lod_triangles": [
+        14544,
+        7272,
+        3636,
+        1818
+      ]
+    },
+    "/Game/Forest_village/Meshes/Ropes/SM_rope_03.SM_rope_03": {
+      "lod": 0,
+      "triangles": 3636,
+      "native_lod_triangles": [
+        3636,
+        1818,
+        908,
+        454
+      ]
+    },
+    "/Game/Forest_village/Meshes/Kit/SM_plateform.SM_plateform": {
+      "lod": 0,
+      "triangles": 10062,
+      "native_lod_triangles": [
+        10062,
+        5031,
+        2516,
+        1258
+      ]
+    }
+  },
+  "instances": [
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -62.71087272777163,
+        233.65088081271006,
+        649.7671598173829
+      ],
+      "rotation": [
+        3.1805546814635168e-15,
+        158.111196,
+        -89.99999999999999
+      ],
+      "scale": [
+        1.0000000000000007,
+        1.0000000000000004,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -195.2815837277717,
+        -91.97385618729004,
+        613.4991488173828
+      ],
+      "rotation": [
+        -9.54166404439055e-15,
+        148.28002700000002,
+        89.99999900000002
+      ],
+      "scale": [
+        1.000000000000001,
+        1.0000000000000004,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        266.85428727222825,
+        -18.848054187290018,
+        613.4991488173828
+      ],
+      "rotation": [
+        4.134721085902572e-14,
+        -79.916796,
+        89.99999900000003
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -139.6266407277717,
+        254.05767381271016,
+        622.3895538173829
+      ],
+      "rotation": [
+        -4.770832022195275e-15,
+        20.00000000000001,
+        92.97985300000002
+      ],
+      "scale": [
+        1.0,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        173.1743312722283,
+        -36.54692118728963,
+        651.7059478173828
+      ],
+      "rotation": [
+        0.0,
+        -128.79286799999997,
+        89.999999
+      ],
+      "scale": [
+        0.9999999999999998,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        183.09916127222823,
+        104.78756681271034,
+        651.7059478173828
+      ],
+      "rotation": [
+        1.2722218725854067e-14,
+        -78.91478699999999,
+        89.99999900000003
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -8.907016727771634,
+        -263.6359201872897,
+        622.3895538173829
+      ],
+      "rotation": [
+        0.0,
+        139.683425,
+        92.97985300000002
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        194.23509427222825,
+        -21.497332187289885,
+        648.0967198173828
+      ],
+      "rotation": [
+        1.5902773407317584e-14,
+        -106.83063100000004,
+        89.999999
+      ],
+      "scale": [
+        1.0000000000000007,
+        1.0000000000000004,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -82.86486572777153,
+        218.54454181271012,
+        613.4991488173828
+      ],
+      "rotation": [
+        1.5902773407317584e-15,
+        15.917797000000006,
+        89.999999
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999998,
+        0.9999999999999998
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -267.1193527277717,
+        -10.721168187290004,
+        622.3895538173829
+      ],
+      "rotation": [
+        -4.4527765540489235e-14,
+        86.61393700000004,
+        92.97985300000005
+      ],
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000002,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        29.035715272228344,
+        264.07925781271024,
+        613.4991488173828
+      ],
+      "rotation": [
+        1.4312496066585827e-14,
+        -24.577854000000016,
+        89.99999900000005
+      ],
+      "scale": [
+        0.9133130000000002,
+        0.9133130000000006,
+        0.9133130000000005
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -6.162949727771547,
+        -196.73635718728974,
+        613.4991488173828
+      ],
+      "rotation": [
+        -3.1805546814635168e-15,
+        135.601222,
+        89.99999900000002
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        25.039432272228396,
+        203.2571718127101,
+        651.7059478173828
+      ],
+      "rotation": [
+        6.3611093629270335e-15,
+        -19.78848,
+        89.99999900000005
+      ],
+      "scale": [
+        1.0,
+        1.0000000000000002,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -211.9934347277715,
+        27.281656812710025,
+        613.4991488173828
+      ],
+      "rotation": [
+        -3.180554681463517e-14,
+        82.53173400000003,
+        89.99999900000003
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        75.3369332722284,
+        -264.3619961872896,
+        613.4991488173828
+      ],
+      "rotation": [
+        -4.969616689786745e-17,
+        179.369918,
+        89.999999
+      ],
+      "scale": [
+        1.0000000000000004,
+        1.0,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        254.17053527222834,
+        -126.5596441872899,
+        622.3895538173829
+      ],
+      "rotation": [
+        -6.3611093629270335e-15,
+        -141.582886,
+        92.97985299999999
+      ],
+      "scale": [
+        1.0000000000000007,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -201.92806972777157,
+        178.17508881271033,
+        651.7059478173828
+      ],
+      "rotation": [
+        -1.90833280887811e-14,
+        35.484435000000026,
+        89.99999900000005
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000004,
+        1.0000000000000007
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -160.69217672777154,
+        159.11773681271006,
+        646.8157688173828
+      ],
+      "rotation": [
+        6.3611093629270335e-15,
+        13.504838,
+        89.99999899999997
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999996,
+        0.9999999999999996
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -123.29415572777157,
+        216.76099481271012,
+        650.9471258173828
+      ],
+      "rotation": [
+        -4.770832022195275e-15,
+        -13.79680400000001,
+        89.999999
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999997,
+        0.9999999999999997
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        117.88755027222851,
+        -116.46268118728995,
+        651.7059478173828
+      ],
+      "rotation": [
+        9.54166404439055e-15,
+        -128.792868,
+        89.999999
+      ],
+      "scale": [
+        1.2000999999999997,
+        1.2001,
+        1.2001
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -181.9756597277717,
+        181.22820981271025,
+        613.4991488173828
+      ],
+      "rotation": [
+        -6.3611093629270335e-15,
+        32.38485100000002,
+        89.99999900000002
+      ],
+      "scale": [
+        1.0,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        214.5170982722284,
+        17.46883181271005,
+        651.7059478173828
+      ],
+      "rotation": [
+        9.54166404439055e-15,
+        -93.89915500000005,
+        89.999999
+      ],
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -40.263554727771634,
+        252.7497118127103,
+        613.4991488173828
+      ],
+      "rotation": [
+        0.0,
+        9.284983000000002,
+        89.99999900000002
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        29.035715272228344,
+        264.07925781271024,
+        613.4991488173828
+      ],
+      "rotation": [
+        -7.951386703658792e-16,
+        4.757691000000001,
+        89.99999900000003
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        99.20695827222835,
+        -255.03168918728989,
+        613.4991488173828
+      ],
+      "rotation": [
+        -1.5902773407317584e-15,
+        -158.650485,
+        89.99999900000002
+      ],
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        271.3413202722286,
+        -44.08095418728999,
+        613.4991488173828
+      ],
+      "rotation": [
+        -6.3611093629270335e-15,
+        -129.198035,
+        89.99999900000003
+      ],
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999998,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        92.9498152722283,
+        176.14652881271013,
+        651.7059478173828
+      ],
+      "rotation": [
+        6.3611093629270335e-15,
+        -40.587119000000044,
+        89.99999900000003
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -217.0821117277717,
+        -78.49907618729003,
+        613.4991488173828
+      ],
+      "rotation": [
+        -6.3611093629270335e-15,
+        98.99878800000003,
+        89.999999
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        189.0962532722283,
+        -110.79832018728985,
+        613.4991488173828
+      ],
+      "rotation": [
+        6.3611093629270335e-15,
+        -145.66508900000002,
+        89.99999900000002
+      ],
+      "scale": [
+        1.0000000000000007,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        75.3369332722284,
+        -264.3619961872896,
+        613.4991488173828
+      ],
+      "rotation": [
+        -6.3611093629270335e-15,
+        152.06827600000003,
+        89.99999900000002
+      ],
+      "scale": [
+        1.000000000000001,
+        1.0000000000000004,
+        1.0000000000000004
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        132.35561127222832,
+        145.86866481271,
+        651.7059478173828
+      ],
+      "rotation": [
+        0.0,
+        -45.586642,
+        89.99999900000002
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        29.035715272228344,
+        264.07925781271024,
+        613.4991488173828
+      ],
+      "rotation": [
+        3.975693351829396e-16,
+        -6.970845999999997,
+        89.99999900000002
+      ],
+      "scale": [
+        0.913313,
+        0.9133130000000002,
+        0.913313
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -181.9756597277717,
+        181.22820981271025,
+        613.4991488173828
+      ],
+      "rotation": [
+        3.1805546814635168e-15,
+        59.686493000000006,
+        89.999999
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        271.3413202722286,
+        -44.08095418728999,
+        613.4991488173828
+      ],
+      "rotation": [
+        1.2722218725854067e-14,
+        -101.896393,
+        89.99999899999999
+      ],
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -217.0821117277717,
+        -78.49907618729003,
+        613.4991488173828
+      ],
+      "rotation": [
+        1.2722218725854067e-14,
+        126.30043,
+        89.99999900000002
+      ],
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        0.9999999999999998
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -185.69033572777153,
+        155.87009681271002,
+        613.4991488173828
+      ],
+      "rotation": [
+        -3.180554681463517e-14,
+        81.66609000000001,
+        89.99999900000005
+      ],
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh1",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        503.5585122722282,
+        79.32521781270998,
+        587.1140838173828
+      ],
+      "rotation": [
+        0.0,
+        113.30805400000003,
+        -0.0
+      ],
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh1",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -274.0850147277715,
+        111.81191581271014,
+        587.1140878173828
+      ],
+      "rotation": [
+        0.0,
+        23.032347000000005,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh1",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -21.9517437277716,
+        -481.24569918729003,
+        587.1140718173829
+      ],
+      "rotation": [
+        0.0,
+        23.032347000000005,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh1",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -152.91856672777158,
+        -203.50787618728964,
+        587.1140878173828
+      ],
+      "rotation": [
+        0.0,
+        113.30805400000003,
+        -0.0
+      ],
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh2",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_06.SM_rope_06",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        501.6697932722286,
+        -171.27689218728983,
+        610.9569198173829
+      ],
+      "rotation": [
+        1.0067690000000005,
+        117.70557900000003,
+        0.359579
+      ],
+      "scale": [
+        0.9275000000000001,
+        0.9275000000000002,
+        0.9275
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh2",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_06.SM_rope_06",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        -255.80399272777163,
+        -327.6135371872897,
+        610.0476668173828
+      ],
+      "rotation": [
+        1.0669249999999995,
+        13.561366000000001,
+        0.06736899999999986
+      ],
+      "scale": [
+        0.9275,
+        0.9275,
+        0.9274999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh2",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_06.SM_rope_06",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        239.74249327222833,
+        500.95256181271,
+        624.0619768173829
+      ],
+      "rotation": [
+        -0.24475899999998765,
+        -158.716582,
+        1.0406569999999995
+      ],
+      "scale": [
+        0.9275000000000004,
+        0.9275000000000003,
+        0.9275
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh3",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_07.SM_rope_07",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        -255.80399272777163,
+        -453.09154118728975,
+        610.047667817383
+      ],
+      "rotation": [
+        1.0669250000000001,
+        3.613254000000001,
+        0.06736900000000004
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "HierarchicalInstancedStaticMesh3",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_07.SM_rope_07",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        -14.863095727771679,
+        434.41985781271023,
+        623.4979678173829
+      ],
+      "rotation": [
+        -0.7879530000000163,
+        -124.47219400000002,
+        0.7225170000000002
+      ],
+      "scale": [
+        0.9275,
+        0.9275,
+        0.9275
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "InstancedStaticMesh",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_05.SM_rope_05",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        -202.14846172777152,
+        308.09351381271017,
+        621.653256817383
+      ],
+      "rotation": [
+        -0.9547200000000093,
+        -108.69337800000001,
+        0.48103900000000016
+      ],
+      "scale": [
+        0.6750000000000002,
+        0.6750000000000003,
+        0.675
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "InstancedStaticMesh1",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_03.SM_rope_03",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_rope.MI_rope"
+      ],
+      "location": [
+        424.3313262722286,
+        -211.87922418728976,
+        610.4088118173829
+      ],
+      "rotation": [
+        0.9512820000000004,
+        125.19937399999999,
+        0.4878040000000002
+      ],
+      "scale": [
+        1.4992759999999994,
+        1.4992759999999994,
+        1.776364
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_04_C_0",
+      "component": "InstancedStaticMesh2",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Kit/SM_plateform.SM_plateform",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_02.MI_wood_02",
+        "/Game/Forest_village/Materials/MI_wood.MI_wood"
+      ],
+      "location": [
+        -1.4343937277715213,
+        5.754787812710219,
+        605.0625128173829
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.155,
+        1.155,
+        1.155
+      ]
+    }
+  ],
+  "input_triangles": 86974,
+  "status": "Native prefab instantiated read-only; actual screenshot review and retained-ground fitting required. No capital assignment or visit routing implied."
+}

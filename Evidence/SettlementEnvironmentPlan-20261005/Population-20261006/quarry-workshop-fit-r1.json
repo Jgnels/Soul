@@ -1,0 +1,52 @@
+{
+  "terrain": "/Game/SoulCampaignMountain/L_evil_waterfront",
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "scope": "Three minor resource-workshop modules; no capital or gameplay authority",
+  "plots": [
+    {
+      "package": "/Game/Legendary_Forge/Meshes/Forge/SM_forge_02",
+      "sha256": "07e33da310bcc53eaa55ee2f51cdc5ee70370f902541ab2fde33fe416ac914ef",
+      "offset": [
+        -650,
+        1350
+      ],
+      "scale": 0.55,
+      "yaw": 0,
+      "radius": 150.56291456348828,
+      "ground_relief": 35.81543991441686,
+      "route_clearance": 1347.7694918136815,
+      "dry": true,
+      "accepted": true
+    },
+    {
+      "package": "/Game/Legendary_Forge/Meshes/Anvil_02/SM_anvil_02",
+      "sha256": "e4040decffe4519c29981013008e56fbbe2c5d3fd58c40d75118507caf3f7af4",
+      "offset": [
+        -430,
+        1570
+      ],
+      "scale": 0.8,
+      "yaw": 45,
+      "radius": 54.455340272503975,
+      "ground_relief": 2.564489073843106,
+      "route_clearance": 1567.7308037851149,
+      "dry": true,
+      "accepted": true
+    },
+    {
+      "package": "/Game/Legendary_Forge/Meshes/Bellows/SM_bellows",
+      "sha256": "27098375347bd7ac6fdf90f06722578f0938706d4db860701b8968ec5a1acde7",
+      "offset": [
+        -650,
+        1640
+      ],
+      "scale": 0.6,
+      "yaw": 90,
+      "radius": 112.40227723904427,
+      "ground_relief": 10.94432346533722,
+      "route_clearance": 1651.7122315159856,
+      "dry": true,
+      "accepted": true
+    }
+  ]
+}

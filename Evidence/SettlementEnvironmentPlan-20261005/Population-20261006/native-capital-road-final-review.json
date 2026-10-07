@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-07T00:08:22.886589+00:00",
+  "result": "PASS",
+  "tests": [
+    {
+      "result": "Success",
+      "name": "CameraAndSelection",
+      "path": "Soul.Integration.CampaignWorld.CameraAndSelection"
+    },
+    {
+      "result": "Success",
+      "name": "TerrainAndRoutes",
+      "path": "Soul.Integration.CampaignWorld.TerrainAndRoutes"
+    }
+  ],
+  "dll_sha256": "eb82595c6488ee5acc166eddfefe61b2bab327515f8f86f6ae8a9f5333aa79be",
+  "scope": "Existing native CameraAndSelection and TerrainAndRoutes only, editor default Mesa profile; modified Evil route separately measured/rendered and exercised by actual input. Native test success is separate from guarded editor shutdown.",
+  "log": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\native-capital-road-final-r1\\unreal.log",
+  "guarded_editor_shutdown": {
+    "stop_reason": "requested_authoring_close",
+    "cleanup": "terminate_owned_child",
+    "exit_code": 1,
+    "meaning": "Two native tests passed and queue emptied. Owned editor did not close on window request; guard terminated it. This is not a clean standalone runtime pass."
+  }
+}

@@ -6,7 +6,7 @@ The selected original is `/Game/CastleTown/Levels/Persistant/PL_CastleTown`, sup
 
 The buildable native waterfront tavern is `LI_Building_05_Fix`, `SL_HumanCapital_Houses:LevelInstance_149`. Three existing state adapters control 24 persistent roots and 825 nested children. Starting state omits this building and its associated dressing; the remainder of the authored city starts present. Actual U/Space construction spends 200 gold and completes after two days. The building appears, companion service unlocks, and H uses the existing 1,200-gold hire. F5/F9 restores both existing domains exactly, including mid-construction physical rollback. Return/revisit preserves the same state. No gameplay or save authority was added.
 
-R6's campaign base preserves the native central keep plus thirty nearby real town blocks; the upgrade is the same native tavern. Native low-LOD roof holes were repaired in deterministic owned RenderLOD0 derivatives. Fresh F9 visibly changes the campaign representation. This is provisional campaign art: detached outer gate and town-to-road composition still need population review. The full visit/battle city is never reduced to these miniatures.
+The earlier R6 campaign base preserves the native central keep plus thirty nearby real town blocks; the upgrade is the same native tavern. Native low-LOD roof holes were repaired in deterministic owned RenderLOD0 derivatives. Fresh F9 visibly changes the campaign representation. This is provisional campaign art: detached outer gate and town-to-road composition still need population review. The full visit/battle city is never reduced to these miniatures.
 
 `Local/human-authored-battle-r3` cleanly passes a real battle through the existing bridge: 30 initial bodies, actual reserves 16/15, natural victory with 27 allied survivors and zero enemies, campaign return and exact post-result F5/F9. Reviewed screenshots show visible forces on original ground with the native town/waterfront behind. The only battle geography adjustment is runtime omission of 202 tree instances inside the bounded 100 x 86 m approach ellipse; donor packages and the separately loaded visit world are unchanged. No siege system or combat-rule change.
 
@@ -25,4 +25,12 @@ Builds: SoulEditor population r8 succeeds in 64.12 s; Soul game population r1 in
 
 Receipts: `human-authored-groups-r1.json`, `human-native-survey-r6-review.json`, `human-physical-visual-review-r1.json`, `human-authored-battle-r3-review.json`, `human-fresh-performance-r1-summary.json`, `human-miniature-r6-campaign-review.json`, `visual-review.html`.
 
-Next: finish the first retained-map population render/input/performance pass. Do not restart Human source recovery, Dwarf polish, another city proof, or R10 terrain work.
+Closeout: Human is the second and final deep proof. The first population milestone is qualified separately below; content/framework work stops after the bounded capital-road correction and final regression. Do not restart Human recovery, Dwarf polish, another city proof or R10.
+
+### Final campaign derivative and controls
+
+R7 supersedes R6 only for campaign presentation. Uniform scale is 0.24; the detached outer gate is omitted from this derivative. Native central keep and thirty actual town blocks remain, with unchanged full-city source. Starting mesh `/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r7` has 1,874,909 triangles; matching native tavern `/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Upgrade_r7` has 58,888. Both are deterministic owned-mesh derivatives.
+
+`Local/retained-development-r7-r2` cleanly requalifies actual construction, delayed completion, companion-service purchase and exact both-domain F5/F9 twice. `Local/retained-r7-cold-load-r1` cleanly requalifies independent fresh F9 and exact campaign restoration; the corresponding native tavern is visibly present in the reviewed same-camera crop. The cold observer asserts the campaign domain; both-domain assertions belong to the separate construction run. Earlier r1 controls passed checks but stalled during teardown and are not counted as a clean run.
+
+The Human framework is frozen. Remaining miniature composition and native city load/thermal limitations are art/performance work, not reasons to build another persistence or settlement system. Final retained-map results are in `retained-population-r7-review.json`, `r7-state-qualification-review.json`, and `population-status.md`.

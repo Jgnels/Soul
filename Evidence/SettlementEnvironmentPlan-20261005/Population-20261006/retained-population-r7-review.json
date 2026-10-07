@@ -1,0 +1,187 @@
+{
+  "utc": "2026-10-06T23:58:34.260106+00:00",
+  "run": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7",
+  "result": "PASS",
+  "clean_shutdown": true,
+  "exit_code": 0,
+  "elapsed_seconds": 265.03,
+  "peak_gpu_c": 66.0,
+  "physical_placements": [
+    {
+      "region": "crossroads",
+      "placed": 8,
+      "rejected": 0,
+      "lanes": 8,
+      "maximum_relief_cm": 64.52,
+      "maximum_lane_grade": 9.4
+    },
+    {
+      "region": "river_ford",
+      "placed": 1,
+      "rejected": 0,
+      "lanes": 1,
+      "maximum_relief_cm": 22.69,
+      "maximum_lane_grade": 12.19
+    },
+    {
+      "region": "orc_watch",
+      "placed": 3,
+      "rejected": 0,
+      "lanes": 3,
+      "maximum_relief_cm": 27.02,
+      "maximum_lane_grade": 0.9
+    },
+    {
+      "region": "orc_camp",
+      "placed": 11,
+      "rejected": 0,
+      "lanes": 4,
+      "maximum_relief_cm": 55.77,
+      "maximum_lane_grade": 4.88
+    },
+    {
+      "region": "forest_edge",
+      "placed": 3,
+      "rejected": 0,
+      "lanes": 3,
+      "maximum_relief_cm": 25.64,
+      "maximum_lane_grade": 11.03
+    },
+    {
+      "region": "north_pass",
+      "placed": 2,
+      "rejected": 0,
+      "lanes": 1,
+      "maximum_relief_cm": 60.0,
+      "maximum_lane_grade": 17.75
+    },
+    {
+      "region": "old_quarry",
+      "placed": 6,
+      "rejected": 0,
+      "lanes": 4,
+      "maximum_relief_cm": 62.53,
+      "maximum_lane_grade": 12.57
+    },
+    {
+      "region": "ancient_shrine",
+      "placed": 2,
+      "rejected": 0,
+      "lanes": 2,
+      "maximum_relief_cm": 39.14,
+      "maximum_lane_grade": 17.07
+    }
+  ],
+  "terrain_hashes": {
+    "Data/CampaignMesa/presentation.json": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+    "Data/CampaignMesaLocal/MesaHeight.r16": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+    "Content/SoulCampaignMountain/L_evil_waterfront.umap": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+    "Binaries/Win64/UnrealEditor-Soul.dll": "eb82595c6488ee5acc166eddfefe61b2bab327515f8f86f6ae8a9f5333aa79be"
+  },
+  "screenshots": [
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crossroads_close.png",
+      "sha256": "02cea4c87ff92f929d5f3c32218ef5b64c6ffc511b2416347e8d82208aee0296"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crossroads_ordinary.png",
+      "sha256": "23cca0bd5c06b9d4600327aaed9795dd527b660519cbe7f49f88035fb24d2556"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_court.png",
+      "sha256": "a4044e215add3bde852054cb425e87a893dde1d5a1d3b47fd620b27fb4157803"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_crop_close.png",
+      "sha256": "3042a7c7b403763c371aaec8ae3c6a6f883d8ab998f4ed27feecd797f9368f68"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_east.png",
+      "sha256": "ab3590b439f10a6b3ed04805a7ad6da1482a4d3a37cd5c8d5ab8535ef57be9cf"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_hinterland.png",
+      "sha256": "1becc7612b0cff378e6e2687ecb442fc46505c841337bb0053b37c04a4975922"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_native_district.png",
+      "sha256": "e4dcb8bd5e226be9e188b25d062a42f4a651b548adc1db0c51db903cdb402dcd"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_ordinary.png",
+      "sha256": "d627d510aec816d94bfe3855d64c20b61e76b9221319dbd80794eb5b1494f0f1"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_south.png",
+      "sha256": "30907701436fdaa0582909be07fe0f604ed3dc70ed95cc25ea27256036fadee2"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_west.png",
+      "sha256": "d96b826fda1f60274279c3c191bad250168bfa170a24c63492fe3069fd202701"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_crownstead_west_fields.png",
+      "sha256": "8cb6969fcf5dc21ea4aaca7a9b76305505eb932cff134c1d0889706f58e6e0ac"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_ford_ordinary.png",
+      "sha256": "a58095080464ea0ee9196a970d98c4f56b73a0f97c3b602c86c9b4cd3893ee15"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_forest_close.png",
+      "sha256": "d9e92a31a0a44928366cefbfc3c3ccad53e39f9ea49f22aa0dba8dbd137f3f14"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_forest_ordinary.png",
+      "sha256": "dbce6f3f63a5e2fc618620fa777223e5c64b3dbcae827728a3a39e5dc9338adf"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_north_pass_ordinary.png",
+      "sha256": "43069956013a94b4fa21f30c77e194218b68366a0084f66f347ef70d46a24944"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_orc_camp_close.png",
+      "sha256": "a3c8333cbabecb99f605348eefa3f9011ab2422f0566e78ea0652ee6a3fa0b54"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_orc_camp_ordinary.png",
+      "sha256": "1c25946f9f023585bf463a356ffa19093574b7652a8d766debf8bbe0cf2b9e6e"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_orc_watch_ordinary.png",
+      "sha256": "413f928a1710726517dcbf8e0aeb3b6a757bd9cfbbf0367d4a9133bdef477132"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_quarry_close.png",
+      "sha256": "a7e1a610dee6ec22d27ae364a22109ce0be4ff07f866de2141abc6e2be635209"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_quarry_ordinary.png",
+      "sha256": "86dffbbd09ca17a22a3f11d7ea68de667d38299b5103fbfaf092432b5a7786f5"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_retained_overview.png",
+      "sha256": "6158d80398a25ad5328a537f3720538f884bddc3b3d80ba97c5c4d031d2212f9"
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-after-r7\\User\\Saved\\Screenshots\\population-after-r5_shrine_ordinary.png",
+      "sha256": "f253ab3ef54e25e0802a2f57a57c0259bb6412ad91d14f8269e19804c0cfb5bc"
+    }
+  ],
+  "visual_review": "Ordinary, west and south native capital views reviewed: road curves around keep with no building intersection. Same endpoints and unchanged miniature/full city/terrain. North Pass and all regional views separately reviewed. Sparse composition and prior material/scale deficiencies remain provisional.",
+  "scope": "22 actual Lit 1080p minimized-overlay views; 20 FPS functional cap, not performance. No material-usage fallback or shader-failure markers.",
+  "filename_note": "Final R7 run retains population-after-r5 screenshot prefix.",
+  "approach": {
+    "measurement": "human-approach-fit-r2.json",
+    "max_grade_degrees": 12.94339,
+    "minimum_centerline_clearance_cm": 340.693,
+    "road_halfwidth_max_cm": 260,
+    "minimum_edge_clearance_cm": 80.693,
+    "canonical_endpoints_unchanged": true,
+    "terrain_edits": false
+  },
+  "capture_marker": [
+    "[2026.10.06-23.55.57:790][714]LogTemp: Display: SOUL_RETAINED_CAPTURE_PASS views=22 campaign_snapshot_unchanged=1 profile=evil lit_restored=1 unlit_diagnostic=0"
+  ],
+  "material_failure_lines": []
+}

@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-06T23:34:58.808175+00:00",
+  "result": "PASS",
+  "exit_code": 0,
+  "scope": "Existing full packaging source suite against staged retained-only snapshot; read-only Content junction for presence/reference checks, no Unreal/cook run. Original working tree and local R10 files unchanged.",
+  "snapshot_files": 411,
+  "cook_roots": 207,
+  "log": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-commit-validation\\packaging.txt"
+}

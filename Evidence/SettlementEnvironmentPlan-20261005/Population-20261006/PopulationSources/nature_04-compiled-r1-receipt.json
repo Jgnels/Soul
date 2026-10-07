@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-06T19:26:45.472257+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Population/SM_Forest_Platform_r1.SM_Forest_Platform_r1",
+  "sha256": "2c8a1c94f8bac5baa935c34633934b4ba90d77d735984fd7dfaea591ea1124df",
+  "source_manifest_sha256": "132829dbc1e1122f457269121c9afc85b3723e4dc499cdf0bc02623e62ca4f90",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    -3.0517578125e-05,
+    0.0,
+    -128.0
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 48,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Forest_village/Meshes/Kit/SM_plateform.SM_plateform",
+      "lod": 0,
+      "triangles": 10062,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_03.SM_rope_03",
+      "lod": 0,
+      "triangles": 3636,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_05.SM_rope_05",
+      "lod": 0,
+      "triangles": 14544,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_06.SM_rope_06",
+      "lod": 0,
+      "triangles": 10908,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Ropes/SM_rope_07.SM_rope_07",
+      "lod": 0,
+      "triangles": 10908,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "lod": 0,
+      "triangles": 652,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "lod": 0,
+      "triangles": 44,
+      "instances": 36
+    }
+  ],
+  "input_triangles": 86974,
+  "reduced_triangles": 86974,
+  "saved_triangles": 86974,
+  "material_count": 4,
+  "recipe_sha256": "33f51a8aa7ae754972496d3a4eb4db7780a190290b9e8921a3be1537ec277eb1",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

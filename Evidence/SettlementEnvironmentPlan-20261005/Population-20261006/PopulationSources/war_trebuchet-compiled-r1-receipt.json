@@ -1,0 +1,230 @@
+{
+  "utc": "2026-10-06T19:27:34.532035+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Population/SM_Siege_Trebuchet_r1.SM_Siege_Trebuchet_r1",
+  "sha256": "992232a4426b90f75cb7f3d3a2b34204777bf6fbbf787965cc7c9ee0584e17db",
+  "source_manifest_sha256": "c611ffd9350721c259f493e35f8f86d55b83f28272e17b94548069dcf1dd3686",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    -30.417284612518188,
+    50.48123224693461,
+    -39.61254059705874
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 125,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "lod": 0,
+      "triangles": 130,
+      "instances": 14
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel",
+      "lod": 0,
+      "triangles": 4683,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen",
+      "lod": 0,
+      "triangles": 4411,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam01.SM_Beam01",
+      "lod": 0,
+      "triangles": 1564,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "lod": 0,
+      "triangles": 1562,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam03.SM_Beam03",
+      "lod": 0,
+      "triangles": 1560,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bottle_04.SM_Bottle_04",
+      "lod": 0,
+      "triangles": 451,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow",
+      "lod": 0,
+      "triangles": 480,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bucket.SM_Bucket",
+      "lod": 0,
+      "triangles": 1412,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Helmet01.SM_Helmet01",
+      "lod": 0,
+      "triangles": 1078,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Lantern01.SM_Lantern01",
+      "lod": 0,
+      "triangles": 1500,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Lantern02.SM_Lantern02",
+      "lod": 0,
+      "triangles": 1442,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Log.SM_Log",
+      "lod": 0,
+      "triangles": 386,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mace.SM_Mace",
+      "lod": 0,
+      "triangles": 1273,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet01.SM_Mantlet01",
+      "lod": 0,
+      "triangles": 2325,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet02.SM_Mantlet02",
+      "lod": 0,
+      "triangles": 2465,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mug01.SM_Mug01",
+      "lod": 0,
+      "triangles": 1244,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mug02.SM_Mug02",
+      "lod": 0,
+      "triangles": 823,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_RockStack.SM_RockStack",
+      "lod": 0,
+      "triangles": 8094,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_01.SM_Rock_01",
+      "lod": 0,
+      "triangles": 230,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_02.SM_Rock_02",
+      "lod": 0,
+      "triangles": 230,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_03.SM_Rock_03",
+      "lod": 0,
+      "triangles": 216,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_04.SM_Rock_04",
+      "lod": 0,
+      "triangles": 230,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01",
+      "lod": 0,
+      "triangles": 1697,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "lod": 0,
+      "triangles": 1375,
+      "instances": 5
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "lod": 0,
+      "triangles": 324,
+      "instances": 15
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "lod": 0,
+      "triangles": 766,
+      "instances": 9
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "lod": 0,
+      "triangles": 724,
+      "instances": 7
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_03.SM_Sword_03",
+      "lod": 0,
+      "triangles": 561,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Trebuchet.SM_Trebuchet",
+      "lod": 0,
+      "triangles": 15800,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WeaponRack02.SM_WeaponRack02",
+      "lod": 0,
+      "triangles": 1659,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WeaponRack03.SM_WeaponRack03",
+      "lod": 0,
+      "triangles": 1992,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "lod": 0,
+      "triangles": 3636,
+      "instances": 11
+    }
+  ],
+  "input_triangles": 199766,
+  "reduced_triangles": 199766,
+  "saved_triangles": 199766,
+  "material_count": 21,
+  "recipe_sha256": "0efaacfa9a54631897c169345c6056a08652a2bb986eb82efe75387e10e30198",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

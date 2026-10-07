@@ -1,0 +1,320 @@
+{
+  "utc": "2026-10-06T19:41:01.995912+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_GateTower_r1.SM_Ravenhold_GateTower_r1",
+  "sha256": "c5c13a201d73291e2774ddeb774ca79a572ba3c1786f81b682f4ff896934591b",
+  "source_manifest_sha256": "9aa8b1a0ae9d4acc15dab07193feb9af6490ced593b3b1b105f57805304ec0d6",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    0.000244140625,
+    0.0001220703125,
+    -33.561058044433594
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 429,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Brick_Pillar_2m.SM_FCK_Brick_Pillar_2m",
+      "lod": 0,
+      "triangles": 1554,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Brick_Pillar_4m.SM_FCK_Brick_Pillar_4m",
+      "lod": 0,
+      "triangles": 1754,
+      "instances": 20
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Brick_Pillar_Base.SM_FCK_Brick_Pillar_Base",
+      "lod": 0,
+      "triangles": 672,
+      "instances": 8
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Brick_Pillar_Cap.SM_FCK_Brick_Pillar_Cap",
+      "lod": 0,
+      "triangles": 607,
+      "instances": 8
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Column_A_05m.SM_FCK_Column_A_05m",
+      "lod": 0,
+      "triangles": 344,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Column_A_3m.SM_FCK_Column_A_3m",
+      "lod": 0,
+      "triangles": 1192,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Column_A_Base.SM_FCK_Column_A_Base",
+      "lod": 0,
+      "triangles": 1106,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Column_A_Cap.SM_FCK_Column_A_Cap",
+      "lod": 0,
+      "triangles": 862,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_GateHouse_Tower.SM_FCK_GateHouse_Tower",
+      "lod": 0,
+      "triangles": 2781,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Med_Wall_2m.SM_FCK_Med_Wall_2m",
+      "lod": 0,
+      "triangles": 108,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Med_Wall_4x2m.SM_FCK_Med_Wall_4x2m",
+      "lod": 0,
+      "triangles": 108,
+      "instances": 13
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Med_Wall_Archway_AA.SM_FCK_Med_Wall_Archway_AA",
+      "lod": 0,
+      "triangles": 1274,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Med_Wall_Archway_CA.SM_FCK_Med_Wall_Archway_CA",
+      "lod": 0,
+      "triangles": 1717,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Med_Wood_Stairs_2m.SM_FCK_Med_Wood_Stairs_2m",
+      "lod": 0,
+      "triangles": 448,
+      "instances": 9
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Pillar_A_Base.SM_FCK_Pillar_A_Base",
+      "lod": 0,
+      "triangles": 406,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Pillar_A_Cap.SM_FCK_Pillar_A_Cap",
+      "lod": 0,
+      "triangles": 462,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Pillar_B_1m.SM_FCK_Pillar_B_1m",
+      "lod": 0,
+      "triangles": 400,
+      "instances": 8
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Pillar_B_3m.SM_FCK_Pillar_B_3m",
+      "lod": 0,
+      "triangles": 987,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Pillar_B_Base.SM_FCK_Pillar_B_Base",
+      "lod": 0,
+      "triangles": 466,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Pillar_B_Cap.SM_FCK_Pillar_B_Cap",
+      "lod": 0,
+      "triangles": 911,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_S_Wood_Stairs_2m.SM_FCK_S_Wood_Stairs_2m",
+      "lod": 0,
+      "triangles": 373,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Wood_Floor_2x2m.SM_FCK_Wood_Floor_2x2m",
+      "lod": 0,
+      "triangles": 781,
+      "instances": 5
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Wood_Floor_2x4m.SM_FCK_Wood_Floor_2x4m",
+      "lod": 0,
+      "triangles": 1059,
+      "instances": 15
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Wood_Floor_4x4m.SM_FCK_Wood_Floor_4x4m",
+      "lod": 0,
+      "triangles": 1264,
+      "instances": 14
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Wood_Floor_Ruined_A_2m.SM_FCK_Wood_Floor_Ruined_A_2m",
+      "lod": 0,
+      "triangles": 1215,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Wood_Floor_Ruined_A_4m.SM_FCK_Wood_Floor_Ruined_A_4m",
+      "lod": 0,
+      "triangles": 1306,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_Wood_Floor_Ruined_B_4m.SM_FCK_Wood_Floor_Ruined_B_4m",
+      "lod": 0,
+      "triangles": 1196,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/1_Architecture/SM_FCK_XS_Wood_Stairs_2m.SM_FCK_XS_Wood_Stairs_2m",
+      "lod": 0,
+      "triangles": 314,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Scaffolding_Support_A.SM_FCK_Scaffolding_Support_A",
+      "lod": 0,
+      "triangles": 485,
+      "instances": 12
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Scaffolding_Support_B.SM_FCK_Scaffolding_Support_B",
+      "lod": 0,
+      "triangles": 609,
+      "instances": 28
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_A_2m.SM_FCK_Trim_A_2m",
+      "lod": 0,
+      "triangles": 256,
+      "instances": 18
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_A_4m.SM_FCK_Trim_A_4m",
+      "lod": 0,
+      "triangles": 306,
+      "instances": 9
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_A_Crn_Ext.SM_FCK_Trim_A_Crn_Ext",
+      "lod": 0,
+      "triangles": 256,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_B_2m.SM_FCK_Trim_B_2m",
+      "lod": 0,
+      "triangles": 142,
+      "instances": 13
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_B_4m.SM_FCK_Trim_B_4m",
+      "lod": 0,
+      "triangles": 256,
+      "instances": 7
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_C_2m.SM_FCK_Trim_C_2m",
+      "lod": 0,
+      "triangles": 192,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_C_4m.SM_FCK_Trim_C_4m",
+      "lod": 0,
+      "triangles": 271,
+      "instances": 10
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_D_1m.SM_FCK_Trim_D_1m",
+      "lod": 0,
+      "triangles": 255,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_D_2m.SM_FCK_Trim_D_2m",
+      "lod": 0,
+      "triangles": 255,
+      "instances": 9
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_D_4m.SM_FCK_Trim_D_4m",
+      "lod": 0,
+      "triangles": 332,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Trim_D_Crn_Ext.SM_FCK_Trim_D_Crn_Ext",
+      "lod": 0,
+      "triangles": 580,
+      "instances": 12
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Wall_Crn_Cap_A_2m_90.SM_FCK_Wall_Crn_Cap_A_2m_90",
+      "lod": 0,
+      "triangles": 558,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/2_ArchDeco/SM_FCK_Wall_Crn_Cap_A_4m_90.SM_FCK_Wall_Crn_Cap_A_4m_90",
+      "lod": 0,
+      "triangles": 834,
+      "instances": 52
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/3_Deco/SM_FCK_Beam_A.SM_FCK_Beam_A",
+      "lod": 0,
+      "triangles": 144,
+      "instances": 83
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/3_Deco/SM_FCK_Beam_A_Broken.SM_FCK_Beam_A_Broken",
+      "lod": 0,
+      "triangles": 452,
+      "instances": 7
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/3_Deco/SM_FCK_Beam_B.SM_FCK_Beam_B",
+      "lod": 0,
+      "triangles": 212,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/3_Deco/SM_FCK_Ladder_4m.SM_FCK_Ladder_4m",
+      "lod": 0,
+      "triangles": 1457,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Ravenhold/Art/1_Assets/3_Deco/SM_FCK_Portcullis_DrawBridge_Chain.SM_FCK_Portcullis_DrawBridge_Chain",
+      "lod": 0,
+      "triangles": 18288,
+      "instances": 1
+    }
+  ],
+  "input_triangles": 265324,
+  "reduced_triangles": 265324,
+  "saved_triangles": 265324,
+  "material_count": 20,
+  "recipe_sha256": "b3da324b90ee4d1c0bc816ec8dbcd244a99328ce8a7ec9d33f945b70f9987772",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

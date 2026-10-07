@@ -1,0 +1,86 @@
+{
+  "utc": "2026-10-06T19:23:57.370642+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_A_r1.SM_Forest_Hut_A_r1",
+  "sha256": "5a0945afb3b4d69d22563ea2a9666ea22467e70554eefbc22d0923a432224df7",
+  "source_manifest_sha256": "a048377b833efddd22170810fb06da0928f95ee37aad9f6d377dc6a58d0b4e7e",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    -3.3967239687626716e-07,
+    7.777885002724361e-08,
+    -16.0
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 256,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Forest_village/Meshes/Kit/SM_plateform.SM_plateform",
+      "lod": 0,
+      "triangles": 10062,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Kit/SM_round_house02.SM_round_house02",
+      "lod": 0,
+      "triangles": 37420,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "lod": 0,
+      "triangles": 1816,
+      "instances": 217
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_02.SM_beam_02",
+      "lod": 0,
+      "triangles": 41,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_03.SM_beam_03",
+      "lod": 0,
+      "triangles": 470,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "lod": 0,
+      "triangles": 268,
+      "instances": 18
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "lod": 0,
+      "triangles": 652,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_window.SM_window",
+      "lod": 0,
+      "triangles": 742,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "lod": 0,
+      "triangles": 44,
+      "instances": 11
+    }
+  ],
+  "input_triangles": 450762,
+  "reduced_triangles": 450762,
+  "saved_triangles": 450762,
+  "material_count": 5,
+  "recipe_sha256": "d3b504a9d6bbaa9c66e2cdbeb53be3db6a2a1476e848a5bdc50331ba9fe2aa96",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

@@ -1,0 +1,150 @@
+{
+  "utc": "2026-10-07T00:06:09.460504+00:00",
+  "scope": "Direct retained-source owned assets, all population derivatives and bound Human R7 base/upgrade. This is not a transitive vendor/cook dependency manifest. Licensed payload stays local; nonvisual tracked scenario metadata may be committed.",
+  "files": [
+    {
+      "path": "Content\\Soul\\Campaign\\TerrainV2\\M_CampaignMasonry.uasset",
+      "bytes": 15923,
+      "sha256": "93fbeaef2186a7b0f83a682f9e65d1a0860114c735807980fc1113dee5a9db7d",
+      "local_only": false
+    },
+    {
+      "path": "Content\\Soul\\Campaign\\TerrainV2\\M_CampaignWood.uasset",
+      "bytes": 13138,
+      "sha256": "ac4acf381df623f77ec800e9895c574442e11b02ec0ed5835f2e344a3685d59b",
+      "local_only": false
+    },
+    {
+      "path": "Content\\Soul\\Campaign\\TerrainV2\\M_FounderRoad.uasset",
+      "bytes": 14138,
+      "sha256": "ca30965ca89d097dcf69a9562ce81d5f47874d61ca40bd03e891c34c2459a88e",
+      "local_only": false
+    },
+    {
+      "path": "Content\\Soul\\Campaign\\TerrainV2\\MI_CampaignPine.uasset",
+      "bytes": 8141,
+      "sha256": "e00e077973469677f2e6c68f57ed8a35624938ff90d33f9755064c16788c342c",
+      "local_only": false
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r7.uasset",
+      "bytes": 50290152,
+      "sha256": "f9975bdc2bb56e1a339b34ce1c373fa1550fc7a46456987d4ee273efc4c04bcc",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Upgrade_r7.uasset",
+      "bytes": 1936288,
+      "sha256": "bcb1e521d5323ac5b86ccf96a21b071b8c299ef6c662da03ce655a445e81210f",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Camp_Tent_r1.uasset",
+      "bytes": 5063752,
+      "sha256": "445813adcc857574d2e47833f47eddb06e2a4d20fa248ef0a593cb34d068a758",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Field_Defenses_A_r1.uasset",
+      "bytes": 5249445,
+      "sha256": "d6f5f02a45f36bdf0b844fd0817560fa55cec220f3b8a8f511ba8e71e97b6785",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Field_Defenses_B_r1.uasset",
+      "bytes": 3442052,
+      "sha256": "cb62b360b8cb0759c6a1e0f813ac866d6db61029d58dba6056aaeeb1e5f8042c",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_A_r1.uasset",
+      "bytes": 17539517,
+      "sha256": "5a0945afb3b4d69d22563ea2a9666ea22467e70554eefbc22d0923a432224df7",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_A_r2.uasset",
+      "bytes": 17539800,
+      "sha256": "18ffc340da3ee3b6b6e66e8ed4c1337d154114f6bbd5c9161d5fa88628e7c040",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_B_r1.uasset",
+      "bytes": 16308967,
+      "sha256": "14060907c6db6d4cbb70563dc97050e8943562a78a7e60778362bfab0f61e312",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_B_r2.uasset",
+      "bytes": 16311442,
+      "sha256": "7caf5881f729221556b5ceb5a3666709e048b30e68d062f5272eff90618e55b4",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Platform_r1.uasset",
+      "bytes": 2988676,
+      "sha256": "2c8a1c94f8bac5baa935c34633934b4ba90d77d735984fd7dfaea591ea1124df",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Platform_r2.uasset",
+      "bytes": 2989842,
+      "sha256": "2b10fa5b5fdbe5c7cfc26d79be75df7e25bca77c3827f79dc09c29240dc28f4a",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_Archway_r1.uasset",
+      "bytes": 330036,
+      "sha256": "6157f170131ef496ff7afa1c62607725c1dafd23f85bd260490cc08adf1ce21e",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_CurtainWall_r1.uasset",
+      "bytes": 645098,
+      "sha256": "89deca7a30041a79bc9f227a6f9eecb21ebca4b128eb4ad6db23113284bcc35e",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_CurtainWall_r2.uasset",
+      "bytes": 648132,
+      "sha256": "75dee2bba19207a5ab1fbc2a747fbf215ec641b7cd886ad48457738d2701dc82",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_GateTower_r1.uasset",
+      "bytes": 6759455,
+      "sha256": "c5c13a201d73291e2774ddeb774ca79a572ba3c1786f81b682f4ff896934591b",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_Siege_Trebuchet_r1.uasset",
+      "bytes": 10832515,
+      "sha256": "992232a4426b90f75cb7f3d3a2b34204777bf6fbbf787965cc7c9ee0584e17db",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_WheatGrass_A_Coverage_r1.uasset",
+      "bytes": 71239,
+      "sha256": "ec989534ec596d3d5f9203a5e6e74b616a971ee63b75862adadda162ad99bc6f",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\CampaignProxies\\Population\\SM_WheatGrass_B_Coverage_r1.uasset",
+      "bytes": 46812,
+      "sha256": "dc576ab4df5a3babe516534278c850a8e467ab8a08a1f84899f8f21ad52fc9e6",
+      "local_only": true
+    },
+    {
+      "path": "Content\\Soul\\Data\\Settlements\\DA_Soul_HumanCapital_DevelopmentProof.uasset",
+      "bytes": 4182,
+      "sha256": "6ba3d366e3c4ee4a58042ef844c9fe440eae063b77bac52cbb87f7b677d451ec",
+      "local_only": false
+    },
+    {
+      "path": "Content\\Soul\\Materials\\Settlements\\Crops\\M_WheatGrass_Coverage_r1.uasset",
+      "bytes": 16966,
+      "sha256": "ea73fa1c2041833ce5e31fbfda3c6a937183078568be61bc8abae1bc526e1bbf",
+      "local_only": true
+    }
+  ]
+}

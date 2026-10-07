@@ -10,6 +10,8 @@ namespace SoulCampaignTerrain
     bool Enabled();
     bool Mesa();
     bool EvilCorridor();
+    bool RetainedReviewCapture();
+    bool PopulationReviewCapture();
     FString LocationName(FName Id,const FString& Fallback);
     float Scale();
     float RegionScale();
@@ -20,6 +22,7 @@ namespace SoulCampaignTerrain
     FVector Road(FName From,FName To,float Alpha);
     const TArray<TArray<FVector>>& WaterLines();
     void Build(ASoulCampaignWorldActor* Owner);
+    void DressSettlementSurroundings(AActor* Owner,FName Region);
     bool DressRegion(AActor* Owner,FName Region);
     void DressRoad(AActor* Owner,USceneComponent* Road,FName From,FName To);
 }

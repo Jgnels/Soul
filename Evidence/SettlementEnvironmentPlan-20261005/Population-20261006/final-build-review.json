@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-07T00:09:01.237415+00:00",
+  "result": "PASS",
+  "builds": [
+    {
+      "target": "SoulEditor",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-06T23:48:12.4329752Z",
+      "finished_utc": "2026-10-06T23:48:59.8955179Z",
+      "exit_code": 0,
+      "arguments": [
+        "SoulEditor",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-OverrideBuildEnvironment",
+        "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\population-editor-capital-approach-r1.log.result.json"
+    },
+    {
+      "target": "Soul",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-07T00:03:19.3646324Z",
+      "finished_utc": "2026-10-07T00:04:54.1966599Z",
+      "exit_code": 0,
+      "arguments": [
+        "Soul",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\population-game-capital-approach-r1.log.result.json"
+    }
+  ],
+  "scope": "Existing local worker with preserved licensed mounts and inherited local-only state; Editor and game target builds. No new cook/package acceptance is claimed."
+}

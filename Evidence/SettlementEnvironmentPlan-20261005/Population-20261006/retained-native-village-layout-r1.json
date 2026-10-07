@@ -1,0 +1,276 @@
+{
+  "terrain": "/Game/SoulCampaignMountain/L_evil_waterfront",
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "method": "Actual qualified owned mesh bounds, native frontage, 169 rotated ground samples, existing-route clearance and non-overlap; no terrain/topology changes",
+  "meshes": {
+    "A": {
+      "bounds": {
+        "center": [
+          -0.03448486328125,
+          -11.224090576171875,
+          715.2297973632812
+        ],
+        "extent": [
+          601.290771484375,
+          1042.7254943847656,
+          715.2297973632812
+        ],
+        "dimensions": [
+          1202.58154296875,
+          2085.4509887695312,
+          1430.4595947265625
+        ],
+        "min": [
+          -601.3252563476562,
+          -1053.9495849609375,
+          0.0
+        ],
+        "max": [
+          601.2562866210938,
+          1031.5014038085938,
+          1430.4595947265625
+        ]
+      },
+      "sha256": "17e25d7e1ab37fc20a4fe155223b81f4093af478a59a9a19c9a118bdcf603172",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_A_r1",
+      "lod": 1,
+      "triangles": 59999
+    },
+    "B": {
+      "bounds": {
+        "center": [
+          -3.0517578125e-05,
+          -0.1667022705078125,
+          388.4310665130615
+        ],
+        "extent": [
+          606.8177795410156,
+          376.24278259277344,
+          388.3833255767822
+        ],
+        "dimensions": [
+          1213.6355590820312,
+          752.4855651855469,
+          776.7666511535645
+        ],
+        "min": [
+          -606.8178100585938,
+          -376.40948486328125,
+          0.047740936279296875
+        ],
+        "max": [
+          606.8177490234375,
+          376.0760803222656,
+          776.8143920898438
+        ]
+      },
+      "sha256": "4515114b25caddfa546bebf11957d1a5a9c9be1f44d8a915c2c6fe2cc548a382",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_B_r1",
+      "lod": 1,
+      "triangles": 60000
+    },
+    "C": {
+      "bounds": {
+        "center": [
+          0.0,
+          -0.15484619140625,
+          616.6898193359375
+        ],
+        "extent": [
+          600.9715576171875,
+          499.29071044921875,
+          616.6898193359375
+        ],
+        "dimensions": [
+          1201.943115234375,
+          998.5814208984375,
+          1233.379638671875
+        ],
+        "min": [
+          -600.9715576171875,
+          -499.445556640625,
+          0.0
+        ],
+        "max": [
+          600.9715576171875,
+          499.1358642578125,
+          1233.379638671875
+        ]
+      },
+      "sha256": "0b14a05350bf8c5292d35302b91b53bb2dafda3358a87aa1c8216a1856c783dd",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_C_r1",
+      "lod": 1,
+      "triangles": 59999
+    }
+  },
+  "plots": [
+    {
+      "region": "crossroads",
+      "variant": "A",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_A_r1",
+      "offset": [
+        -1975,
+        -600
+      ],
+      "world_scale": 0.36,
+      "yaw": -225.00000097402824,
+      "radius": 433.3220343891883,
+      "low": 1152.0011503386122,
+      "high": 1208.3741757517084,
+      "relief": 56.37302541309623,
+      "nearest_route": [
+        -4228.676483575002,
+        16653.6764602
+      ],
+      "clearance": 538.9497870729843,
+      "score": 487.74605082619246
+    },
+    {
+      "region": "crossroads",
+      "variant": "B",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_B_r1",
+      "offset": [
+        -1000,
+        875
+      ],
+      "world_scale": 0.6,
+      "yaw": 90.0,
+      "radius": 428.3959869644988,
+      "low": 1297.3994360749816,
+      "high": 1356.314465675387,
+      "relief": 58.91502960040543,
+      "nearest_route": [
+        -3235.29412,
+        18816.17647
+      ],
+      "clearance": 277.4863630355011,
+      "score": 633.2182624030185
+    },
+    {
+      "region": "crossroads",
+      "variant": "C",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_C_r1",
+      "offset": [
+        100,
+        1725
+      ],
+      "world_scale": 0.48,
+      "yaw": -135.00000097402827,
+      "radius": 375.03270434717626,
+      "low": 1403.196713500313,
+      "high": 1451.4118807795767,
+      "relief": 48.215167279263596,
+      "nearest_route": [
+        -3312.5000066999996,
+        19194.852949325
+      ],
+      "clearance": 291.51942218823035,
+      "score": 611.8185377607348
+    },
+    {
+      "region": "crossroads",
+      "variant": "B",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_B_r1",
+      "offset": [
+        2350,
+        1375
+      ],
+      "world_scale": 0.55,
+      "yaw": 225.00000000000006,
+      "radius": 392.6963213841239,
+      "low": 1552.722666687412,
+      "high": 1616.2926143671841,
+      "relief": 63.56994767977221,
+      "nearest_route": [
+        -1078.6764700000008,
+        19803.67647
+      ],
+      "clearance": 296.7327902727606,
+      "score": 965.6653869219656
+    },
+    {
+      "region": "crossroads",
+      "variant": "C",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_C_r1",
+      "offset": [
+        2775,
+        2200
+      ],
+      "world_scale": 0.48,
+      "yaw": 180.0,
+      "radius": 375.03270434717626,
+      "low": 1582.3156446313283,
+      "high": 1632.094301119047,
+      "relief": 49.77865648771876,
+      "nearest_route": [
+        -882.35294,
+        20141.17647
+      ],
+      "clearance": 341.14376565282384,
+      "score": 474.5573129754375
+    },
+    {
+      "region": "crossroads",
+      "variant": "B",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_B_r1",
+      "offset": [
+        1175,
+        -1125
+      ],
+      "world_scale": 0.55,
+      "yaw": 180.0,
+      "radius": 392.6963213841239,
+      "low": 1318.7061694104436,
+      "high": 1383.2236490469795,
+      "relief": 64.51747963653588,
+      "nearest_route": [
+        -1766.1764699999999,
+        17941.17647
+      ],
+      "clearance": 732.3036786158762,
+      "score": 305.81165456970865
+    },
+    {
+      "region": "old_quarry",
+      "variant": "A",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_A_r1",
+      "offset": [
+        1450,
+        25
+      ],
+      "world_scale": 0.42,
+      "yaw": -45.00000000000006,
+      "radius": 505.54237345405295,
+      "low": 1567.1130656789624,
+      "high": 1629.641524506696,
+      "relief": 62.52845882773363,
+      "nearest_route": [
+        6766.911759999999,
+        41178.67647
+      ],
+      "clearance": 294.11221202619515,
+      "score": 575.7508270884659
+    },
+    {
+      "region": "old_quarry",
+      "variant": "B",
+      "package": "/Game/SoulCampaignProxies/SM_Medieval_Building_B_r1",
+      "offset": [
+        -1475,
+        700
+      ],
+      "world_scale": 0.6,
+      "yaw": 64.61209370890407,
+      "radius": 428.3959869644988,
+      "low": 1551.3073915221507,
+      "high": 1609.8013835311158,
+      "relief": 58.49399200896505,
+      "nearest_route": [
+        5882.35294,
+        40588.23529
+      ],
+      "clearance": 1204.278199761071,
+      "score": 241.9879840179301
+    }
+  ]
+}

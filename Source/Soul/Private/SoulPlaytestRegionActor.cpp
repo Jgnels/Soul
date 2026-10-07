@@ -83,6 +83,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
                     }
                 }
             }
+    if(bAuthoredBinding)SoulCampaignTerrain::DressSettlementSurroundings(this,RegionId);
     const bool bProofRouteOnly = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"))
         && (RegionId == TEXT("dwarf_forge_approach") || RegionId == TEXT("dwarf_snow_basin"));
     // These canonical nodes are route locations, not towns. The authored-city
@@ -163,6 +164,37 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
         if(RegionId==TEXT("forest_edge"))
             for(int32 I=0;I<5;++I)Add(Wood,FVector(120,I*22,15),FVector(.9f,.17f,.17f));
     }
+    }
+    const bool bRetainedPopulation = SoulCampaignTerrain::EvilCorridor() && !bAuthoredBinding
+        && !FParse::Param(FCommandLine::Get(),TEXT("SoulDwarfSettlementProof"))
+        && RegionId != TEXT("human_capital")
+        && !FParse::Param(FCommandLine::Get(),TEXT("SoulPopulationBaseline"));
+    if(bRetainedPopulation)
+    {
+        // Fit the existing founder hit target to its visible settlement, before
+        // standards, selection marks and garrisons add unrelated decoration.
+        FBox Footprint(Location-FVector(600,600,100),Location+FVector(600,600,800));
+        TArray<UStaticMeshComponent*> Components;GetComponents(Components);
+        for(auto* Mesh:Components)if(Mesh!=Marker&&Mesh->GetStaticMesh())
+        {
+            const FBox MeshBox=Mesh->GetStaticMesh()->GetBounds().GetBox();
+            if(auto* Instances=Cast<UInstancedStaticMeshComponent>(Mesh))
+            {
+                for(int32 I=0;I<Instances->GetInstanceCount();++I)
+                {
+                    FTransform InstanceWorld;
+                    if(Instances->GetInstanceTransform(I,InstanceWorld,true))Footprint+=MeshBox.TransformBy(InstanceWorld);
+                }
+            }
+            else Footprint+=MeshBox.TransformBy(Mesh->GetComponentTransform());
+        }
+        Footprint=Footprint.ExpandBy(FVector(200,200,100));
+        Marker->SetWorldLocation(Footprint.GetCenter());
+        Marker->SetWorldScale3D(Footprint.GetSize()/(Marker->GetStaticMesh()->GetBounds().BoxExtent*2));
+        Marker->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+        Marker->SetCollisionResponseToAllChannels(ECR_Ignore);
+        Marker->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
+        Marker->SetCanEverAffectNavigation(false);
     }
     const bool Fort=RegionId==TEXT("orc_camp");
     const bool bTerrainMiniature=SoulCampaignTerrain::Enabled();

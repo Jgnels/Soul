@@ -65,17 +65,17 @@
         "SL_HumanCapital_Houses:SoulSettlementBuildingActor_0",
         "SL_HumanCapital_TownProps:SoulSettlementBuildingActor_0"
       ],
-      "campaign_miniature_group": "SM_HumanCapital_Upgrade_r6: same native tavern, same human.tavern state"
+      "campaign_miniature_group": "SM_HumanCapital_Upgrade_r7: same native tavern, same human.tavern state"
     }
   ],
-  "miniature_base_mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r6",
-  "miniature_upgrade_mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Upgrade_r6",
+  "miniature_base_mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r7",
+  "miniature_upgrade_mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Upgrade_r7",
   "miniature_translation": [
-    -500,
+    -1500,
     0,
     0
   ],
   "miniature_yaw": 0,
-  "miniature_scale": 0.12,
-  "miniature_quality_status": "R6 native central keep and thirty nearby authored blocks; welded RenderLOD0 castle restores roof surfaces. Same native tavern follows shared state. Campaign-only foundation fitting; full city unchanged. Functional correspondence accepted; detached gate and campaign streets/hinterland remain provisional art. See Population-20261006 receipts."
+  "miniature_scale": 0.24,
+  "miniature_quality_status": "R7 functional correspondence and final retained R7 render qualified: native keep/thirty blocks at uniform 0.24; detached gate omitted, same native tavern shared. Campaign-only foundation fit and bounded road clearance; full city unchanged. Art remains provisional; see Population-20261006/retained-population-r7-review.json and capital-road-regression-review.json."
 }

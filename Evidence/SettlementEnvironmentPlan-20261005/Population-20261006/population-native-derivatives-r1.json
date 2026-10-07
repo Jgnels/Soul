@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-06T19:50:11.577146+00:00",
+  "compiled": [
+    {
+      "key": "nature_02",
+      "source": "/Game/Forest_village/BP/Prefab/BPP_PLA_02",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_A_r1",
+      "triangles": 450762,
+      "sha256": "5a0945afb3b4d69d22563ea2a9666ea22467e70554eefbc22d0923a432224df7",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\nature_02-compiled-r1-receipt.json"
+    },
+    {
+      "key": "nature_03",
+      "source": "/Game/Forest_village/BP/Prefab/BPP_PLA_03",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_B_r1",
+      "triangles": 414308,
+      "sha256": "14060907c6db6d4cbb70563dc97050e8943562a78a7e60778362bfab0f61e312",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\nature_03-compiled-r1-receipt.json"
+    },
+    {
+      "key": "nature_04",
+      "source": "/Game/Forest_village/BP/Prefab/BPP_PLA_04",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Platform_r1",
+      "triangles": 86974,
+      "sha256": "2c8a1c94f8bac5baa935c34633934b4ba90d77d735984fd7dfaea591ea1124df",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\nature_04-compiled-r1-receipt.json"
+    },
+    {
+      "key": "war_outpost_01",
+      "source": "/Game/Medieval_Warzone/Blueprints/BP_Outpost_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1",
+      "triangles": 95439,
+      "sha256": "d6f5f02a45f36bdf0b844fd0817560fa55cec220f3b8a8f511ba8e71e97b6785",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\war_outpost_01-compiled-r1-receipt.json"
+    },
+    {
+      "key": "war_outpost_02",
+      "source": "/Game/Medieval_Warzone/Blueprints/BP_Outpost_02",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_B_r1",
+      "triangles": 57658,
+      "sha256": "cb62b360b8cb0759c6a1e0f813ac866d6db61029d58dba6056aaeeb1e5f8042c",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\war_outpost_02-compiled-r1-receipt.json"
+    },
+    {
+      "key": "war_trebuchet",
+      "source": "/Game/Medieval_Warzone/Blueprints/BP_TrebuchetProps",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Siege_Trebuchet_r1",
+      "triangles": 199766,
+      "sha256": "992232a4426b90f75cb7f3d3a2b34204777bf6fbbf787965cc7c9ee0584e17db",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\war_trebuchet-compiled-r1-receipt.json"
+    },
+    {
+      "key": "war_tent_01",
+      "source": "/Game/Medieval_Warzone/Blueprints/BP_TentProps_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1",
+      "triangles": 95363,
+      "sha256": "445813adcc857574d2e47833f47eddb06e2a4d20fa248ef0a593cb34d068a758",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\war_tent_01-compiled-r1-receipt.json"
+    },
+    {
+      "key": "raven_gate_l",
+      "source": "/Game/Ravenhold/Art/3_BPP/BPP_FCK_GateHouse_Tower_L",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_GateTower_r1",
+      "triangles": 265324,
+      "sha256": "c5c13a201d73291e2774ddeb774ca79a572ba3c1786f81b682f4ff896934591b",
+      "receipt": "Evidence\\SettlementEnvironmentPlan-20261005\\Population-20261006\\PopulationSources\\raven_gate_l-compiled-r1-receipt.json"
+    }
+  ],
+  "source_lod_note": "All eight native population assemblies use explicit source RenderData LOD0. The builder receipt legacy phrase lowest LOD is generic wording; per-source LOD fields are authoritative.",
+  "terrain": "No heightfield or Landscape package modified",
+  "status": "Eight assets saved; native source screenshots reviewed. Retained placements, material instancing, selection and performance await runtime evidence.",
+  "native_material_exception": "Ravenhold architecture exceeds 16 SM5 samplers. Two owned graph copies and six native instance copies use shared wrap sampling; exact native textures, UVs, parameters and source geometry retained. Native before/owned after screenshot reviewed; no checkerboard after repair.",
+  "capital_scope": "Ravenhold tower/outworks are a provisional occupied-fortress campaign representation, not a completed full capital/visit integration. No third deep city proof."
+}

@@ -1,0 +1,417 @@
+{
+  "utc": "2026-10-07T00:13:43.656833+00:00",
+  "parent_head": "e30b5df88c4c9db9528b61cf69b04dbb55731284",
+  "files": [
+    {
+      "path": "Config/DefaultGame.ini",
+      "bytes": 18634,
+      "sha256": "27be1802de66309ead162629bf2d0ed682899dd3ad7c84758bae32146d9ff1ba"
+    },
+    {
+      "path": "Content/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof.uasset",
+      "bytes": 4182,
+      "sha256": "6ba3d366e3c4ee4a58042ef844c9fe440eae063b77bac52cbb87f7b677d451ec"
+    },
+    {
+      "path": "Data/SettlementEnvironments/CrownsteadDevelopmentProof.json",
+      "bytes": 3096,
+      "sha256": "9600e5b28b987ceb90175505b3f3ad43fe47f70dffb11f4f8bfdd9aa9d7b1724"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/bind_human_r7.py",
+      "bytes": 2545,
+      "sha256": "34f02fc59bd84412f0465c1030c8e0d8b2bd2b5fa7391ead819838ecfdb3a87e"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/human-retained-base-r7-receipt.json",
+      "bytes": 3786,
+      "sha256": "cde919cf646f5d587e0e9893a3e9cce62b91055b04f7a922eec9ed7f76417637"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/human-retained-base-r7-recipe.json",
+      "bytes": 388,
+      "sha256": "020ccc85d280905f043a688029bf2bbf388b176fff4173ce58135c1302e23127"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/human-retained-fit-r7.json",
+      "bytes": 12051,
+      "sha256": "2ec0ee680411408f9f456ac9493959faed1f424907f335fe474a63d410dec243"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/human-retained-source-r7.json",
+      "bytes": 67437,
+      "sha256": "b16a2bf3725c8fd0b7959cead60c18c7b4ad4168f0f04ff3ac07e78b28982e33"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/human-retained-upgrade-r7-receipt.json",
+      "bytes": 1215,
+      "sha256": "caad64982a52cbfb7e800f6d8530fb97858e1135bc8aff7ee136372f23c357d8"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/HumanMiniature/human-retained-upgrade-r7-recipe.json",
+      "bytes": 397,
+      "sha256": "633c97b24a7305edbf47d65d3aae2540235bc4d952fb57ee3398690c092063cb"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_02-compiled-r1-receipt.json",
+      "bytes": 2462,
+      "sha256": "90f5e08c6556fce75dfe08685854746370acd1125620d813eb8b6269c2faeab5"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_02-compiled-r1-recipe.json",
+      "bytes": 395,
+      "sha256": "d102e565d84d39acc6f2ae41e54e3b3744ed6a79c809254f14bf49e0f01d9254"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_02-native-source-r1.json",
+      "bytes": 175007,
+      "sha256": "34a6b695b038a355a0a67fb4d52d2edffc57e658ffde037dc1e90d08d911a6ba"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_03-compiled-r1-receipt.json",
+      "bytes": 2468,
+      "sha256": "9bb82d3f04bd3f1bd432c272fca2bcf9213fd3473daf26c68e66c1eb112813cb"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_03-compiled-r1-recipe.json",
+      "bytes": 395,
+      "sha256": "cab49677d1b4109728ebd456903bf1257832d580a661feaa1035360c8505a90e"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_03-native-source-r1.json",
+      "bytes": 161898,
+      "sha256": "60224ef3c24e817e46e87a4d31f4591932bfc717c1a6222deaf606cec74d0ef2"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_04-compiled-r1-receipt.json",
+      "bytes": 2098,
+      "sha256": "4dedf5b38ad5e4e93bdbddf2bf786c52cca51f2ede2f800e1157de922ef249b6"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_04-compiled-r1-recipe.json",
+      "bytes": 398,
+      "sha256": "c5f302bf8158c4824c9569f38a0e6dd779e5e4f3a4255d2bade0f3de445a0cf3"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/nature_04-native-source-r1.json",
+      "bytes": 33753,
+      "sha256": "7167db9f2e403d2603dfbcd99d47b8ef29327aa4cccff04816b14624e6930231"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/raven_gate_l-compiled-r1-receipt.json",
+      "bytes": 9584,
+      "sha256": "3d1b09ef20b95536ba28dc26204f5cf9c581431e19c0edecb4656d45c460ba53"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/raven_gate_l-compiled-r1-recipe.json",
+      "bytes": 401,
+      "sha256": "adef083ff6e407a8a177554e6c805086e11bf99fc1f718dccc973bad33678855"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/raven_gate_l-sampler-source-r1.json",
+      "bytes": 307912,
+      "sha256": "5e8d2999f28b3c39fe8e89ed274de8a2929d14c1463b160a03e1401d49089f1d"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_outpost_01-compiled-r1-receipt.json",
+      "bytes": 4004,
+      "sha256": "ee2bd78e6de04eccd864f41cf71ec6cb9ad59803e1b4b2584250a74bffc10fc3"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_outpost_01-compiled-r1-recipe.json",
+      "bytes": 409,
+      "sha256": "fa312f3e69c35eb88b3bf27d7f7e922f9856a764dcd2c0d53460a36fda4e9af1"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_outpost_01-native-source-r1.json",
+      "bytes": 59713,
+      "sha256": "a929b34fe43248a421f867ce5bdd1d804509656916003e9242d4170482c3b357"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_outpost_02-compiled-r1-receipt.json",
+      "bytes": 3553,
+      "sha256": "24f06541737bc80e7ae01ea689c1c7e911fc271487432e874fd589e134062c44"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_outpost_02-compiled-r1-recipe.json",
+      "bytes": 409,
+      "sha256": "355e8ae5f4a8519dfc77b2d7429bbd8b9efbd3c0db0e4bc8c8c69331d510288b"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_outpost_02-native-source-r1.json",
+      "bytes": 45702,
+      "sha256": "db10616b738589b0b9d5b985a49bb084530452b92900db92bcaf19eef4314f9e"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_tent_01-compiled-r1-receipt.json",
+      "bytes": 4822,
+      "sha256": "38abf1e5538a8e4d79b8ba13604cc10829fad7277c90a5aae2e2ac59f755eb06"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_tent_01-compiled-r1-recipe.json",
+      "bytes": 396,
+      "sha256": "12a68833d3193e55313cf991bb7e4e70c0c2592b8796a07728f83f4fafb8ea02"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_tent_01-native-source-r1.json",
+      "bytes": 47670,
+      "sha256": "0d3936e76a95d85524e8f752c86c17e959e89f366fbcd82bf4d0746328183c59"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_trebuchet-compiled-r1-receipt.json",
+      "bytes": 5838,
+      "sha256": "bc832b55458604b5ab57e9d3de1039a8402b33a20b2f82155887768a4146d3d6"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_trebuchet-compiled-r1-recipe.json",
+      "bytes": 406,
+      "sha256": "7382b9fc66e6c564e2761098a9c56bf96d44b5d887a286bf901b2c54449b53de"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/PopulationSources/war_trebuchet-native-source-r1.json",
+      "bytes": 94031,
+      "sha256": "73f4718d088519317b2b39cb1babce490b90be7bdb4aba9c09fcdede90a01cbc"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/campaign-view-final-r5.json",
+      "bytes": 198,
+      "sha256": "fd7e94b137586ec8a81e9e1a5e8a5c5bf21ca44e749d1964fa595de9f79b6b71"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/capital-road-regression-review.json",
+      "bytes": 11795,
+      "sha256": "c26ab2a78653b69fc6204761e51675355f7a8acc810bb5ddd7b01426fac28f9d"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/final-build-review.json",
+      "bytes": 1940,
+      "sha256": "869de26673af6241c8ab8d94a2236bfabfdf533de6b77cd1d8bb5a71b0c3abb5"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/human-approach-fit-r2.json",
+      "bytes": 1583,
+      "sha256": "7cc63076fd6570c0d2ef0ce6a390fb9650f4c3e64f9676db459df3fcd4bfbe1d"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/human-approach-source-change.json",
+      "bytes": 410,
+      "sha256": "9277a350122e3d4e6c7768547e0a168c7cb116f8b6465a44df3c7d02a62a5668"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/human-miniature-r7-binding.json",
+      "bytes": 13209,
+      "sha256": "5648bbbb2d38ae513628ac96f7c4e3bd94c28093c53a2e8773fa2e6b12d71a2e"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/human-second-proof.md",
+      "bytes": 5921,
+      "sha256": "4a531ef152524b38733771133e959d0e9f53ef7fed2a58e36730628e68c5561a"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/milestone-staging-scope.json",
+      "bytes": 7091,
+      "sha256": "08670dd648cb34ae0389d874c0ff2bff89d3831bc0e9405f677aa8c2073e048f"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/native-capital-road-final-review.json",
+      "bytes": 1118,
+      "sha256": "2a957570e71557975c553c8a393b8e7a15a0e80796ae8dc3a31b4cac028b52f7"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/native-final-review.json",
+      "bytes": 2241,
+      "sha256": "0d134aec254044602b92bfa53b80f1147e9f4d871b1e0213b6d46f35e082548f"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/north-pass-approach-fit-r2.json",
+      "bytes": 1922,
+      "sha256": "d31a7932730795277e5fb5d9a982c45583e82e72e04242e1db57cc633b0c4fc2"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/north-pass-source-change.json",
+      "bytes": 447,
+      "sha256": "6775a6b3c4d1835c7a8d91171195a69ff60d5245efbbca676d453c2a3d125496"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/population-donor-preservation-summary.json",
+      "bytes": 243,
+      "sha256": "9d139040fc9b0197a80db4a3046e7ba464e01479d63749866089a6df5be4c1f5"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/population-native-derivatives-r1.json",
+      "bytes": 4504,
+      "sha256": "28a18dc79ca1d33daf85f85c469cafe39a91d4d7f180b61df58a23e8bffb160e"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/population-status.md",
+      "bytes": 5511,
+      "sha256": "5d207df5d9ad23ecca257a77f8a002af696ce3b81189cce72505f5bffc4f18ee"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/preserved-state-final.json",
+      "bytes": 9199,
+      "sha256": "dfb2c4ac5cab37e99e6a5b12acd7d2a1e069561ad64c3c455f22e059f60ce1d1"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/progress.md",
+      "bytes": 21706,
+      "sha256": "fea528731323b4802d2e8ee4245e69eadaf49c13f952162ec62c09d5255f4379"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/quarry-workshop-fit-r1.json",
+      "bytes": 1518,
+      "sha256": "26e5d82a679fb6bbb0bf2a596dab3bcb1d2e1f527e8c02db133bc6e6760c0304"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/r7-state-qualification-review.json",
+      "bytes": 1264,
+      "sha256": "8b7204f545a989d85bffed2f439e7d31ca4cb1df18aba04d39bb27f418779c07"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-index-final-syntax.json",
+      "bytes": 323,
+      "sha256": "367a248de706c45b137d5386e2f49f2ad8538b5865f2b57e28da3beddff9e2f0"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-index-packaging-review.json",
+      "bytes": 460,
+      "sha256": "71c22153c4f52a998c5209d8b7de4f4148bfe4326acb2213aac0d711c3adc6c6"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-local-payload-manifest.json",
+      "bytes": 5937,
+      "sha256": "41f157dc6709c4606862baf3494958052beba55899a54cc90c49855ba00c7b4c"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-native-population-layout-r3.json",
+      "bytes": 11901,
+      "sha256": "a1ea81ae3cb06365274385719d597778b1e390fa93089e235119b44de77a5cea"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-native-village-layout-r1.json",
+      "bytes": 7077,
+      "sha256": "a2388e21a1f561d4d184625018d67547fcfb9ebb09cd939993262b0f07071497"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-outwork-fit-r6.json",
+      "bytes": 3218,
+      "sha256": "f598caa944e904503a1dbaaa172d6aef1181284e6143b2a8f07796e4df1a7036"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-performance-r1-review.json",
+      "bytes": 2125,
+      "sha256": "4e945785e3a63f6e16ee38c9008fb99d45586129c410d0e18d53e3072449130d"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-population-r7-review.json",
+      "bytes": 9038,
+      "sha256": "0c8a38d578a3f869df3d38a1a4f06b65c01a23e373216718ee6b691f44b12910"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/retained-review-launcher-dry-run.json",
+      "bytes": 1881,
+      "sha256": "642d680639e5b713fa69b00c034b396d8e18aff425dabdda122b684a3e70b33a"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/tools-final-r4.json",
+      "bytes": 201,
+      "sha256": "86d9a9f05deef025866a0fd8fd8631b549480c395d90dbff7fd86b1f22b3da60"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/Population-20261006/visual-review.html",
+      "bytes": 13107,
+      "sha256": "cdd3651dc39dcbd30aed568bed0246a207588dad73162062c6e41eab3d2917c5"
+    },
+    {
+      "path": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "bytes": 7516,
+      "sha256": "540af3a090ed88f62760c5f8442fac9bb0b384ac4abefa64786a8bd59ee83737"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignTerrain.cpp",
+      "bytes": 61054,
+      "sha256": "5b8694e0287703f588b1f5321c6439a5025deeecaed199356182a532052a6432"
+    },
+    {
+      "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+      "bytes": 14232,
+      "sha256": "20248ceeb06cffe6fe844de09a5932f610187ffb6b94bf17f3dd7a149fd76167"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignTerrain.h",
+      "bytes": 943,
+      "sha256": "a7bc92d864cf82ce85b8f74d39399dddbb41fe3bc7e0c76006e7873473baeffd"
+    },
+    {
+      "path": "Tools/Open_Soul_Evil_Corridor.bat",
+      "bytes": 164,
+      "sha256": "f10f96f7abf8b6e56751df1ef8df27c289e263b2b1533a8371db9e50315cff55"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/README.md",
+      "bytes": 10711,
+      "sha256": "58583840a6f0fa870faebd59805adb8bd85ed079f84b4bc8cdc2304bf7f404e2"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/fit_human_campaign_lanes.py",
+      "bytes": 3695,
+      "sha256": "b563fbc33f5f0147c528a15f6743e6b250ae864a4fa92b7379568119d1ab7a7c"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/inspect_population_prefab.py",
+      "bytes": 4931,
+      "sha256": "3deb82b8d05a9c7b46789d60a8509ba379dc694443895c8c003ed5b790739bec"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/measure_north_pass_approach.py",
+      "bytes": 3616,
+      "sha256": "5e90e199febecb15a02ad27984e4e4a12059f5049015351f83cc784b26c4a5e2"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/measure_quarry_workshop.py",
+      "bytes": 1999,
+      "sha256": "abafa9af9a06e137e6df18135b8db141f7ea5e40acd07000fe3fd3e78ba3764f"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/measure_retained_outwork.py",
+      "bytes": 2599,
+      "sha256": "138b079f265899b74895d196986bf43ed80e381e4e8217975e05555d003e72a0"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/measure_retained_population_plots.py",
+      "bytes": 3067,
+      "sha256": "7f520bb09ed1d5dcef3dfc92b437b24efeb4996d30daf88c571116aa858eef22"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/measure_retained_village.py",
+      "bytes": 4366,
+      "sha256": "99ac7b3509498205434c0efcc34d919119bdd1cdd61c0b008a0516a2fe4b78b0"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/repair_ravenhold_sampler_copy.py",
+      "bytes": 4499,
+      "sha256": "48c8ec63a26da6ffbbc8ac0a0c036d4301aa523fc3ec02c2c34bb95f1415f807"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/repair_ravenhold_wall_copy.py",
+      "bytes": 2255,
+      "sha256": "d106f364c6d8788f4df7fc220ea0a9b576430b7d7305a76a72e8c32eb89af214"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/review_retained.py",
+      "bytes": 3356,
+      "sha256": "805abbebf4d3c24cdd7f7be8faa47187eb32ced872115179712ac73d83c1544f"
+    },
+    {
+      "path": "Tools/package_soul_weekend.ps1",
+      "bytes": 9777,
+      "sha256": "bc26dbc4d6a8ae7b037774df692fd3ba8a52e08970d77d82dcd145cc092cd03e"
+    },
+    {
+      "path": "Tools/test_package_soul_weekend.py",
+      "bytes": 12371,
+      "sha256": "cb886306eacb130ccfd8d8a66840d2ce3f3116df234704bfac9206120dd6ee1e"
+    }
+  ],
+  "excluded": "Inherited R10, machine config, credentials, licensed map/mesh/material payloads, unrelated dirty source; this manifest excludes itself"
+}

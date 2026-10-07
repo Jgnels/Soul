@@ -1,0 +1,487 @@
+{
+  "terrain": "/Game/SoulCampaignMountain/L_evil_waterfront",
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "method": "Native source bounds, 169 rotated footprint samples, exact route segment clearance; local parcel search <=250cm; no terrain changes",
+  "plots": [
+    {
+      "region": "forest_edge",
+      "key": "nature_02",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_A_r1",
+      "offset": [
+        1125,
+        750
+      ],
+      "world_scale": 0.45,
+      "yaw": 200,
+      "radius": 496.9683898477873,
+      "extent_xy": [
+        351.40973218117017,
+        351.40970481228965
+      ],
+      "low": 1258.464759027386,
+      "high": 1288.7348127865362,
+      "relief": 30.270053759150187,
+      "nearest_route": [
+        -10400.735309125,
+        26871.32354275
+      ],
+      "clearance": 828.856829384796
+    },
+    {
+      "region": "forest_edge",
+      "key": "nature_03",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_B_r1",
+      "offset": [
+        2000,
+        2000
+      ],
+      "world_scale": 0.45,
+      "yaw": 220,
+      "radius": 415.8584170352242,
+      "extent_xy": [
+        292.95679077693364,
+        295.15172667074535
+      ],
+      "low": 1265.9043574303,
+      "high": 1291.4258367919942,
+      "relief": 25.52147936169422,
+      "nearest_route": [
+        -10588.23529,
+        27058.82353
+      ],
+      "clearance": 2412.568707710966
+    },
+    {
+      "region": "forest_edge",
+      "key": "nature_02",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_A_r1",
+      "offset": [
+        2000,
+        3175
+      ],
+      "world_scale": 0.4,
+      "yaw": 170,
+      "radius": 441.74967986469983,
+      "extent_xy": [
+        312.3642063832624,
+        312.3641820553686
+      ],
+      "low": 1298.879711017563,
+      "high": 1319.913204857905,
+      "relief": 21.033493840341862,
+      "nearest_route": [
+        -10588.23529,
+        27058.82353
+      ],
+      "clearance": 3310.6662085996904
+    },
+    {
+      "region": "ancient_shrine",
+      "key": "nature_04",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Platform_r1",
+      "offset": [
+        -500,
+        1750
+      ],
+      "world_scale": 0.6,
+      "yaw": 20,
+      "radius": 575.0399439547281,
+      "extent_xy": [
+        407.4642883300781,
+        405.7632202148437
+      ],
+      "low": 1441.8527436015947,
+      "high": 1481.0065938639668,
+      "relief": 39.15385026237209,
+      "nearest_route": [
+        17352.94118,
+        48823.52941
+      ],
+      "clearance": 1244.9875283654014
+    },
+    {
+      "region": "ancient_shrine",
+      "key": "nature_03",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Forest_Hut_B_r1",
+      "offset": [
+        2500,
+        -3625
+      ],
+      "world_scale": 0.35,
+      "yaw": 40,
+      "radius": 323.445435471841,
+      "extent_xy": [
+        227.8552817153928,
+        229.56245407724634
+      ],
+      "low": 696.6883210489289,
+      "high": 709.4593559128824,
+      "relief": 12.77103486395356,
+      "nearest_route": [
+        16937.500000000004,
+        48113.97059
+      ],
+      "clearance": 3799.611021585173
+    },
+    {
+      "region": "orc_camp",
+      "key": "war_tent_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1",
+      "offset": [
+        -875,
+        125
+      ],
+      "world_scale": 0.5,
+      "yaw": 100,
+      "radius": 535.0531692306967,
+      "extent_xy": [
+        374.92501767031104,
+        381.7238858504004
+      ],
+      "low": 3099.1342069057673,
+      "high": 3100.4490018769543,
+      "relief": 1.3147949711869842,
+      "nearest_route": [
+        -62941.17647,
+        -43823.52941
+      ],
+      "clearance": 348.8303072524877
+    },
+    {
+      "region": "orc_camp",
+      "key": "war_tent_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1",
+      "offset": [
+        750,
+        -375
+      ],
+      "world_scale": 0.5,
+      "yaw": 260,
+      "radius": 535.0531692306967,
+      "extent_xy": [
+        374.92501767031104,
+        381.7238858504004
+      ],
+      "low": 3072.1868046460327,
+      "high": 3100.0,
+      "relief": 27.81319535396733,
+      "nearest_route": [
+        -62753.67647,
+        -43636.02941
+      ],
+      "clearance": 260.44195960416926
+    },
+    {
+      "region": "orc_camp",
+      "key": "war_trebuchet",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Siege_Trebuchet_r1",
+      "offset": [
+        -3375,
+        4000
+      ],
+      "world_scale": 0.45,
+      "yaw": 45,
+      "radius": 690.400427057479,
+      "extent_xy": [
+        572.046624780213,
+        386.5428938147944
+      ],
+      "low": 5144.155524706248,
+      "high": 5200.0,
+      "relief": 55.84447529375211,
+      "nearest_route": [
+        -62628.676469999955,
+        -43511.02940999996
+      ],
+      "clearance": 4524.512084193314
+    },
+    {
+      "region": "orc_camp",
+      "key": "war_outpost_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1",
+      "offset": [
+        -250,
+        -875
+      ],
+      "world_scale": 0.7,
+      "yaw": 90,
+      "radius": 456.2615259314871,
+      "extent_xy": [
+        290.05514677244815,
+        352.19680844116493
+      ],
+      "low": 3060.439679218915,
+      "high": 3100.0,
+      "relief": 39.56032078108501,
+      "nearest_route": [
+        -62941.17647,
+        -43823.52941
+      ],
+      "clearance": 453.7522102285777
+    },
+    {
+      "region": "orc_watch",
+      "key": "war_outpost_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1",
+      "offset": [
+        -2000,
+        4000
+      ],
+      "world_scale": 0.65,
+      "yaw": 0,
+      "radius": 423.67141693638087,
+      "extent_xy": [
+        269.3369220029876,
+        327.0398935525103
+      ],
+      "low": 300.0,
+      "high": 300.0,
+      "relief": 0.0,
+      "nearest_route": [
+        -48588.23527899999,
+        -27588.235303000005
+      ],
+      "clearance": 574.596977287625
+    },
+    {
+      "region": "orc_watch",
+      "key": "war_tent_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1",
+      "offset": [
+        -4500,
+        4000
+      ],
+      "world_scale": 0.4,
+      "yaw": 25,
+      "radius": 428.04253538455737,
+      "extent_xy": [
+        299.94001413624886,
+        305.3791086803203
+      ],
+      "low": 300.0,
+      "high": 300.0,
+      "relief": 0.0,
+      "nearest_route": [
+        -49838.235295,
+        -26338.235295000002
+      ],
+      "clearance": 341.4560177009495
+    },
+    {
+      "region": "crossroads",
+      "key": "war_tent_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1",
+      "offset": [
+        875,
+        -2500
+      ],
+      "world_scale": 0.45,
+      "yaw": 220,
+      "radius": 481.547852307627,
+      "extent_xy": [
+        337.4325159032799,
+        343.55149726536035
+      ],
+      "low": 1289.4587261139868,
+      "high": 1304.0351123037178,
+      "relief": 14.57638618973101,
+      "nearest_route": [
+        -3753.6764700000012,
+        17128.67647
+      ],
+      "clearance": 1904.937534196972
+    },
+    {
+      "region": "crossroads",
+      "key": "war_outpost_02",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_B_r1",
+      "offset": [
+        0,
+        -4000
+      ],
+      "world_scale": 0.65,
+      "yaw": 100,
+      "radius": 391.0884225861314,
+      "extent_xy": [
+        218.05463595680058,
+        324.657250063287
+      ],
+      "low": 1285.4450836128935,
+      "high": 1302.9675859688425,
+      "relief": 17.522502355948973,
+      "nearest_route": [
+        -4941.176470000001,
+        15941.17647
+      ],
+      "clearance": 2437.338702160061
+    },
+    {
+      "region": "old_quarry",
+      "key": "war_tent_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1",
+      "offset": [
+        -1000,
+        -500
+      ],
+      "world_scale": 0.45,
+      "yaw": 50,
+      "radius": 481.547852307627,
+      "extent_xy": [
+        337.4325159032799,
+        343.55149726536035
+      ],
+      "low": 1567.6601224359515,
+      "high": 1587.6546033376544,
+      "relief": 19.9944809017029,
+      "nearest_route": [
+        5882.35294,
+        40088.23529
+      ],
+      "clearance": 518.452147692373
+    },
+    {
+      "region": "river_ford",
+      "key": "war_outpost_02",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_B_r1",
+      "offset": [
+        1625,
+        -2375
+      ],
+      "world_scale": 0.6,
+      "yaw": 40,
+      "radius": 361.0046977718136,
+      "extent_xy": [
+        201.28120242166207,
+        299.68361544303417
+      ],
+      "low": 1090.1358321857763,
+      "high": 1117.5732823295834,
+      "relief": 27.437450143807155,
+      "nearest_route": [
+        -11176.47059,
+        7352.94118
+      ],
+      "clearance": 2516.7114105335213
+    },
+    {
+      "region": "orc_camp",
+      "key": "raven_gate_l",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_GateTower_r1",
+      "offset": [
+        -1100,
+        -800
+      ],
+      "world_scale": 0.25,
+      "yaw": 0,
+      "radius": 296.7322105303731,
+      "extent_xy": [
+        168.943115234375,
+        243.94308471679688
+      ],
+      "low": 3058.652048676879,
+      "high": 3099.718812988074,
+      "relief": 41.06676431119513,
+      "nearest_route": [
+        -62941.17647,
+        -43823.52941
+      ],
+      "clearance": 1063.4148403431711
+    },
+    {
+      "region": "orc_camp",
+      "key": "raven_gate_l",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_GateTower_r1",
+      "offset": [
+        1800,
+        -450
+      ],
+      "world_scale": 0.25,
+      "yaw": 190,
+      "radius": 296.7322105303731,
+      "extent_xy": [
+        168.943115234375,
+        243.94308471679688
+      ],
+      "low": 3067.8517091400927,
+      "high": 3088.0621370356016,
+      "relief": 20.21042789550893,
+      "nearest_route": [
+        -62266.176470000006,
+        -43148.52941
+      ],
+      "clearance": 1294.258047139364
+    },
+    {
+      "region": "orc_watch",
+      "key": "raven_gate_l",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_GateTower_r1",
+      "offset": [
+        -3700,
+        3375
+      ],
+      "world_scale": 0.3,
+      "yaw": 75,
+      "radius": 356.0786526364477,
+      "extent_xy": [
+        202.73173828125,
+        292.73170166015626
+      ],
+      "low": 300.0,
+      "high": 326.229618675865,
+      "relief": 26.229618675865026,
+      "nearest_route": [
+        -49125.735295,
+        -27050.735295000006
+      ],
+      "clearance": 289.67621374141083
+    },
+    {
+      "region": "north_pass",
+      "key": "raven_gate_l",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_GateTower_r1",
+      "offset": [
+        2000,
+        -2750
+      ],
+      "world_scale": 0.25,
+      "yaw": 35,
+      "radius": 296.7322105303731,
+      "extent_xy": [
+        168.943115234375,
+        243.94308471679688
+      ],
+      "low": 1692.9581590451526,
+      "high": 1732.8999998559998,
+      "relief": 39.941840810847225,
+      "nearest_route": [
+        -50882.35294,
+        -35000.0
+      ],
+      "clearance": 1294.2920278272738
+    },
+    {
+      "region": "north_pass",
+      "key": "war_outpost_01",
+      "package": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1",
+      "offset": [
+        3375,
+        -4625
+      ],
+      "world_scale": 0.55,
+      "yaw": 40,
+      "radius": 358.4911989461685,
+      "extent_xy": [
+        227.9004724640664,
+        276.72606377520106
+      ],
+      "low": 1849.5962781257385,
+      "high": 1906.7508968292086,
+      "relief": 57.15461870347008,
+      "nearest_route": [
+        -49705.88235,
+        -34705.88235
+      ],
+      "clearance": 3409.214982659336
+    }
+  ]
+}

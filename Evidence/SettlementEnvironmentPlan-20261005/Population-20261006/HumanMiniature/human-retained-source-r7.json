@@ -1,0 +1,1475 @@
+{
+  "common_pivot": [
+    10000,
+    -6500,
+    0
+  ],
+  "representation": "Native central keep and thirty nearby authored town blocks; detached island-front gate omitted from campaign derivative only; selected tavern is shared state. Campaign-only vertical foundation fitting; no canal walls, terrain or unrelated fabricated buildings. Full authored visit city unchanged.",
+  "meshes": {
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Front_Hall_surface_r3.SM_LI_Front_Hall_surface_r3": {
+      "lod": 0,
+      "triangles": 249734
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Full_Castle_surface_r3.SM_LI_Full_Castle_surface_r3": {
+      "lod": 0,
+      "triangles": 225236
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Kings_Hall_surface_r3.SM_LI_Kings_Hall_surface_r3": {
+      "lod": 0,
+      "triangles": 289649
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Side_Hall_surface_r3.SM_LI_Side_Hall_surface_r3": {
+      "lod": 0,
+      "triangles": 323269
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Top_Level_surface_r3.SM_LI_Top_Level_surface_r3": {
+      "lod": 0,
+      "triangles": 350180
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_SM_Main_Hall_surface_r3.SM_SM_Main_Hall_surface_r3": {
+      "lod": 0,
+      "triangles": 256919
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01a_Fix_r1.SM_LI_Building_01a_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03a_Fix_r1.SM_LI_Building_03a_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04_Fix_r1.SM_LI_Building_04_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04a_Fix_r1.SM_LI_Building_04a_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04b_Fix_r1.SM_LI_Building_04b_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_05_Fix_intact_r2.SM_LI_Building_05_Fix_intact_r2": {
+      "lod": 0,
+      "triangles": 58888
+    },
+    "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1": {
+      "lod": 0,
+      "triangles": 6000
+    }
+  },
+  "instances": [
+    {
+      "actor": "/Temp/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle_LevelInstance_d22305d7e009698f_1.LI_Full_Castle:PersistentLevel.LevelInstance_UAID_74563C3FFB8F91D801_1558510055",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Front_Hall_surface_r3.SM_LI_Front_Hall_surface_r3",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_04.MI_StoneFence_04",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_03.MI_StoneFence_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_07.MI_BrickKit_07",
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_02.MI_Slabs_02",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_01.MI_BrickKit_01",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_02.MI_BrickKit_02",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_03.MI_BrickKit_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_04.MI_BrickKit_04",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_05.MI_BrickKit_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_06.MI_BrickKit_06",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_LighterPlanks.MI_LighterPlanks"
+      ],
+      "location": [
+        9508.783336,
+        -667.607715,
+        401.89754868348314
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/CastleTown/Levels/SubLevels/SL_Castle.SL_Castle:PersistentLevel.LevelInstance_0",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Full_Castle_surface_r3.SM_LI_Full_Castle_surface_r3",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_02.MI_Slabs_02",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_03.MI_Slabs_03",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_03.MI_StoneFence_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_03.MI_BrickKit_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_02.MI_BrickKit_02",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_01.MI_BrickKit_01",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_05.MI_BrickKit_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_06.MI_BrickKit_06",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_04.MI_BrickKit_04",
+        "/Game/CastleTown/Materials/Instances/MI_VarnishedWood_01.MI_VarnishedWood_01",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_07.MI_BrickKit_07",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_IndividualRoofTiles.MI_IndividualRoofTiles",
+        "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_04.MI_StoneFence_04",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_03.MI_Roof_Tiles_03"
+      ],
+      "location": [
+        9508.783336,
+        -667.607715,
+        401.89754868348314
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Temp/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle_LevelInstance_d22305d7e009698f_1.LI_Full_Castle:PersistentLevel.LevelInstance_UAID_74563C3FFB8F91D801_1558464989",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Kings_Hall_surface_r3.SM_LI_Kings_Hall_surface_r3",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_04.MI_StoneFence_04",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_02.MI_Slabs_02",
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_01.MI_BrickKit_01",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_02.MI_BrickKit_02",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_03.MI_BrickKit_03",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_03.MI_StoneFence_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_07.MI_BrickKit_07",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_06.MI_BrickKit_06",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_05.MI_BrickKit_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_04.MI_BrickKit_04",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_VarnishedWood_01.MI_VarnishedWood_01",
+        "/Game/CastleTown/Materials/Instances/MI_LighterPlanks.MI_LighterPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_IndividualRoofTiles.MI_IndividualRoofTiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_03.MI_Slabs_03"
+      ],
+      "location": [
+        6898.004356278188,
+        -6676.428990345335,
+        -98.10245131651686
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Temp/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle_LevelInstance_d22305d7e009698f_1.LI_Full_Castle:PersistentLevel.LevelInstance_UAID_74563C3FFB8F91D801_1558660265",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Side_Hall_surface_r3.SM_LI_Side_Hall_surface_r3",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_04.MI_StoneFence_04",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_02.MI_Slabs_02",
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_01.MI_BrickKit_01",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_02.MI_BrickKit_02",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_03.MI_BrickKit_03",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_03.MI_StoneFence_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_07.MI_BrickKit_07",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_06.MI_BrickKit_06",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_05.MI_BrickKit_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_04.MI_BrickKit_04",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_VarnishedWood_01.MI_VarnishedWood_01",
+        "/Game/CastleTown/Materials/Instances/MI_LighterPlanks.MI_LighterPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_03.MI_Slabs_03"
+      ],
+      "location": [
+        14879.744426089712,
+        -1495.536774401763,
+        -98.10245131651686
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Temp/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle_LevelInstance_d22305d7e009698f_1.LI_Full_Castle:PersistentLevel.LevelInstance_UAID_74563C3FFB8F91D801_1558511056",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Top_Level_surface_r3.SM_LI_Top_Level_surface_r3",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_04.MI_StoneFence_04",
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_02.MI_Slabs_02",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_03.MI_StoneFence_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_01.MI_BrickKit_01",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_02.MI_BrickKit_02",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_03.MI_BrickKit_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_07.MI_BrickKit_07",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_05.MI_BrickKit_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_06.MI_BrickKit_06",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_04.MI_BrickKit_04",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_LighterPlanks.MI_LighterPlanks"
+      ],
+      "location": [
+        9225.375778062573,
+        -3772.4072505745507,
+        2801.8975486834834
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Temp/Game/CastleTown/Levels/LevelInstances/Castle/LI_Full_Castle_LevelInstance_d22305d7e009698f_1.LI_Full_Castle:PersistentLevel.LevelInstance_UAID_74563C3FFB8F91D801_1558465990",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_SM_Main_Hall_surface_r3.SM_SM_Main_Hall_surface_r3",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_04.MI_StoneFence_04",
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_02.MI_Slabs_02",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_01.MI_BrickKit_01",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_02.MI_BrickKit_02",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_03.MI_BrickKit_03",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_03.MI_StoneFence_03",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_07.MI_BrickKit_07",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_06.MI_BrickKit_06",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_05.MI_BrickKit_05",
+        "/Game/CastleTown/Materials/Instances/BrickKit/MI_BrickKit_04.MI_BrickKit_04",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_VarnishedWood_01.MI_VarnishedWood_01",
+        "/Game/CastleTown/Materials/Instances/MI_LighterPlanks.MI_LighterPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs_03.MI_Slabs_03"
+      ],
+      "location": [
+        10904.462893246855,
+        -1944.5488152404232,
+        421.89754868348314
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_59",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01a_Fix_r1.SM_LI_Building_01a_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -7730.0,
+        6720.0,
+        -1078.7268764045139
+      ],
+      "rotation": [
+        0.0,
+        142.2457456588745,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_10",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -3850.0,
+        -130.0,
+        61.553785907544096
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_161",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -1123.5836818837213,
+        9942.864561180357,
+        -1418.2258125394897
+      ],
+      "rotation": [
+        0.0,
+        90.27820205688471,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_12",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -10160.0,
+        -2250.0,
+        91.49216271584925
+      ],
+      "rotation": [
+        0.0,
+        5.677528381347654,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_27",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -5360.0,
+        -3070.0,
+        382.17832561079877
+      ],
+      "rotation": [
+        -0.0,
+        -79.85520935058594,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_61",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -9770.0,
+        10300.0,
+        -1142.196318827347
+      ],
+      "rotation": [
+        -0.0,
+        -153.53815841674808,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_73",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -9640.0,
+        6490.0,
+        -1010.7354975084113
+      ],
+      "rotation": [
+        -0.0,
+        -88.14860153198241,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_67",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -12704.103370384059,
+        4759.382332773319,
+        -777.2972332019883
+      ],
+      "rotation": [
+        -0.0,
+        -85.61042785644533,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_33",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -6490.0,
+        -4150.0,
+        432.51627096332925
+      ],
+      "rotation": [
+        0.0,
+        92.44267654418945,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_170",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        129.97486032209056,
+        10983.304392250866,
+        -1439.1935808737148
+      ],
+      "rotation": [
+        -0.0,
+        -178.54262924194336,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_172",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -2424.005344,
+        11849.533338,
+        -1367.7901764565256
+      ],
+      "rotation": [
+        0.0,
+        93.08015823364256,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_0",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -2870.0,
+        1380.0,
+        -273.34616666851275
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_68",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -10850.0,
+        9220.0,
+        -1047.976350438341
+      ],
+      "rotation": [
+        -0.0,
+        -61.971004486083984,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_83",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -11773.637982684457,
+        7148.693038515395,
+        -904.8479740577718
+      ],
+      "rotation": [
+        -0.0,
+        -0.5399284362792923,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_151",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -7685.369497323833,
+        541.0796332885864,
+        -181.05164573830302
+      ],
+      "rotation": [
+        0.0,
+        2.1516113281250053,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_31",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -9111.508429084479,
+        -3501.1094084051592,
+        341.61048145817347
+      ],
+      "rotation": [
+        0.0,
+        2.3696556091308585,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_14",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03a_Fix_r1.SM_LI_Building_03a_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Scale_Disp.MI_BrickStoneWall_Scale_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -4549.999995746479,
+        -1189.9999967697674,
+        319.05942301643165
+      ],
+      "rotation": [
+        0.0,
+        177.4858169555664,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_16",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03a_Fix_r1.SM_LI_Building_03a_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Scale_Disp.MI_BrickStoneWall_Scale_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -8402.895704584158,
+        -1172.794378439717,
+        -45.56911447997497
+      ],
+      "rotation": [
+        0.0,
+        2.8252716064453294,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_153",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03a_Fix_r1.SM_LI_Building_03a_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Scale_Disp.MI_BrickStoneWall_Scale_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        1567.0273009935888,
+        7919.877019291261,
+        -1442.9958661581013
+      ],
+      "rotation": [
+        -0.0,
+        -2.9512023925781166,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_65",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04_Fix_r1.SM_LI_Building_04_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -10180.0,
+        5410.0,
+        -906.5655629419168
+      ],
+      "rotation": [
+        0.0,
+        163.56197547912598,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_18",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04a_Fix_r1.SM_LI_Building_04a_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -6530.0,
+        -820.0,
+        212.96020540364628
+      ],
+      "rotation": [
+        0.0,
+        175.99361038208008,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_24",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04a_Fix_r1.SM_LI_Building_04a_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        -6370.0,
+        1820.0000011303227,
+        -325.3205084960149
+      ],
+      "rotation": [
+        -0.0,
+        -93.84119796752927,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_155",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04b_Fix_r1.SM_LI_Building_04b_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles_02.MI_Roof_Tiles_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor"
+      ],
+      "location": [
+        2893.8220278172716,
+        9522.757751175182,
+        -1435.8268658359043
+      ],
+      "rotation": [
+        0.0,
+        170.81522750854495,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_149",
+      "state": "upgrade",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_05_Fix_intact_r2.SM_LI_Building_05_Fix_intact_r2",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_ChimneyPots.MI_ChimneyPots",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_05.MI_StoneFence_05",
+        "/Game/CastleTown/Materials/Instances/MI_BrickStoneWall_Disp.MI_BrickStoneWall_Disp",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_02.MI_plaster_02"
+      ],
+      "location": [
+        -4503.263490571299,
+        3485.4324138545107,
+        -441.34096605834793
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_25",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -6910.0,
+        -680.0,
+        115.95971899506007
+      ],
+      "rotation": [
+        -0.0,
+        -177.83499145507812,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_26",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -11600.0,
+        -2850.0,
+        78.98741631771298
+      ],
+      "rotation": [
+        -0.0,
+        -178.7012481689453,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_37",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -7080.0,
+        -2420.0,
+        367.81889366914777
+      ],
+      "rotation": [
+        -0.0,
+        -84.91597366333009,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_51",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -7920.0,
+        -4090.0,
+        452.2171173060152
+      ],
+      "rotation": [
+        -0.0,
+        -174.0720672607422,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_79",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -11781.501878104891,
+        3437.8105311004842,
+        -677.895309727013
+      ],
+      "rotation": [
+        0.0,
+        95.83946228027342,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_177",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        678.410819,
+        7821.104264,
+        -1448.039088947613
+      ],
+      "rotation": [
+        -0.0,
+        -1.9682312011718757,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Game/Soul/Maps/Settlements/SL_HumanCapital_Houses.SL_HumanCapital_Houses:PersistentLevel.LevelInstance_224",
+      "state": "base",
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "materials": [
+        "/Game/CastleTown/Materials/Instances/MI_WoodPlanks.MI_WoodPlanks",
+        "/Game/CastleTown/Materials/Instances/MI_Metal.MI_Metal",
+        "/Game/CastleTown/Materials/Instances/MI_StoneFence_02.MI_StoneFence_02",
+        "/Game/CastleTown/Materials/Instances/MI_plaster_01.MI_plaster_01",
+        "/Game/CastleTown/Materials/Instances/MI_Roof_Tiles.MI_Roof_Tiles",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Slabs.MI_Slabs",
+        "/Game/CastleTown/Materials/Instances/MI_Individual_Bricks.MI_Individual_Bricks",
+        "/Game/CastleTown/Materials/Instances/MI_BrickWall.MI_BrickWall",
+        "/Game/CastleTown/Materials/Instances/Floor/MI_Floor.MI_Floor",
+        "/Game/CastleTown/Materials/Instances/M_Glass.M_Glass"
+      ],
+      "location": [
+        -7209.647885819708,
+        9092.809164487577,
+        -1126.735338346666
+      ],
+      "rotation": [
+        -0.0,
+        -88.71589279174805,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

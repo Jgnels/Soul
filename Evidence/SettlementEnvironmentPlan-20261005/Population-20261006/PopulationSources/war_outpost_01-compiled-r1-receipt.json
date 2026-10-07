@@ -1,0 +1,152 @@
+{
+  "utc": "2026-10-06T19:27:14.086661+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1.SM_Field_Defenses_A_r1",
+  "sha256": "d6f5f02a45f36bdf0b844fd0817560fa55cec220f3b8a8f511ba8e71e97b6785",
+  "source_manifest_sha256": "b49e69136d8cc9cf1db0bed2f66571cb800159283a7c2aa65b94207baf94bc19",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    -129.2879984007397,
+    -42.8176351498152,
+    -127.68586989189623
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 78,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "lod": 0,
+      "triangles": 130,
+      "instances": 31
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel",
+      "lod": 0,
+      "triangles": 4683,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen",
+      "lod": 0,
+      "triangles": 4411,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow",
+      "lod": 0,
+      "triangles": 480,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BrazierSmall01.SM_BrazierSmall01",
+      "lod": 0,
+      "triangles": 3575,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bucket.SM_Bucket",
+      "lod": 0,
+      "triangles": 1412,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Helmet01.SM_Helmet01",
+      "lod": 0,
+      "triangles": 1078,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Lantern02.SM_Lantern02",
+      "lod": 0,
+      "triangles": 1442,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_LinenBagClose.SM_LinenBagClose",
+      "lod": 0,
+      "triangles": 1278,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Log.SM_Log",
+      "lod": 0,
+      "triangles": 386,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet01.SM_Mantlet01",
+      "lod": 0,
+      "triangles": 2325,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet02.SM_Mantlet02",
+      "lod": 0,
+      "triangles": 2465,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_SandbagStack01.SM_SandbagStack01",
+      "lod": 0,
+      "triangles": 4844,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_SandbagStack02.SM_SandbagStack02",
+      "lod": 0,
+      "triangles": 7148,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01",
+      "lod": 0,
+      "triangles": 1697,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "lod": 0,
+      "triangles": 1375,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "lod": 0,
+      "triangles": 324,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "lod": 0,
+      "triangles": 766,
+      "instances": 7
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "lod": 0,
+      "triangles": 724,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "lod": 0,
+      "triangles": 3636,
+      "instances": 4
+    }
+  ],
+  "input_triangles": 95439,
+  "reduced_triangles": 95439,
+  "saved_triangles": 95439,
+  "material_count": 18,
+  "recipe_sha256": "81b3947a4ca5974b171df2909365806120035765dfa690fc8356ff30f901c5c0",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

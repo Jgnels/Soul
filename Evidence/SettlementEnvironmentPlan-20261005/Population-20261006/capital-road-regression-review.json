@@ -1,0 +1,146 @@
+{
+  "utc": "2026-10-07T00:04:36.101117+00:00",
+  "results": [
+    {
+      "run": "retained-population-input-r4",
+      "result": "PASS",
+      "scope": "Normal nine-node input: movement/recruitment/selection/camera/controller/F5F9; no art-review visibility flag",
+      "elapsed_seconds": 196.31,
+      "peak_gpu_c": 67.0,
+      "dll_sha256": "eb82595c6488ee5acc166eddfefe61b2bab327515f8f86f6ae8a9f5333aa79be",
+      "checks": [
+        "[2026.10.06-23.58.53:025][155]LogTemp: Display: SOUL_WORLD_CHECK_PASS initial unknown locations are hidden and unselectable",
+        "[2026.10.06-23.59.02:837][326]LogTemp: Display: SOUL_WORLD_CHECK_PASS town HUD button opens recruitment panel",
+        "[2026.10.06-23.59.05:831][380]LogTemp: Display: SOUL_WORLD_CHECK_PASS number key recruits once",
+        "[2026.10.06-23.59.08:831][440]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+        "[2026.10.06-23.59.08:838][440]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+        "[2026.10.06-23.59.11:828][494]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse selection moves once and spends one action",
+        "[2026.10.06-23.59.17:833][608]LogTemp: Display: SOUL_WORLD_CHECK_PASS wheel zoom and keyboard pan move perspective camera",
+        "[2026.10.06-23.59.20:832][661]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+        "[2026.10.06-23.59.20:832][661]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+        "[2026.10.06-23.59.23:832][721]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse movement reaches ford",
+        "[2026.10.06-23.59.26:871][778]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+        "[2026.10.06-23.59.26:871][778]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+        "[2026.10.06-23.59.29:871][838]LogTemp: Display: SOUL_WORLD_CHECK_PASS hostile selection offers battle without preoccupation",
+        "[2026.10.06-23.59.35:864][951]LogTemp: Display: SOUL_WORLD_CHECK_PASS end day restores actions",
+        "[2026.10.06-23.59.35:864][951]LogTemp: Display: SOUL_WORLD_CHECK_PASS non-adjacent movement rejected",
+        "[2026.10.06-23.59.35:864][951]LogTemp: Display: SOUL_WORLD_CHECK_PASS capture pre-F5 campaign snapshot",
+        "[2026.10.06-23.59.38:865][ 11]LogTemp: Display: SOUL_WORLD_CHECK_PASS F5 saves through RBSave",
+        "[2026.10.06-23.59.38:865][ 11]LogTemp: Display: SOUL_WORLD_CHECK_PASS project selectable location",
+        "[2026.10.06-23.59.38:865][ 11]LogTemp: Display: SOUL_WORLD_CHECK_PASS viewport ray hits correct location",
+        "[2026.10.06-23.59.41:865][ 71]LogTemp: Display: SOUL_WORLD_CHECK_PASS mouse changes live region before F9",
+        "[2026.10.06-23.59.44:867][131]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 restores saved campaign location",
+        "[2026.10.06-23.59.44:867][131]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 restores exact campaign snapshot including actions army economy exploration and encounter state",
+        "[2026.10.06-23.59.44:868][131]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 synchronizes selection panels company camera",
+        "[2026.10.06-23.59.44:868][131]LogTemp: Display: SOUL_WORLD_CHECK_PASS F9 places physical company at restored terrain anchor",
+        "[2026.10.06-23.59.50:835][245]LogTemp: Display: SOUL_WORLD_CHECK_PASS legal quarry exploration",
+        "[2026.10.06-23.59.53:872][299]LogTemp: Display: SOUL_WORLD_CHECK_PASS explored memory stays present while unknown locations remain hidden and unselectable",
+        "[2026.10.06-23.59.53:872][299]LogTemp: Display: SOUL_WORLD_CHECK_PASS route exercises friendly and hostile remembered places",
+        "[2026.10.06-23.59.53:872][299]LogTemp: Display: SOUL_WORLD_CHECK_PASS distant selection reveals no current garrison information and spends no action",
+        "[2026.10.06-23.59.59:870][413]LogTemp: Display: SOUL_WORLD_CHECK_PASS forest route reveals the pass through strategic vision",
+        "[2026.10.07-00.00.05:851][527]LogTemp: Display: SOUL_WORLD_CHECK_PASS minimum zoom and orbit retain terrain clearance",
+        "[2026.10.07-00.00.11:860][641]LogTemp: Display: SOUL_WORLD_CHECK_PASS maximum zoom and sustained pan stay bounded",
+        "[2026.10.07-00.00.11:860][641]LogTemp: Display: SOUL_WORLD_CHECK_PASS maximum zoom actual camera corners stay inside the terrain or owned overview water envelope",
+        "[2026.10.07-00.00.17:864][755]LogTemp: Display: SOUL_WORLD_CHECK_PASS army HUD click selects company without moving or opening town",
+        "[2026.10.07-00.00.17:864][755]LogTemp: Display: SOUL_WORLD_CHECK_PASS army selection focuses camera on company",
+        "[2026.10.07-00.00.20:865][815]LogTemp: Display: SOUL_WORLD_CHECK_PASS middle-mouse drag pans through normal mouse-axis input",
+        "[2026.10.07-00.00.35:831][ 97]LogTemp: Display: SOUL_WORLD_CHECK_PASS capture state before controller navigation",
+        "[2026.10.07-00.00.38:832][157]LogTemp: Display: SOUL_WORLD_CHECK_PASS controller left stick pans campaign camera",
+        "[2026.10.07-00.00.41:832][217]LogTemp: Display: SOUL_WORLD_CHECK_PASS controller trigger zoom and shoulder orbit",
+        "[2026.10.07-00.00.44:838][277]LogTemp: Display: SOUL_WORLD_CHECK_PASS controller right stick moves bounded selection cursor",
+        "[2026.10.07-00.00.44:838][277]LogTemp: Display: SOUL_WORLD_CHECK_PASS controller Back selects and focuses the company",
+        "[2026.10.07-00.00.47:839][337]LogTemp: Display: SOUL_WORLD_CHECK_PASS controller company selection preserves canonical campaign snapshot",
+        "[2026.10.07-00.00.47:839][337]LogTemp: Display: SOUL_WORLD_CHECK_PASS selected company stays inside the viewport",
+        "[2026.10.07-00.00.50:826][390]LogTemp: Display: SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=controller=1"
+      ],
+      "screenshots": [
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_battle_prompt.png",
+          "sha256": "ba85eddd10566ac9c8586e64b78c4d74242749d315359fd7d0fc2eaa07b5b5f8"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_camera.png",
+          "sha256": "057801c8efbf08c250705aa21124a012e714b35ceff8f559e8eeaa5c00c6570f"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_capital_ground.png",
+          "sha256": "c7f84adea964b19b93dc4c6a4973187546fc73ba340fb9d9060029ada4d1f977"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_close_orbit.png",
+          "sha256": "1969834a1b908a478c5d23b67c3bb66ba6e7d4abac1479c792173d57ac320c11"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_controller_company.png",
+          "sha256": "c70c27c2a6ea05cc08f5096065efc38498aafdda7667dc0ea5ec2727c0a04aa9"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_crossroads.png",
+          "sha256": "ce8863dbace1dc5f1806ea697c80c594406a3460c8c38c7757b63018720ee5c3"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_drag.png",
+          "sha256": "497595bb363ee4466149324fc266757f4f5313df3fa9486dd8684e0fc450b971"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_forest_pass.png",
+          "sha256": "e68414045c13f67b91e4204cc35bdfec5d4f912b9dc81cc1d952af2dedfa1a3d"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_frontier.png",
+          "sha256": "8c3f3f7f8554b5a58041e8a90ac234388f204fd597f601350ed876f1e873ea24"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_initial.png",
+          "sha256": "1ec56c64f2067bc2d07de46a0de251c7be3ce80151151e16e14f4f320d6ab4b8"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_north_pass.png",
+          "sha256": "dd0e9a3713f9026b97a85332aa5803f521ee78b513f2b5d9a6f5598cda61663c"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_quarry_shrine.png",
+          "sha256": "9277146911543a82e9996ae8f732cf914a09d736078c23383da7f81760d25268"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_restored.png",
+          "sha256": "9ff8a9c1ece99c6ef306b25911ddce387596b3c66da97a8cd077c75800020510"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_shrine.png",
+          "sha256": "c65cd3111037bfc6d11df1078c0d831d7fe1f44c09c0fbfc69fdd10afafeb5ce"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_town.png",
+          "sha256": "765054c3b326a667436d9c678985ee3d3af10386e5e47fced368ce70164433fa"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_travel.png",
+          "sha256": "88a142cfa3171a065668467275e6d49ce68e33e605bbf9ba1d5339c687c9911f"
+        },
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-input-r4\\User\\Saved\\Screenshots\\retained-population-input-r4_wide_bounds.png",
+          "sha256": "7968adb934dfff085e656ff9da65c6cf0382cbfa0d6366d79c8ab6438de7878e"
+        }
+      ]
+    },
+    {
+      "run": "retained-r7-cold-load-r2",
+      "result": "PASS",
+      "scope": "Fresh controller F9 exact campaign restore; native tavern visibly restored after road correction; full city not reloaded",
+      "elapsed_seconds": 113.11,
+      "peak_gpu_c": 66.0,
+      "dll_sha256": "eb82595c6488ee5acc166eddfefe61b2bab327515f8f86f6ae8a9f5333aa79be",
+      "checks": [
+        "[2026.10.07-00.01.38:798][160]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=human_capital exact_snapshot=1 controller_F9=1"
+      ],
+      "screenshots": [
+        {
+          "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-r7-cold-load-r2\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+          "sha256": "5f61e678411f124f9d0cf25ec961a3d7eef70b72f6ddf24609f83233d913f901"
+        }
+      ]
+    }
+  ],
+  "visual_review": "Fresh same-camera miniature retains repaired keep and town blocks; native tavern visibly appears south of the upper house cluster. Final approach stays outside native footprint. No new fallback/checkerboard visible."
+}

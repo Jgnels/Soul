@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-06T21:26:28.084018+00:00",
+  "state": "upgrade",
+  "mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Upgrade_r7.SM_HumanCapital_Upgrade_r7",
+  "sha256": "bcb1e521d5323ac5b86ccf96a21b071b8c299ef6c662da03ce655a445e81210f",
+  "source_manifest_sha256": "c8f818446e7bc028fad3dab2a4957d141cff080aeb4f555b74c724e705346198",
+  "method": "explicit native RenderData LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    10000,
+    -6500,
+    0
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 1,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_05_Fix_intact_r2.SM_LI_Building_05_Fix_intact_r2",
+      "lod": 0,
+      "triangles": 58888,
+      "instances": 1
+    }
+  ],
+  "input_triangles": 58888,
+  "reduced_triangles": 58888,
+  "saved_triangles": 58888,
+  "material_count": 17,
+  "recipe_sha256": "f3fdab1998e7d7d929b0389cbc2874a47758d57ece420418bfd99734e7c23c3a",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

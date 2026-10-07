@@ -1,0 +1,146 @@
+{
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "terrain": "/Game/SoulCampaignMountain/L_evil_waterfront",
+  "plots": [
+    {
+      "name": "tower_left",
+      "offset": [
+        -1100,
+        -800
+      ],
+      "scale": 0.25,
+      "yaw": 6.88,
+      "radius": 302.18156124207866,
+      "relief": 43.46164461602393,
+      "low": 3056.3593344023534,
+      "clearance": 1057.9654896314655,
+      "accepted": true
+    },
+    {
+      "name": "tower_right",
+      "offset": [
+        1800,
+        -450
+      ],
+      "scale": 0.25,
+      "yaw": 186.88,
+      "radius": 302.18156124207866,
+      "relief": 22.126880453464764,
+      "low": 3066.7483778661062,
+      "clearance": 1288.8086964276583,
+      "accepted": true
+    },
+    {
+      "name": "rear_wall",
+      "offset": [
+        -750,
+        -757.7586206896551
+      ],
+      "scale": 0.43,
+      "yaw": 6.88,
+      "radius": 267.4857193537319,
+      "relief": 21.00928524194751,
+      "low": 3078.9907147580525,
+      "clearance": 798.6747410036592,
+      "accepted": true
+    },
+    {
+      "name": "rear_wall",
+      "offset": [
+        -320,
+        -705.8620689655172
+      ],
+      "scale": 0.43,
+      "yaw": 6.88,
+      "radius": 267.4857193537319,
+      "relief": 1.7793368613106395,
+      "low": 3098.2206631386894,
+      "clearance": 507.52477115867185,
+      "accepted": true
+    },
+    {
+      "name": "rear_wall",
+      "offset": [
+        110,
+        -653.9655172413793
+      ],
+      "scale": 0.43,
+      "yaw": 6.88,
+      "radius": 267.4857193537319,
+      "relief": 0.0,
+      "low": 3100.0,
+      "clearance": 395.6665239062766,
+      "accepted": true
+    },
+    {
+      "name": "rear_wall",
+      "offset": [
+        540,
+        -602.0689655172414
+      ],
+      "scale": 0.43,
+      "yaw": 6.88,
+      "radius": 267.4857193537319,
+      "relief": 3.7115536936876197,
+      "low": 3096.2884463063124,
+      "clearance": 541.270757738723,
+      "accepted": true
+    },
+    {
+      "name": "rear_wall",
+      "offset": [
+        970,
+        -550.1724137931035
+      ],
+      "scale": 0.43,
+      "yaw": 6.88,
+      "radius": 267.4857193537319,
+      "relief": 18.540545641227254,
+      "low": 3081.4594543587727,
+      "clearance": 807.4385030120925,
+      "accepted": true
+    },
+    {
+      "name": "rear_wall",
+      "offset": [
+        1400,
+        -498.2758620689655
+      ],
+      "scale": 0.43,
+      "yaw": 6.88,
+      "radius": 267.4857193537319,
+      "relief": 19.672766666496045,
+      "low": 3074.2119108510196,
+      "clearance": 1074.7980152779746,
+      "accepted": true
+    },
+    {
+      "name": "tent_left",
+      "offset": [
+        -875,
+        225
+      ],
+      "scale": 0.5,
+      "yaw": 100,
+      "radius": 535.0531692180847,
+      "relief": 5.0310343254432155,
+      "low": 3095.905986486445,
+      "clearance": 368.41238076154787,
+      "accepted": true
+    },
+    {
+      "name": "defenses_right",
+      "offset": [
+        1000,
+        -100
+      ],
+      "scale": 0.4,
+      "yaw": 0,
+      "radius": 240.6697985145424,
+      "relief": 39.342587130593074,
+      "low": 3060.657412869407,
+      "clearance": 537.1476607906626,
+      "accepted": true
+    }
+  ]
+}

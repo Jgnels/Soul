@@ -21,6 +21,8 @@ class WeekendPackagingTests(unittest.TestCase):
                 if source.suffix not in (".cpp", ".h") or "Tests" in source.parts:
                     continue
                 text = source.read_text(encoding="utf-8-sig")
+                # Comparisons classify existing packages; their literal prefixes are not load requests.
+                text = re.sub(r'\.StartsWith\(TEXT\("/(?:Game|Engine|RBWeather)/[^"]+"\)\)', '', text)
                 # Also handle C++ adjacent string literals.
                 text = re.sub(r'"\s*"', '', text)
                 for package in re.findall(r'"(/(?:Game|Engine|RBWeather)/[^"\s]+)"', text):
@@ -32,9 +34,8 @@ class WeekendPackagingTests(unittest.TestCase):
                             ("Firebolt", "ChainLightning", "Blizzard", "TidalWard", "Tailwind"))
                     else:
                         required.add(package)
-        for scenario_path in ("Data/soul_vertical_scenario_20260925.json",
-                              "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json"):
-            scenario = json.loads((ROOT / scenario_path).read_text())
+        for relative in ("Data/soul_vertical_scenario_20260925.json", "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json", "Data/SettlementEnvironments/HumanCapitalRuntimeProof.json"):
+            scenario = json.loads((ROOT / relative).read_text())
             required.update((scenario["campaign_map"], scenario["battle_map"]))
         self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
@@ -54,7 +55,7 @@ class WeekendPackagingTests(unittest.TestCase):
         required.add("Data/CampaignEvilCorridor/presentation.json")
         staged = set(re.findall(r'"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"', RULES))
         self.assertEqual(staged, required)
-        self.assertEqual(len(staged), 9)
+        self.assertEqual(len(staged), 10)
         self.assertIn('"Data/CampaignMesaLocal/MesaHeight.r16"', RULES)
         self.assertIn('"Data/CampaignTerrainV2/FounderHeight.r16"', RULES)
         self.assertIn('RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS)', RULES)
@@ -95,7 +96,7 @@ class WeekendPackagingTests(unittest.TestCase):
         preflight = (ROOT / "Tools/package_soul_weekend.ps1").read_text()
         self.assertIn("Assert-File (Join-Path $projectRoot ('Content/MagicSpells/' + $fx + '.uasset'))", preflight)
         self.assertIn(f"$packages.Count -ne {len(COOK_ROOTS)}", preflight)
-        self.assertIn("$dataFiles.Count -ne 9", preflight)
+        self.assertIn("$dataFiles.Count -ne 10", preflight)
 
     def test_battle_spell_bar_uses_bounded_cooked_spells(self):
         actions = (ROOT / "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp").read_text()

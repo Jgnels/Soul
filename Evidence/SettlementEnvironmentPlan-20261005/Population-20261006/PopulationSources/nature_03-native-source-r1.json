@@ -1,0 +1,5806 @@
+{
+  "utc": "2026-10-06T18:42:58.040354+00:00",
+  "source_prefab": "/Game/Forest_village/BP/Prefab/BPP_PLA_03",
+  "approved_family": "FF",
+  "intended_context": "forest_edge",
+  "common_pivot": [
+    -0.028910223443631367,
+    -0.22818470954166514,
+    -128.0
+  ],
+  "bounds_center": [
+    -0.028910223443631367,
+    -0.22818470954166514,
+    606.8701171875
+  ],
+  "bounds_extent": [
+    651.0150906154081,
+    655.8927259349896,
+    734.8701171875
+  ],
+  "meshes": {
+    "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular": {
+      "lod": 0,
+      "triangles": 268,
+      "native_lod_triangles": [
+        268,
+        134,
+        66,
+        64
+      ]
+    },
+    "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank": {
+      "lod": 0,
+      "triangles": 44,
+      "native_lod_triangles": [
+        44,
+        44,
+        44,
+        44
+      ]
+    },
+    "/Game/Forest_village/Meshes/Wood_modules/SM_beam_03.SM_beam_03": {
+      "lod": 0,
+      "triangles": 470,
+      "native_lod_triangles": [
+        470,
+        234,
+        118,
+        64
+      ]
+    },
+    "/Game/Forest_village/Meshes/Wood_modules/SM_beam_02.SM_beam_02": {
+      "lod": 0,
+      "triangles": 41,
+      "native_lod_triangles": [
+        41,
+        41,
+        41,
+        41
+      ]
+    },
+    "/Game/Forest_village/Meshes/Wood_modules/SM_window.SM_window": {
+      "lod": 0,
+      "triangles": 742,
+      "native_lod_triangles": [
+        742,
+        370,
+        186,
+        93
+      ]
+    },
+    "/Game/Forest_village/Meshes/Kit/SM_round_house02.SM_round_house02": {
+      "lod": 0,
+      "triangles": 37420,
+      "native_lod_triangles": [
+        37420,
+        18710,
+        9355,
+        4677
+      ]
+    },
+    "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1": {
+      "lod": 0,
+      "triangles": 1816,
+      "native_lod_triangles": [
+        1816,
+        364,
+        182
+      ]
+    },
+    "/Game/Forest_village/Meshes/Door/SM_door_complete.SM_door_complete": {
+      "lod": 0,
+      "triangles": 8112,
+      "native_lod_triangles": [
+        8112,
+        4055,
+        2027,
+        1014
+      ]
+    },
+    "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02": {
+      "lod": 0,
+      "triangles": 652,
+      "native_lod_triangles": [
+        652,
+        326,
+        162,
+        82
+      ]
+    }
+  },
+  "instances": [
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        333.60590293723544,
+        -134.72464583608053,
+        539.3271198905911
+      ],
+      "rotation": [
+        3.3844550000000018,
+        -105.29953000000009,
+        -28.888325000000048
+      ],
+      "scale": [
+        1.064198000000001,
+        1.064198000000001,
+        1.1167100000000003
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        100.85891793723522,
+        311.6532231639194,
+        585.662527890591
+      ],
+      "rotation": [
+        7.951386703658792e-16,
+        -14.745442000000025,
+        -28.582409999999978
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        370.21779093723535,
+        -31.122843836080392,
+        570.2650578905912
+      ],
+      "rotation": [
+        3.1805546814635168e-15,
+        -83.75629300000003,
+        -34.77945899999998
+      ],
+      "scale": [
+        1.0462360000000004,
+        1.0462360000000002,
+        1.046236
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        476.1112166609307,
+        256.33333833474734,
+        0.4829264516637579
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1665050000000001,
+        1.1665050000000001,
+        1.166505
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -286.9574010627648,
+        -220.36548783608032,
+        552.531591890591
+      ],
+      "rotation": [
+        -2.2247300000000214,
+        129.006814,
+        -31.151827000000033
+      ],
+      "scale": [
+        1.0641980000000004,
+        1.0641980000000002,
+        1.11671
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        174.6739159372355,
+        -311.2545348360809,
+        553.0598218905911
+      ],
+      "rotation": [
+        2.1503529999999875,
+        -150.90869200000003,
+        -31.21437500000002
+      ],
+      "scale": [
+        1.0641980000000015,
+        1.0641980000000013,
+        1.1167100000000003
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -99.69488257538472,
+        -500.77686485504717,
+        0.48292513443135476
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1665050000000001,
+        1.1665050000000001,
+        1.166505
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -476.9000421842465,
+        -204.8716705812708,
+        0.4828884709604395
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1665050000000001,
+        1.1665050000000001,
+        1.166505
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        522.9473166459705,
+        -88.19787579163166,
+        0.4829254342203626
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1665050000000001,
+        1.1665050000000001,
+        1.166505
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -181.4692580627643,
+        267.9971821639192,
+        585.662527890591
+      ],
+      "rotation": [
+        1.5902773407317584e-15,
+        43.050275000000006,
+        -28.58240999999998
+      ],
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        231.11710393723524,
+        189.4431561639194,
+        585.662527890591
+      ],
+      "rotation": [
+        0.0,
+        -47.86826300000001,
+        -23.401926000000007
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -312.9647000627647,
+        -90.08715483608103,
+        585.662527890591
+      ],
+      "rotation": [
+        -3.1805546814635168e-15,
+        111.00715000000001,
+        -28.582409999999992
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -11.280522062764248,
+        -362.7887648360802,
+        558.456258890591
+      ],
+      "rotation": [
+        0.9864539999999984,
+        -173.27537,
+        -31.83448099999999
+      ],
+      "scale": [
+        1.0641980000000009,
+        1.0641980000000009,
+        1.11671
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -321.95885106276455,
+        -30.144783836080933,
+        541.484344890591
+      ],
+      "rotation": [
+        -3.267007999999981,
+        95.86078100000002,
+        -24.337669000000023
+      ],
+      "scale": [
+        1.0641980000000006,
+        1.0641980000000006,
+        1.11671
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -291.97660106276453,
+        127.20219816391909,
+        585.662527890591
+      ],
+      "rotation": [
+        0.0,
+        65.438354,
+        -28.58240999999998
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -501.785592653128,
+        76.76869746819605,
+        0.48288841752088274
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1665050000000001,
+        1.1665050000000001,
+        1.166505
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -3.1881650627647105,
+        -10.041760836080357,
+        829.2603118905911
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.3622980000000002,
+        1.3622980000000002,
+        1.362298
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        263.16033417893146,
+        -462.7866847291579,
+        0.48292585981272396
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1665050000000001,
+        1.1665050000000001,
+        1.166505
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        493.2148979372355,
+        177.2593501639194,
+        439.542906890591
+      ],
+      "rotation": [
+        3.514160999999998,
+        -65.00003500000003,
+        -42.780129999999986
+      ],
+      "scale": [
+        1.4500560000000002,
+        1.4500560000000002,
+        1.450056
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -194.99439806276496,
+        490.94212616391906,
+        445.1292868905912
+      ],
+      "rotation": [
+        6.469448000000004,
+        32.428224,
+        -49.011113000000044
+      ],
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        337.9698829372355,
+        -377.034879836081,
+        478.2463848905911
+      ],
+      "rotation": [
+        6.469448000000028,
+        -132.87820899999994,
+        -49.01111300000004
+      ],
+      "scale": [
+        0.9999999999999984,
+        0.9999999999999988,
+        0.9999999999999998
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -521.1397150627645,
+        94.66055816391963,
+        445.1292868905912
+      ],
+      "rotation": [
+        6.469448000000002,
+        85.35240199999998,
+        -49.011113000000016
+      ],
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999996,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        342.3127229372353,
+        420.21056516391945,
+        445.1292868905912
+      ],
+      "rotation": [
+        3.5141609999999996,
+        -31.07059600000003,
+        -47.686974000000056
+      ],
+      "scale": [
+        1.0,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        80.08646493723518,
+        -486.16632583608043,
+        478.2463848905911
+      ],
+      "rotation": [
+        6.469448000000008,
+        -161.270632,
+        -49.011113000000044
+      ],
+      "scale": [
+        0.9999999999999988,
+        0.999999999999999,
+        0.9999999999999997
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -425.1857730627644,
+        -290.2023968360809,
+        478.2463848905911
+      ],
+      "rotation": [
+        3.5141609999999948,
+        135.23054799999997,
+        -47.686974000000035
+      ],
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999998,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -172.03043806276492,
+        -479.6286008360803,
+        478.2463848905911
+      ],
+      "rotation": [
+        6.469448000000001,
+        161.761324,
+        -49.01111300000003
+      ],
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999998,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -419.6976500627643,
+        323.8434181639195,
+        445.1292868905912
+      ],
+      "rotation": [
+        6.469447999999992,
+        60.82064699999996,
+        -49.01111300000002
+      ],
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999998,
+        0.9999999999999999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        51.49900493723544,
+        544.2963891639192,
+        445.1292868905912
+      ],
+      "rotation": [
+        6.469448,
+        -4.539820000000019,
+        -49.011113000000044
+      ],
+      "scale": [
+        1.0,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh6",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_wood_plank.SM_wood_plank",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -480.6082740627644,
+        -196.59633983608092,
+        445.1292868905912
+      ],
+      "rotation": [
+        6.469447999999979,
+        114.16583599999998,
+        -49.01111300000004
+      ],
+      "scale": [
+        0.9999999999999992,
+        0.9999999999999992,
+        0.9999999999999998
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh7",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_03.SM_beam_03",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        21.702243937235835,
+        499.13150816391953,
+        7.306977335037686
+      ],
+      "rotation": [
+        0.0,
+        12.09164,
+        -0.0
+      ],
+      "scale": [
+        1.325933,
+        1.325933,
+        1.325933
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh7",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_03.SM_beam_03",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -219.20910506276505,
+        447.52135916391944,
+        7.306975335037691
+      ],
+      "rotation": [
+        0.0,
+        12.09164,
+        -0.0
+      ],
+      "scale": [
+        1.325933,
+        1.325933,
+        1.325933
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh8",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_02.SM_beam_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -385.50069206276476,
+        94.86456016391912,
+        2.759597890591067
+      ],
+      "rotation": [
+        0.0,
+        76.59933799999999,
+        -0.0
+      ],
+      "scale": [
+        1.17947,
+        1.17947,
+        1.17947
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh8",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_02.SM_beam_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -399.83418806276495,
+        39.80157516391955,
+        2.759597890591067
+      ],
+      "rotation": [
+        0.0,
+        85.85599699999999,
+        -0.0
+      ],
+      "scale": [
+        1.1794700000000002,
+        1.1794700000000002,
+        1.17947
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh9",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_window.SM_window",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        195.059306269798,
+        326.5152988240684,
+        190.1209911384623
+      ],
+      "rotation": [
+        -0.0,
+        -28.825496000000015,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh9",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_window.SM_window",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        341.6870679372355,
+        -204.204465836081,
+        234.27168089059114
+      ],
+      "rotation": [
+        0.0,
+        -122.748063,
+        -0.0
+      ],
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999996,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh9",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_window.SM_window",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -318.48296577591196,
+        209.27944067212454,
+        190.12099117336626
+      ],
+      "rotation": [
+        0.0,
+        54.692229,
+        -0.0
+      ],
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "InstancedStaticMesh2",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Kit/SM_round_house02.SM_round_house02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood.MI_wood",
+        "/Game/Forest_village/Materials/MI_moss.MI_moss",
+        "/Game/Forest_village/Materials/MI_wood_02.MI_wood_02"
+      ],
+      "location": [
+        -1.019859062764226,
+        -16.70166083608092,
+        1.6366688905910678
+      ],
+      "rotation": [
+        0.0,
+        79.86833700000001,
+        -0.0
+      ],
+      "scale": [
+        1.1799999960302114,
+        1.1799999960302114,
+        1.18
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        128.29479293713246,
+        -211.36964182759743,
+        768.1496593785107
+      ],
+      "rotation": [
+        45.85967943047345,
+        171.79772792056846,
+        41.95850353804216
+      ],
+      "scale": [
+        0.49999999999999967,
+        0.4999999999999996,
+        0.49999999999999983
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -113.4813340709332,
+        -62.428246317145785,
+        975.0174124939725
+      ],
+      "rotation": [
+        -55.000840934902016,
+        -147.50133790278352,
+        -51.32960400892788
+      ],
+      "scale": [
+        0.5120853185653681,
+        0.5120853185653681,
+        0.5120853185653684
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -278.9966912684682,
+        -167.59081752624297,
+        655.124370895464
+      ],
+      "rotation": [
+        26.825861570213547,
+        105.4201009642006,
+        34.20782136941939
+      ],
+      "scale": [
+        0.6951140165328986,
+        0.6951140165328983,
+        0.6951140165328981
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -245.53772422834322,
+        49.15857725881699,
+        676.4417977715934
+      ],
+      "rotation": [
+        -18.599008641107662,
+        -66.51070444065485,
+        -35.0752033539829
+      ],
+      "scale": [
+        0.6446027755737304,
+        0.6446027755737302,
+        0.6446027755737302
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -316.56156770652194,
+        -178.41863026212607,
+        625.1176774082392
+      ],
+      "rotation": [
+        12.53196178990759,
+        -26.93233739560408,
+        -40.885819018031775
+      ],
+      "scale": [
+        0.7942686080932617,
+        0.7942686080932616,
+        0.7942686080932616
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -70.08198702512524,
+        -118.67186834684674,
+        925.568435748848
+      ],
+      "rotation": [
+        -74.27951372121487,
+        71.15552856282082,
+        128.08535598820947
+      ],
+      "scale": [
+        0.6831018924713136,
+        0.6831018924713136,
+        0.6831018924713136
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -202.8282615664653,
+        -313.37018033494974,
+        552.9796456687701
+      ],
+      "rotation": [
+        25.923901050314893,
+        117.18541612783966,
+        54.21584368460428
+      ],
+      "scale": [
+        0.550804138183594,
+        0.5508041381835939,
+        0.5508041381835938
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -208.32442541003914,
+        -275.0970671903195,
+        575.2172282984471
+      ],
+      "rotation": [
+        34.3729638304441,
+        -5.395981127017153,
+        -23.03176968201279
+      ],
+      "scale": [
+        0.5150151252746583,
+        0.5150151252746582,
+        0.5150151252746583
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -309.21922567241046,
+        -83.83132847940304,
+        629.6320041336834
+      ],
+      "rotation": [
+        -47.14068035124663,
+        -116.05840210284451,
+        -46.260629645987066
+      ],
+      "scale": [
+        0.6772057414054864,
+        0.6772057414054862,
+        0.6772057414054868
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -158.27143388996737,
+        -306.90012090265293,
+        571.7417427312699
+      ],
+      "rotation": [
+        -9.518415299207884,
+        78.44333876283454,
+        48.548324024073324
+      ],
+      "scale": [
+        0.5575152039527892,
+        0.5575152039527891,
+        0.5575152039527893
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -171.55276171759124,
+        -119.06338791538772,
+        839.0832563464514
+      ],
+      "rotation": [
+        53.75519303900984,
+        23.41279197232255,
+        -32.96751052416117
+      ],
+      "scale": [
+        0.560243546962738,
+        0.5602435469627381,
+        0.5602435469627381
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -320.0134154337997,
+        -162.2052381495588,
+        586.2631700492775
+      ],
+      "rotation": [
+        -0.16531861181733037,
+        121.65462508756704,
+        41.40929688891444
+      ],
+      "scale": [
+        0.6184819936752319,
+        0.618481993675232,
+        0.6184819936752319
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -11.093337473783247,
+        -344.4646861732791,
+        621.0923201234162
+      ],
+      "rotation": [
+        -9.232561897703073,
+        -166.87204512947557,
+        57.70280293627592
+      ],
+      "scale": [
+        0.7105319499969464,
+        0.7105319499969468,
+        0.7105319499969478
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        41.108411837949916,
+        -366.80668855522634,
+        592.4175763962899
+      ],
+      "rotation": [
+        36.85840531099462,
+        84.24959546960353,
+        -20.38720677337945
+      ],
+      "scale": [
+        0.5257911682128907,
+        0.5257911682128907,
+        0.5257911682128907
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -150.3788699831296,
+        -217.45490469128998,
+        669.5970184193749
+      ],
+      "rotation": [
+        22.089610665767584,
+        158.51290622407635,
+        61.28511563235242
+      ],
+      "scale": [
+        0.7589923143386844,
+        0.7589923143386842,
+        0.7589923143386842
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -86.02698959668217,
+        -183.52205412856628,
+        799.0959724183663
+      ],
+      "rotation": [
+        -45.14988542145509,
+        -124.93526460408346,
+        21.644926368836927
+      ],
+      "scale": [
+        0.6779656410217282,
+        0.6779656410217282,
+        0.6779656410217284
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -90.56483291220036,
+        -166.1297316955562,
+        827.8014726070654
+      ],
+      "rotation": [
+        36.53690930620406,
+        156.1042703857144,
+        38.562448272049245
+      ],
+      "scale": [
+        0.6072939038276677,
+        0.6072939038276676,
+        0.6072939038276673
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -279.6231730778275,
+        -149.04252623677542,
+        608.0951192349372
+      ],
+      "rotation": [
+        29.677119350643075,
+        117.77312215544809,
+        84.85794675140168
+      ],
+      "scale": [
+        0.5951719880104068,
+        0.5951719880104066,
+        0.5951719880104067
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -159.1893806281671,
+        -153.66275452374586,
+        746.9059650712
+      ],
+      "rotation": [
+        37.00149620512682,
+        -87.91659251664834,
+        -82.18903770125755
+      ],
+      "scale": [
+        0.7464400529861455,
+        0.7464400529861451,
+        0.7464400529861454
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -203.50154031122247,
+        76.11891553552232,
+        800.4900827867671
+      ],
+      "rotation": [
+        56.62113827559266,
+        -36.855825972609175,
+        -42.32530379651874
+      ],
+      "scale": [
+        0.661861002445221,
+        0.6618610024452211,
+        0.6618610024452211
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -212.46956252453845,
+        -92.03761244297058,
+        762.1922151864197
+      ],
+      "rotation": [
+        -25.349368155430156,
+        -87.29273051481279,
+        -39.93372274687468
+      ],
+      "scale": [
+        0.5875636935234072,
+        0.5875636935234072,
+        0.587563693523407
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -202.87837440507775,
+        -88.38575369147637,
+        778.2276401394676
+      ],
+      "rotation": [
+        -7.911691906839077,
+        -126.66975983041328,
+        -22.245038185771087
+      ],
+      "scale": [
+        0.5791497230529785,
+        0.5791497230529784,
+        0.5791497230529785
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -173.28474503781482,
+        -190.27956928053703,
+        687.3766945489294
+      ],
+      "rotation": [
+        -28.887348030335005,
+        -140.0949579259606,
+        -39.19933529348901
+      ],
+      "scale": [
+        0.5905667543411255,
+        0.5905667543411255,
+        0.5905667543411255
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        88.15471253103931,
+        -380.07157795602654,
+        531.912461850423
+      ],
+      "rotation": [
+        -29.641378322008286,
+        -109.19478334130675,
+        -7.933646925536511
+      ],
+      "scale": [
+        0.5646931529045106,
+        0.5646931529045107,
+        0.5646931529045105
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -359.21369228513817,
+        287.5894578989078,
+        511.0420109718334
+      ],
+      "rotation": [
+        30.325706693373377,
+        26.571651224864777,
+        29.66987563076975
+      ],
+      "scale": [
+        0.5960692167282104,
+        0.5960692167282104,
+        0.5960692167282106
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        132.91213677006323,
+        -476.2725337234781,
+        482.77045918907476
+      ],
+      "rotation": [
+        13.537430609691182,
+        60.04543662548424,
+        -15.019477225429892
+      ],
+      "scale": [
+        0.758827447891235,
+        0.758827447891235,
+        0.7588274478912352
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        31.10094752615019,
+        -537.5180069946933,
+        441.50721346212896
+      ],
+      "rotation": [
+        17.67292128424728,
+        -84.32723023456242,
+        9.133915310060658
+      ],
+      "scale": [
+        0.6356395483016964,
+        0.6356395483016964,
+        0.6356395483016968
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        65.86711456357878,
+        -322.88711866909244,
+        610.2757172202043
+      ],
+      "rotation": [
+        -2.6450857027983794,
+        56.619959454936286,
+        -61.17284886459475
+      ],
+      "scale": [
+        0.746769607067108,
+        0.746769607067108,
+        0.746769607067108
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -104.37372357316951,
+        -242.84324832245656,
+        661.4060906229993
+      ],
+      "rotation": [
+        49.10771181770074,
+        118.03446120745447,
+        69.46647290860611
+      ],
+      "scale": [
+        0.5417218804359432,
+        0.5417218804359434,
+        0.5417218804359433
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        56.65725471758441,
+        -496.101910995759,
+        471.48055531097634
+      ],
+      "rotation": [
+        13.925048108460604,
+        165.9481310765632,
+        61.40601452869724
+      ],
+      "scale": [
+        0.6625843048095689,
+        0.6625843048095693,
+        0.66258430480957
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -128.86904063851136,
+        -407.12473869345035,
+        552.7479544106272
+      ],
+      "rotation": [
+        14.275308172357448,
+        152.29412646606383,
+        39.29486659429429
+      ],
+      "scale": [
+        0.6242042183876038,
+        0.6242042183876038,
+        0.6242042183876036
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -122.04818714441618,
+        -418.3946871048491,
+        544.1306923698276
+      ],
+      "rotation": [
+        -21.174696263727323,
+        -36.99230282411922,
+        -36.4568570032221
+      ],
+      "scale": [
+        0.5879757404327393,
+        0.5879757404327396,
+        0.5879757404327393
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -154.9041559157082,
+        -394.04252107048995,
+        559.7193205514682
+      ],
+      "rotation": [
+        -37.43657335363698,
+        -71.17317222102929,
+        -19.16914250811193
+      ],
+      "scale": [
+        0.7290627956390382,
+        0.7290627956390382,
+        0.7290627956390381
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -152.43575963573014,
+        -430.5673899336051,
+        528.5056333406591
+      ],
+      "rotation": [
+        41.33705328316406,
+        74.97134728929018,
+        -2.704852112738176
+      ],
+      "scale": [
+        0.7554216384887699,
+        0.7554216384887699,
+        0.7554216384887696
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -166.43124078911995,
+        -430.6678518481342,
+        526.0767727344951
+      ],
+      "rotation": [
+        -17.40162712805592,
+        -170.12080549791494,
+        38.189224624270416
+      ],
+      "scale": [
+        0.5951536893844602,
+        0.5951536893844603,
+        0.5951536893844603
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -199.2735175143361,
+        -409.9353528633829,
+        484.3262071226737
+      ],
+      "rotation": [
+        -17.807528911839807,
+        -99.11232691556515,
+        -0.7203076044695372
+      ],
+      "scale": [
+        0.5942289829254148,
+        0.5942289829254149,
+        0.594228982925415
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -297.8422252589427,
+        -355.607126541251,
+        489.03677824957435
+      ],
+      "rotation": [
+        -66.69086433746386,
+        -107.93166638338059,
+        -37.854415162924994
+      ],
+      "scale": [
+        0.7519791126251224,
+        0.7519791126251221,
+        0.751979112625122
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -319.93196345692303,
+        -370.01618234965355,
+        464.19222986106803
+      ],
+      "rotation": [
+        14.484185251441945,
+        47.40986600701927,
+        -0.9677959754474541
+      ],
+      "scale": [
+        0.6521012187004088,
+        0.6521012187004087,
+        0.6521012187004089
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -295.7119984837503,
+        -335.63081461421,
+        505.5138226598694
+      ],
+      "rotation": [
+        -81.32439633512175,
+        172.37830125847486,
+        48.12705685246848
+      ],
+      "scale": [
+        0.6340647935867307,
+        0.6340647935867306,
+        0.6340647935867306
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -412.4741983700778,
+        -332.7252350691387,
+        435.2155314695025
+      ],
+      "rotation": [
+        4.776342496450452,
+        -157.52936237632062,
+        -25.541788911375775
+      ],
+      "scale": [
+        0.6074038147926338,
+        0.6074038147926337,
+        0.6074038147926331
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -406.8335863384312,
+        -260.48255683454573,
+        514.3356806826249
+      ],
+      "rotation": [
+        40.51439561511701,
+        69.84156544073393,
+        13.89267815268179
+      ],
+      "scale": [
+        0.7225531935691832,
+        0.7225531935691833,
+        0.7225531935691833
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -214.71772613776923,
+        144.37962807832722,
+        668.6326960180546
+      ],
+      "rotation": [
+        82.74798817247195,
+        -165.930340243519,
+        -95.0892501069264
+      ],
+      "scale": [
+        0.6683157086372373,
+        0.6683157086372375,
+        0.6683157086372374
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -462.82828826515987,
+        214.10626064029762,
+        465.2490966908325
+      ],
+      "rotation": [
+        -36.639965952051064,
+        -174.58541697008644,
+        -4.341666484621583
+      ],
+      "scale": [
+        0.7709585428237924,
+        0.7709585428237923,
+        0.7709585428237915
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -506.70816889010405,
+        152.01939067179669,
+        440.08123767113193
+      ],
+      "rotation": [
+        37.38709123717487,
+        -41.53035857592817,
+        -27.850902415161766
+      ],
+      "scale": [
+        0.5684102773666383,
+        0.5684102773666383,
+        0.5684102773666382
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -220.3976841518984,
+        110.56759478683122,
+        722.5672200810558
+      ],
+      "rotation": [
+        29.766693482298002,
+        69.51090002951216,
+        69.46811137059679
+      ],
+      "scale": [
+        0.7930326461791993,
+        0.7930326461791993,
+        0.7930326461791993
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -451.55650733057155,
+        -144.81643136293025,
+        490.9599375225665
+      ],
+      "rotation": [
+        64.76300274618403,
+        17.336815257996346,
+        8.020939543805191
+      ],
+      "scale": [
+        0.6335428953170777,
+        0.6335428953170776,
+        0.6335428953170775
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -389.85195678113416,
+        -133.08853325398317,
+        522.1912433491906
+      ],
+      "rotation": [
+        46.49717291076573,
+        67.50355486473936,
+        63.5235330562772
+      ],
+      "scale": [
+        0.7642567157745362,
+        0.764256715774536,
+        0.7642567157745362
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -340.56929979451144,
+        253.34308658922373,
+        537.5549419922727
+      ],
+      "rotation": [
+        -13.04238920059741,
+        83.3501854059969,
+        39.65864226935063
+      ],
+      "scale": [
+        0.5425183773040769,
+        0.5425183773040768,
+        0.5425183773040771
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -457.1708115834391,
+        -39.15029823434168,
+        500.731833647017
+      ],
+      "rotation": [
+        -29.919851214535612,
+        159.10183453642372,
+        9.55860143888771
+      ],
+      "scale": [
+        0.556910932064057,
+        0.5569109320640571,
+        0.5569109320640564
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -400.20055087778303,
+        10.738128231786199,
+        534.8932348672288
+      ],
+      "rotation": [
+        5.289191009892007,
+        169.06870037826582,
+        4.69661379433993
+      ],
+      "scale": [
+        0.5067018866539004,
+        0.5067018866539004,
+        0.5067018866539001
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -503.259134115361,
+        13.626003149503745,
+        477.42800941189455
+      ],
+      "rotation": [
+        -6.558309615813832,
+        58.083227220024256,
+        40.388801647634665
+      ],
+      "scale": [
+        0.7806726694107057,
+        0.7806726694107056,
+        0.7806726694107056
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -463.1648949647396,
+        117.34128952040754,
+        470.78170687810626
+      ],
+      "rotation": [
+        -49.41798287038806,
+        135.111372901626,
+        9.839828050558705
+      ],
+      "scale": [
+        0.7832362055778497,
+        0.7832362055778493,
+        0.7832362055778501
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -490.4328644294128,
+        50.24726984617619,
+        476.13932570458127
+      ],
+      "rotation": [
+        18.660277745714954,
+        -72.84733621850731,
+        -31.76917942150109
+      ],
+      "scale": [
+        0.5941740274429319,
+        0.594174027442932,
+        0.5941740274429321
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -367.98135653226933,
+        114.95770124818807,
+        529.2959280853943
+      ],
+      "rotation": [
+        -75.08412502758782,
+        177.90258766696581,
+        -5.3293609516407425
+      ],
+      "scale": [
+        0.7307291030883794,
+        0.7307291030883795,
+        0.730729103088379
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -370.6426739643301,
+        130.89656259179938,
+        522.497410636881
+      ],
+      "rotation": [
+        -14.365933568235123,
+        171.2453895782873,
+        -18.35632609107259
+      ],
+      "scale": [
+        0.747126698493957,
+        0.7471266984939569,
+        0.7471266984939575
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -286.8025447870563,
+        163.49965372493472,
+        600.2762329932663
+      ],
+      "rotation": [
+        43.64741619168963,
+        48.14352651759728,
+        92.50285536524966
+      ],
+      "scale": [
+        0.5717978477478027,
+        0.5717978477478028,
+        0.5717978477478026
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -274.93753651089344,
+        195.37055477540093,
+        610.319422940901
+      ],
+      "rotation": [
+        34.974144364438956,
+        -59.392455576280845,
+        -23.75268666911912
+      ],
+      "scale": [
+        0.6785333156585692,
+        0.6785333156585693,
+        0.6785333156585694
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -265.78187667871816,
+        299.6038922357874,
+        538.2111081220218
+      ],
+      "rotation": [
+        -23.55842451034965,
+        84.16202760379515,
+        5.8268864872350985
+      ],
+      "scale": [
+        0.7962462306022648,
+        0.7962462306022651,
+        0.7962462306022646
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -201.24100846674955,
+        287.93051616139235,
+        566.5093351003982
+      ],
+      "rotation": [
+        -13.03643500548497,
+        -98.02904935075915,
+        27.922039125237223
+      ],
+      "scale": [
+        0.5213873982429503,
+        0.5213873982429504,
+        0.5213873982429504
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -205.11471366974504,
+        393.8684576087151,
+        520.7285864154529
+      ],
+      "rotation": [
+        36.80497778619297,
+        -19.143925446738685,
+        27.97717037249642
+      ],
+      "scale": [
+        0.6453810334205629,
+        0.645381033420563,
+        0.645381033420563
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -246.9793076903575,
+        353.7224293667175,
+        517.7596693288268
+      ],
+      "rotation": [
+        33.98711432629514,
+        -16.480572271380137,
+        -12.286752277610635
+      ],
+      "scale": [
+        0.6559465527534486,
+        0.6559465527534485,
+        0.6559465527534485
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -204.4365519304024,
+        319.6331063511135,
+        549.0303621613941
+      ],
+      "rotation": [
+        12.871348347166988,
+        -78.95359531147174,
+        -17.46044727761538
+      ],
+      "scale": [
+        0.5057405233383179,
+        0.5057405233383178,
+        0.5057405233383179
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -125.58451075256076,
+        410.42001000683166,
+        502.12460078974885
+      ],
+      "rotation": [
+        -20.133306523448027,
+        44.71486258705269,
+        47.701799486756705
+      ],
+      "scale": [
+        0.7904598712921144,
+        0.7904598712921141,
+        0.7904598712921141
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -59.35399607532603,
+        375.19989326266835,
+        552.1273852613399
+      ],
+      "rotation": [
+        -13.343129095065006,
+        -42.33645244868723,
+        7.012425355704305
+      ],
+      "scale": [
+        0.7852229475975037,
+        0.7852229475975036,
+        0.7852229475975036
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        22.780122251155632,
+        448.1675434369146,
+        533.0866611734562
+      ],
+      "rotation": [
+        11.878100762606254,
+        -11.036316092743023,
+        39.96729404535964
+      ],
+      "scale": [
+        0.6831476688385011,
+        0.683147668838501,
+        0.6831476688385009
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -19.83202119561002,
+        394.51191320994246,
+        539.5111279405407
+      ],
+      "rotation": [
+        -58.27816888447463,
+        25.165171670303724,
+        69.5674190023415
+      ],
+      "scale": [
+        0.5543748140335083,
+        0.5543748140335082,
+        0.5543748140335083
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        83.98711341348147,
+        428.20161832520813,
+        504.8412956807755
+      ],
+      "rotation": [
+        -16.91604114614588,
+        165.00768968154935,
+        -71.69076152846522
+      ],
+      "scale": [
+        0.6169072389602653,
+        0.6169072389602656,
+        0.6169072389602659
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        185.3256597596731,
+        389.6498559900612,
+        514.7352419757023
+      ],
+      "rotation": [
+        9.556123692292026,
+        -15.461176275852512,
+        33.079868818974006
+      ],
+      "scale": [
+        0.577913761138916,
+        0.577913761138916,
+        0.577913761138916
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        208.73277918597813,
+        399.53999395643916,
+        505.08045458934436
+      ],
+      "rotation": [
+        25.653255555801056,
+        -128.70405176530113,
+        1.465768783818362
+      ],
+      "scale": [
+        0.7416791319847111,
+        0.7416791319847112,
+        0.7416791319847107
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        242.3366435348609,
+        376.8999235366231,
+        506.62316794193964
+      ],
+      "rotation": [
+        -1.5007033107608254,
+        -127.77068437467823,
+        -16.252545326709424
+      ],
+      "scale": [
+        0.7112918496131898,
+        0.7112918496131898,
+        0.7112918496131898
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        325.0427540979076,
+        350.0240593787646,
+        487.70946146583464
+      ],
+      "rotation": [
+        37.70219499626042,
+        -147.45015544143573,
+        1.627191361686612
+      ],
+      "scale": [
+        0.5861812233924871,
+        0.5861812233924873,
+        0.5861812233924866
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        355.92913286838575,
+        350.2719179723013,
+        478.4649578091331
+      ],
+      "rotation": [
+        -37.60242329266182,
+        63.836768717235145,
+        -29.62828318035624
+      ],
+      "scale": [
+        0.718030333518982,
+        0.718030333518982,
+        0.718030333518982
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -330.75321722822275,
+        305.0694900000194,
+        489.7642265112111
+      ],
+      "rotation": [
+        16.639345771761562,
+        -104.11435741853712,
+        -32.04357892797273
+      ],
+      "scale": [
+        0.7160801887512206,
+        0.7160801887512206,
+        0.7160801887512208
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -293.0360768948566,
+        244.42898037629104,
+        579.3855352101707
+      ],
+      "rotation": [
+        32.80339011272651,
+        21.165055620284125,
+        26.837558395766116
+      ],
+      "scale": [
+        0.7203283905982972,
+        0.7203283905982972,
+        0.7203283905982972
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -273.2643286269561,
+        254.6281180721558,
+        529.8620538995505
+      ],
+      "rotation": [
+        -31.985594660977323,
+        161.03248351759746,
+        -10.502720864761992
+      ],
+      "scale": [
+        0.7324503660202025,
+        0.7324503660202027,
+        0.7324503660202026
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -327.34182106581585,
+        161.56378945387291,
+        540.593323921064
+      ],
+      "rotation": [
+        -3.1067766045689322,
+        -122.6840458705032,
+        -67.62484057803461
+      ],
+      "scale": [
+        0.5815668106079108,
+        0.5815668106079105,
+        0.5815668106079104
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        2.5995344044620072,
+        70.78504068327831,
+        1062.9009154488901
+      ],
+      "rotation": [
+        -51.731111297530255,
+        -47.9394677359166,
+        78.62225885798824
+      ],
+      "scale": [
+        0.6576311588287351,
+        0.6576311588287351,
+        0.657631158828735
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -2.5871090835877038,
+        105.45515210756969,
+        994.4240544765028
+      ],
+      "rotation": [
+        -80.17328691377648,
+        15.847650370474593,
+        10.593161256090005
+      ],
+      "scale": [
+        0.7366435527801511,
+        0.7366435527801513,
+        0.736643552780151
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -55.22783088332886,
+        73.56603905228084,
+        1016.6855764188365
+      ],
+      "rotation": [
+        39.445500511910495,
+        -76.17574398454006,
+        9.262266856614383
+      ],
+      "scale": [
+        0.5864833593368529,
+        0.5864833593368529,
+        0.5864833593368531
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        28.283752629634044,
+        157.67338941193086,
+        867.5377666351918
+      ],
+      "rotation": [
+        71.7658856390108,
+        121.60935766791101,
+        -74.01401265705549
+      ],
+      "scale": [
+        0.5358714461326599,
+        0.5358714461326599,
+        0.5358714461326599
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -69.17750100939364,
+        133.53553235162084,
+        891.9272171202429
+      ],
+      "rotation": [
+        45.7010192204402,
+        -160.317477368363,
+        -54.928590082308595
+      ],
+      "scale": [
+        0.5000182986259456,
+        0.5000182986259457,
+        0.5000182986259459
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -61.135447751274704,
+        192.7822889566087,
+        796.7878869608409
+      ],
+      "rotation": [
+        22.645683868703404,
+        165.79548519128878,
+        -104.42755496833558
+      ],
+      "scale": [
+        0.7221137285232545,
+        0.7221137285232543,
+        0.7221137285232545
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -68.55645266225127,
+        190.67556481315546,
+        795.5288414815376
+      ],
+      "rotation": [
+        -3.929972268423174,
+        158.59372115226873,
+        -50.54986437550508
+      ],
+      "scale": [
+        0.7419263124465946,
+        0.7419263124465943,
+        0.7419263124465943
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -61.71005341424949,
+        228.2860686612693,
+        707.540274850903
+      ],
+      "rotation": [
+        -54.997701505635334,
+        174.12613626655403,
+        -15.066534804893042
+      ],
+      "scale": [
+        0.7684774398803705,
+        0.7684774398803703,
+        0.7684774398803709
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -136.2938273554886,
+        214.53799647572788,
+        747.8019149717732
+      ],
+      "rotation": [
+        -51.697677179271686,
+        -167.36206084653236,
+        -40.64659358745556
+      ],
+      "scale": [
+        0.5274208784103388,
+        0.5274208784103387,
+        0.5274208784103394
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -124.63687264220081,
+        184.7047990542863,
+        763.0311892523332
+      ],
+      "rotation": [
+        -15.012922793762455,
+        -93.35827631110834,
+        -81.55778536379316
+      ],
+      "scale": [
+        0.6376903653144836,
+        0.6376903653144836,
+        0.6376903653144836
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -311.62785436572574,
+        116.10116841834031,
+        597.0586442796293
+      ],
+      "rotation": [
+        25.230313004027828,
+        -10.666151641945953,
+        18.850519984256675
+      ],
+      "scale": [
+        0.6669423580169679,
+        0.6669423580169678,
+        0.6669423580169679
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -217.32088395182365,
+        221.9626983802164,
+        629.7982506869605
+      ],
+      "rotation": [
+        28.194521005149554,
+        45.23958169295203,
+        95.21008899555875
+      ],
+      "scale": [
+        0.5641895532608032,
+        0.5641895532608034,
+        0.5641895532608034
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -134.75099947108856,
+        268.60389665535604,
+        635.5504956278239
+      ],
+      "rotation": [
+        61.980417887300284,
+        -54.395812447084545,
+        3.565020548438565
+      ],
+      "scale": [
+        0.592754900455475,
+        0.5927549004554749,
+        0.5927549004554751
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -183.38675655643746,
+        249.43077890499444,
+        618.3644372223666
+      ],
+      "rotation": [
+        2.178074474167274,
+        -165.71199166368902,
+        -42.866810058962045
+      ],
+      "scale": [
+        0.6076692938804626,
+        0.6076692938804625,
+        0.6076692938804625
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -106.90584793448485,
+        357.19883321975317,
+        589.9944235653822
+      ],
+      "rotation": [
+        -38.3603107813207,
+        155.9064481627362,
+        -16.96508681312966
+      ],
+      "scale": [
+        0.7342448234558109,
+        0.7342448234558108,
+        0.7342448234558105
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -51.29698638762583,
+        299.1245663182906,
+        646.0512704978518
+      ],
+      "rotation": [
+        -31.096182608794187,
+        55.25255741798023,
+        43.32310182589875
+      ],
+      "scale": [
+        0.7752525806427003,
+        0.7752525806427001,
+        0.7752525806427002
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        63.27629884906517,
+        315.4307970127102,
+        599.7323902207697
+      ],
+      "rotation": [
+        -0.7298294671586394,
+        134.04006966561016,
+        -16.64651658671237
+      ],
+      "scale": [
+        0.66551411151886,
+        0.66551411151886,
+        0.6655141115188599
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        24.19579013990486,
+        329.57469558468404,
+        637.6142154026352
+      ],
+      "rotation": [
+        41.38288534656776,
+        -84.75617316581558,
+        1.6416028780154355
+      ],
+      "scale": [
+        0.6946287751197817,
+        0.6946287751197817,
+        0.6946287751197815
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        1.418587003091865,
+        314.7562972516612,
+        649.6998168468787
+      ],
+      "rotation": [
+        -18.610779600897924,
+        25.208940697791284,
+        37.68502409487542
+      ],
+      "scale": [
+        0.5281167030334473,
+        0.5281167030334473,
+        0.5281167030334473
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        27.10697306753983,
+        221.62499764857324,
+        734.716356843513
+      ],
+      "rotation": [
+        10.500727967163543,
+        -25.458309964677742,
+        119.87739198235043
+      ],
+      "scale": [
+        0.7985808849334717,
+        0.798580884933472,
+        0.7985808849334719
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        101.5558768966367,
+        123.69899434944466,
+        850.6200678560563
+      ],
+      "rotation": [
+        73.23708582290399,
+        100.58395174446149,
+        -137.9332203124453
+      ],
+      "scale": [
+        0.6239204406738285,
+        0.6239204406738283,
+        0.6239204406738285
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        49.27318660409912,
+        119.64272627526657,
+        945.44207165347
+      ],
+      "rotation": [
+        -39.30784997026504,
+        75.34654387144113,
+        -54.1884620903468
+      ],
+      "scale": [
+        0.7699422836303711,
+        0.769942283630371,
+        0.769942283630371
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        96.29548802538517,
+        96.82276548844891,
+        917.7928384742722
+      ],
+      "rotation": [
+        -11.861397063432376,
+        120.17648795586587,
+        -50.66687053908784
+      ],
+      "scale": [
+        0.5608020424842829,
+        0.560802042484283,
+        0.5608020424842832
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        41.04445927702748,
+        97.66009495286323,
+        952.6624826955733
+      ],
+      "rotation": [
+        -20.51231253690946,
+        144.82242310512947,
+        -67.71784002628605
+      ],
+      "scale": [
+        0.7560625076293943,
+        0.7560625076293944,
+        0.7560625076293944
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        86.21981037565439,
+        40.93801856319978,
+        1022.2143480909145
+      ],
+      "rotation": [
+        45.4252699397908,
+        -20.952397833879537,
+        73.79297344287359
+      ],
+      "scale": [
+        0.6349345445632933,
+        0.6349345445632935,
+        0.6349345445632935
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -4.02159358623419,
+        47.775161152002205,
+        1033.1503225883855
+      ],
+      "rotation": [
+        41.08302616907481,
+        -139.90223861194278,
+        -67.68784624194971
+      ],
+      "scale": [
+        0.6219519972801211,
+        0.6219519972801211,
+        0.621951997280121
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        153.64232458462718,
+        168.40928038590485,
+        752.4117022342771
+      ],
+      "rotation": [
+        -38.0720598717402,
+        80.3612957775029,
+        -20.12080634853752
+      ],
+      "scale": [
+        0.7263435721397401,
+        0.7263435721397401,
+        0.7263435721397402
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        102.35303182199817,
+        167.10246830663615,
+        790.4289396115171
+      ],
+      "rotation": [
+        -40.25680609013048,
+        72.42832237261199,
+        -70.43612050825239
+      ],
+      "scale": [
+        0.503616452217102,
+        0.503616452217102,
+        0.503616452217102
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        130.88919092477764,
+        182.60050101056407,
+        709.0116868010294
+      ],
+      "rotation": [
+        -58.75288075070314,
+        67.1286635601227,
+        -13.238357505319604
+      ],
+      "scale": [
+        0.6420392394065855,
+        0.6420392394065855,
+        0.6420392394065856
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        57.01101774230729,
+        241.1738096182893,
+        692.3524819644715
+      ],
+      "rotation": [
+        37.64403117527641,
+        5.402966006893943,
+        41.46510752675561
+      ],
+      "scale": [
+        0.6749992370605468,
+        0.674999237060547,
+        0.6749992370605468
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        171.65542397962423,
+        244.2962132481248,
+        606.9579684708314
+      ],
+      "rotation": [
+        11.578875743855088,
+        173.6220018149916,
+        0.9713149054492854
+      ],
+      "scale": [
+        0.5561235547065732,
+        0.5561235547065733,
+        0.5561235547065735
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        217.88934004726772,
+        292.83525781913585,
+        535.9475854024505
+      ],
+      "rotation": [
+        -26.632204004187816,
+        11.021606998296166,
+        21.099641212492802
+      ],
+      "scale": [
+        0.669203758239746,
+        0.6692037582397461,
+        0.6692037582397461
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        242.14636118333974,
+        215.82789975335695,
+        593.8463019706729
+      ],
+      "rotation": [
+        -0.051701620092611596,
+        -87.19246654306166,
+        2.9079576867996413
+      ],
+      "scale": [
+        0.5269448161125185,
+        0.5269448161125184,
+        0.5269448161125183
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        270.64414475988343,
+        202.26929454100582,
+        597.0124299106128
+      ],
+      "rotation": [
+        22.545674183642692,
+        -147.47434087464808,
+        -23.82451153915092
+      ],
+      "scale": [
+        0.6203222870826728,
+        0.6203222870826728,
+        0.6203222870826722
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        329.5051758092321,
+        121.05782152125707,
+        632.085862492211
+      ],
+      "rotation": [
+        -28.727706913191376,
+        87.81724854206124,
+        -39.38024127375271
+      ],
+      "scale": [
+        0.6994354128837589,
+        0.6994354128837588,
+        0.6994354128837587
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        217.52073856311367,
+        107.88207684174606,
+        703.6922420378654
+      ],
+      "rotation": [
+        68.83915238129882,
+        56.03561384636465,
+        -174.0969989946971
+      ],
+      "scale": [
+        0.7584887742996215,
+        0.7584887742996214,
+        0.7584887742996215
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        322.16192207912883,
+        97.82126585268722,
+        651.0063978617089
+      ],
+      "rotation": [
+        -1.363012984848869,
+        116.91195171854197,
+        -47.312095543147166
+      ],
+      "scale": [
+        0.5592364072799684,
+        0.5592364072799684,
+        0.5592364072799683
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        257.2552300947074,
+        -37.060210962479005,
+        761.1049981981521
+      ],
+      "rotation": [
+        14.012245531324686,
+        130.51338542967324,
+        -56.75545792381919
+      ],
+      "scale": [
+        0.6410321593284595,
+        0.6410321593284597,
+        0.6410321593284604
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        268.4242104965038,
+        -19.94754885111467,
+        673.7749550346243
+      ],
+      "rotation": [
+        36.17732543497267,
+        -58.61760559631116,
+        76.0783192576727
+      ],
+      "scale": [
+        0.7223700881004335,
+        0.7223700881004337,
+        0.7223700881004336
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        240.0755731181991,
+        62.37886057536903,
+        747.6496692997862
+      ],
+      "rotation": [
+        -2.2188964779255635,
+        -59.78409003243893,
+        47.287399629482586
+      ],
+      "scale": [
+        0.6358592510223391,
+        0.6358592510223392,
+        0.635859251022339
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        201.7675844952817,
+        -22.210505013386904,
+        789.8058292983
+      ],
+      "rotation": [
+        72.11624042215766,
+        -72.2036822043283,
+        52.23460333607355
+      ],
+      "scale": [
+        0.5302591323852538,
+        0.5302591323852538,
+        0.5302591323852538
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        198.6438449602816,
+        -28.237960401805406,
+        806.7647717340425
+      ],
+      "rotation": [
+        -22.833758726352112,
+        -68.28062507410084,
+        64.05729602327573
+      ],
+      "scale": [
+        0.7016419172286987,
+        0.7016419172286986,
+        0.7016419172286987
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        157.089726314303,
+        94.78539966375195,
+        784.1492528436144
+      ],
+      "rotation": [
+        -9.967052468785596,
+        5.314412210684692,
+        59.35692597438332
+      ],
+      "scale": [
+        0.6304574608802795,
+        0.6304574608802791,
+        0.6304574608802793
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        160.42463780582267,
+        9.516985188443103,
+        883.4680727182016
+      ],
+      "rotation": [
+        16.151085595267382,
+        -36.044920907790726,
+        72.90348716139415
+      ],
+      "scale": [
+        0.5771721601486206,
+        0.5771721601486206,
+        0.5771721601486207
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        149.668070689221,
+        23.40298954495353,
+        849.7597679337435
+      ],
+      "rotation": [
+        30.000341498631197,
+        -98.96858727135661,
+        60.63703315950048
+      ],
+      "scale": [
+        0.7643482685089112,
+        0.7643482685089114,
+        0.7643482685089114
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        168.41547702400203,
+        43.357620670726014,
+        829.7126070654807
+      ],
+      "rotation": [
+        44.66517507501815,
+        -35.62001017768695,
+        78.5029139220498
+      ],
+      "scale": [
+        0.653401255607605,
+        0.653401255607605,
+        0.653401255607605
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        255.99661453193576,
+        129.12983591150322,
+        653.9333830049978
+      ],
+      "rotation": [
+        52.323180799851734,
+        -172.38807809104674,
+        -6.049630213200962
+      ],
+      "scale": [
+        0.5608752965927123,
+        0.5608752965927123,
+        0.5608752965927124
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        316.6256849982727,
+        233.4198398487458,
+        523.2385816632685
+      ],
+      "rotation": [
+        50.858992832440045,
+        179.30246260373963,
+        -23.15912360608496
+      ],
+      "scale": [
+        0.6261360645294192,
+        0.6261360645294192,
+        0.626136064529419
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        275.73949038217495,
+        219.291007239631,
+        573.685014691386
+      ],
+      "rotation": [
+        -39.49131641088725,
+        30.096385732681576,
+        23.680563637478844
+      ],
+      "scale": [
+        0.656852960586548,
+        0.656852960586548,
+        0.6568529605865481
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        57.94192459282364,
+        451.80133149385244,
+        529.9871995419832
+      ],
+      "rotation": [
+        59.544580236825304,
+        -105.77089333082084,
+        77.13870383783772
+      ],
+      "scale": [
+        0.6739189028739928,
+        0.6739189028739929,
+        0.6739189028739928
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -39.19830705030412,
+        434.91006454582174,
+        508.98206813527423
+      ],
+      "rotation": [
+        5.802785417194615,
+        19.310490743232005,
+        46.303336497623654
+      ],
+      "scale": [
+        0.7274330854415894,
+        0.7274330854415892,
+        0.7274330854415892
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -74.53234598358864,
+        411.49537234648835,
+        517.5828618082525
+      ],
+      "rotation": [
+        16.0124994167099,
+        5.552387598399032,
+        60.224528467942314
+      ],
+      "scale": [
+        0.5794519186019897,
+        0.5794519186019899,
+        0.5794519186019899
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -164.2674054142934,
+        448.32102013553464,
+        473.7188502849315
+      ],
+      "rotation": [
+        19.760939388774275,
+        163.22837076821847,
+        -65.12815904473696
+      ],
+      "scale": [
+        0.5177068114280702,
+        0.5177068114280701,
+        0.5177068114280702
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -307.1936321185957,
+        429.55021830044706,
+        447.6620999134929
+      ],
+      "rotation": [
+        -49.56229063033863,
+        59.473700773367455,
+        59.5774568077521
+      ],
+      "scale": [
+        0.5153538584709165,
+        0.5153538584709164,
+        0.5153538584709165
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -229.26620234101344,
+        384.6239148384208,
+        514.7312717259696
+      ],
+      "rotation": [
+        -28.9577760742861,
+        -160.6931939861981,
+        -75.60842332716263
+      ],
+      "scale": [
+        0.7601550221443181,
+        0.7601550221443182,
+        0.760155022144318
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        358.48549470023204,
+        210.7040695842768,
+        502.3726845078483
+      ],
+      "rotation": [
+        12.524046276550456,
+        -79.68525286994631,
+        32.30666936298705
+      ],
+      "scale": [
+        0.7764519453048707,
+        0.7764519453048708,
+        0.7764519453048706
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        434.7776066655012,
+        267.11404931538067,
+        452.1974562420504
+      ],
+      "rotation": [
+        51.22164206288119,
+        -133.71556704281178,
+        15.88052959760092
+      ],
+      "scale": [
+        0.7489669322967519,
+        0.7489669322967517,
+        0.7489669322967528
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        352.1505050170806,
+        168.64037118785532,
+        523.2459518457464
+      ],
+      "rotation": [
+        -5.480279775990333,
+        -25.9713008429764,
+        -10.35561534860121
+      ],
+      "scale": [
+        0.6044374108314514,
+        0.6044374108314514,
+        0.6044374108314514
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        354.23338761835953,
+        117.71599643559463,
+        533.1057863474073
+      ],
+      "rotation": [
+        11.9357257871638,
+        -159.67010517551705,
+        -33.03106422113191
+      ],
+      "scale": [
+        0.537730038166046,
+        0.5377300381660459,
+        0.5377300381660461
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        445.3972822151007,
+        115.74592566131534,
+        487.6686547534181
+      ],
+      "rotation": [
+        15.02013310312139,
+        154.03934782660252,
+        5.919100441469336
+      ],
+      "scale": [
+        0.5793786644935611,
+        0.5793786644935609,
+        0.5793786644935608
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        386.8551888900962,
+        -7.860050874207198,
+        541.1516512291156
+      ],
+      "rotation": [
+        13.34865279164332,
+        -149.26719071419348,
+        0.9335036327114771
+      ],
+      "scale": [
+        0.5877010226249695,
+        0.5877010226249695,
+        0.5877010226249695
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        459.89880020016386,
+        -6.022019060585809,
+        482.21530421205284
+      ],
+      "rotation": [
+        33.45183777812054,
+        -137.35189738046682,
+        31.305815597729374
+      ],
+      "scale": [
+        0.7303994894027712,
+        0.7303994894027716,
+        0.7303994894027711
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        485.4720072699813,
+        -108.25828563886819,
+        471.46217037628617
+      ],
+      "rotation": [
+        14.502094547096084,
+        53.45216156680403,
+        -74.55179086460254
+      ],
+      "scale": [
+        0.7102298140525817,
+        0.7102298140525812,
+        0.7102298140525815
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        404.9181661405775,
+        -172.59637352612432,
+        499.9545486166745
+      ],
+      "rotation": [
+        14.694913945833973,
+        163.53519464756775,
+        10.672453261965888
+      ],
+      "scale": [
+        0.7080233097076405,
+        0.7080233097076403,
+        0.7080233097076416
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        375.4710547913837,
+        -82.67296888477028,
+        548.0104175478147
+      ],
+      "rotation": [
+        43.85375899727592,
+        167.24159359086255,
+        18.933494520812307
+      ],
+      "scale": [
+        0.5470503568649292,
+        0.5470503568649291,
+        0.5470503568649291
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        402.7099243871505,
+        -172.68593310369948,
+        501.74611428027947
+      ],
+      "rotation": [
+        80.68876375373395,
+        156.7754212938085,
+        20.88710560856174
+      ],
+      "scale": [
+        0.6454176902771002,
+        0.6454176902771003,
+        0.6454176902770999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        345.02790945258516,
+        -229.27411353938345,
+        525.8115193766725
+      ],
+      "rotation": [
+        -19.869723206946194,
+        -47.149009625384075,
+        8.143028877810861
+      ],
+      "scale": [
+        0.58101749420166,
+        0.58101749420166,
+        0.58101749420166
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        335.4430927848047,
+        -270.3491331475635,
+        516.778797228865
+      ],
+      "rotation": [
+        -18.267566088472424,
+        -33.6544951791819,
+        6.758459849645767
+      ],
+      "scale": [
+        0.6128605008125305,
+        0.6128605008125307,
+        0.6128605008125305
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        210.4312169874444,
+        -318.84813732203236,
+        531.1284493731424
+      ],
+      "rotation": [
+        -9.769881485518093,
+        97.61272738615106,
+        4.311898263628235
+      ],
+      "scale": [
+        0.6561571359634397,
+        0.6561571359634399,
+        0.6561571359634399
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        207.16919176044277,
+        -405.00155349119365,
+        477.4421493394338
+      ],
+      "rotation": [
+        34.31801473652616,
+        123.80099016329046,
+        2.573201175919725
+      ],
+      "scale": [
+        0.7737876176834106,
+        0.7737876176834109,
+        0.7737876176834106
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        106.5281022938901,
+        -482.1840225374568,
+        459.99500734744186
+      ],
+      "rotation": [
+        46.47704253963907,
+        168.218971729159,
+        74.77489566098356
+      ],
+      "scale": [
+        0.5902646183967587,
+        0.5902646183967587,
+        0.5902646183967589
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        228.4305740751588,
+        -434.7498270976856,
+        483.9241911195724
+      ],
+      "rotation": [
+        -5.708389551247011,
+        -172.3695561720786,
+        3.7350948085946305
+      ],
+      "scale": [
+        0.511243045330048,
+        0.5112430453300478,
+        0.5112430453300476
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        324.44758148496624,
+        -299.9029685665299,
+        513.5560748371846
+      ],
+      "rotation": [
+        10.074535862335793,
+        40.418308898635175,
+        -11.03315098497093
+      ],
+      "scale": [
+        0.6382488608360288,
+        0.6382488608360289,
+        0.638248860836029
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        304.7763119161467,
+        -373.84889809092505,
+        458.52590975162127
+      ],
+      "rotation": [
+        -15.553498437526493,
+        -115.52449409317185,
+        31.07956500531704
+      ],
+      "scale": [
+        0.7569048404693605,
+        0.7569048404693604,
+        0.7569048404693602
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        460.4879096242132,
+        -144.57907664801456,
+        472.06128352051127
+      ],
+      "rotation": [
+        50.49242510615936,
+        87.05779457171434,
+        -63.738983418029314
+      ],
+      "scale": [
+        0.6689565777778622,
+        0.6689565777778621,
+        0.6689565777778623
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        441.9747253060599,
+        -51.13375453801215,
+        510.7379315527271
+      ],
+      "rotation": [
+        -27.93190169909587,
+        66.60663891794579,
+        -29.833910733919314
+      ],
+      "scale": [
+        0.5689138174057011,
+        0.5689138174057009,
+        0.5689138174057008
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        495.1694348181552,
+        45.076399501694134,
+        470.5362078223697
+      ],
+      "rotation": [
+        -50.679594118547186,
+        52.81852385204107,
+        -37.643626347203835
+      ],
+      "scale": [
+        0.6669240593910215,
+        0.6669240593910217,
+        0.6669240593910216
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        424.15694067808107,
+        34.6655025970572,
+        510.40483068914926
+      ],
+      "rotation": [
+        -18.047646587260598,
+        -87.91134641258029,
+        7.039079583710008
+      ],
+      "scale": [
+        0.6150944232940672,
+        0.6150944232940672,
+        0.6150944232940674
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        314.4898665214524,
+        -68.3404890121702,
+        586.0743874591707
+      ],
+      "rotation": [
+        75.63942220356935,
+        94.99263091835316,
+        -59.69696581188349
+      ],
+      "scale": [
+        0.7020173072814941,
+        0.7020173072814941,
+        0.7020173072814941
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        261.13360994116056,
+        -68.41942494386328,
+        642.0327804371955
+      ],
+      "rotation": [
+        -56.22863652293666,
+        -6.279313077283305,
+        -7.900349334661381
+      ],
+      "scale": [
+        0.7794457674026488,
+        0.7794457674026489,
+        0.7794457674026488
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        341.3377914299678,
+        -121.89071764313216,
+        554.6440670646598
+      ],
+      "rotation": [
+        1.7182578086637232,
+        -48.68930226476952,
+        75.89917676650964
+      ],
+      "scale": [
+        0.5401929020881653,
+        0.5401929020881653,
+        0.5401929020881653
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        271.44476424328275,
+        -113.8283590582616,
+        692.8663578835955
+      ],
+      "rotation": [
+        30.75008615860926,
+        -146.0719919956038,
+        56.76468828978988
+      ],
+      "scale": [
+        0.7905514836311348,
+        0.7905514836311349,
+        0.7905514836311343
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        283.60627991698755,
+        -181.02466439291555,
+        576.0122133594685
+      ],
+      "rotation": [
+        11.37344262119393,
+        22.38418882539921,
+        -60.43190046446322
+      ],
+      "scale": [
+        0.6301095485687256,
+        0.6301095485687257,
+        0.6301095485687256
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        250.67084824924723,
+        -173.68195851592733,
+        651.7309037796452
+      ],
+      "rotation": [
+        -8.436286568281878,
+        4.806448663406979,
+        -25.975449670213713
+      ],
+      "scale": [
+        0.5596575736999512,
+        0.5596575736999512,
+        0.5596575736999512
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        178.2286651571239,
+        -133.74768316410663,
+        772.8263543664218
+      ],
+      "rotation": [
+        44.70328876534224,
+        -87.806550154647,
+        38.02653124482649
+      ],
+      "scale": [
+        0.545301675796509,
+        0.5453016757965091,
+        0.545301675796509
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        228.66899784417802,
+        -101.10943302186203,
+        683.5335198156556
+      ],
+      "rotation": [
+        -74.97196537588628,
+        -132.56342112519675,
+        55.08061477593303
+      ],
+      "scale": [
+        0.7855250835418698,
+        0.78552508354187,
+        0.7855250835418698
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        156.87874261275655,
+        0.8761868237336525,
+        916.3943416048792
+      ],
+      "rotation": [
+        55.99278053843077,
+        -143.55647505916176,
+        41.111639338152614
+      ],
+      "scale": [
+        0.7859554290771475,
+        0.7859554290771475,
+        0.7859554290771481
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        116.49912101944858,
+        -53.34402307886566,
+        985.5544501721319
+      ],
+      "rotation": [
+        -28.864763477790962,
+        -57.308294226325266,
+        76.79536677268258
+      ],
+      "scale": [
+        0.5652790665626526,
+        0.5652790665626526,
+        0.5652790665626526
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        86.92817706651778,
+        -41.359303510483386,
+        1019.8028627340764
+      ],
+      "rotation": [
+        36.12834423124596,
+        145.74711551826505,
+        36.018902208372985
+      ],
+      "scale": [
+        0.5182378888130195,
+        0.5182378888130194,
+        0.5182378888130189
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        70.09835234526403,
+        -0.7119284952579457,
+        1096.4298293714023
+      ],
+      "rotation": [
+        19.018873287678936,
+        141.58118685665545,
+        -57.06651548760446
+      ],
+      "scale": [
+        0.60009765625,
+        0.6000976562500001,
+        0.60009765625
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        126.886049797293,
+        -129.20991155697422,
+        855.8476064166393
+      ],
+      "rotation": [
+        -39.107890162402505,
+        -61.505130269103255,
+        23.424592123949672
+      ],
+      "scale": [
+        0.5071229934692383,
+        0.5071229934692383,
+        0.5071229934692383
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        114.9245846500933,
+        -76.49149433900158,
+        974.780796570761
+      ],
+      "rotation": [
+        68.56972273581755,
+        137.5256997942115,
+        -46.7196969262325
+      ],
+      "scale": [
+        0.7864314317703247,
+        0.7864314317703246,
+        0.7864314317703246
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        122.35980122329207,
+        -130.17510879371562,
+        825.1563689185924
+      ],
+      "rotation": [
+        1.2304281919116,
+        169.08547527970006,
+        86.12558472988857
+      ],
+      "scale": [
+        0.590429425239563,
+        0.590429425239563,
+        0.590429425239563
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        100.21906778682441,
+        -205.79800999038267,
+        756.1848654285292
+      ],
+      "rotation": [
+        62.0560374532559,
+        102.8416971903381,
+        -4.054420380610666
+      ],
+      "scale": [
+        0.6697256565094001,
+        0.6697256565093999,
+        0.6697256565093995
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        28.69712140931578,
+        -212.60038005241464,
+        731.4693120813082
+      ],
+      "rotation": [
+        32.79182510232916,
+        28.884649188108597,
+        -53.08245521659487
+      ],
+      "scale": [
+        0.7114017009735109,
+        0.7114017009735109,
+        0.7114017009735109
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        68.86631693783644,
+        -305.1776137783046,
+        628.7284776560542
+      ],
+      "rotation": [
+        12.024099144182253,
+        -60.95836852587384,
+        -5.913494200694578
+      ],
+      "scale": [
+        0.5893765091896056,
+        0.5893765091896055,
+        0.5893765091896057
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        85.30644966441832,
+        -206.41885218401154,
+        717.8430075120152
+      ],
+      "rotation": [
+        -38.010136888200634,
+        -9.21465099157959,
+        -50.14289680237008
+      ],
+      "scale": [
+        0.7176641225814818,
+        0.7176641225814818,
+        0.7176641225814817
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        171.01122078878774,
+        -349.9962170035965,
+        531.9174246834039
+      ],
+      "rotation": [
+        41.55915511021697,
+        171.16681726225113,
+        -3.7350458737834793
+      ],
+      "scale": [
+        0.6397411823272713,
+        0.6397411823272713,
+        0.6397411823272706
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        95.35108509597055,
+        -369.59142357463713,
+        538.3192605499262
+      ],
+      "rotation": [
+        81.78926951485109,
+        178.57225659120584,
+        96.56652132710013
+      ],
+      "scale": [
+        0.5407696962356571,
+        0.5407696962356571,
+        0.540769696235657
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        492.7970429812242,
+        147.09067422834056,
+        472.5641532980555
+      ],
+      "rotation": [
+        43.85052605770185,
+        -168.158084620453,
+        0.7441621699897134
+      ],
+      "scale": [
+        0.6853908300399775,
+        0.6853908300399773,
+        0.6853908300399779
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        430.3739118836712,
+        126.75160697898681,
+        532.7152580318344
+      ],
+      "rotation": [
+        -10.615681604923168,
+        -51.88107202850421,
+        46.400322905457294
+      ],
+      "scale": [
+        0.5691885352134702,
+        0.5691885352134701,
+        0.5691885352134702
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        385.1025507312167,
+        131.8777157625515,
+        508.7068792642834
+      ],
+      "rotation": [
+        28.76834074019219,
+        -125.30600899014892,
+        19.734681379001735
+      ],
+      "scale": [
+        0.5093386769294739,
+        0.509338676929474,
+        0.5093386769294739
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        370.47003255832306,
+        -207.39126633206575,
+        514.7357606476756
+      ],
+      "rotation": [
+        -26.72393950461488,
+        -84.88650213033736,
+        37.27626462654191
+      ],
+      "scale": [
+        0.5298013091087344,
+        0.5298013091087342,
+        0.5298013091087342
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -209.41277312011601,
+        38.05795272297771,
+        766.2933812108075
+      ],
+      "rotation": [
+        -23.673420135715958,
+        -163.07938182870686,
+        -51.99936247585109
+      ],
+      "scale": [
+        0.5163060426712037,
+        0.5163060426712036,
+        0.5163060426712037
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        368.38151339665296,
+        -252.61582961606823,
+        492.649726322279
+      ],
+      "rotation": [
+        -23.108057991419727,
+        87.20292945161168,
+        -59.69963126738875
+      ],
+      "scale": [
+        0.6206061244010925,
+        0.6206061244010928,
+        0.6206061244010924
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -13.927927554894074,
+        -98.06179818095407,
+        1020.4846869781043
+      ],
+      "rotation": [
+        14.312831646716319,
+        -73.76349626035012,
+        -79.6841910184518
+      ],
+      "scale": [
+        0.683422327041626,
+        0.6834223270416259,
+        0.6834223270416261
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -17.913484999151724,
+        -60.27533875746067,
+        1115.3950745101854
+      ],
+      "rotation": [
+        48.929444486430086,
+        82.8225435846323,
+        57.868671284457754
+      ],
+      "scale": [
+        0.6671620607376098,
+        0.6671620607376099,
+        0.6671620607376099
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -43.043172208819236,
+        -107.85768779299622,
+        970.7274676264828
+      ],
+      "rotation": [
+        3.363518396482835,
+        -175.95687901584714,
+        17.691983116397047
+      ],
+      "scale": [
+        0.75734430551529,
+        0.7573443055152899,
+        0.7573443055152893
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        107.19833997803582,
+        -102.69043500561492,
+        897.3178030927622
+      ],
+      "rotation": [
+        -32.60715453283432,
+        -84.51602497168572,
+        67.70169195574069
+      ],
+      "scale": [
+        0.5351573228836064,
+        0.5351573228836062,
+        0.5351573228836061
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        4.709391827282149,
+        -116.67991125963553,
+        980.5237441130977
+      ],
+      "rotation": [
+        -10.192763898353546,
+        -179.97975738422357,
+        73.90394837892532
+      ],
+      "scale": [
+        0.5128178000450124,
+        0.512817800045013,
+        0.5128178000450132
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -7.706218393700518,
+        -154.66546639988348,
+        923.336379219937
+      ],
+      "rotation": [
+        -28.719428858196544,
+        -32.3684877126241,
+        -59.463058722905345
+      ],
+      "scale": [
+        0.7718283534049989,
+        0.7718283534049989,
+        0.7718283534049989
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        58.01314927477879,
+        -160.7755833256705,
+        860.0777164642724
+      ],
+      "rotation": [
+        29.326022166371537,
+        90.75485084009951,
+        33.306853345376666
+      ],
+      "scale": [
+        0.7486007213592537,
+        0.7486007213592535,
+        0.748600721359253
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -186.6963335987345,
+        -281.35398579219293,
+        574.9715139238584
+      ],
+      "rotation": [
+        -0.9610122121327446,
+        178.16891661546921,
+        17.93826681297015
+      ],
+      "scale": [
+        0.7814325094223028,
+        0.7814325094223026,
+        0.7814325094223022
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -252.9006586644381,
+        -290.14058015496676,
+        541.9019130453461
+      ],
+      "rotation": [
+        -9.590261758969525,
+        62.67149235393675,
+        9.788435568596835
+      ],
+      "scale": [
+        0.6810693740844724,
+        0.6810693740844723,
+        0.6810693740844727
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -16.028615198360246,
+        -354.45643420493275,
+        605.1111863865144
+      ],
+      "rotation": [
+        -47.98776130135011,
+        -142.3600819997116,
+        38.804069466660366
+      ],
+      "scale": [
+        0.7971434593200682,
+        0.7971434593200684,
+        0.7971434593200682
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -24.478048243240618,
+        -233.21853213436555,
+        697.3583501523128
+      ],
+      "rotation": [
+        -18.01290795996516,
+        -16.13173879285353,
+        -56.36494474231835
+      ],
+      "scale": [
+        0.5373455286026001,
+        0.5373455286025998,
+        0.5373455286025999
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -27.560453892058014,
+        -237.31048982265435,
+        729.8899258830374
+      ],
+      "rotation": [
+        58.75658020216926,
+        102.0180246988774,
+        173.40995536998122
+      ],
+      "scale": [
+        0.7209784388542175,
+        0.7209784388542175,
+        0.7209784388542175
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -427.6030513561312,
+        159.17937791300227,
+        489.93606936459076
+      ],
+      "rotation": [
+        -7.402996098563183,
+        9.759836616459992,
+        -26.68441513212621
+      ],
+      "scale": [
+        0.5035889744758606,
+        0.5035889744758606,
+        0.5035889744758606
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -109.22173863131562,
+        66.52277832920518,
+        960.0114727473572
+      ],
+      "rotation": [
+        4.851236802249868,
+        110.43053829480613,
+        38.461122843524336
+      ],
+      "scale": [
+        0.5959868431091312,
+        0.5959868431091312,
+        0.5959868431091309
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -93.72381038940847,
+        -0.7453111822156517,
+        983.8105605091665
+      ],
+      "rotation": [
+        68.10754136075892,
+        14.520076234698786,
+        17.74372293367311
+      ],
+      "scale": [
+        0.753270030021667,
+        0.7532700300216674,
+        0.7532700300216669
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -112.18617687985935,
+        96.60731507593633,
+        887.7553380317026
+      ],
+      "rotation": [
+        -46.5234728122048,
+        -80.99990728862653,
+        -116.92534216253169
+      ],
+      "scale": [
+        0.5846064686775206,
+        0.5846064686775206,
+        0.5846064686775206
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "HierarchicalInstancedStaticMesh10",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_plant1.SM_plant1",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_desert_bush1.MI_desert_bush1"
+      ],
+      "location": [
+        -137.25315130671683,
+        100.03934688395145,
+        825.5196572782529
+      ],
+      "rotation": [
+        -69.33194055352705,
+        -4.457474148003175,
+        106.72037264177425
+      ],
+      "scale": [
+        0.6578142642974855,
+        0.6578142642974858,
+        0.6578142642974857
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "InstancedStaticMesh3",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Door/SM_door_complete.SM_door_complete",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_door.MI_door"
+      ],
+      "location": [
+        -166.97503510274987,
+        353.98519431788475,
+        -0.8191063944047627
+      ],
+      "rotation": [
+        0.0,
+        9.862580908099721,
+        -0.0
+      ],
+      "scale": [
+        1.1,
+        1.100000023841858,
+        1.100000023841858
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BPP_PLA_03_C_0",
+      "component": "InstancedStaticMesh5",
+      "state": "base",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02.SM_floor_wood_02",
+      "materials": [
+        "/Game/Forest_village/Materials/MI_wood_modules.MI_wood_modules"
+      ],
+      "location": [
+        -312.2320880627649,
+        360.8202131639191,
+        376.58911889059107
+      ],
+      "rotation": [
+        -0.27564699999999276,
+        6.191659000000005,
+        6.211627000000006
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        0.9999999999999999
+      ]
+    }
+  ],
+  "input_triangles": 414308,
+  "status": "Native prefab instantiated read-only; actual screenshot review and retained-ground fitting required. No capital assignment or visit routing implied."
+}

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-06T22:55:17.509536+00:00",
+  "results": [
+    {
+      "run": "retained-development-r7-r2",
+      "result": "PASS",
+      "meaning": "Actual construction input, delayed tavern completion, service purchase and two exact both-domain F5F9 roundtrips",
+      "elapsed_seconds": 98.08,
+      "peak_gpu_c": 61.0,
+      "dll_sha256": "2d9a94999936b7598be0c96306cdb73bf3c54ddff810c929e6e950ac6234d708",
+      "scope": "Existing native observers; no framework change"
+    },
+    {
+      "run": "retained-r7-cold-load-r1",
+      "result": "PASS",
+      "meaning": "Fresh actual F9, exact campaign restore and same R7 native tavern visibly restored",
+      "elapsed_seconds": 107.92,
+      "peak_gpu_c": 64.0,
+      "dll_sha256": "54f7788023aaf88792b9b5ee661ee341e36e437de96c2541486205e27944d447",
+      "scope": "Existing native observers; no framework change"
+    }
+  ],
+  "visual_review": "R7 same-camera district crop independently reviewed: original tavern physically appears after fresh F9. Construction HUD screenshots obscure that district, so full cold-load and clean starting captures are the visual evidence.",
+  "prior_failed_run": "retained-development-r7-r1 passed its observer but stalled during teardown; not counted as clean acceptance"
+}

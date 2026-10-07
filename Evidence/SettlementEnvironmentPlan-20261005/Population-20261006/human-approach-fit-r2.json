@@ -1,0 +1,96 @@
+{
+  "terrain": "/Game/SoulCampaignMountain/L_evil_waterfront",
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "canonical_edge": [
+    "crossroads",
+    "human_capital"
+  ],
+  "tail_join_offset_cm": [
+    -3529.41176,
+    -588.23529
+  ],
+  "points_cm": [
+    [
+      -3529.41176,
+      -588.23529
+    ],
+    [
+      -3336.20378,
+      -809.05012
+    ],
+    [
+      -3157.58045,
+      -1042.6961
+    ],
+    [
+      -2956.71234,
+      -1256.93259
+    ],
+    [
+      -2707.67498,
+      -1412.2465
+    ],
+    [
+      -2429.99162,
+      -1507.01279
+    ],
+    [
+      -2138.85266,
+      -1547.14617
+    ],
+    [
+      -1845.05454,
+      -1559.66762
+    ],
+    [
+      -1550.97998,
+      -1556.52459
+    ],
+    [
+      -1257.38119,
+      -1539.58049
+    ],
+    [
+      -965.2942,
+      -1505.59378
+    ],
+    [
+      -677.99081,
+      -1443.68226
+    ],
+    [
+      -400.44367,
+      -1346.77637
+    ],
+    [
+      -136.67039,
+      -1217.21773
+    ],
+    [
+      97.45122,
+      -1040.55851
+    ],
+    [
+      227.42436,
+      -784.64664
+    ],
+    [
+      175.6365,
+      -496.75703
+    ],
+    [
+      71.07677,
+      -221.90539
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "tail_length_cm": 5233.438580323614,
+  "max_grade_degrees": 12.9433903888405,
+  "minimum_native_footprint_clearance_cm": 340.69321029749995,
+  "road_half_width_max_cm": 260,
+  "accepted": true,
+  "method": "Measured R7 native base+upgrade AABBs; same canonical endpoints; arc-length samples approx 294.11765 cm; dense 25cm grade and footprint check; no terrain edit."
+}

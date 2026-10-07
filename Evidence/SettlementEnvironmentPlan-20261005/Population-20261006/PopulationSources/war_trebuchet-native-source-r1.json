@@ -1,0 +1,3347 @@
+{
+  "utc": "2026-10-06T18:44:13.925848+00:00",
+  "source_prefab": "/Game/Medieval_Warzone/Blueprints/BP_TrebuchetProps",
+  "approved_family": "WZ",
+  "intended_context": "orc_camp",
+  "common_pivot": [
+    -30.417284612518188,
+    50.48123224693461,
+    -39.61254059705874
+  ],
+  "bounds_center": [
+    -30.417284612518188,
+    50.48123224693461,
+    482.2129371610683
+  ],
+  "bounds_extent": [
+    1271.2147217338068,
+    858.9842084773209,
+    521.825477758127
+  ],
+  "meshes": {
+    "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel": {
+      "lod": 0,
+      "triangles": 4683,
+      "native_lod_triangles": [
+        4683
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen": {
+      "lod": 0,
+      "triangles": 4411,
+      "native_lod_triangles": [
+        4411
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Helmet01.SM_Helmet01": {
+      "lod": 0,
+      "triangles": 1078,
+      "native_lod_triangles": [
+        1078
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear": {
+      "lod": 0,
+      "triangles": 324,
+      "native_lod_triangles": [
+        324
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01": {
+      "lod": 0,
+      "triangles": 766,
+      "native_lod_triangles": [
+        766
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02": {
+      "lod": 0,
+      "triangles": 724,
+      "native_lod_triangles": [
+        724
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow": {
+      "lod": 0,
+      "triangles": 480,
+      "native_lod_triangles": [
+        480
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall": {
+      "lod": 0,
+      "triangles": 3636,
+      "native_lod_triangles": [
+        3636
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Mug01.SM_Mug01": {
+      "lod": 0,
+      "triangles": 1244,
+      "native_lod_triangles": [
+        1244
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Bottle_04.SM_Bottle_04": {
+      "lod": 0,
+      "triangles": 451,
+      "native_lod_triangles": [
+        451
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Lantern01.SM_Lantern01": {
+      "lod": 0,
+      "triangles": 1500,
+      "native_lod_triangles": [
+        1500
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow": {
+      "lod": 0,
+      "triangles": 130,
+      "native_lod_triangles": [
+        130
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Mantlet02.SM_Mantlet02": {
+      "lod": 0,
+      "triangles": 2465,
+      "native_lod_triangles": [
+        2465
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Log.SM_Log": {
+      "lod": 0,
+      "triangles": 386,
+      "native_lod_triangles": [
+        386
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02": {
+      "lod": 0,
+      "triangles": 1375,
+      "native_lod_triangles": [
+        1375
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Bucket.SM_Bucket": {
+      "lod": 0,
+      "triangles": 1412,
+      "native_lod_triangles": [
+        1412
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01": {
+      "lod": 0,
+      "triangles": 1697,
+      "native_lod_triangles": [
+        1697
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Lantern02.SM_Lantern02": {
+      "lod": 0,
+      "triangles": 1442,
+      "native_lod_triangles": [
+        1442
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Mantlet01.SM_Mantlet01": {
+      "lod": 0,
+      "triangles": 2325,
+      "native_lod_triangles": [
+        2325
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02": {
+      "lod": 0,
+      "triangles": 1562,
+      "native_lod_triangles": [
+        1562
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Beam01.SM_Beam01": {
+      "lod": 0,
+      "triangles": 1564,
+      "native_lod_triangles": [
+        1564
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Beam03.SM_Beam03": {
+      "lod": 0,
+      "triangles": 1560,
+      "native_lod_triangles": [
+        1560
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_WeaponRack03.SM_WeaponRack03": {
+      "lod": 0,
+      "triangles": 1992,
+      "native_lod_triangles": [
+        1992
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Rock_02.SM_Rock_02": {
+      "lod": 0,
+      "triangles": 230,
+      "native_lod_triangles": [
+        230
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Rock_03.SM_Rock_03": {
+      "lod": 0,
+      "triangles": 216,
+      "native_lod_triangles": [
+        216
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Rock_04.SM_Rock_04": {
+      "lod": 0,
+      "triangles": 230,
+      "native_lod_triangles": [
+        230
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Rock_01.SM_Rock_01": {
+      "lod": 0,
+      "triangles": 230,
+      "native_lod_triangles": [
+        230
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_RockStack.SM_RockStack": {
+      "lod": 0,
+      "triangles": 8094,
+      "native_lod_triangles": [
+        8094
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_WeaponRack02.SM_WeaponRack02": {
+      "lod": 0,
+      "triangles": 1659,
+      "native_lod_triangles": [
+        1659
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Sword_03.SM_Sword_03": {
+      "lod": 0,
+      "triangles": 561,
+      "native_lod_triangles": [
+        561
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Mace.SM_Mace": {
+      "lod": 0,
+      "triangles": 1273,
+      "native_lod_triangles": [
+        1273
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Mug02.SM_Mug02": {
+      "lod": 0,
+      "triangles": 823,
+      "native_lod_triangles": [
+        823
+      ]
+    },
+    "/Game/Medieval_Warzone/Meshes/SM_Trebuchet.SM_Trebuchet": {
+      "lod": 0,
+      "triangles": 15800,
+      "native_lod_triangles": [
+        15800
+      ]
+    }
+  },
+  "instances": [
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_117_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        70.13572756976116,
+        671.4130603486956,
+        -2.230373921459801
+      ],
+      "rotation": [
+        0.0,
+        20.37783202314165,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_244_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        150.18463775512708,
+        698.6895839852632,
+        -2.230373846300523
+      ],
+      "rotation": [
+        -0.0,
+        -55.402484760082686,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_230_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        133.4183481738898,
+        614.0551155669432,
+        -2.458052519215613
+      ],
+      "rotation": [
+        0.0,
+        75.23508850234384,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_308_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Helmet01.SM_Helmet01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Helmet.MI_Helmet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        146.63246101534986,
+        693.463758979553,
+        95.23884685163361
+      ],
+      "rotation": [
+        0.0,
+        111.4784422869623,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_306_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        139.76692421126398,
+        609.9625848847527,
+        5.449027153699461
+      ],
+      "rotation": [
+        7.8039769999999935,
+        -15.824609000000008,
+        -13.975179000000024
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_299_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        128.5595212112641,
+        588.695141884753,
+        107.53024915369949
+      ],
+      "rotation": [
+        1.0988630000000001,
+        -31.066532999999996,
+        -15.486811999999986
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_302_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        116.68437921126376,
+        609.2840488847528,
+        113.98023415369946
+      ],
+      "rotation": [
+        5.029008000000002,
+        20.81590600000002,
+        0.340617
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_303_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        114.20187421126381,
+        612.9744608847527,
+        110.2819971536995
+      ],
+      "rotation": [
+        4.980353999999996,
+        13.238807000000005,
+        -0.3176629999999817
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_301_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        115.60731921126369,
+        621.6472788847527,
+        112.82900215369952
+      ],
+      "rotation": [
+        3.6894090000000035,
+        -22.621145000000027,
+        -6.2710549999999925
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_300_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        140.71206821126378,
+        624.191458884753,
+        107.44272615369945
+      ],
+      "rotation": [
+        0.330957,
+        -16.325888000000024,
+        3.5524479999999987
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_304_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodTrim_Rope.MI_WoodTrim_Rope",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        155.73867521126402,
+        619.7072848847529,
+        73.84181615369945
+      ],
+      "rotation": [
+        -10.026092000000013,
+        -35.33369000000001,
+        3.2774530000000035
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_599395_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        470.2059978932284,
+        -239.09379445505147,
+        -2.1182214219030584
+      ],
+      "rotation": [
+        -0.0,
+        -8.578595707733653,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_13154_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        28.045199983437037,
+        537.2304365758323,
+        -1.6620889924952997
+      ],
+      "rotation": [
+        -0.0,
+        -34.52078006809837,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_13160_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mug01.SM_Mug01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Mug.MI_Mug"
+      ],
+      "location": [
+        22.96934892405607,
+        551.2353053147997,
+        95.95116750604753
+      ],
+      "rotation": [
+        -0.0,
+        -26.041085033809573,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_13158_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bottle_04.SM_Bottle_04",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Bottles.MI_Bottles"
+      ],
+      "location": [
+        15.918379959130386,
+        527.2229513211128,
+        95.99724396162749
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_13162_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Lantern01.SM_Lantern01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Lantern.MI_Lantern",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_LanternWax.MI_LanternWax"
+      ],
+      "location": [
+        43.61223596737619,
+        529.5157417226831,
+        95.45692792352516
+      ],
+      "rotation": [
+        0.0,
+        39.067513887638924,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_393_GEN_VARIABLE_StaticMeshActor_CAT_5",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        487.5135295666728,
+        263.4732980255788,
+        75.30229858609327
+      ],
+      "rotation": [
+        -0.0,
+        -27.803882755233246,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_392_GEN_VARIABLE_StaticMeshActor_CAT_5",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        446.8741974492111,
+        276.75486187578446,
+        -1.9666873267443634
+      ],
+      "rotation": [
+        -0.0,
+        -27.817482485705966,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_391_GEN_VARIABLE_StaticMeshActor_CAT_5",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        541.8092535252629,
+        256.17649385385033,
+        -1.8523279870634042
+      ],
+      "rotation": [
+        -0.0,
+        -8.340825733777887,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_599401_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        235.8948203466698,
+        312.5652956835311,
+        -2.118194350027011
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow7",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        688.0820011185501,
+        841.9167813415529,
+        105.88810992461848
+      ],
+      "rotation": [
+        -23.09579960264506,
+        -174.1476264062764,
+        9.775625800723565
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow6",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        754.2228121101571,
+        754.8157366422001,
+        149.6892501776165
+      ],
+      "rotation": [
+        -40.35126025800292,
+        -131.74557154794294,
+        -8.107376822350773
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow5",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        757.0316569351571,
+        790.4698228074835,
+        90.02499461074925
+      ],
+      "rotation": [
+        -24.44951976012971,
+        -162.9737831774124,
+        5.259047505822979
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow4",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        797.1540300226525,
+        731.6969597260014,
+        80.84339529934336
+      ],
+      "rotation": [
+        -24.063555484216536,
+        -133.92208908990386,
+        -6.892821806626046
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow3",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        774.1737264567665,
+        709.2478839117024,
+        170.41199237050432
+      ],
+      "rotation": [
+        -42.5461723970391,
+        -160.9373828809423,
+        4.638183007160779
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow2",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        695.2358904408984,
+        797.3412966347347,
+        257.6059078675935
+      ],
+      "rotation": [
+        -36.33940652295978,
+        -157.4070949705598,
+        2.997846144359292
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow1",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        730.2860377240262,
+        764.3316187733809,
+        217.79474696655234
+      ],
+      "rotation": [
+        -24.48681590638792,
+        -138.35087651176642,
+        -5.071294404191465
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_02_C_537_GEN_VARIABLE_BP_MantletProps_02_C_CAT_0",
+      "component": "SM_Arrow",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        729.999045372203,
+        806.0608580734992,
+        148.02235035638546
+      ],
+      "rotation": [
+        -16.113665709048583,
+        -145.407770565575,
+        -2.1457365953028202
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_369835_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet02.SM_Mantlet02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodMantlet.MI_WoodMantlet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalMantlet02.MI_MetalMantlet02"
+      ],
+      "location": [
+        660.0114294542525,
+        705.5917554886017,
+        -1.7244737913810013
+      ],
+      "rotation": [
+        0.0,
+        119.56432239829968,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_369837_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Log.SM_Log",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_BarkWoodPiles.MI_BarkWoodPiles"
+      ],
+      "location": [
+        710.4052313635028,
+        700.3385485274042,
+        -1.7244912080687982
+      ],
+      "rotation": [
+        0.0,
+        119.56432239829968,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_BarrelWeapons_C_449_GEN_VARIABLE_BP_BarrelWeapons_C_CAT_6",
+      "component": "SM_Shield02",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        577.183507328606,
+        851.6178374522949,
+        40.74858091379613
+      ],
+      "rotation": [
+        43.62069341556954,
+        -101.50513164589539,
+        14.623632350137973
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_287_GEN_VARIABLE_StaticMeshActor_CAT_23",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        621.9599341095324,
+        832.8634257971389,
+        -1.9809983873755073
+      ],
+      "rotation": [
+        0.0,
+        -133.03987047620586,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_339_GEN_VARIABLE_StaticMeshActor_CAT_23",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodTrim_Rope.MI_WoodTrim_Rope",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        599.2221560545497,
+        839.8817853010861,
+        74.29457839111501
+      ],
+      "rotation": [
+        -5.1329699999999985,
+        -146.56901047620585,
+        -6.888576999999997
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_337_GEN_VARIABLE_StaticMeshActor_CAT_23",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        603.0861535094117,
+        839.3107471145872,
+        106.917513391115
+      ],
+      "rotation": [
+        -3.423369999999976,
+        -146.04719747620584,
+        -6.679706000000008
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_331_GEN_VARIABLE_StaticMeshActor_CAT_23",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        612.0402736306597,
+        813.3511775060223,
+        113.02542639111505
+      ],
+      "rotation": [
+        -4.971143999999981,
+        -92.51407147620586,
+        -0.006981999999993706
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_335_GEN_VARIABLE_StaticMeshActor_CAT_23",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        634.8353959039749,
+        815.7447786674492,
+        110.253064391115
+      ],
+      "rotation": [
+        -6.193926999999975,
+        -81.05251147620581,
+        3.7857489999999987
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_326_GEN_VARIABLE_StaticMeshActor_CAT_23",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        642.9073267456308,
+        841.2130671147788,
+        108.44550539111503
+      ],
+      "rotation": [
+        11.385351,
+        -125.91521547620584,
+        7.215916000000001
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_369841_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bucket.SM_Bucket",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps"
+      ],
+      "location": [
+        567.5553345980685,
+        772.2853314014899,
+        -1.7244801996085926
+      ],
+      "rotation": [
+        0.0,
+        161.84192558905596,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_369854_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        774.1436103059812,
+        736.8124366120683,
+        40.14924893222428
+      ],
+      "rotation": [
+        -61.762074598877206,
+        61.361490254729624,
+        -119.10418212185648
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_375715_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        627.2939591376985,
+        843.8087436698664,
+        11.472977843437775
+      ],
+      "rotation": [
+        -11.868545999999982,
+        145.33936439829967,
+        -1.3767429999999754
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_375713_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        604.6420996022194,
+        824.0037459153494,
+        8.919053843437837
+      ],
+      "rotation": [
+        7.047964000000011,
+        95.15987139829969,
+        -0.34210799999999614
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_369845_GEN_VARIABLE_StaticMeshActor_CAT_6",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Lantern02.SM_Lantern02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Lantern.MI_Lantern",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_LanternWax.MI_LanternWax"
+      ],
+      "location": [
+        702.2521129651686,
+        709.2557111333241,
+        57.69163740138481
+      ],
+      "rotation": [
+        0.03972780639865285,
+        119.56383159022612,
+        -1.4156230622722321
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_77_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet01.SM_Mantlet01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodMantlet.MI_WoodMantlet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalMantlet01.MI_MetalMantlet01"
+      ],
+      "location": [
+        878.6503477851393,
+        541.9809302718913,
+        -2.1181959910368278
+      ],
+      "rotation": [
+        0.0,
+        93.84493876576552,
+        6.204438284177271e-14
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33879_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        740.7575956819014,
+        280.38852321141576,
+        14.595097655383029
+      ],
+      "rotation": [
+        -0.005927999999985148,
+        145.04071816225928,
+        143.715268
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33884_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        689.0841695182288,
+        335.90541518676037,
+        -3.0073810141449258
+      ],
+      "rotation": [
+        -0.001086999999984069,
+        146.26749416225925,
+        -0.25817200000000173
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33883_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        717.1485246019485,
+        322.9530147733108,
+        13.032194719194308
+      ],
+      "rotation": [
+        0.4542539999999991,
+        146.63517416225926,
+        -51.29485000000001
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33876_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam01.SM_Beam01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        781.0475252739982,
+        310.0397175296727,
+        4.907288911428054
+      ],
+      "rotation": [
+        2.0000000015468976e-06,
+        147.18297116225926,
+        89.734808
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33880_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam01.SM_Beam01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        767.7830210763291,
+        330.7892906871328,
+        5.299056655383083
+      ],
+      "rotation": [
+        1.998095758528628,
+        -33.37013217316894,
+        -14.969745204108335
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33885_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam03.SM_Beam03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        733.4534819426023,
+        376.3849461248174,
+        -3.0305033940270505
+      ],
+      "rotation": [
+        0.023071000000000005,
+        141.05695616225924,
+        -0.0944729999999936
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33882_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        825.8635985857883,
+        326.1997105332985,
+        3.0134408754970536
+      ],
+      "rotation": [
+        -1.6763136620572823,
+        -34.208048139295805,
+        19.15533318068839
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33877_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        808.6399519496757,
+        354.2006730243421,
+        5.029075769471206
+      ],
+      "rotation": [
+        -0.001080999999993773,
+        147.0080061622593,
+        -90.03170299999998
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33886_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam02.SM_Beam02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        793.226852336368,
+        375.1968226977628,
+        10.098768291795068
+      ],
+      "rotation": [
+        -0.0031319999999936915,
+        145.33979316225933,
+        -0.08516600000001516
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33881_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam03.SM_Beam03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        726.3086069041105,
+        443.1753325131847,
+        4.994471655382995
+      ],
+      "rotation": [
+        1.5031143166435703,
+        -33.38787894036493,
+        -36.086141128192715
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_33878_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Beam03.SM_Beam03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Beam.MI_Beam"
+      ],
+      "location": [
+        787.1260720085561,
+        412.09336085437445,
+        -3.0051821207011926
+      ],
+      "rotation": [
+        0.005782000000000058,
+        144.5320891622592,
+        0.284058
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_01_C_370_GEN_VARIABLE_BP_MantletProps_01_C_CAT_0",
+      "component": "SM_Arrow5",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        1205.83469475542,
+        229.96489398667802,
+        64.37990573567954
+      ],
+      "rotation": [
+        -25.42856899999999,
+        164.72181626751325,
+        3.521735860697646e-14
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_01_C_370_GEN_VARIABLE_BP_MantletProps_01_C_CAT_0",
+      "component": "SM_Arrow4",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        1160.0360588086976,
+        347.12642202325344,
+        80.85998615835429
+      ],
+      "rotation": [
+        -25.428568999999992,
+        -174.2059730812788,
+        6.603254738808086e-16
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_01_C_370_GEN_VARIABLE_BP_MantletProps_01_C_CAT_0",
+      "component": "SM_Arrow3",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        1158.9975156909452,
+        240.39243702453257,
+        122.66978152151448
+      ],
+      "rotation": [
+        -42.41664863348263,
+        177.4016186891301,
+        3.761336089164887
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_01_C_370_GEN_VARIABLE_BP_MantletProps_01_C_CAT_0",
+      "component": "SM_Arrow2",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        1144.9092121182987,
+        293.0262008274027,
+        177.87904018835596
+      ],
+      "rotation": [
+        -24.66148661307955,
+        -159.15428591751635,
+        -6.4022095416863225
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_01_C_370_GEN_VARIABLE_BP_MantletProps_01_C_CAT_0",
+      "component": "SM_Arrow1",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        1134.0090611052929,
+        279.5345362661542,
+        243.1535366698083
+      ],
+      "rotation": [
+        -19.247672451368782,
+        179.1808267782946,
+        2.850226939546356
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_MantletProps_01_C_370_GEN_VARIABLE_BP_MantletProps_01_C_CAT_0",
+      "component": "SM_Arrow",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Arrow.SM_Arrow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Arrow.MI_Arrow"
+      ],
+      "location": [
+        1133.6387556319303,
+        340.2098241592326,
+        217.98311662072453
+      ],
+      "rotation": [
+        -25.42856942682967,
+        -174.20597277845184,
+        1.408694349268478e-14
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_340793_GEN_VARIABLE_StaticMeshActor_CAT_2",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        1166.796009882897,
+        221.45601534053154,
+        36.86069492165336
+      ],
+      "rotation": [
+        0.008186000006704223,
+        58.1747706705596,
+        -162.3443805311716
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_338702_GEN_VARIABLE_StaticMeshActor_CAT_2",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet01.SM_Mantlet01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodMantlet.MI_WoodMantlet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalMantlet01.MI_MetalMantlet01"
+      ],
+      "location": [
+        1036.471838814554,
+        307.4622134000755,
+        -2.9831016381576774
+      ],
+      "rotation": [
+        0.0,
+        95.79402791872121,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_BarrelWeapons_C_26_GEN_VARIABLE_BP_BarrelWeapons_C_CAT_2",
+      "component": "SM_Shield02",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        1047.5196730581745,
+        291.33122574873437,
+        39.48993764756793
+      ],
+      "rotation": [
+        43.62069341556954,
+        -15.617830780872184,
+        14.623632350137965
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_287_GEN_VARIABLE_StaticMeshActor_CAT_21",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_BarrelOpen.SM_BarrelOpen",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        1069.4370893738167,
+        334.64731068084166,
+        -3.2396416536037123
+      ],
+      "rotation": [
+        -0.0,
+        -47.152569611182685,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_339_GEN_VARIABLE_StaticMeshActor_CAT_21",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodTrim_Rope.MI_WoodTrim_Rope",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        1060.8060830424997,
+        312.4714307498658,
+        73.0359351248868
+      ],
+      "rotation": [
+        -5.132969999999998,
+        -60.68170961118265,
+        -6.888576999999996
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_337_GEN_VARIABLE_StaticMeshActor_CAT_21",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        1061.6527709225948,
+        316.28452405784026,
+        105.65887012488679
+      ],
+      "rotation": [
+        -3.423369999999976,
+        -60.159896611182646,
+        -6.679706000000008
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_331_GEN_VARIABLE_StaticMeshActor_CAT_21",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        1088.187668561682,
+        323.3538046924478,
+        111.76678312488684
+      ],
+      "rotation": [
+        -4.971143999999982,
+        -6.626770611182654,
+        -0.006981999999993457
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_335_GEN_VARIABLE_StaticMeshActor_CAT_21",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        1087.4350635005148,
+        346.2618930369012,
+        108.9944211248868
+      ],
+      "rotation": [
+        -6.1939269999999755,
+        4.834789388817379,
+        3.7857489999999996
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_326_GEN_VARIABLE_StaticMeshActor_CAT_21",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        1062.6112650567486,
+        356.13958582277667,
+        107.18686212488683
+      ],
+      "rotation": [
+        11.385350999999998,
+        -40.02791461118267,
+        7.215916000000001
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_340796_GEN_VARIABLE_StaticMeshActor_CAT_2",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        1089.4714757068969,
+        420.6412322904862,
+        39.204607928636165
+      ],
+      "rotation": [
+        -45.597932178686655,
+        66.31798729496454,
+        -32.37041204031303
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_62_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet02.SM_Mantlet02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodMantlet.MI_WoodMantlet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalMantlet02.MI_MetalMantlet02"
+      ],
+      "location": [
+        933.3311158319393,
+        -254.87162302246452,
+        -2.1182052223050505
+      ],
+      "rotation": [
+        8.536193284492221e-07,
+        80.48152249204576,
+        1.622978449609031e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_617042_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        942.1135398424667,
+        -232.97528467385655,
+        72.01917320538826
+      ],
+      "rotation": [
+        -0.0,
+        -49.622500042972135,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_617040_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        923.3320332206704,
+        -235.73416476371858,
+        -2.118209026466843
+      ],
+      "rotation": [
+        0.0,
+        17.481462730727625,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_617036_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Barrel.SM_Barrel",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalProps.MI_MetalProps"
+      ],
+      "location": [
+        805.8522194984143,
+        -444.6979295551182,
+        -2.118211343850021
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_64_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mantlet01.SM_Mantlet01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodMantlet.MI_WoodMantlet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalMantlet01.MI_MetalMantlet01"
+      ],
+      "location": [
+        785.2894937651035,
+        -449.6858682404081,
+        -2.118209295386123
+      ],
+      "rotation": [
+        6.497455840193251e-14,
+        62.31654998982281,
+        3.0939873619045403e-15
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_393_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        240.14191984148476,
+        -327.3276804866431,
+        75.30231391916611
+      ],
+      "rotation": [
+        0.0,
+        116.45103148567031,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_392_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        265.36695608392586,
+        -361.8480049322212,
+        -1.9666719936715253
+      ],
+      "rotation": [
+        0.0,
+        116.43743175519758,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_391_GEN_VARIABLE_StaticMeshActor_CAT_4",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        200.33684976141907,
+        -289.6869394308532,
+        -1.852312653990566
+      ],
+      "rotation": [
+        0.0,
+        135.91408850712565,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_WeaponRack_03_C_50_GEN_VARIABLE_BP_WeaponRack_03_C_CAT_0",
+      "component": "SM_Shield01",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        42.70824206851145,
+        -752.218855731944,
+        42.56555282021088
+      ],
+      "rotation": [
+        -1.6510871843036776,
+        57.613193004478674,
+        -12.397881695664509
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_WeaponRack_03_C_50_GEN_VARIABLE_BP_WeaponRack_03_C_CAT_0",
+      "component": "SM_Shield02",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        100.64456116674043,
+        -669.629979065318,
+        17.298355941951133
+      ],
+      "rotation": [
+        -12.85301955062027,
+        40.081011849649656,
+        66.96912194649654
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_26673_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WeaponRack03.SM_WeaponRack03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        74.12999417557795,
+        -692.5529164637717,
+        -2.1182154219563927
+      ],
+      "rotation": [
+        -0.0,
+        -18.583259493011155,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28257_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        164.65022128403552,
+        -649.6910460926595,
+        -2.1182216477772045
+      ],
+      "rotation": [
+        22.595429230379267,
+        -56.048976819166725,
+        -16.40751677377023
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28262_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        27.878354944054834,
+        -611.3431687726211,
+        -2.1182218859750037
+      ],
+      "rotation": [
+        -25.937843464428617,
+        -30.729128457776298,
+        5.377739542324489
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28263_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        23.457502457151186,
+        -624.4921724503226,
+        -2.118221870905586
+      ],
+      "rotation": [
+        -11.36915538391537,
+        47.57893462430157,
+        -24.044282860178665
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28258_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        151.39693021945027,
+        -689.1104996382254,
+        -2.1182218709108156
+      ],
+      "rotation": [
+        -12.436632968796118,
+        -133.456137453893,
+        -24.916211301772638
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28264_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        10.035466222804985,
+        -664.4135279322804,
+        -2.118221870910702
+      ],
+      "rotation": [
+        -17.289864234257944,
+        -69.8543557411513,
+        20.334221906932818
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28259_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        142.40028385725844,
+        -715.8693536685118,
+        -2.1182218709108156
+      ],
+      "rotation": [
+        27.074896459079802,
+        -31.44353523462515,
+        -5.932445165181665
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28260_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        138.03865665157224,
+        -728.8422036352601,
+        -2.1182218709108156
+      ],
+      "rotation": [
+        13.16437545050592,
+        44.924170032716106,
+        24.557326998386035
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28265_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -7.796977464828458,
+        -717.4528198872971,
+        -2.1182218709108156
+      ],
+      "rotation": [
+        -21.75321827082802,
+        18.093759747396405,
+        -15.430182905853993
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28261_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        124.75850280247892,
+        -768.3415566404009,
+        -2.1182218709108156
+      ],
+      "rotation": [
+        8.727277449824633,
+        -91.55916436708752,
+        -26.36051412333717
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_28266_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -16.51855214033327,
+        -743.3935240471503,
+        -2.1182218709108156
+      ],
+      "rotation": [
+        -5.949618815914168,
+        -96.4921778059926,
+        25.820936080610807
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_594006_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_02.SM_Rock_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -57.16200412644321,
+        -612.332284618139,
+        -2.118205349368395
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_594012_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_03.SM_Rock_03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -111.48837280699809,
+        -600.0630170182167,
+        -2.1182246921832757
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_594010_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_03.SM_Rock_03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -179.3571944808118,
+        -553.4290037196133,
+        -2.118194336588431
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_594008_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_04.SM_Rock_04",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -137.74197449842177,
+        -421.6482971842952,
+        -2.1182066403938506
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_594002_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_02.SM_Rock_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -161.82196054666747,
+        -298.0182473759678,
+        -2.1181997091397307
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_594000_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_01.SM_Rock_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -74.529764243307,
+        -321.8711977413386,
+        -2.1182300002229795
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_593998_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_RockStack.SM_RockStack",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -37.91846979694492,
+        -490.9176901598339,
+        -2.1182308790438356
+      ],
+      "rotation": [
+        -0.0,
+        -19.326773865521147,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_WeaponRack_01_C_285_GEN_VARIABLE_BP_WeaponRack_01_C_CAT_0",
+      "component": "SM_Shield02",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield02.SM_Shield02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        -844.9416883836873,
+        -283.17467293165214,
+        39.73816105774341
+      ],
+      "rotation": [
+        -32.46294074961219,
+        -139.5238701807987,
+        -15.391118828857607
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.BP_WeaponRack_01_C_285_GEN_VARIABLE_BP_WeaponRack_01_C_CAT_0",
+      "component": "SM_Shield01",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Shield01.SM_Shield01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Shields.MI_Shields",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        -1004.075329404261,
+        -212.53024125249863,
+        42.48237473791179
+      ],
+      "rotation": [
+        -51.92030164890612,
+        147.78721853742556,
+        -156.84776394139598
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19162_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WeaponRack02.SM_WeaponRack02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        -951.2360530959538,
+        -245.07565851528796,
+        -2.209674242945539
+      ],
+      "rotation": [
+        -0.0,
+        -101.73200442125541,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19176_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -881.6460227135012,
+        -248.04257794321305,
+        -2.7137307501061514
+      ],
+      "rotation": [
+        2.3342153107000856,
+        -168.78614923878686,
+        5.106802832746344
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19174_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_03.SM_Sword_03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -892.5896790983444,
+        -257.00656417798774,
+        89.76397322345088
+      ],
+      "rotation": [
+        -1.5854723574661316,
+        168.2981065515902,
+        -13.983761202832238
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19170_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_02.SM_Sword_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -915.9934578001092,
+        -254.97090197408446,
+        124.65615939056192
+      ],
+      "rotation": [
+        -4.1747588698731315,
+        167.24709410271805,
+        -9.1557736617603
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19179_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_03.SM_Sword_03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -919.1976397414912,
+        -251.71910309213624,
+        90.63993614577055
+      ],
+      "rotation": [
+        5.653803411188196,
+        170.13237852267082,
+        14.252512893164734
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19172_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -944.7585301979337,
+        -249.34498896154793,
+        125.87216601030877
+      ],
+      "rotation": [
+        2.613149315617227,
+        167.2487436790572,
+        -9.127920651845221
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19166_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mace.SM_Mace",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps"
+      ],
+      "location": [
+        -971.3622032105832,
+        -239.96317675484835,
+        96.77295279753503
+      ],
+      "rotation": [
+        14.928736869377854,
+        -102.2968265939866,
+        -176.88871118737185
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19178_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Sword_01.SM_Sword_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -982.2650792155124,
+        -235.6530186379129,
+        125.53465861816835
+      ],
+      "rotation": [
+        -6.589540796942175,
+        166.01359745890295,
+        9.458406340357952
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19168_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Bow.SM_Bow",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodTrim_Rope.MI_WoodTrim_Rope",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -1026.0917948293093,
+        -235.85584056571545,
+        69.77438908651766
+      ],
+      "rotation": [
+        4.766605661422523,
+        168.70220359479592,
+        -3.5756159549372932
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_19177_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Spear.SM_Spear",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Swords.MI_Swords"
+      ],
+      "location": [
+        -1001.8463857716072,
+        -223.08025462310167,
+        -2.7137305607953977
+      ],
+      "rotation": [
+        1.4921421989085641,
+        -74.82565293574908,
+        -11.332274902310589
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_8390_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Lantern02.SM_Lantern02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Lantern.MI_Lantern",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_LanternWax.MI_LanternWax"
+      ],
+      "location": [
+        -1107.8509819341875,
+        -343.7716400326315,
+        70.50010266154538
+      ],
+      "rotation": [
+        0.0,
+        52.14960737815573,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_8383_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        -1106.1531937452278,
+        -344.66745243216235,
+        -3.6233829643812214
+      ],
+      "rotation": [
+        -0.4513396479069912,
+        27.292439659742172,
+        1.2341889162404966
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_8384_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_WoodenCrateSmall.SM_WoodenCrateSmall",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult"
+      ],
+      "location": [
+        -1167.0417568834725,
+        -274.48623643017163,
+        -3.4510118671155396
+      ],
+      "rotation": [
+        1.0748829790278722,
+        50.12319862038212,
+        1.44241212565062
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_8381_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mug02.SM_Mug02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Mug.MI_Mug"
+      ],
+      "location": [
+        -1150.5443483046558,
+        -280.6180550984971,
+        71.31707195254035
+      ],
+      "rotation": [
+        -0.7920394409312054,
+        68.58630001018895,
+        2.5665889551957997
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_8379_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Mug01.SM_Mug01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_Mug.MI_Mug"
+      ],
+      "location": [
+        -1178.8911399400831,
+        -254.5280270068691,
+        70.56022879478394
+      ],
+      "rotation": [
+        -0.27055577067670794,
+        -54.9075629361447,
+        -1.7019241099433777
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563168_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_03.SM_Rock_03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -669.7465723920905,
+        415.7367319178775,
+        -2.1181998242024065
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563174_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_01.SM_Rock_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -742.4551214066869,
+        331.48477806453957,
+        -2.118230767028649
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563170_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_01.SM_Rock_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -649.6355005724708,
+        323.55402685807985,
+        -2.1182098255259234
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563172_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_02.SM_Rock_02",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -597.4114020336601,
+        237.7341757771137,
+        -2.118212530977985
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563180_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_03.SM_Rock_03",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -704.1812777378054,
+        240.47452797534697,
+        -2.118227659016725
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563176_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_01.SM_Rock_01",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -845.0750571291137,
+        248.57608674099993,
+        -2.1182002342662827
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563182_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Rock_04.SM_Rock_04",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -929.7843786789963,
+        325.24456147231285,
+        -2.118195572510558
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563164_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_RockStack.SM_RockStack",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -491.7843369810671,
+        382.9316875021959,
+        -2.1182239513183276
+      ],
+      "rotation": [
+        0.0,
+        14.532612529924085,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_563166_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_RockStack.SM_RockStack",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodProps.MI_WoodProps",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_CampFireRocks.MI_CampFireRocks"
+      ],
+      "location": [
+        -838.6754467254395,
+        468.6608600598838,
+        -2.118225459560449
+      ],
+      "rotation": [
+        -0.0,
+        -66.42250912017487,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "actor": "/Engine/Maps/Entry.Entry:PersistentLevel.StaticMeshActor_3_GEN_VARIABLE_StaticMeshActor_CAT_0",
+      "component": "StaticMeshComponent0",
+      "state": "base",
+      "mesh": "/Game/Medieval_Warzone/Meshes/SM_Trebuchet.SM_Trebuchet",
+      "materials": [
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodTrebuchet.MI_WoodTrebuchet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalTrebuchet.MI_MetalTrebuchet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_MetalCatapult.MI_MetalCatapult",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_FabricTrebuchet.MI_FabricTrebuchet",
+        "/Game/Medieval_Warzone/Materials/Instances/MI_WoodTrim_Rope.MI_WoodTrim_Rope"
+      ],
+      "location": [
+        -122.85734814319949,
+        15.464062517829007,
+        -2.1182012917422526
+      ],
+      "rotation": [
+        -0.0,
+        -90.00000000000001,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "input_triangles": 199766,
+  "status": "Native prefab instantiated read-only; actual screenshot review and retained-ground fitting required. No capital assignment or visit routing implied."
+}

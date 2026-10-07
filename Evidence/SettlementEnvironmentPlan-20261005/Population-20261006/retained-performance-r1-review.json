@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-06T23:04:55.838529+00:00",
+  "result": "FAILED_THERMAL_CUTOFF",
+  "scope": "Nine-node retained campaign, normal visibility, Human R7 starting miniature, fixed human_capital view; editor game, 1920x1080, 100 percent, uncapped, VSync off",
+  "run": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-benchmark-r1",
+  "stop_reason": "thermal_cutoff_85c",
+  "process_exit_code": 0,
+  "clean_shutdown": true,
+  "native_completion_marker": true,
+  "native_window": {
+    "frames": 3693,
+    "warmup_seconds": 20,
+    "sample_seconds": 45.00236,
+    "requested_sample_seconds": 45,
+    "mean_ms": 12.1859,
+    "p95_ms": 13.505,
+    "p99_ms": 14.3069,
+    "below_30": 1,
+    "below_40": 1,
+    "below_60": 3,
+    "v2": true
+  },
+  "average_fps": 82.0620553262377,
+  "peak_gpu_c": 85.0,
+  "peak_device_vram_mib": 6155.0,
+  "peak_private_commit_mib": 5825.07,
+  "peak_working_set_mib": 4066.47,
+  "note": "Thermal stop was requested before native window completed; process finished the window during WM_CLOSE handling. Frame data are diagnostic, not a clean sustained qualification.",
+  "native_files": [
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-benchmark-r1\\User\\Saved\\TerrainBenchmark.csv",
+      "sha256": "557ec196de4051f10298e5812ecd0a8e864255d7dc100a73177f225780f8454e",
+      "bytes": 33222
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-benchmark-r1\\User\\Saved\\TerrainBenchmark.json",
+      "sha256": "255c84c04b0e9f1ccaf98f9e60e31b6d16808add74ab23723b93fd6eb8aaab2b",
+      "bytes": 192
+    },
+    {
+      "path": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\retained-population-benchmark-r1\\User\\Saved\\Screenshots\\TerrainBenchmark.png",
+      "sha256": "d68a48c41eb808d6532100bf048b6e15e32fb47a9c8b1e0afe41bf9f0eba61d4",
+      "bytes": 2316916
+    }
+  ],
+  "artifact_correction": "Use isolated User/Saved outputs. Initial shared Saved copies predate this run and are quarantined as rejected-stale-shared-Saved-copy; never use them as this run evidence."
+}

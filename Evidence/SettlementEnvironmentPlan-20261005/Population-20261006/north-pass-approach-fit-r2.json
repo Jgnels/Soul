@@ -1,0 +1,77 @@
+{
+  "terrain": "/Game/SoulCampaignMountain/L_evil_waterfront",
+  "height_sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+  "search": "<=30m per axis on unchanged ground, 1.25m samples; conservative 5 percent enlarged native envelope, <=55cm relief and <=18 degree lane; native curve/grade algorithm; no topology change",
+  "plots": [
+    {
+      "key": "raven_gate_l",
+      "radius": 311.56882105689175,
+      "before_offset": [
+        2000,
+        -2750
+      ],
+      "before_lane": {
+        "grade": 27.521698072387316,
+        "length": 1366.694687196687,
+        "route": [
+          -50882.35294,
+          -35000.0
+        ]
+      },
+      "candidate_count": 1,
+      "selected": {
+        "offset": [
+          1500,
+          -1750
+        ],
+        "relief": 49.2567007600901,
+        "low": 1575.9010497401587,
+        "clearance": 261.9605889431111,
+        "grade": 17.746319729225807,
+        "length": 349.19985883904155,
+        "route": [
+          -51147.05882,
+          -35000.0
+        ],
+        "score": 1171.2729479375723
+      },
+      "top": [
+        {
+          "offset": [
+            1500,
+            -1750
+          ],
+          "relief": 49.2567007600901,
+          "low": 1575.9010497401587,
+          "clearance": 261.9605889431111,
+          "grade": 17.746319729225807,
+          "length": 349.19985883904155,
+          "route": [
+            -51147.05882,
+            -35000.0
+          ],
+          "score": 1171.2729479375723
+        }
+      ]
+    },
+    {
+      "key": "war_outpost_01",
+      "radius": 376.41575889347695,
+      "before_offset": [
+        3375,
+        -4625
+      ],
+      "before_lane": {
+        "grade": 24.645011696113038,
+        "length": 3496.686835202201,
+        "route": [
+          -49705.88235,
+          -34705.88235
+        ]
+      },
+      "candidate_count": 0,
+      "selected": null,
+      "top": []
+    }
+  ]
+}

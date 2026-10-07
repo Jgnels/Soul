@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-06T23:13:25.241071+00:00",
+  "result": "PASS",
+  "tests": [
+    {
+      "result": "Success",
+      "name": "AuthoredExposureIsOptInIdempotentAndHandlesLateVolumes",
+      "path": "Soul.Integration.Settlement.AuthoredExposureIsOptInIdempotentAndHandlesLateVolumes"
+    },
+    {
+      "result": "Success",
+      "name": "AuthoredFactionUsesItsOwnBuildingAndRegion",
+      "path": "Soul.Integration.Settlement.AuthoredFactionUsesItsOwnBuildingAndRegion"
+    },
+    {
+      "result": "Success",
+      "name": "AuthoredGroupHidesChildrenAndPreservesCollision",
+      "path": "Soul.Integration.Settlement.AuthoredGroupHidesChildrenAndPreservesCollision"
+    },
+    {
+      "result": "Success",
+      "name": "ConstructionGatesCostsDaysAndExistingService",
+      "path": "Soul.Integration.Settlement.ConstructionGatesCostsDaysAndExistingService"
+    },
+    {
+      "result": "Success",
+      "name": "ConstructionPresentationPrecedesIntegrity",
+      "path": "Soul.Integration.Settlement.ConstructionPresentationPrecedesIntegrity"
+    },
+    {
+      "result": "Success",
+      "name": "DevelopmentDefinitionsRejectInvalidData",
+      "path": "Soul.Integration.Settlement.DevelopmentDefinitionsRejectInvalidData"
+    },
+    {
+      "result": "Success",
+      "name": "DevelopmentSurvivesScopedSaveAndBattleBoundary",
+      "path": "Soul.Integration.Settlement.DevelopmentSurvivesScopedSaveAndBattleBoundary"
+    },
+    {
+      "result": "Success",
+      "name": "CameraAndSelection",
+      "path": "Soul.Integration.CampaignWorld.CameraAndSelection"
+    },
+    {
+      "result": "Success",
+      "name": "TerrainAndRoutes",
+      "path": "Soul.Integration.CampaignWorld.TerrainAndRoutes"
+    },
+    {
+      "result": "Success",
+      "name": "SettlementDomainRoundTrip",
+      "path": "Soul.Integration.Save.SettlementDomainRoundTrip"
+    }
+  ],
+  "dll_sha256": "2d9a94999936b7598be0c96306cdb73bf3c54ddff810c929e6e950ac6234d708",
+  "scope": "Existing native settlement 7, campaign world 2, settlement save-domain 1. Editor default Mesa profile; nine-node Evil corridor exercised separately by input/capture/height checks.",
+  "log": "Evidence\\SettlementEnvironmentPlan-20261005\\Local\\native-population-final-r1\\unreal.log"
+}

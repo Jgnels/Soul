@@ -1,0 +1,122 @@
+{
+  "utc": "2026-10-06T21:26:24.831586+00:00",
+  "state": "base",
+  "mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r7.SM_HumanCapital_Base_r7",
+  "sha256": "f9975bdc2bb56e1a339b34ce1c373fa1550fc7a46456987d4ee273efc4c04bcc",
+  "source_manifest_sha256": "c8f818446e7bc028fad3dab2a4957d141cff080aeb4f555b74c724e705346198",
+  "method": "explicit native RenderData LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    10000,
+    -6500,
+    0
+  ],
+  "selection_bounds": [
+    -1000000,
+    1000000,
+    -1000000,
+    1000000,
+    -1000000,
+    1000000
+  ],
+  "triangle_budget": 3000000,
+  "excluded_actors": [],
+  "source_instances": 36,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01a_Fix_r1.SM_LI_Building_01a_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_01b_Fix_r1.SM_LI_Building_01b_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_02_Fix_r1.SM_LI_Building_02_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 5
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03_Fix_r1.SM_LI_Building_03_Fix_r1",
+      "lod": 0,
+      "triangles": 5988,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_03a_Fix_r1.SM_LI_Building_03a_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 3
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04_Fix_r1.SM_LI_Building_04_Fix_r1",
+      "lod": 0,
+      "triangles": 5988,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04a_Fix_r1.SM_LI_Building_04a_Fix_r1",
+      "lod": 0,
+      "triangles": 5994,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_04b_Fix_r1.SM_LI_Building_04b_Fix_r1",
+      "lod": 0,
+      "triangles": 5994,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Building_06_Fix_r1.SM_LI_Building_06_Fix_r1",
+      "lod": 0,
+      "triangles": 6000,
+      "instances": 7
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Front_Hall_surface_r3.SM_LI_Front_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 249734,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Full_Castle_surface_r3.SM_LI_Full_Castle_surface_r3",
+      "lod": 0,
+      "triangles": 225236,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Kings_Hall_surface_r3.SM_LI_Kings_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 289649,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Side_Hall_surface_r3.SM_LI_Side_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 323269,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_LI_Top_Level_surface_r3.SM_LI_Top_Level_surface_r3",
+      "lod": 0,
+      "triangles": 350180,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/Soul/CampaignProxies/Human/Parts/SM_SM_Main_Hall_surface_r3.SM_SM_Main_Hall_surface_r3",
+      "lod": 0,
+      "triangles": 256919,
+      "instances": 1
+    }
+  ],
+  "input_triangles": 1874909,
+  "reduced_triangles": 1874909,
+  "saved_triangles": 1874909,
+  "material_count": 34,
+  "recipe_sha256": "af270f1c1163ef5e596171e14a8f447c95debb2607dc21d109fe913e036bf4b5",
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}
