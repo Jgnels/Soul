@@ -1,0 +1,597 @@
+{
+  "side_m": 3500.0,
+  "anchors": [
+    {
+      "id": "viking_harbour",
+      "macro_region": "northern_fjords",
+      "kind": "capital",
+      "target_xy_m": [
+        610,
+        1030
+      ],
+      "xy_m": [
+        857.8431372549019,
+        995.0980392156862
+      ],
+      "height_m": 2.865732230392157,
+      "road_component": 1,
+      "footprint_m": [
+        25,
+        25
+      ],
+      "footprint_relief_m": 4.217888327205895
+    },
+    {
+      "id": "viking_fjord_ridge",
+      "macro_region": "northern_fjords",
+      "kind": "region",
+      "target_xy_m": [
+        580,
+        250
+      ],
+      "xy_m": [
+        583.3333333333333,
+        247.05882352941174
+      ],
+      "height_m": 54.74848728553921,
+      "road_component": 1
+    },
+    {
+      "id": "viking_forest_track",
+      "macro_region": "northern_fjords",
+      "kind": "region",
+      "target_xy_m": [
+        560,
+        710
+      ],
+      "xy_m": [
+        562.7450980392157,
+        706.8627450980392
+      ],
+      "height_m": 32.05289557762579,
+      "road_component": 1
+    },
+    {
+      "id": "viking_snow_pass",
+      "macro_region": "northern_fjords",
+      "kind": "region",
+      "target_xy_m": [
+        850,
+        470
+      ],
+      "xy_m": [
+        844.1176470588235,
+        466.66666666666663
+      ],
+      "height_m": 60.48866421568628,
+      "road_component": 1
+    },
+    {
+      "id": "mountain_shrine",
+      "macro_region": "crownspine",
+      "kind": "landmark",
+      "target_xy_m": [
+        1780,
+        860
+      ],
+      "xy_m": [
+        1777.4509803921567,
+        857.8431372549019
+      ],
+      "height_m": 31.06397441789216,
+      "road_component": 128
+    },
+    {
+      "id": "northwest_march",
+      "macro_region": "heartland",
+      "kind": "region",
+      "target_xy_m": [
+        700,
+        1200
+      ],
+      "xy_m": [
+        700.0,
+        1200.9803921568628
+      ],
+      "height_m": 48.69667202818628,
+      "road_component": 1
+    },
+    {
+      "id": "dwarf_high_quarry",
+      "macro_region": "crownspine",
+      "kind": "region",
+      "target_xy_m": [
+        2050,
+        490
+      ],
+      "xy_m": [
+        2051.9607843137255,
+        487.2549019607843
+      ],
+      "height_m": 50.777611825980394,
+      "road_component": 128
+    },
+    {
+      "id": "dwarf_snow_basin",
+      "macro_region": "crownspine",
+      "kind": "region",
+      "target_xy_m": [
+        2540,
+        260
+      ],
+      "xy_m": [
+        2539.2156862745096,
+        288.235294117647
+      ],
+      "height_m": 81.24779794730394,
+      "road_component": 128
+    },
+    {
+      "id": "dwarf_forge_approach",
+      "macro_region": "crownspine",
+      "kind": "region",
+      "target_xy_m": [
+        2560,
+        830
+      ],
+      "xy_m": [
+        2559.803921568627,
+        830.3921568627451
+      ],
+      "height_m": 78.8250612745098,
+      "road_component": 128
+    },
+    {
+      "id": "dwarf_hold",
+      "macro_region": "crownspine",
+      "kind": "capital",
+      "target_xy_m": [
+        2800,
+        610
+      ],
+      "xy_m": [
+        2751.9607843137255,
+        617.6470588235294
+      ],
+      "height_m": 36.49251302083336,
+      "road_component": 128,
+      "footprint_m": [
+        30.5,
+        38.7
+      ],
+      "footprint_relief_m": 4.085052849264706
+    },
+    {
+      "id": "dwarf_mountain_pass",
+      "macro_region": "crownspine",
+      "kind": "region",
+      "target_xy_m": [
+        2100,
+        960
+      ],
+      "xy_m": [
+        2100.0,
+        960.7843137254902
+      ],
+      "height_m": 76.84464996936275,
+      "road_component": 128
+    },
+    {
+      "id": "human_capital",
+      "macro_region": "heartland",
+      "kind": "capital",
+      "target_xy_m": [
+        780,
+        1610
+      ],
+      "xy_m": [
+        727.4509803921568,
+        1660.7843137254902
+      ],
+      "height_m": 3.0868949142156876,
+      "road_component": 1,
+      "footprint_m": [
+        69.7,
+        51.4
+      ],
+      "footprint_relief_m": 2.716555606617667
+    },
+    {
+      "id": "crossroads",
+      "macro_region": "heartland",
+      "kind": "region",
+      "target_xy_m": [
+        1000,
+        1840
+      ],
+      "xy_m": [
+        1001.9607843137254,
+        1839.2156862745096
+      ],
+      "height_m": 28.34970511642162,
+      "road_component": 1
+    },
+    {
+      "id": "old_quarry",
+      "macro_region": "heartland",
+      "kind": "region",
+      "target_xy_m": [
+        880,
+        1380
+      ],
+      "xy_m": [
+        878.4313725490196,
+        1379.4117647058822
+      ],
+      "height_m": 34.51210171568633,
+      "road_component": 1
+    },
+    {
+      "id": "river_ford",
+      "macro_region": "heartland",
+      "kind": "region",
+      "target_xy_m": [
+        775.7,
+        2196.3
+      ],
+      "xy_m": [
+        775.4901960784314,
+        2196.078431372549
+      ],
+      "height_m": 3.5578277111053467,
+      "road_component": 1
+    },
+    {
+      "id": "forest_edge",
+      "macro_region": "heartland",
+      "kind": "region",
+      "target_xy_m": [
+        1040,
+        1570
+      ],
+      "xy_m": [
+        1043.1372549019607,
+        1571.5686274509803
+      ],
+      "height_m": 15.140261182598088,
+      "road_component": 1
+    },
+    {
+      "id": "ancient_shrine",
+      "macro_region": "heartland",
+      "kind": "landmark",
+      "target_xy_m": [
+        1000,
+        1120
+      ],
+      "xy_m": [
+        1001.9607843137254,
+        1118.627450980392
+      ],
+      "height_m": 3.046683517156863,
+      "road_component": 1
+    },
+    {
+      "id": "orc_watch",
+      "macro_region": "eastern_badlands",
+      "kind": "region",
+      "target_xy_m": [
+        2280,
+        1830
+      ],
+      "xy_m": [
+        2278.4313725490197,
+        1832.3529411764705
+      ],
+      "height_m": 92.05461090686275,
+      "road_component": 128
+    },
+    {
+      "id": "north_pass",
+      "macro_region": "eastern_badlands",
+      "kind": "region",
+      "target_xy_m": [
+        2190,
+        1400
+      ],
+      "xy_m": [
+        2182.3529411764703,
+        1434.313725490196
+      ],
+      "height_m": 91.48159849877439,
+      "road_component": 128
+    },
+    {
+      "id": "orc_camp",
+      "macro_region": "eastern_badlands",
+      "kind": "capital",
+      "target_xy_m": [
+        2780,
+        1640
+      ],
+      "xy_m": [
+        2697.0588235294117,
+        1475.4901960784314
+      ],
+      "height_m": 35.4661113963612,
+      "road_component": 128,
+      "footprint_m": [
+        25,
+        25
+      ],
+      "footprint_relief_m": 3.2324756313151752
+    },
+    {
+      "id": "orc_badlands",
+      "macro_region": "eastern_badlands",
+      "kind": "region",
+      "target_xy_m": [
+        3090,
+        1230
+      ],
+      "xy_m": [
+        3088.235294117647,
+        1228.4313725490194
+      ],
+      "height_m": 65.85047133351075,
+      "road_component": 128
+    },
+    {
+      "id": "orc_war_camp",
+      "macro_region": "eastern_badlands",
+      "kind": "region",
+      "target_xy_m": [
+        2880,
+        1040
+      ],
+      "xy_m": [
+        2882.3529411764703,
+        1043.1372549019607
+      ],
+      "height_m": 37.83635157180575,
+      "road_component": 128
+    },
+    {
+      "id": "orc_ruined_field",
+      "macro_region": "eastern_badlands",
+      "kind": "region",
+      "target_xy_m": [
+        3160,
+        1650
+      ],
+      "xy_m": [
+        3143.1372549019607,
+        1674.5098039215686
+      ],
+      "height_m": 50.0209381610239,
+      "road_component": 128
+    },
+    {
+      "id": "orc_broken_bridge",
+      "macro_region": "eastern_badlands",
+      "kind": "region",
+      "target_xy_m": [
+        3053,
+        1821.4
+      ],
+      "xy_m": [
+        3053.9215686274506,
+        1818.627450980392
+      ],
+      "height_m": 34.3883216194287,
+      "road_component": 128
+    },
+    {
+      "id": "coastal_ruins",
+      "macro_region": "greenwood",
+      "kind": "landmark",
+      "target_xy_m": [
+        250,
+        1900
+      ],
+      "xy_m": [
+        260.78431372549016,
+        1900.9803921568625
+      ],
+      "height_m": 1.377910539215668,
+      "road_component": 1
+    },
+    {
+      "id": "nature_shrine",
+      "macro_region": "greenwood",
+      "kind": "region",
+      "target_xy_m": [
+        330,
+        2360
+      ],
+      "xy_m": [
+        329.4117647058823,
+        2360.78431372549
+      ],
+      "height_m": 51.702473958333385,
+      "road_component": 1
+    },
+    {
+      "id": "nature_forest_clearing",
+      "macro_region": "greenwood",
+      "kind": "region",
+      "target_xy_m": [
+        320,
+        2710
+      ],
+      "xy_m": [
+        322.5490196078431,
+        2710.78431372549
+      ],
+      "height_m": 45.48981311274501,
+      "road_component": 1
+    },
+    {
+      "id": "nature_treehold",
+      "macro_region": "greenwood",
+      "kind": "capital",
+      "target_xy_m": [
+        710,
+        2990
+      ],
+      "xy_m": [
+        734.313725490196,
+        2992.156862745098
+      ],
+      "height_m": 100.7000612745098,
+      "road_component": 1,
+      "footprint_m": [
+        25,
+        25
+      ],
+      "footprint_relief_m": 4.49649586397058
+    },
+    {
+      "id": "nature_river_woodland",
+      "macro_region": "greenwood",
+      "kind": "region",
+      "target_xy_m": [
+        500,
+        2820
+      ],
+      "xy_m": [
+        459.8039215686274,
+        2820.5882352941176
+      ],
+      "height_m": 54.95959712009804,
+      "road_component": 1
+    },
+    {
+      "id": "nature_grassland_edge",
+      "macro_region": "greenwood",
+      "kind": "region",
+      "target_xy_m": [
+        870,
+        2530
+      ],
+      "xy_m": [
+        871.5686274509803,
+        2532.3529411764703
+      ],
+      "height_m": 24.56983379289213,
+      "road_component": 1
+    },
+    {
+      "id": "southern_crossing",
+      "macro_region": "greenwood",
+      "kind": "region",
+      "target_xy_m": [
+        624.5,
+        2347.1
+      ],
+      "xy_m": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "height_m": 7.726014859068627,
+      "road_component": 1
+    },
+    {
+      "id": "dark_corrupted_valley",
+      "macro_region": "ashen_south",
+      "kind": "region",
+      "target_xy_m": [
+        1630,
+        2680
+      ],
+      "xy_m": [
+        1633.3333333333333,
+        2683.333333333333
+      ],
+      "height_m": 80.66473268995088,
+      "road_component": 1
+    },
+    {
+      "id": "dark_ruined_causeway",
+      "macro_region": "ashen_south",
+      "kind": "region",
+      "target_xy_m": [
+        2100,
+        2510
+      ],
+      "xy_m": [
+        2100.0,
+        2511.7647058823527
+      ],
+      "height_m": 1.2773820465686183,
+      "road_component": 1
+    },
+    {
+      "id": "dark_ash_plain",
+      "macro_region": "ashen_south",
+      "kind": "region",
+      "target_xy_m": [
+        2250,
+        3040
+      ],
+      "xy_m": [
+        2250.9803921568628,
+        3040.1960784313724
+      ],
+      "height_m": 21.775141697303987,
+      "road_component": 1
+    },
+    {
+      "id": "dark_castle_approach",
+      "macro_region": "ashen_south",
+      "kind": "region",
+      "target_xy_m": [
+        2630,
+        3110
+      ],
+      "xy_m": [
+        2628.4313725490197,
+        3108.8235294117644
+      ],
+      "height_m": 34.73326439950981,
+      "road_component": 1
+    },
+    {
+      "id": "dark_fortress",
+      "macro_region": "ashen_south",
+      "kind": "capital",
+      "target_xy_m": [
+        2920,
+        3260
+      ],
+      "xy_m": [
+        2930.3921568627447,
+        3246.078431372549
+      ],
+      "height_m": 21.644454656862862,
+      "road_component": 1,
+      "footprint_m": [
+        25,
+        25
+      ],
+      "footprint_relief_m": 3.6707261029410496
+    }
+  ],
+  "road_component_sizes": [
+    94210,
+    70821,
+    727,
+    508,
+    504,
+    313,
+    305,
+    217,
+    195,
+    133,
+    123,
+    115,
+    107,
+    96,
+    95
+  ],
+  "limitations": [
+    "analytical sites; actual native collision/miniature seating not qualified",
+    "minor site targets can move within macro relationships",
+    "no terrain flattening for placements"
+  ]
+}

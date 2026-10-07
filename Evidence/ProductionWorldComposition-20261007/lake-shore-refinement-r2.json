@@ -1,0 +1,16 @@
+{
+  "lakes": [
+    {
+      "id": "native_lake_0",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_native_lake_0_r2",
+      "triangles": 3971
+    },
+    {
+      "id": "native_lake_1",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_native_lake_1_r2",
+      "triangles": 10908
+    }
+  ],
+  "method": "clip water triangles at native Landscape triangle plane intersection",
+  "heightfield_changed": false
+}

@@ -1,0 +1,18 @@
+{
+  "counts": [
+    9256,
+    9268
+  ],
+  "foliage_types": [
+    "/Game/SoulCampaignComposition/L_Composition_3500_r2.L_Composition_3500_r2:PersistentLevel.InstancedFoliageActor_0.FoliageType_InstancedStaticMesh_0",
+    "/Game/SoulCampaignComposition/L_Composition_3500_r2.L_Composition_3500_r2:PersistentLevel.InstancedFoliageActor_0.FoliageType_InstancedStaticMesh_1"
+  ],
+  "collision_misses": [],
+  "LOD_model": 3,
+  "cull_start_end_cm": [
+    1000000,
+    1200000
+  ],
+  "terrain_changed": false,
+  "status": "scale/composition test using retained owned pine family"
+}

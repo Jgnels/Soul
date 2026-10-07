@@ -1,0 +1,319 @@
+{
+  "repairs": [
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "start": [
+        781.5904139433551,
+        2168.1190994916483
+      ],
+      "end": [
+        775.4901960784314,
+        2196.078431372549
+      ],
+      "accepted": false
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "start": [
+        775.4901960784314,
+        2196.078431372549
+      ],
+      "end": [
+        779.2765382014875,
+        2167.207572684246
+      ],
+      "accepted": true
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "start": [
+        2426.1029411764707,
+        1289.2156862745096
+      ],
+      "end": [
+        2427.21568627451,
+        1247.372549019608
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "start": [
+        2426.1029411764707,
+        1289.2156862745096
+      ],
+      "end": [
+        2427.21568627451,
+        1247.372549019608
+      ],
+      "accepted": true
+    },
+    {
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "start": [
+        1725.6862745098038,
+        876.078431372549
+      ],
+      "end": [
+        1759.8039215686274,
+        857.8431372549019
+      ],
+      "accepted": true
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "start": [
+        2101.7156862745096,
+        952.2058823529411
+      ],
+      "end": [
+        2106.862745098039,
+        912.7450980392156
+      ],
+      "accepted": true
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "start": [
+        2524.7276688453157,
+        630.8641975308642
+      ],
+      "end": [
+        2551.693404634581,
+        600.3342245989304
+      ],
+      "accepted": true
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "start": [
+        2426.1029411764707,
+        1289.2156862745096
+      ],
+      "end": [
+        2427.21568627451,
+        1247.372549019608
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "start": [
+        3024.754901960784,
+        1167.5245098039215
+      ],
+      "end": [
+        3061.213235294117,
+        1152.083333333333
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "start": [
+        3031.372549019608,
+        1818.627450980392
+      ],
+      "end": [
+        3078.431372549019,
+        1818.627450980392
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "start": [
+        2426.1029411764707,
+        1289.2156862745096
+      ],
+      "end": [
+        2427.21568627451,
+        1247.372549019608
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "start": [
+        3031.372549019608,
+        1818.627450980392
+      ],
+      "end": [
+        3078.431372549019,
+        1818.627450980392
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "start": [
+        3078.431372549019,
+        1818.627450980392
+      ],
+      "end": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "accepted": true
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "start": [
+        602.9411764705882,
+        2360.130718954248
+      ],
+      "end": [
+        632.7450980392157,
+        2375.8823529411766
+      ],
+      "accepted": true
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "start": [
+        641.3116970926301,
+        2352.9749830966866
+      ],
+      "end": [
+        598.4313725490196,
+        2348.4313725490197
+      ],
+      "accepted": true
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "start": [
+        652.3725490196077,
+        2355.0196078431372
+      ],
+      "end": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "accepted": true
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "start": [
+        635.4901960784314,
+        2322.3529411764703
+      ],
+      "end": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "accepted": true
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "start": [
+        775.4901960784314,
+        2196.078431372549
+      ],
+      "end": [
+        750.5027652086476,
+        2207.3403720462543
+      ],
+      "accepted": true
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "start": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "end": [
+        634.8039215686274,
+        2321.3235294117644
+      ],
+      "accepted": true
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "start": [
+        3031.372549019608,
+        1818.627450980392
+      ],
+      "end": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "accepted": true
+    },
+    {
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "start": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "end": [
+        651.9607843137255,
+        2353.921568627451
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "start": [
+        3098.9106753812634,
+        1123.202614379085
+      ],
+      "end": [
+        3068.333333333333,
+        1098.7254901960782
+      ],
+      "accepted": true
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "start": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "end": [
+        3031.372549019608,
+        1818.627450980392
+      ],
+      "accepted": true
+    },
+    {
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "start": [
+        2661.3725490196075,
+        3121.176470588235
+      ],
+      "end": [
+        2697.916666666666,
+        3137.7450980392155
+      ],
+      "accepted": true
+    }
+  ],
+  "accepted": 23,
+  "rejected": 1,
+  "status": "analysis only; never silently promoted"
+}

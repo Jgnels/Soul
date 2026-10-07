@@ -1,0 +1,167 @@
+{
+  "method": "Search within 45 m of the selected crossing reach, near perpendicular to river, choose shortest span with dry stable opposing banks and <=10 degree bank elevation differential. Final asset/deck seating still requires native inspection.",
+  "crossings": [
+    {
+      "gate_id": "river_ford",
+      "type": "ford",
+      "candidate_count": 61,
+      "center_xy_m": [
+        775.666972773728,
+        2196.255208067845
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          769.4797884383456,
+          2190.068023732463
+        ],
+        [
+          781.8541571091104,
+          2202.4423924032276
+        ]
+      ],
+      "bank_z_m": [
+        4.0403135348945405,
+        3.803840939001741
+      ],
+      "span_m": 17.5,
+      "yaw_deg": 44.999999999999304,
+      "water_z_m": 3.6498544730392157,
+      "distance_from_selected_reach_m": 38.82154877102612
+    },
+    {
+      "gate_id": "southern_crossing",
+      "type": "bridge",
+      "candidate_count": 85,
+      "center_xy_m": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          618.6330777877765,
+          2341.6307400786527
+        ],
+        [
+          630.3865300553607,
+          2352.4869069801707
+        ]
+      ],
+      "bank_z_m": [
+        9.807564654241023,
+        9.939822485059475
+      ],
+      "span_m": 16.0,
+      "yaw_deg": 42.72735226747397,
+      "water_z_m": 8.626014859068627,
+      "distance_from_selected_reach_m": 38.82154877102644
+    },
+    {
+      "gate_id": "woodland_bridge",
+      "type": "bridge",
+      "candidate_count": 54,
+      "center_xy_m": [
+        473.52941176470586,
+        2809.6078431372553
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          465.5847984280241,
+          2810.547587214448
+        ],
+        [
+          481.4740251013876,
+          2808.6680990600626
+        ]
+      ],
+      "bank_z_m": [
+        49.51314822514512,
+        49.64857651037554
+      ],
+      "span_m": 16.0,
+      "yaw_deg": -6.745996638370126,
+      "water_z_m": 48.594132965686285,
+      "distance_from_selected_reach_m": 10.980392156861853
+    },
+    {
+      "gate_id": "human_west_bridge",
+      "type": "bridge",
+      "candidate_count": 3,
+      "center_xy_m": [
+        641.4700320218408,
+        1797.9190465983202
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          628.9579777242278,
+          1801.447289398013
+        ],
+        [
+          653.9820863194536,
+          1794.390803798627
+        ]
+      ],
+      "bank_z_m": [
+        1.7110677041955875,
+        1.6658004747534456
+      ],
+      "span_m": 26.0,
+      "yaw_deg": -15.747787989614688,
+      "water_z_m": 1.5075922947304023,
+      "distance_from_selected_reach_m": 43.30638218980982
+    },
+    {
+      "gate_id": "human_north_bridge",
+      "type": "bridge",
+      "candidate_count": 69,
+      "center_xy_m": [
+        743.9215686274509,
+        1559.3872549019607
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          745.5848821851872,
+          1565.6708357288976
+        ],
+        [
+          742.2582550697147,
+          1553.1036740750237
+        ]
+      ],
+      "bank_z_m": [
+        7.214291389436632,
+        7.151885259919054
+      ],
+      "span_m": 13.0,
+      "yaw_deg": -104.82658862146512,
+      "water_z_m": 6.751409792432574,
+      "distance_from_selected_reach_m": 38.16663644650078
+    },
+    {
+      "gate_id": "orc_broken_bridge",
+      "type": "bridge",
+      "candidate_count": 24,
+      "center_xy_m": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          3059.9506627679257,
+          1821.9899254105178
+        ],
+        [
+          3046.005219585015,
+          1820.7551726286977
+        ]
+      ],
+      "bank_z_m": [
+        36.00805468701956,
+        35.9906900593716
+      ],
+      "span_m": 14.0,
+      "yaw_deg": -174.9401311537353,
+      "water_z_m": 35.2883216194287,
+      "distance_from_selected_reach_m": 32.9421817401758
+    }
+  ]
+}

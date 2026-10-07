@@ -1,0 +1,582 @@
+{
+  "utc": "2026-10-07T20:46:32.551061+00:00",
+  "head": "07a3095d5b82cc9bc07c9eb5130cd7af8d714b25",
+  "canonical_ids": 36,
+  "canonical_edges": 51,
+  "river_profiles_downhill": true,
+  "harbor_distance_to_boundary_connected_ocean_m": 43.40381102191904,
+  "pre_channel_grade_max_deg": 21.976066035188175,
+  "post_channel_surface_routes": [
+    {
+      "a": "human_capital",
+      "b": "crossroads",
+      "max_surface_grade_deg": 17.009815493898717,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "max_surface_grade_deg": 21.918986826147428,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "max_surface_grade_deg": 25.23863431797528,
+      "over22_samples": 2,
+      "worst_samples": [
+        {
+          "xy_m": [
+            775.4901960784314,
+            2191.176470588235
+          ],
+          "grade_deg": 25.23863431797528,
+          "near_bridge": false
+        },
+        {
+          "xy_m": [
+            775.4901960784314,
+            2186.2745098039213
+          ],
+          "grade_deg": 22.603625627323332,
+          "near_bridge": false
+        }
+      ]
+    },
+    {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "max_surface_grade_deg": 21.19719116368056,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "max_surface_grade_deg": 21.4443620322149,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "max_surface_grade_deg": 21.720995694807833,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "max_surface_grade_deg": 21.720995694807833,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "forest_edge",
+      "b": "north_pass",
+      "max_surface_grade_deg": 21.492040033341716,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "max_surface_grade_deg": 21.892572780789944,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "max_surface_grade_deg": 21.892572780789944,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_forest_track",
+      "max_surface_grade_deg": 21.603448082006032,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "max_surface_grade_deg": 21.690068792254642,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "viking_snow_pass",
+      "max_surface_grade_deg": 21.59662333663995,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "viking_fjord_ridge",
+      "b": "viking_snow_pass",
+      "max_surface_grade_deg": 21.90867614021382,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "northwest_march",
+      "max_surface_grade_deg": 21.92658365739634,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "northwest_march",
+      "b": "human_capital",
+      "max_surface_grade_deg": 20.37386061079226,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "max_surface_grade_deg": 20.849804386283193,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "ancient_shrine",
+      "max_surface_grade_deg": 20.639807221330386,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "max_surface_grade_deg": 21.76836378812541,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "max_surface_grade_deg": 21.457746140066874,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "max_surface_grade_deg": 21.823537976814713,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "max_surface_grade_deg": 21.42770623273068,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "dwarf_hold",
+      "max_surface_grade_deg": 21.58767593577416,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "max_surface_grade_deg": 21.805078674309225,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "max_surface_grade_deg": 21.9906745703521,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "max_surface_grade_deg": 21.89781500095351,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "max_surface_grade_deg": 21.892572780789944,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "max_surface_grade_deg": 21.942701332612327,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_war_camp",
+      "max_surface_grade_deg": 21.942701332612327,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "max_surface_grade_deg": 21.892572780789944,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "max_surface_grade_deg": 21.402586826112632,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "max_surface_grade_deg": 21.502405865903803,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "max_surface_grade_deg": 16.195336013539936,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "coastal_ruins",
+      "b": "nature_shrine",
+      "max_surface_grade_deg": 21.431729614304952,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_forest_clearing",
+      "max_surface_grade_deg": 21.468412878132092,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "max_surface_grade_deg": 20.86558330935374,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "max_surface_grade_deg": 21.97606603519203,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_river_woodland",
+      "max_surface_grade_deg": 21.19719116368329,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_river_woodland",
+      "b": "nature_treehold",
+      "max_surface_grade_deg": 21.55229907308369,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "max_surface_grade_deg": 21.894739104437885,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "max_surface_grade_deg": 21.757397459730093,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "max_surface_grade_deg": 20.865583309354026,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "max_surface_grade_deg": 19.64360241536519,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "max_surface_grade_deg": 21.857256176230205,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "max_surface_grade_deg": 21.82611035274929,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "max_surface_grade_deg": 21.908676140222077,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "max_surface_grade_deg": 21.848067336304318,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ash_plain",
+      "max_surface_grade_deg": 21.724191501411585,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "max_surface_grade_deg": 20.67332039605159,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "max_surface_grade_deg": 20.56469943622355,
+      "over22_samples": 0,
+      "worst_samples": []
+    },
+    {
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "max_surface_grade_deg": 19.56463237264385,
+      "over22_samples": 0,
+      "worst_samples": []
+    }
+  ],
+  "post_channel_routes_over22": 1,
+  "preserved_files": 253,
+  "all_preserved": true,
+  "inherited_tracked": [
+    {
+      "path": ".gitignore",
+      "unchanged": false,
+      "intentional_change": true
+    },
+    {
+      "path": "Config/DefaultEngine.ini",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Config/DefaultGame.ini",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Data/CampaignWorldTerrain/presentation.json",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Soul.uproject",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignCamera.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignTerrain.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignVisualQualification.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Private/Tests/test_weekend_campaign_view.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignCamera.h",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignTerrain.h",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/README.md",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/author_world.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/bake_surface.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/bake_world.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/dress_world.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/import_masks.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/qualify_world.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/test_world.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/package_soul_weekend.ps1",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/qualify_soul_vertical.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/test_package_soul_weekend.py",
+      "unchanged": true,
+      "intentional_change": false
+    },
+    {
+      "path": "Tools/test_qualify_soul_vertical.py",
+      "unchanged": true,
+      "intentional_change": false
+    }
+  ],
+  "syntax_checked": [
+    "analyze_crossings.py",
+    "analyze_lakes.py",
+    "apply_final_control.py",
+    "capture_candidate.py",
+    "compose_plan.py",
+    "dress_candidate.py",
+    "fit_bridge_approaches.py",
+    "fit_corridors.py",
+    "fit_geography.py",
+    "measure_bank_spans.py",
+    "place_bridges.py",
+    "place_forest_masses.py",
+    "place_scale_tests.py",
+    "place_water.py",
+    "prepare_candidate.py",
+    "prepare_forest_masses.py",
+    "prepare_review_material.py",
+    "prepare_water_meshes.py",
+    "qualify_native_candidate.py",
+    "refine_lake_edges.py",
+    "refine_review_surface.py",
+    "repair_local_route_grades.py",
+    "seat_bridge_decks.py",
+    "validate_composition.py"
+  ],
+  "status": "post-channel grade includes bridge deck edges; exceptions are blockers, not waived passes"
+}

@@ -1,0 +1,118 @@
+{
+  "status": "isolated composition evidence; production acceptance not met",
+  "source_tests_passed": 21,
+  "native_existing_binary_tests_passed": 2,
+  "editor_build": "not run; no new C++ changes",
+  "game_build": "not run; inherited source drafts preserved",
+  "fresh_map_reload": true,
+  "native_height_probes": {
+    "samples": 835,
+    "misses": [],
+    "max_delta_cm": 0.45589411232549537,
+    "mean_delta_cm": 0.1478420434659453,
+    "status": "native Landscape versus deterministic quantized-source interpolation; no runtime navigation claim"
+  },
+  "post_channel_routes_with_grade_exception": 1,
+  "performance": {
+    "benchmark_run": false,
+    "reason": "visual gates remain open",
+    "editor_fps_cap": 12,
+    "screenshot_dimensions": [
+      1920,
+      1080
+    ],
+    "peak_gpu_c": 62.0,
+    "peak_total_gpu_used_mib": 6614.0,
+    "peak_editor_private_mib": 7672.75,
+    "minimum_available_physical_mib": 848.19,
+    "thermal_cutoff_c": 85,
+    "note": "shared desktop VRAM and capped editor telemetry; not mean/P95/P99 or FPS qualification"
+  },
+  "images": [
+    {
+      "name": "whole_labels_minimized",
+      "path": "Local/candidate-r7-review-captures/whole_labels_minimized.png",
+      "sha256": "db490ad83bc4cec51d557f28742b6c3834f5768d91ba885e31c1a1565c14519a",
+      "review": "3.5 km world without labels. Ridge belts, inlet and woodland masses are present. Materials and road presentation remain provisional; square outer bounds are exposed."
+    },
+    {
+      "name": "ordinary_heartland",
+      "path": "Local/candidate-r7-review-captures/ordinary_heartland.png",
+      "sha256": "c19585e1dd3a3e151890214a9146633b4e0f880a5730da9bf6af5d1bd068750a",
+      "review": "Human countryside has room around the unchanged capital core. Some parallel paths and unfinished approaches remain."
+    },
+    {
+      "name": "human_capital_scale",
+      "path": "Local/candidate-r7-review-captures/human_capital_scale.png",
+      "sha256": "b2b54494160f24547ddbf88b351e4085d50e8122fa86f8b268d9f2c7be1369b6",
+      "review": "Unchanged owned Human miniature beside lake/tributary. Full authored city untouched. Strategic island/quay correspondence and gate entry are incomplete."
+    },
+    {
+      "name": "dwarf_mountains",
+      "path": "Local/candidate-r7-review-captures/dwarf_mountains.png",
+      "sha256": "64c696697c23cd557131e23b433b83217ce9192c9747e7fd63a66dcbe8a74753",
+      "review": "Continuous Crownspine relief and small hold reference. Natural bench seating and engineered approaches still need work."
+    },
+    {
+      "name": "northern_coast",
+      "path": "Local/candidate-r7-review-captures/northern_coast.png",
+      "sha256": "52fef39e4f5f41e9fe858b25b7eb5c5353015c1cd33bb57a8ab4445c4df0ebd9",
+      "review": "Ocean-connected inlet and boreal terrain. Actual Viking harbor miniature/dock composition is not yet placed."
+    },
+    {
+      "name": "orc_eastern_terrain",
+      "path": "Local/candidate-r7-review-captures/orc_eastern_terrain.png",
+      "sha256": "915d25648a29b9e21a34e53d6b437c4f7a5265a74ef7a1561405871b88cf9259",
+      "review": "Owned Mesa forms provide distinct gullies and plateaus. Saturated orange iteration rejected. Source transition and surface treatment remain visible."
+    },
+    {
+      "name": "nature_terrain",
+      "path": "Local/candidate-r7-review-captures/nature_terrain.png",
+      "sha256": "64692f851081d0d965cc873bf480c6276b2201484cc1da1d7ebe17a1733e41e0",
+      "review": "Coherent woodland masses, clearings and a downhill river valley. Foliage family diversity and bank art remain provisional."
+    },
+    {
+      "name": "dark_southern_terrain",
+      "path": "Local/candidate-r7-review-captures/dark_southern_terrain.png",
+      "sha256": "e817d756ba66af88b07a4dff83daefd0812ea8d27f4da0f2d4a0632d19010de1",
+      "review": "Southern mountain forms retained. Repeated rock texture rejected in favor of tinted native surface. No fortress horizon yet."
+    },
+    {
+      "name": "pass_study",
+      "path": "Local/candidate-r7-review-captures/pass_study.png",
+      "sha256": "ec524837210993204176f4931c6dfd809d1de6eca4930d47e8ec322a31309591",
+      "review": "Relief constrains the route. Road mask has angular bends; this is not finished pass construction."
+    },
+    {
+      "name": "ford_candidate",
+      "path": "Local/candidate-r7-review-captures/ford_candidate.png",
+      "sha256": "b0362a09a28acab244c5ee8ac047ba2d641c54f595f35836f336f3a5071dc98b",
+      "review": "River Ford is a real channel crossing. The crossroads approach still has a short 25.24 degree grade exception and is not accepted."
+    },
+    {
+      "name": "minor_settlement_scale",
+      "path": "Local/candidate-r7-review-captures/minor_settlement_scale.png",
+      "sha256": "e9a05762524af498bd6720f5057fd678a0b66206141c8f291d8b484c329b97dd",
+      "review": "Minor buildings remain small relative to terrain. Some bases intersect the slope; scale proof, not finished village placement."
+    },
+    {
+      "name": "close_ground_road",
+      "path": "Local/candidate-r7-review-captures/close_ground_road.png",
+      "sha256": "f7d14f0fbc3f1df583aaea89a6eba486648081696133c280760bf8e51bc3e5b8",
+      "review": "Close material and minor-building inspection. Surface repetition, road edges and seating remain provisional."
+    },
+    {
+      "name": "major_river",
+      "path": "Local/candidate-r7-review-captures/major_river.png",
+      "sha256": "b13ac78cb8afca0ec3e8a2ab0908605f4cf1f96b0110377b297436173a9ce66f",
+      "review": "Human tributary and lake context. All four centerline profiles descend; bank detail and source transition are unfinished."
+    },
+    {
+      "name": "bridge_bank_inspection",
+      "path": "Local/candidate-r7-review-captures/bridge_bank_inspection.png",
+      "sha256": "35395742f77aa4c2bda831fe60addf74a8c99504e660f8921c618ce0524cce05",
+      "review": "Road bends into the shortest practical measured bank span. Native owned stone bridge seated on banks; lightweight wooden options remain pending source inspection."
+    }
+  ],
+  "all_253_preservation_hashes_match": true
+}

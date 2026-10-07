@@ -1,0 +1,40 @@
+{
+  "lakes": [
+    {
+      "id": 119,
+      "area_m2": 13140.138408304496,
+      "bounds_m": [
+        507.84313725490193,
+        1599.0196078431372,
+        665.6862745098039,
+        1736.2745098039215
+      ],
+      "center_m": [
+        584.9321807576076,
+        1667.6224611708483
+      ],
+      "surface_m": 1.2070121017156863,
+      "max_depth_m": 1.719037224264706,
+      "role": "Human capital lake"
+    },
+    {
+      "id": 162,
+      "area_m2": 4427.14340638216,
+      "bounds_m": [
+        864.7058823529411,
+        2086.2745098039213,
+        933.3333333333333,
+        2175.4901960784314
+      ],
+      "center_m": [
+        896.1722987067167,
+        2136.8690029203167
+      ],
+      "surface_m": 0.7043696384803921,
+      "max_depth_m": 0.9148092830882353,
+      "role": "Heart River lower lake"
+    }
+  ],
+  "global_ocean_unchanged_m": 0,
+  "source": "native closed basins at measured ocean-directed spill elevation; no basin flattening"
+}

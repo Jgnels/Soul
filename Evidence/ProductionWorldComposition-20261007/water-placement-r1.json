@@ -1,0 +1,42 @@
+{
+  "surfaces": [
+    {
+      "id": "heart_river",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_heart_river_r1",
+      "vertices": 1132,
+      "triangles": 1130
+    },
+    {
+      "id": "heartland_tributary",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_heartland_tributary_r1",
+      "vertices": 576,
+      "triangles": 574
+    },
+    {
+      "id": "heartland_northern_tributary",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r1",
+      "vertices": 346,
+      "triangles": 344
+    },
+    {
+      "id": "eastern_run",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_eastern_run_r1",
+      "vertices": 594,
+      "triangles": 592
+    },
+    {
+      "id": "native_lake_0",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_native_lake_0_r1",
+      "vertices": 1785,
+      "triangles": 3357
+    },
+    {
+      "id": "native_lake_1",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_native_lake_1_r1",
+      "vertices": 5124,
+      "triangles": 9860
+    }
+  ],
+  "ocean_datum_m": 0,
+  "status": "editor composition; visual review required"
+}

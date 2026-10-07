@@ -1,0 +1,38 @@
+{
+  "map": "/Game/SoulCampaignComposition/L_Composition_3500_r2",
+  "heightmap": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Data\\CampaignCompositionLocal\\Composition_3500_r2.png",
+  "sha256": "bd84f1986c9fd71b51725647d8ae89644a0681c5d65f2d2aebcf6ab31383ba6b",
+  "dimensions_m": [
+    3500,
+    3500
+  ],
+  "resolution": [
+    2041,
+    2041
+  ],
+  "components": [
+    8,
+    8
+  ],
+  "section_size": 255,
+  "subsections": 1,
+  "location_cm": [
+    -175000,
+    -175000,
+    0
+  ],
+  "scale": [
+    171.5686274509804,
+    171.5686274509804,
+    100
+  ],
+  "water_z_m": 0,
+  "quantization_max_error_m": 0.003906234363597605,
+  "status": "isolated opt-in candidate; not approved foundation",
+  "control_channels": {
+    "R": "merged road footprint",
+    "G": "actual Mesa donor influence",
+    "B": "southern owned surface selection",
+    "A": "northern high-elevation owned snow selection"
+  }
+}

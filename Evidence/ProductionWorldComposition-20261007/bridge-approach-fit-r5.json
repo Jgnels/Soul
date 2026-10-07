@@ -1,0 +1,41 @@
+{
+  "repairs": [
+    {
+      "a": "northwest_march",
+      "b": "human_capital",
+      "gate": "human_north_bridge",
+      "max_approach_grade_deg": 9.412031545445384,
+      "accepted": true
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "gate": "orc_broken_bridge",
+      "max_approach_grade_deg": 33.33858312332129,
+      "accepted": false
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "gate": "orc_broken_bridge",
+      "max_approach_grade_deg": 33.33858312332129,
+      "accepted": false
+    },
+    {
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "gate": "human_west_bridge",
+      "max_approach_grade_deg": 4.017092746085835,
+      "accepted": true
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "gate": "southern_crossing",
+      "max_approach_grade_deg": 19.004620190219473,
+      "accepted": true
+    }
+  ],
+  "accepted": 3,
+  "rejected": 2
+}

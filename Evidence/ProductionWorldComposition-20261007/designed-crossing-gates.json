@@ -1,0 +1,155 @@
+{
+  "gates": [
+    {
+      "id": "river_ford",
+      "type": "ford",
+      "river_id": "heart_river",
+      "center_xy_m": [
+        775.666972773728,
+        2196.255208067845
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          764.5300409700397,
+          2185.118276264157
+        ],
+        [
+          786.8039045774163,
+          2207.3921398715333
+        ]
+      ],
+      "crossing_direction_xy": [
+        0.7071067811865561,
+        0.7071067811865389
+      ],
+      "water_z_m": 3.6498544730392157,
+      "half_span_m": 15.75
+    },
+    {
+      "id": "southern_crossing",
+      "type": "bridge",
+      "river_id": "heart_river",
+      "center_xy_m": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          613.4909424207085,
+          2336.881167059238
+        ],
+        [
+          635.5286654224287,
+          2357.2364799995853
+        ]
+      ],
+      "crossing_direction_xy": [
+        0.7345907667240059,
+        0.6785104313448962
+      ],
+      "water_z_m": 8.626014859068627,
+      "half_span_m": 15.0
+    },
+    {
+      "id": "woodland_bridge",
+      "type": "bridge",
+      "river_id": "heart_river",
+      "center_xy_m": [
+        473.52941176470586,
+        2809.6078431372553
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          458.6332617584276,
+          2811.3698632819915
+        ],
+        [
+          488.42556177098413,
+          2807.845822992519
+        ]
+      ],
+      "crossing_direction_xy": [
+        0.9930766670852187,
+        -0.11746800964906927
+      ],
+      "water_z_m": 48.594132965686285,
+      "half_span_m": 15.0
+    },
+    {
+      "id": "human_west_bridge",
+      "type": "bridge",
+      "river_id": "heartland_tributary",
+      "center_xy_m": [
+        641.4700320218408,
+        1797.9190465983202
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          622.2207177178209,
+          1803.3471124440016
+        ],
+        [
+          660.7193463258607,
+          1792.4909807526387
+        ]
+      ],
+      "crossing_direction_xy": [
+        0.9624657152009964,
+        -0.27140329228407367
+      ],
+      "water_z_m": 1.5075922947304023,
+      "half_span_m": 20.0
+    },
+    {
+      "id": "human_north_bridge",
+      "type": "bridge",
+      "river_id": "heartland_northern_tributary",
+      "center_xy_m": [
+        743.9215686274509,
+        1559.3872549019607
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          747.3761429396725,
+          1572.4377689271375
+        ],
+        [
+          740.4669943152294,
+          1546.3367408767838
+        ]
+      ],
+      "crossing_direction_xy": [
+        -0.25589439349788945,
+        -0.9667047426056973
+      ],
+      "water_z_m": 6.751409792432574,
+      "half_span_m": 13.5
+    },
+    {
+      "id": "orc_broken_bridge",
+      "type": "bridge",
+      "river_id": "eastern_run",
+      "center_xy_m": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "bank_endpoints_xy_m": [
+        [
+          3066.9233843593806,
+          1822.607301801428
+        ],
+        [
+          3039.03249799356,
+          1820.1377962377874
+        ]
+      ],
+      "crossing_direction_xy": [
+        -0.9961030844936122,
+        -0.08819662727288208
+      ],
+      "water_z_m": 35.2883216194287,
+      "half_span_m": 14.0
+    }
+  ],
+  "rule": "Only these narrow cross-river windows may interrupt the dry road exclusion. No water-parallel road corridors."
+}

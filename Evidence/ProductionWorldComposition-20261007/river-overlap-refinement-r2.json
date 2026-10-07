@@ -1,0 +1,26 @@
+{
+  "rivers": [
+    {
+      "id": "heart_river",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_heart_river_r2",
+      "triangles": 1044
+    },
+    {
+      "id": "heartland_tributary",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_heartland_tributary_r2",
+      "triangles": 422
+    },
+    {
+      "id": "heartland_northern_tributary",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r2",
+      "triangles": 280
+    },
+    {
+      "id": "eastern_run",
+      "asset": "/Game/SoulCampaignComposition/Water/SM_eastern_run_r2",
+      "triangles": 590
+    }
+  ],
+  "method": "omit translucent river faces over lake/ocean surfaces",
+  "heightfield_changed": false
+}

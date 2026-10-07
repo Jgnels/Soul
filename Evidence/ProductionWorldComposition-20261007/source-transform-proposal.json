@@ -1,0 +1,50 @@
+{
+  "status": "ANALYTICAL ONLY, no Landscape imported",
+  "physical_side_m": 3500.0,
+  "global_water_m": 0,
+  "mountain_rotation_quarters": 1,
+  "mountain_xyz_scale": 0.42892156862745096,
+  "patches": [
+    {
+      "source": "FreshCan Map_CoastalLandscape native collision heights",
+      "role": "western Viking estuary / real ocean connection",
+      "source_center_m": [
+        -751.05,
+        -434.82
+      ],
+      "target_center_m": [
+        230,
+        730
+      ],
+      "xyz_scale": 0.62,
+      "mask": "elliptical smooth perimeter, clipped only at world edge",
+      "area_changed_m2": 676646.4821222606,
+      "water_datum_m": 0
+    },
+    {
+      "source": "LandscapePackTwo/Mesa_01; native RG16 export",
+      "role": "eastern badlands mesas/gullies",
+      "source_crop_pixels": [
+        480,
+        400,
+        1220,
+        1160
+      ],
+      "target_core_m": [
+        2380,
+        1050,
+        3380,
+        2200
+      ],
+      "elevation_mapping_m": [
+        24,
+        118
+      ],
+      "mask": "elliptical perimeter and existing dry-shore attenuation",
+      "area_changed_m2": 1133260.4046520567
+    }
+  ],
+  "unchanged_outside_patches": true,
+  "unchanged_fraction": 0.8523972430918259,
+  "human_lowlands_broad_flattening": false
+}

@@ -1,0 +1,13 @@
+{
+  "map": "/Game/SoulCampaignComposition/L_Composition_3500_r2.L_Composition_3500_r2",
+  "material": "/Game/SoulCampaignComposition/MI_Composition_Review_r4.MI_Composition_Review_r4",
+  "control": "/Game/SoulCampaignComposition/Controls/T_Composition_Control_r5.T_Composition_Control_r5",
+  "routes": "route-local-repair-study-r7.json",
+  "bridge_receipt": "bridge-placement-r2.json",
+  "water_receipts": [
+    "lake-shore-refinement-r2.json",
+    "river-overlap-refinement-r2.json"
+  ],
+  "runtime_bound": false,
+  "production_promoted": false
+}

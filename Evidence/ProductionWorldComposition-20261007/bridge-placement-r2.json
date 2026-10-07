@@ -1,0 +1,101 @@
+{
+  "bridges": [
+    {
+      "id": "southern_crossing",
+      "mesh": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01.SM_arch_bridge_01",
+      "bank_z_m": [
+        9.804889551128435,
+        9.940214239892667
+      ],
+      "deck_z_m": 9.88255189551055,
+      "span_m": 16.0,
+      "yaw": 42.72735226747397,
+      "scale": [
+        0.8080808080808081,
+        0.8,
+        0.7
+      ],
+      "status": "endpoints seated 1 cm above measured banks; native bridge deck shape still visual-only",
+      "pitch_deg": 0.4845842910589917,
+      "deck_gradient": 0.008457793047764506
+    },
+    {
+      "id": "woodland_bridge",
+      "mesh": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01.SM_arch_bridge_01",
+      "bank_z_m": [
+        49.51247532052861,
+        49.64568501575181
+      ],
+      "deck_z_m": 49.58908016814021,
+      "span_m": 16.0,
+      "yaw": -6.745996638370126,
+      "scale": [
+        0.8080808080808081,
+        0.8,
+        0.7
+      ],
+      "status": "endpoints seated 1 cm above measured banks; native bridge deck shape still visual-only",
+      "pitch_deg": 0.47701106165662177,
+      "deck_gradient": 0.008325605951450044
+    },
+    {
+      "id": "human_west_bridge",
+      "mesh": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01.SM_arch_bridge_01",
+      "bank_z_m": [
+        1.7117702074866974,
+        1.663965489264083
+      ],
+      "deck_z_m": 1.6978678483753902,
+      "span_m": 26.0,
+      "yaw": -15.747787989614688,
+      "scale": [
+        1.3131313131313131,
+        0.8,
+        0.7
+      ],
+      "status": "endpoints seated 1 cm above measured banks; native bridge deck shape still visual-only",
+      "pitch_deg": -0.10534636571035824,
+      "deck_gradient": -0.0018386430085620942
+    },
+    {
+      "id": "human_north_bridge",
+      "mesh": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01.SM_arch_bridge_01",
+      "bank_z_m": [
+        7.215616506018123,
+        7.15172014731259
+      ],
+      "deck_z_m": 7.193668326665357,
+      "span_m": 13.0,
+      "yaw": -104.82658862146512,
+      "scale": [
+        0.6565656565656566,
+        0.8,
+        0.7
+      ],
+      "status": "endpoints seated 1 cm above measured banks; native bridge deck shape still visual-only",
+      "pitch_deg": -0.2816124768811307,
+      "deck_gradient": -0.004915104515810265
+    },
+    {
+      "id": "orc_broken_bridge",
+      "mesh": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01.SM_arch_bridge_01",
+      "bank_z_m": [
+        36.005959932276745,
+        35.98760651690347
+      ],
+      "deck_z_m": 36.0067832245901,
+      "span_m": 14.0,
+      "yaw": -174.9401311537353,
+      "scale": [
+        0.7070707070707071,
+        0.8,
+        0.7
+      ],
+      "status": "endpoints seated 1 cm above measured banks; native bridge deck shape still visual-only",
+      "pitch_deg": -0.07511233129461399,
+      "deck_gradient": -0.0013109582409483217
+    }
+  ],
+  "donor_modified": false,
+  "new_owned_wood_pack": "not yet locally inspected; no synthetic substitute"
+}
