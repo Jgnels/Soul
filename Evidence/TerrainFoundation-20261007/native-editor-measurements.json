@@ -1,0 +1,71 @@
+{
+  "source_map": "/Game/LandscapePackOne/Maps/Mountain_05",
+  "landscapes": [
+    {
+      "name": "Landscape_0",
+      "location": [
+        -408000.0,
+        -408000.0,
+        100.0
+      ],
+      "scale": [
+        100.0,
+        100.0,
+        300.0
+      ],
+      "bounds_center": [
+        0.0,
+        0.0,
+        -49234.765625
+      ],
+      "bounds_extent": [
+        408000.0,
+        408000.0,
+        21390.234375
+      ],
+      "material": "/Game/LandscapePackOne/Materials/Mountains/News/Mountains/MI_Mountains_05.MI_Mountains_05",
+      "components": 1024
+    }
+  ],
+  "miniature_meshes": {
+    "human": {
+      "asset": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r7",
+      "scale": 0.24,
+      "minimum": [
+        -23702.21484375,
+        -2075.492431640625,
+        -1461.8568115234375
+      ],
+      "maximum": [
+        5338.18701171875,
+        19356.177734375,
+        7653.509765625
+      ],
+      "dimensions_m": [
+        69.696964453125,
+        51.4360083984375,
+        21.876879785156248
+      ]
+    },
+    "dwarf": {
+      "asset": "/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Base_r9",
+      "scale": 0.5,
+      "minimum": [
+        -3054.558349609375,
+        1789.2352294921875,
+        -135.0393829345703
+      ],
+      "maximum": [
+        3048.96826171875,
+        9527.982421875,
+        3121.360107421875
+      ],
+      "dimensions_m": [
+        30.517633056640626,
+        38.693735961914065,
+        16.281997451782228
+      ]
+    }
+  },
+  "donor_saved": false
+}

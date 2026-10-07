@@ -1,0 +1,93 @@
+{
+  "map": "/Game/SoulCampaignFoundation/L_Mountain05_3500_r1.L_Mountain05_3500_r1",
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "exactly 36 canonical TargetPoints",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "no duplicate or missing region IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "anchor XY matches dense proposal",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "native sphere-sweep landscape alignment",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "51 saved active road actors",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "rejected roads remain inactive after reload",
+      "pass": true,
+      "detail": 51
+    },
+    {
+      "name": "saved woodland HISM instances",
+      "pass": true,
+      "detail": [
+        {
+          "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_01.SM_pine_tree_01",
+          "count": 3984,
+          "lod": 3,
+          "cull_start": 1000000,
+          "cull_end": 1200000
+        },
+        {
+          "mesh": "/Game/Forest_village/Meshes/Vegetation/SM_pine_tree_03.SM_pine_tree_03",
+          "count": 3864,
+          "lod": 3,
+          "cull_start": 1000000,
+          "cull_end": 1200000
+        }
+      ]
+    },
+    {
+      "name": "woodland review LOD/culling persisted",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "one 64-component Landscape",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "owned native-surface material",
+      "pass": true,
+      "detail": "/Game/SoulCampaignFoundation/MI_Mountain05_Auto_r1.MI_Mountain05_Auto_r1"
+    },
+    {
+      "name": "saved Foundation_Scale_human_capital",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "saved Foundation_Scale_human_tavern",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "saved Foundation_Scale_dwarf_hold",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "saved Foundation_Scale_Army",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "scope": "saved editor content only; not campaign travel, gameplay, save/load or performance qualification",
+  "mutated_assets": false
+}

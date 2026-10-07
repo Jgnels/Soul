@@ -1,0 +1,16 @@
+{
+  "status": "NOT_RECOVERED_BOUNDED_ATTEMPT_STOPPED",
+  "source_map": "/Game/LandscapePackOne/Maps/Mountain_05",
+  "read_only_api_identified": "Landscape.render_weightmaps(world_transform, extents, layer_names, render_target)",
+  "native_layers": ["Ground_01", "Erosion", "Gravel_01", "Slope"],
+  "source_only_load_seconds": 93.031,
+  "partial_captures": ["Local/native-source-review-r2/native_whole.png", "Local/native-source-review-r2/native_human_basin.png"],
+  "capture_acceptance": "Incomplete: texture builds were still running; do not use these as final native material-quality evidence.",
+  "source_dependency_limitation": "Worker does not mount /Game/WaterPlane/Translucent/Blueprint/BP_TranslucentWater or M_TranslucentWater_Inst. The native source package remained unchanged, but these dependencies were absent in this worker load. Do not call the resulting screenshots a complete authored-environment render.",
+  "first_export_error": "TextureRenderTarget2D force_linear_gamma property is not exposed; no weight rendering/export occurred.",
+  "retry_result": "Editor had reached the unchanged 12000 MiB private-commit guard; no weight export file or success receipt exists.",
+  "guard_peak_private_mib": 12171.0,
+  "source_saved": false,
+  "height_or_material_assets_changed": false,
+  "next_action": "Do not repeat this source load during the current run. Retain the automatic-surface candidate as provisional; recover native paint in a separately bounded content-export task if Mountain05 is selected."
+}

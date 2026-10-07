@@ -52,3 +52,8 @@ Evidence/CampaignTerrainProduction-20260929/runs/0[1-8]-*/*.png
 /Evidence/CampaignWorldTerrain-20261005/Local/
 /Evidence/CampaignWorldTerrain-20261005/*-runtime/
 /Evidence/CampaignWorldTerrain-20261005/editor-session/
+
+# Local owned-source bounded terrain foundation candidate.
+/Content/SoulCampaignFoundation/
+/Data/CampaignFoundationLocal/
+/Evidence/TerrainFoundation-20261007/Local/

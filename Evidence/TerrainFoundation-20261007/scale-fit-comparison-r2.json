@@ -1,0 +1,88 @@
+[
+  {
+    "side_m": 3500,
+    "area_km2": 12.25,
+    "land_fraction": null,
+    "nearest_region_min_m": 126.5427670608828,
+    "nearest_region_median_m": 374.8843215146416,
+    "capital_tests": {
+      "viking_harbour": {
+        "xy_m": [
+          260.78431372549016,
+          480.3921568627451
+        ],
+        "height_m": 3.4018843173980713,
+        "nearest_region_m": 528.0301507125466,
+        "footprint_radial_relief_m": 3.250517010688784
+      },
+      "dwarf_hold": {
+        "xy_m": [
+          3307.8431372549016,
+          796.078431372549
+        ],
+        "height_m": 57.385684967041016,
+        "nearest_region_m": 731.7115337006499,
+        "footprint_radial_relief_m": 3.4738685939243226
+      },
+      "human_capital": {
+        "xy_m": [
+          535.2941176470588,
+          1578.4313725490194
+        ],
+        "height_m": 3.8140509128570557,
+        "nearest_region_m": 409.47073424013365,
+        "footprint_radial_relief_m": 0.8467898638589002
+      }
+    },
+    "road_length_km": 37.26009900202645,
+    "detour_p50_p95_max": [
+      1.1426074816771412,
+      2.5135153757023065,
+      3.7995620968213832
+    ],
+    "coarse_routes_found": 51
+  },
+  {
+    "side_m": 4000,
+    "area_km2": 16.0,
+    "land_fraction": null,
+    "nearest_region_min_m": 122.51372040637857,
+    "nearest_region_median_m": 448.06808981312804,
+    "capital_tests": {
+      "viking_harbour": {
+        "xy_m": [
+          298.0392156862745,
+          564.7058823529411
+        ],
+        "height_m": 3.1066176891326904,
+        "nearest_region_m": 606.1075791799735,
+        "footprint_radial_relief_m": 3.2352939605712887
+      },
+      "dwarf_hold": {
+        "xy_m": [
+          3686.2745098039213,
+          972.5490196078431
+        ],
+        "height_m": 57.30009460449219,
+        "nearest_region_m": 744.0653318043244,
+        "footprint_radial_relief_m": 3.7637863159180682
+      },
+      "human_capital": {
+        "xy_m": [
+          658.8235294117646,
+          1898.0392156862745
+        ],
+        "height_m": 2.0611214637756348,
+        "nearest_region_m": 454.9019607843138,
+        "footprint_radial_relief_m": 0.4848345756530721
+      }
+    },
+    "road_length_km": 42.36336244489298,
+    "detour_p50_p95_max": [
+      1.1592953942346673,
+      2.5063801229093414,
+      3.755645809312277
+    ],
+    "coarse_routes_found": 51
+  }
+]

@@ -1,0 +1,451 @@
+{
+  "grid_spacing_m": 6.862745098039215,
+  "method": "priority-flood spill analysis on downsampled original relief; parent-tree accumulation is a drainage possibility, not an authored river",
+  "terrain_modified": false,
+  "scenarios": [
+    {
+      "name": "candidate_lower_datum",
+      "water_z_m": 0,
+      "water_fraction": 0.13658054949478848,
+      "major_water_bodies": [
+        {
+          "id": 13,
+          "area_m2": 545245.0980392157,
+          "touches_boundary": false,
+          "centroid_m": [
+            2863.3948820091223,
+            2666.7636303895315
+          ],
+          "spill_elevation_candidate_m": 1.3812614889705883,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 1.3812614889705883
+        },
+        {
+          "id": 0,
+          "area_m2": 450155.70934256056,
+          "touches_boundary": true,
+          "centroid_m": [
+            1457.3575569587533,
+            449.9291220987244
+          ],
+          "spill_elevation_candidate_m": -0.006031709558823377,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 11,
+          "area_m2": 348190.11918492883,
+          "touches_boundary": false,
+          "centroid_m": [
+            1365.7029834793377,
+            1996.5696220325003
+          ],
+          "spill_elevation_candidate_m": 1.2505744485294117,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 1.2505744485294117
+        },
+        {
+          "id": 3,
+          "area_m2": 147697.03960015377,
+          "touches_boundary": false,
+          "centroid_m": [
+            312.62254901960785,
+            1047.6803221288515
+          ],
+          "spill_elevation_candidate_m": 3.7738396139705883,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 3.7738396139705883
+        },
+        {
+          "id": 1,
+          "area_m2": 69374.27912341406,
+          "touches_boundary": true,
+          "centroid_m": [
+            3077.0349959399914,
+            172.3373667185815
+          ],
+          "spill_elevation_candidate_m": -0.006031709558823377,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 12,
+          "area_m2": 59907.72779700114,
+          "touches_boundary": true,
+          "centroid_m": [
+            111.1095696140091,
+            1884.9889012208655
+          ],
+          "spill_elevation_candidate_m": -0.006031709558823377,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 17,
+          "area_m2": 35181.66089965397,
+          "touches_boundary": false,
+          "centroid_m": [
+            1133.565635089377,
+            2639.556920492427
+          ],
+          "spill_elevation_candidate_m": 1.2505744485294117,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 1.2505744485294117
+        },
+        {
+          "id": 14,
+          "area_m2": 15118.22376009227,
+          "touches_boundary": false,
+          "centroid_m": [
+            2027.3104880581513,
+            2282.878260338403
+          ],
+          "spill_elevation_candidate_m": 1.3812614889705883,
+          "water_elevation_candidate_m": 0,
+          "rise_to_spill_m": 1.3812614889705883
+        }
+      ]
+    },
+    {
+      "name": "original_native_datum",
+      "water_z_m": 2.144607843137255,
+      "water_fraction": 0.18075387913764882,
+      "major_water_bodies": [
+        {
+          "id": 0,
+          "area_m2": 1825160.5151864667,
+          "touches_boundary": true,
+          "centroid_m": [
+            1969.0691372154363,
+            1837.8745883304164
+          ],
+          "spill_elevation_candidate_m": 2.1352251838235294,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 3,
+          "area_m2": 211278.35447904648,
+          "touches_boundary": false,
+          "centroid_m": [
+            320.94118521238187,
+            1058.195212993802
+          ],
+          "spill_elevation_candidate_m": 3.7738396139705883,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 1.6292317708333335
+        },
+        {
+          "id": 1,
+          "area_m2": 85952.51826220684,
+          "touches_boundary": true,
+          "centroid_m": [
+            3080.210582863282,
+            185.01584743486436
+          ],
+          "spill_elevation_candidate_m": 2.1352251838235294,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 9,
+          "area_m2": 70127.83544790464,
+          "touches_boundary": true,
+          "centroid_m": [
+            118.76374458446912,
+            1887.402388759399
+          ],
+          "spill_elevation_candidate_m": 2.1251723345588234,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 6,
+          "area_m2": 11444.63667820069,
+          "touches_boundary": true,
+          "centroid_m": [
+            62.894375857338815,
+            1276.8659727265392
+          ],
+          "spill_elevation_candidate_m": 2.1352251838235294,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 0
+        },
+        {
+          "id": 4,
+          "area_m2": 6782.006920415224,
+          "touches_boundary": false,
+          "centroid_m": [
+            1536.2064270152505,
+            904.595588235294
+          ],
+          "spill_elevation_candidate_m": 2.265912224264706,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 0.12130438112745123
+        },
+        {
+          "id": 11,
+          "area_m2": 3202.614379084967,
+          "touches_boundary": false,
+          "centroid_m": [
+            2486.9377162629758,
+            2890.931372549019
+          ],
+          "spill_elevation_candidate_m": 2.929400275735294,
+          "water_elevation_candidate_m": 2.144607843137255,
+          "rise_to_spill_m": 0.7847924325980391
+        }
+      ]
+    }
+  ],
+  "routes_affected_at_original_water_datum": [
+    {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "submerged_length_m": 160.498985869376,
+      "longest_contiguous_submerged_m": 160.498985869376,
+      "maximum_depth_m": 0.9374023600189985
+    },
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "submerged_length_m": 7.354141656662705,
+      "longest_contiguous_submerged_m": 7.354141656662705,
+      "maximum_depth_m": 0.19999288778007096
+    },
+    {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "submerged_length_m": 253.91503451354268,
+      "longest_contiguous_submerged_m": 253.91503451354268,
+      "maximum_depth_m": 0.9236878969872406
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "submerged_length_m": 443.8369937808074,
+      "longest_contiguous_submerged_m": 263.85295017761007,
+      "maximum_depth_m": 0.9223641516265568
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "submerged_length_m": 387.14847608662745,
+      "longest_contiguous_submerged_m": 198.09265109383557,
+      "maximum_depth_m": 0.9304171907682957
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "submerged_length_m": 45.90993268994573,
+      "longest_contiguous_submerged_m": 26.899889131749077,
+      "maximum_depth_m": 0.8825444240196127
+    },
+    {
+      "a": "northwest_march",
+      "b": "human_capital",
+      "submerged_length_m": 93.03341460268088,
+      "longest_contiguous_submerged_m": 93.03341460268088,
+      "maximum_depth_m": 0.8921705139007026
+    },
+    {
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "submerged_length_m": 280.32891205400665,
+      "longest_contiguous_submerged_m": 194.1081405064966,
+      "maximum_depth_m": 0.935778089101186
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "submerged_length_m": 455.55361408541205,
+      "longest_contiguous_submerged_m": 235.06054237903317,
+      "maximum_depth_m": 0.9304171907682957
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "submerged_length_m": 484.41483227516323,
+      "longest_contiguous_submerged_m": 348.10187990242736,
+      "maximum_depth_m": 0.9287766834335311
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "submerged_length_m": 451.2657063955707,
+      "longest_contiguous_submerged_m": 235.06054237903317,
+      "maximum_depth_m": 0.9304171907682957
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "submerged_length_m": 446.34640725678906,
+      "longest_contiguous_submerged_m": 235.06054237903317,
+      "maximum_depth_m": 0.9304171907682957
+    },
+    {
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "submerged_length_m": 6.369402957599631,
+      "longest_contiguous_submerged_m": 6.369402957599631,
+      "maximum_depth_m": 0.11306404842650464
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "submerged_length_m": 484.41483227516323,
+      "longest_contiguous_submerged_m": 348.10187990242736,
+      "maximum_depth_m": 0.9287766834335311
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "submerged_length_m": 484.41483227516323,
+      "longest_contiguous_submerged_m": 348.10187990242736,
+      "maximum_depth_m": 0.9287766834335311
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "submerged_length_m": 387.14847608662745,
+      "longest_contiguous_submerged_m": 198.09265109383557,
+      "maximum_depth_m": 0.9304171907682957
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "submerged_length_m": 74.53779669783188,
+      "longest_contiguous_submerged_m": 28.246608008933762,
+      "maximum_depth_m": 0.9106438204436231
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "submerged_length_m": 782.7344358292878,
+      "longest_contiguous_submerged_m": 323.05922161960626,
+      "maximum_depth_m": 0.9378556465507837
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "submerged_length_m": 11.593757483908432,
+      "longest_contiguous_submerged_m": 11.593757483908432,
+      "maximum_depth_m": 0.336395914128617
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "submerged_length_m": 9.593510323603526,
+      "longest_contiguous_submerged_m": 9.593510323603526,
+      "maximum_depth_m": 0.22817919742440917
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "submerged_length_m": 972.9231547141408,
+      "longest_contiguous_submerged_m": 313.6812739165621,
+      "maximum_depth_m": 0.9432923560049029
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "submerged_length_m": 725.8143655973594,
+      "longest_contiguous_submerged_m": 263.85295017761007,
+      "maximum_depth_m": 0.9439773662033313
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "submerged_length_m": 325.43327727389345,
+      "longest_contiguous_submerged_m": 202.17458763567063,
+      "maximum_depth_m": 0.8538219975490036
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "submerged_length_m": 74.78156474793808,
+      "longest_contiguous_submerged_m": 68.0605178100089,
+      "maximum_depth_m": 0.4728965689559128
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "submerged_length_m": 13.531248654113739,
+      "longest_contiguous_submerged_m": 10.200377830124552,
+      "maximum_depth_m": 0.3691956543964561
+    },
+    {
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "submerged_length_m": 221.18763260666407,
+      "longest_contiguous_submerged_m": 107.692071378226,
+      "maximum_depth_m": 0.936885741410451
+    },
+    {
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "submerged_length_m": 105.78096435302244,
+      "longest_contiguous_submerged_m": 83.0321802076246,
+      "maximum_depth_m": 0.8383018168026486
+    },
+    {
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "submerged_length_m": 22.889487327130556,
+      "longest_contiguous_submerged_m": 17.84405455164677,
+      "maximum_depth_m": 0.13001685049019596
+    }
+  ],
+  "named_water_sites": [
+    {
+      "id": "viking_harbour",
+      "height_candidate_m": 3.4018841911764706,
+      "height_above_native_water_m": 1.2572763480392157,
+      "upstream_parent_tree_area_m2": 423.8754325259515,
+      "nearest_water_distance_m": 27.45098039215686,
+      "nearest_water_body_id": 3,
+      "nearest_water_connects_to_boundary": false,
+      "note": "name does not establish a physical river/crossing; a low coastal-looking site can face an enclosed lake"
+    },
+    {
+      "id": "river_ford",
+      "height_candidate_m": 2.527286305147059,
+      "height_above_native_water_m": 0.38267846200980404,
+      "upstream_parent_tree_area_m2": 94.19454056132255,
+      "nearest_water_distance_m": 9.705387192756534,
+      "nearest_water_body_id": 0,
+      "nearest_water_connects_to_boundary": true,
+      "note": "name does not establish a physical river/crossing; a low coastal-looking site can face an enclosed lake"
+    },
+    {
+      "id": "orc_broken_bridge",
+      "height_candidate_m": 2.1050666360294117,
+      "height_above_native_water_m": -0.039541207107843146,
+      "upstream_parent_tree_area_m2": 141.29181084198382,
+      "nearest_water_distance_m": 0.0,
+      "nearest_water_body_id": 0,
+      "nearest_water_connects_to_boundary": true,
+      "note": "name does not establish a physical river/crossing; a low coastal-looking site can face an enclosed lake"
+    },
+    {
+      "id": "nature_river_woodland",
+      "height_candidate_m": 35.369944852941174,
+      "height_above_native_water_m": 33.22533700980392,
+      "upstream_parent_tree_area_m2": 847.750865051903,
+      "nearest_water_distance_m": 267.2948914883395,
+      "nearest_water_body_id": 0,
+      "nearest_water_connects_to_boundary": true,
+      "note": "name does not establish a physical river/crossing; a low coastal-looking site can face an enclosed lake"
+    },
+    {
+      "id": "southern_crossing",
+      "height_candidate_m": 2.8087660845588234,
+      "height_above_native_water_m": 0.6641582414215685,
+      "upstream_parent_tree_area_m2": 47.09727028066128,
+      "nearest_water_distance_m": 41.17647058823529,
+      "nearest_water_body_id": 0,
+      "nearest_water_connects_to_boundary": true,
+      "note": "name does not establish a physical river/crossing; a low coastal-looking site can face an enclosed lake"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "unqualified candidate, not production promotion",
+  "source": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\TerrainWork\\mountain05-height.npy",
+  "source_sha256": "495fc0f163dd3f365bb337bc724c0ee8385abcf95ec98d878f45112e31c8042f",
+  "heightmap": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Data\\CampaignFoundationLocal\\Mountain05_3500_rot1_r1.png",
+  "heightmap_sha256": "932c0aac84a7700070fdd9bbc7b02939e8435ba0c73ed931b39e234558b83f79",
+  "physical_size_m": [
+    3500,
+    3500
+  ],
+  "resolution": [
+    2041,
+    2041
+  ],
+  "component_count_per_side": 8,
+  "section_size": 255,
+  "subsections": 1,
+  "rotation_quarters": 1,
+  "scale": [
+    171.5686274509804,
+    171.5686274509804,
+    128.67647058823528
+  ],
+  "location": [
+    -175000,
+    -175000,
+    27446.691176470587
+  ],
+  "water_z_cm": 0,
+  "water_datum_change_native_m": -5,
+  "water_datum_change_physical_m": -2.144607843137255,
+  "height_samples_changed": false,
+  "transform": "rotate full native domain and uniformly compress XYZ; no flattening, stamps or smoothing",
+  "material_note": "owned duplicate of native Mountain05 material; automatic Slope branch, original authored paint weights unavailable"
+}

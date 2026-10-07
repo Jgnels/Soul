@@ -1,0 +1,17 @@
+{
+  "scope": "bounded opt-in terrain/source study, not a promoted campaign world",
+  "foundation_tests": {"passed": 8, "receipt": "foundation-tests.log"},
+  "reference_campaign_view_source_tests": {"passed": 18, "receipt": "reference-campaign-view-tests.log"},
+  "reference_corridor_geometry_tests": {"passed": 10, "receipt": "reference-corridor-geometry-tests.log"},
+  "fresh_editor_content_checks": {"passed": 14, "receipt": "fresh-editor-validation.json"},
+  "native_height_probes": {"count": 300, "maximum_error_cm": 0.16052821680386842},
+  "native_road_strips": {"count": 51, "maximum_centerline_grade_deg_rounded": 20.52, "maximum_shoulder_grade_deg_rounded": 26.11, "water_configuration": "provisional native datum minus 5 m, equivalent to minus 2.1446 m at candidate scale"},
+  "new_cpp_changes": false,
+  "SoulEditor_build_this_run": "NOT_RUN: no native source changes; inherited unqualified R10/expansion source left untouched and uncompiled",
+  "Soul_game_build_this_run": "NOT_RUN: no native source changes or candidate runtime binding",
+  "qualified_binary_reference_head": "d0988be4de5144a70ad28b8c7d20cef5b9a6b2f7",
+  "campaign_input_save_battle_this_candidate": "NOT_IMPLEMENTED_OR_QUALIFIED; retained reference state/bytes preserved",
+  "uncapped_performance": "NOT_MEASURED: visual acceptance failed; no thermal torture run",
+  "native_source_weight_export": "NOT_COMPLETED: bounded source render hit unchanged memory guard",
+  "production_visual_acceptance": "REJECTED: preserve as opt-in source/scale study"
+}

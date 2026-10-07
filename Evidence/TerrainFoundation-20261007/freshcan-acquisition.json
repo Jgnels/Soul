@@ -1,0 +1,15 @@
+{
+  "status": "UNAVAILABLE_BOUNDED_SEARCH",
+  "checked_utc": "2026-10-07T06:44:00Z",
+  "exact_listing": "fe1373c0-969d-4ebf-a8f0-9468fd29d239",
+  "ownership": "confirmed by Jeff",
+  "prior_search": "Evidence/LargeWorldExpansion-20261006/provenance-closeout.json",
+  "this_run": [
+    "AoE Content and FabLibrary names: no matching source family",
+    "AssetLibraries: no matching source family",
+    "rg filenames in D:/Unreal Projects and AssetLibraries: no matching Coastal/California source map (excluded Titan, Saved, Intermediate)",
+    "FabCLI auth status: no persisted session",
+    "Existing Epic launcher: screenshot capture timed out; accessibility exposes only root window, no usable library controls"
+  ],
+  "result": "Proceed with intact Mountain05 as strongest verified source; no FreshCan heightfield measurements fabricated; no login, purchase, download or donor write attempted"
+}

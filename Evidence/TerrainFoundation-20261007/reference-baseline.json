@@ -1,0 +1,23 @@
+{
+  "head": "d0988be4de5144a70ad28b8c7d20cef5b9a6b2f7",
+  "started_utc": "2026-10-07T06:35:19Z",
+  "budget_end_utc": "2026-10-07T14:35:19Z",
+  "files": [
+    {
+      "path": "Content/SoulCampaignMountain/L_evil_waterfront.umap",
+      "sha256": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f"
+    },
+    {
+      "path": "Data/CampaignMesaLocal/MesaHeight.r16",
+      "sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b"
+    },
+    {
+      "path": "Data/CampaignEvilCorridor/presentation.json",
+      "sha256": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf"
+    },
+    {
+      "path": "Data/soul_world_overmap_v1_20260922.json",
+      "sha256": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617"
+    }
+  ]
+}

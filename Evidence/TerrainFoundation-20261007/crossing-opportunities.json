@@ -1,0 +1,377 @@
+{
+  "heightfield_modified": false,
+  "water_candidate_z_m": 2.144607843137255,
+  "dry_bank_clearance_m": 1.2,
+  "dry_components_over_5000m2": 4,
+  "opportunities": [
+    {
+      "banks_xy_m": [
+        [
+          1750.0,
+          2443.1372549019607
+        ],
+        [
+          1818.627450980392,
+          2374.5098039215686
+        ]
+      ],
+      "center_xy_m": [
+        1784.313725490196,
+        2408.823529411765
+      ],
+      "dry_components": [
+        0,
+        4
+      ],
+      "span_m": 97.05387192756518,
+      "deck_grade_deg": 0.017804106265010358,
+      "maximum_deck_height_above_ground_m": 1.9270925935691934,
+      "minimum_deck_above_water_m": 1.7472234987745097,
+      "maximum_water_depth_m": 0.1692394427033177
+    },
+    {
+      "banks_xy_m": [
+        [
+          3486.2745098039213,
+          3136.2745098039213
+        ],
+        [
+          3486.2745098039213,
+          3252.941176470588
+        ]
+      ],
+      "center_xy_m": [
+        3486.2745098039213,
+        3194.6078431372543
+      ],
+      "dry_components": [
+        2,
+        0
+      ],
+      "span_m": 116.66666666666652,
+      "deck_grade_deg": 0.004937021430197527,
+      "maximum_deck_height_above_ground_m": 2.143640854779414,
+      "minimum_deck_above_water_m": 1.8175934436274375,
+      "maximum_water_depth_m": 0.3210209865196305
+    },
+    {
+      "banks_xy_m": [
+        [
+          1146.078431372549,
+          1317.6470588235293
+        ],
+        [
+          1262.7450980392157,
+          1317.6470588235293
+        ]
+      ],
+      "center_xy_m": [
+        1204.4117647058824,
+        1317.6470588235293
+      ],
+      "dry_components": [
+        0,
+        2
+      ],
+      "span_m": 116.66666666666674,
+      "deck_grade_deg": 0.0691182666655029,
+      "maximum_deck_height_above_ground_m": 2.9424292405318275,
+      "minimum_deck_above_water_m": 1.7271178002450993,
+      "maximum_water_depth_m": 1.1353017769607843
+    },
+    {
+      "banks_xy_m": [
+        [
+          1852.941176470588,
+          2381.3725490196075
+        ],
+        [
+          1914.705882352941,
+          2504.9019607843134
+        ]
+      ],
+      "center_xy_m": [
+        1883.8235294117644,
+        2443.1372549019607
+      ],
+      "dry_components": [
+        4,
+        0
+      ],
+      "span_m": 138.11008096322226,
+      "deck_grade_deg": 0.05838675092922253,
+      "maximum_deck_height_above_ground_m": 2.366227208007473,
+      "minimum_deck_above_water_m": 1.7170649509803808,
+      "maximum_water_depth_m": 0.5881478539753984
+    }
+  ],
+  "named_sites": [
+    {
+      "id": "river_ford",
+      "current_xy_m": [
+        1235.2941176470588,
+        1907.8431372549019
+      ],
+      "nearest_opportunities": [
+        {
+          "banks_xy_m": [
+            [
+              1146.078431372549,
+              1317.6470588235293
+            ],
+            [
+              1262.7450980392157,
+              1317.6470588235293
+            ]
+          ],
+          "center_xy_m": [
+            1204.4117647058824,
+            1317.6470588235293
+          ],
+          "dry_components": [
+            0,
+            2
+          ],
+          "span_m": 116.66666666666674,
+          "deck_grade_deg": 0.0691182666655029,
+          "maximum_deck_height_above_ground_m": 2.9424292405318275,
+          "minimum_deck_above_water_m": 1.7271178002450993,
+          "maximum_water_depth_m": 1.1353017769607843,
+          "anchor_distance_m": 591.0034946757543
+        },
+        {
+          "banks_xy_m": [
+            [
+              1750.0,
+              2443.1372549019607
+            ],
+            [
+              1818.627450980392,
+              2374.5098039215686
+            ]
+          ],
+          "center_xy_m": [
+            1784.313725490196,
+            2408.823529411765
+          ],
+          "dry_components": [
+            0,
+            4
+          ],
+          "span_m": 97.05387192756518,
+          "deck_grade_deg": 0.017804106265010358,
+          "maximum_deck_height_above_ground_m": 1.9270925935691934,
+          "minimum_deck_above_water_m": 1.7472234987745097,
+          "maximum_water_depth_m": 0.1692394427033177,
+          "anchor_distance_m": 743.2387793447516
+        },
+        {
+          "banks_xy_m": [
+            [
+              1852.941176470588,
+              2381.3725490196075
+            ],
+            [
+              1914.705882352941,
+              2504.9019607843134
+            ]
+          ],
+          "center_xy_m": [
+            1883.8235294117644,
+            2443.1372549019607
+          ],
+          "dry_components": [
+            4,
+            0
+          ],
+          "span_m": 138.11008096322226,
+          "deck_grade_deg": 0.05838675092922253,
+          "maximum_deck_height_above_ground_m": 2.366227208007473,
+          "minimum_deck_above_water_m": 1.7170649509803808,
+          "maximum_water_depth_m": 0.5881478539753984,
+          "anchor_distance_m": 840.9103342874425
+        }
+      ]
+    },
+    {
+      "id": "southern_crossing",
+      "current_xy_m": [
+        1825.4901960784312,
+        2443.1372549019607
+      ],
+      "nearest_opportunities": [
+        {
+          "banks_xy_m": [
+            [
+              1750.0,
+              2443.1372549019607
+            ],
+            [
+              1818.627450980392,
+              2374.5098039215686
+            ]
+          ],
+          "center_xy_m": [
+            1784.313725490196,
+            2408.823529411765
+          ],
+          "dry_components": [
+            0,
+            4
+          ],
+          "span_m": 97.05387192756518,
+          "deck_grade_deg": 0.017804106265010358,
+          "maximum_deck_height_above_ground_m": 1.9270925935691934,
+          "minimum_deck_above_water_m": 1.7472234987745097,
+          "maximum_water_depth_m": 0.1692394427033177,
+          "anchor_distance_m": 53.59975267779046
+        },
+        {
+          "banks_xy_m": [
+            [
+              1852.941176470588,
+              2381.3725490196075
+            ],
+            [
+              1914.705882352941,
+              2504.9019607843134
+            ]
+          ],
+          "center_xy_m": [
+            1883.8235294117644,
+            2443.1372549019607
+          ],
+          "dry_components": [
+            4,
+            0
+          ],
+          "span_m": 138.11008096322226,
+          "deck_grade_deg": 0.05838675092922253,
+          "maximum_deck_height_above_ground_m": 2.366227208007473,
+          "minimum_deck_above_water_m": 1.7170649509803808,
+          "maximum_water_depth_m": 0.5881478539753984,
+          "anchor_distance_m": 58.33333333333326
+        },
+        {
+          "banks_xy_m": [
+            [
+              1146.078431372549,
+              1317.6470588235293
+            ],
+            [
+              1262.7450980392157,
+              1317.6470588235293
+            ]
+          ],
+          "center_xy_m": [
+            1204.4117647058824,
+            1317.6470588235293
+          ],
+          "dry_components": [
+            0,
+            2
+          ],
+          "span_m": 116.66666666666674,
+          "deck_grade_deg": 0.0691182666655029,
+          "maximum_deck_height_above_ground_m": 2.9424292405318275,
+          "minimum_deck_above_water_m": 1.7271178002450993,
+          "maximum_water_depth_m": 1.1353017769607843,
+          "anchor_distance_m": 1285.4830218189782
+        }
+      ]
+    },
+    {
+      "id": "orc_broken_bridge",
+      "current_xy_m": [
+        2388.235294117647,
+        2635.2941176470586
+      ],
+      "nearest_opportunities": [
+        {
+          "banks_xy_m": [
+            [
+              1852.941176470588,
+              2381.3725490196075
+            ],
+            [
+              1914.705882352941,
+              2504.9019607843134
+            ]
+          ],
+          "center_xy_m": [
+            1883.8235294117644,
+            2443.1372549019607
+          ],
+          "dry_components": [
+            4,
+            0
+          ],
+          "span_m": 138.11008096322226,
+          "deck_grade_deg": 0.05838675092922253,
+          "maximum_deck_height_above_ground_m": 2.366227208007473,
+          "minimum_deck_above_water_m": 1.7170649509803808,
+          "maximum_water_depth_m": 0.5881478539753984,
+          "anchor_distance_m": 539.7735527735134
+        },
+        {
+          "banks_xy_m": [
+            [
+              1750.0,
+              2443.1372549019607
+            ],
+            [
+              1818.627450980392,
+              2374.5098039215686
+            ]
+          ],
+          "center_xy_m": [
+            1784.313725490196,
+            2408.823529411765
+          ],
+          "dry_components": [
+            0,
+            4
+          ],
+          "span_m": 97.05387192756518,
+          "deck_grade_deg": 0.017804106265010358,
+          "maximum_deck_height_above_ground_m": 1.9270925935691934,
+          "minimum_deck_above_water_m": 1.7472234987745097,
+          "maximum_water_depth_m": 0.1692394427033177,
+          "anchor_distance_m": 644.9885180288721
+        },
+        {
+          "banks_xy_m": [
+            [
+              3486.2745098039213,
+              3136.2745098039213
+            ],
+            [
+              3486.2745098039213,
+              3252.941176470588
+            ]
+          ],
+          "center_xy_m": [
+            3486.2745098039213,
+            3194.6078431372543
+          ],
+          "dry_components": [
+            2,
+            0
+          ],
+          "span_m": 116.66666666666652,
+          "deck_grade_deg": 0.004937021430197527,
+          "maximum_deck_height_above_ground_m": 2.143640854779414,
+          "minimum_deck_above_water_m": 1.8175934436274375,
+          "maximum_water_depth_m": 0.3210209865196305,
+          "anchor_distance_m": 1232.2832315286332
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Shoreline component test ignores mountain-road access.",
+    "Bridge decks are analytical straight profiles, not licensed bridge assets or construction plans.",
+    "A bridge over a sea inlet does not satisfy the Heart River/Ford design.",
+    "No canonical connection is added or removed; no world/asset is modified."
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "source_window_m": 6120,
+  "physical_side_m": 3500,
+  "all_analysis_only": true,
+  "results": [
+    {
+      "window": "northwest",
+      "rotation": 0,
+      "dry_paths": 45,
+      "human_gentle_dry_fraction": 0.6372133336456699,
+      "dwarf_height_m": 3.0669519901275635,
+      "viking_height_m": 68.34193420410156
+    },
+    {
+      "window": "northwest",
+      "rotation": 1,
+      "dry_paths": 43,
+      "human_gentle_dry_fraction": 0.8189229075405843,
+      "dwarf_height_m": 187.17347717285156,
+      "viking_height_m": 2.7482268810272217
+    },
+    {
+      "window": "northwest",
+      "rotation": 2,
+      "dry_paths": 44,
+      "human_gentle_dry_fraction": 0.9708824287287123,
+      "dwarf_height_m": 60.103389739990234,
+      "viking_height_m": 36.6735725402832
+    },
+    {
+      "window": "northwest",
+      "rotation": 3,
+      "dry_paths": 43,
+      "human_gentle_dry_fraction": 0.7937876267891025,
+      "dwarf_height_m": 112.98697662353516,
+      "viking_height_m": 4.679996967315674
+    },
+    {
+      "window": "northeast",
+      "rotation": 0,
+      "dry_paths": 43,
+      "human_gentle_dry_fraction": 0.7934596734521774,
+      "dwarf_height_m": 5.0007781982421875,
+      "viking_height_m": 13.798173904418945
+    },
+    {
+      "window": "northeast",
+      "rotation": 1,
+      "dry_paths": 41,
+      "human_gentle_dry_fraction": 0.5980931855981635,
+      "dwarf_height_m": 188.9369659423828,
+      "viking_height_m": 5.0007781982421875
+    },
+    {
+      "window": "northeast",
+      "rotation": 2,
+      "dry_paths": 42,
+      "human_gentle_dry_fraction": 0.4184450326782075,
+      "dwarf_height_m": 2.069126844406128,
+      "viking_height_m": 6.02175235748291
+    },
+    {
+      "window": "northeast",
+      "rotation": 3,
+      "dry_paths": 42,
+      "human_gentle_dry_fraction": 0.09840942631591276,
+      "dwarf_height_m": 60.37165451049805,
+      "viking_height_m": 4.0932536125183105
+    },
+    {
+      "window": "southwest",
+      "rotation": 0,
+      "dry_paths": 40,
+      "human_gentle_dry_fraction": 0.13425004099416712,
+      "dwarf_height_m": 7.203225135803223,
+      "viking_height_m": 23.522008895874023
+    },
+    {
+      "window": "southwest",
+      "rotation": 1,
+      "dry_paths": 41,
+      "human_gentle_dry_fraction": 0.8228105906313645,
+      "dwarf_height_m": 83.06526947021484,
+      "viking_height_m": 2.57161808013916
+    },
+    {
+      "window": "southwest",
+      "rotation": 2,
+      "dry_paths": 40,
+      "human_gentle_dry_fraction": 0.0923422895827965,
+      "dwarf_height_m": 3.542698383331299,
+      "viking_height_m": 52.06821823120117
+    },
+    {
+      "window": "southwest",
+      "rotation": 3,
+      "dry_paths": 42,
+      "human_gentle_dry_fraction": 0.23340907493733748,
+      "dwarf_height_m": 22.236188888549805,
+      "viking_height_m": 2.1185035705566406
+    },
+    {
+      "window": "southeast",
+      "rotation": 0,
+      "dry_paths": 42,
+      "human_gentle_dry_fraction": 0.5186113518705053,
+      "dwarf_height_m": 5.420588493347168,
+      "viking_height_m": 10.353860855102539
+    },
+    {
+      "window": "southeast",
+      "rotation": 1,
+      "dry_paths": 43,
+      "human_gentle_dry_fraction": 0.6304902902387032,
+      "dwarf_height_m": 21.021900177001953,
+      "viking_height_m": 3.2497987747192383
+    },
+    {
+      "window": "southeast",
+      "rotation": 2,
+      "dry_paths": 40,
+      "human_gentle_dry_fraction": 0.0617489282953454,
+      "dwarf_height_m": 62.913482666015625,
+      "viking_height_m": 18.75998878479004
+    },
+    {
+      "window": "southeast",
+      "rotation": 3,
+      "dry_paths": 40,
+      "human_gentle_dry_fraction": 0.28072805640797394,
+      "dwarf_height_m": 10.353860855102539,
+      "viking_height_m": 11.173518180847168
+    },
+    {
+      "window": "centre",
+      "rotation": 0,
+      "dry_paths": 41,
+      "human_gentle_dry_fraction": 0.04905244910866968,
+      "dwarf_height_m": 30.093441009521484,
+      "viking_height_m": 6.104732990264893
+    },
+    {
+      "window": "centre",
+      "rotation": 1,
+      "dry_paths": 40,
+      "human_gentle_dry_fraction": 0.9626367448288786,
+      "dwarf_height_m": 63.76247024536133,
+      "viking_height_m": 26.114126205444336
+    },
+    {
+      "window": "centre",
+      "rotation": 2,
+      "dry_paths": 39,
+      "human_gentle_dry_fraction": 0.22921595727236524,
+      "dwarf_height_m": 2.774749279022217,
+      "viking_height_m": 51.70969772338867
+    },
+    {
+      "window": "centre",
+      "rotation": 3,
+      "dry_paths": 42,
+      "human_gentle_dry_fraction": 0.3333645669844691,
+      "dwarf_height_m": 152.11427307128906,
+      "viking_height_m": 2.413558006286621
+    }
+  ],
+  "finding": "No crop exceeds the full-domain original-water coarse result of 46/51. Highest cropped result is 45/51, with Dwarf site only 3.1 m above water and Viking harbour at 68.3 m. Cropping is not a demonstrated cure; do not import another landscape."
+}
