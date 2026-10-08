@@ -369,14 +369,14 @@ void USoulAuthoredSettlementQualification::Tick(float DeltaTime)
     {
         FString UserDir;
         const TCHAR* Cmd = FCommandLine::Get();
-        if (!Check((FParse::Param(Cmd, TEXT("SoulDwarfSettlementProof")) != FParse::Param(Cmd, TEXT("SoulHumanSettlementProof"))) && SoulCampaignTerrain::EvilCorridor()
+        if (!Check((FParse::Param(Cmd, TEXT("SoulDwarfSettlementProof")) != FParse::Param(Cmd, TEXT("SoulHumanSettlementProof"))) && (SoulCampaignTerrain::EvilCorridor()||SoulCampaignTerrain::Composition())
             && !FParse::Param(Cmd, TEXT("SoulWorldTerrain")) && !FParse::Param(Cmd, TEXT("SoulSettlementDevelopmentQualification"))
-            && !FParse::Param(Cmd, TEXT("SoulVerticalQualification")), TEXT("isolated authored proof on retained terrain"))) return;
+            && !FParse::Param(Cmd, TEXT("SoulVerticalQualification")), TEXT("isolated authored proof on retained or opt-in composition terrain"))) return;
         if (!Check(FParse::Value(Cmd, TEXT("UserDir="), UserDir) && !FPaths::IsRelative(UserDir)
             && FPaths::IsUnderDirectory(FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir()), FPaths::ConvertRelativePathToFull(UserDir)), TEXT("isolated absolute UserDir protects player saves"))) return;
         if (!Check(FParse::Value(Cmd, TEXT("SoulCampaignCapturePrefix="), Prefix) && !Prefix.IsEmpty()
             && Prefix == FPaths::MakeValidFileName(Prefix), TEXT("explicit evidence prefix"))) return;
-        SavePath = Save->GetDomainSlotPath(TEXT("Soul.VerticalCampaign"));
+        SavePath = Save->GetDomainSlotPath(State->GetCampaignSaveSlotName());
         if (FParse::Param(Cmd, TEXT("SoulAuthoredSettlementFreshLoad")))
         {
             if (!Check(IFileManager::Get().FileExists(*SavePath), TEXT("explicit fresh-load run has a copied qualification checkpoint"))

@@ -42,7 +42,7 @@ void ASoulFounderPlaytestGameMode::TickSettlementDevelopmentQualification(float 
     auto* Authority=GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>();
     auto* Save=GetGameInstance()->GetSubsystem<URBSaveSubsystem>();
     if(!PC||!Authority||!Save){Fail(TEXT("controller, settlement authority or RBSave subsystem missing"));return;}
-    const FString SavePath=Save->GetDomainSlotPath(TEXT("Soul.VerticalCampaign"));
+    const FString SavePath=Save->GetDomainSlotPath(State->GetCampaignSaveSlotName());
     const FString CaptureRoot=FPaths::ProjectSavedDir()/TEXT("Screenshots");
     auto Path=[&](const TCHAR* Label){return CaptureRoot/(CapturePrefix+TEXT("_")+Label+TEXT(".png"));};
     const TCHAR* Shots[]={TEXT("start"),TEXT("mid"),TEXT("completed"),TEXT("loaded"),TEXT("hired"),TEXT("loaded_completed")};
@@ -127,7 +127,8 @@ void ASoulFounderPlaytestGameMode::TickSettlementDevelopmentQualification(float 
         if(!Require(FParse::Param(Cmd,TEXT("SoulSettlementDevelopmentProof"))
             &&!bVisualQualification&&!bQualification&&!FParse::Param(Cmd,TEXT("SoulCampaignLoadProof"))
             &&!FParse::Param(Cmd,TEXT("SoulTerrainBenchmark"))&&!WorldReview&&!RetainedReview,TEXT("explicit development proof enabled without competing qualification modes")))return;
-        if(!Require(SoulCampaignTerrain::EvilCorridor()&&!WorldTerrain,TEXT("controls proof uses unchanged retained EvilCorridor terrain")))return;
+        if(!Require((SoulCampaignTerrain::EvilCorridor()||SoulCampaignTerrain::Composition())&&!WorldTerrain,
+            TEXT("controls proof uses retained or opt-in composition presentation without rejected World terrain")))return;
         if(!Require(FParse::Value(Cmd,TEXT("SoulCampaignCapturePrefix="),RawPrefix)&&!RawPrefix.IsEmpty()
             &&RawPrefix==FPaths::MakeValidFileName(RawPrefix)&&RawPrefix!=TEXT("World"),TEXT("explicit valid unique capture prefix required")))return;
         if(!Require(FParse::Value(Cmd,TEXT("UserDir="),UserDir)&&!FPaths::IsRelative(UserDir)

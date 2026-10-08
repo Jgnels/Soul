@@ -1,0 +1,17 @@
+{
+  "changes": "Composition executable included in single-heavy-process guard only; inherited 20-second World exception excluded; 60-second minimum and 85 C cutoff unchanged.",
+  "files": [
+    {
+      "path": "Tools/qualify_soul_vertical.py",
+      "preserved": "Evidence\\CleanFoundationAdmission-20261008\\Local\\Before\\Tools\\qualify_soul_vertical.py",
+      "before_sha256": "622f393ff8344245b7de19ee144ae53a8062b37232119f532270793bc7f3caf1",
+      "admitted_sha256": "9864b50ab60d449bc6f3be3e4b8be1c27b31198de912c2df1759cc5c8f5af55c"
+    },
+    {
+      "path": "Tools/test_qualify_soul_vertical.py",
+      "preserved": "Evidence\\CleanFoundationAdmission-20261008\\Local\\Before\\Tools\\test_qualify_soul_vertical.py",
+      "before_sha256": "6994a1f504324a9c06da47493901ef7d899845153706546345abaffce80b7f83",
+      "admitted_sha256": "5ee3481a8b623fd3dbb5866ef635ccda3274aabfaf925a61069d358ee94ec54d"
+    }
+  ]
+}

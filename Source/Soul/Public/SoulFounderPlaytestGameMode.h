@@ -11,6 +11,7 @@ public:
     virtual void BeginPlay() override;
     virtual void Tick(float Seconds) override;
 private:
+    void TickCompositionTraversal(float Seconds);
     void TickVisualQualification(float Seconds);
     void TickSettlementDevelopmentQualification(float Seconds);
     bool bSettlementDevelopmentQualification=false;
@@ -23,6 +24,7 @@ private:
     float VisualElapsed=0;
     int32 VisualStep=0;
     int32 VisualFrames=0;
+    int32 BenchmarkSampleSeconds=60;
     double VisualFrameSeconds=0;
     float VisualWorstFrame=0;
     FVector VisualDragStart=FVector::ZeroVector;

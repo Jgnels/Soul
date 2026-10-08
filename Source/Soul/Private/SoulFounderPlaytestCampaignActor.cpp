@@ -171,6 +171,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         return;
     }
 
+    const FName TravelOrigin = State->PlayerRegion;
     const int32 BeforeLevel = State->Hero.Level;
     if (!State->MovePlayerTo(RegionId))
     {
@@ -185,6 +186,8 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     SelectedRegion = RegionId;
     LastMessage = FString::Printf(TEXT("Moved to %s. %d movement remaining."),
         *DisplayName(RegionId), State->Economy.ActionPoints);
+    if (SoulCampaignTerrain::RouteUsesFerry(TravelOrigin,RegionId))
+        LastMessage += TEXT(" Ferry passage included; your company disembarks at the far landing.");
     if (State->Hero.Level > BeforeLevel)
     {
         LastMessage += TEXT(" Level up: choose a skill with 1 Command, 2 Adventure, or 3 Magic.");

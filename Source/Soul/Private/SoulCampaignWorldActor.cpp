@@ -243,6 +243,7 @@ FVector ASoulCampaignWorldActor::RoadPoint(FName From,FName To,float Alpha)
 }
 void ASoulCampaignWorldActor::BuildRoads()
 {
+    if(SoulCampaignTerrain::Composition())return; // Reviewed baked roads; graph remains gameplay authority.
     TSet<FString> Seen;
     for(const auto& Region:State->World.Regions) for(FName Neighbor:Region.Value.Neighbors)
     {
@@ -401,7 +402,7 @@ void ASoulCampaignWorldActor::RefreshKnowledge()
     TArray<FName> Keys;Locations().GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)Signature+=FString::Printf(TEXT("%d%d"),FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id),FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id));
     if(Signature==KnowledgeSignature)return;KnowledgeSignature=Signature;
-    if(SoulCampaignTerrain::Enabled())
+    if(SoulCampaignTerrain::Enabled()&&!SoulCampaignTerrain::Composition())
     {
         for(TActorIterator<ALandscapeProxy> It(GetWorld());It;++It)
         for(int32 I=0;I<Keys.Num();++I)
@@ -438,7 +439,7 @@ FVector ASoulCampaignWorldActor::PartyAnchor(FName Region)
 {
     const float Scale=SoulCampaignTerrain::RegionScale();
     FVector P=Locations().FindRef(Region);
-    if(SoulCampaignTerrain::Mesa()){P.Z=SoulCampaignTerrain::RoadSurface(P.X,P.Y)+20.f;return P;}
+    if(SoulCampaignTerrain::Composition()||SoulCampaignTerrain::Mesa()){P.Z=SoulCampaignTerrain::RoadSurface(P.X,P.Y)+20.f;return P;}
     // Station the company in front of fortified silhouettes, rather than inside walls.
     if(Region==TEXT("human_capital")||Region==TEXT("orc_camp")||Region==TEXT("orc_watch")||Region==TEXT("north_pass")) P.Y+=290.f*Scale;
     else if(Region!=TEXT("river_ford")) P.Y+=160.f*Scale;
@@ -452,14 +453,14 @@ void ASoulCampaignWorldActor::PresentPlayerLocation(FName RegionId,bool bAnimate
     if(bAnimate&&Locations().Contains(PresentedRegion)&&State&&FSoulWorldRules::CanMove(State->World,PresentedRegion,RegionId))
     { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelStart=Party->GetRelativeLocation();TravelAlpha=0;
         TravelDuration=SoulCampaignTerrain::Enabled()?1.8f:.95f;
-        if(SoulCampaignTerrain::EvilCorridor())
+        if(SoulCampaignTerrain::EvilCorridor()||SoulCampaignTerrain::Composition())
         {
             float Distance=0;FVector Previous=RoadPoint(TravelFrom,TravelTo,0);
             for(int32 I=1;I<=128;++I){const FVector Next=RoadPoint(TravelFrom,TravelTo,I/128.f);Distance+=FVector::Dist(Previous,Next);Previous=Next;}
             TravelDuration=FMath::Clamp(Distance/10000.f,2.2f,12.f);
         }
         SetPartyWalking(true);SetActorTickEnabled(true); }
-    else {TravelAlpha=1;SetPartyWalking(false);Party->SetRelativeLocation(PartyAnchor(RegionId));}
+    else {TravelAlpha=1;Party->SetHiddenInGame(false,true);SetPartyWalking(false);Party->SetRelativeLocation(PartyAnchor(RegionId));}
     PresentedRegion=RegionId;
 }
 void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
@@ -469,12 +470,17 @@ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
     TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/TravelDuration);
     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
     FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,(SoulCampaignTerrain::Enabled()?2:12)*SoulCampaignTerrain::Scale());
-    if(!SoulCampaignTerrain::Mesa())
+    if(!SoulCampaignTerrain::Composition()&&!SoulCampaignTerrain::Mesa())
     {
         Route=FMath::Lerp(TravelStart,Route,FMath::SmoothStep(0.f,.25f,Eased));
         Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
     }
     if(SoulCampaignTerrain::Enabled())Route.Z=FMath::Max(Route.Z,HeightAt(Route.X,Route.Y)+24.f);
+    if(SoulCampaignTerrain::Composition())
+    {
+        const bool Ferry=SoulCampaignTerrain::FerryTravel(TravelFrom,TravelTo,Eased);
+        Party->SetHiddenInGame(Ferry,true);SetPartyWalking(!Ferry&&TravelAlpha<1);
+    }
     const FVector Direction=Route-Party->GetRelativeLocation();
     if(!Direction.IsNearlyZero()) Party->SetRelativeRotation(Direction.GetSafeNormal2D().Rotation());
     Party->SetRelativeLocation(Route);

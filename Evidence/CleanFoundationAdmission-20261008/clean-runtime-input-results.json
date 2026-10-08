@@ -1,0 +1,33 @@
+{
+  "source_manifest_unchanged": true,
+  "runs": [
+    {
+      "run": "cooked-clean-input-r1",
+      "pass": true,
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "elapsed_seconds": 148.3,
+      "peak_gpu_c": 63.0,
+      "summary": "Local\\cooked-clean-input-r1\\runtime\\summary.json",
+      "acceptance_lines": [
+        "[2026.10.08-20.02.35:247][445]LogTemp: Display: SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=controller=1"
+      ],
+      "reviewed_image": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_restored.png",
+      "visual_observation": "River Ford company restored with day 2, 3560 gold, 46 units and 3/3 movement. Existing terrain/roads/water render. Camera reframing differs; no claim of persisted arbitrary camera pose.",
+      "performance_qualification": false
+    },
+    {
+      "run": "cooked-clean-load-r1",
+      "pass": true,
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "elapsed_seconds": 86.58,
+      "peak_gpu_c": 64.0,
+      "summary": "Local\\cooked-clean-load-r1\\runtime\\summary.json",
+      "acceptance_lines": [
+        "[2026.10.08-20.03.01:961][196]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=river_ford exact_snapshot=1 controller_F9=1"
+      ],
+      "reviewed_image": "Local/cooked-clean-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "visual_observation": "River Ford company restored with day 2, 3560 gold, 46 units and 3/3 movement. Existing terrain/roads/water render. Camera reframing differs; no claim of persisted arbitrary camera pose.",
+      "performance_qualification": false
+    }
+  ]
+}

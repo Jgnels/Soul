@@ -24,7 +24,10 @@ public:
     float GetMinimumDistance() const;
     bool ViewFitsTerrain() const;
     FVector GetFocus() const;
+    // Explicit terrain review only; does not reveal locations or mutate campaign state.
 private:
+    float ViewPitch(float ViewDistance) const;
+    FBox2D RenderBounds(float ViewDistance) const;
     FBox2D FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const;
     FVector FocusPoint = FVector(-1000,-250,100), TargetFocus = FocusPoint;
     float Distance = 7500.f, TargetDistance = Distance;

@@ -1,0 +1,74 @@
+{
+  "source_inputs": "clean-source-build-inputs.json",
+  "source_unchanged_during_builds": true,
+  "builds": [
+    {
+      "target": "SoulEditor",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T19:28:51.0552352Z",
+      "finished_utc": "2026-10-08T19:32:11.2877125Z",
+      "exit_code": 0,
+      "arguments": [
+        "SoulEditor",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-gather",
+        "-OverrideBuildEnvironment",
+        "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "binary": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\UnrealEditor-Soul.dll",
+      "binary_sha256": "cc8cd9acb7cb6405308a239f8e724638f32ee2905f6fc33fc3dccfd43acf2652"
+    },
+    {
+      "target": "Soul",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T19:32:36.2822343Z",
+      "finished_utc": "2026-10-08T19:43:01.2565016Z",
+      "exit_code": 0,
+      "arguments": [
+        "Soul",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-gather"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "binary": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\Soul.exe",
+      "binary_sha256": "e5922c76525f3994b56f0669605d7144d663ac225cf3fc416497009462804da4"
+    },
+    {
+      "target": "SoulComposition",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T19:43:01.7680038Z",
+      "finished_utc": "2026-10-08T19:52:17.8015869Z",
+      "exit_code": 0,
+      "arguments": [
+        "SoulComposition",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-gather"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "binary": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\SoulComposition.exe",
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18"
+    }
+  ]
+}

@@ -25,14 +25,25 @@ ASoulCampaignCamera::ASoulCampaignCamera()
     Camera->PostProcessSettings.bOverride_VignetteIntensity = true;
     Camera->PostProcessSettings.VignetteIntensity = .22f;
 }
-void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=3200.f; Tick(1.f); }
-float ASoulCampaignCamera::GetMinimumDistance() const {return SoulCampaignTerrain::EvilCorridor()?900.f:MinDistance;}
-float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
+void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if(SoulCampaignTerrain::Composition())Distance=TargetDistance=9000.f;else if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=3200.f; Tick(1.f); }
+float ASoulCampaignCamera::GetMinimumDistance() const {return SoulCampaignTerrain::Composition()||SoulCampaignTerrain::EvilCorridor()?900.f:MinDistance;}
+float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Composition()?22000.f:SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
+float ASoulCampaignCamera::ViewPitch(float ViewDistance) const
+{
+    if(SoulCampaignTerrain::Composition())return ViewDistance<=18000.f?
+        FMath::Lerp(40.f,78.f,FMath::Clamp((ViewDistance-1800.f)/50000.f,0.f,1.f)):
+        FMath::Lerp(52.312f,55.f,FMath::Clamp((ViewDistance-18000.f)/202000.f,0.f,1.f));
+    return SoulCampaignTerrain::Enabled()?FMath::Lerp(38.f,48.f,FMath::Clamp((ViewDistance-MinDistance)/3500.f,0.f,1.f)):48.f;
+}
+FBox2D ASoulCampaignCamera::RenderBounds(float ViewDistance) const
+{
+    return SoulCampaignTerrain::TerrainBounds().ExpandBy(-2000);
+}
 FBox2D ASoulCampaignCamera::FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const
 {
     const auto Bounds=SoulCampaignTerrain::FocusBounds()/SoulCampaignTerrain::Scale();
-    if(!SoulCampaignTerrain::Mesa())return FBox2D(-Bounds,Bounds);
-    const float Pitch=FMath::Lerp(38.f,48.f,FMath::Clamp((ViewDistance-MinDistance)/3500.f,0.f,1.f));
+    if(!SoulCampaignTerrain::Mesa()&&!SoulCampaignTerrain::Composition())return FBox2D(-Bounds,Bounds);
+    const float Pitch=ViewPitch(ViewDistance);
     const FRotator Rotation(-Pitch,ViewYaw,0);
     const FVector Forward=Rotation.Vector(),Right=FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y),Up=FRotationMatrix(Rotation).GetUnitAxis(EAxis::Z);
     const float Tan=FMath::Tan(FMath::DegreesToRadians(GetCameraComponent()->FieldOfView*.5f));
@@ -47,15 +58,36 @@ FBox2D ASoulCampaignCamera::FocusRange(float ViewDistance,float ViewYaw,float Fo
         const FVector Point=Position-Ray*(Position.Z/Ray.Z);
         Footprint+=FVector2D(Point.X,Point.Y);
     }
-    // The water plane and Landscape end at 750 m. Keep 20 m of margin and
-    // project to sea level so hills cannot expose a nearer map boundary.
-    const float Limit=73000.f/SoulCampaignTerrain::Scale();
-    return FBox2D(FVector2D(-Limit,-Limit)-Footprint.Min,FVector2D(Limit,Limit)-Footprint.Max);
+    const auto Terrain=RenderBounds(ViewDistance);
+    const float Scale=SoulCampaignTerrain::Scale();
+    FBox2D Range(Terrain.Min/Scale-Footprint.Min,Terrain.Max/Scale-Footprint.Max);
+    if(SoulCampaignTerrain::Composition())
+    {
+        Range.Min.X=FMath::Max(Range.Min.X,-Bounds.X);Range.Min.Y=FMath::Max(Range.Min.Y,-Bounds.Y);
+        Range.Max.X=FMath::Min(Range.Max.X,Bounds.X);Range.Max.Y=FMath::Min(Range.Max.Y,Bounds.Y);
+    }
+    if(Range.Min.X>Range.Max.X||Range.Min.Y>Range.Max.Y)return FBox2D(ForceInit);
+    return Range;
 }
 bool ASoulCampaignCamera::ViewFitsTerrain() const
 {
     const auto Range=FocusRange(Distance,Yaw,FocusPoint.Z);
-    return Range.ExpandBy(1.f).IsInsideOrOn(FVector2D(FocusPoint.X,FocusPoint.Y));
+    if(!Range.bIsValid||!Range.ExpandBy(1.f).IsInsideOrOn(FVector2D(FocusPoint.X,FocusPoint.Y)))return false;
+    if(!SoulCampaignTerrain::Mesa()&&!SoulCampaignTerrain::Composition())return true;
+    const auto Bounds=RenderBounds(Distance).ExpandBy(10);
+    const FRotationMatrix Rotation(GetActorRotation());
+    const FVector Forward=Rotation.GetUnitAxis(EAxis::X),Right=Rotation.GetUnitAxis(EAxis::Y),Up=Rotation.GetUnitAxis(EAxis::Z),Position=GetActorLocation();
+    const float Tan=FMath::Tan(FMath::DegreesToRadians(GetCameraComponent()->FieldOfView*.5f));
+    int32 Width=1920,Height=1080;if(auto* PC=GetWorld()?GetWorld()->GetFirstPlayerController():nullptr)PC->GetViewportSize(Width,Height);
+    const float Aspect=Width>0&&Height>0?static_cast<float>(Width)/Height:16.f/9.f;
+    for(float X:{-1.f,1.f})for(float Y:{-1.f,1.f})
+    {
+        const FVector Ray=Forward+Right*Tan*X+Up*Tan/Aspect*Y;
+        if(Ray.Z>=0)return false;
+        const FVector Point=Position-Ray*(Position.Z/Ray.Z);
+        if(!Bounds.IsInsideOrOn(FVector2D(Point.X,Point.Y)))return false;
+    }
+    return true;
 }
 void ASoulCampaignCamera::Zoom(float Steps)
 {
@@ -79,7 +111,7 @@ void ASoulCampaignCamera::Focus(FVector Location)
     // Home/load must still center the company near the coast: zoom in enough
     // to contain that focus, instead of clamping the company out of the center.
     const float FocusMinimum=GetMinimumDistance();
-    if(SoulCampaignTerrain::Mesa())while(TargetDistance>FocusMinimum
+    if(SoulCampaignTerrain::Mesa()||SoulCampaignTerrain::Composition())while(TargetDistance>FocusMinimum
         &&!FocusRange(TargetDistance,TargetYaw,TargetFocus.Z).IsInsideOrOn(FVector2D(TargetFocus.X,TargetFocus.Y)))
         TargetDistance=FMath::Max(FocusMinimum,TargetDistance*.9f);
     // An edge settlement can remain outside the footprint even at minimum zoom.
@@ -93,7 +125,7 @@ FVector ASoulCampaignCamera::GetFocus() const {return FocusPoint*SoulCampaignTer
 void ASoulCampaignCamera::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
-    const float Pitch=SoulCampaignTerrain::Enabled()?FMath::Lerp(38.f,48.f,FMath::Clamp((Distance-MinDistance)/3500.f,0.f,1.f)):48.f;
+    const float Pitch=ViewPitch(Distance);
     if (auto* PC = GetWorld()->GetFirstPlayerController())
     {
         FVector2D Input(0,0);
@@ -115,11 +147,14 @@ void ASoulCampaignCamera::Tick(float DeltaSeconds)
     }
     const float Scale=SoulCampaignTerrain::Scale();
     TargetFocus.Z=ASoulCampaignWorldActor::HeightAt(TargetFocus.X*Scale,TargetFocus.Y*Scale)/Scale+100.f;
-    if(SoulCampaignTerrain::Mesa())
+    if(SoulCampaignTerrain::Mesa()||SoulCampaignTerrain::Composition())
     {
         const auto Bounds=FocusRange(TargetDistance,TargetYaw,TargetFocus.Z);
-        TargetFocus.X=FMath::Clamp(TargetFocus.X,Bounds.Min.X,Bounds.Max.X);
-        TargetFocus.Y=FMath::Clamp(TargetFocus.Y,Bounds.Min.Y,Bounds.Max.Y);
+        if(Bounds.bIsValid)
+        {
+            TargetFocus.X=FMath::Clamp(TargetFocus.X,Bounds.Min.X,Bounds.Max.X);
+            TargetFocus.Y=FMath::Clamp(TargetFocus.Y,Bounds.Min.Y,Bounds.Max.Y);
+        }
     }
     FocusPoint = FMath::VInterpTo(FocusPoint,TargetFocus,DeltaSeconds,7.f);
     Distance = FMath::FInterpTo(Distance,TargetDistance,DeltaSeconds,7.f);

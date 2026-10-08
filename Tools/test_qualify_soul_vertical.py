@@ -99,6 +99,13 @@ class CompletionSafetyTests(unittest.TestCase):
                     self.assertEqual(crashes.call_args.args[0], root / 'isolated-user')
             return result, json.loads((output / "summary.json").read_text(encoding="utf-8"))
 
+    def test_composition_executable_participates_in_one_process_guard(self):
+        tasks = '\n'.join(['"Soul.exe","101"', '"SoulComposition.exe","102"',
+                           '"SoulComposition-Win64-Shipping.exe","103"',
+                           '"UnrealEditor-Cmd.exe","104"', '"notepad.exe","105"'])
+        with patch.object(RUNNER, "hidden", return_value=tasks):
+            self.assertEqual([r["pid"] for r in RUNNER.conflicting_processes()], [101, 102, 103, 104])
+
     def test_explicit_marker_accepts_clean_observed_exit(self):
         result, record = self.scenario()
         self.assertEqual(result, 0)

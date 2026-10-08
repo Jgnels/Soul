@@ -61,6 +61,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
                     AuthoredMiniature->BuildingId = State->GetTavernBuildingId();
                     FTransform Transform = Scenario->MiniatureTransform;
                     Transform.AddToTranslation(Location);
+                    SoulCampaignTerrain::MiniaturePlacement(RegionId,Transform);
                     AuthoredMiniature->SetActorTransform(Transform);
                     if (!AuthoredMiniature->ConfigureMiniature(Scenario->MiniatureBaseMesh.LoadSynchronous(),
                         Scenario->MiniatureUpgradeMesh.LoadSynchronous()))

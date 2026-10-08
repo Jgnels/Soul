@@ -1,7 +1,8 @@
 """Verify the actual UBT runtime dependency receipt for the isolated candidate target."""
 from pathlib import Path
-import json,hashlib
+import json,hashlib,argparse
 R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261008'
+parser=argparse.ArgumentParser();parser.add_argument('--evidence-root',type=Path,default=E);args=parser.parse_args();E=args.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
 P=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text())
 path=R/'Binaries/Win64/SoulComposition.target';receipt=json.loads(path.read_text(encoding='utf-8-sig'))
 deps=receipt['RuntimeDependencies'];paths=[x['Path'].replace('\\','/') for x in deps]

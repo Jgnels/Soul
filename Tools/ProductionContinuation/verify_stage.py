@@ -2,7 +2,7 @@
 from pathlib import Path
 import argparse,hashlib,json,re
 R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261008'
-p=argparse.ArgumentParser();p.add_argument('--receipt',type=Path,required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--receipt',type=Path,required=True);p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
 assert a.receipt.resolve().is_relative_to((E/'Local').resolve())
 s=json.loads(a.receipt.read_text(encoding='utf-8'));assert s['pass'];root=Path(s['stage'])/'Windows';project=root/'Soul'
 profile=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text());rows=[]

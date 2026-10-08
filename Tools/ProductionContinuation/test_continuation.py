@@ -13,7 +13,7 @@ class ContinuationContracts(unittest.TestCase):
   p=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text());self.assertEqual(p['target'],'SoulComposition');self.assertEqual(p['required_launch_args'],['-SoulComposition']);self.assertTrue(p['default_map_unchanged']);self.assertFalse(any(x.startswith('/Game/SoulCampaignWorld/') for x in p['cook_roots']))
   self.assertEqual(len(p['cook_roots']),len(set(p['cook_roots'])))
   for path in p['exact_additional_runtime_files']:self.assertTrue((R/path).is_file(),path)
-  b=(R/'Source/Soul/Soul.Build.cs').read_text();self.assertIn('Target.Name == "SoulComposition"',b);self.assertIn('File.StartsWith("Data/CampaignWorldTerrain/")',b)
+  b=(R/'Source/Soul/Soul.Build.cs').read_text();self.assertIn('Target.Name == "SoulComposition"',b);self.assertNotIn('Data/CampaignWorldTerrain/',b);self.assertNotIn('Data/CampaignWorldLocal/',b)
   self.assertIn('GameDefaultMap=/Engine/Maps/Entry',(R/'Config/DefaultEngine.ini').read_text())
  def test_save_namespaces_and_schemas(self):
   s=(R/'Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp').read_text()

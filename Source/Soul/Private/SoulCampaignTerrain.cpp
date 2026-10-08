@@ -20,6 +20,9 @@
 #include "Serialization/JsonSerializer.h"
 #include "Math/RandomStream.h"
 #include "Algo/Reverse.h"
+#include "Algo/BinarySearch.h"
+#include "EngineUtils.h"
+#include "LandscapeProxy.h"
 #include "Misc/Crc.h"
 
 namespace SoulCampaignTerrain
@@ -39,6 +42,9 @@ struct FBake
     TArray<uint8> Heights;
     TMap<FName,FVector> Places;
     TMap<FName,FString> Names;
+    TMap<FName,FTransform> Miniatures;
+    TMap<FString,TArray<double>> RouteArcs;
+    TMap<FString,TArray<FVector2D>> FerryRanges;
     TMap<FString,TArray<FVector>> Routes;
     TArray<TArray<FVector>> Water;
     TArray<FBridge> Bridges;
@@ -49,6 +55,57 @@ struct FBake
     FBake()
     {
         FString Text;TSharedPtr<FJsonObject> Root;
+        if(Composition())
+        {
+            if(FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain")) || FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignExpansion")))
+            {UE_LOG(LogTemp,Error,TEXT("SOUL_COMPOSITION_FAIL conflicting experimental profile"));return;}
+            Resolution=2041;HeightUnit=100.f/128.f;Minimum=-175000;Extent=350000;
+            if(!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/TEXT("Data/CampaignComposition/presentation.json")))
+                ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),Root)
+                ||!FFileHelper::LoadFileToArray(Heights,*(FPaths::ProjectDir()/TEXT("Data/CampaignCompositionLocal/Composition_3500_r2.r16")))
+                ||Heights.Num()!=static_cast<int64>(Resolution)*Resolution*2)return;
+            for(const auto& Entry:Root->GetObjectField(TEXT("regions"))->Values)
+            {
+                const auto& P=Entry.Value->AsArray();if(P.Num()!=3)return;
+                const FName Id(*Entry.Key);const FVector V(P[0]->AsNumber(),P[1]->AsNumber(),P[2]->AsNumber());
+                Places.Add(Id,V);
+            }
+            for(const auto& Entry:Root->GetObjectField(TEXT("display_names"))->Values)Names.Add(FName(*Entry.Key),Entry.Value->AsString());
+            for(const auto& Entry:Root->GetObjectField(TEXT("miniatures"))->Values)
+            {
+                const auto O=Entry.Value->AsObject();
+                const auto& L=O->GetArrayField(TEXT("location"));const auto& R=O->GetArrayField(TEXT("rotation"));const auto& S=O->GetArrayField(TEXT("scale"));
+                if(L.Num()!=3||R.Num()!=3||S.Num()!=3)return;
+                Miniatures.Add(FName(*Entry.Key),FTransform(FRotator(R[0]->AsNumber(),R[1]->AsNumber(),R[2]->AsNumber()),FVector(L[0]->AsNumber(),L[1]->AsNumber(),L[2]->AsNumber()),FVector(S[0]->AsNumber(),S[1]->AsNumber(),S[2]->AsNumber())));
+            }
+            for(const auto& Value:Root->GetArrayField(TEXT("routes")))
+            {
+                const auto O=Value->AsObject();FString A=O->GetStringField(TEXT("a")),B=O->GetStringField(TEXT("b"));
+                TArray<FVector> Points;TArray<FVector2D> Ferries;
+                for(const auto& Item:O->GetArrayField(TEXT("points")))
+                {const auto& P=Item->AsArray();if(P.Num()!=3)return;Points.Add(FVector(P[0]->AsNumber(),P[1]->AsNumber(),P[2]->AsNumber()));}
+                if(Points.Num()<2 || !Places.Contains(FName(*A)) || !Places.Contains(FName(*B)))return;
+                double Length=0;for(int32 I=1;I<Points.Num();++I)Length+=FVector::Dist2D(Points[I-1],Points[I]);
+                if(Length<=0)return;
+                for(const auto& Item:O->GetArrayField(TEXT("ferries")))
+                {const auto F=Item->AsObject();double Start=F->GetNumberField(TEXT("start_cm")),End=F->GetNumberField(TEXT("end_cm"));
+                 if(Start<0||End<Start||End>Length+1)return;Ferries.Add(A>B?FVector2D(Length-End,Length-Start):FVector2D(Start,End));}
+                if(A>B){Swap(A,B);Algo::Reverse(Points);}
+                const FString Key=A+TEXT("|")+B;if(Routes.Contains(Key))return;
+                TArray<double> Arc;Arc.Add(0);for(int32 I=1;I<Points.Num();++I)Arc.Add(Arc.Last()+FVector::Dist2D(Points[I-1],Points[I]));
+                RouteArcs.Add(Key,MoveTemp(Arc));FerryRanges.Add(Key,MoveTemp(Ferries));Routes.Add(Key,MoveTemp(Points));
+            }
+            FString CanonicalText;TSharedPtr<FJsonObject> Canonical;
+            if(!FFileHelper::LoadFileToString(CanonicalText,*(FPaths::ProjectDir()/TEXT("Data/soul_world_overmap_v1_20260922.json")))
+                ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(CanonicalText),Canonical))return;
+            for(const auto& V:Canonical->GetArrayField(TEXT("nodes")))if(!Places.Contains(FName(*V->AsObject()->GetStringField(TEXT("id")))))return;
+            for(const auto& V:Canonical->GetArrayField(TEXT("edges")))
+            {FString A=V->AsObject()->GetStringField(TEXT("a")),B=V->AsObject()->GetStringField(TEXT("b"));if(A>B)Swap(A,B);if(!Routes.Contains(A+TEXT("|")+B))return;}
+            bValid=Places.Num()==36&&Routes.Num()==51;
+            UE_LOG(LogTemp,Display,TEXT("SOUL_COMPOSITION_PROFILE valid=%d regions=%d routes=%d world_experiment=0 expansion_experiment=0"),bValid,Places.Num(),Routes.Num());
+            return;
+        }
+
         if(Mesa()){Resolution=2041;Extent=150000;Minimum=-75000;HeightUnit=.5f;}
         if(!FFileHelper::LoadFileToArray(Heights,*(FPaths::ProjectDir()/(Mesa()?TEXT("Data/CampaignMesaLocal/MesaHeight.r16"):TEXT("Data/CampaignTerrainV2/FounderHeight.r16"))))
             ||Heights.Num()!=Resolution*Resolution*2
@@ -601,14 +658,16 @@ bool CrownsteadPopulation(AActor* Owner)
 }
 bool RetainedReviewCapture(){return EvilCorridor()&&FParse::Param(FCommandLine::Get(),TEXT("SoulRetainedCapture"));}
 bool PopulationReviewCapture(){return RetainedReviewCapture()&&FParse::Param(FCommandLine::Get(),TEXT("SoulPopulationReview"));}
-bool EvilCorridor(){return FParse::Param(FCommandLine::Get(),TEXT("SoulEvilCorridor"));}
-FString LocationName(FName Id,const FString& Fallback){if(EvilCorridor())if(const auto* N=Bake().Names.Find(Id))return *N;return Fallback;}
-bool Mesa(){return FParse::Param(FCommandLine::Get(),TEXT("SoulMesaTerrain"))
-    ||(!FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"))&&!FParse::Param(FCommandLine::Get(),TEXT("SoulLegacyTerrain")));}
-bool Enabled(){return Mesa()||FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));}
-float Scale(){return Mesa()?10.f:Enabled()?20.f:1.f;}
-float RegionScale(){return EvilCorridor()?2.5f:Mesa()?5.f:Scale();}
-FVector2D FocusBounds(){return Mesa()?FVector2D(68000,68000):FVector2D(3800,2600)*Scale();}
+bool Composition(){return FParse::Param(FCommandLine::Get(),TEXT("SoulComposition"));}
+bool EvilCorridor(){return !Composition()&&FParse::Param(FCommandLine::Get(),TEXT("SoulEvilCorridor"));}
+FString LocationName(FName Id,const FString& Fallback){if(EvilCorridor()||Composition())if(const auto* N=Bake().Names.Find(Id))return *N;return Fallback;}
+bool Mesa(){return !Composition()&&(FParse::Param(FCommandLine::Get(),TEXT("SoulMesaTerrain"))
+    ||(!FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"))&&!FParse::Param(FCommandLine::Get(),TEXT("SoulLegacyTerrain"))));}
+bool Enabled(){return Composition()||Mesa()||FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));}
+float Scale(){return Composition()||Mesa()?10.f:Enabled()?20.f:1.f;}
+float RegionScale(){return Composition()||EvilCorridor()?2.5f:Mesa()?5.f:Scale();}
+FVector2D FocusBounds(){return Composition()?FVector2D(173000,173000):Mesa()?FVector2D(68000,68000):FVector2D(3800,2600)*Scale();}
+FBox2D TerrainBounds(){const auto& B=Bake();return FBox2D(FVector2D(B.Minimum,B.Minimum),FVector2D(B.Minimum+B.Extent,B.Minimum+B.Extent));}
 const TMap<FName,FVector>& Locations(){return Bake().Places;}
 const TArray<TArray<FVector>>& WaterLines(){return Bake().Water;}
 float Height(float X,float Y)
@@ -627,8 +686,32 @@ FVector Road(FName From,FName To,float Alpha)
 {
     FString A=From.ToString(),B=To.ToString();if(A>B){Swap(A,B);Alpha=1-Alpha;}
     const auto* P=Bake().Routes.Find(A+TEXT("|")+B);if(!P||P->Num()<2)return FVector::ZeroVector;
+    if(Composition())
+    {
+        const auto* Arc=Bake().RouteArcs.Find(A+TEXT("|")+B);if(!Arc||Arc->Num()!=P->Num())return FVector::ZeroVector;
+        const double Distance=FMath::Clamp(Alpha,0.f,1.f)*Arc->Last();const int32 I=FMath::Clamp(Algo::UpperBound(*Arc,Distance)-1,0,P->Num()-2);
+        return FMath::Lerp((*P)[I],(*P)[I+1],FMath::Clamp((Distance-(*Arc)[I])/FMath::Max((*Arc)[I+1]-(*Arc)[I],.001),0.,1.));
+    }
     const float T=FMath::Clamp(Alpha,0.f,1.f)*(P->Num()-1);const int32 I=FMath::Min(FMath::FloorToInt(T),P->Num()-2);
     FVector V=FMath::Lerp((*P)[I],(*P)[I+1],T-I);V.Z=RoadSurface(V.X,V.Y);return V;
+}
+bool MiniaturePlacement(FName Region,FTransform& Out)
+{
+    if(!Composition())return false;
+    if(const FTransform* T=Bake().Miniatures.Find(Region)){Out=*T;return true;}
+    return false;
+}
+bool RouteUsesFerry(FName From,FName To)
+{
+    if(!Composition())return false;FString A=From.ToString(),B=To.ToString();if(A>B)Swap(A,B);
+    const auto* Ranges=Bake().FerryRanges.Find(A+TEXT("|")+B);return Ranges&&!Ranges->IsEmpty();
+}
+bool FerryTravel(FName From,FName To,float Alpha)
+{
+    if(!Composition())return false;FString A=From.ToString(),B=To.ToString();if(A>B){Swap(A,B);Alpha=1-Alpha;}
+    const FString Key=A+TEXT("|")+B;const auto* Arc=Bake().RouteArcs.Find(Key);const auto* Ranges=Bake().FerryRanges.Find(Key);
+    if(!Arc||Arc->IsEmpty()||!Ranges)return false;const double Distance=FMath::Clamp(Alpha,0.f,1.f)*Arc->Last();
+    for(const auto& Range:*Ranges)if(Distance>Range.X&&Distance<Range.Y)return true;return false;
 }
 float RoadSurface(float X,float Y)
 {
@@ -650,6 +733,7 @@ float RoadSurface(float X,float Y)
 }
 void DressRoad(AActor* Owner,USceneComponent* RoadComponent,FName From,FName To)
 {
+    if(Composition())return;
     for(const auto& B:Bake().Bridges)
     {
         if(B.Ford||!((B.A==From&&B.B==To)||(B.A==To&&B.B==From)))continue;
@@ -674,7 +758,7 @@ void DressRoad(AActor* Owner,USceneComponent* RoadComponent,FName From,FName To)
 void Build(ASoulCampaignWorldActor* Owner)
 {
     bool Loaded=false;
-    const TCHAR* Package=Mesa()?TEXT("/Game/SoulCampaignMountain/L_evil_waterfront"):TEXT("/Game/Soul/Campaign/TerrainV2/L_FounderTerrain");
+    const TCHAR* Package=Composition()?TEXT("/Game/SoulCampaignComposition/L_Composition_3500_r2"):Mesa()?TEXT("/Game/SoulCampaignMountain/L_evil_waterfront"):TEXT("/Game/Soul/Campaign/TerrainV2/L_FounderTerrain");
     // This is already a canonical long package name. The name-search overload
     // consults the asynchronously gathering registry and can report an existing
     // map missing on a fresh editor-game launch. Load that exact package directly.
@@ -685,6 +769,24 @@ void Build(ASoulCampaignWorldActor* Owner)
     {
         UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_INTEGRATION_FAIL map=%s requested=%d instance=%d loaded=%d bake=%d; run Tools/Setup_Soul_Mesa.ps1"),Package,Loaded,Level!=nullptr,Level && Level->GetLoadedLevel(),Bake().bValid);
         FPlatformMisc::RequestExitWithStatus(false,1);return;
+    }
+    if(Composition())
+    {
+        // The candidate already contains reviewed scenery, roads, water and lighting.
+        // Remove only transient review actors; never mutate its saved package.
+        for(AActor* Actor:TArray<TObjectPtr<AActor>>(Level->GetLoadedLevel()->Actors))
+            if(Actor&&(Actor->IsA<ACameraActor>()||Actor->ActorHasTag(TEXT("SoulCompositionReference"))))Actor->Destroy();
+        FCollisionQueryParams Query;for(TActorIterator<AActor> It(Owner->GetWorld());It;++It)if(!It->IsA<ALandscapeProxy>())Query.AddIgnoredActor(*It);
+        int32 Hits=0,Probes=0;double Error=0;
+        for(int32 Y=1;Y<10;++Y)for(int32 X=1;X<10;++X)
+        {
+            const double PX=-175000+X*35000,PY=-175000+Y*35000;FHitResult Hit;++Probes;
+            if(Owner->GetWorld()->LineTraceSingleByChannel(Hit,FVector(PX+.1,PY+.1,100000),FVector(PX+.1,PY+.1,-100000),ECC_Visibility,Query))
+            {++Hits;Error=FMath::Max(Error,FMath::Abs(Hit.ImpactPoint.Z-Height(PX+.1,PY+.1)));}
+        }
+        UE_LOG(LogTemp,Display,TEXT("SOUL_COMPOSITION_LOADED map=%s hits=%d/%d max_error_cm=%.4f baked_roads=1"),Package,Hits,Probes,Error);
+        if(Hits!=Probes||Error>5)FPlatformMisc::RequestExitWithStatus(false,1);
+        return;
     }
     // Remove study-only actors from this transient instance, never save the package.
     if(Mesa())for(AActor* Actor:TArray<TObjectPtr<AActor>>(Level->GetLoadedLevel()->Actors))
@@ -809,12 +911,14 @@ void Build(ASoulCampaignWorldActor* Owner)
 }
 void DressSettlementSurroundings(AActor* Owner,FName Id)
 {
+    if(Composition())return;
     // The native capital miniature replaces civic geometry, not its existing
     // measured farms/verges. Both presentations share the same retained ground.
     if(RetainedPopulationEnabled()&&Id==TEXT("human_capital"))CrownsteadHinterland(Owner);
 }
 bool DressRegion(AActor* Owner,FName Id)
 {
+    if(Composition())return true;
     if(!Enabled())return false;
     if(EvilCorridor()&&Id==TEXT("human_capital")&&CrownsteadPopulation(Owner))return true;
     RetainedRegionPopulation(Owner,Id);

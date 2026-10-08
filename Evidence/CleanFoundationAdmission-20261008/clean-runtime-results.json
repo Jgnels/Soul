@@ -1,0 +1,414 @@
+{
+  "status": "CLEAN_SOURCE_COOKED_FUNCTIONAL_PASS",
+  "source_manifest": "clean-source-build-inputs.json",
+  "source_inputs_unchanged": true,
+  "fresh_binary": true,
+  "fresh_asset_cook": false,
+  "cook_scope": "Existing verified unchanged 216-root isolated runtime cook reused; fresh source binary staged and executed. No default promotion.",
+  "runs": [
+    {
+      "run": "cooked-clean-input-r1",
+      "pass": true,
+      "runtime_kind": "packaged",
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "elapsed_seconds": 148.3,
+      "peak_gpu_c": 63.0,
+      "fps_cap": 20,
+      "performance_pass_inferred": false,
+      "summary": "Local/cooked-clean-input-r1/runtime/summary.json",
+      "marker": "SOUL_WORLD_VISUAL_INPUT_PASS",
+      "captures": [
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_battle_prompt.png",
+          "sha256": "625cb7b7db61580eb1fe89f2b725fdc616d9a2a1ad30d1413dbbb5dd5daa4422"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_camera.png",
+          "sha256": "4ab152a5d780f8dabaec4ae465e5fcd133c9e2313c54fcd1cd4dded9af088238"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_capital_ground.png",
+          "sha256": "8d6ea53db536d6c83d966713e495c21d9f085985534b7f1477ffc100a7925ce6"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_close_orbit.png",
+          "sha256": "2852ef280b55bd78f2648dc5d5c64670fe6832492198646b08e8ed7332f263aa"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_controller_company.png",
+          "sha256": "f3b533bde0dfce93a4e7e3d501aa1ae9c8cbbb753fd3241d91726dc47bcd1106"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_crossroads.png",
+          "sha256": "ee502280876dea6cbc4040743c04a1bfc8579809548695fbf593c014c726ce73"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_drag.png",
+          "sha256": "fe42f7e4f62378917d0bc90eb43a0d26b75d9b77e62cd594397edfaf506f776b"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_forest_pass.png",
+          "sha256": "3a973cbb16a1875a74009dbb0d492695fa2a2c285118cbfedd7e33efcb4a80c1"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_frontier.png",
+          "sha256": "f7c2b54607b4b25e42639f6c5b7a3246ad0b7aa8d03527f9b598ef0bb609adb0"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_initial.png",
+          "sha256": "a4b6de7ca564be1e7427469ec82a42a16266411342029eafbc3a83854139742a"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_north_pass.png",
+          "sha256": "88a9a80cf6fa1b1184e8134ee53905eb9d5c0ffed1fc9258ac6f0dd4bbc0f487"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_quarry_shrine.png",
+          "sha256": "d9a41d7522fbe2ec1f815ab87b5655577d864adb7a6642bcc8082cf5f7d07814"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_restored.png",
+          "sha256": "3320a7dddade0acf8ee78972254350a472d52321f5a453c0931d45b05baa0941"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_shrine.png",
+          "sha256": "f8fa0e12087562e21a122f3aaa855180b03ab82498d4ec6ea0920efb2a7f8c27"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_town.png",
+          "sha256": "3f8f667e774c745741dadb70011f94af3ac16584071f2f4b9f6a4f5061eaaa86"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_travel.png",
+          "sha256": "6556efac41dc5576dc62a78c0cec97a7e73556690a8da218c740e90b2c616ff4"
+        },
+        {
+          "path": "Local/cooked-clean-input-r1/User/Saved/Screenshots/cooked-clean-input-r1_wide_bounds.png",
+          "sha256": "42ee3e54215086b675edb622bb7de44ef7be970955c2e6b6bae9fafc8aa6e83e"
+        }
+      ]
+    },
+    {
+      "run": "cooked-clean-load-r1",
+      "pass": true,
+      "runtime_kind": "packaged",
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "elapsed_seconds": 86.58,
+      "peak_gpu_c": 64.0,
+      "fps_cap": 20,
+      "performance_pass_inferred": false,
+      "summary": "Local/cooked-clean-load-r1/runtime/summary.json",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "captures": [
+        {
+          "path": "Local/cooked-clean-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+          "sha256": "6217cc4deff4a0bbf56a228e48a4026850530ab9f12983383bd0818c2f991d50"
+        }
+      ]
+    },
+    {
+      "run": "cooked-clean-travel-r1",
+      "pass": true,
+      "runtime_kind": "packaged",
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "elapsed_seconds": 768.83,
+      "peak_gpu_c": 70.0,
+      "fps_cap": 20,
+      "performance_pass_inferred": false,
+      "summary": "Local/cooked-clean-travel-r1/runtime/summary.json",
+      "marker": "SOUL_COMPOSITION_TRAVEL_PASS",
+      "captures": [
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_00_crossroads.png",
+          "sha256": "baf64063160c740a9354c04dad5892a581d270243c086b03bb399ea9881e33ba"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_01_river_ford.png",
+          "sha256": "95cb6dcdb5ba3f0cf1bd573baf5722fd2229fce88a0b1c9673877fb1feb806db"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_02_southern_crossing.png",
+          "sha256": "2eb9eda16ec54e34222d997e72b49d23e979f47aa5631f6ec8d8ace1a0611465"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_03_ferry.png",
+          "sha256": "542782f27ee8be1bb7288b538996557f4912ee82ec4ffcccc49b0e95c14d7043"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_03_orc_broken_bridge.png",
+          "sha256": "de1c5e34f72285e251dd9d363512945415fd351e3d8fea959b3c2c5491299e03"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_04_dark_ruined_causeway.png",
+          "sha256": "e9c5bd7c968d099f075d60fb9a36aaa4b702833878f731d5a92cce70a70ccf29"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_04_ferry.png",
+          "sha256": "9230f05e1e2224e02e715a07a2980f32d857853bdfbccab0067354c98f09e540"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_05_dark_castle_approach.png",
+          "sha256": "9e92e20581978b271147dd086a1f6c8161d605b2a5f23c2a43fe57299ce4ae8e"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_06_dark_fortress.png",
+          "sha256": "8a92efebbec458b08654869a0d712627dce40fc82850f99038fae436112fc851"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_07_dark_ash_plain.png",
+          "sha256": "7a5506d080cfcd2ae9f107514d1e8aa753b536065f7640166db7af7919538b56"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_08_dark_corrupted_valley.png",
+          "sha256": "5d6aa10aec56c753792eb769b5b0b31c03d3d765444e1908aea43cca9d0d264e"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_09_southern_crossing.png",
+          "sha256": "a6df3d3a81ca27e4c808d165b663f441c9f718d234d0bbfeff539cb98d78ca01"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_10_river_ford.png",
+          "sha256": "d273c06396a0d1fceee79df2ebbfeb0c86ed1b1cc41ff732b80211d973705f03"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_11_crossroads.png",
+          "sha256": "321064700a32d2f8a3c29f016f1727ade7a4103e51542d0caddea8b2a36f651e"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_12_old_quarry.png",
+          "sha256": "0681654e46e5d32d0b45979c7da97e6399bdc8de0b8dfefbbe579449af52916c"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_13_ancient_shrine.png",
+          "sha256": "13bcefbfa6d8b93b1623604f95a1ddedd0591e0bdca4c7c777c2489003d449f1"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_14_ferry.png",
+          "sha256": "b83d6965dbec8361bdb54e575f82876f32f1a36637c17166615b754254f16126"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_14_mountain_shrine.png",
+          "sha256": "cf2e0be19e263a79c8ab192157a40aac84e935f6b58471d694f3e3c3d9dc214f"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_15_ferry.png",
+          "sha256": "9a2b285206a5d4239e410bc4e9d08012fc62fa16e30a535760f39a0bc9251c7a"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_15_viking_snow_pass.png",
+          "sha256": "82a5e53903eca24c58853f08440ad1f1a984bbe99a5b1dc2895c93978d2915c1"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_16_viking_forest_track.png",
+          "sha256": "99bfa11c49a8c6c04dedd1a224ae3a4ec254c8a9935d9eebd23ab9652dd3d160"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_17_viking_harbour.png",
+          "sha256": "47572603f2f1620e56f27dbb8eae3d0eacb07677caaa8cb0def741dd5360b159"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_18_viking_fjord_ridge.png",
+          "sha256": "f40072ef5a35486538db1d406da412b2f4b0cb05ac299b4fc878e7172da887c2"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_19_viking_snow_pass.png",
+          "sha256": "283dc77384c7575253cc3e368415928d761b77d0454afbe11105c89335b0e8e0"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_20_ferry.png",
+          "sha256": "e7358d134fb7d45000c2e69ad069b8eaf27f1d63e657da2a02d26af39b8ecd9e"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_20_mountain_shrine.png",
+          "sha256": "51511a652930984736b7cddf441b921d36ba2f6d876dcbb7a26b4d1eab1f9df2"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_21_dwarf_mountain_pass.png",
+          "sha256": "cde8ac3a356c1226fba01872c79cbd1da095d9203f5c64534094df2229d5f2ff"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_22_dwarf_high_quarry.png",
+          "sha256": "15d727d7cab063f61dd67eac0f8a644f6c9fea7166e4b305a8f59fcb92e68ac1"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_23_dwarf_forge_approach.png",
+          "sha256": "d5d0b8a8dd9c64df4038caf34d8277b13687cde299ece0de2dd4d2ac9931946b"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_24_dwarf_hold.png",
+          "sha256": "1f1ec147989e3a604a13e1dcfec7fa75116e89cb0492db0443d588463d61edf2"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_25_dwarf_snow_basin.png",
+          "sha256": "a2141559a84f26664638bc199091509bb847d446e47b289d47684302d8ce3c73"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_26_dwarf_high_quarry.png",
+          "sha256": "cf244bb44c91cbedc9b936c8130cb4dc2c2074e1af6bec96d980c8408d150859"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_27_dwarf_mountain_pass.png",
+          "sha256": "c35e1d54b59874932534df1e8720dd488ec0e1654296eab17d996df0330ad886"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_28_mountain_shrine.png",
+          "sha256": "6aff8d3548ede8f2bd2dac01bba98dbe475a100efb0bde8d3c03340b955f9169"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_29_ancient_shrine.png",
+          "sha256": "a23c7bbc03a75250bda391e0bd184408c7554be0690bd081831b2b18627d6054"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_29_ferry.png",
+          "sha256": "e9d7fc5d53936958915c0d5052b77daa99a513e34c7768ea8076e994549ab1a1"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_30_old_quarry.png",
+          "sha256": "729bb2320344b7919125c6bd56b8420dacc6dc716aaae124a893d58e14b0ca76"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_31_crossroads.png",
+          "sha256": "9b6d66cb20e05a7eaa97dc6e5380d4b68b3994aa2e1564d8ebd9264fa5de6177"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_32_human_capital.png",
+          "sha256": "1253dad093faa677714dfcb05c33d4f1ed68a3e16b035e40ca04c593b4e5bb02"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_33_coastal_ruins.png",
+          "sha256": "a80ccb2593baa72fb66de37c4a99a7c17cf343aa3ca4e0485098072467b0c497"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_34_nature_shrine.png",
+          "sha256": "aa6ebb3bf69212aa4cc915e5fc71397515fea5d5cf55adfadb9ef90597a1573e"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_35_nature_forest_clearing.png",
+          "sha256": "3c7a64d98dc5abab9bd6d7cc71bd02f8db329a0abfb4bfdda404db22ee865928"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_36_nature_treehold.png",
+          "sha256": "35127fa0396d8b9fdd4e48803f0a1da4c8080d665e3d78ca277d79b474098c72"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_37_nature_river_woodland.png",
+          "sha256": "3374dc1657ff760633a16618d91a68be4fb6d5ae92171d5a7ea2c8b8fc76292f"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_38_nature_grassland_edge.png",
+          "sha256": "4cdd330058c17ca0e95c3ce78753a41ce6a57008971963f543a95a991e053c4d"
+        },
+        {
+          "path": "Local/cooked-clean-travel-r1/User/Saved/Screenshots/traversal_39_river_ford.png",
+          "sha256": "49134126b09efe1bab2cb60885518f7ce69bbbcd73dc2f5405078f0f910ec8f7"
+        }
+      ]
+    },
+    {
+      "run": "cooked-clean-human-r1",
+      "pass": true,
+      "runtime_kind": "packaged",
+      "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "elapsed_seconds": 575.84,
+      "peak_gpu_c": 84.0,
+      "fps_cap": 15,
+      "performance_pass_inferred": false,
+      "summary": "Local/cooked-clean-human-r1/runtime/summary.json",
+      "marker": "SOUL_AUTHORED_SETTLEMENT_PASS",
+      "captures": [
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_authored_battle.png",
+          "sha256": "a077dd421ea4ec6b6b840d0b179393150ee7fc2014c3d4f01ae34605f2d47af0"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_authored_battle_warm.png",
+          "sha256": "05063a542556c52fad6b97700b22fda0a0817a1efb2ae1818eb608cb4f79f093"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_campaign_after_battle.png",
+          "sha256": "42951c50f35654b1274133cb33b18845a97721e4d57dea01252bf8458e97349d"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_completed.png",
+          "sha256": "6aadc8e5b5364f8bad76328449157556b7df9b6f1a372d529e964ee829325edd"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_completed_clean.png",
+          "sha256": "cdbe1490735ae3bc5c978a44c05578933f4f7c7809d3be2dd7b3091c39e8a9b9"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_loaded_mid.png",
+          "sha256": "baaf3b2ae9c995ed254bbb2a4cfd80ac5deb83a8f376c871efdbccfc9cc02ada"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_mid.png",
+          "sha256": "396f1ef97aba8e223d5232d775627cdc6c8d29ce8c1a13c811a2291ea3e57213"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_revisited_completed.png",
+          "sha256": "42c7af6d51ff625a4ea36510686829a13862454a40e3aa182b50bf26ca674533"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_start.png",
+          "sha256": "104c9d540135876f1fa8ee4ba22ddda73878b539b8deb507c631b12b63fbf8d9"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_city_start_clean.png",
+          "sha256": "c8c97ff393290df1cfd2a41383a349011df483a57337b3a213fbdaed89ed992e"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_miniature_completed.png",
+          "sha256": "f53c19afc2c6c9505efda6a4fbaf9bc0ac77d9b7f8bc2a477df5d8292b044a4a"
+        },
+        {
+          "path": "Local/cooked-clean-human-r1/User/Saved/Screenshots/cooked-clean-human-r1_miniature_start.png",
+          "sha256": "51b2ecf03f124afac3ddb0a5e5ceb4652b4a08dc6f492c2125bc6d3019345b54"
+        }
+      ],
+      "authored_receipt": {
+        "status": "FUNCTIONAL_PASS_PENDING_VISUAL_REVIEW",
+        "authored_environment": true,
+        "miniature": true,
+        "two_domain_restoration": true,
+        "real_battle": true,
+        "battle_won": true,
+        "player_survivors": 25,
+        "enemy_survivors": 0,
+        "screenshot_count": 12,
+        "seconds": 558.73
+      },
+      "failed_checks": 0,
+      "reinforcement_joins": 8,
+      "result_lines": [
+        "[2026.10.08-20.25.41:732][ 78]LogSoulCampaign: Display: SOUL_CAMPAIGN_RESULT id=encounter.3.1.human_capital.crossroads target=crossroads victory=1 survivors=25/0 player_region=crossroads"
+      ],
+      "known_diagnostics": {
+        "modeling_function": 39,
+        "invalid_shader_id": 9,
+        "uncooked_shader_id": 9,
+        "algae_fallback": 9
+      }
+    }
+  ],
+  "default_native_tests": "native-regression-r1.json",
+  "limitations": [
+    "Capped functional runs are not performance qualification. Prior 85 C uncapped failure remains open.",
+    "Existing Human algae shader and modeling-function warnings remain; no donor repair was attempted.",
+    "Historical regional art and existing mixed default battle presentation are unchanged."
+  ],
+  "visual_review": {
+    "pass": true,
+    "reviewed": [
+      "input restored",
+      "cold load",
+      "Broken Bridge arrival",
+      "northern ferry destination",
+      "Human Capital arrival",
+      "Human city native tavern absent/present",
+      "Human miniature absent/present",
+      "authored battle warm",
+      "post-victory campaign"
+    ],
+    "limits": "Functional correspondence confirmed. Algae/material warnings, sparse faction seats, ground tiling, road art and Dwarf exterior remain inherited provisional art. Ferry capture is an arrival view; hidden-over-water behavior is verified by route observer frames."
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "pass": true,
+  "binary_sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+  "legal_moves": 40,
+  "ferry_legs": 6,
+  "unique_undirected_edges": 31,
+  "visited_region_ids": [
+    "ancient_shrine",
+    "coastal_ruins",
+    "crossroads",
+    "dark_ash_plain",
+    "dark_castle_approach",
+    "dark_corrupted_valley",
+    "dark_fortress",
+    "dark_ruined_causeway",
+    "dwarf_forge_approach",
+    "dwarf_high_quarry",
+    "dwarf_hold",
+    "dwarf_mountain_pass",
+    "dwarf_snow_basin",
+    "human_capital",
+    "mountain_shrine",
+    "nature_forest_clearing",
+    "nature_grassland_edge",
+    "nature_river_woodland",
+    "nature_shrine",
+    "nature_treehold",
+    "old_quarry",
+    "orc_broken_bridge",
+    "river_ford",
+    "southern_crossing",
+    "viking_fjord_ridge",
+    "viking_forest_track",
+    "viking_harbour",
+    "viking_snow_pass"
+  ],
+  "teleports": 0,
+  "ownership_overrides": 0,
+  "legs": [
+    {
+      "from": "human_capital",
+      "to": "crossroads",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "crossroads",
+      "to": "river_ford",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "river_ford",
+      "to": "southern_crossing",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "southern_crossing",
+      "to": "orc_broken_bridge",
+      "remaining_ap": 2,
+      "ferry": true,
+      "hidden_frames": 1
+    },
+    {
+      "from": "orc_broken_bridge",
+      "to": "dark_ruined_causeway",
+      "remaining_ap": 1,
+      "ferry": true,
+      "hidden_frames": 14
+    },
+    {
+      "from": "dark_ruined_causeway",
+      "to": "dark_castle_approach",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dark_castle_approach",
+      "to": "dark_fortress",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dark_fortress",
+      "to": "dark_ash_plain",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dark_ash_plain",
+      "to": "dark_corrupted_valley",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dark_corrupted_valley",
+      "to": "southern_crossing",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "southern_crossing",
+      "to": "river_ford",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "river_ford",
+      "to": "crossroads",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "crossroads",
+      "to": "old_quarry",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "old_quarry",
+      "to": "ancient_shrine",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "ancient_shrine",
+      "to": "mountain_shrine",
+      "remaining_ap": 0,
+      "ferry": true,
+      "hidden_frames": 14
+    },
+    {
+      "from": "mountain_shrine",
+      "to": "viking_snow_pass",
+      "remaining_ap": 2,
+      "ferry": true,
+      "hidden_frames": 7
+    },
+    {
+      "from": "viking_snow_pass",
+      "to": "viking_forest_track",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "viking_forest_track",
+      "to": "viking_harbour",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "viking_harbour",
+      "to": "viking_fjord_ridge",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "viking_fjord_ridge",
+      "to": "viking_snow_pass",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "viking_snow_pass",
+      "to": "mountain_shrine",
+      "remaining_ap": 0,
+      "ferry": true,
+      "hidden_frames": 6
+    },
+    {
+      "from": "mountain_shrine",
+      "to": "dwarf_mountain_pass",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_mountain_pass",
+      "to": "dwarf_high_quarry",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_high_quarry",
+      "to": "dwarf_forge_approach",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_forge_approach",
+      "to": "dwarf_hold",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_hold",
+      "to": "dwarf_snow_basin",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_snow_basin",
+      "to": "dwarf_high_quarry",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_high_quarry",
+      "to": "dwarf_mountain_pass",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "dwarf_mountain_pass",
+      "to": "mountain_shrine",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "mountain_shrine",
+      "to": "ancient_shrine",
+      "remaining_ap": 0,
+      "ferry": true,
+      "hidden_frames": 16
+    },
+    {
+      "from": "ancient_shrine",
+      "to": "old_quarry",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "old_quarry",
+      "to": "crossroads",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "crossroads",
+      "to": "human_capital",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "human_capital",
+      "to": "coastal_ruins",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "coastal_ruins",
+      "to": "nature_shrine",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "nature_shrine",
+      "to": "nature_forest_clearing",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "nature_forest_clearing",
+      "to": "nature_treehold",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "nature_treehold",
+      "to": "nature_river_woodland",
+      "remaining_ap": 1,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "nature_river_woodland",
+      "to": "nature_grassland_edge",
+      "remaining_ap": 0,
+      "ferry": false,
+      "hidden_frames": 0
+    },
+    {
+      "from": "nature_grassland_edge",
+      "to": "river_ford",
+      "remaining_ap": 2,
+      "ferry": false,
+      "hidden_frames": 0
+    }
+  ],
+  "peak_gpu_c": 70.0,
+  "performance_qualification": false,
+  "scope": "Real input/travel across representative road, bridge, ford and ferry geography; not exhaustive runtime travel of every edge. Frozen 51/51 engineering remains inherited."
+}

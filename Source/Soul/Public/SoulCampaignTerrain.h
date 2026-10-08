@@ -8,6 +8,11 @@ class USceneComponent;
 namespace SoulCampaignTerrain
 {
     bool Enabled();
+    bool Composition();
+    bool MiniaturePlacement(FName Region,FTransform& Out);
+    bool RouteUsesFerry(FName From,FName To);
+    bool FerryTravel(FName From,FName To,float Alpha);
+    FBox2D TerrainBounds();
     bool Mesa();
     bool EvilCorridor();
     bool RetainedReviewCapture();

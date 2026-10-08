@@ -1,0 +1,20 @@
+{
+  "default": {
+    "pass": true,
+    "seconds": 85.61527967453003,
+    "binary_sha256": "cc8cd9acb7cb6405308a239f8e724638f32ee2905f6fc33fc3dccfd43acf2652",
+    "tests": [
+      "[2026.10.08-19.53.42:976][295]LogAutomationController: Display: Test Completed. Result={Success} Name={CameraAndSelection} Path={Soul.Integration.CampaignWorld.CameraAndSelection}",
+      "[2026.10.08-19.53.43:459][298]LogAutomationController: Display: Test Completed. Result={Success} Name={TerrainAndRoutes} Path={Soul.Integration.CampaignWorld.TerrainAndRoutes}"
+    ]
+  },
+  "composition": {
+    "pass": true,
+    "seconds": 24.206510066986084,
+    "binary_sha256": "cc8cd9acb7cb6405308a239f8e724638f32ee2905f6fc33fc3dccfd43acf2652",
+    "tests": [
+      "[2026.10.08-19.54.06:891][294]LogAutomationController: Display: Test Completed. Result={Success} Name={CameraAndSelection} Path={Soul.Integration.CampaignWorld.CameraAndSelection}",
+      "[2026.10.08-19.54.07:873][296]LogAutomationController: Display: Test Completed. Result={Success} Name={TerrainAndRoutes} Path={Soul.Integration.CampaignWorld.TerrainAndRoutes}"
+    ]
+  }
+}

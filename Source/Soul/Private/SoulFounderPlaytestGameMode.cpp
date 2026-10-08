@@ -37,6 +37,8 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     State=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>();
     if(State)State->InitializeScenario();
     Campaign=GetWorld()->SpawnActor<ASoulFounderPlaytestCampaignActor>();
+    if(!SoulCampaignTerrain::Composition())
+    {
     auto* Sun=GetWorld()->SpawnActor<ADirectionalLight>(ADirectionalLight::StaticClass(),FVector(0,0,5000),FRotator(-42,-35,0));
     if(Sun) { Cast<UDirectionalLightComponent>(Sun->GetLightComponent())->SetForwardShadingPriority(1); Sun->GetLightComponent()->SetIntensity(1.6f); Sun->GetLightComponent()->SetLightColor(FLinearColor(1.f,.89f,.71f)); }
     if(Sun&&SoulCampaignTerrain::Enabled())
@@ -64,15 +66,20 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     }
     auto* Fog=GetWorld()->SpawnActor<AExponentialHeightFog>();
     if(Fog) { Fog->GetComponent()->SetFogDensity(SoulCampaignTerrain::Enabled()?.0012f:.007f); Fog->GetComponent()->SetFogInscatteringColor(FLinearColor(.38f,.48f,.56f)); Fog->GetComponent()->SetStartDistance(2000.f*SoulCampaignTerrain::Scale()); }
+    }
     auto* Camera=GetWorld()->SpawnActor<ASoulCampaignCamera>();
     if(Camera)
     {
-        if(State && (SoulCampaignTerrain::Mesa()||State->PlayerRegion!=TEXT("human_capital"))) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
+        if(State && (SoulCampaignTerrain::Composition()||SoulCampaignTerrain::Mesa()||State->PlayerRegion!=TEXT("human_capital"))) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
         if(FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainBenchmark")))
         {
+            FParse::Value(FCommandLine::Get(),TEXT("SoulTerrainBenchmarkSeconds="),BenchmarkSampleSeconds);
+            BenchmarkSampleSeconds=FMath::Clamp(BenchmarkSampleSeconds,20,60);
             FString View;float Zoom=0;
             if(FParse::Value(FCommandLine::Get(),TEXT("SoulTerrainBenchmarkFocus="),View))
+            {
                 if(const FVector* P=ASoulCampaignWorldActor::Locations().Find(FName(*View)))Camera->Focus(*P);
+            }
             if(FParse::Value(FCommandLine::Get(),TEXT("SoulTerrainBenchmarkZoom="),Zoom))Camera->Zoom(Zoom);
         }
         if(auto* PC=GetWorld()->GetFirstPlayerController()) PC->SetViewTarget(Camera);
@@ -92,6 +99,8 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulCompositionTraversal")))
+    {if(!bDone)TickCompositionTraversal(Seconds);return;}
     if(bSettlementDevelopmentQualification)
     {if(!bDone)TickSettlementDevelopmentQualification(Seconds);return;}
     // Separate-process F9 proof: a fresh game must restore the preceding F5 snapshot.
@@ -139,20 +148,21 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         static double Started=FPlatformTime::Seconds(),Previous=Started;
         static TArray<double> Samples;
         const double Now=FPlatformTime::Seconds(),Age=Now-Started,Frame=(Now-Previous)*1000;Previous=Now;
-        if(Age>=20&&Age<80)Samples.Add(Frame);
-        if(Age>=80&&!bDone)
+        const double SampleEnd=20.+BenchmarkSampleSeconds;
+        if(Age>=20&&Age<SampleEnd)Samples.Add(Frame);
+        if(Age>=SampleEnd&&!bDone)
         {
             bDone=true;double Sum=0;int32 Below30=0,Below40=0,Below60=0;
             FString CSV=TEXT("frame_ms\n");
             for(double V:Samples){Sum+=V;Below30+=V>1000./30;Below40+=V>25;Below60+=V>1000./60;CSV+=FString::Printf(TEXT("%.5f\n"),V);}
             Samples.Sort();const int32 N=Samples.Num();
-            const FString Receipt=FString::Printf(TEXT("{\"frames\":%d,\"warmup_seconds\":20,\"sample_seconds\":60,\"mean_ms\":%.4f,\"p95_ms\":%.4f,\"p99_ms\":%.4f,\"below_30\":%d,\"below_40\":%d,\"below_60\":%d,\"v2\":%s}"),N,Sum/FMath::Max(N,1),N?Samples[FMath::Min(N-1,FMath::FloorToInt(N*.95))]:0,N?Samples[FMath::Min(N-1,FMath::FloorToInt(N*.99))]:0,Below30,Below40,Below60,SoulCampaignTerrain::Enabled()?TEXT("true"):TEXT("false"));
+            const FString Receipt=FString::Printf(TEXT("{\"frames\":%d,\"warmup_seconds\":20,\"sample_seconds\":%.5f,\"requested_sample_seconds\":%d,\"mean_ms\":%.4f,\"p95_ms\":%.4f,\"p99_ms\":%.4f,\"below_30\":%d,\"below_40\":%d,\"below_60\":%d,\"v2\":%s}"),N,Sum/1000.,BenchmarkSampleSeconds,Sum/FMath::Max(N,1),N?Samples[FMath::Min(N-1,FMath::FloorToInt(N*.95))]:0,N?Samples[FMath::Min(N-1,FMath::FloorToInt(N*.99))]:0,Below30,Below40,Below60,SoulCampaignTerrain::Enabled()?TEXT("true"):TEXT("false"));
             FFileHelper::SaveStringToFile(Receipt,*(FPaths::ProjectSavedDir()/TEXT("TerrainBenchmark.json")));
             FFileHelper::SaveStringToFile(CSV,*(FPaths::ProjectSavedDir()/TEXT("TerrainBenchmark.csv")));
             UE_LOG(LogTemp,Display,TEXT("SOUL_TERRAIN_BENCHMARK_COMPLETE %s"),*Receipt);
             FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/TerrainBenchmark.png"),true,false);
         }
-        if(Age>83)FPlatformMisc::RequestExitWithStatus(false,0);
+        if(Age>SampleEnd+3)FPlatformMisc::RequestExitWithStatus(false,0);
         return;
     }
     if(bVisualQualification && !bDone) TickVisualQualification(Seconds);

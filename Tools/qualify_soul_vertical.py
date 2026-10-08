@@ -93,7 +93,7 @@ def process_memory_sample(pid):
 def conflicting_processes():
     rows = csv.reader(io.StringIO(hidden(["tasklist", "/FO", "CSV", "/NH"])))
     return [{"name": r[0], "pid": int(r[1])} for r in rows if len(r) > 1 and
-            re.match(r"^(UnrealEditor|Soul)(?:-|\.|$)", r[0], re.I)]
+            re.match(r"^(UnrealEditor|Soul(?:Composition)?)(?:-|\.|$)", r[0], re.I)]
 
 
 def close_owned_process(process):

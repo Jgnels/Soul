@@ -82,4 +82,18 @@ class CampaignViewTests(unittest.TestCase):
         self.assertIn('/SK_Elephant.SK_Elephant',battle)
         self.assertNotIn('/SK_ElephantTusksBig.SK_ElephantTusksBig',battle)
 
+    def test_opt_in_benchmark_retains_warmup_hold_and_measured_duration(self):
+        mode=source('Private/SoulFounderPlaytestGameMode.cpp')
+        header=source('Public/SoulFounderPlaytestGameMode.h')
+        self.assertIn('int32 BenchmarkSampleSeconds=60',header)
+        self.assertIn('TEXT("SoulTerrainBenchmarkSeconds=")',mode)
+        self.assertIn('FMath::Clamp(BenchmarkSampleSeconds,20,60)',mode)
+        self.assertIn('const double SampleEnd=20.+BenchmarkSampleSeconds',mode)
+        self.assertIn('if(Age>=20&&Age<SampleEnd)Samples.Add(Frame)',mode)
+        self.assertIn('if(Age>SampleEnd+3)',mode)
+        self.assertIn('N,Sum/1000.,BenchmarkSampleSeconds',mode)
+        self.assertIn('requested_sample_seconds',mode)
+        self.assertIn('for(double V:Samples){Sum+=V;',mode)
+        self.assertIn('TEXT("SoulTerrainBenchmark")',mode)
+
 if __name__=='__main__':unittest.main(verbosity=2)

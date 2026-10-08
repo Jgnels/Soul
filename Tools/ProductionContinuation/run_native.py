@@ -2,9 +2,10 @@
 from pathlib import Path
 import argparse,subprocess,json,hashlib,time,os,tempfile
 R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261008'
-p=argparse.ArgumentParser();p.add_argument('--run',required=True);p.add_argument('--composition',action='store_true');a=p.parse_args();assert all(c.isalnum() or c in '-_' for c in a.run)
+p=argparse.ArgumentParser();p.add_argument('--run',required=True);p.add_argument('--composition',action='store_true');p.add_argument('--tests',default='Soul.Integration.CampaignWorld');p.add_argument('--expected-tests',type=int,default=2);p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True);assert all(c.isalnum() or c in '-_' for c in a.run)
+assert 1<=a.expected_tests<=200 and all(c.isalnum() or c in '._' for c in a.tests)
 O=E/'Local'/a.run;assert not O.exists();O.mkdir(parents=True)
-cmd=['C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe',str(R/'Soul.uproject'),'-unattended','-nosound','-nullrhi','-nop4','-nosplash','-DisablePlugins=AndroidFileServer,NwiroIntegrationKit','-DDC=InstalledNoZenLocalFallback','-ExecCmds=Automation RunTests Soul.Integration.CampaignWorld','-TestExit=Automation Test Queue Empty','-ReportExportPath='+str(O/'report'),'-abslog='+str(O/'unreal.log')]
+cmd=['C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe',str(R/'Soul.uproject'),'-unattended','-nosound','-nullrhi','-nop4','-nosplash','-DisablePlugins=AndroidFileServer,NwiroIntegrationKit','-DDC=InstalledNoZenLocalFallback','-ExecCmds=Automation RunTests '+a.tests,'-TestExit=Automation Test Queue Empty','-ReportExportPath='+str(O/'report'),'-abslog='+str(O/'unreal.log')]
 if a.composition:cmd+=['-SoulComposition']
 env=os.environ.copy();scratch=tempfile.mkdtemp(prefix='SoulNative_');env['TEMP']=env['TMP']=scratch
 start=time.time();receipt={'command':cmd,'binary_sha256':hashlib.sha256((R/'Binaries/Win64/UnrealEditor-Soul.dll').read_bytes()).hexdigest()}
@@ -15,5 +16,5 @@ except subprocess.TimeoutExpired:receipt['timeout']=True
 receipt['seconds']=time.time()-start
 text=(O/'unreal.log').read_text(encoding='utf-8-sig',errors='replace') if (O/'unreal.log').exists() else ''
 receipt['tests']=[l for l in text.splitlines() if 'Test Completed. Result=' in l]
-receipt['pass']=receipt.get('exit_code')==0 and len(receipt['tests'])==2 and all('Result={Success}' in l for l in receipt['tests'])
+receipt['pass']=receipt.get('exit_code')==0 and len(receipt['tests'])==a.expected_tests and all('Result={Success}' in l for l in receipt['tests'])
 (O/'receipt.json').write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt,indent=2));raise SystemExit(0 if receipt['pass'] else 1)

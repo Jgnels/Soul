@@ -42,6 +42,7 @@ public:
     FName GetDevelopmentRegion() const;
     FString GetDevelopmentBuildingName() const;
     uint32 SettlementDevelopmentRevision = 0; // Presentation invalidation only, not saved game truth.
+    FString GetCampaignSaveSlotName() const;
     void SaveCampaign();
     void LoadCampaign();
     virtual FName GetRBSaveDomainId_Implementation() const override;

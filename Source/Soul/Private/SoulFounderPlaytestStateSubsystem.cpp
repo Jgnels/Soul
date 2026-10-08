@@ -73,7 +73,6 @@ namespace
         }
         return true;
     }
-    const TCHAR* CampaignSlot=TEXT("Soul.VerticalCampaign");
     // This checkpoint owns strategic campaign and settlement consequences. Optional
     // legacy item/weather/routine domains retain their separate registered authority.
     const TArray<FName> CampaignSaveDomains = {TEXT("Soul.Campaign"), TEXT("Soul.Settlements")};
@@ -108,11 +107,14 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     const bool bDwarfEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"));
     const bool bHumanEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"));
     const bool bAuthoredEnvironmentProof = bDwarfEnvironmentProof || bHumanEnvironmentProof;
-    if ((bAuthoredEnvironmentProof && !SoulCampaignTerrain::EvilCorridor())
+    const bool bComposition = SoulCampaignTerrain::Composition();
+    if(bComposition&&(bDwarfEnvironmentProof||FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignExpansion"))||FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain"))))
+    {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_COMPOSITION_SCENARIO_FAIL conflicting experimental flag"));return;}
+    if ((bAuthoredEnvironmentProof && !SoulCampaignTerrain::EvilCorridor() && !bComposition)
         || (bDwarfEnvironmentProof && bHumanEnvironmentProof))
     { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_AUTHORED_PROOF_FAIL requires one explicit settlement and the retained EvilCorridor terrain profile")); return; }
     TSharedPtr<FJsonObject> Config,Geography,Starts,Handoffs;
-    const bool bConfigLoaded = bDwarfEnvironmentProof
+    const bool bConfigLoaded = bComposition ? ReadData(bHumanEnvironmentProof?TEXT("CampaignComposition/HumanRuntimeProof.json"):TEXT("CampaignComposition/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
         ? ReadData(TEXT("SettlementEnvironments/DwarfHoldRuntimeProof.json"), Config)
         : bHumanEnvironmentProof ? ReadData(TEXT("SettlementEnvironments/HumanCapitalRuntimeProof.json"), Config)
         : ReadData(TEXT("soul_vertical_scenario_20260925.json"), Config);
@@ -123,7 +125,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     { UE_LOG(LogSoulCampaign,Error,TEXT("Campaign authority data unavailable; refusing fallback geography.")); return; }
     // This opt-in content qualification uses existing Crownspine nodes/edges and
     // a captured-hold starting owner. It does not alter the canonical world graph.
-    const auto Scenario=bAuthoredEnvironmentProof ? Config->GetObjectField(TEXT("start_state"))
+    const auto Scenario=(bAuthoredEnvironmentProof||bComposition) ? Config->GetObjectField(TEXT("start_state"))
         : Starts->GetObjectField(TEXT("scenarios"))->GetObjectField(TEXT("founder_human_orc_micro"));
     TSet<FName> RegionIds;
     for (const auto& Id:Scenario->GetArrayField(TEXT("region_ids"))) RegionIds.Add(FName(*Id->AsString()));
@@ -257,7 +259,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
     LastAIReport=TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
-    if (bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
+    if (bComposition || bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
     {
         FString Error;
         auto* DevelopmentScenario = LoadObject<USoulSettlementScenarioData>(nullptr,
@@ -605,26 +607,36 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
     World.KnowledgeByFaction.FindOrAdd(PlayerFaction).ExploredRegions=MoveTemp(Explored);FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);
     Error.Reset();return true;
 }
+FString USoulFounderPlaytestStateSubsystem::GetCampaignSaveSlotName() const
+{
+    // Presentation profiles retain the same RB Save domains/schema, but a
+    // 36-region candidate must never overwrite the qualified founder slot.
+    if (SoulCampaignTerrain::Composition())
+        return FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"))
+            ? TEXT("Soul.Composition3500.HumanProof") : TEXT("Soul.Composition3500.Founder");
+    return TEXT("Soul.VerticalCampaign");
+}
+
 void USoulFounderPlaytestStateSubsystem::SaveCampaign()
 {
     if(!SaveSubsystem.IsValid()||bPersistenceBusy||HasPendingBattle())return;
     bPersistenceBusy=true;bLastSaveSucceeded=false;
     FRBSaveOperationDelegate Done;Done.BindDynamic(this,&USoulFounderPlaytestStateSubsystem::OnCampaignSaved);
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE_SCOPE domains=Soul.Campaign,Soul.Settlements"));
-    SaveSubsystem->SaveSelectedDomainsAsync(CampaignSlot,CampaignSaveDomains,Done);
+    SaveSubsystem->SaveSelectedDomainsAsync(GetCampaignSaveSlotName(),CampaignSaveDomains,Done);
 }
 void USoulFounderPlaytestStateSubsystem::LoadCampaign()
 {
     if(!SaveSubsystem.IsValid()||bPersistenceBusy||HasPendingBattle())return;
     bPersistenceBusy=true;bLastLoadSucceeded=false;
     FRBSaveOperationDelegate Done;Done.BindDynamic(this,&USoulFounderPlaytestStateSubsystem::OnCampaignLoaded);
-    SaveSubsystem->LoadSelectedDomainsAsync(CampaignSlot,CampaignSaveDomains,Done);
+    SaveSubsystem->LoadSelectedDomainsAsync(GetCampaignSaveSlotName(),CampaignSaveDomains,Done);
 }
 void USoulFounderPlaytestStateSubsystem::OnCampaignSaved(const FRBSaveOperationResult& R)
 {
     bPersistenceBusy=false;bLastSaveSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?TEXT("Campaign saved with RB Save."):R.Message;
     const FString SavedPath = SaveSubsystem.IsValid()
-        ? SaveSubsystem->GetDomainSlotPath(CampaignSlot) : R.ArtifactPath;
+        ? SaveSubsystem->GetDomainSlotPath(GetCampaignSaveSlotName()) : R.ArtifactPath;
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE success=%d path=%s message=%s"),R.bSuccess,*SavedPath,*R.Message);
 }
 void USoulFounderPlaytestStateSubsystem::OnCampaignLoaded(const FRBSaveOperationResult& R)

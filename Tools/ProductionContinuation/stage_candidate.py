@@ -5,9 +5,9 @@ R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261
 sys.path[:0]=[str(R/'Tools'),str(R/'Tools/WorldTerrain')]
 from qualify_soul_vertical import conflicting_processes,gpu_sample,process_memory_sample
 from host_commit import system_commit_sample
-p=argparse.ArgumentParser();p.add_argument('--cook',type=Path,required=True);p.add_argument('--run',required=True);p.add_argument('--minutes',type=int,default=45);p.add_argument('--loose-hardlink',action='store_true',help='Stage loose cooked content with same-volume hardlinks in a fresh temporary stage; not a distributable archive.');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--cook',type=Path,required=True);p.add_argument('--run',required=True);p.add_argument('--minutes',type=int,default=45);p.add_argument('--loose-hardlink',action='store_true',help='Stage loose cooked content with same-volume hardlinks in a fresh temporary stage; not a distributable archive.');p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
 assert 1<=a.minutes<=60 and all(c.isalnum() or c in '-_' for c in a.run)
-cook=a.cook.resolve();assert cook.is_relative_to((E/'Local').resolve())
+cook=a.cook.resolve();assert cook.is_relative_to((R/'Evidence').resolve())
 cr=json.loads((cook/'Diagnostics/receipt.json').read_text());assert cr['pass'] and cr['scope']=='runtime'
 profile=R/'Data/CampaignComposition/PackageProfile.json';assert hashlib.sha256(profile.read_bytes()).hexdigest()==cr['profile_sha256']
 tr=json.loads((E/'target-receipt-verification.json').read_text());assert tr['pass']
