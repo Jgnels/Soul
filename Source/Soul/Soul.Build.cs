@@ -33,6 +33,20 @@ public class Soul : ModuleRules
             {
                 RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS);
             }
+            if (Target.Name == "SoulComposition")
+            {
+                // The isolated cook enables this content plugin. Its module is
+                // editor-only, but the runtime mount still needs its descriptor.
+                RuntimeDependencies.Add("$(EngineDir)/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin", StagedFileType.NonUFS);
+                foreach (string File in new[]
+                {
+                    "Data/CampaignComposition/presentation.json",
+                    "Data/CampaignComposition/RuntimeProof.json",
+                    "Data/CampaignComposition/HumanRuntimeProof.json",
+                    "Data/CampaignCompositionLocal/Composition_3500_r2.r16"
+                })
+                    RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS);
+            }
         }
     }
 }

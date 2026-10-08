@@ -32,10 +32,13 @@ Each mode keeps its own persistent local user directory beneath `Saved/Compositi
 
 ## Current receipts and recovery
 
-- `collect_packaged_results.py` consolidates existing cooked input/fresh-load/Human authored proof receipts. It does not rerun them.
+- `collect_packaged_results.py` consolidates existing cooked input/fresh-load/Human authored proof and representative traversal receipts. It does not rerun them.
 - `faction_admission.py` derives all 102 directed context records from existing canonical sources and approved role assignments. It does not enable six-faction gameplay.
 - `stage_footprint.py` measures the actual local package and records redacted configuration findings. It does not prune or alter content.
 - `plot_telemetry.py` produces an SVG from the one existing failed thermal attempt, without third-party plotting dependencies or another benchmark.
 - `preserve_final.py` created the one additive local recovery archive. Do not rerun over it. Its 241 member hashes are verified in `final-local-recovery.json`; it includes the exact current Source tree with preserved inactive inherited drafts and therefore is not clean-source admission.
 
 All current authored/candidate art remains local-only. These tools operate on the qualified worker and its recorded stage, not an arbitrary clean checkout. The source delta patch and previous milestone patch must not be mistaken for an automatically approved R10/Expansion merge.
+
+- `final_route_review.py` builds an evidence-only interactive map of final/inherited routes, existing native grades and recorded cooked coverage. It verifies native-hit provenance and exact XY station correspondence without rerunning collision or authoring terrain.
+- `verify_preservation.py` rechecks protected donors/reference, inherited tracked files and the 241-member recovery boundary after runtime. It makes no repairs or gameplay changes.

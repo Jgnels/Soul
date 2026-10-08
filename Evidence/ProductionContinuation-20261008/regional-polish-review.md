@@ -25,4 +25,4 @@ A full Dark gate tower had no acceptable natural bench under the local footprint
 
 ## Visual evidence
 
-`visual-review.html` pairs the previous production-push captures with the current fixed cameras. It labels Dwarf, roads, materials, shores and sparse regional population honestly. Harbor close inspection confirms shore contact and supports. No new checkerboard was seen in the reviewed candidate views. This is not a final full-six-faction art pass or a quality-category claim.
+`visual-review.html` pairs the previous production-push captures with the current fixed cameras. It labels Dwarf, roads, materials, shores and sparse regional population honestly. Harbor close inspection confirms shore contact and supports. The visible lowland grid-like texture repetition is also present in the prior ordinary-campaign capture and remains inherited art debt. No new material-fallback checkerboard was identified in the reviewed candidate views. This is not a final full-six-faction art pass or a quality-category claim.

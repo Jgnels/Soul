@@ -1,0 +1,572 @@
+{
+  "starting_head": "8ea786c180f2f8e431831b92b7d8867e2237c818",
+  "implementation_commit": "c0e2e63b6f4e277b26dd19bb83e319918284033d",
+  "implementation_committed_files": [
+    "Data/CampaignComposition/PackageProfile.json",
+    "Data/CampaignComposition/presentation.json",
+    "Evidence/ProductionContinuation-20261008/build-test-results.json",
+    "Evidence/ProductionContinuation-20261008/clock.json",
+    "Evidence/ProductionContinuation-20261008/cook-result.json",
+    "Evidence/ProductionContinuation-20261008/cook-results.json",
+    "Evidence/ProductionContinuation-20261008/crownspine-curves-r1.json",
+    "Evidence/ProductionContinuation-20261008/dark-cues-placement.json",
+    "Evidence/ProductionContinuation-20261008/dark-cues-plan.json",
+    "Evidence/ProductionContinuation-20261008/dark-cues-rejection.json",
+    "Evidence/ProductionContinuation-20261008/final-local-recovery.json",
+    "Evidence/ProductionContinuation-20261008/foliage-r1.json",
+    "Evidence/ProductionContinuation-20261008/inherited-preservation-final.json",
+    "Evidence/ProductionContinuation-20261008/inherited-tracked-hashes.json",
+    "Evidence/ProductionContinuation-20261008/manual-play-preflight.json",
+    "Evidence/ProductionContinuation-20261008/native-route-final-summary.json",
+    "Evidence/ProductionContinuation-20261008/packaged-boundary-repair.json",
+    "Evidence/ProductionContinuation-20261008/packaged-runtime-results.json",
+    "Evidence/ProductionContinuation-20261008/performance-result.json",
+    "Evidence/ProductionContinuation-20261008/performance-thermal.svg",
+    "Evidence/ProductionContinuation-20261008/preservation-baseline.json",
+    "Evidence/ProductionContinuation-20261008/preservation-final.json",
+    "Evidence/ProductionContinuation-20261008/production-isolation.md",
+    "Evidence/ProductionContinuation-20261008/regional-cues-placement.json",
+    "Evidence/ProductionContinuation-20261008/regional-cues-plan.json",
+    "Evidence/ProductionContinuation-20261008/regional-polish-review.md",
+    "Evidence/ProductionContinuation-20261008/resource-stage-contract.json",
+    "Evidence/ProductionContinuation-20261008/road-binding-final.json",
+    "Evidence/ProductionContinuation-20261008/road-curves-r1.json",
+    "Evidence/ProductionContinuation-20261008/road-hierarchy-continuation1.json",
+    "Evidence/ProductionContinuation-20261008/road-hierarchy-continuation2.json",
+    "Evidence/ProductionContinuation-20261008/route-atlas.html",
+    "Evidence/ProductionContinuation-20261008/route-inventory.json",
+    "Evidence/ProductionContinuation-20261008/runtime-data-receipt.json",
+    "Evidence/ProductionContinuation-20261008/save-compatibility.md",
+    "Evidence/ProductionContinuation-20261008/save-regression-results.json",
+    "Evidence/ProductionContinuation-20261008/six-faction-admission.json",
+    "Evidence/ProductionContinuation-20261008/six-faction-admission.md",
+    "Evidence/ProductionContinuation-20261008/six-faction-groundwork.md",
+    "Evidence/ProductionContinuation-20261008/six-faction-readiness.json",
+    "Evidence/ProductionContinuation-20261008/source-delta-working.json",
+    "Evidence/ProductionContinuation-20261008/source-delta-working.patch",
+    "Evidence/ProductionContinuation-20261008/stage-footprint.json",
+    "Evidence/ProductionContinuation-20261008/stage-footprint.md",
+    "Evidence/ProductionContinuation-20261008/stage-size-preflight.json",
+    "Evidence/ProductionContinuation-20261008/staged-isolation-verification.json",
+    "Evidence/ProductionContinuation-20261008/surface-transition.json",
+    "Evidence/ProductionContinuation-20261008/target-receipt-verification-r1.json",
+    "Evidence/ProductionContinuation-20261008/target-receipt-verification.json",
+    "Evidence/ProductionContinuation-20261008/visual-review.html",
+    "Tools/ProductionContinuation/README.md",
+    "Tools/ProductionContinuation/bind_roads.py",
+    "Tools/ProductionContinuation/capture_final.py",
+    "Tools/ProductionContinuation/checkpoint.py",
+    "Tools/ProductionContinuation/collect_packaged_results.py",
+    "Tools/ProductionContinuation/cook_candidate.py",
+    "Tools/ProductionContinuation/export_runtime.py",
+    "Tools/ProductionContinuation/faction_admission.py",
+    "Tools/ProductionContinuation/faction_readiness.py",
+    "Tools/ProductionContinuation/foliage.py",
+    "Tools/ProductionContinuation/make_gallery.py",
+    "Tools/ProductionContinuation/place_cues.py",
+    "Tools/ProductionContinuation/place_dark_cues.py",
+    "Tools/ProductionContinuation/plan_cues.py",
+    "Tools/ProductionContinuation/play_candidate.py",
+    "Tools/ProductionContinuation/plot_telemetry.py",
+    "Tools/ProductionContinuation/prepare_roads.py",
+    "Tools/ProductionContinuation/preserve_final.py",
+    "Tools/ProductionContinuation/qualify_runtime.py",
+    "Tools/ProductionContinuation/run_native.py",
+    "Tools/ProductionContinuation/smooth_crownspine.py",
+    "Tools/ProductionContinuation/smooth_roads.py",
+    "Tools/ProductionContinuation/snapshot_delta.py",
+    "Tools/ProductionContinuation/stage_candidate.py",
+    "Tools/ProductionContinuation/stage_footprint.py",
+    "Tools/ProductionContinuation/test_continuation.py",
+    "Tools/ProductionContinuation/verify_package_receipt.py",
+    "Tools/ProductionContinuation/verify_stage.py",
+    "Tools/Stage-SoulTcatResources.ps1",
+    "Tools/build_soul_terrain.ps1"
+  ],
+  "closeout_scoped_paths": [
+    "Evidence/ProductionContinuation-20261008/cook-result.json",
+    "Evidence/ProductionContinuation-20261008/final-review-integrity.json",
+    "Evidence/ProductionContinuation-20261008/final-route-review.html",
+    "Evidence/ProductionContinuation-20261008/final-route-review.json",
+    "Evidence/ProductionContinuation-20261008/HANDOFF.md",
+    "Evidence/ProductionContinuation-20261008/inherited-preservation-final.json",
+    "Evidence/ProductionContinuation-20261008/packaged-boundary-repair.json",
+    "Evidence/ProductionContinuation-20261008/packaged-runtime-results.json",
+    "Evidence/ProductionContinuation-20261008/preservation-final.json",
+    "Evidence/ProductionContinuation-20261008/production-isolation.md",
+    "Evidence/ProductionContinuation-20261008/recovery-final-verification.json",
+    "Evidence/ProductionContinuation-20261008/regional-polish-review.md",
+    "Evidence/ProductionContinuation-20261008/route-atlas.html",
+    "Evidence/ProductionContinuation-20261008/route-inventory.json",
+    "Evidence/ProductionContinuation-20261008/runtime-diagnostics.json",
+    "Evidence/ProductionContinuation-20261008/runtime-diagnostics.md",
+    "Evidence/ProductionContinuation-20261008/source-delta-replay.json",
+    "Evidence/ProductionContinuation-20261008/source-promotion-boundary.md",
+    "Evidence/ProductionContinuation-20261008/visual-review.html",
+    "Tools/ProductionContinuation/README.md",
+    "Tools/ProductionContinuation/collect_packaged_results.py",
+    "Tools/ProductionContinuation/final_route_review.py",
+    "Tools/ProductionContinuation/make_gallery.py",
+    "Tools/ProductionContinuation/verify_preservation.py",
+    "Evidence/ProductionContinuation-20261008/milestone-file-boundary.json",
+    "Source/Soul/Soul.Build.cs",
+    "Source/SoulComposition.Target.cs",
+    "Evidence/ProductionContinuation-20261008/packaging-source-admission.json"
+  ],
+  "continuation_source_tool_delta_paths": [
+    "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp",
+    "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+    "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+    "Source/Soul/Soul.Build.cs",
+    "Source/SoulComposition.Target.cs",
+    "Tools/build_soul_terrain.ps1",
+    "Tools/test_package_soul_weekend.py",
+    "Tools/package_soul_weekend.ps1",
+    "Tools/qualify_soul_vertical.py",
+    "Tools/test_qualify_soul_vertical.py",
+    "Tools/Stage-SoulTcatResources.ps1"
+  ],
+  "source_delta_receipt": "source-delta-working.json",
+  "intentional_local_assets": [
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Boreal_p1_r1.uasset",
+      "bytes": 7372,
+      "sha256": "744a4f973a4417e4d47014da6cb111270df1a2a861b2dda8901ffd82561756c5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Boreal_p2_r1.uasset",
+      "bytes": 7549,
+      "sha256": "9c8eccbb2747d625239668ad85b902e79fd5ee1c5c3b18a9995fd78d0d6eb638"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Boreal_p3_r1.uasset",
+      "bytes": 7541,
+      "sha256": "4cf19aad0de8dd6febf719ce325ac355f1be3a1b324ad5e5cab609010d35fb56"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_b1_r1.uasset",
+      "bytes": 9963,
+      "sha256": "d124a62af65ec79c9a18d9938fe2f4e189bc487c6bdbcc6c78fb566937c79a42"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_b3_r1.uasset",
+      "bytes": 9136,
+      "sha256": "b0e2957612d45e2c797a73a8801491d8cb33606d3a8f9145763febc250bd7a4c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_p1_r1.uasset",
+      "bytes": 7533,
+      "sha256": "240ba6c6f34a245716cc43fb3ea2de53ac48f2c8a6cc65e7d0913a05ba4311f3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_p2_r1.uasset",
+      "bytes": 7689,
+      "sha256": "5356d48eee09697f8297ab9f113ab68c82b9dfc886b5b3a42d79d4ad5225184a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_b1_r1.uasset",
+      "bytes": 9963,
+      "sha256": "243b0c2d18adc1db0e4afeb98246d08145b7bba88a57bd7a582d8a9c10c5f602"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_b3_r1.uasset",
+      "bytes": 9136,
+      "sha256": "a4d87695e7cc63c661047f8dae23d6cbd775023d517dc2b460fe9a6647814276"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_p1_r1.uasset",
+      "bytes": 7573,
+      "sha256": "d05a5a9d88ea381445b3bd7b7639119a68c43db60555e3656967e0667184c856"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_p2_r1.uasset",
+      "bytes": 7719,
+      "sha256": "9f5be91270c57235769aaa166d651983c4c99c1a3ad083f5cd93eddb90dd3211"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/M_ContinuationRoads_r1.uasset",
+      "bytes": 74033,
+      "sha256": "7fda6c26d47fe7651b17f4f1d1a8a334c84d0e116b1901c9fa50546d6c8d7f96"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_ContinuationRoads_r1.uasset",
+      "bytes": 25242,
+      "sha256": "e2538156da3692a8e4d200ece008f202b575ccb1cccc760d03e47a3e84d0cd6c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_Pine_Boreal_r1.uasset",
+      "bytes": 8610,
+      "sha256": "bb0264e0f187cf4199d4e88932356af8f501035a7fe4f1ebe9f174703384b269"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_Pine_Greenwood_r1.uasset",
+      "bytes": 5200,
+      "sha256": "364cfec881c39cd4f7151a497ce0e969e3ef29d0f7c5a888945f44375751ab56"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_Pine_Heartland_r1.uasset",
+      "bytes": 5200,
+      "sha256": "fb1643ed40013fe908b6e0d33bb6d23224bc4922b123c2877409f7e2f176fabc"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/SM_Deciduous_b1_r1.uasset",
+      "bytes": 2495485,
+      "sha256": "2db01b2f32a9124a6ee9656d8f693cde757d1181303a79340ef58dae0083def3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/SM_Deciduous_b3_r1.uasset",
+      "bytes": 3616880,
+      "sha256": "a3c33368cbfb1829c5c9ee7ede794056f9866b9840b5f014b984f624e6bc259a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/T_RoadControl_continuation1.uasset",
+      "bytes": 298475,
+      "sha256": "971fc9afb0f844434f08393cc6d88f2e05f996cc533e0e8c16ef0aed67f69678"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/T_RoadControl_continuation2.uasset",
+      "bytes": 299011,
+      "sha256": "7a21d4fb54d72b46c7cf5d9b9c33cfc06b8caf5fc612a75610035a1be18e68d6"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r1.uasset",
+      "bytes": 251794,
+      "sha256": "2222db231c7806afb1028bf40cf05f9d0f41cf3ee6387baa727f3b9789546837"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r3.uasset",
+      "bytes": 257462,
+      "sha256": "74a2857b0da629930c72cf0303aae0d75ded3ef36644c3963b960910188638e9"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r4.uasset",
+      "bytes": 258950,
+      "sha256": "1103e30af05b3f24c2bb0c28cce1b874a84bf8446a88c38aef0de5a7d5b084e0"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r5.uasset",
+      "bytes": 259430,
+      "sha256": "058d76e29092b8916f1898602a8c2f27b9874e36e4e9fcdc9fda211c7fd70e5e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/M_FinalRoads_r1.uasset",
+      "bytes": 73969,
+      "sha256": "bcef2b98dfb127300f3d95b76948066fa54adca46adc1176fa2fed4846852920"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/M_FordBankWater_r2.uasset",
+      "bytes": 38803,
+      "sha256": "d5f45fb09ed5a23d037eae773d518d4c07ff662c807d0d034c9301d95ed7c23c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/MI_FinalRoads_r1.uasset",
+      "bytes": 25166,
+      "sha256": "6c18eb5e3e5751f5eba89239740b935faf5cbe186ad755a4161315875b08ea37"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/MI_FordBankWater_r2.uasset",
+      "bytes": 15746,
+      "sha256": "74b80c8e874aa483ce041f8dd69225fe791f749f1bf3149b5239a3a2fc9ea593"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.uasset",
+      "bytes": 1426447,
+      "sha256": "39cd4c0e3b209f3e6f22973fba5270d46c255b24215f6f59a0bba0c95d7f0031"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_HumanQuay_r1.uasset",
+      "bytes": 762510,
+      "sha256": "f6664aae3991997c275e1d6acdb25f7fd4f5744d680edb57405784a55d885244"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.uasset",
+      "bytes": 264149,
+      "sha256": "f5457965fc42fcf75358bc4331c4852847bf12340f67664775c50badf6b25cc2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_RuinRubble_r1.uasset",
+      "bytes": 134358,
+      "sha256": "a7050013a3d66fb5bce7f72391f6264ee8bb7747821fd9ca8488fd476948c77d"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final1.uasset",
+      "bytes": 299357,
+      "sha256": "1048a5c7941e0ca6f93b8c67355bb25214a3b097c7809f7b6f69bb3aa22a9704"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final2.uasset",
+      "bytes": 299232,
+      "sha256": "99ed0cde56c9cd53a61a72097b2ede12e1ec47a923aa8cf6cabf3bedae9f853e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final3.uasset",
+      "bytes": 299348,
+      "sha256": "a0c1d65a03648ee4ad5c519b24b6b9e754df2ff7b1c8e6942c6cc2e22b61a6f7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final4.uasset",
+      "bytes": 297646,
+      "sha256": "c55beef50e8e409ebc059de27da03fb2308bfd42976d03536ba20021004fce67"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final5.uasset",
+      "bytes": 297834,
+      "sha256": "129902112266f0594a111e6c3b8315e648476a2b92a3f9315a544a4db6f71d12"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/L_Composition_3500_r1.umap",
+      "bytes": 32799343,
+      "sha256": "b91cee7d73d8ad415f16d66e249cd55e1a5a25c96eece5c0010a8c59db6965e4"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/L_Composition_3500_r2.umap",
+      "bytes": 39680977,
+      "sha256": "a80d7df96d0cf3ca3268a09ad1806806a75b022a023c2e4c5082b9e65668a39a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r1.uasset",
+      "bytes": 71058,
+      "sha256": "be8fe78daaace897a2ddf1b2933d2f1e2306268df1a388473b885896cb16dc2a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r2.uasset",
+      "bytes": 72335,
+      "sha256": "8ffbf3101775e629167b6f245c2fe97e8ca40275c6bf8dd95ab3188aa2b6b005"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r3.uasset",
+      "bytes": 73998,
+      "sha256": "ea23a56e45ff4f761d444aa95759df2d21ba9f2003026cbfb647e36bdfb7841c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r1.uasset",
+      "bytes": 42388,
+      "sha256": "0b9d5e38306854f0b9eefbe38dac4ce5c53399768d22b5a3940c53b58de39d76"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r2.uasset",
+      "bytes": 25230,
+      "sha256": "3c2ce0c13d2d173a3b6b27635f4ed0b86b0825aa043209b26080e84cf2d8ab12"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r3.uasset",
+      "bytes": 25232,
+      "sha256": "0a53c0c1923d232671a8aabc70d069a4ffb1366788f7763f80cf52b285c19af2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r4.uasset",
+      "bytes": 25200,
+      "sha256": "f70b009634318ed52bd943cd9a30f720666a6babd5da56d77e20656abed778a3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_River_r1.uasset",
+      "bytes": 15656,
+      "sha256": "f43755e93bcc1c983147cc3a75d16ff591be9d708940fd571892c4db533a2fb3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Water_r1.uasset",
+      "bytes": 13432,
+      "sha256": "26f42d0e77866c9d7a2c233876e6b10df8505c69180a99752e5045e8223a2cf2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_East_r1.uasset",
+      "bytes": 885509,
+      "sha256": "7250dd5f20f8b7c90c780e47abb032800db1a821963afc5dd8787b1b022fc5d5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_West_r1.uasset",
+      "bytes": 783410,
+      "sha256": "197a76f439d081c97c1322510e27d0fe88a3237d39b8eba13c8436a2b1483e24"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/M_Polish_r1.uasset",
+      "bytes": 73929,
+      "sha256": "e6f7ec0f00f0ed2f69989574e5c8a7fb1c50b09a65192bb7e08ce154dea5f24a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/MI_Polish_r1.uasset",
+      "bytes": 25107,
+      "sha256": "903b95ea298b7589833f48f5334e50b86ac1ce06195aec60b392c8c46e1ce03c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_RuinedBridge_East_r1.uasset",
+      "bytes": 1105006,
+      "sha256": "fef53e14070f90a7f22d843c3a47b13247fa526fb507b1fc77586861650fdef5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_RuinedBridge_West_r1.uasset",
+      "bytes": 1112469,
+      "sha256": "2c209230987ec24d6b37fd601eca4e4faaf0f7fb759948a5313240517c7bd308"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_StoneBridge_Collision_r1.uasset",
+      "bytes": 3222443,
+      "sha256": "21c374955c5d7cbb55c1c0eff37e0025955b3dd341866e99135a509370bc1c97"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_TimberDeck_Collision_r1.uasset",
+      "bytes": 61208,
+      "sha256": "39d882b228721d6ed3af90eff2bd03e02cd63f0bb3b034e4bd765b8949f60fee"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r1.uasset",
+      "bytes": 302597,
+      "sha256": "4ad5b3df41b8b0582b026b0afa1b68af728ce337031b0220d4c232222a7efbe7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r2.uasset",
+      "bytes": 299889,
+      "sha256": "066bfdab8928b0c0fa8ec222c9df689b376f53130445aeadb2f3d281197923cf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r3.uasset",
+      "bytes": 299239,
+      "sha256": "627cce2316668bbbbe84aefa49dde4cfc0f0c892212bccc7c9ba1c0686e154b5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r4.uasset",
+      "bytes": 299555,
+      "sha256": "7a484906eadfefbbbec704fe1aa49af5c542afb0e73ff7b231c568bc312d8446"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/M_PushRoads_r1.uasset",
+      "bytes": 71424,
+      "sha256": "1c1e551c1e29ca059377dd0c56e0c1e0beb0d58edb8fe495eaf3761e5d16c532"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/MI_PushRoads_r1.uasset",
+      "bytes": 22359,
+      "sha256": "d7c99f911365f69701607cfe5c71ff94b76959a2765e3f2d1a715fd020cd3b1b"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/SM_DwarfExterior_r1.uasset",
+      "bytes": 1621504,
+      "sha256": "05709b3e464142ab0f617035f1c1c0b3d2800dfa36586dec048c17f4197d4643"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/T_RoadControl_push1.uasset",
+      "bytes": 298032,
+      "sha256": "ea612f83ffdfabc2e4fb9a7ad4e596143ae2f517a493ca469e737ea781e2a011"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_eastern_run_r1.uasset",
+      "bytes": 25295,
+      "sha256": "609e1500153b3ede53e585764ec571279e1ae5c5ec47ae8af0a1d1b39b488609"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_eastern_run_r2.uasset",
+      "bytes": 25207,
+      "sha256": "4bb1aa380f2312bd6414cfe1e30199dcbdcdc7246bd2612d43023a3b4227bd00"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heart_river_r1.uasset",
+      "bytes": 34487,
+      "sha256": "8ec000bd2fe08fd3b58e26977500e98b74dea6af78581981a32405f5d9f9423a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heart_river_r2.uasset",
+      "bytes": 33182,
+      "sha256": "9966d751b64da7c37a21a836929a9ab437e506a93fd2dda746eef025b33e3da6"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r1.uasset",
+      "bytes": 20340,
+      "sha256": "45060cc668b61aa38757be0fb6da31c66c04ccbfb9eeaca814d1472f49abf59a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r2.uasset",
+      "bytes": 19989,
+      "sha256": "ae7f10fd7e98c8066fe1030befdad91303d6cef80f52fd9c93b20e8ab105cba7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_tributary_r1.uasset",
+      "bytes": 24956,
+      "sha256": "84c0b486649552ef3a911467359341c103a12e571f3d6ffefaec2d0e532831bf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_tributary_r2.uasset",
+      "bytes": 23513,
+      "sha256": "223e9923b25731ab1281f807c88b0e74f65ec07ab15914ff534ed1fee1d198b1"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_0_r1.uasset",
+      "bytes": 49865,
+      "sha256": "4dd0aac3f38dd3e45ca4e30830988f2870f40a93b540866e4b4dd7af35f8be53"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_0_r2.uasset",
+      "bytes": 72940,
+      "sha256": "15025b881f5d48896d6c65a580618fc547d09e4067c2e22110310258beb52baf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_1_r1.uasset",
+      "bytes": 102887,
+      "sha256": "32474daac3f94b8cc0045117eed1a790372c3755b3a3032ba359d6ff3f95edf7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_1_r2.uasset",
+      "bytes": 131805,
+      "sha256": "c376bb817398a73a7e8bb6a5b1ab11c6c2b2f7d3a954133ce3a80c2fb62a12be"
+    }
+  ],
+  "local_asset_authority": "final-local-recovery.json (all member paths/hashes; no licensed payloads in commits)",
+  "inherited_tracked_paths": [
+    ".gitignore",
+    "Config/DefaultEngine.ini",
+    "Config/DefaultGame.ini",
+    "Data/CampaignWorldTerrain/presentation.json",
+    "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md",
+    "Evidence/ProductionPush-20261008/HANDOFF.md",
+    "Soul.uproject",
+    "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
+    "Source/Soul/Private/SoulCampaignCamera.cpp",
+    "Source/Soul/Private/SoulCampaignTerrain.cpp",
+    "Source/Soul/Private/SoulCampaignVisualQualification.cpp",
+    "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+    "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+    "Source/Soul/Private/Tests/test_weekend_campaign_view.py",
+    "Source/Soul/Public/SoulCampaignCamera.h",
+    "Source/Soul/Public/SoulCampaignTerrain.h",
+    "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+    "Source/Soul/Soul.Build.cs",
+    "Tools/WorldTerrain/README.md",
+    "Tools/WorldTerrain/author_world.py",
+    "Tools/WorldTerrain/bake_surface.py",
+    "Tools/WorldTerrain/bake_world.py",
+    "Tools/WorldTerrain/dress_world.py",
+    "Tools/WorldTerrain/import_masks.py",
+    "Tools/WorldTerrain/qualify_world.py",
+    "Tools/WorldTerrain/test_world.py",
+    "Tools/package_soul_weekend.ps1",
+    "Tools/qualify_soul_vertical.py",
+    "Tools/test_package_soul_weekend.py",
+    "Tools/test_qualify_soul_vertical.py"
+  ],
+  "inherited_unexpected_changes": [],
+  "exclusions": [
+    "all Local directories, screenshots, cooked packages and source archives",
+    "all Content payloads",
+    "all mixed gameplay Source files; isolated packaging target/rule explicitly admitted",
+    "all Config, Soul.uproject, .gitignore and machine/security support",
+    "prior rejected R10/Expansion drafts"
+  ],
+  "head_only_binary_reproduction": false,
+  "push": false,
+  "merge": false,
+  "source_commit_exception": {
+    "files": [
+      "Source/Soul/Soul.Build.cs",
+      "Source/SoulComposition.Target.cs"
+    ],
+    "evidence": "packaging-source-admission.json",
+    "working_buildcs_changed_by_admission": false
+  }
+}

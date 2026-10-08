@@ -260,9 +260,589 @@
       "battle_result_lines": [
         "[2026.10.08-17.23.47:092][668]LogSoulCampaign: Display: SOUL_CAMPAIGN_RESULT id=encounter.3.1.human_capital.crossroads target=crossroads victory=1 survivors=33/0 player_region=crossroads"
       ]
+    },
+    {
+      "run": "packaged-traversal-r1",
+      "pass": true,
+      "scope": "actual new cooked-content boundary, not a gameplay redesign",
+      "summary": "Local/packaged-traversal-r1/runtime/summary.json",
+      "runtime_kind": "packaged",
+      "binary_sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 778.25,
+      "map_ready_seconds": 15.408307,
+      "peak_gpu_c": 71.0,
+      "peak_device_vram_mib": 6232.0,
+      "peak_process_working_set_mib": 2496.23,
+      "max_fps_cap": 20,
+      "performance_pass_inferred": false,
+      "save_files": [],
+      "screenshots": [
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_00_crossroads.png",
+          "bytes": 2444039,
+          "sha256": "0aedf4729b0b0d0cc7cbb4d74eef629890a52d2c3ed62c620541f22961538244"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_01_river_ford.png",
+          "bytes": 2438851,
+          "sha256": "732d43f8e5a2752d3590e41b336e2830f50932b1c15e96d4a64ff1b9e55e9fd8"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_02_southern_crossing.png",
+          "bytes": 2577529,
+          "sha256": "c4d6e3aaf292e1231f03606e2f86abffbdb1f101a15f6dba56f8902c76859fb4"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_03_ferry.png",
+          "bytes": 2362702,
+          "sha256": "ff36a262d0cceb8f7bd67471fe33931de8ce456e35291d6bc3ba22ecbfc55d2d"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_03_orc_broken_bridge.png",
+          "bytes": 2365095,
+          "sha256": "912278cc382db435c6f496aaea92598e22cbf4da5f78f6cea266a80fdba68c90"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_04_dark_ruined_causeway.png",
+          "bytes": 2299100,
+          "sha256": "7e27b89c9a29c3d4c81973749d1f53e1bb7809131fb5ff04815a19518c2a9fda"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_04_ferry.png",
+          "bytes": 2313274,
+          "sha256": "bc5708e87a02f67d2a55b66294928acc36b827ccd4c0bde927d28e166b7a31d0"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_05_dark_castle_approach.png",
+          "bytes": 2144180,
+          "sha256": "4e9cfc85b0da497815d3ed8226d477d65447247cd090c43954d4bf4ce69571c1"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_06_dark_fortress.png",
+          "bytes": 2112654,
+          "sha256": "372858a8dde077e999f33829770d3e5f73adaff5523376612b985f8f3945ff0b"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_07_dark_ash_plain.png",
+          "bytes": 2181675,
+          "sha256": "e9d6bb6f7ffd8afaa64dbc7e72b3dc3235330f813d7dc1855aab2160afd9881b"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_08_dark_corrupted_valley.png",
+          "bytes": 2336587,
+          "sha256": "8c5a4381059af7bcda7d29c584d59c60b076637a997f38a2364a6c67ebf57248"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_09_southern_crossing.png",
+          "bytes": 2598122,
+          "sha256": "e9614b697058c5ce403fafed0547c9873ab5f642c85f813186bb03b895f35762"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_10_river_ford.png",
+          "bytes": 2553711,
+          "sha256": "4b1e3ba2ee64c85d599d6e308af191b6c51803cf1d038b98937226b3db9f13ac"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_11_crossroads.png",
+          "bytes": 2703786,
+          "sha256": "3541f865185548e390d8e0d7b5228cff5a7eca3fae3ae3060a588879d916d440"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_12_old_quarry.png",
+          "bytes": 2608949,
+          "sha256": "d84193b0e68dbbf5725e7e90eb7d8d4cb27055218cd96370ed6d8bfa5a4b65ab"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_13_ancient_shrine.png",
+          "bytes": 2394203,
+          "sha256": "bf0f0c9e4ef66b037bdc4f1918d9cf2af6f55bc850f30caed63552d35950bfc7"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_14_ferry.png",
+          "bytes": 2639215,
+          "sha256": "5636d9edb32e6cbcac5662fd5e7c12e030dd644f02d40ac664c170547e9d51aa"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_14_mountain_shrine.png",
+          "bytes": 2632905,
+          "sha256": "89f5acdb8ebed50820c79036dcca478532a16464a0936e0888039845a33a19d7"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_15_ferry.png",
+          "bytes": 2756536,
+          "sha256": "9bef56dab43345883d92b305e1ede8ceb8cd282cdf581a07da155e02382f7cfb"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_15_viking_snow_pass.png",
+          "bytes": 2748428,
+          "sha256": "7badd5658f125014db0aa77bf376e8e8bd6e411b11e417665e70e86e6eb57664"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_16_viking_forest_track.png",
+          "bytes": 2808632,
+          "sha256": "a6764610820bebc1c8015e3ff38f104eefea278ce0c07e7fa8ad56a6178e12af"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_17_viking_harbour.png",
+          "bytes": 2573804,
+          "sha256": "b501c61952d6db2e7ba1f13f4769d49e2b9c81b68945c567255a709c5b2f502e"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_18_viking_fjord_ridge.png",
+          "bytes": 2655895,
+          "sha256": "c7e4e3d03dc8dc516846ec57a1b67150011f12168797bc38cfadbf78d092b93b"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_19_viking_snow_pass.png",
+          "bytes": 2588200,
+          "sha256": "a8eaa12a87bb35d00a4872e6738f681ff8f75463b084c09f71783ba3dc66fb74"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_20_ferry.png",
+          "bytes": 2962680,
+          "sha256": "2bc1aa18b4e6662275c22a9eaaffb5c8021495481edd2ca1ce1d1f6ad529d44c"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_20_mountain_shrine.png",
+          "bytes": 2935742,
+          "sha256": "c422bb6eeab9c94e9c97226df51ea2d03b213f36c29723c256c7ad07a419cd52"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_21_dwarf_mountain_pass.png",
+          "bytes": 2840140,
+          "sha256": "f22708fc19d4e91d24598420c84ffb3f15ed6b1c2ad6b3ab8ca5a757080510d9"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_22_dwarf_high_quarry.png",
+          "bytes": 2924962,
+          "sha256": "01db29b840479cba8e4228a0cee93c33c1490c873534225f26d80ad42cef632f"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_23_dwarf_forge_approach.png",
+          "bytes": 2853687,
+          "sha256": "ea829bcf4d68685e77fe91d3ef5088cc763cbb16438a6f76bd4c42cf15dcc775"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_24_dwarf_hold.png",
+          "bytes": 2811765,
+          "sha256": "476f60e04b140672a3a256b48f55fea2567fa6394f07718e6856fa400aae48a3"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_25_dwarf_snow_basin.png",
+          "bytes": 2591186,
+          "sha256": "483796a6afb307e8689bc7c80fdb1775cd8fffc4fede7acaace4cf08ea0dfb08"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_26_dwarf_high_quarry.png",
+          "bytes": 2968356,
+          "sha256": "b6e59e2cf8ea1de5437d7b3a8b2b4a12016a261c1c79a12300ec7c61a96ec5bf"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_27_dwarf_mountain_pass.png",
+          "bytes": 2868092,
+          "sha256": "e94976d442f33ba351f61db7c7dd6823c8401563320418a2591494825c61dc7d"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_28_mountain_shrine.png",
+          "bytes": 2992798,
+          "sha256": "4af47e2f4e05e83a8be90d4e57ecf08d05b59bdf3ed41ca553c964f71466ac39"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_29_ancient_shrine.png",
+          "bytes": 2744150,
+          "sha256": "04def53c529925501c2e417a09e7480e209f412759bfcc50def76151fba6f654"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_29_ferry.png",
+          "bytes": 2759603,
+          "sha256": "adadaae4c9c17dbc0f7a822ecb7e204eecfbb97ac1d121dcea90eaa14c574a1b"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_30_old_quarry.png",
+          "bytes": 2916939,
+          "sha256": "42beea45ffeb4981a350287efaa320e255a157d52195cab64ef2d234826d5ee1"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_31_crossroads.png",
+          "bytes": 2736242,
+          "sha256": "01ed5d4a1ad6006688d608ee69f48e7ecaf955db05dd780331f113ffa9560ccc"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_32_human_capital.png",
+          "bytes": 2973439,
+          "sha256": "33e71b3d8d2f9f20fbdd448d53b66c87b5cba5d722e6973c54476e5ab44a92db"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_33_coastal_ruins.png",
+          "bytes": 2580005,
+          "sha256": "7a228b15322d5f4865279392f2cd2cbf44c1f34bb3690ac51b9d6ad6db0f7501"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_34_nature_shrine.png",
+          "bytes": 2725638,
+          "sha256": "3c0a85574acfbdb25d896e96ec5390c0a81c7f9beb4be6e28bd8456bfcfc859f"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_35_nature_forest_clearing.png",
+          "bytes": 2669293,
+          "sha256": "6642340a036d2add12a3831d836a60f2aca9845a245b64ed5abea9b4192802b5"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_36_nature_treehold.png",
+          "bytes": 2973562,
+          "sha256": "163b1d3d39fa367bb4012d81214d0d080a6e2c1b4a4b7f37e373f26b26ec35d6"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_37_nature_river_woodland.png",
+          "bytes": 2688945,
+          "sha256": "03a0f4e36bf5577fec9eeac9f8d1d779e86d5f1781d4a245bebffb95f5f8250a"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_38_nature_grassland_edge.png",
+          "bytes": 2864025,
+          "sha256": "8254f73adccf46a23ac26a96a6abd537ec86b3c6cc4e5abbabadcbff02410e6f"
+        },
+        {
+          "path": "Local/packaged-traversal-r1/User/Saved/Screenshots/traversal_39_river_ford.png",
+          "bytes": 2876287,
+          "sha256": "e855ce10f01b7b607f5797e53a364e95d839a418a9d5513992f0c0d6ae106f4a"
+        }
+      ],
+      "journey": {
+        "legal_moves": 40,
+        "ferry_legs": 6,
+        "unique_undirected_edges": 31,
+        "visited_region_ids": [
+          "ancient_shrine",
+          "coastal_ruins",
+          "crossroads",
+          "dark_ash_plain",
+          "dark_castle_approach",
+          "dark_corrupted_valley",
+          "dark_fortress",
+          "dark_ruined_causeway",
+          "dwarf_forge_approach",
+          "dwarf_high_quarry",
+          "dwarf_hold",
+          "dwarf_mountain_pass",
+          "dwarf_snow_basin",
+          "human_capital",
+          "mountain_shrine",
+          "nature_forest_clearing",
+          "nature_grassland_edge",
+          "nature_river_woodland",
+          "nature_shrine",
+          "nature_treehold",
+          "old_quarry",
+          "orc_broken_bridge",
+          "river_ford",
+          "southern_crossing",
+          "viking_fjord_ridge",
+          "viking_forest_track",
+          "viking_harbour",
+          "viking_snow_pass"
+        ],
+        "teleports": 0,
+        "ownership_overrides": 0,
+        "legs": [
+          {
+            "from": "human_capital",
+            "to": "crossroads",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "crossroads",
+            "to": "river_ford",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "river_ford",
+            "to": "southern_crossing",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "southern_crossing",
+            "to": "orc_broken_bridge",
+            "remaining_ap": 2,
+            "ferry": true,
+            "hidden_frames": 2
+          },
+          {
+            "from": "orc_broken_bridge",
+            "to": "dark_ruined_causeway",
+            "remaining_ap": 1,
+            "ferry": true,
+            "hidden_frames": 15
+          },
+          {
+            "from": "dark_ruined_causeway",
+            "to": "dark_castle_approach",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dark_castle_approach",
+            "to": "dark_fortress",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dark_fortress",
+            "to": "dark_ash_plain",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dark_ash_plain",
+            "to": "dark_corrupted_valley",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dark_corrupted_valley",
+            "to": "southern_crossing",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "southern_crossing",
+            "to": "river_ford",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "river_ford",
+            "to": "crossroads",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "crossroads",
+            "to": "old_quarry",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "old_quarry",
+            "to": "ancient_shrine",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "ancient_shrine",
+            "to": "mountain_shrine",
+            "remaining_ap": 0,
+            "ferry": true,
+            "hidden_frames": 16
+          },
+          {
+            "from": "mountain_shrine",
+            "to": "viking_snow_pass",
+            "remaining_ap": 2,
+            "ferry": true,
+            "hidden_frames": 7
+          },
+          {
+            "from": "viking_snow_pass",
+            "to": "viking_forest_track",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "viking_forest_track",
+            "to": "viking_harbour",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "viking_harbour",
+            "to": "viking_fjord_ridge",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "viking_fjord_ridge",
+            "to": "viking_snow_pass",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "viking_snow_pass",
+            "to": "mountain_shrine",
+            "remaining_ap": 0,
+            "ferry": true,
+            "hidden_frames": 6
+          },
+          {
+            "from": "mountain_shrine",
+            "to": "dwarf_mountain_pass",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_mountain_pass",
+            "to": "dwarf_high_quarry",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_high_quarry",
+            "to": "dwarf_forge_approach",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_forge_approach",
+            "to": "dwarf_hold",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_hold",
+            "to": "dwarf_snow_basin",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_snow_basin",
+            "to": "dwarf_high_quarry",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_high_quarry",
+            "to": "dwarf_mountain_pass",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "dwarf_mountain_pass",
+            "to": "mountain_shrine",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "mountain_shrine",
+            "to": "ancient_shrine",
+            "remaining_ap": 0,
+            "ferry": true,
+            "hidden_frames": 16
+          },
+          {
+            "from": "ancient_shrine",
+            "to": "old_quarry",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "old_quarry",
+            "to": "crossroads",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "crossroads",
+            "to": "human_capital",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "human_capital",
+            "to": "coastal_ruins",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "coastal_ruins",
+            "to": "nature_shrine",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "nature_shrine",
+            "to": "nature_forest_clearing",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "nature_forest_clearing",
+            "to": "nature_treehold",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "nature_treehold",
+            "to": "nature_river_woodland",
+            "remaining_ap": 1,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "nature_river_woodland",
+            "to": "nature_grassland_edge",
+            "remaining_ap": 0,
+            "ferry": false,
+            "hidden_frames": 0
+          },
+          {
+            "from": "nature_grassland_edge",
+            "to": "river_ford",
+            "remaining_ap": 2,
+            "ferry": false,
+            "hidden_frames": 0
+          }
+        ],
+        "scope": "Representative 40-move journey across six macro-regions and existing crossing types; not exhaustive runtime traversal of all 51 edges."
+      },
+      "reviewed_images": [
+        "traversal_01_river_ford",
+        "traversal_03_orc_broken_bridge",
+        "traversal_06_dark_fortress",
+        "traversal_15_ferry",
+        "traversal_17_viking_harbour",
+        "traversal_23_dwarf_forge_approach",
+        "traversal_32_human_capital",
+        "traversal_36_nature_treehold"
+      ],
+      "visual_review": "PASS for actual cooked presentation/arrival and preserved Human representation; provisional regional art, hard shore masks, terrain repetition and angular roads remain visible. Several faction seats are still labels without final settlement art."
     }
   ],
-  "not_repeated": "Prior defeat/retry and exhaustive all-route traversal remain inherited qualification; no code change to those systems. This continuation revalidated changed geometry and save slots, then cooked input/fresh-load/authored-city boundary.",
+  "not_repeated": "Prior defeat/retry was not rerun because those systems are unchanged. This continuation revalidated all 51 routes analytically and against native collision, then cooked input/fresh-load/authored-city behavior and a representative 40-move cooked journey. Exhaustive runtime traversal of all 51 edges is not claimed.",
   "known_render_limits": [
     "Three CastleTown algae material fallbacks reported during cook, not repaired.",
     "Strategic shores, sparse faction art and Dwarf exterior remain provisional."

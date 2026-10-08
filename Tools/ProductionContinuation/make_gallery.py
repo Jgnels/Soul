@@ -40,7 +40,7 @@ notes={
 
 views=['whole_labels_minimized','ordinary_campaign','human_roads','human_capital_approach','mountain_pass','dwarf_approach','viking_coast','orc_routes','nature_paths','dark_region','broken_bridge','broken_bridge_close','river_ford','major_stone_bridge','minor_bridge','ferry_landing','close_road']
 
-html=['<!doctype html><html><meta charset="utf-8"><title>Soul production continuation</title><style>body{background:#15191d;color:#eee;font:17px system-ui;max-width:1600px;margin:auto;padding:30px}img{width:100%;height:auto}section{margin:36px 0}a{color:#a8d5ff}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}p{max-width:1150px}figcaption{padding:8px}figure{margin:0}.warning{border-left:4px solid #e5ac58;padding:15px}</style><h1>Soul — five-hour continuation</h1><p class="warning">Frozen geography; candidate remains opt-in. Dwarf exterior, road surfaces, shore masks and sparse regional art remain provisional. The corrected 60-second performance attempt hit the unchanged 85 C cutoff before completion. Cooked input, fresh-load and Human authored battle/return pass. These capped functional runs are not performance acceptance.</p><p><a href="HANDOFF.md">Handoff</a> · <a href="save-compatibility.md">Save compatibility</a> · <a href="six-faction-groundwork.md">Six-faction groundwork</a> · <a href="native-route-final-summary.json">Native route receipt</a></p>']
+html=['<!doctype html><html><meta charset="utf-8"><title>Soul production continuation</title><style>body{background:#15191d;color:#eee;font:17px system-ui;max-width:1600px;margin:auto;padding:30px}img{width:100%;height:auto}section{margin:36px 0}a{color:#a8d5ff}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}p{max-width:1150px}figcaption{padding:8px}figure{margin:0}.warning{border-left:4px solid #e5ac58;padding:15px}</style><h1>Soul — five-hour continuation</h1><p class="warning">Frozen geography; candidate remains opt-in. Dwarf exterior, road surfaces, shore masks and sparse regional art remain provisional. The corrected 60-second performance attempt hit the unchanged 85 C cutoff before completion. Cooked input, fresh-load, Human authored battle/return and the representative 40-move transport journey pass. These capped functional runs are not performance acceptance. Three Human material fallbacks and unresolved cooked dependencies remain; see runtime diagnostics.</p><p><a href="HANDOFF.md">Handoff</a> · <a href="save-compatibility.md">Save compatibility</a> · <a href="six-faction-groundwork.md">Six-faction groundwork</a> · <a href="native-route-final-summary.json">Native route receipt</a> · <a href="final-route-review.html">Final route/coverage review</a> · <a href="runtime-diagnostics.md">Cooked material/dependency defects</a></p>']
 
 def fig(p,label):
 
@@ -66,7 +66,7 @@ p=E/'Local/captures-final-r2/viking_harbor_close.png'
 
 if p.exists():html.append('<section><h2>Viking harbor landing</h2>'+fig(p,'Owned wood modules, piles seated in actual bed, grade-qualified local arrival and approximately 26 m jetty. This is harbor context, not a completed Viking capital.')+'</section>')
 
-for run in ['runtime-input-r1','runtime-load-r1','runtime-development-r1','packaged-input-r2','packaged-load-r1','packaged-human-r1']:
+for run in ['runtime-input-r1','runtime-load-r1','runtime-development-r1','packaged-input-r2','packaged-load-r1','packaged-human-r1','packaged-traversal-r1']:
 
  images=sorted((E/'Local'/run/'User/Saved/Screenshots').glob('*.png'))
 
@@ -74,9 +74,15 @@ for run in ['runtime-input-r1','runtime-load-r1','runtime-development-r1','packa
 
  if run=='packaged-human-r1':images=[p for p in images if any(p.stem.endswith(x) for x in ['miniature_start','miniature_completed','city_start_clean','city_completed_clean','authored_battle_warm','campaign_after_battle'])]
 
+ if run=='packaged-traversal-r1':images=[p for p in images if p.stem in ['traversal_01_river_ford','traversal_03_orc_broken_bridge','traversal_06_dark_fortress','traversal_15_ferry','traversal_17_viking_harbour','traversal_23_dwarf_forge_approach','traversal_32_human_capital','traversal_36_nature_treehold']]
+
  if not images:continue
 
- html.append('<section><h2>'+escape(run)+'</h2><div class="pair">')
+ html.append('<section><h2>'+escape(run)+'</h2>')
+
+ if run=='packaged-traversal-r1':html.append('<p>40 actual legal moves, six ferry legs, zero teleports or ownership overrides. Functional travel passes; Viking, Nature and Dark seats visibly remain incomplete. The ferry frame follows the destination while the walking party is hidden; it does not depict an animated boat. This is representative coverage, not runtime traversal of all 51 edges.</p>')
+
+ html.append('<div class="pair">')
 
  for p in images:html.append(fig(p,p.stem))
 

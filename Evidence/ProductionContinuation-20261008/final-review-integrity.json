@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "page": "visual-review.html",
+      "sha256": "00d72f8f61e6f25ba76c04506fd19d783b58edac56ac2de11178c860f86a53ef",
+      "local_links_checked": 143,
+      "missing": [],
+      "inline_javascript_syntax_pass": null
+    },
+    {
+      "page": "final-route-review.html",
+      "sha256": "a21e3a331291925f7074ff4e32311db7768f2c463fb8c11e7b45c73d064dfd09",
+      "local_links_checked": 5,
+      "missing": [],
+      "inline_javascript_syntax_pass": true
+    }
+  ],
+  "python_helpers_parsed": 29,
+  "scoped_json_parsed": 12,
+  "browser_interaction_verified": false,
+  "browser_limitation": "Two CUA initialization attempts failed before opening page (Windows sandbox helper setup refresh error). open_in_codex queued the evidence page; no browser UI success claimed.",
+  "scope": "Final read-only evidence integrity and JavaScript syntax; not repeated gameplay qualification."
+}

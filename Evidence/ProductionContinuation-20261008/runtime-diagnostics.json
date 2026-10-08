@@ -1,0 +1,170 @@
+{
+  "scope": "Post-run log triage only; no new runtime, shader repair or donor edit. Functional qualification is distinct from warning-free distribution readiness.",
+  "runs": [
+    {
+      "run": "packaged-input-r2",
+      "source": "Local/packaged-input-r2/runtime/unreal.log",
+      "log_sha256": "1d4e996aece6ae7f71a273ae0f77be1a4fdc29c971a5d43e225036b17ecf87b8",
+      "error_lines": 0,
+      "warning_lines": 6,
+      "unique_messages": [
+        {
+          "message": "LogShaderLibrary: Warning: Spent 266.05 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogShaderLibrary: Warning: Spent 71.39 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_M (0x20653169B2F30924) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_M.WebTexture_M'",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_TM (0xE8ECD2CD38DD6EA8) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_TM.WebTexture_TM'",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "run": "packaged-load-r1",
+      "source": "Local/packaged-load-r1/runtime/unreal.log",
+      "log_sha256": "f1798d3e44f901e23002a93db6819974a564f60881419cd09de2759cd3da82da",
+      "error_lines": 0,
+      "warning_lines": 6,
+      "unique_messages": [
+        {
+          "message": "LogShaderLibrary: Warning: Spent 100.62 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogShaderLibrary: Warning: Spent 54.08 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_M (0x20653169B2F30924) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_M.WebTexture_M'",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_TM (0xE8ECD2CD38DD6EA8) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_TM.WebTexture_TM'",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "run": "packaged-human-r1",
+      "source": "Local/packaged-human-r1/runtime/unreal.log",
+      "log_sha256": "8bcbe21eeef7a8f956696f156a1c5911e8894826b07f699439e4b67adea30ed2",
+      "error_lines": 34,
+      "warning_lines": 24,
+      "unique_messages": [
+        {
+          "message": "LogShaderLibrary: Warning: Spent 100.61 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogShaderLibrary: Warning: Spent 54.50 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_M (0x20653169B2F30924) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_M.WebTexture_M'",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_TM (0xE8ECD2CD38DD6EA8) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_TM.WebTexture_TM'",
+          "count": 1
+        },
+        {
+          "message": "LogPackageName: Error: GetLocalBaseFilenameWithPath: Failed converting package name \"/MeshModelingToolsetExp/Materials/GetDisplacementVectorForDepthBias\" to file name",
+          "count": 16
+        },
+        {
+          "message": "LogMaterial: Error: Loading a material resource None with an invalid ShaderMap!",
+          "count": 9
+        },
+        {
+          "message": "LogMaterial: Error: Tried to access an uncooked shader map ID in a cooked application",
+          "count": 9
+        },
+        {
+          "message": "LogMaterial: Warning: Invalid shader map ID caching shaders for 'M_BaseMaterial1', will use default material.",
+          "count": 9
+        },
+        {
+          "message": "LogMaterial: Warning: [AssetLog] <staged Content>/CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_Wood_Algae.uasset: Failed to compile Material Instance with Base M_BaseMaterial1 for platform PCD3D_SM5, Default Material will be used in game.",
+          "count": 3
+        },
+        {
+          "message": "LogMaterial: Warning: [AssetLog] <staged Content>/CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_Stab_Algae.uasset: Failed to compile Material Instance with Base M_BaseMaterial1 for platform PCD3D_SM5, Default Material will be used in game.",
+          "count": 3
+        },
+        {
+          "message": "LogMaterial: Warning: [AssetLog] <staged Content>/CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_StoneWall_Algae1.uasset: Failed to compile Material Instance with Base M_BaseMaterial1 for platform PCD3D_SM5, Default Material will be used in game.",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "run": "packaged-traversal-r1",
+      "source": "Local/packaged-traversal-r1/runtime/unreal.log",
+      "log_sha256": "e3ee3e1e8b6ed6ea23f78a03b310cecacfef55594aa85c9db962d921acf63c71",
+      "error_lines": 0,
+      "warning_lines": 6,
+      "unique_messages": [
+        {
+          "message": "LogShaderLibrary: Warning: Spent 100.07 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogShaderLibrary: Warning: Spent 55.92 ms in a blocking wait for shader preload, NumRefs: 2, FramePreloadStarted: 1, CurrentFrame: 1",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_M (0x20653169B2F30924) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_M.WebTexture_M'",
+          "count": 1
+        },
+        {
+          "message": "LogStreaming: Warning: LoadPackage: SkipPackage: /Engine/WebBrowser/WebTexture_TM (0xE8ECD2CD38DD6EA8) - The package to load does not exist on disk or in the loader",
+          "count": 1
+        },
+        {
+          "message": "LogUObjectGlobals: Warning: Failed to find object 'Object /Engine/WebBrowser/WebTexture_TM.WebTexture_TM'",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "human_material_cause": "Cook diagnostics identify NULL Texture2D normal inputs in Wood/Slab/StoneWall and Moss material layers for the three algae instances. Missing /Bridge/MSPresets/M_MS_Glass_Material/Textures/FlatNormal is also reported. Exact asset repair still needs a bounded Soul-owned override; do not save donor packages.",
+  "other_human_dependency": "Runtime reports /MeshModelingToolsetExp/Materials/GetDisplacementVectorForDepthBias unresolved. Its visible impact was not isolated; do not assume it is the same defect as missing normal textures.",
+  "campaign_only_dependency": "All four cooked runs report missing /Engine/WebBrowser/WebTexture_M and WebTexture_TM. No WebBrowser feature is qualified in this mission.",
+  "distribution_readiness": false,
+  "functional_results_overridden": false
+}

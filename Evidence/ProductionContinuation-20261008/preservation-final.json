@@ -1,5 +1,6 @@
 {
-  "checked_utc": "2026-10-08T16:43:08.499869+00:00",
+  "checked_utc": "2026-10-08T18:09:40.636818+00:00",
+  "phase": "After all completed cook/runtime activity",
   "files": [
     {
       "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\MaskTextures\\T_BaseGrass_Ground_1.uasset",
@@ -2627,50 +2628,6 @@
       "unchanged": true
     }
   ],
-  "changed": [
-    {
-      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\L_Composition_3500_r2.umap",
-      "sha256": "b89f4557e58095c2253467c6990d9af88e16e5b849213215b56567ed2f9c4f0c",
-      "bytes": 39591458,
-      "after_sha256": "a80d7df96d0cf3ca3268a09ad1806806a75b022a023c2e4c5082b9e65668a39a",
-      "unchanged": false
-    },
-    {
-      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulAuthoredSettlementQualification.cpp",
-      "sha256": "27b40145888a99e2b65cd8353347be7f2cade5faeb3c66e001e5d9672f63d824",
-      "bytes": 32643,
-      "after_sha256": "7ac60108a50aeda763df7cda286cd2ebb94d7db464cb0e029b216018957eae45",
-      "unchanged": false
-    },
-    {
-      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFounderPlaytestStateSubsystem.cpp",
-      "sha256": "eaaa0bf3e729790ac1c3cb7de2457fcc5b802be710a19d054e8a2262e1a3eae9",
-      "bytes": 43427,
-      "after_sha256": "f1591fdfcf57260fdb360a92ff71cd32106427d4cf893804b0f08b557d30f1be",
-      "unchanged": false
-    },
-    {
-      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementDevelopmentQualification.cpp",
-      "sha256": "592b819dd8588e80410f99ff54ab35f692547676fac77549332a5d4439ce3d15",
-      "bytes": 20732,
-      "after_sha256": "341719d0c63641f16a5d9742d7171de1fa829c69fbe29fb5ba3853f8d105695e",
-      "unchanged": false
-    },
-    {
-      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulCampaignWorldTests.cpp",
-      "sha256": "27cd70e1fe48fbe84edb8129763b34fabdaea279f0106d7ee0af701132026149",
-      "bytes": 7279,
-      "after_sha256": "8af74b55d269af599179c032f436706e213f0e38ce03eb0f3875e56ca425d947",
-      "unchanged": false
-    },
-    {
-      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFounderPlaytestStateSubsystem.h",
-      "sha256": "46966c5b22d08bdf4e83254673b973b8ab25b99455b024c8b627481b6d1eacfb",
-      "bytes": 4494,
-      "after_sha256": "fda980ca69dd2e0200dfe012afd7935fd6045cf59908212e91dcdac7196838f0",
-      "unchanged": false
-    }
-  ],
   "expected_changed_paths": [
     "Content/SoulCampaignComposition/L_Composition_3500_r2.umap",
     "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
@@ -2682,5 +2639,6 @@
   "unexpected_changes": [],
   "pass": true,
   "unchanged_count": 369,
-  "no_donor_saves": true
+  "no_donor_saves": true,
+  "elapsed_seconds": 53.56
 }

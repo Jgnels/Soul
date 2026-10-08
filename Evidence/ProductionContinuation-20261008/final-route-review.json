@@ -1,0 +1,1416 @@
+{
+  "status": "FINAL_REVIEW_EXISTING_RECEIPTS_NOT_NEW_QUALIFICATION",
+  "route_source_sha256": "9df48f9a87fadb336d8e57547ba204baa0168477f202f76390a3056f5d5dcc3e",
+  "native_hits_source_sha256": "90a99abc2be81aeab1f249afbada5e1ef06cb0bcc318f67a0ac5a732da263638",
+  "recorded_station_xy_match_max_m": 0.0,
+  "height_sha256": "bd84f1986c9fd71b51725647d8ae89644a0681c5d65f2d2aebcf6ab31383ba6b",
+  "native_routes": 51,
+  "native_stations": 52944,
+  "cooked_unique_edges": 31,
+  "cooked_moves": 40,
+  "changed_route_count": 15,
+  "curve_locations": [
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "center": [
+        2230.3921568627447,
+        1873.5294117647059
+      ],
+      "before_turn_deg": 135.00000000000094,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.090962364701252,
+        "max_grade_deg": 20.225907453747407,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 2
+    },
+    {
+      "route": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "center": [
+        1372.549019607843,
+        1454.9019607843136
+      ],
+      "before_turn_deg": 61.702379087331195,
+      "trim_m": 24,
+      "local_check": {
+        "length_m": 45.63669956855627,
+        "max_grade_deg": 2.3552221481870417,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "center": [
+        2683.333333333333,
+        981.3725490196077
+      ],
+      "before_turn_deg": 116.33854719543925,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.752100541827868,
+        "max_grade_deg": 20.935485422147785,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 1
+    },
+    {
+      "route": [
+        "orc_camp",
+        "orc_badlands"
+      ],
+      "center": [
+        3047.0588235294117,
+        1077.450980392157
+      ],
+      "before_turn_deg": 135.17961539989588,
+      "trim_m": 14,
+      "local_check": {
+        "length_m": 22.654694621163426,
+        "max_grade_deg": 17.908122838094844,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "orc_camp",
+        "orc_badlands"
+      ],
+      "center": [
+        3115.6862745098038,
+        1200.9803921568628
+      ],
+      "before_turn_deg": 45.00000000000024,
+      "trim_m": 24,
+      "local_check": {
+        "length_m": 46.714200264432506,
+        "max_grade_deg": 12.528511908544147,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "dark_corrupted_valley"
+      ],
+      "center": [
+        1502.941176470588,
+        2827.450980392157
+      ],
+      "before_turn_deg": 120.55496888805418,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.67221419987731,
+        "max_grade_deg": 20.158122465420554,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "center": [
+        2196.078431372549,
+        2196.078431372549
+      ],
+      "before_turn_deg": 64.0602204662026,
+      "trim_m": 18,
+      "local_check": {
+        "length_m": 34.09447935441485,
+        "max_grade_deg": 11.301031180270005,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "dark_corrupted_valley",
+        "dark_ash_plain"
+      ],
+      "center": [
+        1914.705882352941,
+        3074.5098039215686
+      ],
+      "before_turn_deg": 134.98122824905988,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.091330033655538,
+        "max_grade_deg": 21.756093633818686,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "mountain_shrine",
+        "dwarf_mountain_pass"
+      ],
+      "center": [
+        2113.725490196078,
+        871.5686274509803
+      ],
+      "before_turn_deg": 135.00888214846816,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 9.389827508787295,
+        "max_grade_deg": 21.936156016797845,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 1
+    },
+    {
+      "route": [
+        "dwarf_high_quarry",
+        "dwarf_snow_basin"
+      ],
+      "center": [
+        2450.0,
+        720.5882352941176
+      ],
+      "before_turn_deg": 90.0,
+      "trim_m": 8,
+      "local_check": {
+        "length_m": 16.086798937460333,
+        "max_grade_deg": 21.909327619593327,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "dwarf_forge_approach",
+        "dwarf_hold"
+      ],
+      "center": [
+        2724.5098039215686,
+        679.4117647058823
+      ],
+      "before_turn_deg": 82.59753955972751,
+      "trim_m": 8,
+      "local_check": {
+        "length_m": 16.619936138992866,
+        "max_grade_deg": 21.864792299267652,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "dwarf_snow_basin",
+        "dwarf_hold"
+      ],
+      "center": [
+        2738.235294117647,
+        528.4313725490196
+      ],
+      "before_turn_deg": 58.773073330559754,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 10.200970688370411,
+        "max_grade_deg": 21.959372792227917,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "center": [
+        2024.5098039215686,
+        1111.764705882353
+      ],
+      "before_turn_deg": 82.8749836510987,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 9.792065979754982,
+        "max_grade_deg": 21.96372903334919,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "center": [
+        2088.235294117647,
+        1070.5882352941176
+      ],
+      "before_turn_deg": 65.02403958960949,
+      "trim_m": 8,
+      "local_check": {
+        "length_m": 15.982292964210103,
+        "max_grade_deg": 21.95083243388365,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    }
+  ],
+  "routes": [
+    {
+      "index": 1,
+      "a": "human_capital",
+      "b": "crossroads",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 16.968207067917525,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 348.47480180315284,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "human_capital -> crossroads",
+        "crossroads -> human_capital"
+      ],
+      "bounds": [
+        662.4509803921568,
+        1595.7843137254902,
+        404.50980392156873,
+        308.43137254901944
+      ]
+    },
+    {
+      "index": 2,
+      "a": "crossroads",
+      "b": "old_quarry",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.893951536766856,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 511.1782901995484,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "crossroads -> old_quarry",
+        "old_quarry -> crossroads"
+      ],
+      "bounds": [
+        813.4313725490196,
+        1314.4117647058822,
+        253.52941176470597,
+        589.8039215686274
+      ]
+    },
+    {
+      "index": 3,
+      "a": "crossroads",
+      "b": "river_ford",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.760538618308917,
+      "native_misses": 0,
+      "crossings": [
+        "river_ford (ford)"
+      ],
+      "length_m": 472.28238397677075,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "crossroads -> river_ford",
+        "river_ford -> crossroads"
+      ],
+      "bounds": [
+        710.4901960784314,
+        1774.2156862745096,
+        356.47058823529414,
+        486.86274509803934
+      ]
+    },
+    {
+      "index": 4,
+      "a": "crossroads",
+      "b": "forest_edge",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 20.815323912825946,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 298.3917786038751,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        902.6486445116243,
+        1506.5686274509803,
+        205.48861039033636,
+        397.6470588235293
+      ]
+    },
+    {
+      "index": 5,
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 20.97568380483642,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 291.3265760115297,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "old_quarry -> ancient_shrine",
+        "ancient_shrine -> old_quarry"
+      ],
+      "bounds": [
+        813.4313725490196,
+        1053.627450980392,
+        253.52941176470597,
+        390.78431372549016
+      ]
+    },
+    {
+      "index": 6,
+      "a": "river_ford",
+      "b": "orc_watch",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.761924226883956,
+      "native_misses": 0,
+      "crossings": [
+        "river_ford (ford)",
+        "central_inlet_ferry (ferry)"
+      ],
+      "length_m": 2533.229089180375,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        710.4901960784314,
+        1242.7636887507092,
+        1632.9411764705883,
+        1018.3147426218397
+      ]
+    },
+    {
+      "index": 7,
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.751425540069373,
+      "native_misses": 0,
+      "crossings": [
+        "central_inlet_ferry (ferry)"
+      ],
+      "length_m": 1835.1802047459823,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        978.1372549019607,
+        1242.763688775012,
+        1365.294117647059,
+        791.0503320608716
+      ]
+    },
+    {
+      "index": 8,
+      "a": "forest_edge",
+      "b": "north_pass",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.557657133807897,
+      "native_misses": 0,
+      "crossings": [
+        "central_inlet_ferry (ferry)"
+      ],
+      "length_m": 1485.5429627660596,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        978.1372549019607,
+        1242.763688775012,
+        1269.2156862745096,
+        393.8049386759683
+      ]
+    },
+    {
+      "index": 9,
+      "a": "north_pass",
+      "b": "orc_camp",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.922396420648088,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1809.0267199881564,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2103.627450980392,
+        875.9778880526377,
+        795.6862745098038,
+        685.1005433199113
+      ]
+    },
+    {
+      "index": 10,
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "hierarchy": "badlands military road",
+      "width_m": 3.2,
+      "native_max_grade_deg": 21.922396420648088,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1985.6779692693945,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2159.396977917541,
+        875.9778880526377,
+        739.9167475726549,
+        1021.3750531238328
+      ]
+    },
+    {
+      "index": 11,
+      "a": "viking_harbour",
+      "b": "viking_forest_track",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.20020903796323,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 474.1358730883649,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "viking_forest_track -> viking_harbour"
+      ],
+      "bounds": [
+        497.7450980392157,
+        629.180914580365,
+        425.0980392156862,
+        430.9171246353212
+      ]
+    },
+    {
+      "index": 12,
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.605022890108586,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 890.5231052928693,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "viking_harbour -> viking_fjord_ridge"
+      ],
+      "bounds": [
+        497.7450980392157,
+        182.05882352941174,
+        425.0980392156862,
+        878.0392156862745
+      ]
+    },
+    {
+      "index": 13,
+      "a": "viking_forest_track",
+      "b": "viking_snow_pass",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.522630482321667,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 474.7344581422517,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "viking_snow_pass -> viking_forest_track"
+      ],
+      "bounds": [
+        497.7450980392157,
+        401.66666666666663,
+        411.37254901960785,
+        370.1960784313726
+      ]
+    },
+    {
+      "index": 14,
+      "a": "viking_fjord_ridge",
+      "b": "viking_snow_pass",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.79205020704808,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 454.6667435827564,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "viking_fjord_ridge -> viking_snow_pass"
+      ],
+      "bounds": [
+        490.88235294117646,
+        182.05882352941174,
+        418.2352941176471,
+        349.6078431372549
+      ]
+    },
+    {
+      "index": 15,
+      "a": "viking_forest_track",
+      "b": "northwest_march",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.77099260131612,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 631.5857993664132,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        497.7450980392157,
+        629.180914580365,
+        308.43077038225306,
+        636.7994775764978
+      ]
+    },
+    {
+      "index": 16,
+      "a": "northwest_march",
+      "b": "human_capital",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 20.011309931582144,
+      "native_misses": 0,
+      "crossings": [
+        "human_north_bridge (timber)"
+      ],
+      "length_m": 469.8447360328927,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        635.0,
+        1135.9803921568628,
+        175.8840371022942,
+        589.8039215686274
+      ]
+    },
+    {
+      "index": 17,
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.588429471832878,
+      "native_misses": 0,
+      "crossings": [
+        "central_inlet_ferry (ferry)"
+      ],
+      "length_m": 2129.416977316947,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "mountain_shrine -> viking_snow_pass",
+        "viking_snow_pass -> mountain_shrine"
+      ],
+      "bounds": [
+        687.9779411764706,
+        401.66666666666663,
+        1154.4730392156862,
+        1116.9369760831387
+      ]
+    },
+    {
+      "index": 18,
+      "a": "mountain_shrine",
+      "b": "ancient_shrine",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.239250435345276,
+      "native_misses": 0,
+      "crossings": [
+        "central_inlet_ferry (ferry)"
+      ],
+      "length_m": 1331.5987338304803,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "ancient_shrine -> mountain_shrine",
+        "mountain_shrine -> ancient_shrine"
+      ],
+      "bounds": [
+        920.2522217485525,
+        792.8431372549019,
+        922.1987586436042,
+        727.0588235294117
+      ]
+    },
+    {
+      "index": 19,
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.452600216495092,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 532.3844126106657,
+      "geometry_changed": true,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "mountain_shrine -> dwarf_mountain_pass",
+        "dwarf_mountain_pass -> mountain_shrine"
+      ],
+      "bounds": [
+        1712.4509803921567,
+        758.5301787233673,
+        466.8046276727516,
+        267.2541350021229
+      ]
+    },
+    {
+      "index": 20,
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "hierarchy": "engineered mountain track",
+      "width_m": 2.8,
+      "native_max_grade_deg": 21.20342195075819,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 600.8856340626681,
+      "geometry_changed": true,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "dwarf_mountain_pass -> dwarf_high_quarry",
+        "dwarf_high_quarry -> dwarf_mountain_pass"
+      ],
+      "bounds": [
+        1913.0937579433855,
+        422.2549019607843,
+        266.1618501215228,
+        603.5294117647059
+      ]
+    },
+    {
+      "index": 21,
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "hierarchy": "engineered mountain track",
+      "width_m": 2.8,
+      "native_max_grade_deg": 21.73573441747244,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1310.4718293381436,
+      "geometry_changed": true,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dwarf_snow_basin -> dwarf_high_quarry"
+      ],
+      "bounds": [
+        1945.7843137254902,
+        223.23529411764702,
+        768.2345143587042,
+        595.6372549019609
+      ]
+    },
+    {
+      "index": 22,
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "hierarchy": "engineered mountain track",
+      "width_m": 2.8,
+      "native_max_grade_deg": 21.327995392401014,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 899.7839717110437,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dwarf_high_quarry -> dwarf_forge_approach"
+      ],
+      "bounds": [
+        1945.7843137254902,
+        422.2549019607843,
+        679.019607843137,
+        480.45378772400704
+      ]
+    },
+    {
+      "index": 23,
+      "a": "dwarf_forge_approach",
+      "b": "dwarf_hold",
+      "hierarchy": "engineered mountain track",
+      "width_m": 2.8,
+      "native_max_grade_deg": 21.65587109323238,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 325.32296305330203,
+      "geometry_changed": true,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dwarf_forge_approach -> dwarf_hold"
+      ],
+      "bounds": [
+        2494.803921568627,
+        552.6470588235294,
+        322.15686274509835,
+        342.7450980392157
+      ]
+    },
+    {
+      "index": 24,
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "hierarchy": "engineered mountain track",
+      "width_m": 2.8,
+      "native_max_grade_deg": 21.69010211757644,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 431.3292515091352,
+      "geometry_changed": true,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dwarf_hold -> dwarf_snow_basin"
+      ],
+      "bounds": [
+        2474.2156862745096,
+        223.23529411764702,
+        342.7450980392159,
+        459.4117647058824
+      ]
+    },
+    {
+      "index": 25,
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.655568576265786,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 808.4379328112515,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        1900.2997177727725,
+        895.7843137254902,
+        347.05322340369776,
+        639.8008325467611
+      ]
+    },
+    {
+      "index": 26,
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.92250177328082,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1120.8474583391423,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2101.5019993018864,
+        758.5257685738513,
+        523.3019222667408,
+        802.5526627986976
+      ]
+    },
+    {
+      "index": 27,
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.926696118621585,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1405.0483318596464,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2101.5019993018864,
+        875.9806710920327,
+        845.8509418745839,
+        685.0977602805162
+      ]
+    },
+    {
+      "index": 28,
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "hierarchy": "badlands military road",
+      "width_m": 3.2,
+      "native_max_grade_deg": 21.900900278168262,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 877.0763506538152,
+      "geometry_changed": true,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2632.0588235294117,
+        1015.3722181218832,
+        548.627450980392,
+        525.1179779565482
+      ]
+    },
+    {
+      "index": 29,
+      "a": "orc_camp",
+      "b": "orc_war_camp",
+      "hierarchy": "badlands military road",
+      "width_m": 3.2,
+      "native_max_grade_deg": 21.359373360748886,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 523.0968350553,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2632.0588235294117,
+        978.1372549019607,
+        315.29411764705856,
+        562.3529411764707
+      ]
+    },
+    {
+      "index": 30,
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "hierarchy": "badlands military road",
+      "width_m": 3.2,
+      "native_max_grade_deg": 21.95265178406501,
+      "native_misses": 0,
+      "crossings": [
+        "orc_broken_bridge (ruined stone / timber repair)"
+      ],
+      "length_m": 2823.892701863824,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2159.396977917541,
+        875.9778880526377,
+        1048.7402769844198,
+        1021.3750531238328
+      ]
+    },
+    {
+      "index": 31,
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "hierarchy": "badlands military road",
+      "width_m": 3.2,
+      "native_max_grade_deg": 21.952651784079,
+      "native_misses": 0,
+      "crossings": [
+        "orc_broken_bridge (ruined stone / timber repair)"
+      ],
+      "length_m": 902.4760292425561,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2899.705882352941,
+        1163.4313725490194,
+        308.43137254901967,
+        723.7349461160443
+      ]
+    },
+    {
+      "index": 32,
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "hierarchy": "badlands military road",
+      "width_m": 3.2,
+      "native_max_grade_deg": 21.926581956689784,
+      "native_misses": 0,
+      "crossings": [
+        "orc_broken_bridge (ruined stone / timber repair)"
+      ],
+      "length_m": 178.84829283019076,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        2987.9779411764703,
+        1609.5098039215686,
+        220.1593137254904,
+        277.6565147434951
+      ]
+    },
+    {
+      "index": 33,
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 16.102365929758832,
+      "native_misses": 0,
+      "crossings": [
+        "human_west_bridge (stone)"
+      ],
+      "length_m": 601.0675372802363,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "human_capital -> coastal_ruins"
+      ],
+      "bounds": [
+        195.78431372549016,
+        1595.7843137254902,
+        596.6666666666666,
+        377.05871358172453
+      ]
+    },
+    {
+      "index": 34,
+      "a": "coastal_ruins",
+      "b": "nature_shrine",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 20.490562569752885,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 501.50299795060073,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "coastal_ruins -> nature_shrine"
+      ],
+      "bounds": [
+        195.78431372549016,
+        1835.9803921568625,
+        204.82140188106519,
+        589.8039215686274
+      ]
+    },
+    {
+      "index": 35,
+      "a": "nature_shrine",
+      "b": "nature_forest_clearing",
+      "hierarchy": "woodland path",
+      "width_m": 2.4,
+      "native_max_grade_deg": 21.771070883211074,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 398.95822385285857,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "nature_shrine -> nature_forest_clearing"
+      ],
+      "bounds": [
+        250.68627450980392,
+        2295.78431372549,
+        203.97123265393503,
+        480.0
+      ]
+    },
+    {
+      "index": 36,
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "hierarchy": "woodland path",
+      "width_m": 2.4,
+      "native_max_grade_deg": 20.804417186657624,
+      "native_misses": 0,
+      "crossings": [
+        "southern_crossing (stone)"
+      ],
+      "length_m": 631.0692249200425,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        264.4117647058823,
+        2275.273719215963,
+        672.156862745098,
+        322.0792219605073
+      ]
+    },
+    {
+      "index": 37,
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "hierarchy": "woodland path",
+      "width_m": 2.4,
+      "native_max_grade_deg": 21.734436680872253,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1489.7876686487666,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "nature_forest_clearing -> nature_treehold"
+      ],
+      "bounds": [
+        257.5490196078431,
+        2645.78431372549,
+        575.0468296479348,
+        838.872549019608
+      ]
+    },
+    {
+      "index": 38,
+      "a": "nature_forest_clearing",
+      "b": "nature_river_woodland",
+      "hierarchy": "woodland path",
+      "width_m": 2.4,
+      "native_max_grade_deg": 21.419208776915507,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 188.73346897943173,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        257.5490196078431,
+        2645.78431372549,
+        267.2549019607843,
+        239.80392156862763
+      ]
+    },
+    {
+      "index": 39,
+      "a": "nature_river_woodland",
+      "b": "nature_treehold",
+      "hierarchy": "woodland path",
+      "width_m": 2.4,
+      "native_max_grade_deg": 21.85045633736255,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 1325.340911668553,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "nature_treehold -> nature_river_woodland"
+      ],
+      "bounds": [
+        264.41354569509457,
+        2755.5882352941176,
+        568.1823035606833,
+        729.0686274509803
+      ]
+    },
+    {
+      "index": 40,
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "hierarchy": "woodland path",
+      "width_m": 2.4,
+      "native_max_grade_deg": 22.07781099269383,
+      "native_misses": 0,
+      "crossings": [
+        "southern_crossing (stone)"
+      ],
+      "length_m": 1020.8409140644064,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "nature_river_woodland -> nature_grassland_edge"
+      ],
+      "bounds": [
+        281.29657062966277,
+        2275.2734308023537,
+        655.2720568213176,
+        610.3148044917639
+      ]
+    },
+    {
+      "index": 41,
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.740698451430976,
+      "native_misses": 0,
+      "crossings": [
+        "river_ford (ford)"
+      ],
+      "length_m": 357.85292552413983,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "nature_grassland_edge -> river_ford"
+      ],
+      "bounds": [
+        710.4901960784314,
+        2131.078431372549,
+        226.07843137254895,
+        466.2745098039213
+      ]
+    },
+    {
+      "index": 42,
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 20.803521471327503,
+      "native_misses": 0,
+      "crossings": [
+        "southern_crossing (stone)"
+      ],
+      "length_m": 327.31557338045485,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        559.5098039215686,
+        2282.0588235294117,
+        377.0588235294117,
+        315.29411764705856
+      ]
+    },
+    {
+      "index": 43,
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.15684651523956,
+      "native_misses": 0,
+      "crossings": [
+        "river_ford (ford)",
+        "southern_crossing (stone)"
+      ],
+      "length_m": 226.46450803040523,
+      "geometry_changed": false,
+      "cooked_travel_count": 2,
+      "cooked_directions": [
+        "river_ford -> southern_crossing",
+        "southern_crossing -> river_ford"
+      ],
+      "bounds": [
+        552.1638962543285,
+        2131.078431372549,
+        288.3262998241029,
+        280.98039215686276
+      ]
+    },
+    {
+      "index": 44,
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.95265178406501,
+      "native_misses": 0,
+      "crossings": [
+        "southern_crossing (stone)",
+        "central_inlet_ferry (ferry)",
+        "orc_broken_bridge (ruined stone / timber repair)"
+      ],
+      "length_m": 4509.909993681619,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "southern_crossing -> orc_broken_bridge"
+      ],
+      "bounds": [
+        552.1638962543285,
+        744.8043179906512,
+        2628.5223782554754,
+        1667.2545055387604
+      ]
+    },
+    {
+      "index": 45,
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "hierarchy": "main campaign road",
+      "width_m": 3.8,
+      "native_max_grade_deg": 21.95697772193556,
+      "native_misses": 0,
+      "crossings": [
+        "southern_crossing (stone)"
+      ],
+      "length_m": 1634.2956514189796,
+      "geometry_changed": true,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dark_corrupted_valley -> southern_crossing"
+      ],
+      "bounds": [
+        559.5098039215686,
+        2282.0588235294117,
+        1138.8235294117646,
+        836.8627450980389
+      ]
+    },
+    {
+      "index": 46,
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.922396420647388,
+      "native_misses": 0,
+      "crossings": [
+        "orc_broken_bridge (ruined stone / timber repair)",
+        "southern_inlet_ferry (ferry)"
+      ],
+      "length_m": 3437.224094296737,
+      "geometry_changed": true,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "orc_broken_bridge -> dark_ruined_causeway"
+      ],
+      "bounds": [
+        2035.0,
+        875.9778880526377,
+        1145.6862745098038,
+        1707.6495629277542
+      ]
+    },
+    {
+      "index": 47,
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.520800617340953,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 893.8355202828028,
+      "geometry_changed": false,
+      "cooked_travel_count": 0,
+      "cooked_directions": [],
+      "bounds": [
+        1459.2429197620984,
+        2446.7647058823527,
+        705.7570802379016,
+        395.46183615167
+      ]
+    },
+    {
+      "index": 48,
+      "a": "dark_corrupted_valley",
+      "b": "dark_ash_plain",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 21.77973217832124,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 933.228873481167,
+      "geometry_changed": true,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dark_ash_plain -> dark_corrupted_valley"
+      ],
+      "bounds": [
+        1554.7225120092803,
+        2618.333333333333,
+        761.2578801475825,
+        541.7647058823532
+      ]
+    },
+    {
+      "index": 49,
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 20.862843933092787,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 862.1100387673084,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dark_ruined_causeway -> dark_castle_approach"
+      ],
+      "bounds": [
+        2035.0,
+        2446.7647058823527,
+        658.4313725490197,
+        746.4980561491402
+      ]
+    },
+    {
+      "index": 50,
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 20.47037148247118,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 822.8802985313822,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dark_fortress -> dark_ash_plain"
+      ],
+      "bounds": [
+        2185.9803921568628,
+        2886.7574167066814,
+        809.411764705882,
+        424.32101466586755
+      ]
+    },
+    {
+      "index": 51,
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "hierarchy": "secondary road",
+      "width_m": 3.0,
+      "native_max_grade_deg": 19.592113461552824,
+      "native_misses": 0,
+      "crossings": [],
+      "length_m": 337.6938201189528,
+      "geometry_changed": false,
+      "cooked_travel_count": 1,
+      "cooked_directions": [
+        "dark_castle_approach -> dark_fortress"
+      ],
+      "bounds": [
+        2563.4313725490197,
+        3043.8235294117644,
+        431.96078431372507,
+        267.25490196078454
+      ]
+    }
+  ]
+}

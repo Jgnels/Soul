@@ -16,5 +16,7 @@
   "stage_attempted": false,
   "runtime_package_pass": false,
   "configuration_unchanged": true,
-  "experimental_output_files": []
+  "experimental_output_files": [],
+  "evidence_phase": "Historical first cook; storage guard failure preserved",
+  "current_result_receipt": "cook-results.json"
 }

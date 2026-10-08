@@ -18,5 +18,5 @@
     "donor_plugin_changed": false
   },
   "corrected_stage": "Local/stage-loose-r2/Diagnostics/receipt.json",
-  "runtime_result": "PASS: packaged-input-r2, packaged-load-r1, packaged-human-r1. Actual screenshots reviewed; see packaged-runtime-results.json."
+  "runtime_result": "PASS: packaged-input-r2, packaged-load-r1, packaged-human-r1, packaged-traversal-r1. Actual screenshots reviewed; see packaged-runtime-results.json."
 }

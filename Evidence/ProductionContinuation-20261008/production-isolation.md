@@ -41,3 +41,9 @@ The actual campaign log confirms `regions=36 routes=51 world_experiment=0 expans
 `final-local-recovery.json` records a verified 241-file local-only archive of candidate assets, current source and composition data/height. Donors and full authored cities are not duplicated. No destructive cleanup or licensed-payload commit was used.
 
 Before any default promotion, reconcile the qualified composition adapter source separately from inherited inactive R10/Expansion drafts, preserve the explicit save policy, and resolve the hardware/performance gate. This continuation deliberately does not claim clean-checkout reproducibility from HEAD alone.
+
+The final actual cooked travel regression also passed: 40 legal moves, 31 distinct edges, 28 regions, six ferry legs, zero teleports/ownership overrides, 71 C peak under the functional cap. This is representative coverage rather than exhaustive runtime traversal of all 51 edges. The final preservation pass ran afterward and found no unexpected changes.
+
+Post-run `runtime-diagnostics.md` records runtime package/material errors separately from the successful cook summary: the three Human algae instances have NULL normal inputs and invalid cooked shader maps; an unresolved modeling-plugin function and two missing engine WebBrowser materials are also explicit debt. These were not donor-edited or concealed by completion markers. The local stage is functionally qualified, not approved for distribution.
+
+The final closeout admits the explicit target and candidate-only packaging rule as two clean Source paths. The indexed rule excludes inherited R10 additions, leaves tracked default dependencies unchanged and has the same candidate dependency set as the passing built worker. The working mixed rule is preserved byte-for-byte. This bounded source admission is recorded in `packaging-source-admission.json`; it does not claim clean-checkout runtime reproduction before the gameplay adapter is consolidated.

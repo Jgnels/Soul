@@ -1,0 +1,33 @@
+{
+  "scope": "Only isolated target and exact compiled candidate dependency branch admitted to index. Working mixed Build.cs untouched; R10 additions remain inherited working-tree dirt.",
+  "pass": true,
+  "current_working_buildcs_sha256": "e58038926d9db5347a801b2fbb353ad3e55a97ac30c58a5c910dd527cf22f330",
+  "admitted_buildcs_sha256": "d829f9113202c4213d63f5198bb5ad1679e7d59c45307aca68f30cb738611cea",
+  "admitted_git_blob": "87b47e03f076ef8b5626ae5d5e89d9ffacdebbd0",
+  "candidate_data_dependency_set_equal": true,
+  "default_dependency_set_unchanged_from_tracked_head": true,
+  "exact_candidate_branch_reused_from_freshly_built_worker": true,
+  "candidate_data_dependencies": [
+    "Data/soul_vertical_scenario_20260925.json",
+    "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json",
+    "Data/SettlementEnvironments/HumanCapitalRuntimeProof.json",
+    "Data/CampaignTerrainV2/FounderHeight.r16",
+    "Data/CampaignTerrainV2/presentation.json",
+    "Data/CampaignMesa/presentation.json",
+    "Data/CampaignEvilCorridor/presentation.json",
+    "Data/CampaignMesaLocal/MesaHeight.r16",
+    "Data/soul_world_overmap_v1_20260922.json",
+    "Data/soul_campaign_start_states_v1_20260922.json",
+    "Data/soul_overmap_battle_handoff_v1_20260922.json",
+    "Plugins/RBFoundation/StackManifest.json",
+    "Data/CampaignComposition/presentation.json",
+    "Data/CampaignComposition/RuntimeProof.json",
+    "Data/CampaignComposition/HumanRuntimeProof.json",
+    "Data/CampaignCompositionLocal/Composition_3500_r2.r16"
+  ],
+  "runtime_descriptor": "$(EngineDir)/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin",
+  "compiled_current_target_receipt": "target-receipt-verification.json",
+  "clean_checkout_runtime_qualified": false,
+  "new_build_run": false,
+  "rationale": "All admitted C# lines are from the fresh passing rule/target. Removing excluded R10 entries from the staged retained rule leaves the candidate dependency set identical; no gameplay/source/art bytes changed in the qualified worker."
+}
