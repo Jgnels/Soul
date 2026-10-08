@@ -1,0 +1,149 @@
+{
+  "actors": [
+    {
+      "label": "ProductionPush_BrokenRemnant_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130660.28228980122,
+        6898.293965004972,
+        3630.6783224590104
+      ],
+      "dimensions_cm": [
+        130,
+        90,
+        95
+      ],
+      "yaw": -161.94012451171875,
+      "roll": 11.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130743.93939022654,
+        6860.525066176415,
+        3570.6783224590104
+      ],
+      "dimensions_cm": [
+        155,
+        120,
+        80
+      ],
+      "yaw": -135.94012451171875,
+      "roll": -17.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130838.25789167514,
+        6929.110924782037,
+        3545.6783224590104
+      ],
+      "dimensions_cm": [
+        85,
+        80,
+        65
+      ],
+      "yaw": -102.94013214111328,
+      "roll": 25.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_3",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129920.36439937883,
+        7374.8928877754015,
+        3612.6783224590104
+      ],
+      "dimensions_cm": [
+        100,
+        85,
+        125
+      ],
+      "yaw": -195.94012451171875,
+      "roll": 18.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_4",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129802.28467518561,
+        7404.594385246925,
+        3550.6783224590104
+      ],
+      "dimensions_cm": [
+        170,
+        105,
+        70
+      ],
+      "yaw": -133.94012451171875,
+      "roll": -11.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_5",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129657.27905236049,
+        7341.559720225828,
+        3535.6783224590104
+      ],
+      "dimensions_cm": [
+        110,
+        95,
+        55
+      ],
+      "yaw": -94.94013214111328,
+      "roll": 21.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_6",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129934.44999707915,
+        6818.968796717503,
+        3575.6783224590104
+      ],
+      "dimensions_cm": [
+        85,
+        70,
+        80
+      ],
+      "yaw": -212.94012451171875,
+      "roll": 14.0,
+      "collision": false
+    },
+    {
+      "label": "ProductionPush_BrokenRemnant_7",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130635.35369369516,
+        7463.297119357242,
+        3570.6783224590104
+      ],
+      "dimensions_cm": [
+        120,
+        90,
+        55
+      ],
+      "yaw": -157.94012451171875,
+      "roll": -23.0,
+      "collision": false
+    }
+  ],
+  "terrain_changed": false,
+  "route_points_changed": false,
+  "travel_collision_unchanged": true,
+  "status": "RETAINED_SMALL_IMPROVEMENT_PROVISIONAL_ART",
+  "review": "Native wide and centered close captures reviewed. Eight asymmetric owned-masonry remnants break the clean stone ends without narrowing the timber lane. Remaining clean balustrades, old off-lane collision and polygonal water edges remain provisional. Native52,965-station result is byte-identical to before the cosmetic change.",
+  "review_images": [
+    "Local/captures-final/broken_bridge.png",
+    "Local/captures-bridge-detail/broken_bridge_detail.png"
+  ]
+}

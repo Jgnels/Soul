@@ -1,0 +1,38 @@
+[
+  {
+    "path": "Content/SoulCampaignComposition/ProductionPush/M_PushRoads_r1.uasset",
+    "sha256": "1c1e551c1e29ca059377dd0c56e0c1e0beb0d58edb8fe495eaf3761e5d16c532",
+    "bytes": 71424,
+    "local_only": true
+  },
+  {
+    "path": "Content/SoulCampaignComposition/ProductionPush/MI_PushRoads_r1.uasset",
+    "sha256": "d7c99f911365f69701607cfe5c71ff94b76959a2765e3f2d1a715fd020cd3b1b",
+    "bytes": 22359,
+    "local_only": true
+  },
+  {
+    "path": "Content/SoulCampaignComposition/ProductionPush/SM_DwarfExterior_r1.uasset",
+    "sha256": "05709b3e464142ab0f617035f1c1c0b3d2800dfa36586dec048c17f4197d4643",
+    "bytes": 1621504,
+    "local_only": true
+  },
+  {
+    "path": "Content/SoulCampaignComposition/ProductionPush/T_RoadControl_push1.uasset",
+    "sha256": "ea612f83ffdfabc2e4fb9a7ad4e596143ae2f517a493ca469e737ea781e2a011",
+    "bytes": 298032,
+    "local_only": true
+  },
+  {
+    "path": "Binaries/Win64/UnrealEditor-Soul.dll",
+    "sha256": "f7dceaa8c326c701bb079cd8c0633b98fd1cadb487ba2ff0bdc824e344e33bfa",
+    "bytes": 1671680,
+    "local_only": true
+  },
+  {
+    "path": "Binaries/Win64/Soul.exe",
+    "sha256": "e1dd3ca5d4626ad7509c2ec390442d3d4de635b7a1d8c1c3d3ccc7ae96de2ca6",
+    "bytes": 343272448,
+    "local_only": true
+  }
+]

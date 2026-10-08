@@ -1,0 +1,54 @@
+[
+  {
+    "route": [
+      "crossroads",
+      "old_quarry"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ],
+    "start": [
+      975.2831398058294,
+      1796.5283281229124
+    ],
+    "end": [
+      972.8234161114086,
+      1664.6000179766095
+    ],
+    "transition_m": 20,
+    "accepted": true,
+    "check": {
+      "length_m": 511.1782901995484,
+      "max_grade_deg": 21.918030991039867,
+      "invalid_samples": 0,
+      "over22_1_samples": 0
+    }
+  },
+  {
+    "route": [
+      "crossroads",
+      "river_ford"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ],
+    "start": [
+      844.5345670891306,
+      2009.8709911630415
+    ],
+    "end": [
+      790.2355151719704,
+      2071.1427354086027
+    ],
+    "transition_m": 20,
+    "accepted": true,
+    "check": {
+      "length_m": 472.2823839767708,
+      "max_grade_deg": 21.76649886109705,
+      "invalid_samples": 0,
+      "over22_1_samples": 0
+    }
+  }
+]

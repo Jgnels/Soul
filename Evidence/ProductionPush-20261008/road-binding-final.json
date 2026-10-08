@@ -1,0 +1,8 @@
+{
+  "texture": "/Game/SoulCampaignComposition/ProductionPush/T_RoadControl_push1.T_RoadControl_push1",
+  "material": "/Game/SoulCampaignComposition/ProductionPush/M_PushRoads_r1.M_PushRoads_r1",
+  "instance": "/Game/SoulCampaignComposition/ProductionPush/MI_PushRoads_r1.MI_PushRoads_r1",
+  "revision": "push1",
+  "sha256": "ca7be519abda005fb7029cdbe19f90e74cf964f3ad5fd72acfd2fee6c019e76a",
+  "heightfield_changed": false
+}

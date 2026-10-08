@@ -1,0 +1,606 @@
+--- a/Source/Soul/Private/SoulAuthoredSettlementQualification.cpp
++++ b/Source/Soul/Private/SoulAuthoredSettlementQualification.cpp
+@@ -369,9 +369,9 @@
+     {
+         FString UserDir;
+         const TCHAR* Cmd = FCommandLine::Get();
+-        if (!Check((FParse::Param(Cmd, TEXT("SoulDwarfSettlementProof")) != FParse::Param(Cmd, TEXT("SoulHumanSettlementProof"))) && SoulCampaignTerrain::EvilCorridor()
++        if (!Check((FParse::Param(Cmd, TEXT("SoulDwarfSettlementProof")) != FParse::Param(Cmd, TEXT("SoulHumanSettlementProof"))) && (SoulCampaignTerrain::EvilCorridor()||SoulCampaignTerrain::Composition())
+             && !FParse::Param(Cmd, TEXT("SoulWorldTerrain")) && !FParse::Param(Cmd, TEXT("SoulSettlementDevelopmentQualification"))
+-            && !FParse::Param(Cmd, TEXT("SoulVerticalQualification")), TEXT("isolated authored proof on retained terrain"))) return;
++            && !FParse::Param(Cmd, TEXT("SoulVerticalQualification")), TEXT("isolated authored proof on retained or opt-in composition terrain"))) return;
+         if (!Check(FParse::Value(Cmd, TEXT("UserDir="), UserDir) && !FPaths::IsRelative(UserDir)
+             && FPaths::IsUnderDirectory(FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir()), FPaths::ConvertRelativePathToFull(UserDir)), TEXT("isolated absolute UserDir protects player saves"))) return;
+         if (!Check(FParse::Value(Cmd, TEXT("SoulCampaignCapturePrefix="), Prefix) && !Prefix.IsEmpty()
+--- a/Source/Soul/Private/SoulCampaignCamera.cpp
++++ b/Source/Soul/Private/SoulCampaignCamera.cpp
+@@ -26,12 +26,12 @@
+     Camera->PostProcessSettings.bOverride_VignetteIntensity = true;
+     Camera->PostProcessSettings.VignetteIntensity = .22f;
+ }
+-void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if(SoulCampaignTerrain::World())Distance=TargetDistance=18000.f;else if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=3200.f; Tick(1.f); }
+-float ASoulCampaignCamera::GetMinimumDistance() const {return SoulCampaignTerrain::World()||SoulCampaignTerrain::EvilCorridor()?900.f:MinDistance;}
+-float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignExpansion::Enabled()?18000.f:SoulCampaignTerrain::World()?220000.f:SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
++void ASoulCampaignCamera::BeginPlay() { Super::BeginPlay(); if((SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))Distance=TargetDistance=SoulCampaignTerrain::Composition()?9000.f:18000.f;else if(SoulCampaignTerrain::EvilCorridor())Distance=TargetDistance=3200.f; Tick(1.f); }
++float ASoulCampaignCamera::GetMinimumDistance() const {return (SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition())||SoulCampaignTerrain::EvilCorridor()?900.f:MinDistance;}
++float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Composition()?22000.f: SoulCampaignExpansion::Enabled()?18000.f:(SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition())?220000.f:SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
+ float ASoulCampaignCamera::ViewPitch(float ViewDistance) const
+ {
+-    if(SoulCampaignTerrain::World())return ViewDistance<=18000.f?
++    if((SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))return ViewDistance<=18000.f?
+         FMath::Lerp(40.f,78.f,FMath::Clamp((ViewDistance-1800.f)/50000.f,0.f,1.f)):
+         FMath::Lerp(52.312f,55.f,FMath::Clamp((ViewDistance-18000.f)/202000.f,0.f,1.f));
+     return SoulCampaignTerrain::Enabled()?FMath::Lerp(38.f,48.f,FMath::Clamp((ViewDistance-MinDistance)/3500.f,0.f,1.f)):48.f;
+@@ -54,7 +54,7 @@
+ FBox2D ASoulCampaignCamera::FocusRange(float ViewDistance,float ViewYaw,float FocusHeight) const
+ {
+     const auto Bounds=SoulCampaignTerrain::FocusBounds()/SoulCampaignTerrain::Scale();
+-    if(!SoulCampaignTerrain::Mesa()&&!SoulCampaignTerrain::World())return FBox2D(-Bounds,Bounds);
++    if(!SoulCampaignTerrain::Mesa()&&!(SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))return FBox2D(-Bounds,Bounds);
+     const float Pitch=ViewPitch(ViewDistance);
+     const FRotator Rotation(-Pitch,ViewYaw,0);
+     const FVector Forward=Rotation.Vector(),Right=FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y),Up=FRotationMatrix(Rotation).GetUnitAxis(EAxis::Z);
+@@ -73,7 +73,7 @@
+     const auto Terrain=RenderBounds(ViewDistance);
+     const float Scale=SoulCampaignTerrain::Scale();
+     FBox2D Range(Terrain.Min/Scale-Footprint.Min,Terrain.Max/Scale-Footprint.Max);
+-    if(SoulCampaignTerrain::World())
++    if((SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))
+     {
+         Range.Min.X=FMath::Max(Range.Min.X,-Bounds.X);Range.Min.Y=FMath::Max(Range.Min.Y,-Bounds.Y);
+         Range.Max.X=FMath::Min(Range.Max.X,Bounds.X);Range.Max.Y=FMath::Min(Range.Max.Y,Bounds.Y);
+@@ -85,7 +85,7 @@
+ {
+     const auto Range=FocusRange(Distance,Yaw,FocusPoint.Z);
+     if(!Range.bIsValid||!Range.ExpandBy(1.f).IsInsideOrOn(FVector2D(FocusPoint.X,FocusPoint.Y)))return false;
+-    if(!SoulCampaignTerrain::Mesa()&&!SoulCampaignTerrain::World())return true;
++    if(!SoulCampaignTerrain::Mesa()&&!(SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))return true;
+     const auto Bounds=RenderBounds(Distance).ExpandBy(10);
+     const FRotationMatrix Rotation(GetActorRotation());
+     const FVector Forward=Rotation.GetUnitAxis(EAxis::X),Right=Rotation.GetUnitAxis(EAxis::Y),Up=Rotation.GetUnitAxis(EAxis::Z),Position=GetActorLocation();
+@@ -133,7 +133,7 @@
+     // Home/load must still center the company near the coast: zoom in enough
+     // to contain that focus, instead of clamping the company out of the center.
+     const float FocusMinimum=GetMinimumDistance();
+-    if(SoulCampaignTerrain::Mesa()||SoulCampaignTerrain::World())while(TargetDistance>FocusMinimum
++    if(SoulCampaignTerrain::Mesa()||(SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))while(TargetDistance>FocusMinimum
+         &&!FocusRange(TargetDistance,TargetYaw,TargetFocus.Z).IsInsideOrOn(FVector2D(TargetFocus.X,TargetFocus.Y)))
+         TargetDistance=FMath::Max(FocusMinimum,TargetDistance*.9f);
+     // An edge settlement can remain outside the footprint even at minimum zoom.
+@@ -170,7 +170,7 @@
+     }
+     const float Scale=SoulCampaignTerrain::Scale();
+     TargetFocus.Z=ASoulCampaignWorldActor::HeightAt(TargetFocus.X*Scale,TargetFocus.Y*Scale)/Scale+100.f;
+-    if(SoulCampaignTerrain::Mesa()||SoulCampaignTerrain::World())
++    if(SoulCampaignTerrain::Mesa()||(SoulCampaignTerrain::World()||SoulCampaignTerrain::Composition()))
+     {
+         const auto Bounds=FocusRange(TargetDistance,TargetYaw,TargetFocus.Z);
+         if(Bounds.bIsValid)
+--- a/Source/Soul/Private/SoulCampaignTerrain.cpp
++++ b/Source/Soul/Private/SoulCampaignTerrain.cpp
+@@ -22,6 +22,9 @@
+ #include "Serialization/JsonSerializer.h"
+ #include "Math/RandomStream.h"
+ #include "Algo/Reverse.h"
++#include "Algo/BinarySearch.h"
++#include "LandscapeProxy.h"
++#include "EngineUtils.h"
+ #include "Misc/Crc.h"
+ 
+ namespace SoulCampaignTerrain
+@@ -69,8 +72,11 @@
+     TMap<FName,FVector> Places;
+     TMap<FName,FVector> AllPlaces;
+     TMap<FName,FString> Names;
++    TMap<FName,FTransform> Miniatures;
+     TMap<FString,TArray<FVector>> Routes;
+     TArray<TPair<FName,FName>> Edges;
++    TMap<FString,TArray<double>> RouteArcs;
++    TMap<FString,TArray<FVector2D>> FerryRanges;
+     TArray<TArray<FVector>> Water;
+     TArray<float> WaterWidths;
+     TArray<FWaterBody> Lakes;
+@@ -87,6 +93,59 @@
+     FBake()
+     {
+         FString Text;TSharedPtr<FJsonObject> Root;
++        if(Composition())
++        {
++            if(FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain")) || FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignExpansion")))
++            {UE_LOG(LogTemp,Error,TEXT("SOUL_COMPOSITION_FAIL conflicting experimental profile"));return;}
++            Resolution=2041;HeightUnit=100.f/128.f;Minimum=-175000;Extent=350000;
++            MinimumXY=FVector2D(Minimum,Minimum);ExtentXY=FVector2D(Extent,Extent);
++            Package=TEXT("/Game/SoulCampaignComposition/L_Composition_3500_r2");
++            if(!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/TEXT("Data/CampaignComposition/presentation.json")))
++                ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),Root)
++                ||!FFileHelper::LoadFileToArray(Heights,*(FPaths::ProjectDir()/TEXT("Data/CampaignCompositionLocal/Composition_3500_r2.r16")))
++                ||Heights.Num()!=static_cast<int64>(Resolution)*Resolution*2)return;
++            for(const auto& Entry:Root->GetObjectField(TEXT("regions"))->Values)
++            {
++                const auto& P=Entry.Value->AsArray();if(P.Num()!=3)return;
++                const FName Id(*Entry.Key);const FVector V(P[0]->AsNumber(),P[1]->AsNumber(),P[2]->AsNumber());
++                Places.Add(Id,V);AllPlaces.Add(Id,V);
++            }
++            for(const auto& Entry:Root->GetObjectField(TEXT("display_names"))->Values)Names.Add(FName(*Entry.Key),Entry.Value->AsString());
++            for(const auto& Entry:Root->GetObjectField(TEXT("miniatures"))->Values)
++            {
++                const auto O=Entry.Value->AsObject();
++                const auto& L=O->GetArrayField(TEXT("location"));const auto& R=O->GetArrayField(TEXT("rotation"));const auto& S=O->GetArrayField(TEXT("scale"));
++                if(L.Num()!=3||R.Num()!=3||S.Num()!=3)return;
++                Miniatures.Add(FName(*Entry.Key),FTransform(FRotator(R[0]->AsNumber(),R[1]->AsNumber(),R[2]->AsNumber()),FVector(L[0]->AsNumber(),L[1]->AsNumber(),L[2]->AsNumber()),FVector(S[0]->AsNumber(),S[1]->AsNumber(),S[2]->AsNumber())));
++            }
++            for(const auto& Value:Root->GetArrayField(TEXT("routes")))
++            {
++                const auto O=Value->AsObject();FString A=O->GetStringField(TEXT("a")),B=O->GetStringField(TEXT("b"));
++                TArray<FVector> Points;TArray<FVector2D> Ferries;
++                for(const auto& Item:O->GetArrayField(TEXT("points")))
++                {const auto& P=Item->AsArray();if(P.Num()!=3)return;Points.Add(FVector(P[0]->AsNumber(),P[1]->AsNumber(),P[2]->AsNumber()));}
++                if(Points.Num()<2 || !Places.Contains(FName(*A)) || !Places.Contains(FName(*B)))return;
++                double Length=0;for(int32 I=1;I<Points.Num();++I)Length+=FVector::Dist2D(Points[I-1],Points[I]);
++                if(Length<=0)return;
++                for(const auto& Item:O->GetArrayField(TEXT("ferries")))
++                {const auto F=Item->AsObject();double Start=F->GetNumberField(TEXT("start_cm")),End=F->GetNumberField(TEXT("end_cm"));
++                 if(Start<0||End<Start||End>Length+1)return;Ferries.Add(A>B?FVector2D(Length-End,Length-Start):FVector2D(Start,End));}
++                if(A>B){Swap(A,B);Algo::Reverse(Points);}
++                const FString Key=A+TEXT("|")+B;if(Routes.Contains(Key))return;
++                TArray<double> Arc;Arc.Add(0);for(int32 I=1;I<Points.Num();++I)Arc.Add(Arc.Last()+FVector::Dist2D(Points[I-1],Points[I]));
++                RouteArcs.Add(Key,MoveTemp(Arc));FerryRanges.Add(Key,MoveTemp(Ferries));Routes.Add(Key,MoveTemp(Points));Edges.Add({FName(*A),FName(*B)});
++            }
++            FString CanonicalText;TSharedPtr<FJsonObject> Canonical;
++            if(!FFileHelper::LoadFileToString(CanonicalText,*(FPaths::ProjectDir()/TEXT("Data/soul_world_overmap_v1_20260922.json")))
++                ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(CanonicalText),Canonical))return;
++            for(const auto& V:Canonical->GetArrayField(TEXT("nodes")))if(!Places.Contains(FName(*V->AsObject()->GetStringField(TEXT("id")))))return;
++            for(const auto& V:Canonical->GetArrayField(TEXT("edges")))
++            {FString A=V->AsObject()->GetStringField(TEXT("a")),B=V->AsObject()->GetStringField(TEXT("b"));if(A>B)Swap(A,B);if(!Routes.Contains(A+TEXT("|")+B))return;}
++            bValid=Places.Num()==36&&Routes.Num()==51;
++            UE_LOG(LogTemp,Display,TEXT("SOUL_COMPOSITION_PROFILE valid=%d regions=%d routes=%d world_experiment=0 expansion_experiment=0"),bValid,Places.Num(),Routes.Num());
++            return;
++        }
++
+         if(Mesa()){Resolution=2041;Extent=150000;Minimum=-75000;HeightUnit=.5f;}
+         if(!FFileHelper::LoadFileToString(Text,*(FPaths::ProjectDir()/(World()?TEXT("Data/CampaignWorldTerrain/presentation.json"):EvilCorridor()?TEXT("Data/CampaignEvilCorridor/presentation.json"):Mesa()?TEXT("Data/CampaignMesa/presentation.json"):TEXT("Data/CampaignTerrainV2/presentation.json"))))
+             ||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),Root))
+@@ -1087,19 +1146,20 @@
+     }
+ }
+ }
+-bool World(){return FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain"));}
++bool Composition(){return FParse::Param(FCommandLine::Get(),TEXT("SoulComposition"));}
++bool World(){return !Composition()&&FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain"));}
+ bool ReviewCapture(){return World()&&(FParse::Param(FCommandLine::Get(),TEXT("SoulWorldCapture"))||FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignWorldCapture")));}
+ bool RetainedReviewCapture(){return EvilCorridor()&&FParse::Param(FCommandLine::Get(),TEXT("SoulRetainedCapture"));}
+ // Explicit art review only. Ordinary campaign knowledge and collision stay authoritative.
+ bool PopulationReviewCapture(){return RetainedReviewCapture()&&FParse::Param(FCommandLine::Get(),TEXT("SoulPopulationReview"));}
+-bool EvilCorridor(){return !World()&&FParse::Param(FCommandLine::Get(),TEXT("SoulEvilCorridor"));}
+-FString LocationName(FName Id,const FString& Fallback){if(EvilCorridor())if(const auto* N=Bake().Names.Find(Id))return *N;return Fallback;}
+-bool Mesa(){return !World()&&(FParse::Param(FCommandLine::Get(),TEXT("SoulMesaTerrain"))
++bool EvilCorridor(){return !World()&&!Composition()&&FParse::Param(FCommandLine::Get(),TEXT("SoulEvilCorridor"));}
++FString LocationName(FName Id,const FString& Fallback){if(EvilCorridor()||Composition())if(const auto* N=Bake().Names.Find(Id))return *N;return Fallback;}
++bool Mesa(){return !Composition()&&!World()&&(FParse::Param(FCommandLine::Get(),TEXT("SoulMesaTerrain"))
+     ||(!FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"))&&!FParse::Param(FCommandLine::Get(),TEXT("SoulLegacyTerrain"))));}
+-bool Enabled(){return World()||Mesa()||FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));}
+-float Scale(){return World()||Mesa()?10.f:Enabled()?20.f:1.f;}
+-float RegionScale(){return World()||EvilCorridor()?2.5f:Mesa()?5.f:Scale();}
+-FVector2D FocusBounds(){return World()?Bake().ExtentXY*.5-FVector2D(2000,2000):Mesa()?FVector2D(68000,68000):FVector2D(3800,2600)*Scale();}
++bool Enabled(){return Composition()||World()||Mesa()||FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainV2"));}
++float Scale(){return Composition()||World()||Mesa()?10.f:Enabled()?20.f:1.f;}
++float RegionScale(){return Composition()||World()||EvilCorridor()?2.5f:Mesa()?5.f:Scale();}
++FVector2D FocusBounds(){return (Composition()||World())?Bake().ExtentXY*.5-FVector2D(2000,2000):Mesa()?FVector2D(68000,68000):FVector2D(3800,2600)*Scale();}
+ FBox2D TerrainBounds(){return SoulCampaignExpansion::Enabled()?SoulCampaignExpansion::Bounds():FBox2D(Bake().MinimumXY,Bake().MinimumXY+Bake().ExtentXY);}
+ const TMap<FName,FVector>& ContextLocations(){return Bake().AllPlaces;}
+ const TArray<TPair<FName,FName>>& ContextRoutes(){return Bake().Edges;}
+@@ -1124,8 +1184,32 @@
+ {
+     FString A=From.ToString(),B=To.ToString();if(A>B){Swap(A,B);Alpha=1-Alpha;}
+     const auto* P=Bake().Routes.Find(A+TEXT("|")+B);if(!P||P->Num()<2)return FVector::ZeroVector;
++    if(Composition())
++    {
++        const auto* Arc=Bake().RouteArcs.Find(A+TEXT("|")+B);if(!Arc||Arc->Num()!=P->Num())return FVector::ZeroVector;
++        const double Distance=FMath::Clamp(Alpha,0.f,1.f)*Arc->Last();const int32 I=FMath::Clamp(Algo::UpperBound(*Arc,Distance)-1,0,P->Num()-2);
++        return FMath::Lerp((*P)[I],(*P)[I+1],FMath::Clamp((Distance-(*Arc)[I])/FMath::Max((*Arc)[I+1]-(*Arc)[I],.001),0.,1.));
++    }
+     const float T=FMath::Clamp(Alpha,0.f,1.f)*(P->Num()-1);const int32 I=FMath::Min(FMath::FloorToInt(T),P->Num()-2);
+     FVector V=FMath::Lerp((*P)[I],(*P)[I+1],T-I);V.Z=RoadSurface(V.X,V.Y);return V;
++}
++bool MiniaturePlacement(FName Region,FTransform& Out)
++{
++    if(!Composition())return false;
++    if(const FTransform* T=Bake().Miniatures.Find(Region)){Out=*T;return true;}
++    return false;
++}
++bool RouteUsesFerry(FName From,FName To)
++{
++    if(!Composition())return false;FString A=From.ToString(),B=To.ToString();if(A>B)Swap(A,B);
++    const auto* Ranges=Bake().FerryRanges.Find(A+TEXT("|")+B);return Ranges&&!Ranges->IsEmpty();
++}
++bool FerryTravel(FName From,FName To,float Alpha)
++{
++    if(!Composition())return false;FString A=From.ToString(),B=To.ToString();if(A>B){Swap(A,B);Alpha=1-Alpha;}
++    const FString Key=A+TEXT("|")+B;const auto* Arc=Bake().RouteArcs.Find(Key);const auto* Ranges=Bake().FerryRanges.Find(Key);
++    if(!Arc||Arc->IsEmpty()||!Ranges)return false;const double Distance=FMath::Clamp(Alpha,0.f,1.f)*Arc->Last();
++    for(const auto& Range:*Ranges)if(Distance>Range.X&&Distance<Range.Y)return true;return false;
+ }
+ float RoadSurface(float X,float Y)
+ {
+@@ -1153,6 +1237,7 @@
+ }
+ void DressRoad(AActor* Owner,USceneComponent* RoadComponent,FName From,FName To)
+ {
++    if(Composition())return;
+     for(const auto& B:Bake().Bridges)
+     {
+         if(B.Ford||!((B.A==From&&B.B==To)||(B.A==To&&B.B==From)))continue;
+@@ -1206,6 +1291,24 @@
+     {
+         UE_LOG(LogTemp,Error,TEXT("SOUL_TERRAIN_INTEGRATION_FAIL map=%s requested=%d instance=%d loaded=%d bake=%d; run Tools/Setup_Soul_Mesa.ps1"),Package,Loaded,Level!=nullptr,Level && Level->GetLoadedLevel(),Bake().bValid);
+         FPlatformMisc::RequestExitWithStatus(false,1);return;
++    }
++    if(Composition())
++    {
++        // The candidate already contains reviewed scenery, roads, water and lighting.
++        // Remove only transient review actors; never mutate its saved package.
++        for(AActor* Actor:TArray<TObjectPtr<AActor>>(Level->GetLoadedLevel()->Actors))
++            if(Actor&&(Actor->IsA<ACameraActor>()||Actor->ActorHasTag(TEXT("SoulCompositionReference"))))Actor->Destroy();
++        FCollisionQueryParams Query;for(TActorIterator<AActor> It(Owner->GetWorld());It;++It)if(!It->IsA<ALandscapeProxy>())Query.AddIgnoredActor(*It);
++        int32 Hits=0,Probes=0;double Error=0;
++        for(int32 Y=1;Y<10;++Y)for(int32 X=1;X<10;++X)
++        {
++            const double PX=-175000+X*35000,PY=-175000+Y*35000;FHitResult Hit;++Probes;
++            if(Owner->GetWorld()->LineTraceSingleByChannel(Hit,FVector(PX+.1,PY+.1,100000),FVector(PX+.1,PY+.1,-100000),ECC_Visibility,Query))
++            {++Hits;Error=FMath::Max(Error,FMath::Abs(Hit.ImpactPoint.Z-Height(PX+.1,PY+.1)));}
++        }
++        UE_LOG(LogTemp,Display,TEXT("SOUL_COMPOSITION_LOADED map=%s hits=%d/%d max_error_cm=%.4f baked_roads=1"),Package,Hits,Probes,Error);
++        if(Hits!=Probes||Error>5)FPlatformMisc::RequestExitWithStatus(false,1);
++        return;
+     }
+     // Remove study-only actors from this transient instance, never save the package.
+     if(Mesa()||World())for(AActor* Actor:TArray<TObjectPtr<AActor>>(Level->GetLoadedLevel()->Actors))
+@@ -1457,12 +1560,14 @@
+ }
+ void DressSettlementSurroundings(AActor* Owner,FName Id)
+ {
++    if(Composition())return;
+     // The native capital miniature replaces civic geometry, not its existing
+     // measured farms/verges. Both presentations share the same retained ground.
+     if(RetainedPopulationEnabled()&&Id==TEXT("human_capital"))CrownsteadHinterland(Owner);
+ }
+ bool DressRegion(AActor* Owner,FName Id)
+ {
++    if(Composition())return true;
+     if(!Enabled())return false;
+     if(SoulCampaignExpansion::DressRegion(Owner,Id))return true;
+     if(World())
+--- a/Source/Soul/Private/SoulCampaignWorldActor.cpp
++++ b/Source/Soul/Private/SoulCampaignWorldActor.cpp
+@@ -260,6 +260,7 @@
+ }
+ void ASoulCampaignWorldActor::BuildRoads()
+ {
++    if(SoulCampaignTerrain::Composition())return; // Baked art; legal travel still uses the canonical graph.
+     TSet<FString> Seen;
+     TArray<TPair<FName,FName>> Edges;
+     for(const auto& Region:State->World.Regions) for(FName Neighbor:Region.Value.Neighbors)
+@@ -429,7 +430,7 @@
+     TArray<FName> Keys;Locations().GetKeys(Keys);Keys.Sort(FNameLexicalLess());
+     for(FName Id:Keys)Signature+=FString::Printf(TEXT("%d%d"),FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id),FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id));
+     if(Signature==KnowledgeSignature)return;KnowledgeSignature=Signature;
+-    if(SoulCampaignTerrain::Enabled()&&!SoulCampaignTerrain::World())
++    if(SoulCampaignTerrain::Enabled()&&!SoulCampaignTerrain::World()&&!SoulCampaignTerrain::Composition())
+     {
+         for(TActorIterator<ALandscapeProxy> It(GetWorld());It;++It)
+         for(int32 I=0;I<Keys.Num();++I)
+@@ -472,7 +473,7 @@
+ {
+     const float Scale=SoulCampaignTerrain::RegionScale();
+     FVector P=Locations().FindRef(Region);
+-    if(SoulCampaignTerrain::Mesa()||SoulCampaignTerrain::World()){P.Z=SoulCampaignTerrain::RoadSurface(P.X,P.Y)+20.f;return P;}
++    if(SoulCampaignTerrain::Composition()||SoulCampaignTerrain::Mesa()||SoulCampaignTerrain::World()){P.Z=SoulCampaignTerrain::RoadSurface(P.X,P.Y)+20.f;return P;}
+     // Station the company in front of fortified silhouettes, rather than inside walls.
+     if(Region==TEXT("human_capital")||Region==TEXT("orc_camp")||Region==TEXT("orc_watch")||Region==TEXT("north_pass")) P.Y+=290.f*Scale;
+     else if(Region!=TEXT("river_ford")) P.Y+=160.f*Scale;
+@@ -486,14 +487,14 @@
+     if(bAnimate&&Locations().Contains(PresentedRegion)&&State&&FSoulWorldRules::CanMove(State->World,PresentedRegion,RegionId))
+     { TravelFrom=PresentedRegion;TravelTo=RegionId;TravelStart=Party->GetRelativeLocation();TravelAlpha=0;
+         TravelDuration=SoulCampaignTerrain::Enabled()?1.8f:.95f;
+-        if(SoulCampaignTerrain::EvilCorridor())
++        if(SoulCampaignTerrain::EvilCorridor()||SoulCampaignTerrain::Composition())
+         {
+             float Distance=0;FVector Previous=RoadPoint(TravelFrom,TravelTo,0);
+             for(int32 I=1;I<=128;++I){const FVector Next=RoadPoint(TravelFrom,TravelTo,I/128.f);Distance+=FVector::Dist(Previous,Next);Previous=Next;}
+             TravelDuration=FMath::Clamp(Distance/10000.f,2.2f,12.f);
+         }
+         SetPartyWalking(true);SetActorTickEnabled(true); }
+-    else {TravelAlpha=1;SetPartyWalking(false);Party->SetRelativeLocation(PartyAnchor(RegionId));}
++    else {TravelAlpha=1;Party->SetHiddenInGame(false,true);SetPartyWalking(false);Party->SetRelativeLocation(PartyAnchor(RegionId));}
+     PresentedRegion=RegionId;
+ }
+ void ASoulCampaignWorldActor::Tick(float DeltaSeconds)
+@@ -503,12 +504,17 @@
+     TravelAlpha=FMath::Min(1.f,TravelAlpha+DeltaSeconds/TravelDuration);
+     const float Eased=FMath::SmoothStep(0.f,1.f,TravelAlpha);
+     FVector Route=RoadPoint(TravelFrom,TravelTo,Eased)+FVector(0,0,(SoulCampaignTerrain::Enabled()?2:12)*SoulCampaignTerrain::Scale());
+-    if(!SoulCampaignTerrain::Mesa()&&!SoulCampaignTerrain::World())
++    if(!SoulCampaignTerrain::Composition()&&!SoulCampaignTerrain::Mesa()&&!SoulCampaignTerrain::World())
+     {
+         Route=FMath::Lerp(TravelStart,Route,FMath::SmoothStep(0.f,.25f,Eased));
+         Route=FMath::Lerp(Route,PartyAnchor(TravelTo),FMath::SmoothStep(.75f,1.f,Eased));
+     }
+     if(SoulCampaignTerrain::Enabled())Route.Z=FMath::Max(Route.Z,HeightAt(Route.X,Route.Y)+24.f);
++    if(SoulCampaignTerrain::Composition())
++    {
++        const bool Ferry=SoulCampaignTerrain::FerryTravel(TravelFrom,TravelTo,Eased);
++        Party->SetHiddenInGame(Ferry,true);SetPartyWalking(!Ferry&&TravelAlpha<1);
++    }
+     const FVector Direction=Route-Party->GetRelativeLocation();
+     if(!Direction.IsNearlyZero()) Party->SetRelativeRotation(Direction.GetSafeNormal2D().Rotation());
+     Party->SetRelativeLocation(Route);
+--- /dev/null
++++ b/Source/Soul/Private/SoulCompositionTraversalQualification.cpp
+@@ -0,0 +1,96 @@
++#include "SoulFounderPlaytestGameMode.h"
++#include "SoulFounderPlaytestCampaignActor.h"
++#include "SoulFounderPlaytestPlayerController.h"
++#include "SoulFounderPlaytestStateSubsystem.h"
++#include "SoulCampaignWorldActor.h"
++#include "SoulCampaignTerrain.h"
++#include "SoulCampaignCamera.h"
++#include "SoulPlaytestRegionActor.h"
++#include "Components/StaticMeshComponent.h"
++#include "Components/SceneComponent.h"
++#include "EngineUtils.h"
++#include "Engine/World.h"
++#include "InputKeyEventArgs.h"
++#include "Misc/Paths.h"
++#include "HAL/PlatformMisc.h"
++#include "UnrealClient.h"
++
++// Opt-in acceptance observer. No teleports, ownership edits, replacement movement,
++// AP overrides or fabricated battles. Every step uses existing campaign actions.
++void ASoulFounderPlaytestGameMode::TickCompositionTraversal(float Seconds)
++{
++    if(!State||!Campaign)return;
++    static const TArray<FName> Journey={
++        TEXT("crossroads"),TEXT("river_ford"),TEXT("southern_crossing"),TEXT("orc_broken_bridge"),
++        TEXT("dark_ruined_causeway"),TEXT("dark_castle_approach"),TEXT("dark_fortress"),TEXT("dark_ash_plain"),
++        TEXT("dark_corrupted_valley"),TEXT("southern_crossing"),TEXT("river_ford"),TEXT("crossroads"),
++        TEXT("old_quarry"),TEXT("ancient_shrine"),TEXT("mountain_shrine"),TEXT("viking_snow_pass"),
++        TEXT("viking_forest_track"),TEXT("viking_harbour"),TEXT("viking_fjord_ridge"),TEXT("viking_snow_pass"),
++        TEXT("mountain_shrine"),TEXT("dwarf_mountain_pass"),TEXT("dwarf_high_quarry"),TEXT("dwarf_forge_approach"),
++        TEXT("dwarf_hold"),TEXT("dwarf_snow_basin"),TEXT("dwarf_high_quarry"),TEXT("dwarf_mountain_pass"),
++        TEXT("mountain_shrine"),TEXT("ancient_shrine"),TEXT("old_quarry"),TEXT("crossroads"),
++        TEXT("human_capital"),TEXT("coastal_ruins"),TEXT("nature_shrine"),TEXT("nature_forest_clearing"),
++        TEXT("nature_treehold"),TEXT("nature_river_woodland"),TEXT("nature_grassland_edge"),TEXT("river_ford")};
++    static int32 Index=0,Phase=0,FerryFrames=0,FerryLegs=0;
++    static double Next=0,Start=0;
++    static FName From;
++    static int32 BeforeAP=0;
++    const double Now=FPlatformTime::Seconds();if(Start==0){Start=Now;Next=Now+20;}
++    auto Fail=[&](const TCHAR* Why){UE_LOG(LogTemp,Error,TEXT("SOUL_COMPOSITION_TRAVEL_FAIL index=%d reason=%s"),Index,Why);bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);};
++    if(!SoulCampaignTerrain::Composition()||Now-Start>1100){Fail(TEXT("profile or bounded deadline"));return;}
++    auto* PC=Cast<ASoulFounderPlaytestPlayerController>(GetWorld()->GetFirstPlayerController());
++    auto* Camera=PC?Cast<ASoulCampaignCamera>(PC->GetViewTarget()):nullptr;
++    ASoulCampaignWorldActor* View=nullptr;for(TActorIterator<ASoulCampaignWorldActor> It(GetWorld());It;++It){View=*It;break;}
++    if(!PC||!Camera||!View)return;
++    USceneComponent* Party=nullptr;TArray<USceneComponent*> Components;View->GetComponents(Components);
++    for(auto* C:Components)if(C->GetFName()==TEXT("PlayerParty")){Party=C;break;}
++    if(!Party){Fail(TEXT("missing real party component"));return;}
++    auto Key=[&](FKey K){PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Pressed,1));PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Released,0));};
++    if(Phase==3&&Party->bHiddenInGame)
++    {
++        ++FerryFrames;
++        if(!SoulCampaignTerrain::RouteUsesFerry(From,Journey[Index])){Fail(TEXT("party hidden on dry route"));return;}
++        if(FerryFrames==1)
++            FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots")/FString::Printf(TEXT("traversal_%02d_ferry.png"),Index),true,false);
++    }
++    if(Now<Next)return;
++    if(Index>=Journey.Num())
++    {
++        UE_LOG(LogTemp,Display,TEXT("SOUL_COMPOSITION_TRAVEL_PASS legal_moves=%d ferry_legs=%d teleports=0 ownership_overrides=0"),Index,FerryLegs);
++        bDone=true;FPlatformMisc::RequestExitWithStatus(false,0);return;
++    }
++    const FName To=Journey[Index];
++    if(Phase==0)
++    {
++        if(State->Economy.ActionPoints==0){Key(EKeys::SpaceBar);Next=Now+.3;return;}
++        From=State->PlayerRegion;BeforeAP=State->Economy.ActionPoints;FerryFrames=0;
++        if(!FSoulWorldRules::CanMove(State->World,From,To)||State->HasHostileGarrison(To)){Fail(TEXT("journey requires legal peaceful edge"));return;}
++        Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(To));Next=Now+3;Phase=1;return;
++    }
++    if(Phase==1)
++    {
++        ASoulPlaytestRegionActor* Target=nullptr;for(TActorIterator<ASoulPlaytestRegionActor> It(GetWorld());It;++It)if(It->RegionId==To){Target=*It;break;}
++        if(!Target||Target->IsHidden()){Fail(TEXT("destination not revealed through canonical vision"));return;}
++        FVector2D Screen;FHitResult Hit;
++        if(!PC->ProjectWorldLocationToScreen(Target->Marker->Bounds.Origin,Screen)
++            ||!PC->GetHitResultAtScreenPosition(Screen,ECC_Visibility,false,Hit)||Hit.GetActor()!=Target)
++        {Fail(TEXT("actual viewport cannot select destination"));return;}
++        PC->SetMouseLocation(FMath::RoundToInt(Screen.X),FMath::RoundToInt(Screen.Y));Key(EKeys::LeftMouseButton);
++        // Input bindings are processed by the next normal PlayerController tick.
++        Next=Now+.3;Phase=2;return;
++    }
++    if(Phase==2)
++    {
++        if(State->PlayerRegion!=To||State->Economy.ActionPoints!=BeforeAP-1){Fail(TEXT("ordinary click did not commit exactly one legal move"));return;}
++        Next=Now+13;Phase=3;return;
++    }
++    if(State->PlayerRegion!=To||Party->bHiddenInGame
++        ||FVector::DistXY(View->PresentedPartyLocation(),ASoulCampaignWorldActor::Locations().FindRef(To))>5)
++    {Fail(TEXT("actual party did not arrive and reappear"));return;}
++    const bool Ferry=SoulCampaignTerrain::RouteUsesFerry(From,To);
++    if(Ferry&&FerryFrames==0){Fail(TEXT("ferry leg never suppressed walking representation"));return;}
++    FerryLegs+=Ferry;
++    UE_LOG(LogTemp,Display,TEXT("SOUL_COMPOSITION_TRAVEL_LEG from=%s to=%s ap=%d ferry=%d hidden_frames=%d"),*From.ToString(),*To.ToString(),State->Economy.ActionPoints,Ferry,FerryFrames);
++    FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots")/FString::Printf(TEXT("traversal_%02d_%s.png"),Index,*To.ToString()),true,false);
++    ++Index;Phase=0;Next=Now+2;
++}
+--- a/Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp
++++ b/Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp
+@@ -171,6 +171,7 @@
+         return;
+     }
+ 
++    const FName TravelOrigin = State->PlayerRegion;
+     const int32 BeforeLevel = State->Hero.Level;
+     if (!State->MovePlayerTo(RegionId))
+     {
+@@ -185,6 +186,8 @@
+     SelectedRegion = RegionId;
+     LastMessage = FString::Printf(TEXT("Moved to %s. %d movement remaining."),
+         *DisplayName(RegionId), State->Economy.ActionPoints);
++    if (SoulCampaignTerrain::RouteUsesFerry(TravelOrigin,RegionId))
++        LastMessage += TEXT(" Ferry passage included; your company disembarks at the far landing.");
+     if (State->Hero.Level > BeforeLevel)
+     {
+         LastMessage += TEXT(" Level up: choose a skill with 1 Command, 2 Adventure, or 3 Magic.");
+--- a/Source/Soul/Private/SoulFounderPlaytestGameMode.cpp
++++ b/Source/Soul/Private/SoulFounderPlaytestGameMode.cpp
+@@ -40,6 +40,8 @@
+     State=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>();
+     if(State)State->InitializeScenario();
+     Campaign=GetWorld()->SpawnActor<ASoulFounderPlaytestCampaignActor>();
++    if(!SoulCampaignTerrain::Composition())
++    {
+     auto* Sun=GetWorld()->SpawnActor<ADirectionalLight>(ADirectionalLight::StaticClass(),FVector(0,0,5000),FRotator(-42,-35,0));
+     if(Sun) { Cast<UDirectionalLightComponent>(Sun->GetLightComponent())->SetForwardShadingPriority(1); Sun->GetLightComponent()->SetIntensity(1.6f); Sun->GetLightComponent()->SetLightColor(FLinearColor(1.f,.89f,.71f)); }
+     if(Sun&&SoulCampaignTerrain::Enabled())
+@@ -67,10 +69,11 @@
+     }
+     auto* Fog=GetWorld()->SpawnActor<AExponentialHeightFog>();
+     if(Fog) { Fog->GetComponent()->SetFogDensity(SoulCampaignTerrain::Enabled()?.0012f:.007f); Fog->GetComponent()->SetFogInscatteringColor(FLinearColor(.38f,.48f,.56f)); Fog->GetComponent()->SetStartDistance(2000.f*SoulCampaignTerrain::Scale()); }
++    }
+     auto* Camera=GetWorld()->SpawnActor<ASoulCampaignCamera>();
+     if(Camera)
+     {
+-        if(State && (SoulCampaignTerrain::World()||SoulCampaignTerrain::Mesa()||State->PlayerRegion!=TEXT("human_capital"))) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
++        if(State && (SoulCampaignTerrain::Composition()||SoulCampaignTerrain::World()||SoulCampaignTerrain::Mesa()||State->PlayerRegion!=TEXT("human_capital"))) Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(State->PlayerRegion));
+         if(FParse::Param(FCommandLine::Get(),TEXT("SoulTerrainBenchmark")))
+         {
+             FParse::Value(FCommandLine::Get(),TEXT("SoulTerrainBenchmarkSeconds="),BenchmarkSampleSeconds);
+@@ -100,6 +103,8 @@
+ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
+ {
+     Super::Tick(Seconds);
++    if(FParse::Param(FCommandLine::Get(),TEXT("SoulCompositionTraversal")))
++    {if(!bDone)TickCompositionTraversal(Seconds);return;}
+     if(bSettlementDevelopmentQualification)
+     {if(!bDone)TickSettlementDevelopmentQualification(Seconds);return;}
+     if(SoulCampaignTerrain::ReviewCapture()||SoulCampaignTerrain::RetainedReviewCapture())
+--- a/Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp
++++ b/Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp
+@@ -109,14 +109,17 @@
+     const bool bDwarfEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"));
+     const bool bHumanEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"));
+     const bool bAuthoredEnvironmentProof = bDwarfEnvironmentProof || bHumanEnvironmentProof;
++    const bool bComposition = SoulCampaignTerrain::Composition();
+     const bool bExpansion = SoulCampaignExpansion::Enabled();
++    if(bComposition&&(bDwarfEnvironmentProof||bExpansion||FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain"))))
++    {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_COMPOSITION_SCENARIO_FAIL conflicting experimental flag"));return;}
+     if(bExpansion&&!SoulCampaignExpansion::Valid())
+     {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_EXPANSION_SCENARIO_FAIL invalid presentation or incompatible profile"));return;}
+-    if ((bAuthoredEnvironmentProof && !SoulCampaignTerrain::EvilCorridor())
++    if ((bAuthoredEnvironmentProof && !SoulCampaignTerrain::EvilCorridor() && !bComposition)
+         || (bDwarfEnvironmentProof && bHumanEnvironmentProof))
+     { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_AUTHORED_PROOF_FAIL requires one explicit settlement and the retained EvilCorridor terrain profile")); return; }
+     TSharedPtr<FJsonObject> Config,Geography,Starts,Handoffs;
+-    const bool bConfigLoaded = bExpansion ? ReadData(TEXT("CampaignExpansion/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
++    const bool bConfigLoaded = bComposition ? ReadData(bHumanEnvironmentProof?TEXT("CampaignComposition/HumanRuntimeProof.json"):TEXT("CampaignComposition/RuntimeProof.json"),Config) : bExpansion ? ReadData(TEXT("CampaignExpansion/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
+         ? ReadData(TEXT("SettlementEnvironments/DwarfHoldRuntimeProof.json"), Config)
+         : bHumanEnvironmentProof ? ReadData(TEXT("SettlementEnvironments/HumanCapitalRuntimeProof.json"), Config)
+         : ReadData(TEXT("soul_vertical_scenario_20260925.json"), Config);
+@@ -127,7 +130,7 @@
+     { UE_LOG(LogSoulCampaign,Error,TEXT("Campaign authority data unavailable; refusing fallback geography.")); return; }
+     // This opt-in content qualification uses existing Crownspine nodes/edges and
+     // a captured-hold starting owner. It does not alter the canonical world graph.
+-    const auto Scenario=(bAuthoredEnvironmentProof||bExpansion) ? Config->GetObjectField(TEXT("start_state"))
++    const auto Scenario=(bAuthoredEnvironmentProof||bExpansion||bComposition) ? Config->GetObjectField(TEXT("start_state"))
+         : Starts->GetObjectField(TEXT("scenarios"))->GetObjectField(TEXT("founder_human_orc_micro"));
+     TSet<FName> RegionIds;
+     for (const auto& Id:Scenario->GetArrayField(TEXT("region_ids"))) RegionIds.Add(FName(*Id->AsString()));
+@@ -261,7 +264,7 @@
+     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
+     LastAIReport=TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
+     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
+-    if (bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
++    if (bComposition || bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
+     {
+         FString Error;
+         auto* DevelopmentScenario = LoadObject<USoulSettlementScenarioData>(nullptr,
+--- a/Source/Soul/Private/SoulPlaytestRegionActor.cpp
++++ b/Source/Soul/Private/SoulPlaytestRegionActor.cpp
+@@ -61,6 +61,7 @@
+                     AuthoredMiniature->BuildingId = State->GetTavernBuildingId();
+                     FTransform Transform = Scenario->MiniatureTransform;
+                     Transform.AddToTranslation(Location);
++                    SoulCampaignTerrain::MiniaturePlacement(RegionId,Transform);
+                     AuthoredMiniature->SetActorTransform(Transform);
+                     if (!AuthoredMiniature->ConfigureMiniature(Scenario->MiniatureBaseMesh.LoadSynchronous(),
+                         Scenario->MiniatureUpgradeMesh.LoadSynchronous()))
+--- a/Source/Soul/Public/SoulCampaignTerrain.h
++++ b/Source/Soul/Public/SoulCampaignTerrain.h
+@@ -14,6 +14,10 @@
+         FBox2D Bounds{ForceInit};
+     };
+     bool Enabled();
++    bool Composition();
++    bool MiniaturePlacement(FName Region,FTransform& Out);
++    bool RouteUsesFerry(FName From,FName To);
++    bool FerryTravel(FName From,FName To,float Alpha);
+     bool World();
+     bool ReviewCapture();
+     bool RetainedReviewCapture();
+--- a/Source/Soul/Public/SoulFounderPlaytestGameMode.h
++++ b/Source/Soul/Public/SoulFounderPlaytestGameMode.h
+@@ -11,6 +11,7 @@
+     virtual void BeginPlay() override;
+     virtual void Tick(float Seconds) override;
+ private:
++    void TickCompositionTraversal(float Seconds);
+     void TickVisualQualification(float Seconds);
+     void TickSettlementDevelopmentQualification(float Seconds);
+     bool bSettlementDevelopmentQualification=false;
+--- a/Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp
++++ b/Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp
+@@ -14,7 +14,12 @@
+ bool FSoulCampaignWorldGeometryTest::RunTest(const FString&)
+ {
+     auto* GI=NewObject<UGameInstance>();
+-    auto* State=NewObject<USoulFounderPlaytestStateSubsystem>(GI);State->InitializeScenario();
++    // Composition presents the existing stateful Human miniature. Its real
++    // GameInstance owns both campaign and settlement subsystems.
++    if(SoulCampaignTerrain::Composition())GI->Init();
++    auto* State=SoulCampaignTerrain::Composition()?GI->GetSubsystem<USoulFounderPlaytestStateSubsystem>():NewObject<USoulFounderPlaytestStateSubsystem>(GI);
++    if(!TestNotNull(TEXT("campaign authority"),State))return false;
++    State->InitializeScenario();
+     const auto& Locations=ASoulCampaignWorldActor::Locations();
+     TestEqual(TEXT("every authoritative region has a presentation"),Locations.Num(),State->World.Regions.Num());
+     for(const auto& Region:State->World.Regions)
+@@ -36,6 +41,29 @@
+             TestTrue(TEXT("road remains above terrain"),Point.Z>=ASoulCampaignWorldActor::HeightAt(Point.X,Point.Y));
+             TestFalse(TEXT("finite geometry"),Point.ContainsNaN());
+         }
++    }
++    if(SoulCampaignTerrain::Composition())
++    {
++        TestFalse(TEXT("rejected world experiment stays disabled"),SoulCampaignTerrain::World());
++        TestEqual(TEXT("all canonical composition regions"),Locations.Num(),36);
++        TestEqual(TEXT("all legal composition routes"),SoulCampaignTerrain::ContextRoutes().Num(),51);
++        int32 FerryEdges=0;
++        for(const auto& E:SoulCampaignTerrain::ContextRoutes())
++        {
++            const bool Ferry=SoulCampaignTerrain::RouteUsesFerry(E.Key,E.Value);FerryEdges+=Ferry;
++            TestEqual(TEXT("ferry role reversible"),Ferry,SoulCampaignTerrain::RouteUsesFerry(E.Value,E.Key));
++            bool FerryObserved=false;
++            for(int32 I=0;I<=200;++I)
++            {
++                const float T=I/200.f;
++                TestEqual(TEXT("ferry stations reversible"),SoulCampaignTerrain::FerryTravel(E.Key,E.Value,T),SoulCampaignTerrain::FerryTravel(E.Value,E.Key,1-T));
++                FerryObserved|=SoulCampaignTerrain::FerryTravel(E.Key,E.Value,T);
++            }
++            TestEqual(TEXT("each ferry role has actual water passage"),Ferry,FerryObserved);
++        }
++        TestEqual(TEXT("two physical ferry passages serve seven legal pairs"),FerryEdges,7);
++        TestTrue(TEXT("existing Human state authority initialized"),State->IsSettlementDevelopmentReady());
++        GI->Shutdown();
+     }
+     if(SoulCampaignTerrain::World())
+     {

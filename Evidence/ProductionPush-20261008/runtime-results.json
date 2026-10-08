@@ -1,0 +1,116 @@
+{
+  "runtime-input-r3": {
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "completion_marker_observed": true,
+    "stop_reason": "completion_marker_process_exit",
+    "elapsed_seconds": 169.41,
+    "alive_observed_after_ready_seconds": 123.17,
+    "flags": [
+      "-SoulComposition",
+      "-SoulCampaignCapturePrefix=runtime-input-r3",
+      "-SoulCampaignVisualProof"
+    ],
+    "experimental_flags_active": false,
+    "result_lines": [
+      "[2026.10.08-08.50.07:958][411]LogTemp: Display: SOUL_WORLD_VISUAL_INPUT_PASS movement=recruitment=pan=zoom=selection=save_load=controller=1"
+    ]
+  },
+  "runtime-load-r1": {
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "completion_marker_observed": true,
+    "stop_reason": "completion_marker_process_exit",
+    "elapsed_seconds": 107.88,
+    "alive_observed_after_ready_seconds": 76.62,
+    "flags": [
+      "-SoulComposition",
+      "-SoulCampaignCapturePrefix=runtime-load-r1",
+      "-SoulCampaignLoadProof"
+    ],
+    "experimental_flags_active": false,
+    "result_lines": [
+      "[2026.10.08-08.51.33:836][167]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=river_ford exact_snapshot=1 controller_F9=1"
+    ]
+  },
+  "runtime-human-r1": {
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "completion_marker_observed": true,
+    "stop_reason": "completion_marker_process_exit",
+    "elapsed_seconds": 2639.22,
+    "alive_observed_after_ready_seconds": 2613.01,
+    "flags": [
+      "-SoulComposition",
+      "-SoulCampaignCapturePrefix=runtime-human-r1",
+      "-SoulHumanSettlementProof",
+      "-SoulAuthoredSettlementQualification",
+      "-SoulAutobattle",
+      "-SoulActivePerSide=15"
+    ],
+    "experimental_flags_active": false,
+    "result_lines": [
+      "[2026.10.08-08.34.18:647][136]LogSoulCampaign: Display: SOUL_CAMPAIGN_RESULT id=encounter.3.1.human_capital.crossroads target=crossroads victory=1 survivors=30/0 player_region=crossroads",
+      "[2026.10.08-08.35.39:026][844]LogTemp: Display: SOUL_AUTHORED_SETTLEMENT_PASS physical=1 miniature=1 visit=1 save=1 battle=1 visual_review_required=1"
+    ]
+  },
+  "runtime-traversal-r3": {
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "completion_marker_observed": true,
+    "stop_reason": "completion_marker_process_exit",
+    "elapsed_seconds": 781.8,
+    "alive_observed_after_ready_seconds": 756.0,
+    "flags": [
+      "-SoulComposition",
+      "-SoulCampaignCapturePrefix=runtime-traversal-r3",
+      "-SoulCompositionTraversal"
+    ],
+    "experimental_flags_active": false,
+    "result_lines": [
+      "[2026.10.08-09.10.46:739][837]LogTemp: Display: SOUL_COMPOSITION_TRAVEL_PASS legal_moves=40 ferry_legs=6 teleports=0 ownership_overrides=0"
+    ]
+  },
+  "runtime-recovery-r1": {
+    "exit_code": 0,
+    "clean_shutdown": true,
+    "completion_marker_observed": true,
+    "stop_reason": "completion_marker_process_exit",
+    "elapsed_seconds": 210.47,
+    "alive_observed_after_ready_seconds": 179.7,
+    "flags": [
+      "-SoulComposition",
+      "-SoulCampaignCapturePrefix=runtime-recovery-r1",
+      "-SoulCampaignQualification",
+      "-SoulCampaignRetryQualification",
+      "-SoulCampaignDefeatProof",
+      "-SoulAutobattle",
+      "-SoulPlayerPool=3",
+      "-SoulEnemyPool=30",
+      "-SoulActivePerSide=15"
+    ],
+    "experimental_flags_active": false,
+    "result_lines": [
+      "[2026.10.08-09.15.29:572][293]LogSoulCampaign: Display: SOUL_CAMPAIGN_RESULT id=encounter.1.1.river_ford.orc_watch target=orc_watch victory=0 survivors=0/30 player_region=river_ford",
+      "[2026.10.08-09.15.44:862][460]LogTemp: Display: SOUL_CAMPAIGN_RETRY_STARTED previous=encounter.1.1.river_ford.orc_watch next=encounter.3.2.river_ford.orc_watch recruits=3 finite_pool_spent=3",
+      "[2026.10.08-09.16.09:557][766]LogSoulCampaign: Display: SOUL_CAMPAIGN_RESULT id=encounter.3.2.river_ford.orc_watch target=orc_watch victory=0 survivors=0/30 player_region=river_ford",
+      "[2026.10.08-09.17.24:030][132]LogTemp: Display: SOUL_CAMPAIGN_RECOVERY_PASS resolved=2 second=encounter.3.2.river_ford.orc_watch survivors=0/30"
+    ]
+  },
+  "runtime-profile-r1": {
+    "exit_code": 0,
+    "clean_shutdown": false,
+    "completion_marker_observed": true,
+    "stop_reason": "process_exited",
+    "elapsed_seconds": 92.78,
+    "alive_observed_after_ready_seconds": 56.62,
+    "flags": [
+      "-SoulComposition",
+      "-SoulCampaignCapturePrefix=runtime-profile-r1",
+      "-SoulTerrainBenchmark",
+      "-SoulTerrainBenchmarkSeconds=30"
+    ],
+    "experimental_flags_active": false,
+    "result_lines": []
+  }
+}

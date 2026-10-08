@@ -1,0 +1,13 @@
+{
+  "regions": 36,
+  "routes": 51,
+  "ferry_route_uses": 7,
+  "ferry_passages": [
+    "central_inlet_ferry",
+    "southern_inlet_ferry"
+  ],
+  "heightfield_transformed": false,
+  "height_serialization": "lossless uint16 PNG to little-endian R16 only",
+  "source_routes_sha256": "88f15798e0af6777a4f1d98a37da7b99edc58a540da7f88b07d6e893ee2136d2",
+  "height_png_sha256": "bd84f1986c9fd71b51725647d8ae89644a0681c5d65f2d2aebcf6ab31383ba6b"
+}

@@ -1,0 +1,12 @@
+{
+  "baseline_dependency_missing": [
+    "Data/CampaignExpansion/RuntimeProof.json"
+  ],
+  "baseline_dependency_extra": [],
+  "inherited_r9_literal_in": [
+    "Source/Soul/Private/SoulCampaignExpansion.cpp"
+  ],
+  "current_candidate_cook_root_deliberately_not_added": true,
+  "default_package_not_qualified": true,
+  "reason": "No automatic promotion: editor/game module compilation and editor-game qualification only. Existing cook contract also lacks inherited Dwarf r9 and CampaignExpansion data; those drafts are not silently staged."
+}

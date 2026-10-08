@@ -1,0 +1,84 @@
+{
+  "build-editor-r3.log.result.json": {
+    "target": "SoulEditor",
+    "configuration": "Win64 Development",
+    "started_utc": "2026-10-08T08:36:22.6511844Z",
+    "finished_utc": "2026-10-08T08:39:40.0397834Z",
+    "exit_code": 0,
+    "arguments": [
+      "SoulEditor",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile",
+      "-gather",
+      "-OverrideBuildEnvironment",
+      "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+    ],
+    "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+  },
+  "build-editor-r4.log.result.json": {
+    "target": "SoulEditor",
+    "configuration": "Win64 Development",
+    "started_utc": "2026-10-08T08:56:28.3553962Z",
+    "finished_utc": "2026-10-08T08:57:05.8033365Z",
+    "exit_code": 0,
+    "arguments": [
+      "SoulEditor",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile",
+      "-OverrideBuildEnvironment",
+      "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+    ],
+    "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+  },
+  "build-game-r1.log.result.json": {
+    "target": "Soul",
+    "configuration": "Win64 Development",
+    "started_utc": "2026-10-08T08:40:28.6871615Z",
+    "finished_utc": "2026-10-08T08:44:26.6430646Z",
+    "exit_code": 0,
+    "arguments": [
+      "Soul",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile",
+      "-gather"
+    ],
+    "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+  },
+  "build-game-r2.log.result.json": {
+    "target": "Soul",
+    "configuration": "Win64 Development",
+    "started_utc": "2026-10-08T09:11:22.8498350Z",
+    "finished_utc": "2026-10-08T09:12:56.6789706Z",
+    "exit_code": 0,
+    "arguments": [
+      "Soul",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile"
+    ],
+    "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E"
+  }
+}

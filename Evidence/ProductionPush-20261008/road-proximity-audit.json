@@ -1,0 +1,1027 @@
+[
+  {
+    "i": 26,
+    "j": 29,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1234,
+    "mean_offset_m": 3.341082616323298,
+    "max_offset_m": 24.970724966086827,
+    "start": [
+      2272.078850094702,
+      1496.0782214827443
+    ],
+    "end": [
+      2876.3143533379757,
+      1036.0900800841575
+    ],
+    "route": [
+      "north_pass",
+      "orc_war_camp"
+    ],
+    "reference": [
+      "orc_watch",
+      "orc_ruined_field"
+    ]
+  },
+  {
+    "i": 26,
+    "j": 45,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1234,
+    "mean_offset_m": 3.168942782215387,
+    "max_offset_m": 24.972740036224643,
+    "start": [
+      2272.078850094702,
+      1496.0782214827443
+    ],
+    "end": [
+      2876.3143533379757,
+      1036.0900800841575
+    ],
+    "route": [
+      "north_pass",
+      "orc_war_camp"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 9,
+    "j": 26,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1026,
+    "mean_offset_m": 3.300871774052809,
+    "max_offset_m": 24.569094687431576,
+    "start": [
+      2280.3433416676935,
+      1520.6459548009989
+    ],
+    "end": [
+      2689.7282414435294,
+      1000.605978910921
+    ],
+    "route": [
+      "orc_watch",
+      "orc_camp"
+    ],
+    "reference": [
+      "north_pass",
+      "orc_war_camp"
+    ]
+  },
+  {
+    "i": 8,
+    "j": 9,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1650,
+    "mean_offset_m": 2.0301059011691938,
+    "max_offset_m": 23.999703364722098,
+    "start": [
+      2274.0225318947973,
+      1496.078431372549
+    ],
+    "end": [
+      2697.0588235294117,
+      1475.4901960784314
+    ],
+    "route": [
+      "north_pass",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_watch",
+      "orc_camp"
+    ]
+  },
+  {
+    "i": 8,
+    "j": 29,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1026,
+    "mean_offset_m": 3.246673611106952,
+    "max_offset_m": 23.997297876795727,
+    "start": [
+      2274.0225318947973,
+      1496.078431372549
+    ],
+    "end": [
+      2689.8877538990355,
+      1001.2373074771256
+    ],
+    "route": [
+      "north_pass",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_watch",
+      "orc_ruined_field"
+    ]
+  },
+  {
+    "i": 8,
+    "j": 45,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1026,
+    "mean_offset_m": 3.079408278415406,
+    "max_offset_m": 23.996499051061956,
+    "start": [
+      2274.0225318947973,
+      1496.078431372549
+    ],
+    "end": [
+      2689.8877538990355,
+      1001.2373074771256
+    ],
+    "route": [
+      "north_pass",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 25,
+    "j": 45,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 728,
+    "mean_offset_m": 3.9985800157485603,
+    "max_offset_m": 24.418229987799982,
+    "start": [
+      2410.3256953501887,
+      935.0436067991063
+    ],
+    "end": [
+      2273.1573919437396,
+      1496.0766234396644
+    ],
+    "route": [
+      "dwarf_forge_approach",
+      "north_pass"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 25,
+    "j": 29,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 728,
+    "mean_offset_m": 3.887725634213781,
+    "max_offset_m": 24.424227860341272,
+    "start": [
+      2410.3256953501887,
+      935.0436067991063
+    ],
+    "end": [
+      2273.1573919437396,
+      1496.0766234396644
+    ],
+    "route": [
+      "dwarf_forge_approach",
+      "north_pass"
+    ],
+    "reference": [
+      "orc_watch",
+      "orc_ruined_field"
+    ]
+  },
+  {
+    "i": 9,
+    "j": 25,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 734,
+    "mean_offset_m": 3.760849705062653,
+    "max_offset_m": 24.582254592349244,
+    "start": [
+      2280.3433416676935,
+      1520.6459548009989
+    ],
+    "end": [
+      2432.100456565464,
+      951.197622905598
+    ],
+    "route": [
+      "orc_watch",
+      "orc_camp"
+    ],
+    "reference": [
+      "dwarf_forge_approach",
+      "north_pass"
+    ]
+  },
+  {
+    "i": 20,
+    "j": 23,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 210,
+    "mean_offset_m": 8.689687236950327,
+    "max_offset_m": 24.859070372997124,
+    "start": [
+      2640.3114215667906,
+      417.5675166196502
+    ],
+    "end": [
+      2539.2156862745096,
+      288.235294117647
+    ],
+    "route": [
+      "dwarf_high_quarry",
+      "dwarf_snow_basin"
+    ],
+    "reference": [
+      "dwarf_snow_basin",
+      "dwarf_hold"
+    ]
+  },
+  {
+    "i": 5,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 922,
+    "mean_offset_m": 1.5991388610694133,
+    "max_offset_m": 24.08595453908677,
+    "start": [
+      790.7029911416851,
+      2069.1877914302713
+    ],
+    "end": [
+      1158.5572129968414,
+      1339.6064671482627
+    ],
+    "route": [
+      "river_ford",
+      "orc_watch"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 9,
+    "j": 27,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 100,
+    "mean_offset_m": 14.098819403862658,
+    "max_offset_m": 24.401645812973072,
+    "start": [
+      2768.2426456132644,
+      1448.058825181479
+    ],
+    "end": [
+      2697.0588235294117,
+      1475.4901960784314
+    ],
+    "route": [
+      "orc_watch",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_camp",
+      "orc_badlands"
+    ]
+  },
+  {
+    "i": 9,
+    "j": 28,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 100,
+    "mean_offset_m": 14.098819403862658,
+    "max_offset_m": 24.401645812973072,
+    "start": [
+      2768.2426456132644,
+      1448.058825181479
+    ],
+    "end": [
+      2697.0588235294117,
+      1475.4901960784314
+    ],
+    "route": [
+      "orc_watch",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_camp",
+      "orc_war_camp"
+    ]
+  },
+  {
+    "i": 8,
+    "j": 27,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 100,
+    "mean_offset_m": 13.92750390456245,
+    "max_offset_m": 23.855127728409624,
+    "start": [
+      2767.8137949607003,
+      1448.5489402129808
+    ],
+    "end": [
+      2697.0588235294117,
+      1475.4901960784314
+    ],
+    "route": [
+      "north_pass",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_camp",
+      "orc_badlands"
+    ]
+  },
+  {
+    "i": 8,
+    "j": 28,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 100,
+    "mean_offset_m": 13.92750390456245,
+    "max_offset_m": 23.855127728409624,
+    "start": [
+      2767.8137949607003,
+      1448.5489402129808
+    ],
+    "end": [
+      2697.0588235294117,
+      1475.4901960784314
+    ],
+    "route": [
+      "north_pass",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_camp",
+      "orc_war_camp"
+    ]
+  },
+  {
+    "i": 2,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 94,
+    "mean_offset_m": 14.62735829335544,
+    "max_offset_m": 24.978605382498703,
+    "start": [
+      844.3201228339675,
+      2009.9015259746711
+    ],
+    "end": [
+      790.2568185622357,
+      2071.0442823432277
+    ],
+    "route": [
+      "crossroads",
+      "river_ford"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 10,
+    "j": 14,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 218,
+    "mean_offset_m": 6.169306302490735,
+    "max_offset_m": 24.978680520361152,
+    "start": [
+      704.0608773637703,
+      806.2155589698988
+    ],
+    "end": [
+      562.7450980392157,
+      706.8627450980392
+    ],
+    "route": [
+      "viking_harbour",
+      "viking_forest_track"
+    ],
+    "reference": [
+      "viking_forest_track",
+      "northwest_march"
+    ]
+  },
+  {
+    "i": 26,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 2,
+    "length_m": 476,
+    "mean_offset_m": 2.6402107239712986,
+    "max_offset_m": 24.24473636582846,
+    "start": [
+      2456.2124443810862,
+      945.1920312868834
+    ],
+    "end": [
+      2876.3143533379757,
+      1036.0900800841575
+    ],
+    "route": [
+      "north_pass",
+      "orc_war_camp"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 3,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 252,
+    "mean_offset_m": 4.616827985394251,
+    "max_offset_m": 23.934676916062273,
+    "start": [
+      975.4622332591954,
+      1796.8148986401925
+    ],
+    "end": [
+      1043.1372549019607,
+      1571.5686274509803
+    ],
+    "route": [
+      "crossroads",
+      "forest_edge"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 3,
+    "j": 5,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 252,
+    "mean_offset_m": 4.439863753633611,
+    "max_offset_m": 23.945651488616193,
+    "start": [
+      975.4622332591954,
+      1796.8148986401925
+    ],
+    "end": [
+      1043.1372549019607,
+      1571.5686274509803
+    ],
+    "route": [
+      "crossroads",
+      "forest_edge"
+    ],
+    "reference": [
+      "river_ford",
+      "orc_watch"
+    ]
+  },
+  {
+    "i": 27,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 2,
+    "length_m": 230,
+    "mean_offset_m": 4.860356078479762,
+    "max_offset_m": 24.83168227220123,
+    "start": [
+      3051.6958033100655,
+      1116.9142429660067
+    ],
+    "end": [
+      3090.8568612323033,
+      1225.809805434363
+    ],
+    "route": [
+      "orc_camp",
+      "orc_badlands"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 19,
+    "j": 21,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 204,
+    "mean_offset_m": 5.442517189949006,
+    "max_offset_m": 24.083662367397036,
+    "start": [
+      2113.725490196078,
+      848.3155010939151
+    ],
+    "end": [
+      2034.7542965014036,
+      713.6687260480518
+    ],
+    "route": [
+      "dwarf_mountain_pass",
+      "dwarf_high_quarry"
+    ],
+    "reference": [
+      "dwarf_high_quarry",
+      "dwarf_forge_approach"
+    ]
+  },
+  {
+    "i": 40,
+    "j": 44,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 84,
+    "mean_offset_m": 13.111020749467983,
+    "max_offset_m": 24.582504056786984,
+    "start": [
+      861.0412678426344,
+      2504.2606887036363
+    ],
+    "end": [
+      844.3520916886994,
+      2424.4245766468503
+    ],
+    "route": [
+      "nature_grassland_edge",
+      "river_ford"
+    ],
+    "reference": [
+      "southern_crossing",
+      "dark_corrupted_valley"
+    ]
+  },
+  {
+    "i": 27,
+    "j": 29,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 230,
+    "mean_offset_m": 4.7536845809118775,
+    "max_offset_m": 24.83715826024413,
+    "start": [
+      3051.6958033100655,
+      1116.9142429660067
+    ],
+    "end": [
+      3090.8568612323033,
+      1225.809805434363
+    ],
+    "route": [
+      "orc_camp",
+      "orc_badlands"
+    ],
+    "reference": [
+      "orc_watch",
+      "orc_ruined_field"
+    ]
+  },
+  {
+    "i": 1,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 142,
+    "mean_offset_m": 7.661494774848427,
+    "max_offset_m": 24.375112804111886,
+    "start": [
+      975.4622332651998,
+      1796.8148986498002
+    ],
+    "end": [
+      972.9569154368899,
+      1664.8638004252578
+    ],
+    "route": [
+      "crossroads",
+      "old_quarry"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 9,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 2,
+    "length_m": 270,
+    "mean_offset_m": 4.010050044397136,
+    "max_offset_m": 24.506909822730808,
+    "start": [
+      2455.2766159001385,
+      945.3246291011005
+    ],
+    "end": [
+      2689.7282414435294,
+      1000.605978910921
+    ],
+    "route": [
+      "orc_watch",
+      "orc_camp"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 11,
+    "j": 16,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 558,
+    "mean_offset_m": 1.9297473170330115,
+    "max_offset_m": 24.44703871978924,
+    "start": [
+      857.8431372549019,
+      995.0980392156862
+    ],
+    "end": [
+      740.2867784030052,
+      466.9769765738085
+    ],
+    "route": [
+      "viking_harbour",
+      "viking_fjord_ridge"
+    ],
+    "reference": [
+      "viking_snow_pass",
+      "mountain_shrine"
+    ]
+  },
+  {
+    "i": 27,
+    "j": 45,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 230,
+    "mean_offset_m": 4.669777213344941,
+    "max_offset_m": 24.83274635649488,
+    "start": [
+      3051.6958033100655,
+      1116.9142429660067
+    ],
+    "end": [
+      3090.8568612323033,
+      1225.809805434363
+    ],
+    "route": [
+      "orc_camp",
+      "orc_badlands"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 1,
+    "j": 5,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 142,
+    "mean_offset_m": 7.552978290750614,
+    "max_offset_m": 24.377332264727322,
+    "start": [
+      975.4622332651998,
+      1796.8148986498002
+    ],
+    "end": [
+      972.9569154368899,
+      1664.8638004252578
+    ],
+    "route": [
+      "crossroads",
+      "old_quarry"
+    ],
+    "reference": [
+      "river_ford",
+      "orc_watch"
+    ]
+  },
+  {
+    "i": 5,
+    "j": 45,
+    "segment": 2,
+    "reference_segment": 0,
+    "length_m": 226,
+    "mean_offset_m": 4.673823914417201,
+    "max_offset_m": 23.69614503842057,
+    "start": [
+      2160.4250614592706,
+      1947.2875927689167
+    ],
+    "end": [
+      2278.4313725490197,
+      1832.3529411764705
+    ],
+    "route": [
+      "river_ford",
+      "orc_watch"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 6,
+    "j": 45,
+    "segment": 2,
+    "reference_segment": 0,
+    "length_m": 226,
+    "mean_offset_m": 4.673823914417201,
+    "max_offset_m": 23.69614503842057,
+    "start": [
+      2160.4250614592706,
+      1947.2875927689167
+    ],
+    "end": [
+      2278.4313725490197,
+      1832.3529411764705
+    ],
+    "route": [
+      "forest_edge",
+      "orc_watch"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 21,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 2,
+    "length_m": 300,
+    "mean_offset_m": 3.4447174420928026,
+    "max_offset_m": 24.5908006016948,
+    "start": [
+      2065.696810305001,
+      813.1919515322113
+    ],
+    "end": [
+      2335.153373930806,
+      813.01408230141
+    ],
+    "route": [
+      "dwarf_high_quarry",
+      "dwarf_forge_approach"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 27,
+    "j": 28,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 374,
+    "mean_offset_m": 2.6944369120495626,
+    "max_offset_m": 24.527697912694215,
+    "start": [
+      2697.0588235294117,
+      1475.4901960784314
+    ],
+    "end": [
+      2830.816197843238,
+      1191.127686590446
+    ],
+    "route": [
+      "orc_camp",
+      "orc_badlands"
+    ],
+    "reference": [
+      "orc_camp",
+      "orc_war_camp"
+    ]
+  },
+  {
+    "i": 34,
+    "j": 39,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 148,
+    "mean_offset_m": 6.558343145792225,
+    "max_offset_m": 24.99051995927241,
+    "start": [
+      387.08231825475434,
+      2533.1681181632075
+    ],
+    "end": [
+      330.54301690031497,
+      2661.713373380119
+    ],
+    "route": [
+      "nature_shrine",
+      "nature_forest_clearing"
+    ],
+    "reference": [
+      "nature_grassland_edge",
+      "nature_river_woodland"
+    ]
+  },
+  {
+    "i": 8,
+    "j": 43,
+    "segment": 0,
+    "reference_segment": 2,
+    "length_m": 270,
+    "mean_offset_m": 3.5681887993308585,
+    "max_offset_m": 24.092159005458132,
+    "start": [
+      2455.921319796333,
+      945.2325285445013
+    ],
+    "end": [
+      2689.8877538990355,
+      1001.2373074771256
+    ],
+    "route": [
+      "north_pass",
+      "orc_camp"
+    ],
+    "reference": [
+      "southern_crossing",
+      "orc_broken_bridge"
+    ]
+  },
+  {
+    "i": 9,
+    "j": 45,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 1368,
+    "mean_offset_m": 0.6109489235241149,
+    "max_offset_m": 23.279835762749332,
+    "start": [
+      2278.4313725490197,
+      1832.3529411764705
+    ],
+    "end": [
+      2689.7282414435294,
+      1000.605978910921
+    ],
+    "route": [
+      "orc_watch",
+      "orc_camp"
+    ],
+    "reference": [
+      "orc_broken_bridge",
+      "dark_ruined_causeway"
+    ]
+  },
+  {
+    "i": 49,
+    "j": 50,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 96,
+    "mean_offset_m": 8.536729533137157,
+    "max_offset_m": 24.220763805337487,
+    "start": [
+      2865.6731038405233,
+      3181.3592601917353
+    ],
+    "end": [
+      2930.3921568627447,
+      3246.078431372549
+    ],
+    "route": [
+      "dark_ash_plain",
+      "dark_fortress"
+    ],
+    "reference": [
+      "dark_castle_approach",
+      "dark_fortress"
+    ]
+  },
+  {
+    "i": 40,
+    "j": 41,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 94,
+    "mean_offset_m": 8.254881220540796,
+    "max_offset_m": 24.827854898376565,
+    "start": [
+      871.5686274509803,
+      2532.3529411764703
+    ],
+    "end": [
+      846.8327863804835,
+      2444.2701341811235
+    ],
+    "route": [
+      "nature_grassland_edge",
+      "river_ford"
+    ],
+    "reference": [
+      "nature_grassland_edge",
+      "southern_crossing"
+    ]
+  },
+  {
+    "i": 39,
+    "j": 40,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 94,
+    "mean_offset_m": 8.17566506936559,
+    "max_offset_m": 24.54664768411809,
+    "start": [
+      871.5686274509803,
+      2532.3529411764703
+    ],
+    "end": [
+      823.3739505643588,
+      2454.371907912545
+    ],
+    "route": [
+      "nature_grassland_edge",
+      "nature_river_woodland"
+    ],
+    "reference": [
+      "nature_grassland_edge",
+      "river_ford"
+    ]
+  },
+  {
+    "i": 35,
+    "j": 40,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 94,
+    "mean_offset_m": 8.054719134314073,
+    "max_offset_m": 24.07140384749996,
+    "start": [
+      823.9302724008937,
+      2455.1189250661205
+    ],
+    "end": [
+      871.5686274509803,
+      2532.3529411764703
+    ],
+    "route": [
+      "nature_shrine",
+      "nature_grassland_edge"
+    ],
+    "reference": [
+      "nature_grassland_edge",
+      "river_ford"
+    ]
+  },
+  {
+    "i": 12,
+    "j": 16,
+    "segment": 0,
+    "reference_segment": 0,
+    "length_m": 128,
+    "mean_offset_m": 4.891516529092803,
+    "max_offset_m": 24.93599501092563,
+    "start": [
+      733.627039193418,
+      497.72069118203757
+    ],
+    "end": [
+      844.1176470588235,
+      466.66666666666663
+    ],
+    "route": [
+      "viking_forest_track",
+      "viking_snow_pass"
+    ],
+    "reference": [
+      "viking_snow_pass",
+      "mountain_shrine"
+    ]
+  }
+]

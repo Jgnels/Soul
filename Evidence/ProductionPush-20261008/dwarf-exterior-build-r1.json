@@ -1,0 +1,157 @@
+{
+  "utc": "2026-10-08T06:58:54.893303+00:00",
+  "state": "base",
+  "mesh": "/Game/SoulCampaignComposition/ProductionPush/SM_DwarfExterior_r1.SM_DwarfExterior_r1",
+  "sha256": "05709b3e464142ab0f617035f1c1c0b3d2800dfa36586dec048c17f4197d4643",
+  "source_manifest_sha256": "d9dcdf417c9fb3679dd8a0af0a8fbb1909e9d48d451f94da7255526d73431b5b",
+  "method": "explicit RenderData lowest LOD copy, native transformed append, attribute-aware deterministic reduction",
+  "pivot": [
+    -5500,
+    0,
+    0
+  ],
+  "selection_bounds": [
+    -100000,
+    100000,
+    -100000,
+    100000,
+    -100000,
+    100000
+  ],
+  "triangle_budget": 90000,
+  "excluded_actors": [],
+  "source_instances": 153,
+  "source_render_lods": [
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_CeillingM01.SM_ST_ExteriorGate_CeillingM01",
+      "lod": 3,
+      "triangles": 210,
+      "instances": 1
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_ColumnM02.SM_ST_ExteriorGate_ColumnM02",
+      "lod": 3,
+      "triangles": 446,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_ColumnM03.SM_ST_ExteriorGate_ColumnM03",
+      "lod": 3,
+      "triangles": 358,
+      "instances": 8
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_ColumnM05.SM_ST_ExteriorGate_ColumnM05",
+      "lod": 3,
+      "triangles": 480,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_ColumnMerged01.SM_ST_ExteriorGate_ColumnMerged01",
+      "lod": 3,
+      "triangles": 844,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_DecorationM01.SM_ST_ExteriorGate_DecorationM01",
+      "lod": 3,
+      "triangles": 496,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_DecorationM01.SM_ST_ExteriorGate_DecorationM01",
+      "lod": 3,
+      "triangles": 496,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_Gatechunk01.SM_ST_ExteriorGate_Gatechunk01",
+      "lod": 3,
+      "triangles": 748,
+      "instances": 4
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_Gatechunk04.SM_ST_ExteriorGate_Gatechunk04",
+      "lod": 3,
+      "triangles": 860,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_Pillar01.SM_ST_ExteriorGate_Pillar01",
+      "lod": 3,
+      "triangles": 478,
+      "instances": 24
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_TopCornice01.SM_ST_ExteriorGate_TopCornice01",
+      "lod": 3,
+      "triangles": 160,
+      "instances": 19
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_TopCornice02.SM_ST_ExteriorGate_TopCornice02",
+      "lod": 3,
+      "triangles": 172,
+      "instances": 14
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_TopCornice03.SM_ST_ExteriorGate_TopCornice03",
+      "lod": 3,
+      "triangles": 144,
+      "instances": 5
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_TopCornice04.SM_ST_ExteriorGate_TopCornice04",
+      "lod": 3,
+      "triangles": 178,
+      "instances": 5
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_Trim05.SM_ST_ExteriorGate_Trim05",
+      "lod": 3,
+      "triangles": 604,
+      "instances": 8
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_Trim06.SM_ST_ExteriorGate_Trim06",
+      "lod": 3,
+      "triangles": 840,
+      "instances": 6
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_Trim08.SM_ST_ExteriorGate_Trim08",
+      "lod": 3,
+      "triangles": 1068,
+      "instances": 12
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_WallM03.SM_ST_ExteriorGate_WallM03",
+      "lod": 3,
+      "triangles": 236,
+      "instances": 10
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_WallM04.SM_ST_ExteriorGate_WallM04",
+      "lod": 3,
+      "triangles": 320,
+      "instances": 12
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_WallM07.SM_ST_ExteriorGate_WallM07",
+      "lod": 3,
+      "triangles": 238,
+      "instances": 2
+    },
+    {
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_MainGate_Arch_A_01.SM_ST_MainGate_Arch_A_01",
+      "lod": 3,
+      "triangles": 682,
+      "instances": 1
+    }
+  ],
+  "input_triangles": 67510,
+  "reduced_triangles": 67510,
+  "saved_triangles": 67510,
+  "material_count": 11,
+  "status": "derived mesh saved; rendered state comparison and campaign placement pending"
+}

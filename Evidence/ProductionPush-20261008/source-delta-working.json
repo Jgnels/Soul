@@ -1,0 +1,74 @@
+[
+  {
+    "path": "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
+    "baseline_sha256": "7a96033105347b0684154b5cda489e059865a0fc2a3be1c9459a06d53200d8b9",
+    "current_sha256": "27b40145888a99e2b65cd8353347be7f2cade5faeb3c66e001e5d9672f63d824",
+    "inherited_modified": false
+  },
+  {
+    "path": "Source/Soul/Private/SoulCampaignCamera.cpp",
+    "baseline_sha256": "220de969b00d217d0ed157c1f9003a98d451362b345fdf2190a7df3ec85ebf43",
+    "current_sha256": "abb06ab5c2f7c47b0de4f615067b9a58063a58a0fb250ef525f902b0eeda2667",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulCampaignTerrain.cpp",
+    "baseline_sha256": "f5f389afe76e148d1a1728e9882ddf04d2072a29b48f30f5a29f68db433c81eb",
+    "current_sha256": "518c3b9a5c77eb7f2cb19dd4791678244a28dd01cf317c82bea1be99ae81b77f",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+    "baseline_sha256": "f9b853f8d89f6c9f4cf00f378e1edd03f008f9dbc37012ea9ac1e34521b8492e",
+    "current_sha256": "1744a9c569540c8eecd78293325cbb1182ea50fa9b6050c64f0dc0d4c849b90f",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulCompositionTraversalQualification.cpp",
+    "baseline_sha256": null,
+    "current_sha256": "ad2a9127589d9e8c69c6012ddf462ea20a477a4d2032e500060c96688e70ac88",
+    "inherited_modified": false
+  },
+  {
+    "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+    "baseline_sha256": "41d034417db984d2b107da927a4630609b86f50499c1b9f4238f9e48383b36ec",
+    "current_sha256": "2da54962dd8f221f732a60bda8aa1612f662550ab7a9ad9bd9528880d8b52353",
+    "inherited_modified": false
+  },
+  {
+    "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "baseline_sha256": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+    "current_sha256": "9029f34c494deccd3a5cf13332905a29c439bd2ab7f6e095f83326ec91c0b696",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "baseline_sha256": "6d170820cb2267ce434b8a3a3edd7a925fc1a0bf060c878f1c72c030d1c00f94",
+    "current_sha256": "eaaa0bf3e729790ac1c3cb7de2457fcc5b802be710a19d054e8a2262e1a3eae9",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+    "baseline_sha256": "801569b44cdf378dd810d9176b6a2e47e8f21addc8e418229d7bd31c4bcc83ff",
+    "current_sha256": "e40aa1030e050efeb55261e04760756251b0030426b5aa6894645f9277f46387",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Public/SoulCampaignTerrain.h",
+    "baseline_sha256": "9a3495a71b78d0644b11ba3baf35449f6812075b2a64d02e1877581a4dc6d225",
+    "current_sha256": "33ae42d21ce9fa8e5d255376d637e5a86609124970de047aee86834540491e90",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+    "baseline_sha256": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+    "current_sha256": "051b248631b7e281ac9bb1f249e79e5137944edf55df2f772803ced542cb1811",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+    "baseline_sha256": "bd2e6fcacd00654abeb9db692eaca846b01d44771d31f44c3a5ce7b884fb6ccb",
+    "current_sha256": "27cd70e1fe48fbe84edb8129763b34fabdaea279f0106d7ee0af701132026149",
+    "inherited_modified": true
+  }
+]

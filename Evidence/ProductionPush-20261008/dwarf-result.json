@@ -1,0 +1,20 @@
+{
+  "start_utc": "2026-10-08T06:44:57+00:00",
+  "end_utc": "2026-10-08T07:11:26.603560+00:00",
+  "elapsed_including_independent_runtime_audit_minutes": 26.49339266666667,
+  "conservative_dwarf_budget_charged_minutes": 26.49339266666667,
+  "result": "PROVISIONAL",
+  "trial": "REJECTED",
+  "reason": "Native gate is suitable vocabulary, but the two local rock-backed placements are freestanding outcrops rather than convincing mountain integration. Do not promote the trial.",
+  "inactive_trial_actors": [
+    "ProductionPush_Dwarf_Exterior",
+    "ProductionPush_Dwarf_BackingRock",
+    "ProductionPush_Dwarf_NorthRock",
+    "ProductionPush_Dwarf_SouthRock",
+    "ProductionPush_Dwarf_Arrival"
+  ],
+  "canonical_anchors_unchanged": true,
+  "legal_routes_unchanged": true,
+  "terrain_unchanged": true,
+  "further_dwarf_work_stopped": true
+}

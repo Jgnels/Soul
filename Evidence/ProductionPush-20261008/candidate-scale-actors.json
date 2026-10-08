@@ -1,0 +1,222 @@
+[
+  {
+    "label": "Composition_Scale_human_capital",
+    "name": "StaticMeshActor_1",
+    "mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r7.SM_HumanCapital_Base_r7",
+    "location": [
+      -100051.21862094058,
+      -10995.250863779103,
+      669.4178634334821
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      0.24,
+      0.24,
+      0.24
+    ]
+  },
+  {
+    "label": "Composition_Scale_human_tavern",
+    "name": "StaticMeshActor_2",
+    "mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Upgrade_r7.SM_HumanCapital_Upgrade_r7",
+    "location": [
+      -100051.21862094058,
+      -10995.250863779103,
+      669.4178634334821
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      0.24,
+      0.24,
+      0.24
+    ]
+  },
+  {
+    "label": "Composition_Scale_dwarf_hold",
+    "name": "StaticMeshActor_3",
+    "mesh": "/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Base_r9.SM_DwarfHold_Base_r9",
+    "location": [
+      100197.47595334519,
+      -116064.59853048885,
+      4051.68076333974
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "label": "Composition_Scale_northwest_march_house0",
+    "name": "StaticMeshActor_4",
+    "mesh": "/Game/SoulCampaignProxies/SM_Medieval_Building_A_r1.SM_Medieval_Building_A_r1",
+    "location": [
+      -105699.98758544921,
+      -55347.920111706306,
+      4739.542032133904
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      0.36,
+      0.36,
+      0.36
+    ]
+  },
+  {
+    "label": "Composition_Scale_northwest_march_house1",
+    "name": "StaticMeshActor_5",
+    "mesh": "/Game/SoulCampaignProxies/SM_Medieval_Building_A_r1.SM_Medieval_Building_A_r1",
+    "location": [
+      -104254.02637862763,
+      -55252.30058482633,
+      5050.8827381633455
+    ],
+    "rotation": [
+      0.0,
+      95.00000000000003,
+      -0.0
+    ],
+    "scale": [
+      0.36,
+      0.36,
+      0.36
+    ]
+  },
+  {
+    "label": "Composition_Scale_northwest_march_house2",
+    "name": "StaticMeshActor_6",
+    "mesh": "/Game/SoulCampaignProxies/SM_Medieval_Building_A_r1.SM_Medieval_Building_A_r1",
+    "location": [
+      -104999.31057051104,
+      -54205.94222578901,
+      4829.688161585247
+    ],
+    "rotation": [
+      0.0,
+      -170.0,
+      0.0
+    ],
+    "scale": [
+      0.36,
+      0.36,
+      0.36
+    ]
+  },
+  {
+    "label": "Composition_Scale_old_quarry",
+    "name": "StaticMeshActor_7",
+    "mesh": "/Game/SoulCampaignProxies/SM_Medieval_Building_B_r1.SM_Medieval_Building_B_r1",
+    "location": [
+      -87156.8627267875,
+      -37058.7235080495,
+      3461.484393553066
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  },
+  {
+    "label": "Composition_Scale_orc_camp_tent0",
+    "name": "StaticMeshActor_8",
+    "mesh": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1.SM_Camp_Tent_r1",
+    "location": [
+      94160.07837497484,
+      -27425.728783880477,
+      3531.906319672984
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "label": "Composition_Scale_orc_camp_tent1",
+    "name": "StaticMeshActor_9",
+    "mesh": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1.SM_Camp_Tent_r1",
+    "location": [
+      95231.22330818696,
+      -27457.849295509048,
+      3543.271274059356
+    ],
+    "rotation": [
+      0.0,
+      115.0,
+      -0.0
+    ],
+    "scale": [
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "label": "Composition_Scale_orc_camp_tent2",
+    "name": "StaticMeshActor_10",
+    "mesh": "/Game/Soul/CampaignProxies/Population/SM_Camp_Tent_r1.SM_Camp_Tent_r1",
+    "location": [
+      94722.52905616784,
+      -26570.426152443688,
+      3640.9110347106325
+    ],
+    "rotation": [
+      0.0,
+      -129.99999999999997,
+      0.0
+    ],
+    "scale": [
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "label": "Composition_Scale_Army",
+    "name": "SkeletalMeshActor_0",
+    "mesh": null,
+    "location": [
+      -94254.90196078432,
+      -6421.568627450964,
+      289.8885577287292
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "scale": [
+      2.5,
+      2.5,
+      2.5
+    ]
+  }
+]
