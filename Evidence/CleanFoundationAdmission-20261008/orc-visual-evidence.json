@@ -1,0 +1,31 @@
+{
+  "reviewed": true,
+  "images": [
+    {
+      "path": "Local/cooked-orc-visual-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "sha256": "28e20865e5956bfe5c8cfd7278dafb107dfce3d95367414bc37c9af35850f4ca",
+      "caption": "Existing vertical observer, including automatic spell inputs. Enemy formation is the licensed Orc_Hummer mesh and hammer; this is one infantry unit, not a full faction roster."
+    },
+    {
+      "path": "Local/cooked-orc-battle-r1/User/Saved/Screenshots/Vertical_Campaign_Return.png",
+      "sha256": "1784b2a673c391bccf2d029720c62303e8aa8576610755824de3a46c3ca6004e",
+      "caption": "No automatic spells. Player returns to River Ford; 0 allied and 7 hostile survivors."
+    },
+    {
+      "path": "Local/cooked-orc-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "sha256": "ae6a95182544ffd5c6b5634a53fb0494602ae11dddd5bd023d6bc414fbe8ec14",
+      "caption": "Controller F9 restores the exact saved result, ownership, army and location."
+    },
+    {
+      "path": "Local/cooked-orc-visual-r1/User/Saved/Screenshots/Vertical_Campaign_Return.png",
+      "sha256": "27a10410a65265e202c28debe0dc9b8457efa196fe7b3abfbd1d8dd7ebd09370",
+      "caption": "Normal existing spell actions; no forced winner. 20 allied and 0 hostile survivors, return to Orc Watch."
+    },
+    {
+      "path": "Local/cooked-orc-victory-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "sha256": "f328527512cfb816b551b5104de3238f8b4e5cf72c1979a9a982c0a561607a05",
+      "caption": "Fresh process restores the victorious Orc Watch state from its exact saved bytes."
+    }
+  ],
+  "generative_art_used": false
+}

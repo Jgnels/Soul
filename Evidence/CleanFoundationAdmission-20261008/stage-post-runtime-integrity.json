@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "checked_utc": "2026-10-08T21:27:30.060834+00:00",
+  "manifest_files_present": 12655,
+  "missing": [],
+  "after_run": "cooked-orc-victory-load-r1",
+  "repair_receipts": [
+    "stage-resource-repair.json",
+    "stage-nonufs-repair.json"
+  ],
+  "manual_orc_launch_dry_run_passed": true,
+  "candidate_assets_verified": 94,
+  "durability_scope": "Complete after bounded cold-load process; suspected temp aging was mitigated for standalone copies. No claim to have identified the external remover."
+}

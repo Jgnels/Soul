@@ -1,0 +1,468 @@
+{
+  "utc": "2026-10-08T21:22:11.538712+00:00",
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows",
+  "restored_missing_only": [
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/af.pak",
+      "bytes": 538998,
+      "sha256": "c514fe813e56c4767e9b190acca7a44d6f0f6d7c03dec6c4afb6586f0c89ebb7",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/am.pak",
+      "bytes": 866444,
+      "sha256": "fd641fb8513ea2b93a5f34f45a9a8af3596e73dd738207bcc07ecfbd398f4285",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ar.pak",
+      "bytes": 953918,
+      "sha256": "1d11e3b7cae4762d0c35dc83c331813f49a7f9bc492eb63cada01954af8a7d2a",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/bg.pak",
+      "bytes": 987762,
+      "sha256": "d2fa3f3e66113fbd7efe891eef6f66915e04dfa8aedbb162cebe27ee7db4d248",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/bn.pak",
+      "bytes": 1269605,
+      "sha256": "a3f81cf087eb69c505243db32d36fce0f4266d074f22dd6e1742a1311cc8d5c5",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ca.pak",
+      "bytes": 612377,
+      "sha256": "bc32492cbaa82d9de625548c79f03173ec4db4d3e25d2e5d3099a7d7231f8ff1",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/cs.pak",
+      "bytes": 622919,
+      "sha256": "3223737e45b3f06acd90d2ea6b923c99ef3a988f072234328f5cd337d428a219",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/da.pak",
+      "bytes": 567958,
+      "sha256": "a2960a7b635fc8a100e325b5ebe0bd696cccaa0af5d77ec1ea2ef3a7ad77471c",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/de.pak",
+      "bytes": 609935,
+      "sha256": "d7a8385e3e1bedd61d102be6b19d5e8cf09c814528cfd782c1d3bf62812690b8",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/el.pak",
+      "bytes": 1080416,
+      "sha256": "889501de74431bc33ca326df8711c46e3def70cd82b1124a44524ee2829167c2",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/en-GB.pak",
+      "bytes": 492124,
+      "sha256": "86c1766ba2e7b86f111445a1f57c5120e1be78a4b6e7b2e124dcd31116c7ccdb",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/es-419.pak",
+      "bytes": 598355,
+      "sha256": "d7088cd07d220af16275befc09c56c2524d4b63a424876ce2f7f5442f56dcaa3",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/es.pak",
+      "bytes": 596806,
+      "sha256": "270147cc81547477f181b5c6b75dd8cf46eb124de802de8eb2bc6855d2ef8fe8",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/et.pak",
+      "bytes": 544221,
+      "sha256": "21046ded9f9aab82bbc7ff1579fbc80b94bd6da09a3e4817188391d4af1c24be",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/fa.pak",
+      "bytes": 879421,
+      "sha256": "af1dd21b0aa302cbebc56d39abd8bcfda981734e04c7ab8040e905cbbbaa193c",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/fi.pak",
+      "bytes": 552657,
+      "sha256": "48a5e49251723e3e191c8502ff1b6dedf39e168ac252fcf535b36ad52e9ea8fd",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/fil.pak",
+      "bytes": 624599,
+      "sha256": "7117986303e4954ac39bb144ac76bacb450f7be68ae1fde970ee639ad39bd9d8",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/fr.pak",
+      "bytes": 646732,
+      "sha256": "4dee926b878d106a3599c1c884bb84dcdd7785836032384420f5fd0c76cea640",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/gu.pak",
+      "bytes": 1255599,
+      "sha256": "9af5364f7cbe7ef972c0fb9b62bf2c13cb1a9ff4dde1d6fd2ffcacd088adb987",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/he.pak",
+      "bytes": 777593,
+      "sha256": "ad956cf0f663b25c19907bb8737b2342704223ac79f8a85b7a3038d52e9afa7a",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/hi.pak",
+      "bytes": 1330999,
+      "sha256": "6b2629ccdc38a3c14ee5de4eba558527bbc4c590c87cc9393f9b7e337b8e5efa",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/hr.pak",
+      "bytes": 600581,
+      "sha256": "d2d55568886ef5bb2a073e619f8dbf98a3ff341ce5ba6f3f362224081cc0cdc8",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/hu.pak",
+      "bytes": 646489,
+      "sha256": "d3f6a1560e893042b92f40a56b5761790e94a78efda73a26a640dd21997443ae",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/id.pak",
+      "bytes": 535422,
+      "sha256": "8f84ac460c88e44518e2c5165d0758e8d0f2c6223cfb5ca6ad5507aae79f67bd",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/it.pak",
+      "bytes": 594371,
+      "sha256": "fd236c934edfae7fe10176f9d7a2293838d2cd59f54beb7af689cd61014a51c9",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ja.pak",
+      "bytes": 719063,
+      "sha256": "539e2195c7e7bbf7b2976e9b3b4950bc4a6616a590cf85678bd264387382de1c",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/kn.pak",
+      "bytes": 1424332,
+      "sha256": "70d9698ad1cb9d78e1eab70e7e1161ca4216399969991922abd0edeae0ecbb01",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ko.pak",
+      "bytes": 606589,
+      "sha256": "a21b8cb55ed43abd51fb2f97d40208be637b3cb2dae2f55b3abd210722e67951",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/lt.pak",
+      "bytes": 652194,
+      "sha256": "160b2da4626a0ce7570460ed48326352f25624753dcc6a6aa90c6906eca15eb5",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/lv.pak",
+      "bytes": 651016,
+      "sha256": "70e1736c8d1406513ccf47ad85eec64f46f2ada1a7aab1ddddeb049170152f14",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ml.pak",
+      "bytes": 1479560,
+      "sha256": "7f42ec438ff13b97b775146033fce3ee33a73d0806e89b61f6f284a80e1c350b",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/mr.pak",
+      "bytes": 1223735,
+      "sha256": "7277f688e1773d68088ce48efabf2dde4386c7cc5cfc579a8e16806eb0e37989",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ms.pak",
+      "bytes": 560048,
+      "sha256": "95d27fc7023e763c546bf19d9d214b1d1eaef1ea01dab23391fe5fba7361a674",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/nb.pak",
+      "bytes": 543051,
+      "sha256": "c135a7f5f35a3533a2da5666768cb78402580ecb41e1309eee580816a8a0ac28",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/nl.pak",
+      "bytes": 562204,
+      "sha256": "39bbe7e945c5cedf6a53f88fbc5c298a65e48192fe46c4e6a66c289b0869de1c",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/pl.pak",
+      "bytes": 627081,
+      "sha256": "9ad6f0c5b4c3f335b155251b07261f5241a29892667fa607817e48abeae19462",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/pt-BR.pak",
+      "bytes": 587941,
+      "sha256": "8e5466e2acbe6e350dc3b0752495dfa44eaf1da8e6054ffba9c320c4277c96d1",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/pt-PT.pak",
+      "bytes": 592511,
+      "sha256": "f193c222cfd9cd723dbd7839cf45c14b7749cde5527b552160df819c72b442c1",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ro.pak",
+      "bytes": 612678,
+      "sha256": "31c2568ba713ce7d9b2a784b8bce09b116408a5943171b2baf84b83a2cdd2801",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ru.pak",
+      "bytes": 1003077,
+      "sha256": "8badbaff9761b5cfa26a409524c2c85f252ec2166449edb32246a2bee5f914b0",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/sk.pak",
+      "bytes": 632482,
+      "sha256": "6491c4f1c9e8ad0a498cf2a5fe11467fd419fa105622977105915639341f1c27",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/sl.pak",
+      "bytes": 607050,
+      "sha256": "97b5ab48cc42512a693fa7887acc7d4f3ea5cdd9e6bbf334fa2940c922e121af",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/sr.pak",
+      "bytes": 929699,
+      "sha256": "d53039029b8b60ffca583896abe66e860016bf8b250df689bece5e17c2d86abc",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/sv.pak",
+      "bytes": 547471,
+      "sha256": "669fbcc98ccb78259f497e965efbf2ba38e5c0e5ad6d50c588f013c018e03d7a",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/sw.pak",
+      "bytes": 576117,
+      "sha256": "c8a7fe1af281b73985da58b66570150c4df27b0425f81068df6949799ada2769",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ta.pak",
+      "bytes": 1475609,
+      "sha256": "4019bcfd216e224924e34cb879b8cec6d91fde49d4a362aede9120bc9355543e",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/te.pak",
+      "bytes": 1361935,
+      "sha256": "cd3a666d5f0091ac4c6f065b45ab21a30a9fe2a1073f8c6bf6192f123ad8156c",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/th.pak",
+      "bytes": 1144623,
+      "sha256": "114d7a817a0c73f2d0bff438eb6a076ad76a8bfb2c561e542aeb699cbf1298ef",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/tr.pak",
+      "bytes": 587129,
+      "sha256": "982728b531abdb1c2e33fc65203bb20e3abac226674b4611d8d609a82a483cb2",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/uk.pak",
+      "bytes": 1001189,
+      "sha256": "54e5c7d4cb654c880c54051b35ec108dff28621afcc896a7d227d3b01a98c60b",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/ur.pak",
+      "bytes": 872334,
+      "sha256": "04a50bcbedd0760bb9c6e0628d8e520d58e8f9e9655c76349bceea5a891783d5",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/vi.pak",
+      "bytes": 695768,
+      "sha256": "f87b6a8530ffa5760367c62260b6bceaeb9148f58ad4041222dbd9592488299e",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/zh-CN.pak",
+      "bytes": 503346,
+      "sha256": "dc5703f8267b4343a9d8e6acf5b82a4a52559f494c4555aded02f29cf20ed631",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/Resources/locales/zh-TW.pak",
+      "bytes": 500142,
+      "sha256": "ccaf09ef99e6feda260aee9cd073bd7513223f770422d799d7490a6f16f44fc5",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CEF3/Win64/128.4.13+ge76af7e+chromium-128.0.6613.138+v2/snapshot_blob.bin",
+      "bytes": 313526,
+      "sha256": "e8a4351c04b18aef318612989c147e2878082306094e39349fb0fea8711a19a0",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Content/Renderer/TessellationTable.bin",
+      "bytes": 259568,
+      "sha256": "edc4f3b628a139c5e185bbaeca661c95c1f427368d3b92892c5cff36c56dd941",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Content/Slate/Cursor/invisible.cur",
+      "bytes": 326,
+      "sha256": "fef3980fa567e9c45d5d8dcaa432a2c1a3f3bb17fe67d7ab198164f56c142aa1",
+      "restored_this_call": false
+    },
+    {
+      "path": "Engine/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin",
+      "bytes": 507,
+      "sha256": "96ddf7473bfa379c6dffb1eefd66480249912d51c45bbe64241c34f6321d19a7",
+      "restored_this_call": false
+    },
+    {
+      "path": "Soul/Data/CampaignEvilCorridor/presentation.json",
+      "bytes": 97996,
+      "sha256": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+      "restored_this_call": false
+    },
+    {
+      "path": "Soul/Data/CampaignMesaLocal/MesaHeight.r16",
+      "bytes": 8331362,
+      "sha256": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/CampaignMesa/presentation.json",
+      "bytes": 58034,
+      "sha256": "45e89e675f06204c645c838786ea98367a9a0e2ee01735cb6d98e3e36fc80a4f",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/CampaignTerrainV2/FounderHeight.r16",
+      "bytes": 2036162,
+      "sha256": "c8ce0cac1165738979233c5b1cfc5e717fbd3b377a5e70046ad2c9ff7fefb606",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/CampaignTerrainV2/presentation.json",
+      "bytes": 90684,
+      "sha256": "003fde6bbbbe5d28b26062e197377a62b71246098b80747d7acd06cc6b741d92",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/soul_campaign_start_states_v1_20260922.json",
+      "bytes": 19568,
+      "sha256": "195cfe3e7c734e436ffd5cbbc8f7c0993bcee89a892274aaa15c18d295db74e5",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/soul_overmap_battle_handoff_v1_20260922.json",
+      "bytes": 83468,
+      "sha256": "42a1f583a3f22f2a0877c898dfc2f36b7fac96cd159f26d5508b2628bfbca24e",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/soul_vertical_scenario_20260925.json",
+      "bytes": 1632,
+      "sha256": "16f7553b92796d69b88af2313a8874890198be850f0b50eff3f16f46d7297d39",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Data/soul_world_overmap_v1_20260922.json",
+      "bytes": 90991,
+      "sha256": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+      "restored_this_call": true
+    },
+    {
+      "path": "Soul/Plugins/RBFoundation/StackManifest.json",
+      "bytes": 9616,
+      "sha256": "2e5c6f74bf985087ba10c7690b8950c722b8fae93ea16122a2c263db9b9171c4",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_api_dump.json",
+      "bytes": 13848,
+      "sha256": "9e55221c225dce4b5448bac7dadb7e39fd216f51354dde02e58f950f4a0dd80b",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_crash_diagnostic.json",
+      "bytes": 23055,
+      "sha256": "578bde354874789671dee1a96468c965619c9f3ba16cfa65f850e81a80674087",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_gfxreconstruct.json",
+      "bytes": 28099,
+      "sha256": "71d4e243a2af74874f4f61378bdfe3753cb01ce5eb9b98400d83612bf882a815",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_profiles.json",
+      "bytes": 66696,
+      "sha256": "6095c28691757e083a8c1bef3c69ca76a8b5017e21acaf55d1bc7e82221a0fbe",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_shader_object.json",
+      "bytes": 4455,
+      "sha256": "18ecafc9a65e1b7af8cd0e36dc936026cdb3aed333c4ea5a7c17d6d9465cfaf4",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_synchronization2.json",
+      "bytes": 1910,
+      "sha256": "a1e980a24be9a16a826b00c27d61b85ee0e2e17226dc9c4e8eec031879e5f26a",
+      "restored_this_call": true
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_validation.json",
+      "bytes": 95917,
+      "sha256": "5c464b84457776d92a674de506f7b7a489294583a7d7609f78fcc52bc4406d09",
+      "restored_this_call": true
+    },
+    {
+      "path": "NOTICES.txt",
+      "bytes": 111,
+      "sha256": "ba49ae5586f817b36a2772269f71f899cb1f54b5f2720fad951319edd5e140b8",
+      "restored_this_call": true
+    }
+  ],
+  "count": 76,
+  "existing_files_overwritten": false,
+  "new_dependencies_added": false,
+  "authority": "Exact UAT FinalCopyWin64_NonUFSFiles.txt for this stage. Original donor/config untouched. Includes resolved local licensed height dependency outside worktree; initial narrower source-path check stopped before that copy.",
+  "all_nonufs_present": true,
+  "unknown_post_stage_disappearance": true
+}

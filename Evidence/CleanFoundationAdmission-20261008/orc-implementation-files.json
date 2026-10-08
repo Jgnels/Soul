@@ -1,0 +1,93 @@
+{
+  "created_utc": "2026-10-08T20:04:40.541255+00:00",
+  "applied": true,
+  "files": [
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "before_sha256": "f2638b40e288400be687d3d9dfb742bba0b31d53c685e3ec97cc73859815ec4a",
+      "candidate_sha256": "cc964b6d1c46d2bc8a9cfd2233d48b098f6405547ddaaa787d747bdec50fb4b0"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "before_sha256": "a0ff3c29043aa9a6534ea73f1dc78879068a9b48c72411bbc9e467ace0c8c88a",
+      "candidate_sha256": "ac2ef6cc3ab4f4ead2094ddaef7bd5678b8ac6188f50f80186828aebd36fd3fd"
+    },
+    {
+      "path": "Data/CampaignComposition/OrcRuntimeProof.json",
+      "before_sha256": null,
+      "candidate_sha256": "c7f09470e02f26b581a97d0a00a29024a59b30450d65fed5db2fb20fa88132a6"
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "before_sha256": "d829f9113202c4213d63f5198bb5ad1679e7d59c45307aca68f30cb738611cea",
+      "candidate_sha256": "4be1a0f5d512b5802e419236b20cdbc220fa4870fd15a1a5d148cd2c775981cc"
+    },
+    {
+      "path": "Data/CampaignComposition/PackageProfile.json",
+      "before_sha256": "ce40464a33362d86c3324613555097cc9c7f9526126f5ad97a778772c5f6ca20",
+      "candidate_sha256": "d6185b4758c530415bcce3ee8845e8a0e0188c7d2aa2ff39dffb8ddf69287de7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "before_sha256": "42bc4cc453491bf4364ce22b1177dda310585ef14f5516d70a92e8dd6828d3de",
+      "candidate_sha256": "6b70b4c55e93ad6eb7254a0d9ff0d121252dfb8e20afcb6a2640d3606ba88035"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "before_sha256": "31067878347fe06e3567d74655486ebb307166bda749d6864d325babe63ff7db",
+      "candidate_sha256": "e2e5ebc2b309252a3eb15c1572c94d6909a6146394b3f3cb257912073c34b9bc"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+      "before_sha256": "a2eef21a85160bac9f9aaffbac6a46d2287198c74d33719b1a0a5b46d82a6e8f",
+      "candidate_sha256": "649cfa17eda13c87d7831a8a981041854c55cf3983e838346f9036cf1af0210e"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp",
+      "before_sha256": "064fddce1d721f35986d5a51eb57c5236eceabba3ad1c077eeab0d14e754c234",
+      "candidate_sha256": "301d6da196f72a76f01ed48b72bbde3604056d3c2fed3bc1016a7753f7461217"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "before_sha256": "d8074760b8848284ce8f3d2d42e1eb104d1489be0d467790e115015afb4f6081",
+      "candidate_sha256": "e22aa6aa862bc14504c403a333ecf8202dfc8537504dd82b02d796ee224c4134"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "before_sha256": "f6d746535284ed9f1b4e72850b7a6375ac1cd2a46f25359ad464b65367b6038b",
+      "candidate_sha256": "338970308e4aa235d1a647e54d54232d7251d8548ed577d7cb8700a920b65ea8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp",
+      "before_sha256": "711174de3e64d6cb59c7b5dd0b5e8b5fbbc01a2be86616814ad2b5a6ac840a42",
+      "candidate_sha256": "6aedb6df1ee0f1e6e082ab9a5865353915f660d6b077795d2b20bde7c12f9dc7"
+    },
+    {
+      "path": "Tools/ProductionContinuation/cook_profile.py",
+      "before_sha256": null,
+      "candidate_sha256": "6b134fb40a27d4a001f3069a634023eb57f0f6adad390bb87663b037eeafd04c"
+    },
+    {
+      "path": "Tools/ProductionContinuation/stage_candidate.py",
+      "before_sha256": "c9bf7e6d911de27a5dd27d4398f00558cdf0fdb7b66a95dcd1536cbcc4135d62",
+      "candidate_sha256": "4581e27ea67f20977a3c2c145baccb60c66b3878e9685c41f81bea29459fc44e"
+    },
+    {
+      "path": "Tools/ProductionContinuation/qualify_runtime.py",
+      "before_sha256": "6da2e5969658442ac839c93f7d8156dbf227d10b1a962db38671fdeba5766469",
+      "candidate_sha256": "1e7e2ab745c8eb533a4c8e3b85aa5f8dc1bfcae64259cf5356c51da260c2db88"
+    },
+    {
+      "path": "Tools/ProductionContinuation/test_cook_profile.py",
+      "before_sha256": null,
+      "candidate_sha256": "5da41d0cd3e824b1efdfd4301ed070cf22a3269856ed328c64278b4115d9738b"
+    },
+    {
+      "path": "Tools/FoundationAdmission/test_admission.py",
+      "before_sha256": "fe5e355e98e48a593962a5f94e18ac53d0e5ee5139bde916ef9ada6ea63a6855",
+      "candidate_sha256": "5a0d595ae29d3a414919bc10639ea85c7de01611ebeee6b996e2d413f8b20843"
+    }
+  ],
+  "applied_utc": "2026-10-08T20:32:17.135065+00:00",
+  "admission_head": "94773d34c535971088548a7ec74c12057e18f1c8"
+}

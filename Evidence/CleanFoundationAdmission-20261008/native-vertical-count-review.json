@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "actual_native_tests": 19,
+  "all_native_tests_passed": true,
+  "original_runner_expected_count": 15,
+  "original_receipt_preserved": "Local/native-vertical-orc-r1/receipt.json",
+  "reason": "Initial expected count counted one test file; four existing Vertical tests are in other files. Exact source-declared test set equals all 19 successful native report paths. No gameplay failure and no test rerun.",
+  "source_declared_names": [
+    "Soul.Integration.Vertical.BattlefieldSelectionUsesDestinationGeography",
+    "Soul.Integration.Vertical.BridgeRejectsPrematureVictory",
+    "Soul.Integration.Vertical.ContinuedVictoryAfterReload",
+    "Soul.Integration.Vertical.DefeatConsequence",
+    "Soul.Integration.Vertical.DefeatRecruitmentAfterReload",
+    "Soul.Integration.Vertical.EncounterContract",
+    "Soul.Integration.Vertical.LegacyCheckpointPreservesOwnership",
+    "Soul.Integration.Vertical.ManaPersistsAcrossBattleReloadAndDay",
+    "Soul.Integration.Vertical.MutualExhaustionAllowsRecoveredOccupation",
+    "Soul.Integration.Vertical.OrcResultAndSaveIsolation",
+    "Soul.Integration.Vertical.RBSaveDomainRoundTrip",
+    "Soul.Integration.Vertical.RBSaveFailedLoadRecoversAllDomains",
+    "Soul.Integration.Vertical.RBSaveScopedDomains",
+    "Soul.Integration.Vertical.RejectIncompleteCheckpointWithoutMutation",
+    "Soul.Integration.Vertical.ResourceReceiptMigrationAndAtomicRejection",
+    "Soul.Integration.Vertical.ResultTelemetryRejectedBeforeMutation",
+    "Soul.Integration.Vertical.SupportedMatchupContract",
+    "Soul.Integration.Vertical.ThreeEncountersAcrossReloads",
+    "Soul.Integration.Vertical.VictoryCorrectTarget"
+  ],
+  "receipt_sha256": "31d5d39dae7e031d4359c50846b01ee47640509e7290ee6317db5f8786658077"
+}

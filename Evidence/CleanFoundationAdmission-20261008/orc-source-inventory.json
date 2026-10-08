@@ -1,0 +1,171 @@
+{
+  "inspected_utc": "2026-10-08T19:45:44.257710+00:00",
+  "selection_started_utc": "2026-10-08T19:44:18Z",
+  "candidate": "orcs",
+  "source_family": "Fantasy_Pack/Characters/Orc_Hummer",
+  "donor_read_only": true,
+  "downloaded": false,
+  "assets": [
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Attack_1.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.uasset",
+      "bytes": 130619,
+      "donor_sha256": "9b2cfdf10af789eabe4410e1d1371d5f425a07ebc2a38bd970af0e64a28015b9",
+      "local_sha256": "9b2cfdf10af789eabe4410e1d1371d5f425a07ebc2a38bd970af0e64a28015b9"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Attack_2.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_2.uasset",
+      "bytes": 132815,
+      "donor_sha256": "cf903458d0c689fe1e7f6bcc09360e794915b7f4668b48f2506fafeeb3867d5e",
+      "local_sha256": "cf903458d0c689fe1e7f6bcc09360e794915b7f4668b48f2506fafeeb3867d5e"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Attack_3.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_3.uasset",
+      "bytes": 117699,
+      "donor_sha256": "b66f4d093e56408ae0ba95919f3b3dadc8bf01615bb2ef303beaef2e98988c4b",
+      "local_sha256": "b66f4d093e56408ae0ba95919f3b3dadc8bf01615bb2ef303beaef2e98988c4b"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Dead.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Dead.uasset",
+      "bytes": 127647,
+      "donor_sha256": "70f2cc9c0b1549890d83fe75809c8341ce407bcc54c77957b97029610db270f5",
+      "local_sha256": "70f2cc9c0b1549890d83fe75809c8341ce407bcc54c77957b97029610db270f5"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Get_hit.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Get_hit.uasset",
+      "bytes": 115581,
+      "donor_sha256": "318ca20ba2d924678722cc8d068310a2556268d26095bb5c51a766238be3600b",
+      "local_sha256": "318ca20ba2d924678722cc8d068310a2556268d26095bb5c51a766238be3600b"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Idle.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Idle.uasset",
+      "bytes": 138441,
+      "donor_sha256": "d69592196394808ac494e9b0116b44cf0aafba604cbbce957de30ae1c75ddce7",
+      "local_sha256": "d69592196394808ac494e9b0116b44cf0aafba604cbbce957de30ae1c75ddce7"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Jump.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Jump.uasset",
+      "bytes": 138233,
+      "donor_sha256": "cca5e2f5466d10e96465cb296ff8a97785560d3fe7b6ea394fd743bb28bd07b6",
+      "local_sha256": "cca5e2f5466d10e96465cb296ff8a97785560d3fe7b6ea394fd743bb28bd07b6"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Run.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Run.uasset",
+      "bytes": 116943,
+      "donor_sha256": "d28c5007c68b986ac1abab4f087842fc20b6cc3a20a5df2877497160771ceb04",
+      "local_sha256": "d28c5007c68b986ac1abab4f087842fc20b6cc3a20a5df2877497160771ceb04"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Run_Root.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Run_Root.uasset",
+      "bytes": 117369,
+      "donor_sha256": "c260d02211aea5191d88f12527edc8687dce97e0c4cf6b6ec5fe538ffe5f90e6",
+      "local_sha256": "c260d02211aea5191d88f12527edc8687dce97e0c4cf6b6ec5fe538ffe5f90e6"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Shout.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Shout.uasset",
+      "bytes": 169545,
+      "donor_sha256": "06bce0f609f819ff1221f1245d719d0a7520996898017c628c0cee1ce0a23f7b",
+      "local_sha256": "06bce0f609f819ff1221f1245d719d0a7520996898017c628c0cee1ce0a23f7b"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Walk.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Walk.uasset",
+      "bytes": 125422,
+      "donor_sha256": "535a410e328b125088470a55c71a30d48a51c1a27a046f7df14f62cb45c3e576",
+      "local_sha256": "535a410e328b125088470a55c71a30d48a51c1a27a046f7df14f62cb45c3e576"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Animations\\Anim_Orc_Hummer_Walk_Root.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Walk_Root.uasset",
+      "bytes": 125168,
+      "donor_sha256": "ecd15b82dcfb694556c26f7f90b032ed6ef32b622c319992028605797fe8ce8e",
+      "local_sha256": "ecd15b82dcfb694556c26f7f90b032ed6ef32b622c319992028605797fe8ce8e"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Material\\M_Orc_Hummer.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Material/M_Orc_Hummer.uasset",
+      "bytes": 124532,
+      "donor_sha256": "890fea6ebc6dcf4f75e223a1bd1558d15496b86de1994f18883e6ab0894890d1",
+      "local_sha256": "890fea6ebc6dcf4f75e223a1bd1558d15496b86de1994f18883e6ab0894890d1"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Mesh\\SK_Orc_Hummer.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer.uasset",
+      "bytes": 476743,
+      "donor_sha256": "95609d0930f883cc338cd86a4e55504e5e59b5eae17e1ca79b0238d03761c94a",
+      "local_sha256": "95609d0930f883cc338cd86a4e55504e5e59b5eae17e1ca79b0238d03761c94a"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Mesh\\SK_Orc_Hummer_PhysicsAsset.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer_PhysicsAsset.uasset",
+      "bytes": 131767,
+      "donor_sha256": "05afd815ca1e63838d43127fc8c0e21c0f65ab706c7556c36b6d207fb7310fc0",
+      "local_sha256": "05afd815ca1e63838d43127fc8c0e21c0f65ab706c7556c36b6d207fb7310fc0"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Mesh\\SK_Orc_Hummer_Skeleton.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer_Skeleton.uasset",
+      "bytes": 11663,
+      "donor_sha256": "059c388ca631be50ca73a0a5eed883af1bd17f5156827fa588d0bf52e572b03e",
+      "local_sha256": "059c388ca631be50ca73a0a5eed883af1bd17f5156827fa588d0bf52e572b03e"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Mesh\\SM_Hummer.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SM_Hummer.uasset",
+      "bytes": 130950,
+      "donor_sha256": "6939eee1e30833da6136e73d7d9b0ede6b8f6c0095757b709c0b852720878bfb",
+      "local_sha256": "6939eee1e30833da6136e73d7d9b0ede6b8f6c0095757b709c0b852720878bfb"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Textures\\T_Orc_Hummer_Albedo.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Textures/T_Orc_Hummer_Albedo.uasset",
+      "bytes": 5817017,
+      "donor_sha256": "c4cb779042decbb4213eae6d89142676537f38e1d9b0fff2ade4fef773f899cf",
+      "local_sha256": "c4cb779042decbb4213eae6d89142676537f38e1d9b0fff2ade4fef773f899cf"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Textures\\T_Orc_Hummer_Ao.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Textures/T_Orc_Hummer_Ao.uasset",
+      "bytes": 1996436,
+      "donor_sha256": "ef20dc2a1601e07b381be288ff6ca3351568fca023176f27076b1b19b693d814",
+      "local_sha256": "ef20dc2a1601e07b381be288ff6ca3351568fca023176f27076b1b19b693d814"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Textures\\T_Orc_Hummer_Metallic.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Textures/T_Orc_Hummer_Metallic.uasset",
+      "bytes": 3776406,
+      "donor_sha256": "d35e097476c38f4d1631e7a8d6121b862c0e31221b179794aac750812274bae1",
+      "local_sha256": "d35e097476c38f4d1631e7a8d6121b862c0e31221b179794aac750812274bae1"
+    },
+    {
+      "donor": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\Fantasy_Pack\\Characters\\Orc_Hummer\\Textures\\T_Orc_Hummer_Normals.uasset",
+      "local": "Content/Fantasy_Pack/Characters/Orc_Hummer/Textures/T_Orc_Hummer_Normals.uasset",
+      "bytes": 3889003,
+      "donor_sha256": "16235b62928efebb4c9cf4c9bcaa03f50ef5430dacf3893b28fd49acdad101b8",
+      "local_sha256": "16235b62928efebb4c9cf4c9bcaa03f50ef5430dacf3893b28fd49acdad101b8"
+    }
+  ],
+  "all_local_identical": true,
+  "already_cooked_roots": [
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_2",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_3",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Dead",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Get_hit",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Idle",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Run",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer",
+    "/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SM_Hummer"
+  ],
+  "selection_completed_utc": "2026-10-08T19:47:47.354287+00:00",
+  "selection_result": "orcs: dedicated owned hammer infantry; implementation pending clean-source runtime gate"
+}

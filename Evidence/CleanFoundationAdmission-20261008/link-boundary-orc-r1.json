@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "link_responses": [
+    {
+      "path": "Intermediate/Build/Win64/x64/SoulComposition/Development/SoulComposition.exe.rsp",
+      "sha256": "6028b161721ed42998a1890e7ed799f9c6e51a3f35c7e5d806686975d36cb76f",
+      "excluded_experiment_objects": [],
+      "composition_traversal_linked": true
+    },
+    {
+      "path": "Intermediate/Build/Win64/x64/Soul/Development/Soul.exe.rsp",
+      "sha256": "30e210d4b05693466b27525e4ee42ab62861134177b29523afb01ec3563dbd3d",
+      "excluded_experiment_objects": [],
+      "composition_traversal_linked": true
+    },
+    {
+      "path": "Intermediate/Build/Win64/x64/UnrealEditor/Development/Soul/UnrealEditor-Soul.dll.rsp",
+      "sha256": "4304f512752ca2f7cb456ab0f98fe8e9efe583f2709dcc0c730631463dd943b7",
+      "excluded_experiment_objects": [],
+      "composition_traversal_linked": true
+    }
+  ],
+  "receipt_note": "An initial receipt helper searched .response instead of the established .rsp names and found none; corrected to the three exact previous receipt paths. Builds were unaffected."
+}

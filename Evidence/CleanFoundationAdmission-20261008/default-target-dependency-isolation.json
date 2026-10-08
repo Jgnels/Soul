@@ -1,0 +1,7 @@
+{
+  "target": "Soul",
+  "receipt_sha256": "21465802780a75c67aee50c969dd73da76b385fab78cd669e0a6191b15223a51",
+  "unexpected_candidate_or_experimental_dependencies": [],
+  "pass": true,
+  "scope": "Regular game receipt excludes candidate-only data. Composition code is linked but remains opt-in; native default regression separately passed."
+}

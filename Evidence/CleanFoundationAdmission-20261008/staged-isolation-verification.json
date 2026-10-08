@@ -1,6 +1,6 @@
 {
   "pass": true,
-  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_gvki6ewv\\Stage\\Windows",
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows",
   "kind": "loose_cooked_hardlink_local_only",
   "additional_data": [
     {
@@ -26,6 +26,12 @@
       "exists": true,
       "sha256": "ae7b50698f50edc92bb20980b392f067820ad35350a4a368f06323eb7897baaa",
       "source_sha256": "ae7b50698f50edc92bb20980b392f067820ad35350a4a368f06323eb7897baaa"
+    },
+    {
+      "path": "Data/CampaignComposition/OrcRuntimeProof.json",
+      "exists": true,
+      "sha256": "c7f09470e02f26b581a97d0a00a29024a59b30450d65fed5db2fb20fa88132a6",
+      "source_sha256": "c7f09470e02f26b581a97d0a00a29024a59b30450d65fed5db2fb20fa88132a6"
     }
   ],
   "hdri_descriptor_present_and_source_identical": true,

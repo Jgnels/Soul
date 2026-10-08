@@ -1,0 +1,59 @@
+{
+  "source": [
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+    "Source/Soul/Soul.Build.cs",
+    "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+    "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp",
+    "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h"
+  ],
+  "tools": [
+    "Tools/FoundationAdmission/test_admission.py",
+    "Tools/ProductionContinuation/cook_profile.py",
+    "Tools/ProductionContinuation/faction_admission.py",
+    "Tools/ProductionContinuation/faction_readiness.py",
+    "Tools/ProductionContinuation/play_candidate.py",
+    "Tools/ProductionContinuation/qualify_runtime.py",
+    "Tools/ProductionContinuation/stage_candidate.py",
+    "Tools/ProductionContinuation/stage_manifest.py",
+    "Tools/ProductionContinuation/staged_copy_timestamps.py",
+    "Tools/ProductionContinuation/test_cook_profile.py",
+    "Tools/ProductionContinuation/test_play_candidate.py",
+    "Tools/ProductionContinuation/test_staged_copy_timestamps.py"
+  ],
+  "data": [
+    "Data/CampaignComposition/PackageProfile.json",
+    "Data/CampaignComposition/OrcRuntimeProof.json"
+  ],
+  "scope": "Exact Orc matchup and qualification/cook-review boundaries only; no licensed packages, machine config, terrain, R10 or Expansion drafts.",
+  "sha256": {
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp": "e22aa6aa862bc14504c403a333ecf8202dfc8537504dd82b02d796ee224c4134",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp": "ac2ef6cc3ab4f4ead2094ddaef7bd5678b8ac6188f50f80186828aebd36fd3fd",
+    "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp": "338970308e4aa235d1a647e54d54232d7251d8548ed577d7cb8700a920b65ea8",
+    "Source/Soul/Soul.Build.cs": "4be1a0f5d512b5802e419236b20cdbc220fa4870fd15a1a5d148cd2c775981cc",
+    "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp": "cc964b6d1c46d2bc8a9cfd2233d48b098f6405547ddaaa787d747bdec50fb4b0",
+    "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp": "649cfa17eda13c87d7831a8a981041854c55cf3983e838346f9036cf1af0210e",
+    "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp": "301d6da196f72a76f01ed48b72bbde3604056d3c2fed3bc1016a7753f7461217",
+    "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp": "e2e5ebc2b309252a3eb15c1572c94d6909a6146394b3f3cb257912073c34b9bc",
+    "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp": "6aedb6df1ee0f1e6e082ab9a5865353915f660d6b077795d2b20bde7c12f9dc7",
+    "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h": "6b70b4c55e93ad6eb7254a0d9ff0d121252dfb8e20afcb6a2640d3606ba88035",
+    "Tools/FoundationAdmission/test_admission.py": "5a0d595ae29d3a414919bc10639ea85c7de01611ebeee6b996e2d413f8b20843",
+    "Tools/ProductionContinuation/cook_profile.py": "6b134fb40a27d4a001f3069a634023eb57f0f6adad390bb87663b037eeafd04c",
+    "Tools/ProductionContinuation/faction_admission.py": "5fa3355e02affcb5bf9346a0fa0f49f1723b7938a112a9470a6bf6c1fea10ff9",
+    "Tools/ProductionContinuation/faction_readiness.py": "1da9ebdde8db1e587957d408dbacb873648393c5c5f156f44c9d77d3030a3508",
+    "Tools/ProductionContinuation/play_candidate.py": "4179fc1fcff5e9c27ca9baf0b46a0c1197dd85bc906a5af0664e7ad2f3fc55f6",
+    "Tools/ProductionContinuation/qualify_runtime.py": "2d5e74228eb6a707522633966cb38413d8bd284ddbb80bbde93d8ac5f3b51d5c",
+    "Tools/ProductionContinuation/stage_candidate.py": "6ec977c45e361b9cabf40bd33134362c7658e1c8bbbf67ecfcdfe0c982dcc27b",
+    "Tools/ProductionContinuation/stage_manifest.py": "c4d112cad9922ee2a05776c939381720bdb44b3ee3266f47bfc4c16c41e2427c",
+    "Tools/ProductionContinuation/staged_copy_timestamps.py": "1cdeb02d084ec95c7899e6adfcdf6989a7c5643d156ab1fc933848775072de50",
+    "Tools/ProductionContinuation/test_cook_profile.py": "5da41d0cd3e824b1efdfd4301ed070cf22a3269856ed328c64278b4115d9738b",
+    "Tools/ProductionContinuation/test_play_candidate.py": "463aae667240e743b1595a95d8cd7e470d33fbbaa1ee7d5883887df2002040d8",
+    "Tools/ProductionContinuation/test_staged_copy_timestamps.py": "91bd8134a9b8116f69a1e721dc3bd8dd67765bbe715dc229897e9189d1ca1def",
+    "Data/CampaignComposition/PackageProfile.json": "d6185b4758c530415bcce3ee8845e8a0e0188c7d2aa2ff39dffb8ddf69287de7",
+    "Data/CampaignComposition/OrcRuntimeProof.json": "c7f09470e02f26b581a97d0a00a29024a59b30450d65fed5db2fb20fa88132a6"
+  }
+}

@@ -205,6 +205,22 @@ bool FSoulVerticalSupportedMatchupTest::RunTest(const FString&)
         Swap(Invalid.PlayerUnitId, Invalid.EnemyUnitId);
         Reject(TEXT("unsupported reversed matchup rejected"), Invalid);
 
+        auto Orc = Valid;
+        Orc.EnemyFaction = TEXT("orcs");
+        Orc.EnemyUnitId = TEXT("orc_hammer_warrior");
+        TestTrue(TEXT("exact owned Orc hammer pair is admitted"),Orc.IsValid());
+        auto* OrcBridge=NewObject<USoulCampaignBattleBridge>(GI);
+        TestTrue(TEXT("exact Orc encounter enters existing bridge"),OrcBridge->BeginEncounter(Orc));
+        if(const auto* Pending=OrcBridge->GetPendingEncounter())
+        {
+            TestEqual(TEXT("bridge preserves Orc faction"),Pending->EnemyFaction,FName(TEXT("orcs")));
+            TestEqual(TEXT("bridge preserves exact Orc unit"),Pending->EnemyUnitId,FName(TEXT("orc_hammer_warrior")));
+        }
+        auto WrongPair=Orc;WrongPair.EnemyFaction=TEXT("dwarves");
+        Reject(TEXT("Dwarves cannot silently use Orc hammer assets"),WrongPair);
+        WrongPair=Orc;WrongPair.EnemyFaction=TEXT("evil");
+        Reject(TEXT("Dark faction is not an Orc alias"),WrongPair);
+
         const int32 AP = S->Economy.ActionPoints;
         S->EnemyUnitId = TEXT("unknown_unit");
         TestFalse(TEXT("campaign cannot commit unsupported descriptor"), S->BeginBattle(Target));
@@ -637,4 +653,40 @@ bool FSoulVerticalMutualExhaustionTest::RunTest(const FString&)
     return true;
 }
 
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulOrcResultSaveIsolationTest,
+    "Soul.Integration.Vertical.OrcResultAndSaveIsolation",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulOrcResultSaveIsolationTest::RunTest(const FString&)
+{
+    // Exercise the existing save/result authority on the exact second pair;
+    // the isolated 36-region JSON itself is exercised by the cooked proof.
+    auto* S=Campaign();FRBSaveDomainState DwarfSave;FString Error;
+    TestTrue(TEXT("capture existing fixture"),S->CaptureRBSaveDomain_Implementation(DwarfSave,Error));
+    auto SetOrc=[](USoulFounderPlaytestStateSubsystem* State)
+    {
+        const FName Previous=State->EnemyFaction;
+        State->EnemyFaction=TEXT("orcs");State->EnemyUnitId=TEXT("orc_hammer_warrior");
+        for(auto& Entry:State->World.Regions)if(Entry.Value.OwnerFactionId==Previous)Entry.Value.OwnerFactionId=State->EnemyFaction;
+    };
+    SetOrc(S);S->PlayerRegion=TEXT("river_ford");
+    TestTrue(TEXT("exact Orc battle commits through current authority"),S->BeginBattle(TEXT("orc_watch")));
+    TestEqual(TEXT("pending descriptor retains exact roster"),S->PendingBattle.EnemyUnitId,FName(TEXT("orc_hammer_warrior")));
+    auto Result=Victory(S->PendingBattle,17);Result.PlayerReinforcements=4;Result.EnemyReinforcements=3;
+    TestTrue(TEXT("Orc encounter result uses current authority"),S->ApplyBattleResult(Result));
+    TestEqual(TEXT("victory returns to conquered region"),S->PlayerRegion,FName(TEXT("orc_watch")));
+    TestEqual(TEXT("survivors retained"),S->PlayerArmy.FindRef(S->PlayerUnitId),17);
+    TestEqual(TEXT("enemy survivors depleted"),S->EnemyArmies.FindRef(TEXT("orc_watch")),0);
+    TestEqual(TEXT("unrelated Orc region ownership retained"),S->World.Regions[TEXT("orc_camp")].OwnerFactionId,FName(TEXT("orcs")));
+    FRBSaveDomainState OrcSave;TestTrue(TEXT("capture Orc result"),S->CaptureRBSaveDomain_Implementation(OrcSave,Error));
+    TestFalse(TEXT("old Dwarf fixture cannot silently migrate into Orc proof"),S->RestoreRBSaveDomain_Implementation(DwarfSave,Error));
+    FRBSaveDomainState AfterRejected;TestTrue(TEXT("state remains capturable"),S->CaptureRBSaveDomain_Implementation(AfterRejected,Error));
+    TestEqual(TEXT("rejected save makes no partial state change"),AfterRejected.Fields[0].StringValue,OrcSave.Fields[0].StringValue);
+    auto* Reloaded=Campaign();SetOrc(Reloaded);
+    TestTrue(TEXT("fresh matching fixture restores Orc result"),Reloaded->RestoreRBSaveDomain_Implementation(OrcSave,Error));
+    FRBSaveDomainState Restored;TestTrue(TEXT("restored result captured"),Reloaded->CaptureRBSaveDomain_Implementation(Restored,Error));
+    TestEqual(TEXT("exact result/ownership/pools restored"),Restored.Fields[0].StringValue,OrcSave.Fields[0].StringValue);
+    TestEqual(TEXT("enemy reinforcement result retained"),Reloaded->LastBattleResult.EnemyReinforcements,3);
+    return true;
+}
 #endif

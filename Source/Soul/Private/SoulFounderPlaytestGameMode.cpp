@@ -365,6 +365,11 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_VERIFIED id=%s target=%s victory=%d survivors=%d/%d persistence=RBSave holdSeconds=70"),
             *State->LastBattleResult.EncounterId.ToString(),*State->LastBattleResult.TargetRegion.ToString(),
             State->LastBattleResult.bPlayerWon,State->LastBattleResult.PlayerSurvivors,State->LastBattleResult.EnemySurvivors);
+        if(FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof")))
+        {
+            if(!FFileHelper::SaveStringToFile(ExpectedSnapshot,*(FPaths::ProjectSavedDir()/TEXT("CampaignInputExpectedSnapshot.json"))))
+            {UE_LOG(LogTemp,Error,TEXT("SOUL_ORC_PROOF_FAIL cannot preserve fresh-load checkpoint"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}
+        }
         bRoundTripVerified=true;
         ReturnHoldSeconds=0.0f;
         FScreenshotRequest::RequestScreenshot(

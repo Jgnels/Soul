@@ -37,8 +37,18 @@ class AdmissionContracts(unittest.TestCase):
    self.assertEqual((R/p).read_bytes().replace(b'\r\n',b'\n'),subprocess.check_output(['git','show','HEAD:'+p],cwd=R).replace(b'\r\n',b'\n'))
  def test_candidate_remains_opt_in_and_default_rule_unchanged(self):
   rule=(R/'Source/Soul/Soul.Build.cs').read_bytes().replace(b'\r\n',b'\n')
-  self.assertEqual(rule,subprocess.check_output(['git','show','10aa400d75c6a4bf5db2d7f403122a6e3e17b323:Source/Soul/Soul.Build.cs'],cwd=R).replace(b'\r\n',b'\n'))
+  admitted=b'                    "Data/CampaignComposition/OrcRuntimeProof.json",\n'
+  self.assertEqual(rule.count(admitted),1)
+  self.assertEqual(rule.replace(admitted,b''),subprocess.check_output(['git','show','10aa400d75c6a4bf5db2d7f403122a6e3e17b323:Source/Soul/Soul.Build.cs'],cwd=R).replace(b'\r\n',b'\n'))
   profile=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text())
   self.assertEqual(profile['required_launch_args'],['-SoulComposition'])
   self.assertTrue(profile['default_map_unchanged'])
+ def test_orc_fixture_preserves_existing_world_and_balance(self):
+  before=json.loads((R/'Data/CampaignComposition/RuntimeProof.json').read_text())
+  orc=json.loads((R/'Data/CampaignComposition/OrcRuntimeProof.json').read_text())
+  self.assertEqual(orc['enemy_faction'],'orcs');self.assertEqual(orc['enemy_unit_id'],'orc_hammer_warrior')
+  for key in set(before)-{'scenario_id','description','enemy_faction','enemy_unit_id'}:self.assertEqual(orc[key],before[key],key)
+  self.assertEqual(set(orc),set(before))
+  slots=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text())['save_slots']
+  self.assertEqual(slots['composition_orc_proof'],'Soul.Composition3500.OrcProof');self.assertEqual(len(set(slots.values())),len(slots))
 if __name__=='__main__':unittest.main(verbosity=2)

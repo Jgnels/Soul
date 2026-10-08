@@ -389,6 +389,7 @@ FRBWeaponProfile ASoulRealtimeArenaGameMode::Profile(int32 I) const
     P.Category = C.bRanged ? TEXT("Bow")
         : (C.Role == ESoulRealtimeFormationRole::Apex
             ? TEXT("Claw") : TEXT("Sword"));
+    if(UsesOrcCampaignRoster(C.Side)){P.Id=TEXT("Soul.Orc.Hammer");P.Category=TEXT("Hammer");}
     P.DamageType = TEXT("Physical");
     P.BaseDamage = RoleDamage(C.Role);
     P.Reach = C.bRanged ? 2600.0f
@@ -1230,6 +1231,7 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
             EnemyVisualFaction = Encounter->EnemyFaction;
+            EnemyVisualUnitId = Encounter->EnemyUnitId;
             EnemyVisualRegion = Encounter->TargetRegion;
             PlayerMana = static_cast<float>(Encounter->PlayerMana);
             // Automatic casting belongs to explicit qualification. Normal play
@@ -1523,6 +1525,9 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
 {
     if (Count <= 0 || Count > FRBCombatGroup::MaximumMembers)
         return false;
+    // The admitted Orc proof fields hammer infantry only. Tactical deployment
+    // and reserve delivery cannot silently introduce unrelated creature/archer assets.
+    FormationRole = CampaignFormationRole(Side,FormationRole);
 
     const int32 FirstCombatant = Combatants.Num();
     const int32 FirstGroup = Groups.Num();
@@ -1671,6 +1676,7 @@ FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
 USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    if(UsesOrcCampaignRoster(Side))return LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer.SK_Orc_Hummer"));
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Ranged)
         return LoadObject<USkeletalMesh>(nullptr, Side == 0
@@ -1777,6 +1783,9 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
     int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const
 {
+    if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,bRunning
+        ? TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Run.Anim_Orc_Hummer_Run")
+        : TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Idle.Anim_Orc_Hummer_Idle"));
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Ranged)
         return LoadObject<UAnimationAsset>(nullptr, bRunning
@@ -1853,6 +1862,11 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
     int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Variation) const
 {
+    if(UsesOrcCampaignRoster(Side))
+    {
+        static const TCHAR* Attacks[]={TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.Anim_Orc_Hummer_Attack_1"),TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_2.Anim_Orc_Hummer_Attack_2"),TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_3.Anim_Orc_Hummer_Attack_3")};
+        return LoadObject<UAnimationAsset>(nullptr,Attacks[FMath::Abs(Variation)%UE_ARRAY_COUNT(Attacks)]);
+    }
     if (FormationRole == ESoulRealtimeFormationRole::Ranged) return nullptr;
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Apex)
@@ -1909,6 +1923,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Dead.Anim_Orc_Hummer_Dead"));
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Ranged)
         return LoadObject<UAnimationAsset>(nullptr,
@@ -1953,8 +1968,18 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
     return Path ? LoadObject<UAnimationAsset>(nullptr, Path) : nullptr;
 }
 
+bool ASoulRealtimeArenaGameMode::UsesOrcCampaignRoster(int32 Side) const
+{
+    return bCampaignBattle && Side==1 && EnemyVisualFaction==TEXT("orcs")
+        && EnemyVisualUnitId==TEXT("orc_hammer_warrior");
+}
+ESoulRealtimeFormationRole ASoulRealtimeArenaGameMode::CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const
+{
+    return UsesOrcCampaignRoster(Side)?ESoulRealtimeFormationRole::Line:Requested;
+}
 bool ASoulRealtimeArenaGameMode::UsesEvilVisualRoster() const
 {
+
     return EnemyVisualFaction == FName(TEXT("orcs")) ||
            EnemyVisualFaction == FName(TEXT("evil")) ||
            EnemyVisualRegion == FName(TEXT("orc_watch")) ||
@@ -2134,6 +2159,8 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Visual->RefreshBoneTransforms();
         Visual->UpdateComponentToWorld();
         EquipVisualWeapons(Actor, Side, FormationRole);
+        if(UsesOrcCampaignRoster(Side))
+            UE_LOG(LogTemp,Display,TEXT("SOUL_ORC_ROSTER_BODY index=%d faction=orcs unit=orc_hammer_warrior mesh=%s idle=%s role=%s health=%.1f group=%d"),NewIndex,*Mesh->GetPathName(),*Idle->GetPathName(),*RoleLabel(FormationRole),Data.Health,GroupIndex);
 
         if (FormationRole == ESoulRealtimeFormationRole::Apex ||
             bKraken || bElephant)
@@ -2321,7 +2348,7 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
         FSoulRealtimeFormation Formation;
         Formation.FormationId = GroupFormationId(Side, GroupIndex);
         Formation.SideId = RealtimeSideId(Side);
-        Formation.UnitId = FName(*RoleLabel(Combatants[LeaderIndex].Role));
+        Formation.UnitId = UsesOrcCampaignRoster(Side)?EnemyVisualUnitId:FName(*RoleLabel(Combatants[LeaderIndex].Role));
         Formation.Role = Combatants[LeaderIndex].Role;
         Formation.StrategicCount = Groups[GroupIndex].Members.Num();
         Formation.ActiveCount = Formation.StrategicCount;
@@ -2343,7 +2370,7 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
         FSoulRealtimeFormation Reserve;
         Reserve.FormationId = ReserveFormationId(Side);
         Reserve.SideId = RealtimeSideId(Side);
-        Reserve.UnitId = TEXT("Soul.Reserve.Line");
+        Reserve.UnitId = UsesOrcCampaignRoster(Side)?EnemyVisualUnitId:FName(TEXT("Soul.Reserve.Line"));
         Reserve.Role = ESoulRealtimeFormationRole::Line;
         Reserve.StrategicCount = FMath::Max(0, StrategicBodies[Side] - AliveForSide(Side));
         Reserve.ActiveCount = 0;

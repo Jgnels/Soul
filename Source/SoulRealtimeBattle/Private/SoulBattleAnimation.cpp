@@ -25,6 +25,7 @@ FRotator ASoulRealtimeArenaGameMode::VisualMeshRotation(ESoulRealtimeMovementArc
 
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualReaction(int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Get_hit.Anim_Orc_Hummer_Get_hit"));
     const TCHAR* Path=nullptr;
     if(FormationRole==ESoulRealtimeFormationRole::Ranged) Path=TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Stunned_Start.Stunned_Start");
     else if(FormationRole==ESoulRealtimeFormationRole::Apex && Side==0) Path=TEXT("/Game/QuadrapedCreatures/Griffon/Animations/ANIM_Griffon_FlyGetHitStationary.ANIM_Griffon_FlyGetHitStationary");
@@ -47,6 +48,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveAerialFall(int32 Side) const
 // Clips remain on their donor skeleton; no animation-driven combat outcomes.
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveStanceAnimation(int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Mode) const
 {
+    if(UsesOrcCampaignRoster(Side))return ResolveVisualAnimation(Side,Mode!=0&&Mode!=5,FormationRole);
     if(Mode==0) return ResolveVisualAnimation(Side,false,FormationRole);
     if(FormationRole==ESoulRealtimeFormationRole::Apex || FormationRole==ESoulRealtimeFormationRole::Breaker)
         return ResolveVisualAnimation(Side,Mode!=5,FormationRole);

@@ -1,15 +1,16 @@
 {
   "target_receipt": "Binaries\\Win64\\SoulComposition.target",
-  "receipt_sha256": "7e2906a85c06512cf55ebf9e991a08f121a4671323a3aa2d232d0af924ac2cf0",
+  "receipt_sha256": "c822e5bc947dc83ad8bbcb470df05e1192aee49a406d7dedad89c44e3cc57138",
   "target_name": "SoulComposition",
   "required_additional_files": {
     "Data/CampaignComposition/presentation.json": true,
     "Data/CampaignComposition/RuntimeProof.json": true,
     "Data/CampaignComposition/HumanRuntimeProof.json": true,
-    "Data/CampaignCompositionLocal/Composition_3500_r2.r16": true
+    "Data/CampaignCompositionLocal/Composition_3500_r2.r16": true,
+    "Data/CampaignComposition/OrcRuntimeProof.json": true
   },
   "rejected_payloads_staged": [],
-  "runtime_dependency_count": 1122,
+  "runtime_dependency_count": 1123,
   "candidate_runtime_dependencies": [
     {
       "Path": "$(ProjectDir)/Data/CampaignCompositionLocal/Composition_3500_r2.r16",
@@ -17,6 +18,10 @@
     },
     {
       "Path": "$(ProjectDir)/Data/CampaignComposition/HumanRuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/OrcRuntimeProof.json",
       "Type": "NonUFS"
     },
     {

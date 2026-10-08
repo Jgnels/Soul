@@ -195,4 +195,65 @@ bool FSoulBattleAnimationBehaviorTest::RunTest(const FString&)
     World->DestroyWorld(false);
     return true;
 }
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulOrcCampaignRosterTest,
+    "Soul.RealtimeBattle.Vertical.ExactOrcCampaignRoster",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulOrcCampaignRosterTest::RunTest(const FString&)
+{
+    UWorld* World=UWorld::CreateWorld(EWorldType::Game,false);
+    auto* Host=World->SpawnActor<ASoulRealtimeArenaGameMode>();
+    Host->bVisualUnits=true;
+    Host->EnemyVisualFaction=TEXT("orcs");Host->EnemyVisualUnitId=TEXT("orc_hammer_warrior");
+    TestFalse(TEXT("standalone roster cannot masquerade as exact campaign proof"),Host->UsesOrcCampaignRoster(1));
+    Host->bCampaignBattle=true;
+    TestTrue(TEXT("exact campaign Orc pair recognized"),Host->UsesOrcCampaignRoster(1));
+    TestFalse(TEXT("human side cannot inherit enemy mesh"),Host->UsesOrcCampaignRoster(0));
+    auto* Mesh=Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line);
+    if(!TestNotNull(TEXT("owned Orc mesh loads"),Mesh)){World->DestroyWorld(false);return false;}
+    TestEqual(TEXT("exact owned mesh"),Mesh->GetPathName(),FString(TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer.SK_Orc_Hummer")));
+    auto Check=[&](UAnimationAsset* Asset)
+    {
+        auto* Clip=Cast<UAnimSequence>(Asset);
+        if(!TestNotNull(TEXT("native full-pose sequence"),Clip))return;
+        TestTrue(TEXT("strict own-skeleton compatibility"),Clip->GetSkeleton()->IsCompatibleMesh(Mesh,true));
+        TestFalse(TEXT("no additive substitution"),Clip->IsValidAdditive());
+        TestTrue(TEXT("positive duration"),Clip->GetPlayLength()>0);
+        TestTrue(TEXT("clip comes from owned Orc family"),Clip->GetPathName().StartsWith(TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/")));
+    };
+    for(int32 R=0;R<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++R)
+    {
+        const auto Role=static_cast<ESoulRealtimeFormationRole>(R);
+        TestTrue(TEXT("deployment/reserves admit hammer infantry only"),Host->CampaignFormationRole(1,Role)==ESoulRealtimeFormationRole::Line);
+        TestTrue(TEXT("player formation roles unchanged"),Host->CampaignFormationRole(0,Role)==Role);
+        TestTrue(TEXT("no requested tactical role substitutes another enemy species"),Host->ResolveVisualMesh(1,Role)==Mesh);
+        Check(Host->ResolveVisualAnimation(1,false,Role));Check(Host->ResolveVisualAnimation(1,true,Role));
+        Check(Host->ResolveVisualDeath(1,Role));Check(Host->ResolveVisualReaction(1,Role));
+        TSet<UAnimationAsset*> Attacks;
+        for(int32 V=0;V<3;++V){auto* Clip=Host->ResolveVisualAttack(1,Role,V);Check(Clip);Attacks.Add(Clip);}
+        TestEqual(TEXT("three authored hammer attacks"),Attacks.Num(),3);
+        for(int32 Mode=0;Mode<6;++Mode)Check(Host->ResolveStanceAnimation(1,Role,Mode));
+    }
+    auto* Body=World->SpawnActor<ACharacter>();Body->GetMesh()->SetSkeletalMeshAsset(Mesh);
+    Host->EquipVisualWeapons(Body,1,ESoulRealtimeFormationRole::Line);
+    TInlineComponentArray<UStaticMeshComponent*> Pieces(Body);int32 Weapons=0;
+    for(auto* Piece:Pieces)if(Piece->ComponentHasTag(TEXT("SoulVisualWeapon")))
+    {
+        ++Weapons;TestEqual(TEXT("owned hammer"),GetNameSafe(Piece->GetStaticMesh()),FString(TEXT("SM_Hummer")));
+        TestEqual(TEXT("native CAT palm attachment"),Piece->GetAttachSocketName(),FName(TEXT("CATRigRArmPalm")));
+        TestTrue(TEXT("CAT authoring scale canceled"),Piece->GetComponentScale().Equals(Body->GetMesh()->GetComponentScale(),.001f));
+        TestEqual(TEXT("cosmetic weapon has no independent damage collision"),Piece->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
+    }
+    TestEqual(TEXT("one visible hammer"),Weapons,1);
+    FSoulRealtimeArenaCombatant Unit;Unit.Id=FGuid::NewGuid();Unit.Side=1;Unit.Role=ESoulRealtimeFormationRole::Line;Unit.Health=160;Unit.MaxHealth=160;
+    Host->Combatants.Add(Unit);
+    const auto Weapon=Host->Profile(0);
+    TestEqual(TEXT("existing RB weapon profile carries Orc identity"),Weapon.Id,FName(TEXT("Soul.Orc.Hammer")));
+    TestEqual(TEXT("hammer category"),Weapon.Category,FName(TEXT("Hammer")));
+    TestTrue(TEXT("existing RB physical damage/reach retained"),Weapon.BaseDamage>0&&Weapon.Reach>0);
+    Host->EnemyVisualFaction=TEXT("dwarves");Host->EnemyVisualUnitId=TEXT("dwarf_warrior");
+    TestFalse(TEXT("Dwarf pair never selects Orc roster"),Host->UsesOrcCampaignRoster(1));
+    TestTrue(TEXT("Dwarf mesh differs from Orc"),Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line)!=Mesh);
+    World->DestroyWorld(false);return true;
+}
 #endif

@@ -1,0 +1,107 @@
+{
+  "pass": true,
+  "faction": "orcs",
+  "unit": "orc_hammer_warrior",
+  "binary_sha256": "0e9243b4e000fa9dd68230dfed944ef7647da5e66cfa691a3c347b2568060900",
+  "stage_receipt": "Local/stage-orc-r1/Diagnostics/receipt.json",
+  "battle_environment": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "recipe": "dragon_watch",
+  "source": "river_ford",
+  "target": "orc_watch",
+  "strategic_forces": [
+    45,
+    30
+  ],
+  "initial_active": [
+    15,
+    15
+  ],
+  "exact_owned_enemy_bodies": 30,
+  "all_initial_and_reinforcement_enemies_correct": true,
+  "reinforcements": {
+    "player_waves": 6,
+    "enemy_waves": 4
+  },
+  "accepted_RBCombat_damage_events": 662,
+  "natural_result": {
+    "player_won": false,
+    "player_survivors": 0,
+    "enemy_survivors": 7,
+    "return_region": "river_ford",
+    "magic_casts": 0
+  },
+  "separate_process_F9_exact": true,
+  "saved_file_sha256": "96a97e71e39ebe24eca2c98675d72e13646ed1e26f4a2c95459104e50ebf8a7e",
+  "separate_process_save_bytes_identical": true,
+  "runs": [
+    {
+      "run": "cooked-orc-battle-r1",
+      "elapsed_seconds": 209.67,
+      "pass": true,
+      "peak_gpu_c": 73.0,
+      "summary": "Local/cooked-orc-battle-r1/runtime/summary.json",
+      "summary_sha256": "04705ac199370f692ae7cfd97e959b91853494c608569075463e155918d6646e"
+    },
+    {
+      "run": "cooked-orc-load-r1",
+      "elapsed_seconds": 86.56,
+      "pass": true,
+      "peak_gpu_c": 64.0,
+      "summary": "Local/cooked-orc-load-r1/runtime/summary.json",
+      "summary_sha256": "7b6599dfefe245cfe0d5c8bfc322aa7ea4ced73d098962df91eef2c948055544"
+    }
+  ],
+  "visual_review": {
+    "reviewed": true,
+    "images": [
+      {
+        "path": "Local/cooked-orc-battle-r1/User/Saved/Screenshots/Vertical_Campaign_Return.png",
+        "sha256": "1784b2a673c391bccf2d029720c62303e8aa8576610755824de3a46c3ca6004e"
+      },
+      {
+        "path": "Local/cooked-orc-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+        "sha256": "ae6a95182544ffd5c6b5634a53fb0494602ae11dddd5bd023d6bc414fbe8ec14"
+      },
+      {
+        "path": "Local/cooked-orc-visual-r1/User/Saved/Screenshots/Vertical_Battle.png",
+        "sha256": "28e20865e5956bfe5c8cfd7278dafb107dfce3d95367414bc37c9af35850f4ca"
+      }
+    ],
+    "finding": "Owned hammer-bearing Orc infantry visible as the hostile formation; no mixed enemy species or checkerboard visible. Ordinary no-spell battle naturally lost, while separately labeled existing spell observer naturally won; both states restored in separate processes."
+  },
+  "seven_family_orc_roster_complete": false,
+  "performance_qualified": false,
+  "balance_qualified": false,
+  "new_combat_or_save_authority": false,
+  "separate_rendered_spell_observer": {
+    "flag": "-SoulVerticalQualification",
+    "behavior": "Existing battle capture plus automatic normal spell actions; not the ordinary no-spell run. No forced outcome.",
+    "natural_victory": true,
+    "player_survivors": 20,
+    "enemy_survivors": 0,
+    "return_region": "orc_watch",
+    "magic_casts": 5,
+    "mana_after": 18,
+    "fresh_process_exact_restoration": true,
+    "runs": [
+      {
+        "run": "cooked-orc-visual-r1",
+        "pass": true,
+        "elapsed_seconds": 188.91,
+        "peak_gpu_c": 71.0,
+        "summary": "Local/cooked-orc-visual-r1/runtime/summary.json",
+        "summary_sha256": "681e789361622ae884fca9b1c47428aa99964c59500da9d4d86eb64c7bb91dbd"
+      },
+      {
+        "run": "cooked-orc-victory-load-r1",
+        "pass": true,
+        "elapsed_seconds": 91.86,
+        "peak_gpu_c": 54.0,
+        "summary": "Local/cooked-orc-victory-load-r1/runtime/summary.json",
+        "summary_sha256": "b0cbbbb6cb664bed1b250b7d2d055366b1a99780e6c42e5ecce0e6c14af3cfa3"
+      }
+    ]
+  },
+  "automatic_post_battle_save_and_controller_F9_exact": true,
+  "controller_F5_scope": "Already qualified in the clean Composition input run; Orc roundtrip uses the unchanged automatic result-save path."
+}

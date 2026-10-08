@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-08T21:25:17.542643+00:00",
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows",
+  "copied_resource_timestamps_refreshed": 1901,
+  "hardlink_timestamps_untouched": true,
+  "configuration_source_unchanged": true,
+  "staged_token_blanked_if_required": true,
+  "all_manifest_files_present": true,
+  "interpretation": "Missing files predominantly retained old source timestamps; suspected temporary-directory age cleanup, remover unconfirmed. Stage copies only were restored/freshened.",
+  "restored_count": 1762,
+  "restored_bytes": 12474355,
+  "full_inventory": "Local/stage-resource-repair-full.json",
+  "full_inventory_sha256": "3ba42e9914accfc4911c5392ad7e0a551281f0b80f09e85f89d55b6acc88985c"
+}

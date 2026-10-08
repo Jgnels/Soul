@@ -362,6 +362,9 @@ private:
     UAnimationAsset* ResolveVisualDeath(
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     bool UsesEvilVisualRoster() const;
+    bool UsesOrcCampaignRoster(int32 Side) const;
+    ESoulRealtimeFormationRole CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const;
+    friend class FSoulOrcCampaignRosterTest;
     void UpdateVisualAnimations();
     void TickCombatPresentation(float Seconds);
     void TickAnimationPoseProof();
@@ -422,6 +425,7 @@ private:
     TArray<bool> VisualRunning;
     FVector ArenaOrigin = FVector::ZeroVector;
     FName EnemyVisualFaction = NAME_None;
+    FName EnemyVisualUnitId = NAME_None;
     FName EnemyVisualRegion = NAME_None;
     void InitializeLoadedArena();
     bool bAwaitingAuthoredEnvironment = false;

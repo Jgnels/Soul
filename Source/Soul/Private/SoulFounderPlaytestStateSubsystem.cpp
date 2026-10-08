@@ -108,13 +108,16 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     const bool bHumanEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"));
     const bool bAuthoredEnvironmentProof = bDwarfEnvironmentProof || bHumanEnvironmentProof;
     const bool bComposition = SoulCampaignTerrain::Composition();
+    const bool bOrcMatchupProof = FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"));
+    if(bOrcMatchupProof&&(!bComposition||bAuthoredEnvironmentProof))
+    {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_ORC_PROOF_FAIL requires isolated Composition fixture without authored-city proof"));return;}
     if(bComposition&&(bDwarfEnvironmentProof||FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignExpansion"))||FParse::Param(FCommandLine::Get(),TEXT("SoulWorldTerrain"))))
     {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_COMPOSITION_SCENARIO_FAIL conflicting experimental flag"));return;}
     if ((bAuthoredEnvironmentProof && !SoulCampaignTerrain::EvilCorridor() && !bComposition)
         || (bDwarfEnvironmentProof && bHumanEnvironmentProof))
     { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_AUTHORED_PROOF_FAIL requires one explicit settlement and the retained EvilCorridor terrain profile")); return; }
     TSharedPtr<FJsonObject> Config,Geography,Starts,Handoffs;
-    const bool bConfigLoaded = bComposition ? ReadData(bHumanEnvironmentProof?TEXT("CampaignComposition/HumanRuntimeProof.json"):TEXT("CampaignComposition/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
+    const bool bConfigLoaded = bComposition ? ReadData(bOrcMatchupProof?TEXT("CampaignComposition/OrcRuntimeProof.json"):bHumanEnvironmentProof?TEXT("CampaignComposition/HumanRuntimeProof.json"):TEXT("CampaignComposition/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
         ? ReadData(TEXT("SettlementEnvironments/DwarfHoldRuntimeProof.json"), Config)
         : bHumanEnvironmentProof ? ReadData(TEXT("SettlementEnvironments/HumanCapitalRuntimeProof.json"), Config)
         : ReadData(TEXT("soul_vertical_scenario_20260925.json"), Config);
@@ -146,7 +149,8 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
         // Explicit qualification faction overlay preserves accepted stable geography IDs.
         Region.OwnerFactionId=Owner==TEXT("orcs")?EnemyFaction:FName(*Owner);
         Region.bSettlement=Node->TryGetStringField(TEXT("settlement_id"),Settlement)&&!Settlement.IsEmpty();
-        RegionDisplayNames.Add(Region.Id,Node->GetStringField(TEXT("name")).Replace(TEXT("Orc"),TEXT("Dwarf")));
+        const FString DisplayName=Node->GetStringField(TEXT("name"));
+        RegionDisplayNames.Add(Region.Id,EnemyFaction==TEXT("dwarves")?DisplayName.Replace(TEXT("Orc"),TEXT("Dwarf")):DisplayName);
         World.Regions.Add(Region.Id,Region);
     }
     for (const auto& Value:Geography->GetArrayField(TEXT("edges")))
@@ -257,7 +261,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Pool.CostPerUnit.Add(TEXT("gold"),140); Economy.RecruitmentPools.Add(Pool.UnitId,Pool);
     Hero=FSoulHeroState();Hero.HeroId=TEXT("human_founder_hero"); Hero.UnspentSkillPoints=1;Hero.MaxMana=80;Hero.Mana=80;
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
-    LastAIReport=TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
+    LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold their regions; strategic reserves feed the active battle."):TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
     if (bComposition || bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
     {
@@ -467,7 +471,7 @@ void USoulFounderPlaytestStateSubsystem::AdvanceDay()
     Hero.Mana=FMath::Min(Hero.MaxMana,Hero.Mana+6);AdvanceEnemyAI();
 }
 void USoulFounderPlaytestStateSubsystem::AdvanceEnemyAI()
-{LastAIReport=TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
+{LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold; no synthetic strategic army bypasses encounter resolution."):TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
 bool USoulFounderPlaytestStateSubsystem::Recruit(FName Id)
 {InitializeScenario();if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||!FSoulCampaignRules::Recruit(Economy,Id,1))return false;PlayerArmy.FindOrAdd(Id)++;return true;}
 bool USoulFounderPlaytestStateSubsystem::ChooseSkill(FName Id)
@@ -611,6 +615,8 @@ FString USoulFounderPlaytestStateSubsystem::GetCampaignSaveSlotName() const
 {
     // Presentation profiles retain the same RB Save domains/schema, but a
     // 36-region candidate must never overwrite the qualified founder slot.
+    if (SoulCampaignTerrain::Composition() && FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof")))
+        return TEXT("Soul.Composition3500.OrcProof");
     if (SoulCampaignTerrain::Composition())
         return FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"))
             ? TEXT("Soul.Composition3500.HumanProof") : TEXT("Soul.Composition3500.Founder");

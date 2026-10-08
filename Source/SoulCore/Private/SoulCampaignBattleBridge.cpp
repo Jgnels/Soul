@@ -9,10 +9,11 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
         && PlayerStrategicCount > 0 && EnemyStrategicCount > 0
         && ActiveCapPerSide > 0 && ActiveCapPerSide <= 35
         && PlayerMana >= 0
-        // The installed physical runtime supports this one ordered matchup.
-        // Reject unsupported identities instead of silently substituting side-based assets.
-        && PlayerFaction == TEXT("humans") && EnemyFaction == TEXT("dwarves")
-        && PlayerUnitId == TEXT("human_knight") && EnemyUnitId == TEXT("dwarf_warrior");
+        // Each admitted pair has an exact owned physical roster. A faction name
+        // alone cannot select a visually unrelated side-based fallback.
+        && PlayerFaction == TEXT("humans") && PlayerUnitId == TEXT("human_knight")
+        && ((EnemyFaction == TEXT("dwarves") && EnemyUnitId == TEXT("dwarf_warrior"))
+            || (EnemyFaction == TEXT("orcs") && EnemyUnitId == TEXT("orc_hammer_warrior")));
 }
 
 bool USoulCampaignBattleBridge::BeginEncounter(const FSoulCampaignBattleDescriptor& Descriptor)

@@ -5,11 +5,20 @@ R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261
 sys.path[:0]=[str(R/'Tools'),str(R/'Tools/WorldTerrain')]
 from qualify_soul_vertical import conflicting_processes,gpu_sample,process_memory_sample
 from host_commit import system_commit_sample
-p=argparse.ArgumentParser();p.add_argument('--cook',type=Path,required=True);p.add_argument('--run',required=True);p.add_argument('--minutes',type=int,default=45);p.add_argument('--loose-hardlink',action='store_true',help='Stage loose cooked content with same-volume hardlinks in a fresh temporary stage; not a distributable archive.');p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
+p=argparse.ArgumentParser();p.add_argument('--cook',type=Path,required=True);p.add_argument('--prior-profile',type=Path,help='Exact profile used for the verified cook, only for added loose fixture/save-slot compatibility.');p.add_argument('--run',required=True);p.add_argument('--minutes',type=int,default=45);p.add_argument('--loose-hardlink',action='store_true',help='Stage loose cooked content with same-volume hardlinks in a fresh temporary stage; not a distributable archive.');p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
 assert 1<=a.minutes<=60 and all(c.isalnum() or c in '-_' for c in a.run)
 cook=a.cook.resolve();assert cook.is_relative_to((R/'Evidence').resolve())
 cr=json.loads((cook/'Diagnostics/receipt.json').read_text());assert cr['pass'] and cr['scope']=='runtime'
-profile=R/'Data/CampaignComposition/PackageProfile.json';assert hashlib.sha256(profile.read_bytes()).hexdigest()==cr['profile_sha256']
+profile=R/'Data/CampaignComposition/PackageProfile.json'
+cook_compatibility={'asset_cook_inputs_unchanged':True,'added_loose_fixtures':[],'added_isolated_save_slots':{},'fresh_asset_cook':False}
+if hashlib.sha256(profile.read_bytes()).hexdigest()!=cr['profile_sha256']:
+ assert a.prior_profile and a.prior_profile.resolve().is_relative_to((R/'Evidence').resolve()),'Changed profile needs its preserved exact cook profile'
+ assert hashlib.sha256(a.prior_profile.read_bytes()).hexdigest()==cr['profile_sha256'],'Prior profile does not belong to this cook'
+ from cook_profile import verify_compatible_cook_profile
+ cook_compatibility=verify_compatible_cook_profile(json.loads(a.prior_profile.read_text()),json.loads(profile.read_text()))
+ cook_compatibility['prior_profile']=str(a.prior_profile.resolve())
+ cook_compatibility['prior_profile_sha256']=cr['profile_sha256']
+cook_compatibility['current_profile_sha256']=hashlib.sha256(profile.read_bytes()).hexdigest()
 tr=json.loads((E/'target-receipt-verification.json').read_text());assert tr['pass']
 assert hashlib.sha256((R/tr['target_receipt']).read_bytes()).hexdigest()==tr['receipt_sha256']
 assert not conflicting_processes();out=E/'Local'/a.run;assert not out.exists();out.mkdir()
@@ -49,7 +58,7 @@ ps='& '+quote(uat)+' '+ ' '.join(quote(x) for x in args)+'; exit $LASTEXITCODE'
 cmd=['powershell','-NoProfile','-NonInteractive','-Command',ps]
 env=os.environ.copy();scratch=stage_root/'Temp';scratch.mkdir();env['TMP']=env['TEMP']=str(scratch);env['uebp_LogFolder']=env['uebp_FinalLogFolder']=str(logs/'UAT')
 config={n:hashlib.sha256((R/n).read_bytes()).hexdigest() for n in ['Config/DefaultEngine.ini','Config/DefaultGame.ini','Soul.uproject']}
-receipt={'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'command':cmd,'cook_receipt':str(cook/'Diagnostics/receipt.json'),'stage_root':str(stage_root),'stage':str(stage),'cook_view':str(link),'cook_view_target':str(target),'binary_sha256':hashlib.sha256((R/'Binaries/Win64/SoulComposition.exe').read_bytes()).hexdigest(),'config_before':config,'cutoff_gpu_c':85,'minimum_stage_free_gib':8,'minimum_source_free_gib':2 if a.loose_hardlink else 8,'stage_kind':'loose_cooked_hardlink_local_only' if a.loose_hardlink else 'pak_iostore','linked_cooked_files':len(linked),'noncook_receipt_bytes':noncook_bytes,'preflight_required_free_bytes':required_free,'promotion':False,'archive_created':False,'packaged_runtime_qualified':False}
+receipt={'cook_profile_compatibility':cook_compatibility,'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'command':cmd,'cook_receipt':str(cook/'Diagnostics/receipt.json'),'stage_root':str(stage_root),'stage':str(stage),'cook_view':str(link),'cook_view_target':str(target),'binary_sha256':hashlib.sha256((R/'Binaries/Win64/SoulComposition.exe').read_bytes()).hexdigest(),'config_before':config,'cutoff_gpu_c':85,'minimum_stage_free_gib':8,'minimum_source_free_gib':2 if a.loose_hardlink else 8,'stage_kind':'loose_cooked_hardlink_local_only' if a.loose_hardlink else 'pak_iostore','linked_cooked_files':len(linked),'noncook_receipt_bytes':noncook_bytes,'preflight_required_free_bytes':required_free,'promotion':False,'archive_created':False,'packaged_runtime_qualified':False}
 (logs/'invocation.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8');print('STAGE_START',stage,flush=True)
 start=time.monotonic();gpu=shutil.which('nvidia-smi');proc=None
 try:
@@ -88,6 +97,9 @@ for ini in stage.rglob('*.ini') if stage.exists() else []:
 if receipt['exit_code']==0 and exe.exists() and not receipt.get('stop_reason'):
  resource_cmd=['powershell','-NoProfile','-NonInteractive','-File',str(R/'Tools/Stage-SoulTcatResources.ps1'),'-ProjectRoot',str(R),'-WindowsPackageRoots',str(stage/'Windows'),'-ExecutableName','SoulComposition.exe']
  resources=subprocess.run(resource_cmd,capture_output=True,text=True,creationflags=subprocess.CREATE_NO_WINDOW);receipt['resources_exit']=resources.returncode;(logs/'supplemental-resources.txt').write_text(resources.stdout+resources.stderr,encoding='utf-8')
+if receipt['exit_code']==0 and receipt.get('resources_exit')==0:
+ from staged_copy_timestamps import refresh_stage_copies
+ receipt['staged_copy_freshness']=refresh_stage_copies(stage/'Windows')
 if a.loose_hardlink:
  changed=[]
  for row in linked:

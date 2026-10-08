@@ -50,12 +50,18 @@ void ASoulRealtimeArenaGameMode::DressDragonBattlefield()
 void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
     ACharacter* Actor,int32 Side,ESoulRealtimeFormationRole FormationRole)
 {
-    if(!Actor || FormationRole==ESoulRealtimeFormationRole::Ranged ||
+    if(!Actor) return;
+    if(!UsesOrcCampaignRoster(Side) && (FormationRole==ESoulRealtimeFormationRole::Ranged ||
         FormationRole==ESoulRealtimeFormationRole::Apex ||
-        FormationRole==ESoulRealtimeFormationRole::Breaker) return;
+        FormationRole==ESoulRealtimeFormationRole::Breaker)) return;
     const TCHAR* Weapon=nullptr;
     FName WeaponHand=TEXT("hand_r");
-    if(Side==0)
+    if(UsesOrcCampaignRoster(Side))
+    {
+        Weapon=TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SM_Hummer");
+        WeaponHand=TEXT("CATRigRArmPalm");
+    }
+    else if(Side==0)
     {
         // Aurora carries her authored weapon as part of the hero mesh.
         if(FormationRole==ESoulRealtimeFormationRole::Hero) return;

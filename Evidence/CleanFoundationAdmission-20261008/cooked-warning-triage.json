@@ -1,0 +1,31 @@
+{
+  "inspection_utc": "2026-10-08T20:44:57.956806+00:00",
+  "bounded_read_only_minutes": 3,
+  "material_function": {
+    "source_plugin": "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Plugins\\Experimental\\MeshModelingToolsetExp\\MeshModelingToolsetExp.uplugin",
+    "descriptor_sha256": "f7c896ebee0eda10c5aed7a9dc35f4dd1ec97b590eb0d2bae65d988556a6477c",
+    "cooked_function_paths": [
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionCookPayload_dikr_ozr\\Cooked\\Engine\\Plugins\\Experimental\\MeshModelingToolsetExp\\Content\\Materials\\GetDisplacementVectorForDepthBias.uasset"
+    ],
+    "staged_descriptor_present": false,
+    "runtime_modules": [
+      "MeshModelingToolsExp",
+      "ModelingUI"
+    ],
+    "diagnosis": "Cooked function exists, but runtime mount is unknown. Unlike HDRIBackdrop, the plugin contains Runtime modules and additional plugin dependencies; adding/enabling only its descriptor is not proven safe. No target or donor mutation performed."
+  },
+  "webbrowser": [
+    {
+      "package": "/Engine/WebBrowser/WebTexture_M",
+      "installed_source_exists": true,
+      "cooked_exists": false
+    },
+    {
+      "package": "/Engine/WebBrowser/WebTexture_TM",
+      "installed_source_exists": true,
+      "cooked_exists": false
+    }
+  ],
+  "algae": "Three inherited CastleTown algae instances retain cooked invalid shader maps; native authored proof still passes. No donor repair or speculative material rewrite.",
+  "decision": "Defer nonblocking cosmetic/mount warnings; exact new-faction proof and clean source reproducibility remain primary. No claim that warnings are fixed."
+}
