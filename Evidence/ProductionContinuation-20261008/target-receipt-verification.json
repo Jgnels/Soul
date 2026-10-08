@@ -1,0 +1,35 @@
+{
+  "target_receipt": "Binaries\\Win64\\SoulComposition.target",
+  "receipt_sha256": "7e2906a85c06512cf55ebf9e991a08f121a4671323a3aa2d232d0af924ac2cf0",
+  "target_name": "SoulComposition",
+  "required_additional_files": {
+    "Data/CampaignComposition/presentation.json": true,
+    "Data/CampaignComposition/RuntimeProof.json": true,
+    "Data/CampaignComposition/HumanRuntimeProof.json": true,
+    "Data/CampaignCompositionLocal/Composition_3500_r2.r16": true
+  },
+  "rejected_payloads_staged": [],
+  "runtime_dependency_count": 1122,
+  "candidate_runtime_dependencies": [
+    {
+      "Path": "$(ProjectDir)/Data/CampaignCompositionLocal/Composition_3500_r2.r16",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/HumanRuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/RuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/presentation.json",
+      "Type": "NonUFS"
+    }
+  ],
+  "default_target_unchanged": true,
+  "full_package_qualified": false,
+  "hdri_content_descriptor_staged": true,
+  "pass": true
+}

@@ -3,12 +3,13 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory=$true)][string]$ProjectRoot,
-    [Parameter(Mandatory=$true)][string[]]$WindowsPackageRoots
+    [Parameter(Mandatory=$true)][string[]]$WindowsPackageRoots,
+    [ValidateSet('Soul.exe','SoulComposition.exe')][string]$ExecutableName='Soul.exe'
 )
 $ErrorActionPreference='Stop'
 foreach($package in $WindowsPackageRoots){
     $package=(Resolve-Path -LiteralPath $package).ProviderPath
-    if(!(Test-Path -LiteralPath (Join-Path $package 'Soul/Binaries/Win64/Soul.exe') -PathType Leaf)){
+    if(!(Test-Path -LiteralPath (Join-Path $package ('Soul/Binaries/Win64/'+$ExecutableName)) -PathType Leaf)){
         throw "Expected a completed Development Windows stage/archive: $package"
     }
     foreach($name in @('InfluenceComponentIcon.png','InfluenceComponentIcon_64.png')){

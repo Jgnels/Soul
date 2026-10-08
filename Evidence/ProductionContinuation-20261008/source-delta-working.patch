@@ -1,0 +1,304 @@
+--- a/Source/Soul/Private/SoulAuthoredSettlementQualification.cpp
++++ b/Source/Soul/Private/SoulAuthoredSettlementQualification.cpp
+@@ -376,7 +376,7 @@
+             && FPaths::IsUnderDirectory(FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir()), FPaths::ConvertRelativePathToFull(UserDir)), TEXT("isolated absolute UserDir protects player saves"))) return;
+         if (!Check(FParse::Value(Cmd, TEXT("SoulCampaignCapturePrefix="), Prefix) && !Prefix.IsEmpty()
+             && Prefix == FPaths::MakeValidFileName(Prefix), TEXT("explicit evidence prefix"))) return;
+-        SavePath = Save->GetDomainSlotPath(TEXT("Soul.VerticalCampaign"));
++        SavePath = Save->GetDomainSlotPath(State->GetCampaignSaveSlotName());
+         if (FParse::Param(Cmd, TEXT("SoulAuthoredSettlementFreshLoad")))
+         {
+             if (!Check(IFileManager::Get().FileExists(*SavePath), TEXT("explicit fresh-load run has a copied qualification checkpoint"))
+--- a/Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp
++++ b/Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp
+@@ -74,7 +74,6 @@
+         }
+         return true;
+     }
+-    const TCHAR* CampaignSlot=TEXT("Soul.VerticalCampaign");
+     // This checkpoint owns strategic campaign and settlement consequences. Optional
+     // legacy item/weather/routine domains retain their separate registered authority.
+     const TArray<FName> CampaignSaveDomains = {TEXT("Soul.Campaign"), TEXT("Soul.Settlements")};
+@@ -612,26 +611,36 @@
+     World.KnowledgeByFaction.FindOrAdd(PlayerFaction).ExploredRegions=MoveTemp(Explored);FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);
+     Error.Reset();return true;
+ }
++FString USoulFounderPlaytestStateSubsystem::GetCampaignSaveSlotName() const
++{
++    // Presentation profiles retain the same RB Save domains/schema, but a
++    // 36-region candidate must never overwrite the qualified founder slot.
++    if (SoulCampaignTerrain::Composition())
++        return FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"))
++            ? TEXT("Soul.Composition3500.HumanProof") : TEXT("Soul.Composition3500.Founder");
++    return TEXT("Soul.VerticalCampaign");
++}
++
+ void USoulFounderPlaytestStateSubsystem::SaveCampaign()
+ {
+     if(!SaveSubsystem.IsValid()||bPersistenceBusy||HasPendingBattle())return;
+     bPersistenceBusy=true;bLastSaveSucceeded=false;
+     FRBSaveOperationDelegate Done;Done.BindDynamic(this,&USoulFounderPlaytestStateSubsystem::OnCampaignSaved);
+     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE_SCOPE domains=Soul.Campaign,Soul.Settlements"));
+-    SaveSubsystem->SaveSelectedDomainsAsync(CampaignSlot,CampaignSaveDomains,Done);
++    SaveSubsystem->SaveSelectedDomainsAsync(GetCampaignSaveSlotName(),CampaignSaveDomains,Done);
+ }
+ void USoulFounderPlaytestStateSubsystem::LoadCampaign()
+ {
+     if(!SaveSubsystem.IsValid()||bPersistenceBusy||HasPendingBattle())return;
+     bPersistenceBusy=true;bLastLoadSucceeded=false;
+     FRBSaveOperationDelegate Done;Done.BindDynamic(this,&USoulFounderPlaytestStateSubsystem::OnCampaignLoaded);
+-    SaveSubsystem->LoadSelectedDomainsAsync(CampaignSlot,CampaignSaveDomains,Done);
++    SaveSubsystem->LoadSelectedDomainsAsync(GetCampaignSaveSlotName(),CampaignSaveDomains,Done);
+ }
+ void USoulFounderPlaytestStateSubsystem::OnCampaignSaved(const FRBSaveOperationResult& R)
+ {
+     bPersistenceBusy=false;bLastSaveSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?TEXT("Campaign saved with RB Save."):R.Message;
+     const FString SavedPath = SaveSubsystem.IsValid()
+-        ? SaveSubsystem->GetDomainSlotPath(CampaignSlot) : R.ArtifactPath;
++        ? SaveSubsystem->GetDomainSlotPath(GetCampaignSaveSlotName()) : R.ArtifactPath;
+     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE success=%d path=%s message=%s"),R.bSuccess,*SavedPath,*R.Message);
+ }
+ void USoulFounderPlaytestStateSubsystem::OnCampaignLoaded(const FRBSaveOperationResult& R)
+--- a/Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp
++++ b/Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp
+@@ -42,7 +42,7 @@
+     auto* Authority=GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>();
+     auto* Save=GetGameInstance()->GetSubsystem<URBSaveSubsystem>();
+     if(!PC||!Authority||!Save){Fail(TEXT("controller, settlement authority or RBSave subsystem missing"));return;}
+-    const FString SavePath=Save->GetDomainSlotPath(TEXT("Soul.VerticalCampaign"));
++    const FString SavePath=Save->GetDomainSlotPath(State->GetCampaignSaveSlotName());
+     const FString CaptureRoot=FPaths::ProjectSavedDir()/TEXT("Screenshots");
+     auto Path=[&](const TCHAR* Label){return CaptureRoot/(CapturePrefix+TEXT("_")+Label+TEXT(".png"));};
+     const TCHAR* Shots[]={TEXT("start"),TEXT("mid"),TEXT("completed"),TEXT("loaded"),TEXT("hired"),TEXT("loaded_completed")};
+@@ -127,7 +127,8 @@
+         if(!Require(FParse::Param(Cmd,TEXT("SoulSettlementDevelopmentProof"))
+             &&!bVisualQualification&&!bQualification&&!FParse::Param(Cmd,TEXT("SoulCampaignLoadProof"))
+             &&!FParse::Param(Cmd,TEXT("SoulTerrainBenchmark"))&&!WorldReview&&!RetainedReview,TEXT("explicit development proof enabled without competing qualification modes")))return;
+-        if(!Require(SoulCampaignTerrain::EvilCorridor()&&!WorldTerrain,TEXT("controls proof uses unchanged retained EvilCorridor terrain")))return;
++        if(!Require((SoulCampaignTerrain::EvilCorridor()||SoulCampaignTerrain::Composition())&&!WorldTerrain,
++            TEXT("controls proof uses retained or opt-in composition presentation without rejected World terrain")))return;
+         if(!Require(FParse::Value(Cmd,TEXT("SoulCampaignCapturePrefix="),RawPrefix)&&!RawPrefix.IsEmpty()
+             &&RawPrefix==FPaths::MakeValidFileName(RawPrefix)&&RawPrefix!=TEXT("World"),TEXT("explicit valid unique capture prefix required")))return;
+         if(!Require(FParse::Value(Cmd,TEXT("UserDir="),UserDir)&&!FPaths::IsRelative(UserDir)
+--- a/Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp
++++ b/Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp
+@@ -8,6 +8,10 @@
+ #include "Components/StaticMeshComponent.h"
+ #include "Engine/GameInstance.h"
+ #include "Materials/MaterialInterface.h"
++#include "Dom/JsonObject.h"
++#include "Serialization/JsonReader.h"
++#include "Serialization/JsonSerializer.h"
++#include "Serialization/JsonWriter.h"
+ 
+ #if WITH_DEV_AUTOMATION_TESTS
+ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulCampaignWorldGeometryTest,"Soul.Integration.CampaignWorld.TerrainAndRoutes",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+@@ -20,6 +24,8 @@
+     auto* State=SoulCampaignTerrain::Composition()?GI->GetSubsystem<USoulFounderPlaytestStateSubsystem>():NewObject<USoulFounderPlaytestStateSubsystem>(GI);
+     if(!TestNotNull(TEXT("campaign authority"),State))return false;
+     State->InitializeScenario();
++    TestEqual(TEXT("presentation save namespace is isolated without changing domains"), State->GetCampaignSaveSlotName(),
++        FString(SoulCampaignTerrain::Composition() ? TEXT("Soul.Composition3500.Founder") : TEXT("Soul.VerticalCampaign")));
+     const auto& Locations=ASoulCampaignWorldActor::Locations();
+     TestEqual(TEXT("every authoritative region has a presentation"),Locations.Num(),State->World.Regions.Num());
+     for(const auto& Region:State->World.Regions)
+@@ -63,6 +69,29 @@
+         }
+         TestEqual(TEXT("two physical ferry passages serve seven legal pairs"),FerryEdges,7);
+         TestTrue(TEXT("existing Human state authority initialized"),State->IsSettlementDevelopmentReady());
++        FRBSaveDomainState Before;
++        FString SaveError;
++        TestTrue(TEXT("capture current composition through existing save provider"), State->CaptureRBSaveDomain_Implementation(Before, SaveError));
++        FRBSaveDomainState WrongShape = Before;
++        auto* Field = WrongShape.Fields.FindByPredicate([](const FRBSaveField& F){return F.Name == TEXT("CampaignJson");});
++        if (TestNotNull(TEXT("campaign domain contains its authoritative JSON"), Field))
++        {
++            TSharedPtr<FJsonObject> Root;
++            if (TestTrue(TEXT("captured domain JSON parses"), FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Field->StringValue), Root)))
++            {
++                const auto Owners = Root->GetObjectField(TEXT("owners"));
++                TArray<FString> Keys; for (const auto& Pair : Owners->Values) Keys.Add(FString(*Pair.Key)); Keys.Sort();
++                for (int32 I = 9; I < Keys.Num(); ++I) Owners->RemoveField(Keys[I]);
++                Field->StringValue.Reset();
++                FJsonSerializer::Serialize(Root.ToSharedRef(), TJsonWriterFactory<>::Create(&Field->StringValue));
++                TestFalse(TEXT("nine-region checkpoint is not silently migrated into composition"), State->RestoreRBSaveDomain_Implementation(WrongShape, SaveError));
++                FRBSaveDomainState After;
++                TestTrue(TEXT("capture after rejected restore"), State->CaptureRBSaveDomain_Implementation(After, SaveError));
++                const auto* OldField = Before.Fields.FindByPredicate([](const FRBSaveField& F){return F.Name == TEXT("CampaignJson");});
++                const auto* NewField = After.Fields.FindByPredicate([](const FRBSaveField& F){return F.Name == TEXT("CampaignJson");});
++                TestTrue(TEXT("rejected cross-shape save leaves campaign unchanged"), OldField && NewField && OldField->StringValue == NewField->StringValue);
++            }
++        }
+         GI->Shutdown();
+     }
+     if(SoulCampaignTerrain::World())
+--- a/Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h
++++ b/Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h
+@@ -42,6 +42,7 @@
+     FName GetDevelopmentRegion() const;
+     FString GetDevelopmentBuildingName() const;
+     uint32 SettlementDevelopmentRevision = 0; // Presentation invalidation only, not saved game truth.
++    FString GetCampaignSaveSlotName() const;
+     void SaveCampaign();
+     void LoadCampaign();
+     virtual FName GetRBSaveDomainId_Implementation() const override;
+--- a/Source/Soul/Soul.Build.cs
++++ b/Source/Soul/Soul.Build.cs
+@@ -34,7 +34,26 @@
+                 "Plugins/RBFoundation/StackManifest.json"
+             })
+             {
++                // Preserve the inherited default target unchanged. The explicit
++                // candidate target omits rejected experimental terrain payloads.
++                if (Target.Name == "SoulComposition" &&
++                    (File.StartsWith("Data/CampaignWorldTerrain/") || File.StartsWith("Data/CampaignWorldLocal/")))
++                    continue;
+                 RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS);
++            }
++            if (Target.Name == "SoulComposition")
++            {
++                // The isolated cook enables this content plugin. Its module is
++                // editor-only, but the runtime mount still needs its descriptor.
++                RuntimeDependencies.Add("$(EngineDir)/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin", StagedFileType.NonUFS);
++                foreach (string File in new[]
++                {
++                    "Data/CampaignComposition/presentation.json",
++                    "Data/CampaignComposition/RuntimeProof.json",
++                    "Data/CampaignComposition/HumanRuntimeProof.json",
++                    "Data/CampaignCompositionLocal/Composition_3500_r2.r16"
++                })
++                    RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS);
+             }
+         }
+     }
+--- /dev/null
++++ b/Source/SoulComposition.Target.cs
+@@ -0,0 +1,14 @@
++using UnrealBuildTool;
++
++// Explicit packaging target for the opt-in composition candidate. This uses
++// the same gameplay modules; it does not promote the default map or save schema.
++public class SoulCompositionTarget : TargetRules
++{
++    public SoulCompositionTarget(TargetInfo Target) : base(Target)
++    {
++        Type = TargetType.Game;
++        DefaultBuildSettings = BuildSettingsVersion.Latest;
++        IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
++        ExtraModuleNames.AddRange(new[] { "SoulCore", "Soul", "SoulRealtimeBattle" });
++    }
++}
+--- a/Tools/build_soul_terrain.ps1
++++ b/Tools/build_soul_terrain.ps1
+@@ -1,4 +1,4 @@
+-param([ValidateSet('SoulEditor','Soul')][string]$Target='SoulEditor', [string]$Log, [switch]$RegatherSource)
++param([ValidateSet('SoulEditor','Soul','SoulComposition')][string]$Target='SoulEditor', [string]$Log, [switch]$RegatherSource)
+ $ErrorActionPreference='Stop'
+ $root=Split-Path $PSScriptRoot -Parent
+ if($Log -and (Test-Path -LiteralPath $Log)) { throw 'Build log already exists; use a fresh run path.' }
+--- a/Tools/test_package_soul_weekend.py
++++ b/Tools/test_package_soul_weekend.py
+@@ -11,6 +11,7 @@
+ GAME = (ROOT / "Config/DefaultGame.ini").read_text(encoding="utf-8-sig")
+ COOK_ROOTS = re.findall(r'^\+MapsToCook=\(FilePath="([^"]+)"\)', GAME, re.M)
+ RULES = (ROOT / "Source/Soul/Soul.Build.cs").read_text(encoding="utf-8-sig")
++COMPOSITION = json.loads((ROOT / "Data/CampaignComposition/PackageProfile.json").read_text())
+ 
+ 
+ class WeekendPackagingTests(unittest.TestCase):
+@@ -37,7 +38,15 @@
+         for relative in ("Data/soul_vertical_scenario_20260925.json", "Data/SettlementEnvironments/DwarfHoldRuntimeProof.json", "Data/SettlementEnvironments/HumanCapitalRuntimeProof.json"):
+             scenario = json.loads((ROOT / relative).read_text())
+             required.update((scenario["campaign_map"], scenario["battle_map"]))
+-        self.assertEqual(required, set(COOK_ROOTS), "Missing runtime load or unneeded explicit cook root")
++        inactive = set(COMPOSITION["inactive_source_only_roots"])
++        self.assertEqual(required, set(COOK_ROOTS) | set(COMPOSITION["additional_cook_roots"]) | inactive,
++                         "Every literal load must belong to a declared package scope")
++        self.assertEqual(set(COMPOSITION["cook_roots"]),
++                         (required - inactive - set(COMPOSITION["excluded_cook_roots"])),
++                         "Candidate cook roots exclude only explicitly rejected experiments")
++        self.assertFalse(set(COMPOSITION["cook_roots"]) & set(COMPOSITION["excluded_cook_roots"]))
++        for package, source in COMPOSITION["inactive_source_only_roots"].items():
++            self.assertIn(package, (ROOT / source.split(":")[0]).read_text())
+         self.assertEqual(len(COOK_ROOTS), len(set(COOK_ROOTS)))
+         self.assertFalse(any("%" in package for package in COOK_ROOTS))
+         for package in COOK_ROOTS:
+@@ -55,9 +64,16 @@
+         required.add("Data/CampaignEvilCorridor/presentation.json")
+         required.add("Data/CampaignWorldTerrain/presentation.json")
+         required.add("Data/CampaignWorldTerrain/settlement_surface.json")
++        # Expansion is an inherited opt-in draft, not a staged production profile.
++        self.assertIn("Data/CampaignExpansion/RuntimeProof.json", required)
++        required.remove("Data/CampaignExpansion/RuntimeProof.json")
+         staged = set(re.findall(r'"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"', RULES))
+-        self.assertEqual(staged, required)
+-        self.assertEqual(len(staged), 12)
++        composition_json = {p for p in COMPOSITION["exact_additional_runtime_files"] if p.endswith(".json")}
++        self.assertEqual(staged, required | composition_json)
++        self.assertEqual(len(required), 12)
++        self.assertEqual(len(composition_json), 3)
++        self.assertIn('Target.Name == "SoulComposition"', RULES)
++        self.assertNotIn('"Data/CampaignExpansion/RuntimeProof.json"', RULES)
+         self.assertIn('"Data/CampaignWorldLocal/WorldHeight.r16"', RULES)
+         self.assertIn('"Data/CampaignMesaLocal/MesaHeight.r16"', RULES)
+         self.assertIn('"Data/CampaignTerrainV2/FounderHeight.r16"', RULES)
+--- a/Tools/package_soul_weekend.ps1
++++ b/Tools/package_soul_weekend.ps1
+@@ -85,8 +85,11 @@
+         Assert-File (Join-Path $projectRoot ('Plugins/TCAT/Resources/' + $icon))
+     }
+     $rules = Get-Content -LiteralPath (Join-Path $projectRoot 'Source\Soul\Soul.Build.cs') -Raw
++    # This entry point packages the ordinary Soul target. Composition-only
++    # dependencies belong to the separate explicit SoulComposition target.
+     $dataFiles = @([regex]::Matches($rules, '"((?:Data/|Plugins/RBFoundation/)[^"]+\.json)"') |
+-        ForEach-Object { $_.Groups[1].Value })
++        ForEach-Object { $_.Groups[1].Value } |
++        Where-Object { -not $_.StartsWith('Data/CampaignComposition/') })
+     if ($dataFiles.Count -ne 12) { throw 'Expected twelve exact JSON runtime dependencies.' }
+     if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignTerrainV2/FounderHeight.r16'))) { throw 'Missing V2 heightfield runtime payload.' }
+     if (!(Test-Path -LiteralPath (Join-Path $projectRoot 'Data/CampaignMesaLocal/MesaHeight.r16'))) { throw 'Missing external Mesa heightfield; run Tools/Setup_Soul_Mesa.ps1.' }
+--- a/Tools/qualify_soul_vertical.py
++++ b/Tools/qualify_soul_vertical.py
+@@ -93,7 +93,7 @@
+ def conflicting_processes():
+     rows = csv.reader(io.StringIO(hidden(["tasklist", "/FO", "CSV", "/NH"])))
+     return [{"name": r[0], "pid": int(r[1])} for r in rows if len(r) > 1 and
+-            re.match(r"^(UnrealEditor|Soul)(?:-|\.|$)", r[0], re.I)]
++            re.match(r"^(UnrealEditor|Soul(?:Composition)?)(?:-|\.|$)", r[0], re.I)]
+ 
+ 
+ def close_owned_process(process):
+--- a/Tools/test_qualify_soul_vertical.py
++++ b/Tools/test_qualify_soul_vertical.py
+@@ -104,6 +104,13 @@
+                     self.assertEqual(crashes.call_args.args[0], root / 'isolated-user')
+             return result, json.loads((output / "summary.json").read_text(encoding="utf-8"))
+ 
++    def test_composition_executable_participates_in_one_process_guard(self):
++        tasks = '\n'.join(['"Soul.exe","101"', '"SoulComposition.exe","102"',
++                           '"SoulComposition-Win64-Shipping.exe","103"',
++                           '"UnrealEditor-Cmd.exe","104"', '"notepad.exe","105"'])
++        with patch.object(RUNNER, "hidden", return_value=tasks):
++            self.assertEqual([r["pid"] for r in RUNNER.conflicting_processes()], [101, 102, 103, 104])
++
+     def test_explicit_marker_accepts_clean_observed_exit(self):
+         result, record = self.scenario()
+         self.assertEqual(result, 0)
+--- a/Tools/Stage-SoulTcatResources.ps1
++++ b/Tools/Stage-SoulTcatResources.ps1
+@@ -3,12 +3,13 @@
+ [CmdletBinding()]
+ param(
+     [Parameter(Mandatory=$true)][string]$ProjectRoot,
+-    [Parameter(Mandatory=$true)][string[]]$WindowsPackageRoots
++    [Parameter(Mandatory=$true)][string[]]$WindowsPackageRoots,
++    [ValidateSet('Soul.exe','SoulComposition.exe')][string]$ExecutableName='Soul.exe'
+ )
+ $ErrorActionPreference='Stop'
+ foreach($package in $WindowsPackageRoots){
+     $package=(Resolve-Path -LiteralPath $package).ProviderPath
+-    if(!(Test-Path -LiteralPath (Join-Path $package 'Soul/Binaries/Win64/Soul.exe') -PathType Leaf)){
++    if(!(Test-Path -LiteralPath (Join-Path $package ('Soul/Binaries/Win64/'+$ExecutableName)) -PathType Leaf)){
+         throw "Expected a completed Development Windows stage/archive: $package"
+     }
+     foreach($name in @('InfluenceComponentIcon.png','InfluenceComponentIcon_64.png')){

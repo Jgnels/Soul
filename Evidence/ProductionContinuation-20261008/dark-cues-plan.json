@@ -1,0 +1,40 @@
+{
+  "placements": [
+    {
+      "label": "Continuation_Dark_Remnant_dark_castle_approach",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_CurtainWall_r2",
+      "xy_m": [
+        2629.4313725490197,
+        3117.8235294117644
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "yaw": 27,
+      "role": "small surviving outwork masonry; provisional context, not the Dark capital",
+      "footprint_relief_m": 0.6731785714285152,
+      "ground_z_m": 34.61372321428573
+    },
+    {
+      "label": "Continuation_Dark_Remnant_dark_ruined_causeway",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_CurtainWall_r2",
+      "xy_m": [
+        2101.0,
+        2540.7647058823527
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "yaw": -12,
+      "role": "small surviving outwork masonry; provisional context, not the Dark capital",
+      "footprint_relief_m": 0.06966517857142485,
+      "ground_z_m": 1.8114955357142808
+    }
+  ],
+  "rejected_full_gate_tower": "No acceptable natural bench within the bounded approach search; no terrain flattening",
+  "status": "bounded contextual masonry only"
+}

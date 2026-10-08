@@ -1,0 +1,20 @@
+{
+  "scope": "full 216-root runtime profile",
+  "result": "BLOCKED_STORAGE_INCOMPLETE_COOK",
+  "stop_reason": "disk_headroom",
+  "seconds": 1551.4369999999763,
+  "cooked_files": 9825,
+  "cooked_bytes": 14083233660,
+  "all_explicit_root_outputs_written": true,
+  "explicit_root_outputs_do_not_prove_dependency_completion": true,
+  "last_progress": "[2026.10.08-16.15.15:960][  0]LogCook: Display: Cooked packages 4261 Packages Remain 293 Total 4554",
+  "errors": [],
+  "material_compile_warnings": [
+    "Instance with Base M_BaseMaterial1"
+  ],
+  "warning_count": 25,
+  "stage_attempted": false,
+  "runtime_package_pass": false,
+  "configuration_unchanged": true,
+  "experimental_output_files": []
+}

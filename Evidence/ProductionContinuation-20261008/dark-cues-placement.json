@@ -1,0 +1,32 @@
+{
+  "actors": [
+    {
+      "label": "Continuation_Dark_Remnant_dark_castle_approach",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_CurtainWall_r2",
+      "location": [
+        87942.11214199287,
+        136779.1376125017,
+        3456.5723220007776
+      ],
+      "role": "small surviving outwork masonry; provisional context, not the Dark capital",
+      "collision": false
+    },
+    {
+      "label": "Continuation_Dark_Remnant_dark_ruined_causeway",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Ravenhold_CurtainWall_r2",
+      "location": [
+        35097.17986574372,
+        79074.61693299779,
+        176.34955414363267
+      ],
+      "role": "small surviving outwork masonry; provisional context, not the Dark capital",
+      "collision": false
+    }
+  ],
+  "donor_hashes": {
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_CurtainWall_r2.uasset": "75dee2bba19207a5ab1fbc2a747fbf215ec641b7cd886ad48457738d2701dc82"
+  },
+  "status": "REQUIRES_RENDERED_REVIEW",
+  "terrain_changed": false,
+  "road_collision_changed": false
+}

@@ -1,0 +1,41 @@
+{
+  "pass": true,
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_rffb6atp\\Stage\\Windows",
+  "kind": "loose_cooked_hardlink_local_only",
+  "additional_data": [
+    {
+      "path": "Data/CampaignComposition/presentation.json",
+      "exists": true,
+      "sha256": "ec86a555d7c68e8ef27c8249f6c8ca7c7635488a21af89ce535889c1158c9f72",
+      "source_sha256": "ec86a555d7c68e8ef27c8249f6c8ca7c7635488a21af89ce535889c1158c9f72"
+    },
+    {
+      "path": "Data/CampaignComposition/RuntimeProof.json",
+      "exists": true,
+      "sha256": "42bed583392bb844ded1222334739253e2cbd7afe47508c428ff4b5b3244ef3d",
+      "source_sha256": "42bed583392bb844ded1222334739253e2cbd7afe47508c428ff4b5b3244ef3d"
+    },
+    {
+      "path": "Data/CampaignComposition/HumanRuntimeProof.json",
+      "exists": true,
+      "sha256": "ea6d8383ab52068130619bcf758e2023959b3666454f81bb6fb7fcbbd753a01d",
+      "source_sha256": "ea6d8383ab52068130619bcf758e2023959b3666454f81bb6fb7fcbbd753a01d"
+    },
+    {
+      "path": "Data/CampaignCompositionLocal/Composition_3500_r2.r16",
+      "exists": true,
+      "sha256": "ae7b50698f50edc92bb20980b392f067820ad35350a4a368f06323eb7897baaa",
+      "source_sha256": "ae7b50698f50edc92bb20980b392f067820ad35350a4a368f06323eb7897baaa"
+    }
+  ],
+  "hdri_descriptor_present_and_source_identical": true,
+  "canonical_graph_and_start_data_identical": true,
+  "rejected_experimental_payloads": [],
+  "unexpected_machine_support_files": [],
+  "default_map_is_entry": true,
+  "machine_editor_security_token_absent_or_empty": true,
+  "source_configuration_unchanged": true,
+  "cooked_files_unchanged": true,
+  "automatic_promotion": false,
+  "runtime_acceptance_not_inferred": true
+}

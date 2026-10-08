@@ -1,4 +1,4 @@
-param([ValidateSet('SoulEditor','Soul')][string]$Target='SoulEditor', [string]$Log, [switch]$RegatherSource)
+param([ValidateSet('SoulEditor','Soul','SoulComposition')][string]$Target='SoulEditor', [string]$Log, [switch]$RegatherSource)
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
 if($Log -and (Test-Path -LiteralPath $Log)) { throw 'Build log already exists; use a fresh run path.' }

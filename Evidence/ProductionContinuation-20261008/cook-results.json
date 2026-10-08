@@ -1,0 +1,55 @@
+{
+  "full_runtime_roots": 216,
+  "attempts": [
+    {
+      "run": "cook-runtime-r1",
+      "pass": false,
+      "stop_reason": "disk_headroom",
+      "seconds": 1551.4369999999763,
+      "cooked_directory": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\ProductionContinuation-20261008\\Local\\cook-runtime-r1\\Cooked",
+      "cooked_files": 9825,
+      "cooked_bytes": 14083233660,
+      "candidate_map_written": true,
+      "missing_explicit_roots": [],
+      "experimental_files": [],
+      "configuration_unchanged": true,
+      "summary_lines": [],
+      "peak_gpu_c": 54.0,
+      "minimum_disk_free_gib": 7.815834045410156,
+      "material_fallback_assets": [
+        "CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_Stab_Algae.uasset",
+        "CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_StoneWall_Algae1.uasset",
+        "CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_Wood_Algae.uasset"
+      ],
+      "receipt": "Local\\cook-runtime-r1\\Diagnostics\\receipt.json"
+    },
+    {
+      "run": "cook-runtime-r2",
+      "pass": true,
+      "stop_reason": null,
+      "seconds": 1689.3910000000033,
+      "cooked_directory": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionCookPayload_dikr_ozr\\Cooked",
+      "cooked_files": 10770,
+      "cooked_bytes": 18049947229,
+      "candidate_map_written": true,
+      "missing_explicit_roots": [],
+      "experimental_files": [],
+      "configuration_unchanged": true,
+      "summary_lines": [
+        "[2026.10.08-16.51.34:475][  0]LogCook: Display: Packages Cooked: 4518, Packages Incrementally Skipped: 0, Packages Skipped by Platform: 115, Total Packages: 4633",
+        "[2026.10.08-16.51.34:619][  0]LogInit: Display: Warning/Error Summary (Unique only)",
+        "[2026.10.08-16.51.34:621][  0]LogInit: Display: Success - 0 error(s), 9 warning(s)"
+      ],
+      "peak_gpu_c": 59.0,
+      "minimum_disk_free_gib": 10.556343078613281,
+      "material_fallback_assets": [
+        "CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_Stab_Algae.uasset",
+        "CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_StoneWall_Algae1.uasset",
+        "CastleTown\\Materials\\MaterialLayer\\LayerV2\\MI_Wood_Algae.uasset"
+      ],
+      "receipt": "Local\\cook-runtime-r2\\Diagnostics\\receipt.json"
+    }
+  ],
+  "final_full_cook_pass": true,
+  "archive_or_runtime_acceptance_inferred": false
+}

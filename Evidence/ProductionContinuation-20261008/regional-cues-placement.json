@@ -1,0 +1,421 @@
+{
+  "actors": [
+    {
+      "label": "Continuation_orc_war_camp",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1",
+      "location": [
+        114152.43612204157,
+        -70988.12253226485,
+        3818.621323067782
+      ],
+      "role": "field fortification beside existing military approach",
+      "collision": false
+    },
+    {
+      "label": "Continuation_orc_camp",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_B_r1",
+      "location": [
+        93991.54643069993,
+        -28153.750516973756,
+        3314.515335083008
+      ],
+      "role": "camp outwork; preserves wide military lane",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_0",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "location": [
+        -87188.20961690624,
+        -75173.48944352736,
+        165.91071428572468
+      ],
+      "role": "harbor landing; native timber modules",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "location": [
+        -86718.31290516205,
+        -75002.61791198401,
+        165.91071428572468
+      ],
+      "role": "harbor landing; native timber modules",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_2",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "location": [
+        -86248.4161934178,
+        -74831.74638044066,
+        165.91071428572468
+      ],
+      "role": "harbor landing; native timber modules",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_3",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "location": [
+        -85778.5194816736,
+        -74660.87484889728,
+        165.91071428572468
+      ],
+      "role": "harbor landing; native timber modules",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_4",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "location": [
+        -85308.62276992938,
+        -74490.00331735396,
+        165.91071428572468
+      ],
+      "role": "harbor landing; native timber modules",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_5",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "location": [
+        -84838.72605818516,
+        -74319.13178581058,
+        165.91071428572468
+      ],
+      "role": "harbor landing; native timber modules",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_0_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -87174.6771069394,
+        -75202.97125873243,
+        138.1103986883827
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_0_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -87256.6954420802,
+        -74977.42083709518,
+        113.56808609132713
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_1_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -86704.78039519518,
+        -75032.09972718905,
+        107.01783798878023
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_1_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -86786.79873033601,
+        -74806.54930555186,
+        68.11208940236247
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_2_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -86234.88368345099,
+        -74861.22819564573,
+        34.092251668378594
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_2_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -86316.90201859176,
+        -74635.67777400848,
+        3.706115141219925
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_3_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -85764.98697170673,
+        -74690.35666410235,
+        -16.36644604623143
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_3_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -85847.00530684757,
+        -74464.80624246516,
+        -47.811790879262844
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_4_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -85295.09025996254,
+        -74519.485132559,
+        -61.481253378500696
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_4_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -85377.10859510335,
+        -74293.93471092178,
+        -83.04125509603182
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_5_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -84825.19354821832,
+        -74348.61360101565,
+        -99.99193925535656
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_5_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -84907.21188335912,
+        -74123.06317937843,
+        -105.16740967109217
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_6_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -84355.2968364741,
+        -74177.7420694723,
+        -114.4067871102452
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_VikingPile_6_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "location": [
+        -84437.31517161493,
+        -73952.19164783508,
+        -129.6749320677336
+      ],
+      "role": "timber pile seated in actual bed",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        78181.55657219428,
+        -35170.92958298436,
+        10709.814330279783
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        68855.48958513958,
+        -25893.877551088546,
+        11610.047860551043
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        70513.14069914671,
+        -26998.283933265135,
+        9714.629169410939
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_3",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        77683.9799675955,
+        -25950.572687494685,
+        7628.965404100876
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_4",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        71832.96402871734,
+        -30091.70941079271,
+        9939.465820123369
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_5",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        67406.95317662928,
+        -30956.059444695653,
+        12446.563804382502
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_6",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        70697.9832272301,
+        -31838.48573446099,
+        11254.612776408772
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_OrcBankRock_7",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        78850.71391372455,
+        -26600.530822790257,
+        7252.189145129974
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -124660.16226713924,
+        100071.02696900748,
+        5726.896835348307
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -123962.39593224681,
+        107109.38173941064,
+        6261.2789488839335
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -128569.62959825649,
+        108586.33062029463,
+        5451.979423730241
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_3",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -134370.18578806974,
+        103658.72121652804,
+        6195.982689205586
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_4",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -125047.19982063759,
+        100781.262463508,
+        5656.382597624935
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_5",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -122829.25562803145,
+        104493.57136180399,
+        6642.370008799524
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    },
+    {
+      "label": "Continuation_NatureBankRock_6",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "location": [
+        -133749.39753090427,
+        102109.53476356613,
+        5941.412301120639
+      ],
+      "role": "owned weathered rock context",
+      "collision": false
+    }
+  ],
+  "donor_hashes": {
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Field_Defenses_A_r1.uasset": "d6f5f02a45f36bdf0b844fd0817560fa55cec220f3b8a8f511ba8e71e97b6785",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Field_Defenses_B_r1.uasset": "cb62b360b8cb0759c6a1e0f813ac866d6db61029d58dba6056aaeeb1e5f8042c",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Forest_village\\Meshes\\Wood_modules\\SM_floor_wood_02.uasset": "ed76ea7501886d691a8a92203ad8529672c9a813dcfa41f287ec91d662b5b816",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Forest_village\\Meshes\\Wood_modules\\SM_beam_circular.uasset": "9f7e24b764b7748ca771ba4cc6c9a8f57ac38077dec12ee503f91a99e2bef09e",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Forest_village\\Meshes\\Rocks\\SM_rock_03.uasset": "7b113e4b307d6806e2c5395e1b7417e7e2ac2d174efd534ab9b572b18370c0cb"
+  },
+  "status": "REQUIRES_RENDERED_REVIEW",
+  "terrain_changed": false,
+  "road_collision_changed": false
+}

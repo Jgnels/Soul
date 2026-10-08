@@ -1,0 +1,271 @@
+{
+  "qualification": "PASS at corrected cooked boundary",
+  "initial_failure_preserved": true,
+  "default_map_promoted": false,
+  "runs": [
+    {
+      "run": "packaged-input-r1",
+      "pass": false,
+      "scope": "actual new cooked-content boundary, not a gameplay redesign",
+      "summary": "Local/packaged-input-r1/runtime/summary.json",
+      "runtime_kind": "packaged",
+      "binary_sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "stop_reason": "crash_signature",
+      "elapsed_seconds": 5.78,
+      "map_ready_seconds": null,
+      "peak_gpu_c": 45.0,
+      "peak_device_vram_mib": 5075.0,
+      "peak_process_working_set_mib": 24.5,
+      "max_fps_cap": 20,
+      "performance_pass_inferred": false,
+      "save_files": [],
+      "screenshots": []
+    },
+    {
+      "run": "packaged-input-r2",
+      "pass": true,
+      "scope": "actual new cooked-content boundary, not a gameplay redesign",
+      "summary": "Local/packaged-input-r2/runtime/summary.json",
+      "runtime_kind": "packaged",
+      "binary_sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 148.05,
+      "map_ready_seconds": 20.791222,
+      "peak_gpu_c": 63.0,
+      "peak_device_vram_mib": 6111.0,
+      "peak_process_working_set_mib": 1177.46,
+      "max_fps_cap": 20,
+      "performance_pass_inferred": false,
+      "save_files": [
+        "Soul.Composition3500.Founder.domain.rbsave"
+      ],
+      "screenshots": [
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_battle_prompt.png",
+          "bytes": 2612609,
+          "sha256": "7f98ddf43fce287a4f395f55d6bb04a97178828f6039107275991ba80b6072ae"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_camera.png",
+          "bytes": 2563927,
+          "sha256": "d58b1fbddb19dfb4f5b7edda87f1ecf998fb22019ec892d1656772a73359b690"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_capital_ground.png",
+          "bytes": 2800094,
+          "sha256": "1e07b8db22f31645c69c4ca6515511ed123fc0b70cadb859698a56f2f3fe5127"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_close_orbit.png",
+          "bytes": 2554537,
+          "sha256": "52f59f179c2badac30a9af3b3169f365252d8af5b9620b7c3876c72cae4d48b5"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_controller_company.png",
+          "bytes": 2610375,
+          "sha256": "7edb8f90845bd1dd3c86998d7c6e7c48e55ee1cd0ab47e714401e2b6392ed8dc"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_crossroads.png",
+          "bytes": 2604518,
+          "sha256": "583c822a645ebe27a921d852c15408c4aeb4c41490728dbbda0efe1fda30bd59"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_drag.png",
+          "bytes": 2196869,
+          "sha256": "527a8b8b5431b4d11f47d5e68d603ab6e07bee6f5e9baab66363add51bd60c99"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_forest_pass.png",
+          "bytes": 2482520,
+          "sha256": "fca4b303824447b68593812db5548bbbcaf3e83c09a1df1521f2c0f9ce63e2a1"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_frontier.png",
+          "bytes": 2112716,
+          "sha256": "1fe0de67fea3766aa48be7ae1dfca6c364053a1c7a1d7cde5c0e65d7ea53605d"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_initial.png",
+          "bytes": 2532441,
+          "sha256": "c584cb6779369240a390bfc953f33587a0432a8112d728e3028d0e6a3c8c9937"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_north_pass.png",
+          "bytes": 2725516,
+          "sha256": "2f30fcd1415f597ed2ac9a5a28952d60d07d99b45e35a4572af41f210b39ec8c"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_quarry_shrine.png",
+          "bytes": 2375516,
+          "sha256": "52923d60ac653e0c281068b54efb9459adca596896d585e69e4e5481bd6f76ac"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_restored.png",
+          "bytes": 2507131,
+          "sha256": "ba34613bc9ff482344fc8546ee9df0d5ba293593f33a652991261ed699d228bc"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_shrine.png",
+          "bytes": 2361273,
+          "sha256": "71a4262fbd6ab2c71841f40a350184b7f5c25cc2a6d3660fd0f113d8e22e1e7e"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_town.png",
+          "bytes": 2183919,
+          "sha256": "0230bedcbc696c4c1855f7e14bd4cec842d87f99bf2676397765151632f644e4"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_travel.png",
+          "bytes": 2549968,
+          "sha256": "f4277d6b93e5a5b7664b1de34865063c4c7683fd0ce4d3cd32c308615ea17f64"
+        },
+        {
+          "path": "Local/packaged-input-r2/User/Saved/Screenshots/packaged-input-r2_wide_bounds.png",
+          "bytes": 2178857,
+          "sha256": "d0dd6a16b4a31c3c2f4324abee8aac5ab1ba05b09136dda8c15ac2a28c79d495"
+        }
+      ]
+    },
+    {
+      "run": "packaged-load-r1",
+      "pass": true,
+      "scope": "actual new cooked-content boundary, not a gameplay redesign",
+      "summary": "Local/packaged-load-r1/runtime/summary.json",
+      "runtime_kind": "packaged",
+      "binary_sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 86.5,
+      "map_ready_seconds": 10.241185,
+      "peak_gpu_c": 65.0,
+      "peak_device_vram_mib": 6069.0,
+      "peak_process_working_set_mib": 1122.02,
+      "max_fps_cap": 20,
+      "performance_pass_inferred": false,
+      "save_files": [
+        "Soul.Composition3500.Founder.domain.rbsave"
+      ],
+      "screenshots": [
+        {
+          "path": "Local/packaged-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+          "bytes": 2431413,
+          "sha256": "ac74bb1bbbcd0b5fef1cf993a95673f51ef6ef36315ed8566025f590577695dc"
+        }
+      ]
+    },
+    {
+      "run": "packaged-human-r1",
+      "pass": true,
+      "scope": "actual new cooked-content boundary, not a gameplay redesign",
+      "summary": "Local/packaged-human-r1/runtime/summary.json",
+      "runtime_kind": "packaged",
+      "binary_sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "stop_reason": "completion_marker_process_exit",
+      "elapsed_seconds": 474.64,
+      "map_ready_seconds": 10.234998,
+      "peak_gpu_c": 84.0,
+      "peak_device_vram_mib": 7584.0,
+      "peak_process_working_set_mib": 7783.42,
+      "max_fps_cap": 20,
+      "performance_pass_inferred": false,
+      "save_files": [
+        "Soul.Composition3500.HumanProof.domain.rbsave",
+        "Soul.Composition3500.HumanProof.domain.rbsave.bak"
+      ],
+      "screenshots": [
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_authored_battle.png",
+          "bytes": 4789780,
+          "sha256": "a36496fc41303a34294fe688da656b59a4a9cab715f7c1efcefb8cb4f5030539"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_authored_battle_warm.png",
+          "bytes": 4491023,
+          "sha256": "0201f0f39b081bbf22439ef654fadbcce5bb10e70cce995ded102f1fc2643627"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_campaign_after_battle.png",
+          "bytes": 2713814,
+          "sha256": "4751d4369e812ee10b5946d13dd5f6a47be3d26fab98a4fdc19dfb765d906dcd"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_completed.png",
+          "bytes": 2798983,
+          "sha256": "051e60fe529d198a404956dcbe26801bab0565e9d6d6b192965af97e2f61904b"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_completed_clean.png",
+          "bytes": 4405564,
+          "sha256": "38dc498854c603ca40103eadaa2f96501e6f04622aa83f5fd24185a2ea74e8bd"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_loaded_mid.png",
+          "bytes": 2757296,
+          "sha256": "477dfc70b48619472717c079d40f4aae7e2fd75996b76e8f262dee2ce562e4f6"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_mid.png",
+          "bytes": 2805162,
+          "sha256": "19f922f447429bd482bc2cb7e1feb45af027f3f67cabe8410fefc5ea73fc6924"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_revisited_completed.png",
+          "bytes": 2786061,
+          "sha256": "7d10d43c494e91461af101887988ec1a98f34a5291010b2f33bc13b34021942f"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_start.png",
+          "bytes": 2797439,
+          "sha256": "916db4268430536ea221e95560e905b1995765424680ebad92269f84710ddc53"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_city_start_clean.png",
+          "bytes": 4415519,
+          "sha256": "4120d70ac07385edaa4bc197b27604e5dfef1515dcb57c90d016a997ca39bffd"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_miniature_completed.png",
+          "bytes": 2649258,
+          "sha256": "13888387d848fa9ac714750a9e241989887e5ebd8d2e70ea6e14365a81c6e0d1"
+        },
+        {
+          "path": "Local/packaged-human-r1/User/Saved/Screenshots/packaged-human-r1_miniature_start.png",
+          "bytes": 2681390,
+          "sha256": "9aec7438a2f6dbe45ef3e07f5e1034b5a2219b70e8d5c9790d80b2fde595486f"
+        }
+      ],
+      "authored_receipt": {
+        "status": "FUNCTIONAL_PASS_PENDING_VISUAL_REVIEW",
+        "authored_environment": true,
+        "miniature": true,
+        "two_domain_restoration": true,
+        "real_battle": true,
+        "battle_won": true,
+        "player_survivors": 33,
+        "enemy_survivors": 0,
+        "screenshot_count": 12,
+        "seconds": 459.89
+      },
+      "reviewed_images": [
+        "miniature_start",
+        "miniature_completed",
+        "city_start_clean",
+        "city_completed_clean",
+        "authored_battle_warm",
+        "campaign_after_battle"
+      ],
+      "visual_review": "PASS for state correspondence and actual authored battle/return; not final art acceptance",
+      "reinforcement_join_log_count": 6,
+      "assertion_failure_count": 0,
+      "battle_result_lines": [
+        "[2026.10.08-17.23.47:092][668]LogSoulCampaign: Display: SOUL_CAMPAIGN_RESULT id=encounter.3.1.human_capital.crossroads target=crossroads victory=1 survivors=33/0 player_region=crossroads"
+      ]
+    }
+  ],
+  "not_repeated": "Prior defeat/retry and exhaustive all-route traversal remain inherited qualification; no code change to those systems. This continuation revalidated changed geometry and save slots, then cooked input/fresh-load/authored-city boundary.",
+  "known_render_limits": [
+    "Three CastleTown algae material fallbacks reported during cook, not repaired.",
+    "Strategic shores, sparse faction art and Dwarf exterior remain provisional."
+  ],
+  "performance_result": "Separate single uncapped 60-second attempt failed at 85 C; these capped functional runs are not performance qualification."
+}

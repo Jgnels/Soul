@@ -1,0 +1,468 @@
+{
+  "changes": [
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "center": [
+        2230.3921568627447,
+        1873.5294117647059
+      ],
+      "before_turn_deg": 135.00000000000094,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.090962364701252,
+        "max_grade_deg": 20.225907453747407,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 2
+    },
+    {
+      "route": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "center": [
+        1372.549019607843,
+        1454.9019607843136
+      ],
+      "before_turn_deg": 61.702379087331195,
+      "trim_m": 24,
+      "local_check": {
+        "length_m": 45.63669956855627,
+        "max_grade_deg": 2.3552221481870417,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "center": [
+        2683.333333333333,
+        981.3725490196077
+      ],
+      "before_turn_deg": 116.33854719543925,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.752100541827868,
+        "max_grade_deg": 20.935485422147785,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 1
+    },
+    {
+      "route": [
+        "orc_camp",
+        "orc_badlands"
+      ],
+      "center": [
+        3047.0588235294117,
+        1077.450980392157
+      ],
+      "before_turn_deg": 135.17961539989588,
+      "trim_m": 14,
+      "local_check": {
+        "length_m": 22.654694621163426,
+        "max_grade_deg": 17.908122838094844,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "orc_camp",
+        "orc_badlands"
+      ],
+      "center": [
+        3115.6862745098038,
+        1200.9803921568628
+      ],
+      "before_turn_deg": 45.00000000000024,
+      "trim_m": 24,
+      "local_check": {
+        "length_m": 46.714200264432506,
+        "max_grade_deg": 12.528511908544147,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "dark_corrupted_valley"
+      ],
+      "center": [
+        1502.941176470588,
+        2827.450980392157
+      ],
+      "before_turn_deg": 120.55496888805418,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.67221419987731,
+        "max_grade_deg": 20.158122465420554,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "center": [
+        2196.078431372549,
+        2196.078431372549
+      ],
+      "before_turn_deg": 64.0602204662026,
+      "trim_m": 18,
+      "local_check": {
+        "length_m": 34.09447935441485,
+        "max_grade_deg": 11.301031180270005,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    },
+    {
+      "route": [
+        "dark_corrupted_valley",
+        "dark_ash_plain"
+      ],
+      "center": [
+        1914.705882352941,
+        3074.5098039215686
+      ],
+      "before_turn_deg": 134.98122824905988,
+      "trim_m": 5,
+      "local_check": {
+        "length_m": 8.091330033655538,
+        "max_grade_deg": 21.756093633818686,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "shared_route_uses": 0
+    }
+  ],
+  "rejected_candidates": 67,
+  "routes": [
+    {
+      "a": "human_capital",
+      "b": "crossroads",
+      "max_grade_deg": 16.96125345161378,
+      "invalid_samples": 0
+    },
+    {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "max_grade_deg": 21.918030991009076,
+      "invalid_samples": 0
+    },
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "max_grade_deg": 21.766498861078844,
+      "invalid_samples": 0
+    },
+    {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "max_grade_deg": 21.15225177918504,
+      "invalid_samples": 0
+    },
+    {
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "max_grade_deg": 21.823038938733557,
+      "invalid_samples": 0
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "max_grade_deg": 21.767883242193083,
+      "invalid_samples": 0
+    },
+    {
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "max_grade_deg": 21.75127212694096,
+      "invalid_samples": 0
+    },
+    {
+      "a": "forest_edge",
+      "b": "north_pass",
+      "max_grade_deg": 21.966870406385503,
+      "invalid_samples": 0
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "max_grade_deg": 22.011275408637335,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "max_grade_deg": 22.008033681282587,
+      "invalid_samples": 0
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_forest_track",
+      "max_grade_deg": 21.808331332918776,
+      "invalid_samples": 0
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "max_grade_deg": 21.605692071927997,
+      "invalid_samples": 0
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "viking_snow_pass",
+      "max_grade_deg": 21.80601185787452,
+      "invalid_samples": 0
+    },
+    {
+      "a": "viking_fjord_ridge",
+      "b": "viking_snow_pass",
+      "max_grade_deg": 21.89311686934741,
+      "invalid_samples": 0
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "northwest_march",
+      "max_grade_deg": 21.997726027989682,
+      "invalid_samples": 0
+    },
+    {
+      "a": "northwest_march",
+      "b": "human_capital",
+      "max_grade_deg": 20.280686618619324,
+      "invalid_samples": 0
+    },
+    {
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "max_grade_deg": 21.893922083164004,
+      "invalid_samples": 0
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "ancient_shrine",
+      "max_grade_deg": 21.893922083164004,
+      "invalid_samples": 0
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "max_grade_deg": 21.919640915908406,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "max_grade_deg": 21.919640915908406,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "max_grade_deg": 21.98122771332433,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "max_grade_deg": 21.996436439736335,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "dwarf_hold",
+      "max_grade_deg": 21.854664038883996,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "max_grade_deg": 21.982355605105532,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "max_grade_deg": 21.97827229048492,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "max_grade_deg": 22.011275408637335,
+      "invalid_samples": 0
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "max_grade_deg": 22.011275408637335,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "max_grade_deg": 21.893368013646942,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_war_camp",
+      "max_grade_deg": 21.355123545530084,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "max_grade_deg": 22.008033681226735,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "max_grade_deg": 21.949114919748546,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "max_grade_deg": 21.942201119249663,
+      "invalid_samples": 0
+    },
+    {
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "max_grade_deg": 16.434578818926518,
+      "invalid_samples": 0
+    },
+    {
+      "a": "coastal_ruins",
+      "b": "nature_shrine",
+      "max_grade_deg": 21.5299053246847,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_forest_clearing",
+      "max_grade_deg": 21.94290042094203,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "max_grade_deg": 20.815546273697066,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "max_grade_deg": 22.002175819032168,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_river_woodland",
+      "max_grade_deg": 21.59587807532952,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_river_woodland",
+      "b": "nature_treehold",
+      "max_grade_deg": 22.002175819032168,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "max_grade_deg": 22.08656379086876,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "max_grade_deg": 21.7649874425307,
+      "invalid_samples": 0
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "max_grade_deg": 20.803188254855463,
+      "invalid_samples": 0
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "max_grade_deg": 21.12570185340273,
+      "invalid_samples": 0
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "max_grade_deg": 21.99061847427069,
+      "invalid_samples": 0
+    },
+    {
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "max_grade_deg": 21.993306990776016,
+      "invalid_samples": 0
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "max_grade_deg": 22.008033681226735,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "max_grade_deg": 21.984276858536965,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ash_plain",
+      "max_grade_deg": 21.876109369203448,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "max_grade_deg": 21.970402844657148,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "max_grade_deg": 20.47001554773944,
+      "invalid_samples": 0
+    },
+    {
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "max_grade_deg": 20.985064735501304,
+      "invalid_samples": 0
+    }
+  ],
+  "terrain_changed": false,
+  "canonical_endpoints_unchanged": true,
+  "elapsed_s": 9.187999999965541
+}

@@ -1,0 +1,22 @@
+{
+  "pass": true,
+  "python_helpers_parse": 27,
+  "profiles": [
+    {
+      "receipt": "Local/manual-play-preflight.json",
+      "pass": true,
+      "candidate_cooked_files_verified": 94,
+      "save_slot": "Soul.Composition3500.Founder",
+      "dry_run_no_game_or_user_directory_created": true
+    },
+    {
+      "receipt": "Local/manual-human-play-preflight.json",
+      "pass": true,
+      "candidate_cooked_files_verified": 94,
+      "save_slot": "Soul.Composition3500.HumanProof",
+      "dry_run_no_game_or_user_directory_created": true
+    }
+  ],
+  "runtime_test_repeated": false,
+  "manual_launch_not_automated_qualification": true
+}

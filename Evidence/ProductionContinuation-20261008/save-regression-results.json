@@ -1,0 +1,65 @@
+[
+  {
+    "run": "runtime-input-r1",
+    "scope": "regression required by slot isolation; no repeated authored-city/battle qualification",
+    "pass": true,
+    "alive_after_ready_seconds": 139.75,
+    "peak_gpu_c": 63.0,
+    "save_files": [
+      "Soul.Composition3500.Founder.domain.rbsave"
+    ],
+    "screenshots": [
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_battle_prompt.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_camera.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_capital_ground.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_close_orbit.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_controller_company.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_crossroads.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_drag.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_forest_pass.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_frontier.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_initial.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_north_pass.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_quarry_shrine.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_restored.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_shrine.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_town.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_travel.png",
+      "Local\\runtime-input-r1\\User\\Saved\\Screenshots\\runtime-input-r1_wide_bounds.png"
+    ],
+    "summary": "Local\\runtime-input-r1\\runtime\\summary.json"
+  },
+  {
+    "run": "runtime-load-r1",
+    "scope": "regression required by slot isolation; no repeated authored-city/battle qualification",
+    "pass": true,
+    "alive_after_ready_seconds": 71.86,
+    "peak_gpu_c": 62.0,
+    "save_files": [
+      "Soul.Composition3500.Founder.domain.rbsave"
+    ],
+    "screenshots": [
+      "Local\\runtime-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png"
+    ],
+    "summary": "Local\\runtime-load-r1\\runtime\\summary.json"
+  },
+  {
+    "run": "runtime-development-r1",
+    "scope": "regression required by slot isolation; no repeated authored-city/battle qualification",
+    "pass": true,
+    "alive_after_ready_seconds": 61.92,
+    "peak_gpu_c": 64.0,
+    "save_files": [
+      "Soul.Composition3500.HumanProof.domain.rbsave"
+    ],
+    "screenshots": [
+      "Local\\runtime-development-r1\\User\\Saved\\Screenshots\\runtime-development-r1_completed.png",
+      "Local\\runtime-development-r1\\User\\Saved\\Screenshots\\runtime-development-r1_hired.png",
+      "Local\\runtime-development-r1\\User\\Saved\\Screenshots\\runtime-development-r1_loaded.png",
+      "Local\\runtime-development-r1\\User\\Saved\\Screenshots\\runtime-development-r1_loaded_completed.png",
+      "Local\\runtime-development-r1\\User\\Saved\\Screenshots\\runtime-development-r1_mid.png",
+      "Local\\runtime-development-r1\\User\\Saved\\Screenshots\\runtime-development-r1_start.png"
+    ],
+    "summary": "Local\\runtime-development-r1\\runtime\\summary.json"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "texture": "/Game/SoulCampaignComposition/Continuation/T_RoadControl_continuation2.T_RoadControl_continuation2",
+  "material": "/Game/SoulCampaignComposition/Continuation/M_ContinuationRoads_r1.M_ContinuationRoads_r1",
+  "instance": "/Game/SoulCampaignComposition/Continuation/MI_ContinuationRoads_r1.MI_ContinuationRoads_r1",
+  "revision": "continuation2",
+  "sha256": "4862d8d2e0133f3610892bab6f81f95df9f8c00f97d508a367be7f8e21e0554c",
+  "heightfield_changed": false
+}

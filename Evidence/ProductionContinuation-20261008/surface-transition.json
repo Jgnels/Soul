@@ -1,0 +1,7 @@
+{
+  "change": "Feather existing Mesa material-selection channel by 6 texels (~10.3 m); preserve R roads, B Dark and A snow channels.",
+  "heightfield_changed": false,
+  "max_weight_change": 94,
+  "new_source_textures": false,
+  "mask_sha256": "4862d8d2e0133f3610892bab6f81f95df9f8c00f97d508a367be7f8e21e0554c"
+}

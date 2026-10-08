@@ -1,0 +1,71 @@
+{
+  "count_before": 18524,
+  "count_after": 18524,
+  "groups": [
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Boreal_p1_r1.FT_Boreal_p1_r1",
+      "count": 2222
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Boreal_p2_r1.FT_Boreal_p2_r1",
+      "count": 2146
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Boreal_p3_r1.FT_Boreal_p3_r1",
+      "count": 2212
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Greenwood_b1_r1.FT_Greenwood_b1_r1",
+      "count": 514
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Greenwood_b3_r1.FT_Greenwood_b3_r1",
+      "count": 505
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Greenwood_p1_r1.FT_Greenwood_p1_r1",
+      "count": 4311
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Greenwood_p2_r1.FT_Greenwood_p2_r1",
+      "count": 4210
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Heartland_b1_r1.FT_Heartland_b1_r1",
+      "count": 137
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Heartland_b3_r1.FT_Heartland_b3_r1",
+      "count": 158
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Heartland_p1_r1.FT_Heartland_p1_r1",
+      "count": 1067
+    },
+    {
+      "type": "/Game/SoulCampaignComposition/Continuation/FT_Heartland_p2_r1.FT_Heartland_p2_r1",
+      "count": 1042
+    }
+  ],
+  "donor_hashes": {
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Forest_village\\Meshes\\Vegetation\\SM_pine_tree_01.uasset": "b22fc9662748008ae1e6c39cf700a771ffc1ed70ee4db8eef1dfdd04ad41c9e1",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Forest_village\\Meshes\\Vegetation\\SM_pine_tree_02.uasset": "6898b3b88a4c7088f1635ddb2718cf4096dbdf8c3cbb1b375e6ceb96537572a7",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Forest_village\\Meshes\\Vegetation\\SM_pine_tree_03.uasset": "440d5c4ae963ffa86f096e09339f6828a74b8795d41924bc0394d40e7028ac9d",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Kingdom_Capital\\Meshes\\Tree\\SM_tree_01.uasset": "4b1dea4bc54f316b6a064c208068f3482d0416aa4ad00fe0f2956f413791929b",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Kingdom_Capital\\Meshes\\Tree\\SM_tree_03.uasset": "35935f54f4645b9620d02bee7702925d5494c199bbcf83b025e95ce0aa745c1d",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Campaign\\TerrainV2\\MI_CampaignPine.uasset": "e00e077973469677f2e6c68f57ed8a35624938ff90d33f9755064c16788c342c"
+  },
+  "placement_xy_unchanged": true,
+  "terrain_changed": false,
+  "status": "RENDERED_REVIEW_ACCEPTED_AS_PROVISIONAL_ART",
+  "reviewed_views": [
+    "Local/captures-regional-r1",
+    "Local/captures-final-r2/viking_coast.png",
+    "Local/captures-final-r2/nature_paths.png",
+    "Local/captures-final-r2/ordinary_campaign.png"
+  ],
+  "remaining_limits": [
+    "Existing forest boundaries and repeated placements preserved; not final forest composition.",
+    "Native assets and deterministic owned LODs only; performance still awaits the single corrected profile."
+  ]
+}

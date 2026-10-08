@@ -1,0 +1,32 @@
+{
+  "result": "FAIL",
+  "reason": "thermal_cutoff_85c",
+  "runtime_kind": "editor_game",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "render_scale_percent": 100,
+  "rhi": "D3D11 diagnostic path",
+  "max_fps": 0,
+  "requested_warmup_seconds": 20,
+  "requested_sample_seconds": 60,
+  "sample_completed": false,
+  "benchmark_receipt": null,
+  "mean_ms": null,
+  "average_fps": null,
+  "p95_ms": null,
+  "p99_ms": null,
+  "frames_below_30": null,
+  "frames_below_40": null,
+  "frames_below_60": null,
+  "peak_gpu_c": 85.0,
+  "peak_device_vram_mib": 6696.0,
+  "peak_working_set_mib": 4214.61,
+  "peak_private_commit_mib": 5779.55,
+  "alive_after_ready_seconds": 46.23,
+  "thermal_guard_unchanged": true,
+  "retry_authorized_or_attempted": false,
+  "measurement_limit": "Terminated at cutoff before complete sample; no frame statistics inferred from partial telemetry. VRAM is device-wide, not process-exclusive.",
+  "summary_path": "Local\\runtime-profile-60s-r1\\runtime\\summary.json"
+}

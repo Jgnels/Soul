@@ -1,0 +1,685 @@
+{
+  "status": "LOCAL_ONLY_COOKED_STAGE_INVENTORY",
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_rffb6atp\\Stage\\Windows",
+  "file_count": 12658,
+  "apparent_file_bytes": 18852577936,
+  "physical_disk_bytes_not_inferred": "10,754 cooked files share hardlinks with this run cook and first stage; apparent totals must not be added as independent disk allocation.",
+  "groups": [
+    {
+      "family": "Soul/Content/CastleTown",
+      "bytes": 3574509464,
+      "files": 2106,
+      "gib": 3.32902
+    },
+    {
+      "family": "Soul/Content/DwarvenCitadel",
+      "bytes": 2643531805,
+      "files": 2802,
+      "gib": 2.46198
+    },
+    {
+      "family": "Soul/Content/Knights_Pack",
+      "bytes": 2170595228,
+      "files": 322,
+      "gib": 2.02152
+    },
+    {
+      "family": "Soul/Content/Dwarf_Pack",
+      "bytes": 1740982437,
+      "files": 320,
+      "gib": 1.62142
+    },
+    {
+      "family": "Soul/Content/ParagonSparrow",
+      "bytes": 1444056153,
+      "files": 699,
+      "gib": 1.34488
+    },
+    {
+      "family": "Soul/Content/ParagonAurora",
+      "bytes": 852054432,
+      "files": 645,
+      "gib": 0.79354
+    },
+    {
+      "family": "Soul/Content/Soul",
+      "bytes": 788989747,
+      "files": 172,
+      "gib": 0.7348
+    },
+    {
+      "family": "Soul/Content/Dragon_graveyard",
+      "bytes": 643549714,
+      "files": 210,
+      "gib": 0.59935
+    },
+    {
+      "family": "Soul/Content/Forest_village",
+      "bytes": 516967616,
+      "files": 215,
+      "gib": 0.48146
+    },
+    {
+      "family": "Soul/Content/SoulCampaignProxies",
+      "bytes": 481205235,
+      "files": 30,
+      "gib": 0.44816
+    },
+    {
+      "family": "Soul/Content/Kingdom_Capital",
+      "bytes": 424814149,
+      "files": 134,
+      "gib": 0.39564
+    },
+    {
+      "family": "Engine/Binaries",
+      "bytes": 408431638,
+      "files": 93,
+      "gib": 0.38038
+    },
+    {
+      "family": "Soul/Content/Fantasy_Pack",
+      "bytes": 391798331,
+      "files": 216,
+      "gib": 0.36489
+    },
+    {
+      "family": "Soul/Binaries",
+      "bytes": 373734416,
+      "files": 18,
+      "gib": 0.34807
+    },
+    {
+      "family": "Engine/Plugins",
+      "bytes": 349351655,
+      "files": 973,
+      "gib": 0.32536
+    },
+    {
+      "family": "Soul/Content/AlienPlanet",
+      "bytes": 321918621,
+      "files": 144,
+      "gib": 0.29981
+    },
+    {
+      "family": "Soul/Content/Kraken",
+      "bytes": 282109496,
+      "files": 50,
+      "gib": 0.26273
+    },
+    {
+      "family": "Soul/Content/Ravenhold",
+      "bytes": 266074938,
+      "files": 242,
+      "gib": 0.2478
+    },
+    {
+      "family": "Soul/Content/Medieval_Megapack",
+      "bytes": 263345843,
+      "files": 206,
+      "gib": 0.24526
+    },
+    {
+      "family": "Soul/Content/Medieval_Warzone",
+      "bytes": 180476386,
+      "files": 315,
+      "gib": 0.16808
+    },
+    {
+      "family": "Soul/Content/QuadrapedCreatures",
+      "bytes": 132101683,
+      "files": 75,
+      "gib": 0.12303
+    },
+    {
+      "family": "Soul/Content/SoulCampaignComposition",
+      "bytes": 129470509,
+      "files": 94,
+      "gib": 0.12058
+    },
+    {
+      "family": "Engine/Content",
+      "bytes": 82785166,
+      "files": 2172,
+      "gib": 0.0771
+    },
+    {
+      "family": "Soul/Content/Legendary_Forge",
+      "bytes": 71047366,
+      "files": 78,
+      "gib": 0.06617
+    },
+    {
+      "family": "Soul/Content/MagicSpells",
+      "bytes": 68682257,
+      "files": 39,
+      "gib": 0.06397
+    },
+    {
+      "family": "Soul/Content/LandscapePackOne",
+      "bytes": 65039343,
+      "files": 41,
+      "gib": 0.06057
+    },
+    {
+      "family": "Soul/Content/AfricanAnimalsPack",
+      "bytes": 45338101,
+      "files": 31,
+      "gib": 0.04222
+    },
+    {
+      "family": "Soul/Content/ParagonIggyScorch",
+      "bytes": 36488894,
+      "files": 25,
+      "gib": 0.03398
+    },
+    {
+      "family": "Soul/Content/SoulCampaignMountain",
+      "bytes": 24529467,
+      "files": 7,
+      "gib": 0.02284
+    },
+    {
+      "family": "Soul/Data",
+      "bytes": 23110116,
+      "files": 15,
+      "gib": 0.02152
+    },
+    {
+      "family": "Soul/Content/ShaderArchive-Soul-PCD3D_SM5-PCD3D_SM5.ushaderbytecode",
+      "bytes": 17904558,
+      "files": 1,
+      "gib": 0.01667
+    },
+    {
+      "family": "Soul/Content/ShaderArchive-Global-PCD3D_SM5-PCD3D_SM5.ushaderbytecode",
+      "bytes": 12358110,
+      "files": 1,
+      "gib": 0.01151
+    },
+    {
+      "family": "Soul/Content/LandscapePackTwo",
+      "bytes": 11189014,
+      "files": 6,
+      "gib": 0.01042
+    },
+    {
+      "family": "Soul/Content/Spell_Mix",
+      "bytes": 6300402,
+      "files": 12,
+      "gib": 0.00587
+    },
+    {
+      "family": "Soul/Plugins",
+      "bytes": 2262242,
+      "files": 109,
+      "gib": 0.00211
+    },
+    {
+      "family": "Engine/GlobalShaderCache-PCD3D_SM5.bin",
+      "bytes": 1887731,
+      "files": 1,
+      "gib": 0.00176
+    },
+    {
+      "family": "Soul/AssetRegistry.bin",
+      "bytes": 1557156,
+      "files": 1,
+      "gib": 0.00145
+    },
+    {
+      "family": "Manifest_UFSFiles_Win64.txt",
+      "bytes": 1218388,
+      "files": 1,
+      "gib": 0.00113
+    },
+    {
+      "family": "Engine/Config",
+      "bytes": 470549,
+      "files": 25,
+      "gib": 0.00044
+    },
+    {
+      "family": "SoulComposition.exe",
+      "bytes": 171520,
+      "files": 1,
+      "gib": 0.00016
+    },
+    {
+      "family": "Soul/Content/ShaderTypeInfo-Soul-PCD3D_SM5-PCD3D_SM5.stinfo",
+      "bytes": 71268,
+      "files": 1,
+      "gib": 7e-05
+    },
+    {
+      "family": "Soul/Content/ShaderTypeInfo-Global-PCD3D_SM5-PCD3D_SM5.stinfo",
+      "bytes": 47724,
+      "files": 1,
+      "gib": 4e-05
+    },
+    {
+      "family": "Soul/Config",
+      "bytes": 32805,
+      "files": 6,
+      "gib": 3e-05
+    },
+    {
+      "family": "Manifest_NonUFSFiles_Win64.txt",
+      "bytes": 14365,
+      "files": 1,
+      "gib": 1e-05
+    },
+    {
+      "family": "Soul/Soul.uproject",
+      "bytes": 1787,
+      "files": 1,
+      "gib": 0.0
+    },
+    {
+      "family": "NOTICES.txt",
+      "bytes": 111,
+      "files": 1,
+      "gib": 0.0
+    }
+  ],
+  "config_files": [
+    {
+      "path": "Engine/Config/Base.ini",
+      "sha256": "4cfaa4650fafedf420f3c17683be9f9a129f4cf7d8897792f74eba949612c077"
+    },
+    {
+      "path": "Engine/Config/BaseCompat.ini",
+      "sha256": "c6f9a1a2350352e93e08716642d28050a2edbeed43fe6919abd5ef16886d633b"
+    },
+    {
+      "path": "Engine/Config/BaseDeviceProfiles.ini",
+      "sha256": "0da627d4ab23d7ddff0e0453e9c42871599df2b6f2b18dc4621a6c1cd11c97cc"
+    },
+    {
+      "path": "Engine/Config/BaseEngine.ini",
+      "sha256": "35ef4ad31f2e013af83a4f5325f48c7cfc45285ed4e2b82d4562a32129154032"
+    },
+    {
+      "path": "Engine/Config/BaseGame.ini",
+      "sha256": "9f2242950b97c43d6a6c7266a2609ff3e572064152088d603d6061ee3713405c"
+    },
+    {
+      "path": "Engine/Config/BaseGameUserSettings.ini",
+      "sha256": "0e5af97f1f324c64c59328aee32c15d0b42c5fc0f12e2ee8c4384347c6720fea"
+    },
+    {
+      "path": "Engine/Config/BaseHardware.ini",
+      "sha256": "4527e8bacfe4303a151c8d3b5c315574b35b1a4c4674d67d25b24d08b1bcb5e9"
+    },
+    {
+      "path": "Engine/Config/BaseInput.ini",
+      "sha256": "1876ea0a7cd6c5a6402924428e8a2b62f8b5728267b77f3c3082b0131eca5607"
+    },
+    {
+      "path": "Engine/Config/BaseInstallBundle.ini",
+      "sha256": "9327d790b0bc709be9c8db155fe125c0094959cebbb8ca2af54640964f9b5218"
+    },
+    {
+      "path": "Engine/Config/BaseMaterialExpressions.ini",
+      "sha256": "b4445951ee77afa769e3eb6c368575fc310429f01e11d84465c4c5cf43c5a53c"
+    },
+    {
+      "path": "Engine/Config/BaseRuntimeOptions.ini",
+      "sha256": "0b9f8120fe08219bdb72d2077dfc077aa704665907f7afa3250915a0c0c158ed"
+    },
+    {
+      "path": "Engine/Config/BaseScalability.ini",
+      "sha256": "beecf3c6b5d0bf0b161a1a7bc2f071b50d836668f29195c3c3ad72dfc961ae55"
+    },
+    {
+      "path": "Engine/Config/ConfigRedirects.ini",
+      "sha256": "08df809397d57da407641aa0a4ee36dfac25b6a8f9940bbab90681400f2b5eb6"
+    },
+    {
+      "path": "Engine/Config/ConsoleVariables.ini",
+      "sha256": "a5e349024c111b24666f1edfb5e82e8a26cf3de5da99eb31e7e23baf5db13ecb"
+    },
+    {
+      "path": "Engine/Config/PluginBase.ini",
+      "sha256": "c4d226dea9354136e7625054705a35cc2f38182342cd0fa2d8aa0edb1835ef8d"
+    },
+    {
+      "path": "Engine/Config/StagedBuild_Soul.ini",
+      "sha256": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5"
+    },
+    {
+      "path": "Engine/Config/Layouts/DefaultLayout.ini",
+      "sha256": "63affdf6abada9ffbd23ace3f80cf1f979826ded4bcee8253128105886c5c86b"
+    },
+    {
+      "path": "Engine/Config/Layouts/UE4ClassicLayout.ini",
+      "sha256": "d56b5f92c5a78a11c1e299ead5a2e9db7834ca23bf8c0d06a473f1c55923f473"
+    },
+    {
+      "path": "Engine/Config/VulkanPC/DataDrivenPlatformInfo.ini",
+      "sha256": "d2bbdcebaa0a89ee99b989ff79a6c8be147ac7c629bb5fcd94fd4a25f5160e18"
+    },
+    {
+      "path": "Engine/Config/Windows/BaseWindowsEngine.ini",
+      "sha256": "7d25a5c26f75192f957b2dad3a71841f94639572005152f85e23352b51056e6a"
+    },
+    {
+      "path": "Engine/Config/Windows/BaseWindowsGame.ini",
+      "sha256": "1d6bcc12e8462795f7ff985aafa86d871715d5e98f564803211bf0e9e06a7eed"
+    },
+    {
+      "path": "Engine/Config/Windows/BaseWindowsInput.ini",
+      "sha256": "29ec47a46fdb76b5cffe6160723d327b0bba5b7e2cdecfa72e77542e6e16b51b"
+    },
+    {
+      "path": "Engine/Config/Windows/DataDrivenPlatformInfo.ini",
+      "sha256": "6beb15145e06eb394688e41c5ad9c371fa25fbc578477da7e180daf5e46076a1"
+    },
+    {
+      "path": "Engine/Config/Windows/WindowsGame.ini",
+      "sha256": "49d7775ae18e79b1472e5ae4040859ba2ee0b0dea400125f4a3ee814a0486b7d"
+    },
+    {
+      "path": "Engine/Config/Windows/WindowsInput.ini",
+      "sha256": "027e309de0c20524c9fa32ff8c91b8eda2aff9cd02e940c6b6ec8d0e2766e79c"
+    },
+    {
+      "path": "Engine/Plugins/2D/Paper2D/Config/DefaultPaper2D.ini",
+      "sha256": "158f669ba2511d16a620680217bb5957020b94e7e8408230f42b3f7d06a19d7c"
+    },
+    {
+      "path": "Engine/Plugins/Animation/ACLPlugin/Config/FilterPlugin.ini",
+      "sha256": "352dc8ea504cb508b3744c96d97293d4d7f1f5d17b5b229a5cdee24150b2b9c6"
+    },
+    {
+      "path": "Engine/Plugins/Animation/AnimatorKit/Config/Editor.ini",
+      "sha256": "1ae6a87641e08103559dcc16a6039a26f68b91757c232c08fd3a71a65cd3629d"
+    },
+    {
+      "path": "Engine/Plugins/Animation/BlendStack/Config/DefaultBlendStack.ini",
+      "sha256": "33be09a7f9ea5748229b712f3528778c5f252e173d6febcb09ea14622d185f22"
+    },
+    {
+      "path": "Engine/Plugins/Animation/ControlRig/Config/DefaultControlRig.ini",
+      "sha256": "98baa1204c63470fae31655c3a57923c7051d5772f9e9e05d68ac413b87ec25f"
+    },
+    {
+      "path": "Engine/Plugins/Animation/DeformerGraph/Config/DefaultDeformerGraph.ini",
+      "sha256": "fe1f2106d4eb6b4b8754a5c69c7597238539e24b23014deaaa7bcd14246ad804"
+    },
+    {
+      "path": "Engine/Plugins/Animation/DeformerGraph/Config/Editor.ini",
+      "sha256": "7dea3555b624e5896d7a9b48f282aed2e5da57a4f461d0e5992186fe257e7bfc"
+    },
+    {
+      "path": "Engine/Plugins/Animation/IKRig/Config/DefaultIKRig.ini",
+      "sha256": "68733474b632cc545503ad179f11845d2849f3818830aaed75589324fa3de37a"
+    },
+    {
+      "path": "Engine/Plugins/Animation/LiveLink/Config/DefaultLiveLink.ini",
+      "sha256": "0130db964e12df8cd2f28e5be39d36f16306ab8e78418b4dfe764dc38880f5af"
+    },
+    {
+      "path": "Engine/Plugins/Animation/PhysicsControl/Config/DefaultPhysicsControl.ini",
+      "sha256": "6c288c7e6cb5fe614ccc18034ac98970269304095fe362b9c1fc3da5e1c60b5e"
+    },
+    {
+      "path": "Engine/Plugins/Animation/PoseSearch/Config/DefaultPoseSearch.ini",
+      "sha256": "8a6e20af947a93199c5791408208e26c3f24342646e3ca8117f09262acb68cac"
+    },
+    {
+      "path": "Engine/Plugins/Animation/RigLogic/Config/DefaultRigLogic.ini",
+      "sha256": "13e8bbe26f588c29464db6b9a4ef30c4ada996c40dd2b1ea5a1e1c126a5bcb11"
+    },
+    {
+      "path": "Engine/Plugins/Cameras/GameplayCameras/Config/DefaultGameplayCameras.ini",
+      "sha256": "43cff2dfd6768d6db26fc1dcd76b6d447cd950615e005928fc4a2f6f87464256"
+    },
+    {
+      "path": "Engine/Plugins/ChaosVD/Config/ConfigRedirects.ini",
+      "sha256": "f22e9af880f832c425eb1effc2f8bad01061e09803e3a5852754d8ecd88eb577"
+    },
+    {
+      "path": "Engine/Plugins/ChaosVD/Config/DefaultChaosVD.ini",
+      "sha256": "21b3c32885ebbd069dda65f21e07c827bf27cd629d0fc983692bcd71ec75f886"
+    },
+    {
+      "path": "Engine/Plugins/ChaosVD/Config/Engine.ini",
+      "sha256": "3a91078a721c8773512eb984adabaebe4cd3f34e13999ce2b1bddce77690ff79"
+    },
+    {
+      "path": "Engine/Plugins/Compositing/CompositeCore/Config/DefaultCompositeCore.ini",
+      "sha256": "4c4de2bed8aa71cf1a0de3d36f6f031051d780cc4a1567149df2d6870f6c6456"
+    },
+    {
+      "path": "Engine/Plugins/Developer/Concert/ConcertSync/ConcertSyncCore/Config/DefaultConcertSyncCore.ini",
+      "sha256": "1a91123d124a6277b2b8e4d017d8a7128eb9eea379e19c2b180f6971bfe0b4de"
+    },
+    {
+      "path": "Engine/Plugins/Editor/ConsoleVariablesEditor/Config/DefaultConsoleVariables.ini",
+      "sha256": "89058bd363a14d7af0a56a306d3a11bc9c89c48e52a422d1b61f9cbec9ffde32"
+    },
+    {
+      "path": "Engine/Plugins/Editor/EditorScriptingUtilities/Config/DefaultEditorScriptingUtilities.ini",
+      "sha256": "c0faf138e48461a89565b605e5994d308e1b1d48e31153a6ec167c279233ace5"
+    },
+    {
+      "path": "Engine/Plugins/EnhancedInput/Config/DefaultEnhancedInput.ini",
+      "sha256": "7349ce1831ecfe4d57416e89a7250fcead0ffe075411a09c6fbc938ca3c19eb9"
+    },
+    {
+      "path": "Engine/Plugins/EnhancedInput/Config/Input.ini",
+      "sha256": "7c70b88e867906bf0dc70f8167b0aa7cc800de9a419fbd772df508d4b7dd174f"
+    },
+    {
+      "path": "Engine/Plugins/Enterprise/DatasmithContent/Config/DefaultDatasmithContent.ini",
+      "sha256": "9f011deea6724b2705f4d53199a3fbb3915a2c4d7a0fcfd0abb0ea4be4f519d4"
+    },
+    {
+      "path": "Engine/Plugins/Enterprise/GLTFExporter/Config/DefaultGLTFExporter.ini",
+      "sha256": "1355c3888a76475cf65bfefd9c1bdc0de419b7d96e61acbe192f8a16e53d8858"
+    },
+    {
+      "path": "Engine/Plugins/Enterprise/GLTFExporter/Config/FilterPlugin.ini",
+      "sha256": "8b3161ff9264b0f53c57c1a7811cf33fc30a18d5095a9cd0e19db2a690f30a52"
+    },
+    {
+      "path": "Engine/Plugins/Enterprise/VariantManagerContent/Config/DefaultVariantManagerContent.ini",
+      "sha256": "24f74c767891a08fe252e41ef6d9227acc531879a304ee0f4fee1602ef2ab679"
+    },
+    {
+      "path": "Engine/Plugins/Experimental/Animation/Scribble/Config/DefaultScribble.ini",
+      "sha256": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5"
+    },
+    {
+      "path": "Engine/Plugins/Experimental/ControlRigPhysics/Config/DefaultControlRigPhysics.ini",
+      "sha256": "ffee27b50f5aadbe90e017263d0043527f2a57b8d5ca22492aece74767a1b7d0"
+    },
+    {
+      "path": "Engine/Plugins/Experimental/FullBodyIK/Config/DefaultFullBodyIK.ini",
+      "sha256": "4494db032436d8e8e70fe8468b40e8bb1cf09f587af08f91a0090a4ec74f5e8d"
+    },
+    {
+      "path": "Engine/Plugins/Experimental/InterchangeAxF/Assets/Config/DefaultInterchangeAxFAssets.ini",
+      "sha256": "32891e85a1470b8fa72719078741ebf144411c069ebd3a29f914fbd513aa9ec2"
+    },
+    {
+      "path": "Engine/Plugins/Experimental/InterchangeAxF/Assets/Config/FilterPlugin.ini",
+      "sha256": "b606465b2711084b8615a3db0adac7bef37ade1caebdcf79714b002ff2c7fcbf"
+    },
+    {
+      "path": "Engine/Plugins/Experimental/ToolPresets/Config/DefaultToolPresets.ini",
+      "sha256": "762331c84b12aca41d8c329b8b0e0b8160fc2b5427dcd38e6e00dc4ba8465ad7"
+    },
+    {
+      "path": "Engine/Plugins/FX/Niagara/Config/DefaultNiagara.ini",
+      "sha256": "c4e0e65a8bf8206aeab559c8988063b786999bebe78455588b4f026a83700d50"
+    },
+    {
+      "path": "Engine/Plugins/Interchange/Assets/Config/DefaultInterchangeAssets.ini",
+      "sha256": "e05623e19ec6907928772afb17aac3759857b766afe33eb8bcb0e8bc1ca8b2cb"
+    },
+    {
+      "path": "Engine/Plugins/Interchange/Runtime/Config/DefaultInterchange.ini",
+      "sha256": "b623c050d3eeffacccd3ca7a790842b5996f3a7d57c35d2c28cc540477a9a8e9"
+    },
+    {
+      "path": "Engine/Plugins/MetaHuman/MetaHumanSDK/Config/DefaultMetaHumanSDK.ini",
+      "sha256": "774e533829cd402a162132ca5da56283490e800579329aa8ffa6b2a2ae676b43"
+    },
+    {
+      "path": "Engine/Plugins/Mutable/Config/DefaultMutable.ini",
+      "sha256": "00713cc6b2b4a2e551c2195c3fcc3ea5b4d92d42265045624496c6cc9814fb44"
+    },
+    {
+      "path": "Engine/Plugins/Mutable/Config/FilterPlugin.ini",
+      "sha256": "b606465b2711084b8615a3db0adac7bef37ade1caebdcf79714b002ff2c7fcbf"
+    },
+    {
+      "path": "Engine/Plugins/NNE/NNEDenoiser/Config/Game.ini",
+      "sha256": "39549cb7f55460335b84e409fb7d8026af074a4c9fb2ce0098e5142764b3037b"
+    },
+    {
+      "path": "Engine/Plugins/Online/OnlineSubsystem/Config/Localization/OnlineSubsystem.ini",
+      "sha256": "7fe1742c986036181ef300ea85a0e48d4668e2f21116ebaa1648a5a85258cfbd"
+    },
+    {
+      "path": "Engine/Plugins/Online/OnlineSubsystemUtils/Config/Editor.ini",
+      "sha256": "beb81748bfec75cd8af1a987a4b86aee0a9e451b417a9f65e03488f15b14746c"
+    },
+    {
+      "path": "Engine/Plugins/Online/OnlineSubsystemUtils/Config/Localization/OnlineSubsystemUtils.ini",
+      "sha256": "dd4805ca45e53cec736d39046de1f282af2c397a60e69217c656aea607743796"
+    },
+    {
+      "path": "Engine/Plugins/PCG/Config/DefaultPCG.ini",
+      "sha256": "d639ad5af72979710a50accaa33c261e99037de9870b37c0788ef66812b64820"
+    },
+    {
+      "path": "Engine/Plugins/PCG/Config/EditorPerProjectUserSettings.ini",
+      "sha256": "9b336342b93404039ca6cf10c10debd17b42e14b08cd1a70806d4dbdeaca4f6b"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/CommonUI/Config/DefaultCommonUI.ini",
+      "sha256": "d3c07094ea4136905b82b167e7b248d01d00effbdfaf33651f36505be954d194"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/CommonUI/Config/Input.ini",
+      "sha256": "4eae317db27aad0db7ad8875d65c1f7afa6026c75f6591d4dd96b38b809f1a0b"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/HairStrands/Config/DefaultHairStrands.ini",
+      "sha256": "1dda2f36c4e395bff6d8c1bc7eae511b59a30f2359247ba88000da9ad65bb84c"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/InputDebugging/Config/Input.ini",
+      "sha256": "478b2c4419b15442099d95f4a3ea739d3d059df53836370a90cdc51f343f74ef"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Metasound/Config/DefaultMetaSound.ini",
+      "sha256": "8c639bab2a2a9fb12ccb7dd1b81ae9d1b86159c00cc8ee02f160a0f3a305c67e"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/ModelViewViewModel/Config/DefaultModelViewViewModel.ini",
+      "sha256": "4c26d127a7d8b52c01b28acc0a538ced995b2efd843b06bd5d38fe02e67ebb13"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/PropertyBindingUtils/Config/DefaultPropertyBindingUtils.ini",
+      "sha256": "e41bf6dba820bbab08a7444d8eff77e15d375d1426c1583d02e830c81e2d2394"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/RigVM/Config/DefaultRigVM.ini",
+      "sha256": "0b08c47e563073c914b2b444ddae26505da55767ed78b2870c2448c930c92fd6"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/RigVM/Config/Editor.ini",
+      "sha256": "b10ee452b89b7112c69438f9942e9a1314f7c5920cd9dbcd882881677d350fa2"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/StateTree/Config/DefaultStateTree.ini",
+      "sha256": "f3a61506c2e6026babda62a0180d4232df3e63b8174d2e67684774296ededb98"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Synthesis/Config/DefaultSynthesis.ini",
+      "sha256": "036bc6716f5a669040683ae82ae084a5439f61cb7452e244f060a5652b446676"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/USDCore/Config/DefaultUSDCore.ini",
+      "sha256": "bcf925e0f2cd4ce814c0b6ec2b36eacd79b1dea40dae2ed1b5849d9ae57a0211"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/WebBrowserWidget/Config/DefaultWebBrowserWidget.ini",
+      "sha256": "e00075aa485b27ec896c26a1a33d8cfbfce6c3b6d59553dd54cf41bb3cd74c02"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Windows/XInputDevice/Config/Input.ini",
+      "sha256": "fa28d9fdc452412fd5f8bb2405f721902e92024fc54ba22ada69ce5371a245c3"
+    },
+    {
+      "path": "Engine/Plugins/TraceUtilities/Config/DefaultTraceUtilities.ini",
+      "sha256": "255122d6207b3161feaea5297b4260f14988731fd188c955ef9b9503b8de69b4"
+    },
+    {
+      "path": "Engine/Plugins/VirtualProduction/Takes/Config/DefaultTakes.ini",
+      "sha256": "2f5a4cb597024107832b174b2feb05910b63a9f03750fa9e1323154cf451f02d"
+    },
+    {
+      "path": "Soul/Config/DefaultEngine.ini",
+      "sha256": "38afdd6ac4142312d6e7c85bdbe907af1c387b7744040be9366aed9a38964000"
+    },
+    {
+      "path": "Soul/Config/DefaultGame.ini",
+      "sha256": "918a0c873b4509c3f6b4c9ef4d53b0c71dc4060bc0cfaafea20aaf9f1919b320"
+    },
+    {
+      "path": "Soul/Config/DefaultGameplayTags.ini",
+      "sha256": "6240e658b86be03600598514951c368318c4039635ada5514dba154ac4f40adb"
+    },
+    {
+      "path": "Soul/Config/DefaultInput.ini",
+      "sha256": "8102cc58dfb4db03385a8fcea1fb97009871fb76431612d2aac814eb6173bb40"
+    },
+    {
+      "path": "Soul/Config/Tags/RBMagic.ini",
+      "sha256": "a94a3f2035ce3d41121353e4f1c8e6f2850329d0c12de096119e44646c7cc73b"
+    },
+    {
+      "path": "Soul/Config/Windows/WindowsEngine.ini",
+      "sha256": "a7acdf14ab176f3d20bce3d1968d7b2b2f91fc0433150560a80e24da33d91a34"
+    },
+    {
+      "path": "Soul/Plugins/RBAI/Config/FilterPlugin.ini",
+      "sha256": "4fa431beae346a7b6f1bb8a55cd2f6912d8944058d2691faa24e307895be4b95"
+    },
+    {
+      "path": "Soul/Plugins/RBMagic/Config/FilterPlugin.ini",
+      "sha256": "b606465b2711084b8615a3db0adac7bef37ade1caebdcf79714b002ff2c7fcbf"
+    },
+    {
+      "path": "Soul/Plugins/RBWeather/Config/FilterPlugin.ini",
+      "sha256": "b606465b2711084b8615a3db0adac7bef37ade1caebdcf79714b002ff2c7fcbf"
+    },
+    {
+      "path": "Soul/Plugins/TCAT/Config/FilterPlugin.ini",
+      "sha256": "94a1e2514324ac01f408439391f1d9b823c9ce91185e846192e21cba97043a23"
+    }
+  ],
+  "redacted_config_findings": [
+    {
+      "file": "Engine/Config/BaseEngine.ini",
+      "section": "[StudioTelemetry.Provider.Horde]",
+      "key": "APIKeyET",
+      "findings": [
+        "nonempty_sensitive_named_key"
+      ],
+      "value_redacted": true,
+      "installed_engine_config_byte_identical": false,
+      "key_matches_installed_engine_source": true,
+      "classification": "matches installed-engine source; value redacted"
+    }
+  ],
+  "machine_specific_findings": [],
+  "config_scan_limit": "Key-name and absolute-Windows-path check only; not a universal security certification.",
+  "distributable_archive": false,
+  "default_profile_promoted": false
+}

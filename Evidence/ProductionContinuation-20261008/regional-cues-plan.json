@@ -1,0 +1,655 @@
+{
+  "placements": [
+    {
+      "label": "Continuation_orc_war_camp",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_A_r1",
+      "xy_m": [
+        2891.3529411764703,
+        1040.1372549019607
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": 0,
+      "role": "field fortification beside existing military approach",
+      "footprint_relief_m": 0.8060714285716557,
+      "ground_z_m": 39.15558035714262
+    },
+    {
+      "label": "Continuation_orc_camp",
+      "mesh": "/Game/Soul/CampaignProxies/Population/SM_Field_Defenses_B_r1",
+      "xy_m": [
+        2690.0588235294117,
+        1468.4901960784314
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "role": "camp outwork; preserves wide military lane",
+      "footprint_relief_m": 0.7624999999999886,
+      "ground_z_m": 34.005
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_0",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "xy_m": [
+        880.192620813623,
+        999.9523968734029
+      ],
+      "scale": [
+        1,
+        0.95,
+        1
+      ],
+      "yaw": 19.98310652189998,
+      "role": "harbor landing; native timber modules",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.654107142857188
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "xy_m": [
+        884.8915879310651,
+        1001.6611121888365
+      ],
+      "scale": [
+        1,
+        0.95,
+        1
+      ],
+      "yaw": 19.98310652189998,
+      "role": "harbor landing; native timber modules",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.654107142857188
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_2",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "xy_m": [
+        889.5905550485073,
+        1003.36982750427
+      ],
+      "scale": [
+        1,
+        0.95,
+        1
+      ],
+      "yaw": 19.98310652189998,
+      "role": "harbor landing; native timber modules",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.654107142857188
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_3",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "xy_m": [
+        894.2895221659495,
+        1005.0785428197036
+      ],
+      "scale": [
+        1,
+        0.95,
+        1
+      ],
+      "yaw": 19.98310652189998,
+      "role": "harbor landing; native timber modules",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.654107142857188
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_4",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "xy_m": [
+        898.9884892833917,
+        1006.787258135137
+      ],
+      "scale": [
+        1,
+        0.95,
+        1
+      ],
+      "yaw": 19.98310652189998,
+      "role": "harbor landing; native timber modules",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.654107142857188
+    },
+    {
+      "label": "Continuation_VikingJettyDeck_5",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_floor_wood_02",
+      "xy_m": [
+        903.6874564008339,
+        1008.4959734505705
+      ],
+      "scale": [
+        1,
+        0.95,
+        1
+      ],
+      "yaw": 19.98310652189998,
+      "role": "harbor landing; native timber modules",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.654107142857188
+    },
+    {
+      "label": "Continuation_VikingPile_0_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        878.2532289306059,
+        997.9702871075001
+      ],
+      "scale": [
+        1,
+        1,
+        0.24535695214324954
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.3798771923247763
+    },
+    {
+      "label": "Continuation_VikingPile_0_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        877.4330455791978,
+        1000.2257913238723
+      ],
+      "scale": [
+        1,
+        1,
+        0.3105964584048489
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.1341278662175893
+    },
+    {
+      "label": "Continuation_VikingPile_1_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        882.9521960480481,
+        999.6790024229336
+      ],
+      "scale": [
+        1,
+        1,
+        0.32800862974816597
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": 1.0685383236400463
+    },
+    {
+      "label": "Continuation_VikingPile_1_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        882.13201269664,
+        1001.9345066393058
+      ],
+      "scale": [
+        1,
+        1,
+        0.43142968342754484
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": 0.6789637283773213
+    },
+    {
+      "label": "Continuation_VikingPile_2_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        887.6511631654903,
+        1001.3877177383671
+      ],
+      "scale": [
+        1,
+        1,
+        0.5218627837349463
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": 0.3383131819244774
+    },
+    {
+      "label": "Continuation_VikingPile_2_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        886.8309798140822,
+        1003.6432219547393
+      ],
+      "scale": [
+        1,
+        1,
+        0.6026366120524624
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": 0.03404794428562036
+    },
+    {
+      "label": "Continuation_VikingPile_3_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        892.3501302829325,
+        1003.0964330538006
+      ],
+      "scale": [
+        1,
+        1,
+        0.6559944191497558
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -0.16694445875522507
+    },
+    {
+      "label": "Continuation_VikingPile_3_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        891.5299469315244,
+        1005.3519372701728
+      ],
+      "scale": [
+        1,
+        1,
+        0.7395838837945465
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -0.48181585774692975
+    },
+    {
+      "label": "Continuation_VikingPile_4_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        897.0490974003746,
+        1004.8051483692342
+      ],
+      "scale": [
+        1,
+        1,
+        0.7759206789024097
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -0.6186921681660416
+    },
+    {
+      "label": "Continuation_VikingPile_4_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        896.2289140489665,
+        1007.0606525856064
+      ],
+      "scale": [
+        1,
+        1,
+        0.8332324689583824
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -0.8345787465802943
+    },
+    {
+      "label": "Continuation_VikingPile_5_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        901.7480645178168,
+        1006.5138636846677
+      ],
+      "scale": [
+        1,
+        1,
+        0.8782915586826108
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -1.0043108854216058
+    },
+    {
+      "label": "Continuation_VikingPile_5_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        900.9278811664087,
+        1008.7693679010399
+      ],
+      "scale": [
+        1,
+        1,
+        0.8920492326287658
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -1.0561343784982242
+    },
+    {
+      "label": "Continuation_VikingPile_6_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        906.447031635259,
+        1008.2225790001012
+      ],
+      "scale": [
+        1,
+        1,
+        0.9166097714904048
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -1.148650956564816
+    },
+    {
+      "label": "Continuation_VikingPile_6_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular",
+      "xy_m": [
+        905.6268482838509,
+        1010.4780832164734
+      ],
+      "scale": [
+        1,
+        1,
+        0.9571962579764695
+      ],
+      "yaw": 0,
+      "role": "timber pile seated in actual bed",
+      "footprint_relief_m": null,
+      "ground_z_m": -1.301535340192957
+    },
+    {
+      "label": "Continuation_OrcBankRock_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2531.6296404836003,
+        1398.260488787743
+      ],
+      "scale": [
+        3.643759329348584,
+        3.0971954299462965,
+        2.9150074634788674
+      ],
+      "yaw": 14.032101579876791,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 106.17085206155075
+    },
+    {
+      "label": "Continuation_OrcBankRock_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2438.533326510059,
+        1490.9431260837573
+      ],
+      "scale": [
+        2.322308772753426,
+        1.9739624568404122,
+        1.8578470182027411
+      ],
+      "yaw": 84.45110666508215,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 115.50948002689934
+    },
+    {
+      "label": "Continuation_OrcBankRock_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2455.2269647930043,
+        1479.9320322908989
+      ],
+      "scale": [
+        2.4756142048417424,
+        2.1042720741154812,
+        1.980491363873394
+      ],
+      "yaw": 143.1049716236059,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 96.51627879771232
+    },
+    {
+      "label": "Continuation_OrcBankRock_3",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2526.9533784709483,
+        1490.2967588784222
+      ],
+      "scale": [
+        4.407422887412723,
+        3.746309454300815,
+        3.525938309930179
+      ],
+      "yaw": 124.70212373135573,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 75.168019961872
+    },
+    {
+      "label": "Continuation_OrcBankRock_4",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2468.3787633637544,
+        1449.241987168402
+      ],
+      "scale": [
+        3.2206743532510163,
+        2.737573200263364,
+        2.576539482600813
+      ],
+      "yaw": 257.6411690044348,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 98.57503680236027
+    },
+    {
+      "label": "Continuation_OrcBankRock_5",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2423.868685629385,
+        1440.3634194862964
+      ],
+      "scale": [
+        4.153963685756718,
+        3.5308691328932102,
+        3.323170948605375
+      ],
+      "yaw": 25.52457644638585,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 123.40850616597685
+    },
+    {
+      "label": "Continuation_OrcBankRock_6",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2457.0724625143303,
+        1431.825489734923
+      ],
+      "scale": [
+        4.446063604466842,
+        3.779154063796815,
+        3.5568508835734733
+      ],
+      "yaw": 251.0342711470527,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 111.41466010505687
+    },
+    {
+      "label": "Continuation_OrcBankRock_7",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        2538.52851591545,
+        1484.21123577759
+      ],
+      "scale": [
+        4.209231661277608,
+        3.5778469120859664,
+        3.3673853290220865
+      ],
+      "yaw": 269.1636007555905,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 71.45069456394093
+    },
+    {
+      "label": "Continuation_NatureBankRock_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        503.4562859062468,
+        2750.6028135100714
+      ],
+      "scale": [
+        2.3612789813833293,
+        2.00708713417583,
+        1.8890231851066634
+      ],
+      "yaw": 123.12186562403784,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 56.6680523434871
+    },
+    {
+      "label": "Continuation_NatureBankRock_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        510.4237231495089,
+        2821.252932359242
+      ],
+      "scale": [
+        3.2131868070880465,
+        2.7312087860248395,
+        2.570549445670437
+      ],
+      "yaw": 258.11939712294134,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 61.795073576950024
+    },
+    {
+      "label": "Continuation_NatureBankRock_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        464.26732629219345,
+        2835.9781839722436
+      ],
+      "scale": [
+        2.330975270277618,
+        1.9813289797359752,
+        1.8647802162220946
+      ],
+      "yaw": 292.37260761852474,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 53.92659014331008
+    },
+    {
+      "label": "Continuation_NatureBankRock_3",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        406.3272329977091,
+        2786.8168274056898
+      ],
+      "scale": [
+        4.477228932268421,
+        3.8056445924281577,
+        3.581783145814737
+      ],
+      "yaw": 267.5808919459102,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 60.82042804633317
+    },
+    {
+      "label": "Continuation_NatureBankRock_4",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        499.3307832571654,
+        2757.8557921370966
+      ],
+      "scale": [
+        3.905353067747563,
+        3.3195501075854286,
+        3.1242824541980507
+      ],
+      "yaw": 352.45517438977294,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 55.56996239570727
+    },
+    {
+      "label": "Continuation_NatureBankRock_5",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        521.7301719699894,
+        2794.8047124021873
+      ],
+      "scale": [
+        2.571970566660008,
+        2.186174981661007,
+        2.0575764533280068
+      ],
+      "yaw": 104.64409426281097,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 65.76916570094079
+    },
+    {
+      "label": "Continuation_NatureBankRock_6",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03",
+      "xy_m": [
+        412.3920104322944,
+        2770.987562973516
+      ],
+      "scale": [
+        3.0350539801137995,
+        2.5797958830967294,
+        2.42804318409104
+      ],
+      "yaw": 48.192629804154954,
+      "role": "owned weathered rock context",
+      "footprint_relief_m": null,
+      "ground_z_m": 58.64173967902433
+    }
+  ],
+  "viking_spur": {
+    "points_m": [
+      [
+        857.8431372549019,
+        995.0980392156862
+      ],
+      [
+        877.8431372549019,
+        999.0980392156862
+      ]
+    ],
+    "width_m": 2.4,
+    "grade": {
+      "length_m": 20.39607805437114,
+      "max_grade_deg": 8.432274829406746,
+      "invalid_samples": 0,
+      "over22_1_samples": 0
+    }
+  },
+  "heightfield_changed": false,
+  "anchors_unchanged": true,
+  "status": "bounded visual cues, not completed faction settlements"
+}

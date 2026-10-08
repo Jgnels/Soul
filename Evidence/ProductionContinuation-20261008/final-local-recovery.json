@@ -1,0 +1,1220 @@
+{
+  "created_utc": "2026-10-08T17:38:29.883495+00:00",
+  "worker_head": "8ea786c180f2f8e431831b92b7d8867e2237c818",
+  "archive": "Local/final-candidate-recovery.zip",
+  "archive_sha256": "d71aab5845b52ca35c976ec667c0f1f8cab8ca6930b57115ec9b9f8381002fb1",
+  "archive_bytes": 93623222,
+  "source_bytes": 109599037,
+  "file_count": 241,
+  "verified_all_members": true,
+  "local_only": true,
+  "clean_checkout_reproduction_claimed": false,
+  "scope": "Candidate assets, exact current Source tree (including preserved inherited inactive drafts), composition data/height. Not a promotion, redistribution or clean-source admission. Source config, tokens, donor projects and full authored cities excluded. Owned external dependencies still required.",
+  "files": [
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Boreal_p1_r1.uasset",
+      "bytes": 7372,
+      "sha256": "744a4f973a4417e4d47014da6cb111270df1a2a861b2dda8901ffd82561756c5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Boreal_p2_r1.uasset",
+      "bytes": 7549,
+      "sha256": "9c8eccbb2747d625239668ad85b902e79fd5ee1c5c3b18a9995fd78d0d6eb638"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Boreal_p3_r1.uasset",
+      "bytes": 7541,
+      "sha256": "4cf19aad0de8dd6febf719ce325ac355f1be3a1b324ad5e5cab609010d35fb56"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_b1_r1.uasset",
+      "bytes": 9963,
+      "sha256": "d124a62af65ec79c9a18d9938fe2f4e189bc487c6bdbcc6c78fb566937c79a42"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_b3_r1.uasset",
+      "bytes": 9136,
+      "sha256": "b0e2957612d45e2c797a73a8801491d8cb33606d3a8f9145763febc250bd7a4c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_p1_r1.uasset",
+      "bytes": 7533,
+      "sha256": "240ba6c6f34a245716cc43fb3ea2de53ac48f2c8a6cc65e7d0913a05ba4311f3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Greenwood_p2_r1.uasset",
+      "bytes": 7689,
+      "sha256": "5356d48eee09697f8297ab9f113ab68c82b9dfc886b5b3a42d79d4ad5225184a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_b1_r1.uasset",
+      "bytes": 9963,
+      "sha256": "243b0c2d18adc1db0e4afeb98246d08145b7bba88a57bd7a582d8a9c10c5f602"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_b3_r1.uasset",
+      "bytes": 9136,
+      "sha256": "a4d87695e7cc63c661047f8dae23d6cbd775023d517dc2b460fe9a6647814276"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_p1_r1.uasset",
+      "bytes": 7573,
+      "sha256": "d05a5a9d88ea381445b3bd7b7639119a68c43db60555e3656967e0667184c856"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/FT_Heartland_p2_r1.uasset",
+      "bytes": 7719,
+      "sha256": "9f5be91270c57235769aaa166d651983c4c99c1a3ad083f5cd93eddb90dd3211"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/M_ContinuationRoads_r1.uasset",
+      "bytes": 74033,
+      "sha256": "7fda6c26d47fe7651b17f4f1d1a8a334c84d0e116b1901c9fa50546d6c8d7f96"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_ContinuationRoads_r1.uasset",
+      "bytes": 25242,
+      "sha256": "e2538156da3692a8e4d200ece008f202b575ccb1cccc760d03e47a3e84d0cd6c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_Pine_Boreal_r1.uasset",
+      "bytes": 8610,
+      "sha256": "bb0264e0f187cf4199d4e88932356af8f501035a7fe4f1ebe9f174703384b269"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_Pine_Greenwood_r1.uasset",
+      "bytes": 5200,
+      "sha256": "364cfec881c39cd4f7151a497ce0e969e3ef29d0f7c5a888945f44375751ab56"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/MI_Pine_Heartland_r1.uasset",
+      "bytes": 5200,
+      "sha256": "fb1643ed40013fe908b6e0d33bb6d23224bc4922b123c2877409f7e2f176fabc"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/SM_Deciduous_b1_r1.uasset",
+      "bytes": 2495485,
+      "sha256": "2db01b2f32a9124a6ee9656d8f693cde757d1181303a79340ef58dae0083def3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/SM_Deciduous_b3_r1.uasset",
+      "bytes": 3616880,
+      "sha256": "a3c33368cbfb1829c5c9ee7ede794056f9866b9840b5f014b984f624e6bc259a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/T_RoadControl_continuation1.uasset",
+      "bytes": 298475,
+      "sha256": "971fc9afb0f844434f08393cc6d88f2e05f996cc533e0e8c16ef0aed67f69678"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Continuation/T_RoadControl_continuation2.uasset",
+      "bytes": 299011,
+      "sha256": "7a21d4fb54d72b46c7cf5d9b9c33cfc06b8caf5fc612a75610035a1be18e68d6"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r1.uasset",
+      "bytes": 251794,
+      "sha256": "2222db231c7806afb1028bf40cf05f9d0f41cf3ee6387baa727f3b9789546837"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r3.uasset",
+      "bytes": 257462,
+      "sha256": "74a2857b0da629930c72cf0303aae0d75ded3ef36644c3963b960910188638e9"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r4.uasset",
+      "bytes": 258950,
+      "sha256": "1103e30af05b3f24c2bb0c28cce1b874a84bf8446a88c38aef0de5a7d5b084e0"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r5.uasset",
+      "bytes": 259430,
+      "sha256": "058d76e29092b8916f1898602a8c2f27b9874e36e4e9fcdc9fda211c7fd70e5e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/M_FinalRoads_r1.uasset",
+      "bytes": 73969,
+      "sha256": "bcef2b98dfb127300f3d95b76948066fa54adca46adc1176fa2fed4846852920"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/M_FordBankWater_r2.uasset",
+      "bytes": 38803,
+      "sha256": "d5f45fb09ed5a23d037eae773d518d4c07ff662c807d0d034c9301d95ed7c23c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/MI_FinalRoads_r1.uasset",
+      "bytes": 25166,
+      "sha256": "6c18eb5e3e5751f5eba89239740b935faf5cbe186ad755a4161315875b08ea37"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/MI_FordBankWater_r2.uasset",
+      "bytes": 15746,
+      "sha256": "74b80c8e874aa483ce041f8dd69225fe791f749f1bf3149b5239a3a2fc9ea593"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.uasset",
+      "bytes": 1426447,
+      "sha256": "39cd4c0e3b209f3e6f22973fba5270d46c255b24215f6f59a0bba0c95d7f0031"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_HumanQuay_r1.uasset",
+      "bytes": 762510,
+      "sha256": "f6664aae3991997c275e1d6acdb25f7fd4f5744d680edb57405784a55d885244"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.uasset",
+      "bytes": 264149,
+      "sha256": "f5457965fc42fcf75358bc4331c4852847bf12340f67664775c50badf6b25cc2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_RuinRubble_r1.uasset",
+      "bytes": 134358,
+      "sha256": "a7050013a3d66fb5bce7f72391f6264ee8bb7747821fd9ca8488fd476948c77d"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final1.uasset",
+      "bytes": 299357,
+      "sha256": "1048a5c7941e0ca6f93b8c67355bb25214a3b097c7809f7b6f69bb3aa22a9704"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final2.uasset",
+      "bytes": 299232,
+      "sha256": "99ed0cde56c9cd53a61a72097b2ede12e1ec47a923aa8cf6cabf3bedae9f853e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final3.uasset",
+      "bytes": 299348,
+      "sha256": "a0c1d65a03648ee4ad5c519b24b6b9e754df2ff7b1c8e6942c6cc2e22b61a6f7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final4.uasset",
+      "bytes": 297646,
+      "sha256": "c55beef50e8e409ebc059de27da03fb2308bfd42976d03536ba20021004fce67"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final5.uasset",
+      "bytes": 297834,
+      "sha256": "129902112266f0594a111e6c3b8315e648476a2b92a3f9315a544a4db6f71d12"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/L_Composition_3500_r1.umap",
+      "bytes": 32799343,
+      "sha256": "b91cee7d73d8ad415f16d66e249cd55e1a5a25c96eece5c0010a8c59db6965e4"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/L_Composition_3500_r2.umap",
+      "bytes": 39680977,
+      "sha256": "a80d7df96d0cf3ca3268a09ad1806806a75b022a023c2e4c5082b9e65668a39a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r1.uasset",
+      "bytes": 71058,
+      "sha256": "be8fe78daaace897a2ddf1b2933d2f1e2306268df1a388473b885896cb16dc2a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r2.uasset",
+      "bytes": 72335,
+      "sha256": "8ffbf3101775e629167b6f245c2fe97e8ca40275c6bf8dd95ab3188aa2b6b005"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r3.uasset",
+      "bytes": 73998,
+      "sha256": "ea23a56e45ff4f761d444aa95759df2d21ba9f2003026cbfb647e36bdfb7841c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r1.uasset",
+      "bytes": 42388,
+      "sha256": "0b9d5e38306854f0b9eefbe38dac4ce5c53399768d22b5a3940c53b58de39d76"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r2.uasset",
+      "bytes": 25230,
+      "sha256": "3c2ce0c13d2d173a3b6b27635f4ed0b86b0825aa043209b26080e84cf2d8ab12"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r3.uasset",
+      "bytes": 25232,
+      "sha256": "0a53c0c1923d232671a8aabc70d069a4ffb1366788f7763f80cf52b285c19af2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r4.uasset",
+      "bytes": 25200,
+      "sha256": "f70b009634318ed52bd943cd9a30f720666a6babd5da56d77e20656abed778a3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_River_r1.uasset",
+      "bytes": 15656,
+      "sha256": "f43755e93bcc1c983147cc3a75d16ff591be9d708940fd571892c4db533a2fb3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Water_r1.uasset",
+      "bytes": 13432,
+      "sha256": "26f42d0e77866c9d7a2c233876e6b10df8505c69180a99752e5045e8223a2cf2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_East_r1.uasset",
+      "bytes": 885509,
+      "sha256": "7250dd5f20f8b7c90c780e47abb032800db1a821963afc5dd8787b1b022fc5d5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_West_r1.uasset",
+      "bytes": 783410,
+      "sha256": "197a76f439d081c97c1322510e27d0fe88a3237d39b8eba13c8436a2b1483e24"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/M_Polish_r1.uasset",
+      "bytes": 73929,
+      "sha256": "e6f7ec0f00f0ed2f69989574e5c8a7fb1c50b09a65192bb7e08ce154dea5f24a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/MI_Polish_r1.uasset",
+      "bytes": 25107,
+      "sha256": "903b95ea298b7589833f48f5334e50b86ac1ce06195aec60b392c8c46e1ce03c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_RuinedBridge_East_r1.uasset",
+      "bytes": 1105006,
+      "sha256": "fef53e14070f90a7f22d843c3a47b13247fa526fb507b1fc77586861650fdef5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_RuinedBridge_West_r1.uasset",
+      "bytes": 1112469,
+      "sha256": "2c209230987ec24d6b37fd601eca4e4faaf0f7fb759948a5313240517c7bd308"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_StoneBridge_Collision_r1.uasset",
+      "bytes": 3222443,
+      "sha256": "21c374955c5d7cbb55c1c0eff37e0025955b3dd341866e99135a509370bc1c97"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_TimberDeck_Collision_r1.uasset",
+      "bytes": 61208,
+      "sha256": "39d882b228721d6ed3af90eff2bd03e02cd63f0bb3b034e4bd765b8949f60fee"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r1.uasset",
+      "bytes": 302597,
+      "sha256": "4ad5b3df41b8b0582b026b0afa1b68af728ce337031b0220d4c232222a7efbe7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r2.uasset",
+      "bytes": 299889,
+      "sha256": "066bfdab8928b0c0fa8ec222c9df689b376f53130445aeadb2f3d281197923cf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r3.uasset",
+      "bytes": 299239,
+      "sha256": "627cce2316668bbbbe84aefa49dde4cfc0f0c892212bccc7c9ba1c0686e154b5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r4.uasset",
+      "bytes": 299555,
+      "sha256": "7a484906eadfefbbbec704fe1aa49af5c542afb0e73ff7b231c568bc312d8446"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/M_PushRoads_r1.uasset",
+      "bytes": 71424,
+      "sha256": "1c1e551c1e29ca059377dd0c56e0c1e0beb0d58edb8fe495eaf3761e5d16c532"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/MI_PushRoads_r1.uasset",
+      "bytes": 22359,
+      "sha256": "d7c99f911365f69701607cfe5c71ff94b76959a2765e3f2d1a715fd020cd3b1b"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/SM_DwarfExterior_r1.uasset",
+      "bytes": 1621504,
+      "sha256": "05709b3e464142ab0f617035f1c1c0b3d2800dfa36586dec048c17f4197d4643"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/ProductionPush/T_RoadControl_push1.uasset",
+      "bytes": 298032,
+      "sha256": "ea612f83ffdfabc2e4fb9a7ad4e596143ae2f517a493ca469e737ea781e2a011"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_eastern_run_r1.uasset",
+      "bytes": 25295,
+      "sha256": "609e1500153b3ede53e585764ec571279e1ae5c5ec47ae8af0a1d1b39b488609"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_eastern_run_r2.uasset",
+      "bytes": 25207,
+      "sha256": "4bb1aa380f2312bd6414cfe1e30199dcbdcdc7246bd2612d43023a3b4227bd00"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heart_river_r1.uasset",
+      "bytes": 34487,
+      "sha256": "8ec000bd2fe08fd3b58e26977500e98b74dea6af78581981a32405f5d9f9423a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heart_river_r2.uasset",
+      "bytes": 33182,
+      "sha256": "9966d751b64da7c37a21a836929a9ab437e506a93fd2dda746eef025b33e3da6"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r1.uasset",
+      "bytes": 20340,
+      "sha256": "45060cc668b61aa38757be0fb6da31c66c04ccbfb9eeaca814d1472f49abf59a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r2.uasset",
+      "bytes": 19989,
+      "sha256": "ae7f10fd7e98c8066fe1030befdad91303d6cef80f52fd9c93b20e8ab105cba7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_tributary_r1.uasset",
+      "bytes": 24956,
+      "sha256": "84c0b486649552ef3a911467359341c103a12e571f3d6ffefaec2d0e532831bf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_tributary_r2.uasset",
+      "bytes": 23513,
+      "sha256": "223e9923b25731ab1281f807c88b0e74f65ec07ab15914ff534ed1fee1d198b1"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_0_r1.uasset",
+      "bytes": 49865,
+      "sha256": "4dd0aac3f38dd3e45ca4e30830988f2870f40a93b540866e4b4dd7af35f8be53"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_0_r2.uasset",
+      "bytes": 72940,
+      "sha256": "15025b881f5d48896d6c65a580618fc547d09e4067c2e22110310258beb52baf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_1_r1.uasset",
+      "bytes": 102887,
+      "sha256": "32474daac3f94b8cc0045117eed1a790372c3755b3a3032ba359d6ff3f95edf7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_1_r2.uasset",
+      "bytes": 131805,
+      "sha256": "c376bb817398a73a7e8bb6a5b1ab11c6c2b2f7d3a954133ce3a80c2fb62a12be"
+    },
+    {
+      "path": "Source/Soul/Private/Soul.cpp",
+      "bytes": 125,
+      "sha256": "5ebd62f6042d30fee1e28325ce767fbdf2cda97dc0ecc371c27e45d447a4c6de"
+    },
+    {
+      "path": "Source/Soul/Private/SoulAuthoredEnvironmentSurvey.cpp",
+      "bytes": 15345,
+      "sha256": "55442a49e99965dbb037b525dc9e92664d7fb10e6d923fcb8b6e5fe7887ba4ee"
+    },
+    {
+      "path": "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
+      "bytes": 32646,
+      "sha256": "7ac60108a50aeda763df7cda286cd2ebb94d7db464cb0e029b216018957eae45"
+    },
+    {
+      "path": "Source/Soul/Private/SoulBattlefieldGridActor.cpp",
+      "bytes": 3517,
+      "sha256": "7dc27616665f5ff02ddc4d7eeae810917944ceb3c49397ac4847647ebbace783"
+    },
+    {
+      "path": "Source/Soul/Private/SoulBattlefieldLayoutActor.cpp",
+      "bytes": 774,
+      "sha256": "5636ac77f06d82b45623e25eafa888f76b3ef636d2309b7e24c84f71b8ff4a7f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignCamera.cpp",
+      "bytes": 11807,
+      "sha256": "abb06ab5c2f7c47b0de4f615067b9a58063a58a0fb250ef525f902b0eeda2667"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignExpansion.cpp",
+      "bytes": 10062,
+      "sha256": "7cc73d7b7a38fb330c07994960673d72facca0c5c6811b565de389268eb52efd"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignTerrain.cpp",
+      "bytes": 113631,
+      "sha256": "518c3b9a5c77eb7f2cb19dd4791678244a28dd01cf317c82bea1be99ae81b77f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignVisualQualification.cpp",
+      "bytes": 23963,
+      "sha256": "01776a1d8c38666982cc1f084218194f52a845b3b2c82f7b6d0987175426dc9e"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+      "bytes": 30536,
+      "sha256": "1744a9c569540c8eecd78293325cbb1182ea50fa9b6050c64f0dc0d4c849b90f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignWorldCapture.cpp",
+      "bytes": 10328,
+      "sha256": "a9c1e150c5903e807fc9a2add7821228366d3e0625abde90a31e60b7c1c5e422"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCompositionTraversalQualification.cpp",
+      "bytes": 6341,
+      "sha256": "ad2a9127589d9e8c69c6012ddf462ea20a477a4d2032e500060c96688e70ac88"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFortificationSegmentActor.cpp",
+      "bytes": 2290,
+      "sha256": "a403ce063b72e0cf9ab19a8e74db549575ae8c3c75c19c890195886143fa0427"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFoundationBridge.cpp",
+      "bytes": 3525,
+      "sha256": "0cc020bf1fb33b52a82ef59fe32a16c82ef36d195afbdeaab7d434b9be8e0d95"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+      "bytes": 17159,
+      "sha256": "2da54962dd8f221f732a60bda8aa1612f662550ab7a9ad9bd9528880d8b52353"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "bytes": 26034,
+      "sha256": "9029f34c494deccd3a5cf13332905a29c439bd2ab7f6e095f83326ec91c0b696"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "bytes": 15727,
+      "sha256": "fd9214998fd0ff6e6e0f7b4e14a709c6d398fc352777d871c2eaae76eb99f529"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "bytes": 10894,
+      "sha256": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "bytes": 43910,
+      "sha256": "f1591fdfcf57260fdb360a92ff71cd32106427d4cf893804b0f08b557d30f1be"
+    },
+    {
+      "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+      "bytes": 15355,
+      "sha256": "e40aa1030e050efeb55261e04760756251b0030426b5aa6894645f9277f46387"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementAssetAuthoring.cpp",
+      "bytes": 3388,
+      "sha256": "4296ddc3eab8dd66667481a78eb5034645dd591e7a435568608a5e559327a696"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBootstrapActor.cpp",
+      "bytes": 1659,
+      "sha256": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBuildingActor.cpp",
+      "bytes": 6051,
+      "sha256": "8a6560cbdef3cac7864cb92738e50eb66b59c334bb8cb71e43765d2978908811"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp",
+      "bytes": 20822,
+      "sha256": "341719d0c63641f16a5d9742d7171de1fa829c69fbe29fb5ba3853f8d105695e"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementPresentationController.cpp",
+      "bytes": 4630,
+      "sha256": "54bd7769488d2b0cc02e1b12262e78fb8e24e8ca2dd2013afe79b2319bce95e4"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementScenarioData.cpp",
+      "bytes": 4480,
+      "sha256": "7914ec1ea98a6d2ddfce2df0d302460b64d59cccf0e6ecfafe14465866f09c72"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementStateSubsystem.cpp",
+      "bytes": 15506,
+      "sha256": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementVisitGameMode.cpp",
+      "bytes": 6516,
+      "sha256": "f38fad7c5ef6f4a6b85f0986267d8bb339a3e6a34c4f0dec1a2fb619457bffb4"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSiegeObjectiveActor.cpp",
+      "bytes": 292,
+      "sha256": "9eddcd19190f3968563f04c5663c13ca7d7256347b4c28a4f1a356e2988022e7"
+    },
+    {
+      "path": "Source/Soul/Private/SoulTownViewAnchor.cpp",
+      "bytes": 666,
+      "sha256": "9b83d8adff8e197107acb7fe134bc50c069e44b28f3af44a705fcdfd38fb39cb"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulBattlefieldGridTests.cpp",
+      "bytes": 1091,
+      "sha256": "6d897c60aef606b463c49733d2d5f2c8e32dd125f911fdc50f454d5e9cca65a3"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulBattlefieldSelectionTests.cpp",
+      "bytes": 3697,
+      "sha256": "c1a629f270a5d3c3c7c4d326a6af8db9c6dea6fe6858461a250d18e1d7c8bd6d"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulBattleResultValidationTests.cpp",
+      "bytes": 2973,
+      "sha256": "27e0e9838e892fb78c93742c6d03ba52b38c7f596b607173a41e1b2c3c9ccf6b"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulCampaignManaTests.cpp",
+      "bytes": 5630,
+      "sha256": "0eeca49a83770595591f521c713bf2e84543b3eafb8fb468db171ac0f2f60f06"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+      "bytes": 9618,
+      "sha256": "8af74b55d269af599179c032f436706e213f0e38ce03eb0f3875e56ca425d947"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "bytes": 18606,
+      "sha256": "fcefab706fe9085ee4b0842d320ec77764e48f6c8721507f8264ad6c72a43615"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp",
+      "bytes": 9155,
+      "sha256": "9193b650c5a63e9b1b4ccebcf8d023b98cbcdd6545bf1fea2440b25dc8946eeb"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementSaveTests.cpp",
+      "bytes": 2594,
+      "sha256": "3bc65042471a0c38d0df7c63340660cc6ce5459e5a3199c2c0143da212972d0b"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "bytes": 41405,
+      "sha256": "f6d746535284ed9f1b4e72850b7a6375ac1cd2a46f25359ad464b65367b6038b"
+    },
+    {
+      "path": "Source/Soul/Public/Soul.h",
+      "bytes": 40,
+      "sha256": "2de54d240f294ff7b7e2f9a3f698e968b4674b49df1814587d7b47576a267896"
+    },
+    {
+      "path": "Source/Soul/Public/SoulAuthoredSettlementQualification.h",
+      "bytes": 2341,
+      "sha256": "34c28cf5241336568c2ff0f7c71effcd46bf7b0d01843f55344c4629aab5efb7"
+    },
+    {
+      "path": "Source/Soul/Public/SoulBattlefieldGridActor.h",
+      "bytes": 2608,
+      "sha256": "20319c26f949d9cf5bbb0cfbca793791c88db1d8e987966aad1926aac8390e71"
+    },
+    {
+      "path": "Source/Soul/Public/SoulBattlefieldLayoutActor.h",
+      "bytes": 1626,
+      "sha256": "d6302ca419b98fe15dbd41786f69359f1cf423cc76cdd3077e4fc15d9cf21412"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignCamera.h",
+      "bytes": 1477,
+      "sha256": "511efb723fa1777b4dcc9f5d1969ce75b0ee318ca3544b3df0f96b263ea9c730"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignExpansion.h",
+      "bytes": 660,
+      "sha256": "094794bef0f0d633fad1b0b63560508f7cfefefcf719fedbe1662a4f622acd5e"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignTerrain.h",
+      "bytes": 1581,
+      "sha256": "33ae42d21ce9fa8e5d255376d637e5a86609124970de047aee86834540491e90"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignWorldActor.h",
+      "bytes": 2409,
+      "sha256": "a6c78d0abf61ec0796b0356262a42801be6a18c5b9a0d5a267e4dc8113c3fad7"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFortificationSegmentActor.h",
+      "bytes": 2085,
+      "sha256": "c9c41ae0236f6554404bdbbe2a4db4acc5e7f95875ddf5b0f71fb8ec78216ac0"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFoundationBridge.h",
+      "bytes": 1291,
+      "sha256": "883658b8645111bd38ef5e4d1990dc7fe3d11a29b4946b6c7bf6f0b64fcde181"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+      "bytes": 2006,
+      "sha256": "cc72721337cc735354af0b727d2ce7de87447f6c7d383b570f04003fd4b48166"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "bytes": 1805,
+      "sha256": "051b248631b7e281ac9bb1f249e79e5137944edf55df2f772803ced542cb1811"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestHUD.h",
+      "bytes": 397,
+      "sha256": "71eb3a809cd12c5c36d007231c7b47b3503c6d4149489430e8b9d24e07cd9b20"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestPlayerController.h",
+      "bytes": 1176,
+      "sha256": "bc446d2c9409404a97b0424b13e2adf044ee5cf689d743ac0cc96ec3be1846a2"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "bytes": 4563,
+      "sha256": "fda980ca69dd2e0200dfe012afd7935fd6045cf59908212e91dcdac7196838f0"
+    },
+    {
+      "path": "Source/Soul/Public/SoulPlaytestRegionActor.h",
+      "bytes": 1199,
+      "sha256": "caf7a192d76109766bddc535e41105d98b57de35a6b301f1f3d880bdfff5c355"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementAssetAuthoring.h",
+      "bytes": 1222,
+      "sha256": "64bbad1afe536b01ba059521b5e73796213c7797ab454239ab816ad53a44c13c"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementBootstrapActor.h",
+      "bytes": 794,
+      "sha256": "32ca50bf21aef276a6b3968348387d5ae1804dd4478089c1726db3cee5bb9376"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementBuildingActor.h",
+      "bytes": 3189,
+      "sha256": "e295bfdf9311723a60d46c354c6cdf1202c0ce777e6a43d6e0b1dd43bb67d7f2"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementPresentationController.h",
+      "bytes": 1037,
+      "sha256": "7561b8665d17f1491e8113c4ea2507f255ec8e8804abd6b3ac6f72c220c7828a"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementScenarioData.h",
+      "bytes": 4167,
+      "sha256": "6edcdc510789c9847eea49e119232bde7511934056a676e799f63ce5c3ca9749"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementStateSubsystem.h",
+      "bytes": 2357,
+      "sha256": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementVisitGameMode.h",
+      "bytes": 1098,
+      "sha256": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSiegeObjectiveActor.h",
+      "bytes": 1024,
+      "sha256": "fdaf292fb12db6d1058a347e39c0b115352c50e61da2415db9c8ef506b433002"
+    },
+    {
+      "path": "Source/Soul/Public/SoulTownViewAnchor.h",
+      "bytes": 673,
+      "sha256": "edfb3f041711ca858dc88928c7ba5807edbe92e66bd748144e9b3e1aeceb66cb"
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "bytes": 3181,
+      "sha256": "e58038926d9db5347a801b2fbb353ad3e55a97ac30c58a5c910dd527cf22f330"
+    },
+    {
+      "path": "Source/Soul.Target.cs",
+      "bytes": 389,
+      "sha256": "bbb148a860b7b8126bd19f48813d4a8bae56e7d259d90719d2e9307ce886f089"
+    },
+    {
+      "path": "Source/SoulComposition.Target.cs",
+      "bytes": 572,
+      "sha256": "bc564b6599dbf31f99c18b9d4bbc64d01fe6c744aac61e9fc4b268c7b71e4f77"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulBattlefieldRecipe.cpp",
+      "bytes": 2203,
+      "sha256": "ac6e8f0db1951e3f737123587e5fab2d906b4b94ec63f5140d757ef0971fc3dc"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaign.cpp",
+      "bytes": 2222,
+      "sha256": "de8961c548f04b3e5e84fa59c2652e82ebd9dfeccc76f6fdcd9445af3b8f661f"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "bytes": 2386,
+      "sha256": "f2638b40e288400be687d3d9dfb742bba0b31d53c685e3ec97cc73859815ec4a"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCombat.cpp",
+      "bytes": 6721,
+      "sha256": "6267d60e430fd9064a5bccbfea1e0ddc8b532d2ede129fdf22b52ace418e586e"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCore.cpp",
+      "bytes": 107,
+      "sha256": "ff6dd96c6eba6453c9163a276d64e79f836d5a39e5737420da144a3b568f6d2c"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulFaction.cpp",
+      "bytes": 2738,
+      "sha256": "baab06a8fb52e137ef626a459f806f6b7552242c4085b715b530adbc86b4cbdb"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHero.cpp",
+      "bytes": 1443,
+      "sha256": "c9c081a60569c7a02ce8d967a7a47158246390f96d132f55a2115e0404b0d6f8"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHeroRecruitment.cpp",
+      "bytes": 4740,
+      "sha256": "a3394d2c83d3000921f173facfd0f6aa2ffc677a185bf71c390db9dfb1541ba6"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHex.cpp",
+      "bytes": 8565,
+      "sha256": "57bf38283535e1e4f6477c0841aaf9dedb905e45456c5575b80bdea85a78fe2b"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulLogistics.cpp",
+      "bytes": 2247,
+      "sha256": "8ab46c19494bc2ec2a3b31d0580815fe406e6d1d099bfd3315b95d93c00edbe4"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulMagic.cpp",
+      "bytes": 718,
+      "sha256": "a70c084090327294ee7b1002709d878db041ffc644ec2508999aa766f78a3f8b"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulMemory.cpp",
+      "bytes": 3184,
+      "sha256": "06df8acafbbca5837c432365b35f0ec757a2de7d0db9846a92e50e1f76a95bee"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulObjectives.cpp",
+      "bytes": 3766,
+      "sha256": "a07cb3ab8a783136e3e49d600fd865bcb42ba1e29348e38142e7245d6d38491f"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulRetreat.cpp",
+      "bytes": 1686,
+      "sha256": "b2fac47a5695fea6a9509ae6980097d382de2a16665d53db68332eb71f7a6934"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSettlement.cpp",
+      "bytes": 5938,
+      "sha256": "af2519c1cd494d195c2551951a300be5c40ad8a1b8dc307478209dbd81d1fc3f"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSiege.cpp",
+      "bytes": 2220,
+      "sha256": "e58e330e21e62e3b42f29891ad98c77cac2a94a6923e2da9e8e2d96f002e4f64"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSiegeAftermath.cpp",
+      "bytes": 943,
+      "sha256": "9dfe6da21aeace8e5278109c21dbc8830dc3ee4ba4bc356b6db040c450b3a7c2"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulStrategyAI.cpp",
+      "bytes": 10590,
+      "sha256": "569837ea028ef261dfdf04ba1e1e64d8dba9b4e42ccfb81690a4249bf984e91e"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulTerrainTactics.cpp",
+      "bytes": 2619,
+      "sha256": "929e2948250d9b12127f0fb74144e86b683ef271e749e3aaf383c7360283cd2e"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulTown.cpp",
+      "bytes": 3191,
+      "sha256": "38463795976d451ce447dfeef8eb943dc1ee87bf72c57c81b99ceb13a974ab5d"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulVeterancy.cpp",
+      "bytes": 2339,
+      "sha256": "90e27c9693b954405c1551903fc729e597fbf622f5137f9f83116aa415fcbdba"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulWorld.cpp",
+      "bytes": 2593,
+      "sha256": "e28e9118b31454e49140c56a81a09a040fa43d57ea6057b565f6a861b3b5f5bf"
+    },
+    {
+      "path": "Source/SoulCore/Private/Tests/SoulHeroRecruitmentTests.cpp",
+      "bytes": 4050,
+      "sha256": "6ea7a612b299649dbb687921601fd5b9120db4fa93d920c84e01eeab0cc4953d"
+    },
+    {
+      "path": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "bytes": 34618,
+      "sha256": "5494912953d4dbd7b5b2beac8a583bae4fed8e788ac7f8974989e23f56f4bfda"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulBattlefieldRecipe.h",
+      "bytes": 1301,
+      "sha256": "452c874f1b316b882fa1c96f89174ba9f0ce915f57847570b68bd42ae6e71c79"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaign.h",
+      "bytes": 996,
+      "sha256": "8de411a2af0b2da46b2bee3467ccf697d9636781ee7b54c877cbfe3258b9cece"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaignBattleBridge.h",
+      "bytes": 2051,
+      "sha256": "1fa710146aa7804abfecbd0bf4d9f0e3b7193faefb59cfbb62cdaeee8f004ef3"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCombat.h",
+      "bytes": 1840,
+      "sha256": "28404aaa17619da7926c2186b28365f4b07395ccbeed00041311d74e266e2817"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCore.h",
+      "bytes": 40,
+      "sha256": "2de54d240f294ff7b7e2f9a3f698e968b4674b49df1814587d7b47576a267896"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulFaction.h",
+      "bytes": 638,
+      "sha256": "6725a36ab7130b31f3fb2afdbb4d509a8f42f031571104c674081b141f8fd160"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHero.h",
+      "bytes": 966,
+      "sha256": "a5726e77e0a772864ab592f0cf347a16b0efb04ac1132abe28306c52a87f1db7"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHeroRecruitment.h",
+      "bytes": 1942,
+      "sha256": "41b8f9eb0679e8f99b166f69cdd94579f022b5c00b374ec59f934a066ba9da22"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHex.h",
+      "bytes": 1304,
+      "sha256": "f94684207b773170aaa6c6ee502cc83ddcb74de05942d67ac3255030514fa9e5"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHUDTheme.h",
+      "bytes": 4680,
+      "sha256": "f908d8f040322f8a164f139d3f1026dfce6626091466460f97235230ef66c735"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulLogistics.h",
+      "bytes": 531,
+      "sha256": "3dce4546fd60608edfbf1bc3f40e99632b391892bfbdd47a06f9d663ab361204"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulMagic.h",
+      "bytes": 1037,
+      "sha256": "ff060c355c95a36101b2b538fff6fac9a659ece819682df864eba601d4f5bc94"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulMemory.h",
+      "bytes": 1123,
+      "sha256": "faa9a8a60cc77940857caa7fd86bd37ac543f88f67316ec0be64e7a045086e14"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulObjectives.h",
+      "bytes": 875,
+      "sha256": "e5d8a11e78fd30431ed649a31ff5906c941df6a02d6f7e8fcf4a934ceca1cdc6"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulRetreat.h",
+      "bytes": 552,
+      "sha256": "02d507c54dc6917cc81d1c8cadf6483fda4feb1b9dec907eaf376e27d6aa8215"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSettlement.h",
+      "bytes": 2214,
+      "sha256": "e2f5e5db6e170b7fe395dafbb43759a67a4a9bfeb22fc186290201d96759b804"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSiege.h",
+      "bytes": 1475,
+      "sha256": "7ecd87e7c6bb20ada29a31b6a142c358613a84599fd388939b8d8c4767d6e1ba"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSiegeAftermath.h",
+      "bytes": 376,
+      "sha256": "9184794362e0d10003eec0decb0df66cd92b25e0e0ec2ba65fb7a897e133f832"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulStrategyAI.h",
+      "bytes": 1891,
+      "sha256": "62a8e6cd5384eba59b250c292becc1d9fcb3af8f87fc8ae59fee5604b48f8ef6"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulTerrainTactics.h",
+      "bytes": 690,
+      "sha256": "7a007bd18aafffa675f1bfbd42ef44b98eb4dcf3457e7e40fd712c27c8f5daa8"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulTown.h",
+      "bytes": 979,
+      "sha256": "d83dccfacc77233afd14529fb803f95b63b362d56a08ac49b193094f99e484b3"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulTypes.h",
+      "bytes": 2375,
+      "sha256": "f375c6b3d9328f304a41c029044cdd3f95f5b0dd0cf89c63ae22388f064ac84c"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulVeterancy.h",
+      "bytes": 635,
+      "sha256": "5987315bbc41ef6444299e00d777ed7abd811d72418eba21855353ac1f1881a4"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulWorld.h",
+      "bytes": 1268,
+      "sha256": "9c6bc9273c017fd718f948745c7834e907be8bad541ac3b2dfc57144e1fa4bef"
+    },
+    {
+      "path": "Source/SoulCore/SoulCore.Build.cs",
+      "bytes": 295,
+      "sha256": "d4145cac60b0535cbfbf66a276dbba846171e245f94c76b60929a05b6d429777"
+    },
+    {
+      "path": "Source/SoulEditor.Target.cs",
+      "bytes": 777,
+      "sha256": "fe101a21445dbc47021e15a1019440e830fe34638fee54f64bc0bd212704f655"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+      "bytes": 18322,
+      "sha256": "a2eef21a85160bac9f9aaffbac6a46d2287198c74d33719b1a0a5b46d82a6e8f"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleArrow.cpp",
+      "bytes": 3421,
+      "sha256": "1197041f00233831727018061e98ddba0047479bdf23e2eae798c9b0d773f0e8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAudio.cpp",
+      "bytes": 4175,
+      "sha256": "1f7c7d3195401e700ea0f3c7ac7d525ad249fb27e8a9355779350e0672990cb6"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp",
+      "bytes": 6339,
+      "sha256": "064fddce1d721f35986d5a51eb57c5236eceabba3ad1c077eeab0d14e754c234"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+      "bytes": 21160,
+      "sha256": "0ced1f0e5a69772eb9006f5d0ab529f6a02ed99cc4c53baf82816a26cb80e59d"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleMagicProjectile.cpp",
+      "bytes": 4172,
+      "sha256": "1566a33bf8934a85e6364675f7ba7077e5c352c09760be4f6567773c1b26bbc7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp",
+      "bytes": 16428,
+      "sha256": "b36f3b0d3f83edd719f093ea13b2c1e041e24be3169e4f493848647470046024"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp",
+      "bytes": 19318,
+      "sha256": "8db3da7775da4b38a6c02c1c94df0f71de1e6e4906e1f3211666e9c546acc7c8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleSpellCue.cpp",
+      "bytes": 5731,
+      "sha256": "e96f760c2925607a250561114da33a55a38d71b1ea0e1c58c686be6a2cc91c0e"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattle.cpp",
+      "bytes": 96,
+      "sha256": "4ad3a575901b98d65dfa902795a47e3ffc544c51439820b1a7553acff92ecf41"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "bytes": 191170,
+      "sha256": "31067878347fe06e3567d74655486ebb307166bda749d6864d325babe63ff7db"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattlePBIL.cpp",
+      "bytes": 5769,
+      "sha256": "1c75faae4e7e821d82a16eb987d0ba113f71e1d2817e45cc053dd4bbbccb1a7f"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleRules.cpp",
+      "bytes": 8856,
+      "sha256": "a702ad60fe5d2eab1af1df01bc70ebc2694562ed54cb65df300f8c27b87436ca"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleSpatial.cpp",
+      "bytes": 4546,
+      "sha256": "2653ffad1da411e3f81dba400c9d7d031d60e95ab7761ba9536a9f33a54811d4"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleTactics.cpp",
+      "bytes": 8919,
+      "sha256": "9eb52c416b413a5d98293308ac20f439ff1d45fda5885750c6a778284b67f60d"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp",
+      "bytes": 12433,
+      "sha256": "711174de3e64d6cb59c7b5dd0b5e8b5fbbc01a2be86616814ad2b5a6ac840a42"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAudioTests.cpp",
+      "bytes": 3084,
+      "sha256": "203995e1195176b6fc93b1bb5ca144541988fe9a0afba558847823005a97bf07"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleCameraTests.cpp",
+      "bytes": 2522,
+      "sha256": "33a1c03e8fe864311daaaa89b71db99bb87637e12124e6df54489da8ab1e93e0"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattlePresentationTests.cpp",
+      "bytes": 3217,
+      "sha256": "57aa6f3b6634267d056f9fce172fa4cdfbc0a38d2140da469bc8d27563d559c7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulCreatureMeleeTests.cpp",
+      "bytes": 4111,
+      "sha256": "25aa2d992d7b9733a50ec172ff52dfa561dcd46c7b86c1f790d317df533b2b26"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulDragonBreathTests.cpp",
+      "bytes": 4513,
+      "sha256": "76e9ab400ab9a7c9b9649af54ff4762f8fa4c2cc28defee94b50258833ff40e7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulElephantBodyTests.cpp",
+      "bytes": 1540,
+      "sha256": "93d28970bcdbd2b4bef546b5e65e7a83fa6395abbd02665a35941fc86822e5d4"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulFormationSelectionTests.cpp",
+      "bytes": 2822,
+      "sha256": "ece1edcdd050674e8e05f3e21482ad2843f6d64fcc6fb20c75babef4d3054153"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulGroundOrdersTests.cpp",
+      "bytes": 3735,
+      "sha256": "91ee0ac9d2539479760130ccba1fe7498b78bbdbbef4485202510da7e85ed66c"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulMagicProjectileTests.cpp",
+      "bytes": 5324,
+      "sha256": "3db77ea574affd444c9a703bbc2238ccf8d8401e89b8c8d62a59f2bc2757ee44"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleLabTests.cpp",
+      "bytes": 16712,
+      "sha256": "d15cd406be524ed35a79ec0f7c2f59e0dd3e50e103f55b09111bedb7a9aaa08b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleMagicTests.cpp",
+      "bytes": 6473,
+      "sha256": "e0a4899459d0509e535eb151c9aa2f84c6fa703d52dc739c961fb6a14b74fad8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleSpatialTests.cpp",
+      "bytes": 3489,
+      "sha256": "6242eddf8e9ed7470f363c4fe21d49f6f729e47f2836e0dda3ee62adce130351"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleTacticsTests.cpp",
+      "bytes": 8811,
+      "sha256": "ec787bf9d8c1080443a90e0cd9469c7da4a74d44866c8fa9e20bae9b2d58dc34"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleTests.cpp",
+      "bytes": 8255,
+      "sha256": "374092149eb0a738009028a389b7d1d1f6706b7c0d87f8f86dd07871d394d46e"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulReinforcementScaleTests.cpp",
+      "bytes": 9666,
+      "sha256": "dda71ac81e9f5d497237541bc293b10a738ecd932913642bff5d8b2f97abc17a"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulSpellCueTests.cpp",
+      "bytes": 1608,
+      "sha256": "0f0855444212437599c80ff27440c4e021fd566c66075309af350483e2368cf2"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulSpellReadinessTests.cpp",
+      "bytes": 7025,
+      "sha256": "6a45c279ecc8c3caecfac77a3498cfaaf2b262049b0a9c50be2b84ff3217c93d"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulVerticalAnimationCompatibilityTests.cpp",
+      "bytes": 4352,
+      "sha256": "a43277bb3ee1544d59e5e113f7b6ae14d0deb5bf2ae4a643fd2a95720c0a6f31"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulVerticalReinforcementTests.cpp",
+      "bytes": 8587,
+      "sha256": "c874ccbf0bdfc377b9f85fb861569e3a4b5e9b3b49f4734d81e79c139da57f41"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulBattleArrow.h",
+      "bytes": 1015,
+      "sha256": "ee9b44bef0a31cce50dd8e5920a9409abebff7eb2728857aa32bb2a0ca484af2"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulBattleSpellCue.h",
+      "bytes": 1116,
+      "sha256": "8c7591e1c6009b45319a5604a869fd689d71f59f2ca8b96f6d7fd6cc7858ebcc"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "bytes": 18873,
+      "sha256": "42bc4cc453491bf4364ce22b1177dda310585ef14f5516d70a92e8dd6828d3de"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattlePBIL.h",
+      "bytes": 1352,
+      "sha256": "fe90d7a4d3071b5828cb65afe9512816189b0d39831714758ed80bdbcb68d217"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleRules.h",
+      "bytes": 2324,
+      "sha256": "4af20f11c5b2684b3e6f8620cc3db4a2b2e19f6cc3a14bb12a1dd76faaa9752a"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleSpatial.h",
+      "bytes": 801,
+      "sha256": "2e6509514aff1757f2be0c2d4ab258e343a8e33cf486061a44ec447cde7dc2a5"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleTactics.h",
+      "bytes": 3535,
+      "sha256": "f760a702c5a2a052f8bb09959b6cb2a23f407fa0f5a8ebe4ca7952a99ca053df"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/SoulRealtimeBattle.Build.cs",
+      "bytes": 852,
+      "sha256": "f727d60a895cb9c721813f542daa3ee1153f48f004a63651cecf803f87941ef0"
+    },
+    {
+      "path": "Data/CampaignComposition/HumanRuntimeProof.json",
+      "bytes": 3409,
+      "sha256": "ea6d8383ab52068130619bcf758e2023959b3666454f81bb6fb7fcbbd753a01d"
+    },
+    {
+      "path": "Data/CampaignComposition/PackageProfile.json",
+      "bytes": 16146,
+      "sha256": "ce40464a33362d86c3324613555097cc9c7f9526126f5ad97a778772c5f6ca20"
+    },
+    {
+      "path": "Data/CampaignComposition/presentation.json",
+      "bytes": 3957848,
+      "sha256": "ec86a555d7c68e8ef27c8249f6c8ca7c7635488a21af89ce535889c1158c9f72"
+    },
+    {
+      "path": "Data/CampaignComposition/RuntimeProof.json",
+      "bytes": 4804,
+      "sha256": "42bed583392bb844ded1222334739253e2cbd7afe47508c428ff4b5b3244ef3d"
+    },
+    {
+      "path": "Data/CampaignCompositionLocal/Composition_3500_r2.r16",
+      "bytes": 8331362,
+      "sha256": "ae7b50698f50edc92bb20980b392f067820ad35350a4a368f06323eb7897baaa"
+    }
+  ]
+}

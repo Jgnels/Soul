@@ -1,0 +1,222 @@
+{
+  "fresh_builds": [
+    {
+      "target": "SoulEditor",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T15:12:28.6956178Z",
+      "finished_utc": "2026-10-08T15:15:54.6233132Z",
+      "exit_code": 6,
+      "arguments": [
+        "SoulEditor",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-gather",
+        "-OverrideBuildEnvironment",
+        "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Local\\build-editor-r1.log.result.json",
+      "elapsed_wall_seconds": 205.927696
+    },
+    {
+      "target": "SoulEditor",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T15:17:48.6052378Z",
+      "finished_utc": "2026-10-08T15:18:18.6039498Z",
+      "exit_code": 0,
+      "arguments": [
+        "SoulEditor",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-OverrideBuildEnvironment",
+        "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Local\\build-editor-r2.log.result.json",
+      "elapsed_wall_seconds": 29.998712
+    },
+    {
+      "target": "Soul",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T15:19:06.8944219Z",
+      "finished_utc": "2026-10-08T15:22:51.8310394Z",
+      "exit_code": 0,
+      "arguments": [
+        "Soul",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Local\\build-game-r1.log.result.json",
+      "elapsed_wall_seconds": 224.936618
+    },
+    {
+      "target": "SoulComposition",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T15:23:45.2128697Z",
+      "finished_utc": "2026-10-08T15:33:29.7506721Z",
+      "exit_code": 0,
+      "arguments": [
+        "SoulComposition",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Local\\build-composition-r1.log.result.json",
+      "elapsed_wall_seconds": 584.537803
+    },
+    {
+      "target": "SoulComposition",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T17:03:39.3245884Z",
+      "finished_utc": "2026-10-08T17:03:47.6241448Z",
+      "exit_code": 6,
+      "arguments": [
+        "SoulComposition",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Local/build-composition-r2.log.result.json",
+      "elapsed_wall_seconds": 8.299556
+    },
+    {
+      "target": "SoulComposition",
+      "configuration": "Win64 Development",
+      "started_utc": "2026-10-08T17:04:56.6774371Z",
+      "finished_utc": "2026-10-08T17:05:24.6430664Z",
+      "exit_code": 0,
+      "arguments": [
+        "SoulComposition",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile"
+      ],
+      "compatibility_header_sha256": "4DDFD230A62822F429F9B55B164E68C9058E5023F29E42F7BC814FDE5D8FAC0E",
+      "receipt": "Local/build-composition-r3.log.result.json",
+      "elapsed_wall_seconds": 27.965629
+    }
+  ],
+  "final_editor_pass": true,
+  "game_pass": true,
+  "composition_target_pass": true,
+  "initial_editor_failure": "Test-only UE5.8 TSharedString key conversion; corrected before fresh editor/game/native qualification.",
+  "native": {
+    "native-default-r1": {
+      "command": [
+        "C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-unattended",
+        "-nosound",
+        "-nullrhi",
+        "-nop4",
+        "-nosplash",
+        "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+        "-DDC=InstalledNoZenLocalFallback",
+        "-ExecCmds=Automation RunTests Soul.Integration.CampaignWorld",
+        "-TestExit=Automation Test Queue Empty",
+        "-ReportExportPath=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\ProductionContinuation-20261008\\Local\\native-default-r1\\report",
+        "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\ProductionContinuation-20261008\\Local\\native-default-r1\\unreal.log"
+      ],
+      "binary_sha256": "703a2cf560d1bbfeb6617610204c1dc9d3b69bf4f85cfe53da5d0804b36f8a78",
+      "exit_code": 0,
+      "seconds": 79.97764277458191,
+      "tests": [
+        "[2026.10.08-15.35.38:282][292]LogAutomationController: Display: Test Completed. Result={Success} Name={CameraAndSelection} Path={Soul.Integration.CampaignWorld.CameraAndSelection}",
+        "[2026.10.08-15.35.39:404][294]LogAutomationController: Display: Test Completed. Result={Success} Name={TerrainAndRoutes} Path={Soul.Integration.CampaignWorld.TerrainAndRoutes}"
+      ],
+      "pass": true
+    },
+    "native-composition-r1": {
+      "command": [
+        "C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+        "-unattended",
+        "-nosound",
+        "-nullrhi",
+        "-nop4",
+        "-nosplash",
+        "-DisablePlugins=AndroidFileServer,NwiroIntegrationKit",
+        "-DDC=InstalledNoZenLocalFallback",
+        "-ExecCmds=Automation RunTests Soul.Integration.CampaignWorld",
+        "-TestExit=Automation Test Queue Empty",
+        "-ReportExportPath=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\ProductionContinuation-20261008\\Local\\native-composition-r1\\report",
+        "-abslog=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\ProductionContinuation-20261008\\Local\\native-composition-r1\\unreal.log",
+        "-SoulComposition"
+      ],
+      "binary_sha256": "703a2cf560d1bbfeb6617610204c1dc9d3b69bf4f85cfe53da5d0804b36f8a78",
+      "exit_code": 0,
+      "seconds": 23.114738941192627,
+      "tests": [
+        "[2026.10.08-15.37.47:566][294]LogAutomationController: Display: Test Completed. Result={Success} Name={CameraAndSelection} Path={Soul.Integration.CampaignWorld.CameraAndSelection}",
+        "[2026.10.08-15.37.48:401][296]LogAutomationController: Display: Test Completed. Result={Success} Name={TerrainAndRoutes} Path={Soul.Integration.CampaignWorld.TerrainAndRoutes}"
+      ],
+      "pass": true
+    }
+  },
+  "source_and_tool_tests": [
+    {
+      "path": "Local/source-contracts-r1.txt",
+      "pass": true,
+      "count": 13,
+      "scope": "7 package + 6 continuation contracts"
+    },
+    {
+      "path": "Local/campaign-source-tests-r1.txt",
+      "pass": true,
+      "count": 18,
+      "scope": "campaign source contracts"
+    },
+    {
+      "path": "Local/process-guard-test.txt",
+      "pass": true,
+      "count": 1,
+      "scope": "SoulComposition recognized by one-process guard"
+    }
+  ],
+  "default_package_preflight": "Local/default-package-preflight-r1.txt",
+  "default_package_preflight_pass": true,
+  "binaries": {
+    "Binaries/Win64/UnrealEditor-Soul.dll": "703a2cf560d1bbfeb6617610204c1dc9d3b69bf4f85cfe53da5d0804b36f8a78",
+    "Binaries/Win64/Soul.exe": "7c6936f4136e0c954fcc9ac231a255278cc927330a55db02f9816154024506ac",
+    "Binaries/Win64/SoulComposition.exe": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa"
+  },
+  "clean_checkout_reproduction_claimed": false,
+  "composition_descriptor_fix": "Target-wide EnablePlugins attempt rejected by shared installed environment (r2); exact candidate-only NonUFS descriptor retained (r3 PASS, metadata only, binary unchanged).",
+  "actual_stage_runtime_receipt": "packaged-runtime-results.json"
+}

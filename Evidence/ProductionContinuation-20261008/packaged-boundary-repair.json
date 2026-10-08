@@ -1,0 +1,22 @@
+{
+  "initial_cooked_launch": "Local/packaged-input-r1/runtime/summary.json",
+  "initial_failure": "HDRIBackdrop content cooked and staged, but its descriptor was not a declared target dependency; explicit runtime EnablePlugins failed before rendering.",
+  "rejected_fix": {
+    "method": "TargetRules.EnablePlugins.Add(HDRIBackdrop)",
+    "result": "Installed shared build environment rejected target-wide enable; attempt preserved in Local/build-composition-r2.log. No unique-build or engine-source rebuild attempted."
+  },
+  "retained_fix": {
+    "source": "Source/Soul/Soul.Build.cs",
+    "target": "SoulComposition only",
+    "dependency": "$(EngineDir)/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin",
+    "type": "NonUFS",
+    "reason": "Plugin has only an Editor module, but cooked content needs its runtime mount descriptor. Existing cook/launch already explicitly enable it.",
+    "build": "Local/build-composition-r3.log.result.json",
+    "game_binary_sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+    "gameplay_binary_changed": false,
+    "project_configuration_changed": false,
+    "donor_plugin_changed": false
+  },
+  "corrected_stage": "Local/stage-loose-r2/Diagnostics/receipt.json",
+  "runtime_result": "PASS: packaged-input-r2, packaged-load-r1, packaged-human-r1. Actual screenshots reviewed; see packaged-runtime-results.json."
+}

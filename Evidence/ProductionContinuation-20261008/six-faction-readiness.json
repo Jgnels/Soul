@@ -1,0 +1,250 @@
+{
+  "schema": 1,
+  "status": "CONFIGURATION_GROUNDWORK_NOT_RUNTIME_SCENARIO",
+  "canonical_start_source": "Data\\soul_campaign_start_states_v1_20260922.json",
+  "canonical_start_sha256": "195cfe3e7c734e436ffd5cbbc8f7c0993bcee89a892274aaa15c18d295db74e5",
+  "geography_source": "Data\\soul_world_overmap_v1_20260922.json",
+  "geography_sha256": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+  "regions": 36,
+  "legal_pairs": 51,
+  "factions": [
+    {
+      "faction": "humans",
+      "capital_region": "human_capital",
+      "secondary_region": "crossroads",
+      "physical_capital_cm": [
+        -102254.90196,
+        -8921.56863,
+        308.59375
+      ],
+      "canonical_starting_possessions": [
+        "human_capital",
+        "crossroads"
+      ],
+      "canonical_neutral_frontier": [
+        "coastal_ruins",
+        "forest_edge",
+        "northwest_march",
+        "old_quarry",
+        "river_ford"
+      ],
+      "army_profile": "STARTING_FIELD_ARMY_BALANCE_PENDING",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "runtime_enabled": false,
+      "actual_adjacent_frontier_ids": [
+        "coastal_ruins",
+        "forest_edge",
+        "northwest_march",
+        "old_quarry",
+        "river_ford"
+      ],
+      "declared_frontier_not_immediately_adjacent": [],
+      "capital_secondary_legal_connection": true
+    },
+    {
+      "faction": "vikings",
+      "capital_region": "viking_harbour",
+      "secondary_region": "viking_forest_track",
+      "physical_capital_cm": [
+        -89215.68627,
+        -75490.19608,
+        286.71875
+      ],
+      "canonical_starting_possessions": [
+        "viking_harbour",
+        "viking_forest_track"
+      ],
+      "canonical_neutral_frontier": [
+        "northwest_march",
+        "viking_fjord_ridge",
+        "viking_snow_pass"
+      ],
+      "army_profile": "STARTING_FIELD_ARMY_BALANCE_PENDING",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "runtime_enabled": false,
+      "actual_adjacent_frontier_ids": [
+        "northwest_march",
+        "viking_fjord_ridge",
+        "viking_snow_pass"
+      ],
+      "declared_frontier_not_immediately_adjacent": [],
+      "capital_secondary_legal_connection": true
+    },
+    {
+      "faction": "dwarves",
+      "capital_region": "dwarf_hold",
+      "secondary_region": "dwarf_forge_approach",
+      "physical_capital_cm": [
+        100196.07843,
+        -113235.29412,
+        3649.21875
+      ],
+      "canonical_starting_possessions": [
+        "dwarf_hold",
+        "dwarf_forge_approach"
+      ],
+      "canonical_neutral_frontier": [
+        "dwarf_high_quarry",
+        "dwarf_snow_basin",
+        "north_pass"
+      ],
+      "army_profile": "STARTING_FIELD_ARMY_BALANCE_PENDING",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "runtime_enabled": false,
+      "actual_adjacent_frontier_ids": [
+        "dwarf_high_quarry",
+        "dwarf_snow_basin",
+        "north_pass"
+      ],
+      "declared_frontier_not_immediately_adjacent": [],
+      "capital_secondary_legal_connection": true
+    },
+    {
+      "faction": "orcs",
+      "capital_region": "orc_camp",
+      "secondary_region": "orc_war_camp",
+      "physical_capital_cm": [
+        94705.88235,
+        -27450.98039,
+        3546.875
+      ],
+      "canonical_starting_possessions": [
+        "orc_camp",
+        "orc_war_camp"
+      ],
+      "canonical_neutral_frontier": [
+        "north_pass",
+        "orc_badlands",
+        "orc_watch"
+      ],
+      "army_profile": "STARTING_FIELD_ARMY_BALANCE_PENDING",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "runtime_enabled": false,
+      "actual_adjacent_frontier_ids": [
+        "north_pass",
+        "orc_badlands",
+        "orc_watch"
+      ],
+      "declared_frontier_not_immediately_adjacent": [],
+      "capital_secondary_legal_connection": true
+    },
+    {
+      "faction": "nature",
+      "capital_region": "nature_treehold",
+      "secondary_region": "nature_forest_clearing",
+      "physical_capital_cm": [
+        -101568.62745,
+        124215.68627,
+        10070.3125
+      ],
+      "canonical_starting_possessions": [
+        "nature_treehold",
+        "nature_forest_clearing"
+      ],
+      "canonical_neutral_frontier": [
+        "nature_river_woodland",
+        "nature_shrine"
+      ],
+      "army_profile": "STARTING_FIELD_ARMY_BALANCE_PENDING",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "runtime_enabled": false,
+      "actual_adjacent_frontier_ids": [
+        "nature_river_woodland",
+        "nature_shrine"
+      ],
+      "declared_frontier_not_immediately_adjacent": [],
+      "capital_secondary_legal_connection": true
+    },
+    {
+      "faction": "dark",
+      "capital_region": "dark_fortress",
+      "secondary_region": "dark_castle_approach",
+      "physical_capital_cm": [
+        118039.21569,
+        149607.84314,
+        2164.0625
+      ],
+      "canonical_starting_possessions": [
+        "dark_fortress",
+        "dark_castle_approach"
+      ],
+      "canonical_neutral_frontier": [
+        "dark_ash_plain",
+        "dark_ruined_causeway"
+      ],
+      "army_profile": "STARTING_FIELD_ARMY_BALANCE_PENDING",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "runtime_enabled": false,
+      "actual_adjacent_frontier_ids": [
+        "dark_ash_plain",
+        "dark_ruined_causeway"
+      ],
+      "declared_frontier_not_immediately_adjacent": [],
+      "capital_secondary_legal_connection": true
+    }
+  ],
+  "owned_start_regions": 12,
+  "neutral_start_regions": 24,
+  "blockers": [
+    {
+      "area": "save validation",
+      "current": "accepts player/enemy/neutral only",
+      "required": "Explicit admitted faction set and adversarial restore tests; retain RBSave domains."
+    },
+    {
+      "area": "battle roster binding",
+      "current": "one PlayerUnitId/EnemyUnitId pair; FSoulCampaignBattleDescriptor::IsValid explicitly accepts only humans/human_knight versus dwarves/dwarf_warrior",
+      "required": "Admit reviewed roster/presentation bindings through the existing descriptor and Combat bridge; keep rejection of unsupported matchups until each binding is qualified. Do not merely remove the whitelist or cosmetically relabel a faction."
+    },
+    {
+      "area": "army state and AI",
+      "current": "static founder garrisons; no multi-faction strategic army controller",
+      "required": "Use existing SoulCore commander/army rules with explicit deterministic scheduling."
+    },
+    {
+      "area": "recruitment and settlement development",
+      "current": "Human capital roster and one active development scenario",
+      "required": "Admitted faction definitions and existing state authority bindings; no six-city proof project."
+    },
+    {
+      "area": "balance and diplomacy",
+      "current": "canonical sandbox candidate still marks starting army balance pending",
+      "required": "Product approval of starting forces/diplomacy before activation."
+    },
+    {
+      "area": "save compatibility",
+      "current": "composition uses isolated slots; 9-region shapes rejected by existing validator",
+      "required": "No implicit migration. A future reviewed migration must preserve old slot and both save domains."
+    }
+  ],
+  "new_gameplay_authority": false,
+  "runtime_fixture_ownership_changed": false,
+  "runtime_identity_gate": {
+    "source": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+    "player_faction": "humans",
+    "player_unit": "human_knight",
+    "enemy_faction": "dwarves",
+    "enemy_unit": "dwarf_warrior",
+    "qualified_six_faction_roster_definitions": false
+  },
+  "configuration_contract": {
+    "runtime_activation": false,
+    "starting_forces": "BALANCE_LAB_OWNED_PENDING",
+    "diplomacy": "UNSET",
+    "required_roster_shape": {
+      "total": 7,
+      "fighters": 4,
+      "ranged": 1,
+      "support_magic": 1,
+      "apex": 1,
+      "quadruped_body_plans": 1,
+      "heroes_separate": true
+    },
+    "shape_authority": "Source/SoulCore/Private/SoulFaction.cpp"
+  },
+  "implementation_sources": {
+    "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp": "f2638b40e288400be687d3d9dfb742bba0b31d53c685e3ec97cc73859815ec4a",
+    "Source/SoulCore/Private/SoulFaction.cpp": "baab06a8fb52e137ef626a459f806f6b7552242c4085b715b530adbc86b4cbdb",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp": "f1591fdfcf57260fdb360a92ff71cd32106427d4cf893804b0f08b557d30f1be"
+  }
+}

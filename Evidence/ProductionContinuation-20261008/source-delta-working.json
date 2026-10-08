@@ -1,0 +1,80 @@
+[
+  {
+    "path": "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
+    "baseline_sha256": "27b40145888a99e2b65cd8353347be7f2cade5faeb3c66e001e5d9672f63d824",
+    "current_sha256": "7ac60108a50aeda763df7cda286cd2ebb94d7db464cb0e029b216018957eae45",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "baseline_sha256": "eaaa0bf3e729790ac1c3cb7de2457fcc5b802be710a19d054e8a2262e1a3eae9",
+    "current_sha256": "f1591fdfcf57260fdb360a92ff71cd32106427d4cf893804b0f08b557d30f1be",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp",
+    "baseline_sha256": "71077bc53b1146186b5526cd7bedca8a37214c4fe9a81b918ea71a95e7aabe70",
+    "current_sha256": "341719d0c63641f16a5d9742d7171de1fa829c69fbe29fb5ba3853f8d105695e",
+    "inherited_modified": false
+  },
+  {
+    "path": "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+    "baseline_sha256": "27cd70e1fe48fbe84edb8129763b34fabdaea279f0106d7ee0af701132026149",
+    "current_sha256": "8af74b55d269af599179c032f436706e213f0e38ce03eb0f3875e56ca425d947",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+    "baseline_sha256": "558de861a83e2e57719ad68679a120c1a027b54bce5eec7e0feb1cd0b7469304",
+    "current_sha256": "fda980ca69dd2e0200dfe012afd7935fd6045cf59908212e91dcdac7196838f0",
+    "inherited_modified": false
+  },
+  {
+    "path": "Source/Soul/Soul.Build.cs",
+    "baseline_sha256": "b9a480fa12cc1421b4a076fb886c88f33d7e8ce3b4b386cb03fbc58251f80063",
+    "current_sha256": "e58038926d9db5347a801b2fbb353ad3e55a97ac30c58a5c910dd527cf22f330",
+    "inherited_modified": true
+  },
+  {
+    "path": "Source/SoulComposition.Target.cs",
+    "baseline_sha256": null,
+    "current_sha256": "bc564b6599dbf31f99c18b9d4bbc64d01fe6c744aac61e9fc4b268c7b71e4f77",
+    "inherited_modified": false
+  },
+  {
+    "path": "Tools/build_soul_terrain.ps1",
+    "baseline_sha256": "830f34cb90b87dd7ca1d033260d9affd6a9651ce2d1b7ed1f39c0c52f5a9cb09",
+    "current_sha256": "d0c1df16e29f84fe86835ae33bd4d4487143a2131c293eabf4c8c79170560cbb",
+    "inherited_modified": false
+  },
+  {
+    "path": "Tools/test_package_soul_weekend.py",
+    "baseline_sha256": "b6c81531c2ba6730f3b38a6d3366c4e89d80ed6307b5f0ce62617006ee51d1ea",
+    "current_sha256": "53c31a3cb63a467df5e408275064f3b4e40d5a7fd8fb7043846f866f9021c9b0",
+    "inherited_modified": true
+  },
+  {
+    "path": "Tools/package_soul_weekend.ps1",
+    "baseline_sha256": "eb1c1bb04f588a6c38c2e42d4a7c543903fccf23d9a31538632c7887a94c240c",
+    "current_sha256": "46169759f037b57cb5e3ee9fcb2dac3e364d10c1c75235893b46271f7f024387",
+    "inherited_modified": true
+  },
+  {
+    "path": "Tools/qualify_soul_vertical.py",
+    "baseline_sha256": "b4892894eab8d31328bbb66e7772a352c16922a00ce12d0a72cd6c994ba34f26",
+    "current_sha256": "622f393ff8344245b7de19ee144ae53a8062b37232119f532270793bc7f3caf1",
+    "inherited_modified": true
+  },
+  {
+    "path": "Tools/test_qualify_soul_vertical.py",
+    "baseline_sha256": "3db5a1def908a871316d0a664b91af145929da099af53bbd01c70e202e6102cc",
+    "current_sha256": "6994a1f504324a9c06da47493901ef7d899845153706546345abaffce80b7f83",
+    "inherited_modified": true
+  },
+  {
+    "path": "Tools/Stage-SoulTcatResources.ps1",
+    "baseline_sha256": "ae2e4b03579ece41400c38a7cbe6e9290b8a105dbdca541c70a670b728ec98ad",
+    "current_sha256": "09feccc46fa4707e33be54bc6983d54c7821920d7e2c06ee61ebbe321a0477b9",
+    "inherited_modified": false
+  }
+]
