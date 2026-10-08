@@ -1,0 +1,956 @@
+{
+  "pass": true,
+  "commit": "563ec9933eadd750c46ccc19b91c0b5c82a233d2",
+  "checked_utc": "2026-10-08T21:39:19.455275+00:00",
+  "compiled_source_files": 157,
+  "all_source_tracked": true,
+  "git_replay_matches_all_compiled_sources": true,
+  "normalization": "Git LF versus working CRLF only; no source patch or inactive experimental translation unit required.",
+  "fresh_build_receipt": "fresh-builds-orc-r1.json",
+  "runtime_receipt": "orc-matchup-result.json",
+  "dependency_boundary": "Verified against the actual freshly compiled inputs on this worker, with existing licensed/local assets and installed toolchain. Not a separate asset-free machine build or bit-identical PE timestamp claim.",
+  "rows": [
+    {
+      "path": "Source/Soul/Private/Soul.cpp",
+      "git_blob": "79b4f5633af5a749c9fa966d9fc164f5b413ca94",
+      "compiled_working_sha256": "5ebd62f6042d30fee1e28325ce767fbdf2cda97dc0ecc371c27e45d447a4c6de",
+      "replayed_git_sha256": "ae2b928984eba8050baf523286f055ccd03d6337879ecdf10b560afc43109a41"
+    },
+    {
+      "path": "Source/Soul/Private/SoulAuthoredEnvironmentSurvey.cpp",
+      "git_blob": "0d8d782d18c1898de0df1c64ed352d4abb0c7766",
+      "compiled_working_sha256": "55442a49e99965dbb037b525dc9e92664d7fb10e6d923fcb8b6e5fe7887ba4ee",
+      "replayed_git_sha256": "c0c7fd7c53c255c735d8f9ef9abf055df9bad1cd11e168f8e96c17cf2d4f767d"
+    },
+    {
+      "path": "Source/Soul/Private/SoulAuthoredSettlementQualification.cpp",
+      "git_blob": "687af8d4cb15ccfd68df10558e6ead13343f62fc",
+      "compiled_working_sha256": "7ac60108a50aeda763df7cda286cd2ebb94d7db464cb0e029b216018957eae45",
+      "replayed_git_sha256": "6e6678a0c5497ca2c85dc0096b613d99aca222855543b8cc3a86b295a9894f73"
+    },
+    {
+      "path": "Source/Soul/Private/SoulBattlefieldGridActor.cpp",
+      "git_blob": "903070caf6ed2fcfd7a9880400468bf94057011a",
+      "compiled_working_sha256": "7dc27616665f5ff02ddc4d7eeae810917944ceb3c49397ac4847647ebbace783",
+      "replayed_git_sha256": "a343e34396a97672da7f7a6b23e7046d175051242ca72552babb203ec24ba88b"
+    },
+    {
+      "path": "Source/Soul/Private/SoulBattlefieldLayoutActor.cpp",
+      "git_blob": "323b23e91c05e4b28e4a4d4d6497fd75fb5e9aec",
+      "compiled_working_sha256": "5636ac77f06d82b45623e25eafa888f76b3ef636d2309b7e24c84f71b8ff4a7f",
+      "replayed_git_sha256": "35163c50b243aa243b719d91308738aa04877adb9db572bfe9a420a21e7467ed"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignCamera.cpp",
+      "git_blob": "4631f43d541f8a58530e0d0144649649dfa7e73f",
+      "compiled_working_sha256": "0d3f468fe0c48230b039f035eaead91db926aba2ed8e746fe38ad6f2c753b2a2",
+      "replayed_git_sha256": "0d3f468fe0c48230b039f035eaead91db926aba2ed8e746fe38ad6f2c753b2a2"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignTerrain.cpp",
+      "git_blob": "20f700bfeb7e88ef89e94cf3c3653cf73ca8dfbf",
+      "compiled_working_sha256": "fd9a732f0873524e3b4e0cf3f454725208d25e0f14c48adeffac688d423cb44f",
+      "replayed_git_sha256": "fd9a732f0873524e3b4e0cf3f454725208d25e0f14c48adeffac688d423cb44f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignVisualQualification.cpp",
+      "git_blob": "0faae2ae12ec23b3e1fd7eaf61ad67037e3971b9",
+      "compiled_working_sha256": "abc5d75b9c84a5e120031b7a0fab91fee1a8c739447e60528dfd0d10d1758898",
+      "replayed_git_sha256": "abc5d75b9c84a5e120031b7a0fab91fee1a8c739447e60528dfd0d10d1758898"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+      "git_blob": "8c834df007d84c26d885d500011e8a4f4bc7383e",
+      "compiled_working_sha256": "9b1661651cfdf747832b6d60515533ef87a6a2cf8a0d99c0daeac28a88f7983b",
+      "replayed_git_sha256": "9b1661651cfdf747832b6d60515533ef87a6a2cf8a0d99c0daeac28a88f7983b"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCompositionTraversalQualification.cpp",
+      "git_blob": "e84bf7c99c0ee6c1367637dcb2b6a4c383330052",
+      "compiled_working_sha256": "ad2a9127589d9e8c69c6012ddf462ea20a477a4d2032e500060c96688e70ac88",
+      "replayed_git_sha256": "eba2febe43d7365ac9ea0c5cd1ee339f86877e53184c38546b0cc0dc05d58830"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFortificationSegmentActor.cpp",
+      "git_blob": "f6800ee8aea0c20618fb36eb104de8a44597c848",
+      "compiled_working_sha256": "a403ce063b72e0cf9ab19a8e74db549575ae8c3c75c19c890195886143fa0427",
+      "replayed_git_sha256": "151e70e169b26a4bf51430ccab04cc84af7a603c631890180d038c1d05fb9e3e"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFoundationBridge.cpp",
+      "git_blob": "77336e9cf686312f71f43223f4d56b7fcac43b04",
+      "compiled_working_sha256": "0cc020bf1fb33b52a82ef59fe32a16c82ef36d195afbdeaab7d434b9be8e0d95",
+      "replayed_git_sha256": "fa6f359fe6520305df93cd0e85f4dd84e7f52e15f83faf14d56ae47d0423c1db"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+      "git_blob": "ad5b6b6f14b05ea9600200dbaa697cadf138b15e",
+      "compiled_working_sha256": "2da54962dd8f221f732a60bda8aa1612f662550ab7a9ad9bd9528880d8b52353",
+      "replayed_git_sha256": "4456726795378a650640a121f92b30a59b7038d1adcc7b4c51a964b1156f6424"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "git_blob": "e8d5a9f4944dec0cc24c72fed323ebe68fc73857",
+      "compiled_working_sha256": "e22aa6aa862bc14504c403a333ecf8202dfc8537504dd82b02d796ee224c4134",
+      "replayed_git_sha256": "e22aa6aa862bc14504c403a333ecf8202dfc8537504dd82b02d796ee224c4134"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "git_blob": "4b7f822d6584797705023a387e1c78ad46c58e08",
+      "compiled_working_sha256": "e5d7aa7577082d604532ac345407cd6a83b96a3e818d4485a64e383f79d1d629",
+      "replayed_git_sha256": "e5d7aa7577082d604532ac345407cd6a83b96a3e818d4485a64e383f79d1d629"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "git_blob": "e727717b3b1241c7e5eebfa17f8f16e67e675463",
+      "compiled_working_sha256": "9c14b60ff7e24930fd814bb5097d4a0eb8ea56f7f3675fe4c4e17ee873dff362",
+      "replayed_git_sha256": "9c14b60ff7e24930fd814bb5097d4a0eb8ea56f7f3675fe4c4e17ee873dff362"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "git_blob": "4ac45f1b9761e300664b003c403f4349980c766d",
+      "compiled_working_sha256": "ac2ef6cc3ab4f4ead2094ddaef7bd5678b8ac6188f50f80186828aebd36fd3fd",
+      "replayed_git_sha256": "ac2ef6cc3ab4f4ead2094ddaef7bd5678b8ac6188f50f80186828aebd36fd3fd"
+    },
+    {
+      "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+      "git_blob": "cd3c3618b6fc2eeeeed9bfb6d88a8599cc63d6d1",
+      "compiled_working_sha256": "4322e5eceecfa4e29bc0477e7c580c0747797875fa34164075fad88ad619b32b",
+      "replayed_git_sha256": "4322e5eceecfa4e29bc0477e7c580c0747797875fa34164075fad88ad619b32b"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementAssetAuthoring.cpp",
+      "git_blob": "557bb9dccc3cfb3f87fd90abd791cc365b5f9ee0",
+      "compiled_working_sha256": "4296ddc3eab8dd66667481a78eb5034645dd591e7a435568608a5e559327a696",
+      "replayed_git_sha256": "4296ddc3eab8dd66667481a78eb5034645dd591e7a435568608a5e559327a696"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBootstrapActor.cpp",
+      "git_blob": "8d3b9fcfa240c0d3ce6f627cc2b317939b86b9d6",
+      "compiled_working_sha256": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab",
+      "replayed_git_sha256": "91d53d27ac0fef3d55c2e4a291cc6863a67f9bf02a78004d108b54a66b6bf3f4"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBuildingActor.cpp",
+      "git_blob": "316a80c97dc5ffc9b40024bea2c0327263fc815b",
+      "compiled_working_sha256": "8a6560cbdef3cac7864cb92738e50eb66b59c334bb8cb71e43765d2978908811",
+      "replayed_git_sha256": "99f13cea9ed436fff55c493706315ffa02711984b519d73431613474b9dd72be"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementDevelopmentQualification.cpp",
+      "git_blob": "9dd628816cca38bf5c2526588a7c02d5812052e5",
+      "compiled_working_sha256": "341719d0c63641f16a5d9742d7171de1fa829c69fbe29fb5ba3853f8d105695e",
+      "replayed_git_sha256": "714f5a39e1a5c28f2e38ded6a0eb4af9f6b7e896261cc814a46102feac506065"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementPresentationController.cpp",
+      "git_blob": "965e20735975cff3982b9dec43cbfa4dd5c4dfb7",
+      "compiled_working_sha256": "54bd7769488d2b0cc02e1b12262e78fb8e24e8ca2dd2013afe79b2319bce95e4",
+      "replayed_git_sha256": "a397a7a7db401254bc6112986c8778f83f0a3e2c6c0ed793b9dd6e27add005e7"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementScenarioData.cpp",
+      "git_blob": "3bb4568d11bc9abbc3e5ba59391d5f72091b0587",
+      "compiled_working_sha256": "7914ec1ea98a6d2ddfce2df0d302460b64d59cccf0e6ecfafe14465866f09c72",
+      "replayed_git_sha256": "7914ec1ea98a6d2ddfce2df0d302460b64d59cccf0e6ecfafe14465866f09c72"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementStateSubsystem.cpp",
+      "git_blob": "d01bccab46728a038f59c34e2f25517cec656a8e",
+      "compiled_working_sha256": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864",
+      "replayed_git_sha256": "9ae0a19abde5f060f1adb02f246bdd64cd50574a1001cc739dbee5debffa1d09"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementVisitGameMode.cpp",
+      "git_blob": "4713e2f3bb4e93bb48be1db99224988c7c03473d",
+      "compiled_working_sha256": "f38fad7c5ef6f4a6b85f0986267d8bb339a3e6a34c4f0dec1a2fb619457bffb4",
+      "replayed_git_sha256": "f38fad7c5ef6f4a6b85f0986267d8bb339a3e6a34c4f0dec1a2fb619457bffb4"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSiegeObjectiveActor.cpp",
+      "git_blob": "5526bbdb04e12c9e3928e271bc54c2d23a68fd03",
+      "compiled_working_sha256": "9eddcd19190f3968563f04c5663c13ca7d7256347b4c28a4f1a356e2988022e7",
+      "replayed_git_sha256": "af7129d9daf14017c32064a46e4f4c4b9ab849f307b798f2a67645c8ae9529f4"
+    },
+    {
+      "path": "Source/Soul/Private/SoulTownViewAnchor.cpp",
+      "git_blob": "817814d1ba0fbce436540d0c49ceb19f3ca5dab1",
+      "compiled_working_sha256": "9b83d8adff8e197107acb7fe134bc50c069e44b28f3af44a705fcdfd38fb39cb",
+      "replayed_git_sha256": "1eaa3f08deedc9005defd209b5aa3f92fe63807f68af5ed248431effbe06548d"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulBattlefieldGridTests.cpp",
+      "git_blob": "268c458828d2ee8efbf2f82c381dc88baba7b790",
+      "compiled_working_sha256": "6d897c60aef606b463c49733d2d5f2c8e32dd125f911fdc50f454d5e9cca65a3",
+      "replayed_git_sha256": "1cff44f78c564d96eeffa329fc4d0528c5b99fefbea4459dfe94ecb5a7a989fc"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulBattlefieldSelectionTests.cpp",
+      "git_blob": "1f84d8d005609c18bcf943c064a7ef097b38b44b",
+      "compiled_working_sha256": "c1a629f270a5d3c3c7c4d326a6af8db9c6dea6fe6858461a250d18e1d7c8bd6d",
+      "replayed_git_sha256": "519765288fd83fb46bb157d65d2814d1d055bb4e8e2b581c648417badfef764b"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulBattleResultValidationTests.cpp",
+      "git_blob": "aa2791a6c40d2f8967c01790db1f2282a4ff3906",
+      "compiled_working_sha256": "27e0e9838e892fb78c93742c6d03ba52b38c7f596b607173a41e1b2c3c9ccf6b",
+      "replayed_git_sha256": "ffd9db5aa7212575fa5ef89f4041fbc449fc05c66aca2a19ff919547a0d6e562"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulCampaignManaTests.cpp",
+      "git_blob": "d848e7bcdf669a7e6b6bdf05215e8e61a08bdd77",
+      "compiled_working_sha256": "0eeca49a83770595591f521c713bf2e84543b3eafb8fb468db171ac0f2f60f06",
+      "replayed_git_sha256": "dd4d92f937741ed67dc0e1b01ded7bee15b24682bb7d480a54bb39efb51061d9"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+      "git_blob": "76b68bb63092830d17a38113d65568c60f3ab16a",
+      "compiled_working_sha256": "83b4f9d388b07874e5a5adaaecdba66cb5fa51b1ed625f5ab619b784a1035664",
+      "replayed_git_sha256": "83b4f9d388b07874e5a5adaaecdba66cb5fa51b1ed625f5ab619b784a1035664"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementDevelopmentTests.cpp",
+      "git_blob": "2692eae41f5eedab0ffdbb1bf4a33a7c0dbe2873",
+      "compiled_working_sha256": "fcefab706fe9085ee4b0842d320ec77764e48f6c8721507f8264ad6c72a43615",
+      "replayed_git_sha256": "fcefab706fe9085ee4b0842d320ec77764e48f6c8721507f8264ad6c72a43615"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementPresentationTests.cpp",
+      "git_blob": "cf6ff1eb5b035ff415bfb16dec1d7d94bd3f1f6b",
+      "compiled_working_sha256": "9193b650c5a63e9b1b4ccebcf8d023b98cbcdd6545bf1fea2440b25dc8946eeb",
+      "replayed_git_sha256": "9193b650c5a63e9b1b4ccebcf8d023b98cbcdd6545bf1fea2440b25dc8946eeb"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSettlementSaveTests.cpp",
+      "git_blob": "0173374590c80e4ec7a75a435e3a8763da081f98",
+      "compiled_working_sha256": "3bc65042471a0c38d0df7c63340660cc6ce5459e5a3199c2c0143da212972d0b",
+      "replayed_git_sha256": "173d95e244b71461a0389849960a71746c9218098bb6554cb12553be544ac5ef"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "git_blob": "56413543fec855f5cf9aab4bbdc8040d4358fe76",
+      "compiled_working_sha256": "338970308e4aa235d1a647e54d54232d7251d8548ed577d7cb8700a920b65ea8",
+      "replayed_git_sha256": "338970308e4aa235d1a647e54d54232d7251d8548ed577d7cb8700a920b65ea8"
+    },
+    {
+      "path": "Source/Soul/Public/Soul.h",
+      "git_blob": "53d6c9f9a1295d9a91543eb62459da8860e44ffc",
+      "compiled_working_sha256": "2de54d240f294ff7b7e2f9a3f698e968b4674b49df1814587d7b47576a267896",
+      "replayed_git_sha256": "58ce467200ef3b208f7430719a4c23e10ea104b9d8df71f60ce32fef4e7e7154"
+    },
+    {
+      "path": "Source/Soul/Public/SoulAuthoredSettlementQualification.h",
+      "git_blob": "6a041e45d7b197073f34b9a1402596e6292336a8",
+      "compiled_working_sha256": "34c28cf5241336568c2ff0f7c71effcd46bf7b0d01843f55344c4629aab5efb7",
+      "replayed_git_sha256": "34c28cf5241336568c2ff0f7c71effcd46bf7b0d01843f55344c4629aab5efb7"
+    },
+    {
+      "path": "Source/Soul/Public/SoulBattlefieldGridActor.h",
+      "git_blob": "8af3b964277158607d0b56e2c7877fada2892f9f",
+      "compiled_working_sha256": "20319c26f949d9cf5bbb0cfbca793791c88db1d8e987966aad1926aac8390e71",
+      "replayed_git_sha256": "bf67352b73c80c51e135cf6115f69293a50386da418ef8818376474818a29cff"
+    },
+    {
+      "path": "Source/Soul/Public/SoulBattlefieldLayoutActor.h",
+      "git_blob": "6e715eaf389a780b75a1d11d5f4403803593853f",
+      "compiled_working_sha256": "d6302ca419b98fe15dbd41786f69359f1cf423cc76cdd3077e4fc15d9cf21412",
+      "replayed_git_sha256": "a620589dea90aa529ac453aa308a8f4571b5a03a0227057fc7b4c05b8fa3ea1d"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignCamera.h",
+      "git_blob": "a336400ea1b887ef8ca2c50a6957bac4886c9323",
+      "compiled_working_sha256": "2fbcb6df1c6b5f1949e09c350e7c7219926aa013235739524f9dc8c5daae3e9d",
+      "replayed_git_sha256": "2fbcb6df1c6b5f1949e09c350e7c7219926aa013235739524f9dc8c5daae3e9d"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignTerrain.h",
+      "git_blob": "87e45b9864fb30717d8e8d094f215517471317a3",
+      "compiled_working_sha256": "528cb9eccf74405f47a27df65483413a0c4059c70b6944f24ee2ae5ed5dc4c6b",
+      "replayed_git_sha256": "528cb9eccf74405f47a27df65483413a0c4059c70b6944f24ee2ae5ed5dc4c6b"
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignWorldActor.h",
+      "git_blob": "f330d2e19b2dbc1cd0e75863ae5a3a09e4e5da99",
+      "compiled_working_sha256": "a6c78d0abf61ec0796b0356262a42801be6a18c5b9a0d5a267e4dc8113c3fad7",
+      "replayed_git_sha256": "4a46ee1e047069a0b210970408a3635a99ac6baf2628c5246f21df591e65eb18"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFortificationSegmentActor.h",
+      "git_blob": "3d1fcc2101a990343e8e4f7579814228eed71c07",
+      "compiled_working_sha256": "c9c41ae0236f6554404bdbbe2a4db4acc5e7f95875ddf5b0f71fb8ec78216ac0",
+      "replayed_git_sha256": "9fff12cf1af8fd077e12e0d1e1acf47f1a9ddacc86af49549cabdbc6946edd1a"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFoundationBridge.h",
+      "git_blob": "0c439665b62ffee894be3c7e848444b2afdbc6b9",
+      "compiled_working_sha256": "883658b8645111bd38ef5e4d1990dc7fe3d11a29b4946b6c7bf6f0b64fcde181",
+      "replayed_git_sha256": "276f39dd2ba624bc6278ed35e027a31116bce79011812236eb498b3dc7d0ec02"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+      "git_blob": "193ee95ea05d98b26288508e622c5d34e36b55f0",
+      "compiled_working_sha256": "cc72721337cc735354af0b727d2ce7de87447f6c7d383b570f04003fd4b48166",
+      "replayed_git_sha256": "c716df38224a91daafc5172ffbcb34788abb5a25558ed093d7ad3965759e8e24"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "git_blob": "71eb757edd13c0d1a6f2a00d171fae2a2bdad45c",
+      "compiled_working_sha256": "651a94d6679bab4f6d88c5ba0349295e9af1d18d4fc60697c58ebb922b94019d",
+      "replayed_git_sha256": "651a94d6679bab4f6d88c5ba0349295e9af1d18d4fc60697c58ebb922b94019d"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestHUD.h",
+      "git_blob": "47687d23a5271fcf846599f733896bb6459e4921",
+      "compiled_working_sha256": "71eb3a809cd12c5c36d007231c7b47b3503c6d4149489430e8b9d24e07cd9b20",
+      "replayed_git_sha256": "9f9fbb299dca78c63fb18c52ed041a42c39799b3a47939ec0e4a36436cc25f91"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestPlayerController.h",
+      "git_blob": "9166dd8f2f821d6bdec0df607bd03f3522cf0c1b",
+      "compiled_working_sha256": "bc446d2c9409404a97b0424b13e2adf044ee5cf689d743ac0cc96ec3be1846a2",
+      "replayed_git_sha256": "5117084081e8edf52b50b691d64e4b2a00784afd1da36fdc96ea7c72bad24950"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "git_blob": "08069c963677aca7ea542a6a86e0ec3aef3a2fd0",
+      "compiled_working_sha256": "fda980ca69dd2e0200dfe012afd7935fd6045cf59908212e91dcdac7196838f0",
+      "replayed_git_sha256": "bf3919ad7973c47066e59e106d9d6c9da6f429f8efbba68a930411756ed363bd"
+    },
+    {
+      "path": "Source/Soul/Public/SoulPlaytestRegionActor.h",
+      "git_blob": "84ef5485ca6f8ce9c2ec4482928ad546b5a1529d",
+      "compiled_working_sha256": "caf7a192d76109766bddc535e41105d98b57de35a6b301f1f3d880bdfff5c355",
+      "replayed_git_sha256": "f74b1339b0084e1fc259123843d1c1fc1897f7f606716f3e253724d451817af2"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementAssetAuthoring.h",
+      "git_blob": "88400ca01af06c21439ebd506eed5fc0e8d9edde",
+      "compiled_working_sha256": "64bbad1afe536b01ba059521b5e73796213c7797ab454239ab816ad53a44c13c",
+      "replayed_git_sha256": "64bbad1afe536b01ba059521b5e73796213c7797ab454239ab816ad53a44c13c"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementBootstrapActor.h",
+      "git_blob": "15a44a35b1fa1fe98536af04277bc63f59e63b66",
+      "compiled_working_sha256": "32ca50bf21aef276a6b3968348387d5ae1804dd4478089c1726db3cee5bb9376",
+      "replayed_git_sha256": "7867204614561e2e00f61f06c6dab97f89d25ee4838bbed60c82c9b1205a5e17"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementBuildingActor.h",
+      "git_blob": "a015d05b23d9bd57a8ee477c34086b306b002fb2",
+      "compiled_working_sha256": "e295bfdf9311723a60d46c354c6cdf1202c0ce777e6a43d6e0b1dd43bb67d7f2",
+      "replayed_git_sha256": "f9efab7763ba9f641dc4e3e348c64f01432bc75ab3d206c816846e856973050d"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementPresentationController.h",
+      "git_blob": "cfa3009e4cfb71813e5a931192e7d4d82a01cad1",
+      "compiled_working_sha256": "7561b8665d17f1491e8113c4ea2507f255ec8e8804abd6b3ac6f72c220c7828a",
+      "replayed_git_sha256": "8e38d7d4f2403a570672a2b0cf090be7f0cbcdb6e3704178cdf49eccdb4c52ff"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementScenarioData.h",
+      "git_blob": "f7e0c267e6181aab8ceb07d9b854aab1c4774b5b",
+      "compiled_working_sha256": "6edcdc510789c9847eea49e119232bde7511934056a676e799f63ce5c3ca9749",
+      "replayed_git_sha256": "7857241d45c50cd7b85f4e5056042b6ee1d214a13384336f458a3d791ba7c6c2"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementStateSubsystem.h",
+      "git_blob": "5d5410e480203789654fca93f2170a3d756e9505",
+      "compiled_working_sha256": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d",
+      "replayed_git_sha256": "582dc705e7dc94012b568f7e2ae8481039e6a084788c2eb68b42c320dce9d26f"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementVisitGameMode.h",
+      "git_blob": "1c63f75a5b84f1a9e781cb533e60f7433ead6a2f",
+      "compiled_working_sha256": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5",
+      "replayed_git_sha256": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSiegeObjectiveActor.h",
+      "git_blob": "4366d0973e22fad46404fd86704409a820387f2c",
+      "compiled_working_sha256": "fdaf292fb12db6d1058a347e39c0b115352c50e61da2415db9c8ef506b433002",
+      "replayed_git_sha256": "ec191e617ea5717cb4cd702a8d811ac258ae9862a76e605f66292aabbe814fdf"
+    },
+    {
+      "path": "Source/Soul/Public/SoulTownViewAnchor.h",
+      "git_blob": "ec8123d1beed7c3c836873fd00dfa8e04ac2a7bf",
+      "compiled_working_sha256": "edfb3f041711ca858dc88928c7ba5807edbe92e66bd748144e9b3e1aeceb66cb",
+      "replayed_git_sha256": "66c5a71e4b122d9eb8aa90d24c1523a606ec9cd1a8a665cb88b6b28a9754adac"
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "git_blob": "e1c0bae029cf2722080ac1443a250432458350ce",
+      "compiled_working_sha256": "4be1a0f5d512b5802e419236b20cdbc220fa4870fd15a1a5d148cd2c775981cc",
+      "replayed_git_sha256": "4be1a0f5d512b5802e419236b20cdbc220fa4870fd15a1a5d148cd2c775981cc"
+    },
+    {
+      "path": "Source/Soul.Target.cs",
+      "git_blob": "3df62d31f0834f1e906b7f3f23313ffe71b7ecdc",
+      "compiled_working_sha256": "bbb148a860b7b8126bd19f48813d4a8bae56e7d259d90719d2e9307ce886f089",
+      "replayed_git_sha256": "1bee87ef3d4186c9aee551b34184f0a82ee0092dbafe3a43a2583ce8a36ff54c"
+    },
+    {
+      "path": "Source/SoulComposition.Target.cs",
+      "git_blob": "9ab909e24b68d5ebcbbe684d570053dc9039ee07",
+      "compiled_working_sha256": "bc564b6599dbf31f99c18b9d4bbc64d01fe6c744aac61e9fc4b268c7b71e4f77",
+      "replayed_git_sha256": "a2e357c473d989097557061f2a72d1fd71da916a9a60c532e04e3e6e07b477f8"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulBattlefieldRecipe.cpp",
+      "git_blob": "f6b208818be3947f889552bb4bc541ab6b623464",
+      "compiled_working_sha256": "ac6e8f0db1951e3f737123587e5fab2d906b4b94ec63f5140d757ef0971fc3dc",
+      "replayed_git_sha256": "da14afc2eb26cbefce242ff3c23326e2cbe8a1958045c07a5019f27232f9299b"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaign.cpp",
+      "git_blob": "9a1ad9e3dad5eca1a4ff387a0b6c7ae06bf6b8c2",
+      "compiled_working_sha256": "de8961c548f04b3e5e84fa59c2652e82ebd9dfeccc76f6fdcd9445af3b8f661f",
+      "replayed_git_sha256": "ded38801184f07847ffe2c1218258dab2c8c861173bece751fc10b2be9c99a1f"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "git_blob": "42630b1919e63ff25e7a2759652c025159ad101b",
+      "compiled_working_sha256": "cc964b6d1c46d2bc8a9cfd2233d48b098f6405547ddaaa787d747bdec50fb4b0",
+      "replayed_git_sha256": "cc964b6d1c46d2bc8a9cfd2233d48b098f6405547ddaaa787d747bdec50fb4b0"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCombat.cpp",
+      "git_blob": "8f85ed61f154f2730c26582a269d79b463ff5caa",
+      "compiled_working_sha256": "6267d60e430fd9064a5bccbfea1e0ddc8b532d2ede129fdf22b52ace418e586e",
+      "replayed_git_sha256": "f81a532bd111372b7657275fee1e7eba25a08f3e22cc5ac3e5df2e227982876e"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCore.cpp",
+      "git_blob": "30d61a4651ebfbc6bf1ed74eaae27b6a1c3b19d1",
+      "compiled_working_sha256": "ff6dd96c6eba6453c9163a276d64e79f836d5a39e5737420da144a3b568f6d2c",
+      "replayed_git_sha256": "ed5edf6cd87b4e1430141cb65b9ad0afd5071212a48c3e5cdcc8df575e9f0c96"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulFaction.cpp",
+      "git_blob": "4c60078916e6c7cb31974ee4086c872999bbc1f1",
+      "compiled_working_sha256": "baab06a8fb52e137ef626a459f806f6b7552242c4085b715b530adbc86b4cbdb",
+      "replayed_git_sha256": "9d2606a72fc87d934bdf9460696350685111063072ba958303a17e5eac38dacd"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHero.cpp",
+      "git_blob": "92054700f6ce54fd35f654f56afcdeb82051ae12",
+      "compiled_working_sha256": "c9c081a60569c7a02ce8d967a7a47158246390f96d132f55a2115e0404b0d6f8",
+      "replayed_git_sha256": "b4a863678bd13aa44978a4b4b054fa378ff63ff23925fc087c52e339ff06adf0"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHeroRecruitment.cpp",
+      "git_blob": "332449b80a5ba81c68073cb384af10ab9885c06c",
+      "compiled_working_sha256": "a3394d2c83d3000921f173facfd0f6aa2ffc677a185bf71c390db9dfb1541ba6",
+      "replayed_git_sha256": "ee7583c6ec7f7b4b3975c19dafaf3895f74e627b7628bb831498327601c2ee48"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHex.cpp",
+      "git_blob": "67b17e09233c81d644ddedace6660be70614a903",
+      "compiled_working_sha256": "57bf38283535e1e4f6477c0841aaf9dedb905e45456c5575b80bdea85a78fe2b",
+      "replayed_git_sha256": "fad1ec2c900f37ae95d749ebb69e67052afd1e38a4f89e4493235cdf8c2a17d3"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulLogistics.cpp",
+      "git_blob": "f7133a0f2b7bab274dbdc9d71d12cbbe92568a4f",
+      "compiled_working_sha256": "8ab46c19494bc2ec2a3b31d0580815fe406e6d1d099bfd3315b95d93c00edbe4",
+      "replayed_git_sha256": "c16221496c9d00e253a49acaecd0b601154ccfb054a83258a6f51b7b8680666b"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulMagic.cpp",
+      "git_blob": "b635771d091e0eeca99cfb399f04b5995f4e6483",
+      "compiled_working_sha256": "a70c084090327294ee7b1002709d878db041ffc644ec2508999aa766f78a3f8b",
+      "replayed_git_sha256": "28f9777b261a96176cb85993cd91182a03f8ed45769b4ac827801732064c3a65"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulMemory.cpp",
+      "git_blob": "f3daf7ce19c6d074a9c5afb3cf59e3721c3eec99",
+      "compiled_working_sha256": "06df8acafbbca5837c432365b35f0ec757a2de7d0db9846a92e50e1f76a95bee",
+      "replayed_git_sha256": "6a7483f32d67b2797f601ab23878a98ed0c9bc707840cbd3646a4b5936ad4977"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulObjectives.cpp",
+      "git_blob": "91c67a519c397afd25273b380b28e9bcab6c2b6d",
+      "compiled_working_sha256": "a07cb3ab8a783136e3e49d600fd865bcb42ba1e29348e38142e7245d6d38491f",
+      "replayed_git_sha256": "268ad2033c0030de390e9d06d8d161eebc4a00548c8d16f65346fb8d31df0f4b"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulRetreat.cpp",
+      "git_blob": "9ca83f4a5a9035efb9bd6443ab9c5bc164f52192",
+      "compiled_working_sha256": "b2fac47a5695fea6a9509ae6980097d382de2a16665d53db68332eb71f7a6934",
+      "replayed_git_sha256": "7b98e050d69bddf6327929753f107723da7ef98a4e7e80f647a0f4c64e34700f"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSettlement.cpp",
+      "git_blob": "a89e056ec27b4fe8b35e20d3c6ce6a2bf406bd99",
+      "compiled_working_sha256": "af2519c1cd494d195c2551951a300be5c40ad8a1b8dc307478209dbd81d1fc3f",
+      "replayed_git_sha256": "212b03578573b8debcfa5a68839d44731eba8df40c619bff8d25149ab3b697a6"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSiege.cpp",
+      "git_blob": "fc4579db8592573e0ff40725416e49a80e13fb83",
+      "compiled_working_sha256": "e58e330e21e62e3b42f29891ad98c77cac2a94a6923e2da9e8e2d96f002e4f64",
+      "replayed_git_sha256": "aeb056dc011ab22eda5fe918fea4b830d88fdb7a947b51e6edff63fcb33b66da"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSiegeAftermath.cpp",
+      "git_blob": "634050dc0dc1783415c448c9bcfe4aa32436a9e6",
+      "compiled_working_sha256": "9dfe6da21aeace8e5278109c21dbc8830dc3ee4ba4bc356b6db040c450b3a7c2",
+      "replayed_git_sha256": "3adffb04570baac7f810e5fcbd90243df2ff72329eebc2086da98b7f1eb85ca3"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulStrategyAI.cpp",
+      "git_blob": "d395f0047d2ac331938b386ae150b425e6e37b3a",
+      "compiled_working_sha256": "569837ea028ef261dfdf04ba1e1e64d8dba9b4e42ccfb81690a4249bf984e91e",
+      "replayed_git_sha256": "df0f077ab94c32fcaf994b0303283a5b1210b8ab30783912dd9fc0f243df26da"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulTerrainTactics.cpp",
+      "git_blob": "652aa99861c90a3a1ee8898e2b733202078ffb11",
+      "compiled_working_sha256": "929e2948250d9b12127f0fb74144e86b683ef271e749e3aaf383c7360283cd2e",
+      "replayed_git_sha256": "04b7d70797e3be07b77816796af23c29b8e87a40bbb83cb210c6ec5835871b33"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulTown.cpp",
+      "git_blob": "c87e493d2b98da58ceb06ddb3b23aca01312cce0",
+      "compiled_working_sha256": "38463795976d451ce447dfeef8eb943dc1ee87bf72c57c81b99ceb13a974ab5d",
+      "replayed_git_sha256": "95ccdb827c88a68fa1eacdeb0d5104c4571e51de5784991b4692a003a145fad5"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulVeterancy.cpp",
+      "git_blob": "d667caf9f0e04c26eadd1ec4402e60dc2f9c4a2f",
+      "compiled_working_sha256": "90e27c9693b954405c1551903fc729e597fbf622f5137f9f83116aa415fcbdba",
+      "replayed_git_sha256": "82562da11aee4263b79bff2a94d404da61d7d0ae39f210f6e4be5d19ec807fe0"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulWorld.cpp",
+      "git_blob": "848a8e9988b13d63d6adafe0c59d618b06e8e4f3",
+      "compiled_working_sha256": "e28e9118b31454e49140c56a81a09a040fa43d57ea6057b565f6a861b3b5f5bf",
+      "replayed_git_sha256": "f0d01986183380868cc61615369881d099ccfb3b1ba725d69b17c8459ad786d3"
+    },
+    {
+      "path": "Source/SoulCore/Private/Tests/SoulHeroRecruitmentTests.cpp",
+      "git_blob": "62cf52b5f73c56b0f3c5a7bac94b139e2621e508",
+      "compiled_working_sha256": "6ea7a612b299649dbb687921601fd5b9120db4fa93d920c84e01eeab0cc4953d",
+      "replayed_git_sha256": "5ed18c3b942b87bfb3404a3dc8955227ebcd0b17001dff06ebcb84fd15ca14d0"
+    },
+    {
+      "path": "Source/SoulCore/Private/Tests/SoulMechanicsTests.cpp",
+      "git_blob": "e0d49c43ca5efb6d78b8c736ea65768d2a5615b8",
+      "compiled_working_sha256": "5494912953d4dbd7b5b2beac8a583bae4fed8e788ac7f8974989e23f56f4bfda",
+      "replayed_git_sha256": "8b02bea85fbb0a5f142c59173440f3beb63f07b3894fd8d785f054d1b2c003f4"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulBattlefieldRecipe.h",
+      "git_blob": "3dab694bd6caf220d0ef5d9c8892c11b316b2019",
+      "compiled_working_sha256": "452c874f1b316b882fa1c96f89174ba9f0ce915f57847570b68bd42ae6e71c79",
+      "replayed_git_sha256": "2d9afadf522965a01a3b81bae50f1e2f921a3eda4344f312d3af211ece5fa688"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaign.h",
+      "git_blob": "579b6fd4938f1a6e1a36988ae3c34c29f05be0e8",
+      "compiled_working_sha256": "8de411a2af0b2da46b2bee3467ccf697d9636781ee7b54c877cbfe3258b9cece",
+      "replayed_git_sha256": "ed0bf45d5dd0c2a9fb07f0481cb577818f09ac41144876f1e7164324890391cd"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaignBattleBridge.h",
+      "git_blob": "cb4ed60d3b1040ffaabda11b5e30aaf50475c309",
+      "compiled_working_sha256": "1fa710146aa7804abfecbd0bf4d9f0e3b7193faefb59cfbb62cdaeee8f004ef3",
+      "replayed_git_sha256": "9358a9dfa96a2be549a6b24497d50746e3a2eb4fe41c0b7f081e037b0fa119d4"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCombat.h",
+      "git_blob": "e1384f292f8e0a8e57d8b75097f800ccd03c24a6",
+      "compiled_working_sha256": "28404aaa17619da7926c2186b28365f4b07395ccbeed00041311d74e266e2817",
+      "replayed_git_sha256": "48ae379b789fc429fdb2a2d81fdb620477e537ba65086232fc2143b93df2e501"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCore.h",
+      "git_blob": "53d6c9f9a1295d9a91543eb62459da8860e44ffc",
+      "compiled_working_sha256": "2de54d240f294ff7b7e2f9a3f698e968b4674b49df1814587d7b47576a267896",
+      "replayed_git_sha256": "58ce467200ef3b208f7430719a4c23e10ea104b9d8df71f60ce32fef4e7e7154"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulFaction.h",
+      "git_blob": "6a5c82775491d98ab195d5287461f63eb52eae74",
+      "compiled_working_sha256": "6725a36ab7130b31f3fb2afdbb4d509a8f42f031571104c674081b141f8fd160",
+      "replayed_git_sha256": "7123c5869677142406383fcec56bdd85a5569bb580fa09dc512ebee881bd9d6f"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHero.h",
+      "git_blob": "fa6200a8fecc7bed192fd14f4b3866229770810a",
+      "compiled_working_sha256": "a5726e77e0a772864ab592f0cf347a16b0efb04ac1132abe28306c52a87f1db7",
+      "replayed_git_sha256": "5f048c5ee5eac8cfefaec382566f5e1f24ddf70c9735c882b2c1e9440638bcef"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHeroRecruitment.h",
+      "git_blob": "40b80eacdd73078e57bcfdd90dd52eb0ce4e78ba",
+      "compiled_working_sha256": "41b8f9eb0679e8f99b166f69cdd94579f022b5c00b374ec59f934a066ba9da22",
+      "replayed_git_sha256": "946f5ee43cfb2610f392166fb95557e5291af32a43514cfc3ec8a6bcff6208ef"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHex.h",
+      "git_blob": "c102605378dab11bff9ae954770324509a952a3c",
+      "compiled_working_sha256": "f94684207b773170aaa6c6ee502cc83ddcb74de05942d67ac3255030514fa9e5",
+      "replayed_git_sha256": "2a0913c0869ea06d5d7bda303170400a577401a8e10c9f8aca23c8ca25cc0409"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHUDTheme.h",
+      "git_blob": "72b031e7212995c5fadd2bf79dd538b92d5bfbb4",
+      "compiled_working_sha256": "f908d8f040322f8a164f139d3f1026dfce6626091466460f97235230ef66c735",
+      "replayed_git_sha256": "a2d0efdf6ff7fd007ca994e1589a944438a9d581414f3874b1695b3d912bee3f"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulLogistics.h",
+      "git_blob": "9ba14a70dee75b8b6c19251a802c9dde10f2c448",
+      "compiled_working_sha256": "3dce4546fd60608edfbf1bc3f40e99632b391892bfbdd47a06f9d663ab361204",
+      "replayed_git_sha256": "3784cd42a21234996d7450bca72c10c61c1fbe148a64841aaacfb85af1ff814f"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulMagic.h",
+      "git_blob": "43fad8175e5d2aa75677c38ae5e4c38181ad2e13",
+      "compiled_working_sha256": "ff060c355c95a36101b2b538fff6fac9a659ece819682df864eba601d4f5bc94",
+      "replayed_git_sha256": "ac49a8de9649ceedceadf43b3c6863ee8f01fca28bbd44379be793161cb5c62f"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulMemory.h",
+      "git_blob": "75603decf34023ceaefd5840e62158dfe409d9be",
+      "compiled_working_sha256": "faa9a8a60cc77940857caa7fd86bd37ac543f88f67316ec0be64e7a045086e14",
+      "replayed_git_sha256": "6d6ed558ac9f2707c607bcda5459e3ec4745c17fcfe4398a29e837417435ce8a"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulObjectives.h",
+      "git_blob": "7e8bdbf9fc191f8153c04377aeb4715e2ff56f3b",
+      "compiled_working_sha256": "e5d8a11e78fd30431ed649a31ff5906c941df6a02d6f7e8fcf4a934ceca1cdc6",
+      "replayed_git_sha256": "68a709acc65b269fe410908edb74845887112fcfe586f062c01a665ed4cd1989"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulRetreat.h",
+      "git_blob": "b5db7e40d946c196f8d9c7fc6841d9c5f55e3da7",
+      "compiled_working_sha256": "02d507c54dc6917cc81d1c8cadf6483fda4feb1b9dec907eaf376e27d6aa8215",
+      "replayed_git_sha256": "d527806f91ca5fba451075ac074d74d343e9937f99ad78a5e0535e4aa62f118f"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSettlement.h",
+      "git_blob": "a4a0726f6c1e7a26f93c97473f204766819dd047",
+      "compiled_working_sha256": "e2f5e5db6e170b7fe395dafbb43759a67a4a9bfeb22fc186290201d96759b804",
+      "replayed_git_sha256": "e40ffa4d6b1dfb1bbd2bb3a6df718da795d9cd5b34827f49c2cd15a0727a2866"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSiege.h",
+      "git_blob": "0e39fdeaf932c37a2bd721a6e5fd67a7982fbf3b",
+      "compiled_working_sha256": "7ecd87e7c6bb20ada29a31b6a142c358613a84599fd388939b8d8c4767d6e1ba",
+      "replayed_git_sha256": "fedac1d6368f27e250f4332eeb024a73a3c0f0fc0cfd7fb796d6846a87abc6e7"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSiegeAftermath.h",
+      "git_blob": "e042a3dbbfd7aea67b8790c903a963da8909a509",
+      "compiled_working_sha256": "9184794362e0d10003eec0decb0df66cd92b25e0e0ec2ba65fb7a897e133f832",
+      "replayed_git_sha256": "bac98b4b9c5282261a35232ef0dc5c4fcd11cf64e1b4a90d1c9a7632f5ea6077"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulStrategyAI.h",
+      "git_blob": "0bd4a5c00ca96711c8eedad96e8873d769fe5085",
+      "compiled_working_sha256": "62a8e6cd5384eba59b250c292becc1d9fcb3af8f87fc8ae59fee5604b48f8ef6",
+      "replayed_git_sha256": "1fa92cecd83838000c78cb5104dfad817d2ec94a1c242ecf1c99d8480967878e"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulTerrainTactics.h",
+      "git_blob": "49d3938945ce6a5148ec3fc79f755303137c5f3e",
+      "compiled_working_sha256": "7a007bd18aafffa675f1bfbd42ef44b98eb4dcf3457e7e40fd712c27c8f5daa8",
+      "replayed_git_sha256": "8231b6063c235eb94e67fa1c016c8d026f01c906b3cfb97c8ab2972e9914142f"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulTown.h",
+      "git_blob": "086f8c5a069220a0e27acbd4f035fd5e88bc2ce7",
+      "compiled_working_sha256": "d83dccfacc77233afd14529fb803f95b63b362d56a08ac49b193094f99e484b3",
+      "replayed_git_sha256": "ec9365eaa518495575d5080ef825c7c4b2a7c414eafa32deb8c94e466500806d"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulTypes.h",
+      "git_blob": "ee223e5a7bdc1053d1d1c5b6bd562027a49f2278",
+      "compiled_working_sha256": "f375c6b3d9328f304a41c029044cdd3f95f5b0dd0cf89c63ae22388f064ac84c",
+      "replayed_git_sha256": "bee87e1fc8ae3fd27932b9c01553d7abed364a599dce84698868d6b96024daae"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulVeterancy.h",
+      "git_blob": "2f5aec0e3f0fb497da32307888932a85e7ee7887",
+      "compiled_working_sha256": "5987315bbc41ef6444299e00d777ed7abd811d72418eba21855353ac1f1881a4",
+      "replayed_git_sha256": "eb9b4261a6a2f903f353bcac6600d9855a183c2f1d38706a12f180653bb6b290"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulWorld.h",
+      "git_blob": "bb0d281ac767443c078746cf9c3746a0e5bf7be1",
+      "compiled_working_sha256": "9c6bc9273c017fd718f948745c7834e907be8bad541ac3b2dfc57144e1fa4bef",
+      "replayed_git_sha256": "8d189ea2ccd99940850e1e2c9a336ee80e2836f3c0b5ccb5f66f08ab5eea2869"
+    },
+    {
+      "path": "Source/SoulCore/SoulCore.Build.cs",
+      "git_blob": "6bb90e4bdadde73ea8d958365692eb0276804758",
+      "compiled_working_sha256": "d4145cac60b0535cbfbf66a276dbba846171e245f94c76b60929a05b6d429777",
+      "replayed_git_sha256": "bdc8ab977eb52bd9ffe35ca420b391e6347b84149485233535f2befcf9604025"
+    },
+    {
+      "path": "Source/SoulEditor.Target.cs",
+      "git_blob": "a8c00b36c881c524683e6d7f1b8e48dffdc26aa2",
+      "compiled_working_sha256": "fe101a21445dbc47021e15a1019440e830fe34638fee54f64bc0bd212704f655",
+      "replayed_git_sha256": "2392b96a3a9630f11f1547059e817d7de1c6a40501b1883078931488453de33b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+      "git_blob": "d7e369a3828e223d7432faa377925142a0ec0548",
+      "compiled_working_sha256": "649cfa17eda13c87d7831a8a981041854c55cf3983e838346f9036cf1af0210e",
+      "replayed_git_sha256": "649cfa17eda13c87d7831a8a981041854c55cf3983e838346f9036cf1af0210e"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleArrow.cpp",
+      "git_blob": "6db87629776725719100d1db58ef01a07fb07bb9",
+      "compiled_working_sha256": "1197041f00233831727018061e98ddba0047479bdf23e2eae798c9b0d773f0e8",
+      "replayed_git_sha256": "37b7f65d0fcfaccdf98d4521dd2a7ea5db76ce614fb3292496662553534d3bcd"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAudio.cpp",
+      "git_blob": "8b6448604312ed070abb0c3ad47dc311a3aeee37",
+      "compiled_working_sha256": "1f7c7d3195401e700ea0f3c7ac7d525ad249fb27e8a9355779350e0672990cb6",
+      "replayed_git_sha256": "cb628de2487bfd5d62e5331e56ee5c1c87a60969ae18cafc4ec7ff7d7b861d07"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp",
+      "git_blob": "77abde5e42305066ed46df6567c8cb2c0ae18b2d",
+      "compiled_working_sha256": "301d6da196f72a76f01ed48b72bbde3604056d3c2fed3bc1016a7753f7461217",
+      "replayed_git_sha256": "301d6da196f72a76f01ed48b72bbde3604056d3c2fed3bc1016a7753f7461217"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+      "git_blob": "84a7b49321714e2f3332609aceca3ddc5584b2a9",
+      "compiled_working_sha256": "0ced1f0e5a69772eb9006f5d0ab529f6a02ed99cc4c53baf82816a26cb80e59d",
+      "replayed_git_sha256": "e746739f61f2814f21f7ac099cf9474b56d52a6ccf4c1106a5be1641b2d08458"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleMagicProjectile.cpp",
+      "git_blob": "b8d55a9dd45233b053cd936aa0f9b53241fbd0f8",
+      "compiled_working_sha256": "1566a33bf8934a85e6364675f7ba7077e5c352c09760be4f6567773c1b26bbc7",
+      "replayed_git_sha256": "9eb08494a371dd8bbbf350c761ee260ffffef35064ffd8dd5c5200997271d901"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp",
+      "git_blob": "bcf08c6e2ce9a717c6c409314039bfec7968d671",
+      "compiled_working_sha256": "b36f3b0d3f83edd719f093ea13b2c1e041e24be3169e4f493848647470046024",
+      "replayed_git_sha256": "fba39ebc1df654767d8311b1ad209c93cea4224c7134a3a5142d02dcdabb2a79"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp",
+      "git_blob": "928fdec1910550e9c503596076a0bef4f8bfc0c1",
+      "compiled_working_sha256": "8db3da7775da4b38a6c02c1c94df0f71de1e6e4906e1f3211666e9c546acc7c8",
+      "replayed_git_sha256": "ee2080a7a8957962eaf583700d4aa3c45fa48f25c000818f8201ad9c112160cb"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleSpellCue.cpp",
+      "git_blob": "d6c4e356709f8c4a2f3a2b9fd006077f55bd1475",
+      "compiled_working_sha256": "e96f760c2925607a250561114da33a55a38d71b1ea0e1c58c686be6a2cc91c0e",
+      "replayed_git_sha256": "e64d4b086a7e36a0f2285f43cc0b8a9f288306a4214b6ad445f7fbaeef82de3f"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattle.cpp",
+      "git_blob": "7d64f94cf696e4f47945b28cbce4270dc5f4e583",
+      "compiled_working_sha256": "4ad3a575901b98d65dfa902795a47e3ffc544c51439820b1a7553acff92ecf41",
+      "replayed_git_sha256": "e952dcef27abfa31fde873011c3b5a026ea3975717b914b5f40da5988122b26b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "git_blob": "82c8d72fbb38dd27cdfb31b3b2c6331f8c0a2e3a",
+      "compiled_working_sha256": "e2e5ebc2b309252a3eb15c1572c94d6909a6146394b3f3cb257912073c34b9bc",
+      "replayed_git_sha256": "e2e5ebc2b309252a3eb15c1572c94d6909a6146394b3f3cb257912073c34b9bc"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattlePBIL.cpp",
+      "git_blob": "aec263e2f87deae2df42546454ae05d635c04687",
+      "compiled_working_sha256": "1c75faae4e7e821d82a16eb987d0ba113f71e1d2817e45cc053dd4bbbccb1a7f",
+      "replayed_git_sha256": "e5994daaf65cf8c7e93fd82823fcaf30f47c4b1b8a825324f4858d90a519c432"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleRules.cpp",
+      "git_blob": "453d71b86e18f87e1c66b2eb185eee9e716f232d",
+      "compiled_working_sha256": "a702ad60fe5d2eab1af1df01bc70ebc2694562ed54cb65df300f8c27b87436ca",
+      "replayed_git_sha256": "a19b40187f010e7d34a29cae0fd7d7fe093dc4900ed16a05778bc13703fe7f24"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleSpatial.cpp",
+      "git_blob": "c2326e391138f9ae00a388106a3345c46a547f31",
+      "compiled_working_sha256": "2653ffad1da411e3f81dba400c9d7d031d60e95ab7761ba9536a9f33a54811d4",
+      "replayed_git_sha256": "05e59e41806fcdfdc75272f258954af7001698c8c9e3e58f4cfaf7657d6b2136"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleTactics.cpp",
+      "git_blob": "2e1b020549c88b28a26664e62b6c91618970230c",
+      "compiled_working_sha256": "9eb52c416b413a5d98293308ac20f439ff1d45fda5885750c6a778284b67f60d",
+      "replayed_git_sha256": "87e9ada262a8c6b904fd0f3973fa1ad3708c29770425295629c125d12314bd28"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp",
+      "git_blob": "a8bd3a718833ce77c6069295e55cf1f110f5c710",
+      "compiled_working_sha256": "6aedb6df1ee0f1e6e082ab9a5865353915f660d6b077795d2b20bde7c12f9dc7",
+      "replayed_git_sha256": "6aedb6df1ee0f1e6e082ab9a5865353915f660d6b077795d2b20bde7c12f9dc7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAudioTests.cpp",
+      "git_blob": "dbdd054f52b6f14f6406b26750033e7c30adf255",
+      "compiled_working_sha256": "203995e1195176b6fc93b1bb5ca144541988fe9a0afba558847823005a97bf07",
+      "replayed_git_sha256": "ac284c5bdb0a16f07c4d7565f4c2925eca73338b47c05d9159ef3f5d0bc07abe"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleCameraTests.cpp",
+      "git_blob": "2e40e3ce2e95341ba88782b8209e2e1fccd67942",
+      "compiled_working_sha256": "33a1c03e8fe864311daaaa89b71db99bb87637e12124e6df54489da8ab1e93e0",
+      "replayed_git_sha256": "634c7d8b4f1d2ea4067885eb2522c7ceaa09f9c6d5047ef9ffacb5708ca296cc"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattlePresentationTests.cpp",
+      "git_blob": "758521d21237c6f60b1e6f5dd09d5690914e32f2",
+      "compiled_working_sha256": "57aa6f3b6634267d056f9fce172fa4cdfbc0a38d2140da469bc8d27563d559c7",
+      "replayed_git_sha256": "44bb29f37373eb6ad00e8faa6fa7f2df5fcff8c618b8d5c2ee1b597628466bf4"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulCreatureMeleeTests.cpp",
+      "git_blob": "2d13fe28ff60abb945f6fac06ccef6a1f0b1e6f7",
+      "compiled_working_sha256": "25aa2d992d7b9733a50ec172ff52dfa561dcd46c7b86c1f790d317df533b2b26",
+      "replayed_git_sha256": "591644cb510b54c1abfa46d8097c04d9a54cde94f7ecb5c184680aaa82a45dd3"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulDragonBreathTests.cpp",
+      "git_blob": "cca0a244e1a07c978359d2245e7cb2a085118fb4",
+      "compiled_working_sha256": "76e9ab400ab9a7c9b9649af54ff4762f8fa4c2cc28defee94b50258833ff40e7",
+      "replayed_git_sha256": "76e9ab400ab9a7c9b9649af54ff4762f8fa4c2cc28defee94b50258833ff40e7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulElephantBodyTests.cpp",
+      "git_blob": "63698bf08f0f1997569944cadb88f9f9a7c74368",
+      "compiled_working_sha256": "93d28970bcdbd2b4bef546b5e65e7a83fa6395abbd02665a35941fc86822e5d4",
+      "replayed_git_sha256": "93d28970bcdbd2b4bef546b5e65e7a83fa6395abbd02665a35941fc86822e5d4"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulFormationSelectionTests.cpp",
+      "git_blob": "6668dc804ff73b9921748e0e2bb577a9fe14e6c3",
+      "compiled_working_sha256": "ece1edcdd050674e8e05f3e21482ad2843f6d64fcc6fb20c75babef4d3054153",
+      "replayed_git_sha256": "e1c81891ca3fb1efc2ff6c145692d5c95145614e44bbd873f0cbb7a693433ce9"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulGroundOrdersTests.cpp",
+      "git_blob": "c3953cf410525ca58ed7b9b7164bcbab40f10c8e",
+      "compiled_working_sha256": "91ee0ac9d2539479760130ccba1fe7498b78bbdbbef4485202510da7e85ed66c",
+      "replayed_git_sha256": "f894a49f5a0b6bfe6ff8442cff8e1078d27a852e079986e2669cc2d4ee71b3fc"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulMagicProjectileTests.cpp",
+      "git_blob": "ce1ed9700e53aeab9c63aa461c115e1789f7c202",
+      "compiled_working_sha256": "3db77ea574affd444c9a703bbc2238ccf8d8401e89b8c8d62a59f2bc2757ee44",
+      "replayed_git_sha256": "9aed305f4de3e851754bb26462da9858304d4c46163394db651d6fb5610587d2"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleLabTests.cpp",
+      "git_blob": "b985b22792fd408266eb993858913dfeafe5a850",
+      "compiled_working_sha256": "d15cd406be524ed35a79ec0f7c2f59e0dd3e50e103f55b09111bedb7a9aaa08b",
+      "replayed_git_sha256": "2971d5e27ee9f4a8b9de946ab1cc0f982d25c8853cdfb3cc48612a1e12b5723e"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleMagicTests.cpp",
+      "git_blob": "538b26f6b8f20a6360f5116c7c3bc8ffd90b1204",
+      "compiled_working_sha256": "e0a4899459d0509e535eb151c9aa2f84c6fa703d52dc739c961fb6a14b74fad8",
+      "replayed_git_sha256": "923ddb115270a3485278557a7d45344bd2800044ba46b6f982d785d80e4eb3d0"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleSpatialTests.cpp",
+      "git_blob": "66de97e208889cce07f2dfcabaa0e61427ea4527",
+      "compiled_working_sha256": "6242eddf8e9ed7470f363c4fe21d49f6f729e47f2836e0dda3ee62adce130351",
+      "replayed_git_sha256": "1df482e557400e3c7ee925030dec54192d0a3802daacbe65da088522888cbdec"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleTacticsTests.cpp",
+      "git_blob": "0c8ff5100eb6b512d48ae5c172ea99ffb1740656",
+      "compiled_working_sha256": "ec787bf9d8c1080443a90e0cd9469c7da4a74d44866c8fa9e20bae9b2d58dc34",
+      "replayed_git_sha256": "583f40ed169adc592b385a04b126e837bffefe031030aca976228fec4b5bdbf8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulRealtimeBattleTests.cpp",
+      "git_blob": "04598cbdc419a5fe4f73126dac7944b2a0430791",
+      "compiled_working_sha256": "374092149eb0a738009028a389b7d1d1f6706b7c0d87f8f86dd07871d394d46e",
+      "replayed_git_sha256": "40e0d20bb8ef3d09877c6080bd279e3a1f374b47c89cfac8a13cc236451c0d8c"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulReinforcementScaleTests.cpp",
+      "git_blob": "05e1e8a90ad22f3691ed5cda261d82fe4c052cc8",
+      "compiled_working_sha256": "dda71ac81e9f5d497237541bc293b10a738ecd932913642bff5d8b2f97abc17a",
+      "replayed_git_sha256": "c6084ea140289fa19ca8f9cf2a1f9b4bcf57322f60dd454a8eba55de81862c86"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulSpellCueTests.cpp",
+      "git_blob": "e9e3b332d25012c2bba4dd2419fb18e30912258a",
+      "compiled_working_sha256": "0f0855444212437599c80ff27440c4e021fd566c66075309af350483e2368cf2",
+      "replayed_git_sha256": "0f0855444212437599c80ff27440c4e021fd566c66075309af350483e2368cf2"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulSpellReadinessTests.cpp",
+      "git_blob": "77aded8dd1e05b4cb7113af6da826076bfcd8e14",
+      "compiled_working_sha256": "6a45c279ecc8c3caecfac77a3498cfaaf2b262049b0a9c50be2b84ff3217c93d",
+      "replayed_git_sha256": "a74ce7cbc53c80dedf224e10abf441ec4fcd40cf5d027c223d0f2c4eed6c3847"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulVerticalAnimationCompatibilityTests.cpp",
+      "git_blob": "3333f2c47e41166e77de05142371e4a3b121057b",
+      "compiled_working_sha256": "a43277bb3ee1544d59e5e113f7b6ae14d0deb5bf2ae4a643fd2a95720c0a6f31",
+      "replayed_git_sha256": "4304bb71f817535f076e1b7752daa1dcd47d9a66fe78c0af929dc753f1c6f488"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulVerticalReinforcementTests.cpp",
+      "git_blob": "f3e4bda4802f10fcd8753e181f311c6014924089",
+      "compiled_working_sha256": "c874ccbf0bdfc377b9f85fb861569e3a4b5e9b3b49f4734d81e79c139da57f41",
+      "replayed_git_sha256": "3b0507b9b8cc5887d92a9dbab16a0140d8f0426f46af787ba38944580c3904ec"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulBattleArrow.h",
+      "git_blob": "dc5bef046d772700d875dcbcef006427c506b54f",
+      "compiled_working_sha256": "ee9b44bef0a31cce50dd8e5920a9409abebff7eb2728857aa32bb2a0ca484af2",
+      "replayed_git_sha256": "c8364ace455d9659795117412f9128003d5b4cf89f831ca85df8d3356dac401c"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulBattleSpellCue.h",
+      "git_blob": "591c70126946617726e852fafe67e8fe8aabc42e",
+      "compiled_working_sha256": "8c7591e1c6009b45319a5604a869fd689d71f59f2ca8b96f6d7fd6cc7858ebcc",
+      "replayed_git_sha256": "bcbcca241651763331e21fafa542d110c0be76e06867e11b264ab77bb6ad6c4d"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "git_blob": "0315973757ffe3ba73e2881b0b1fa8e285b21351",
+      "compiled_working_sha256": "6b70b4c55e93ad6eb7254a0d9ff0d121252dfb8e20afcb6a2640d3606ba88035",
+      "replayed_git_sha256": "6b70b4c55e93ad6eb7254a0d9ff0d121252dfb8e20afcb6a2640d3606ba88035"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattlePBIL.h",
+      "git_blob": "3a047d292a4e5869b8d6adae7434142b7e5662fe",
+      "compiled_working_sha256": "fe90d7a4d3071b5828cb65afe9512816189b0d39831714758ed80bdbcb68d217",
+      "replayed_git_sha256": "c4c3b70b63e7ef40059f3f6c861dd803046b0654344e540462a46c3a91c70bcf"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleRules.h",
+      "git_blob": "a3da3aa9906516ebc5621fd795236ff888525879",
+      "compiled_working_sha256": "4af20f11c5b2684b3e6f8620cc3db4a2b2e19f6cc3a14bb12a1dd76faaa9752a",
+      "replayed_git_sha256": "7e9f32e7509ce2819f09673dbee27cb9766485e832517885fe6d4611b7df6161"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleSpatial.h",
+      "git_blob": "5ce7356b3c89b7dc2715062bda1d058dc638ecb1",
+      "compiled_working_sha256": "2e6509514aff1757f2be0c2d4ab258e343a8e33cf486061a44ec447cde7dc2a5",
+      "replayed_git_sha256": "08d9f16ed15aff76736e0902d6a6f733522d349c8870c19346ce3498f553b6eb"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleTactics.h",
+      "git_blob": "e7265f7b815c9de57000db905e7932ba9422828b",
+      "compiled_working_sha256": "f760a702c5a2a052f8bb09959b6cb2a23f407fa0f5a8ebe4ca7952a99ca053df",
+      "replayed_git_sha256": "53edfd26c6b5a819602cc4e3a2a3a71e8a2cfb96fb5d0e40e6fb2b4558d3f4b4"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/SoulRealtimeBattle.Build.cs",
+      "git_blob": "d6c829bb4c511bf3a6d7cad40b82d7f8420bccc8",
+      "compiled_working_sha256": "f727d60a895cb9c721813f542daa3ee1153f48f004a63651cecf803f87941ef0",
+      "replayed_git_sha256": "9858dc20d04cff57b7ac1d4407c2623d9bc1fe50e5558fb11f3a4b630509bb5d"
+    }
+  ]
+}

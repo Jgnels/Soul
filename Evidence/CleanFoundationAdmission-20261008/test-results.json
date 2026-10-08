@@ -1,0 +1,41 @@
+{
+  "pass": true,
+  "source_head": "563ec9933eadd750c46ccc19b91c0b5c82a233d2",
+  "native": {
+    "CampaignWorld_default": {
+      "passed": 2,
+      "receipt": "Local/native-default-orc-r1/receipt.json"
+    },
+    "CampaignWorld_composition": {
+      "passed": 2,
+      "receipt": "Local/native-composition-orc-r1/receipt.json"
+    },
+    "ExactOrcCampaignRoster": {
+      "passed": 1,
+      "receipt": "Local/native-orc-assets-r1/receipt.json"
+    },
+    "Vertical_suite": {
+      "passed": 19,
+      "receipt": "Local/native-vertical-orc-r1/receipt.json",
+      "count_correction": "native-vertical-count-review.json"
+    }
+  },
+  "python": {
+    "source_view": 8,
+    "admission": 6,
+    "continuation": 6,
+    "input_contracts": 3,
+    "guarded_runner": 12,
+    "cook_profile": 6,
+    "manual_launch": 7,
+    "staged_copy_preservation": 1
+  },
+  "fresh_builds": [
+    "SoulEditor",
+    "Soul",
+    "SoulComposition"
+  ],
+  "raw_python_logs": "Local/*tests*.txt",
+  "no_expensive_repeat_for_unchanged_source": true,
+  "default_source_projection_unchanged_by_orc_except_explicit_pair_gate": true
+}
