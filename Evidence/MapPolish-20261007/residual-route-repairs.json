@@ -1,0 +1,355 @@
+{
+  "terrain_changed": false,
+  "repairs": [
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "start": [
+        2793.8792566037146,
+        1417.9781589669358
+      ],
+      "end": [
+        2781.2032021440064,
+        1432.6375742657588
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 19.41674187650893,
+        "max_grade_deg": 23.6105602818628,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 19.99507266807473,
+        "max_grade_deg": 21.24124211589919,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "start": [
+        2833.559002399918,
+        1345.2309280023915
+      ],
+      "end": [
+        2826.3262527233114,
+        1363.2877373171489
+      ],
+      "accepted": false,
+      "before": {
+        "length_m": 19.545805352613208,
+        "max_grade_deg": 22.48832831445862,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 19.57682488362781,
+        "max_grade_deg": 22.057636306307447,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "start": [
+        2554.8281015390344,
+        959.4763143967624
+      ],
+      "end": [
+        2572.2033743730044,
+        960.7843137254902
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 17.463178608334193,
+        "max_grade_deg": 23.002243625901162,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 17.533044171148582,
+        "max_grade_deg": 20.360347644427193,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "start": [
+        2415.6862745098038,
+        1349.6671826625386
+      ],
+      "end": [
+        2417.9467608946516,
+        1329.1933485782565
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 20.721273426584155,
+        "max_grade_deg": 23.49819193330967,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 20.85567967220996,
+        "max_grade_deg": 19.785288895500155,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "start": [
+        2330.1168929110104,
+        1486.977152114407
+      ],
+      "end": [
+        2346.0349452607097,
+        1476.7325205235657
+      ],
+      "accepted": false,
+      "before": {
+        "length_m": 18.955529843254443,
+        "max_grade_deg": 23.0802385752184,
+        "invalid_samples": 0,
+        "over22_1_samples": 2
+      },
+      "after": {
+        "length_m": 18.95240365545684,
+        "max_grade_deg": 23.9200207883854,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      }
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "start": [
+        2793.8792566037146,
+        1417.9781589669358
+      ],
+      "end": [
+        2781.2032021440064,
+        1432.6375742657588
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 19.41674187650893,
+        "max_grade_deg": 23.6105602818628,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 19.99507266807473,
+        "max_grade_deg": 21.24124211589919,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "start": [
+        2833.559002399918,
+        1345.2309280023915
+      ],
+      "end": [
+        2826.3262527233114,
+        1363.2877373171489
+      ],
+      "accepted": false,
+      "before": {
+        "length_m": 19.545805352613208,
+        "max_grade_deg": 22.48832831445862,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 19.57682488362781,
+        "max_grade_deg": 22.057636306307447,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "start": [
+        2554.8281015390344,
+        959.4763143967624
+      ],
+      "end": [
+        2572.2033743730044,
+        960.7843137254902
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 17.463178608334193,
+        "max_grade_deg": 23.002243625901162,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 17.533044171148582,
+        "max_grade_deg": 20.360347644427193,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "start": [
+        2415.6862745098038,
+        1349.6671826625386
+      ],
+      "end": [
+        2417.9467608946516,
+        1329.1933485782565
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 20.721273426584155,
+        "max_grade_deg": 23.49819193330967,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 20.85567967220996,
+        "max_grade_deg": 19.785288895500155,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "start": [
+        2249.490438821194,
+        1556.0372737441714
+      ],
+      "end": [
+        2260.669489621992,
+        1538.132260120033
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 21.521935462216064,
+        "max_grade_deg": 22.19948614762504,
+        "invalid_samples": 0,
+        "over22_1_samples": 3
+      },
+      "after": {
+        "length_m": 21.366384922139517,
+        "max_grade_deg": 21.50698873970976,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "start": [
+        730.7937091503268,
+        418.2516339869281
+      ],
+      "end": [
+        728.3308823529411,
+        398.6274509803921
+      ],
+      "accepted": false,
+      "before": {
+        "length_m": 19.78236110091966,
+        "max_grade_deg": 23.338150781339397,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      },
+      "after": {
+        "length_m": 19.7825975714189,
+        "max_grade_deg": 23.30971594102791,
+        "invalid_samples": 0,
+        "over22_1_samples": 2
+      }
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "start": [
+        754.5645490196079,
+        548.4581792951304
+      ],
+      "end": [
+        752.3406862745097,
+        528.9215686274508
+      ],
+      "accepted": false,
+      "before": {
+        "length_m": 19.664212515471547,
+        "max_grade_deg": 22.437931424802688,
+        "invalid_samples": 0,
+        "over22_1_samples": 2
+      },
+      "after": {
+        "length_m": 19.796843524811585,
+        "max_grade_deg": 22.282851804875662,
+        "invalid_samples": 0,
+        "over22_1_samples": 2
+      }
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "start": [
+        541.122507241533,
+        2464.9766042780743
+      ],
+      "end": [
+        530.0813725490195,
+        2480.3541176470585
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 18.94479884675635,
+        "max_grade_deg": 22.135523952654488,
+        "invalid_samples": 0,
+        "over22_1_samples": 2
+      },
+      "after": {
+        "length_m": 19.25700352928655,
+        "max_grade_deg": 20.42693597987151,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "start": [
+        616.8747045869184,
+        2340.6783434934196
+      ],
+      "end": [
+        602.700033236637,
+        2360.147026795156
+      ],
+      "accepted": false,
+      "before": {
+        "length_m": 24.08427758437542,
+        "max_grade_deg": 25.443342240117957,
+        "invalid_samples": 0,
+        "over22_1_samples": 4
+      },
+      "after": {
+        "length_m": 24.119501336457482,
+        "max_grade_deg": 25.12840694846608,
+        "invalid_samples": 0,
+        "over22_1_samples": 1
+      }
+    }
+  ]
+}

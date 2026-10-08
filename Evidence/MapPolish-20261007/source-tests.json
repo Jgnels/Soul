@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Users\\Jeff\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-m",
+    "unittest",
+    "Tools.test_soul_campaign_input",
+    "Source.Soul.Private.Tests.test_weekend_campaign_view"
+  ],
+  "exit_code": 0,
+  "log": "source-tests.txt",
+  "runtime_source_changed": false
+}

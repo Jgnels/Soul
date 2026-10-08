@@ -1,0 +1,20 @@
+{
+  "kind": "capped editor review observations, NOT a gameplay benchmark",
+  "native_capture_resolution": [
+    1920,
+    1080
+  ],
+  "fps_cap": 12,
+  "thermal_cutoff_c": 85,
+  "peak_gpu_c": 60.0,
+  "peak_gpu_memory_used_mib": 6825.0,
+  "peak_process_working_set_mib": 6839.14,
+  "peak_private_commit_mib": 8905.2,
+  "mean_frame_ms": null,
+  "p95_ms": null,
+  "p99_ms": null,
+  "frames_below30": null,
+  "frames_below40": null,
+  "frames_below60": null,
+  "uncapped_profile_skipped_reason": "Visual acceptance remains incomplete; respect the visual-first gate."
+}

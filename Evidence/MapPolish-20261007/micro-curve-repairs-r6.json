@@ -1,0 +1,27 @@
+{
+  "terrain_changed": false,
+  "trials_max_lateral_m": 4,
+  "fine_validation_spacing_m": 0.025,
+  "repairs": [
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "accepted": true,
+      "amplitude_m": 1.1749999999999998,
+      "start": [
+        618.0821347127335,
+        2341.1218572551443
+      ],
+      "end": [
+        601.4952139595285,
+        2361.7344072219644
+      ],
+      "after": {
+        "length_m": 27.957529261785098,
+        "max_grade_deg": 22.01519500078951,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    }
+  ]
+}

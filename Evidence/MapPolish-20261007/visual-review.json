@@ -1,0 +1,156 @@
+{
+  "editor_only": true,
+  "final_views": 17,
+  "paired_before_views": 14,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps_cap": 12,
+  "visual_acceptance": false,
+  "notes": {
+    "whole_labels_minimized": "Macro relief, footprint and regional masks unchanged. Roads are less dominant; this remains provisional campaign art.",
+    "ordinary_campaign": "Shared alignments and narrower roads reduce clutter. Some parallel stretches and angular junctions still warrant targeted review.",
+    "human_roads": "Arrivals reach the city and widths are reduced. Distinct branches remain; this is not a claim that every visible near-parallel path is art-approved.",
+    "human_capital_approach": "Main/coastal arrivals avoid housing and join the open street/forecourt. City scale is unchanged. Exact authored gate/quay and island correspondence remain unresolved.",
+    "river_ford": "Unbridged shallow crossing, bank curvature and subtle owned bed stones. Native maximum on the crossroads route is 21.76 degrees. Water edges remain provisional ribbons.",
+    "major_stone_bridge": "Existing major stone span retained with native collision and continuous route approach. Material/abutment art remains provisional.",
+    "minor_bridge": "The old unused woodland bridge is hidden, with no legal edge removed. A bounded attempt to use it failed the east-bank grade gate.",
+    "broken_bridge": "Intact stone span replaced by two cut owned stone ends and a narrower timber repair. The crossing reads as repaired ruins; clean cut faces remain provisional.",
+    "ferry_landing": "The central inlet keeps a ferry passage. Road approaches terminate at fitted shore landings, not inland endpoints or a giant sea bridge.",
+    "dwarf_approach": "KNOWN DEFECT: the footprint spans about 7.22 m of ground relief. A bounded 16 m bench search did not find a better seat. No terrain pad or hold rescale was made.",
+    "mountain_pass": "Authored relief retained. Grade-qualified curves still have tight, pathfinder-like turns; turning-radius/roadbed construction is not fully qualified.",
+    "orc_routes": "Badlands military roads narrowed and local approaches refined. Mesa identity retained. Regional donor/material transition was not changed.",
+    "nature_paths": "Clearing/Treehold roads share the River Woodland approach. Unused crossing removed. Forest diversity and remaining tight bends are provisional.",
+    "close_road": "Softer, narrower material footprint. Minor-site base/slope intersections remain, and the road is still a surface mask rather than a constructed roadbed.",
+    "minor_timber_bridge": "13 m minor tributary span uses owned Forest_village timber modules. Rails now run parallel to travel; native deck collision is continuous. Support/abutment detail is provisional.",
+    "ferry_landing_close": "Owned timber jetty and piles meet the shore approach. Ferry boat/service presentation is not implemented on this candidate.",
+    "southern_crossing": "Routes now enter along the bridge deck axis instead of clipping stone parapets. No terrain changes."
+  },
+  "images": [
+    {
+      "path": "Local/captures-before/whole_labels_minimized.png",
+      "sha256": "10ef564a2bbb96eae311612be2e1272b8a43eea8aa5f9473af4d15d3ea678dec"
+    },
+    {
+      "path": "Local/captures-final/whole_labels_minimized.png",
+      "sha256": "ecc482bd2cc1e3a5e1f5a2bd6f49034371ede9e8a28de16fce84be085259d7b5"
+    },
+    {
+      "path": "Local/captures-before/ordinary_campaign.png",
+      "sha256": "1f1703d478a00e6ffe631ff35d01ea0348cd535fca64e30becdd24b38c7b1911"
+    },
+    {
+      "path": "Local/captures-final/ordinary_campaign.png",
+      "sha256": "bee5b7a0c63ae498187b7c8690221cf7960300d0dac7d58d6e0e7c193b6ff59e"
+    },
+    {
+      "path": "Local/captures-before/human_roads.png",
+      "sha256": "31d58f528ca530944b430f9776e89a37cee545a0b9862180f055d0fd103bb1bb"
+    },
+    {
+      "path": "Local/captures-final/human_roads.png",
+      "sha256": "5412ea2d7ef18b1f287da874ac8d4bedc75441914622f5fcb15759ecde8c4ae5"
+    },
+    {
+      "path": "Local/captures-before/human_capital_approach.png",
+      "sha256": "a3124e12e0c90e5d297d8056781fb4a7a985a9a93875c396a0b32d19e51336ab"
+    },
+    {
+      "path": "Local/captures-final/human_capital_approach.png",
+      "sha256": "8de99c9446bbfd86a814e79458a1ca6ebc77c0cadd94678c053e77d8f509e6d6"
+    },
+    {
+      "path": "Local/captures-before/river_ford.png",
+      "sha256": "7935435c03de51abe2a70cdeb7859eba762d94e691b57018031674effd8b7897"
+    },
+    {
+      "path": "Local/captures-final/river_ford.png",
+      "sha256": "c42258182b0e90bfa47a2363a561951a929ea56b5243dfa09a9cf01934ea35d2"
+    },
+    {
+      "path": "Local/captures-before/major_stone_bridge.png",
+      "sha256": "619ba7ba7b96e840dee927ca55b235f85254babc59f600049069f4f61d65b535"
+    },
+    {
+      "path": "Local/captures-final/major_stone_bridge.png",
+      "sha256": "5550c54ffa613d8529c8df7fd2c64181d7759aa4d79fa69f6fe337be467a905c"
+    },
+    {
+      "path": "Local/captures-before/minor_bridge.png",
+      "sha256": "d5a54e232889d6e90cc116079bf8d31c4a3d675e137e83bc8bcbb2dfce568ee6"
+    },
+    {
+      "path": "Local/captures-final/minor_bridge.png",
+      "sha256": "039d0e9a6f9a74aa804f280275e924e2a617eda0d9f8554557ff602698e2f1c4"
+    },
+    {
+      "path": "Local/captures-before/broken_bridge.png",
+      "sha256": "39b27e7856c692e967c61c0c26b8ce9c0d5fa667086180185dc73d94720929a2"
+    },
+    {
+      "path": "Local/captures-final/broken_bridge.png",
+      "sha256": "3647d3f42ad10529b72cd422b9794b5ae3ad83e2b130ecfbe81307475303d39d"
+    },
+    {
+      "path": "Local/captures-before/ferry_landing.png",
+      "sha256": "992b9d754fe81d304c1025c14f347ebe58d58c41a7fddfac8af7521b4b8b15c5"
+    },
+    {
+      "path": "Local/captures-final/ferry_landing.png",
+      "sha256": "a71ae809f919cf759c725f567bbaceb396624134eedf188ab1d99483c0ed32d4"
+    },
+    {
+      "path": "Local/captures-before/dwarf_approach.png",
+      "sha256": "6a0928526ac49cff940f5ef85ef4ec98a4d8bb910953c63e907f59fde8ad555c"
+    },
+    {
+      "path": "Local/captures-final/dwarf_approach.png",
+      "sha256": "5208d73b281c746d102de6f482a1355725a287ea6a5822a36e62145a11a69c16"
+    },
+    {
+      "path": "Local/captures-before/mountain_pass.png",
+      "sha256": "f6d2f95cee4f6f49736eb798762b935a7877e5bba3e3605d170f6c4734ffba20"
+    },
+    {
+      "path": "Local/captures-final/mountain_pass.png",
+      "sha256": "9da873d872ae214129c5f051dd7ea36939ddc9104e77f6cf0a97153fd80ca9b7"
+    },
+    {
+      "path": "Local/captures-before/orc_routes.png",
+      "sha256": "d39782ae20d1ef087ba90fc7fcd6b1fd234d10e24d78178b9f15181d738c8b77"
+    },
+    {
+      "path": "Local/captures-final/orc_routes.png",
+      "sha256": "7932fee3969a34b238011f60b3757b9b2d4afe555635921d4277f100a0237528"
+    },
+    {
+      "path": "Local/captures-before/nature_paths.png",
+      "sha256": "f241bcbefc750742018d0b0f34cbf70b1d0d1b6e8c0e6d917c223e2eacefd0ad"
+    },
+    {
+      "path": "Local/captures-final/nature_paths.png",
+      "sha256": "f9f02ba7413992bfad7e72509ed6d5bc4e6c0a195829f95e1e8f46f07609ae52"
+    },
+    {
+      "path": "Local/captures-before/close_road.png",
+      "sha256": "d64ba172567f47e01b682cb28e416abd531a3e13d83c29e406512bd6efbcb460"
+    },
+    {
+      "path": "Local/captures-final/close_road.png",
+      "sha256": "ed62ca7a156903e6beead69e5292469054481cfa751c9c883df63838a0c53fba"
+    },
+    {
+      "path": "Local/captures-final/minor_timber_bridge.png",
+      "sha256": "49db0bcc6e9a40471b8b4e6f1160bd83330b15eaded71ab80583e33507bdf9d9"
+    },
+    {
+      "path": "Local/captures-final/ferry_landing_close.png",
+      "sha256": "c15ec8373b1900c9f0e9a0e66c5d71ebf2791b6f42385b424898406e41c45476"
+    },
+    {
+      "path": "Local/captures-final/southern_crossing.png",
+      "sha256": "5391e23a0cff168c0974a66db90e90a75424ad1fb4d4321381f5e41ecfe14e3e"
+    }
+  ]
+}

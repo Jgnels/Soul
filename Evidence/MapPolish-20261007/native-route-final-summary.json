@@ -1,0 +1,2153 @@
+{
+  "route_count": 51,
+  "passes": 51,
+  "misses": 0,
+  "points": 52645,
+  "max_landscape_height_delta_m": 0.0025672839377435253,
+  "method": "Native simple visibility collision, 1 m travel stations and 0.25 m crossing stations. Grade uses travelled horizontal arc distance, not the chord across intervening route bends. Overlapping station sets create short intervals: intervals under 0.20 m retained in raw diagnostics, excluded from acceptance to avoid millimetre ray-query error amplification. Analytical 0.25 m inventory independently samples every polyline segment, including its vertices. This is sampled qualification, not a continuous-grade or turning-radius guarantee.",
+  "source_sha256": "df2e22931f220dc2266bec915b891598fbf979d357a83eadb333c2d25cc57d21",
+  "routes": [
+    {
+      "a": "human_capital",
+      "b": "crossroads",
+      "max_grade_deg": 16.968404904041858,
+      "worst": {
+        "grade_deg": 16.968404904041858,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999997985,
+        "from_xy_m": [
+          959.4195482952464,
+          1788.266614562262
+        ],
+        "to_xy_m": [
+          960.1721249899532,
+          1788.9251191701303
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 16.968404904041858,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999997985,
+        "from_xy_m": [
+          959.4195482952464,
+          1788.266614562262
+        ],
+        "to_xy_m": [
+          960.1721249899532,
+          1788.9251191701303
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "max_grade_deg": 21.90746213940256,
+      "worst": {
+        "grade_deg": 21.90746213940256,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999273,
+        "from_xy_m": [
+          933.4575821906958,
+          1548.9827244580288
+        ],
+        "to_xy_m": [
+          933.0636628921166,
+          1548.0635794280108
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.90746213940256,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999273,
+        "from_xy_m": [
+          933.4575821906958,
+          1548.9827244580288
+        ],
+        "to_xy_m": [
+          933.0636628921166,
+          1548.0635794280108
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "max_grade_deg": 21.76264637339129,
+      "worst": {
+        "grade_deg": 21.76264637339129,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.2500000000001563,
+        "from_xy_m": [
+          777.7597405805911,
+          2182.567908563744
+        ],
+        "to_xy_m": [
+          777.7125018100859,
+          2182.813404996633
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.76264637339129,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.2500000000001563,
+        "from_xy_m": [
+          777.7597405805911,
+          2182.567908563744
+        ],
+        "to_xy_m": [
+          777.7125018100859,
+          2182.813404996633
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 51,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "max_grade_deg": 20.834855166368783,
+      "worst": {
+        "grade_deg": 20.834855166368783,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000684,
+        "from_xy_m": [
+          979.2975754198536,
+          1706.1107315132338
+        ],
+        "to_xy_m": [
+          979.7447890153536,
+          1705.2163043222338
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 20.834855166368783,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000684,
+        "from_xy_m": [
+          979.2975754198536,
+          1706.1107315132338
+        ],
+        "to_xy_m": [
+          979.7447890153536,
+          1705.2163043222338
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "max_grade_deg": 20.956567816062858,
+      "worst": {
+        "grade_deg": 20.956567816062858,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000293,
+        "from_xy_m": [
+          878.76420806685,
+          1378.4687798077684
+        ],
+        "to_xy_m": [
+          879.0970435846804,
+          1377.5257949096547
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 20.956567816062858,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000293,
+        "from_xy_m": [
+          878.76420806685,
+          1378.4687798077684
+        ],
+        "to_xy_m": [
+          879.0970435846804,
+          1377.5257949096547
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "max_grade_deg": 21.7626463733625,
+      "worst": {
+        "grade_deg": 21.7626463733625,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.24999999999970976,
+        "from_xy_m": [
+          777.7081483479614,
+          2182.8360296206624
+        ],
+        "to_xy_m": [
+          777.7553871184666,
+          2182.590533187774
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.7626463733625,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.24999999999970976,
+        "from_xy_m": [
+          777.7081483479614,
+          2182.8360296206624
+        ],
+        "to_xy_m": [
+          777.7553871184666,
+          2182.590533187774
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "max_grade_deg": 21.751425540062353,
+      "worst": {
+        "grade_deg": 21.751425540062353,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000244,
+        "from_xy_m": [
+          2276.491791759261,
+          1847.1224341013135
+        ],
+        "to_xy_m": [
+          2276.1755639932444,
+          1846.173750803263
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.751425540062353,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000244,
+        "from_xy_m": [
+          2276.491791759261,
+          1847.1224341013135
+        ],
+        "to_xy_m": [
+          2276.1755639932444,
+          1846.173750803263
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "forest_edge",
+      "b": "north_pass",
+      "max_grade_deg": 21.369891828502354,
+      "worst": {
+        "grade_deg": 21.369891828502354,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999667,
+        "from_xy_m": [
+          1942.224978214574,
+          1376.0144498916006
+        ],
+        "to_xy_m": [
+          1943.119405405574,
+          1376.4616634871004
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.369891828502354,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999667,
+        "from_xy_m": [
+          1942.224978214574,
+          1376.0144498916006
+        ],
+        "to_xy_m": [
+          1943.119405405574,
+          1376.4616634871004
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "max_grade_deg": 21.922396420647388,
+      "worst": {
+        "grade_deg": 21.922396420647388,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          2417.227615106305,
+          1216.2472229494422
+        ],
+        "to_xy_m": [
+          2416.5205083251185,
+          1215.5401161682555
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.922396420647388,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          2417.227615106305,
+          1216.2472229494422
+        ],
+        "to_xy_m": [
+          2416.5205083251185,
+          1215.5401161682555
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "max_grade_deg": 21.922396420648088,
+      "worst": {
+        "grade_deg": 21.922396420648088,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          2416.4482603451047,
+          1215.4678681882417
+        ],
+        "to_xy_m": [
+          2415.741153563918,
+          1214.760761407055
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.922396420648088,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          2416.4482603451047,
+          1215.4678681882417
+        ],
+        "to_xy_m": [
+          2415.741153563918,
+          1214.760761407055
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_forest_track",
+      "max_grade_deg": 21.37010199135045,
+      "worst": {
+        "grade_deg": 21.37010199135045,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999019840885454,
+        "from_xy_m": [
+          659.3932542130061,
+          729.729879597123
+        ],
+        "to_xy_m": [
+          659.1653356710501,
+          728.7563000595316
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.37010199135045,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999019840885454,
+        "from_xy_m": [
+          659.3932542130061,
+          729.729879597123
+        ],
+        "to_xy_m": [
+          659.1653356710501,
+          728.7563000595316
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "max_grade_deg": 21.605022890101548,
+      "worst": {
+        "grade_deg": 21.605022890101548,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          790.1779964752275,
+          680.3740749066001
+        ],
+        "to_xy_m": [
+          789.4708896940408,
+          679.6669681254134
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.605022890101548,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          790.1779964752275,
+          680.3740749066001
+        ],
+        "to_xy_m": [
+          789.4708896940408,
+          679.6669681254134
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "viking_snow_pass",
+      "max_grade_deg": 21.522630482322022,
+      "worst": {
+        "grade_deg": 21.522630482322022,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999541,
+        "from_xy_m": [
+          636.5794423523137,
+          541.6781866716868
+        ],
+        "to_xy_m": [
+          636.7034770869029,
+          540.6859087949732
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.522630482322022,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999541,
+        "from_xy_m": [
+          636.5794423523137,
+          541.6781866716868
+        ],
+        "to_xy_m": [
+          636.7034770869029,
+          540.6859087949732
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "viking_fjord_ridge",
+      "b": "viking_snow_pass",
+      "max_grade_deg": 21.790140242186823,
+      "worst": {
+        "grade_deg": 21.790140242186823,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999527,
+        "from_xy_m": [
+          804.2845855294119,
+          316.98111696732065
+        ],
+        "to_xy_m": [
+          804.6357089710002,
+          317.91744614488965
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.790140242186823,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999527,
+        "from_xy_m": [
+          804.2845855294119,
+          316.98111696732065
+        ],
+        "to_xy_m": [
+          804.6357089710002,
+          317.91744614488965
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "northwest_march",
+      "max_grade_deg": 21.78883860201859,
+      "worst": {
+        "grade_deg": 21.78883860201859,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          635.0192506242385,
+          710.5094467026698
+        ],
+        "to_xy_m": [
+          635.726357405425,
+          711.2165534838564
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.78883860201859,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          635.0192506242385,
+          710.5094467026698
+        ],
+        "to_xy_m": [
+          635.726357405425,
+          711.2165534838564
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "northwest_march",
+      "b": "human_capital",
+      "max_grade_deg": 19.92594966683944,
+      "worst": {
+        "grade_deg": 19.92594966683944,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.99999999999994,
+        "from_xy_m": [
+          708.2229731013382,
+          1280.489667163647
+        ],
+        "to_xy_m": [
+          708.3470078359273,
+          1281.4819450403606
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 19.92594966683944,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.99999999999994,
+        "from_xy_m": [
+          708.2229731013382,
+          1280.489667163647
+        ],
+        "to_xy_m": [
+          708.3470078359273,
+          1281.4819450403606
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 45,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "max_grade_deg": 21.59980224628161,
+      "worst": {
+        "grade_deg": 21.59980224628161,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.99986144521074,
+        "from_xy_m": [
+          789.823679225935,
+          680.0197576573077
+        ],
+        "to_xy_m": [
+          790.5272794183414,
+          680.7301587263275
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.59980224628161,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.99986144521074,
+        "from_xy_m": [
+          789.823679225935,
+          680.0197576573077
+        ],
+        "to_xy_m": [
+          790.5272794183414,
+          680.7301587263275
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "ancient_shrine",
+      "max_grade_deg": 21.239250435345276,
+      "worst": {
+        "grade_deg": 21.239250435345276,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000036,
+        "from_xy_m": [
+          1739.064922604335,
+          869.0832718696728
+        ],
+        "to_xy_m": [
+          1738.1098993178502,
+          869.3798026813467
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.239250435345276,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000036,
+        "from_xy_m": [
+          1739.064922604335,
+          869.0832718696728
+        ],
+        "to_xy_m": [
+          1738.1098993178502,
+          869.3798026813467
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "max_grade_deg": 21.45260021648769,
+      "worst": {
+        "grade_deg": 21.45260021648769,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999998141,
+        "from_xy_m": [
+          1869.0689835529918,
+          838.4560604039469
+        ],
+        "to_xy_m": [
+          1869.9634107439915,
+          838.9032739994468
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.45260021648769,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999998141,
+        "from_xy_m": [
+          1869.0689835529918,
+          838.4560604039469
+        ],
+        "to_xy_m": [
+          1869.9634107439915,
+          838.9032739994468
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "max_grade_deg": 21.22302657209576,
+      "worst": {
+        "grade_deg": 21.22302657209576,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9997683496660837,
+        "from_xy_m": [
+          2105.219322202403,
+          932.6173028209523
+        ],
+        "to_xy_m": [
+          2105.2722228739553,
+          931.6189350170126
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.22302657209576,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9997683496660837,
+        "from_xy_m": [
+          2105.219322202403,
+          932.6173028209523
+        ],
+        "to_xy_m": [
+          2105.2722228739553,
+          931.6189350170126
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "max_grade_deg": 21.7027012983788,
+      "worst": {
+        "grade_deg": 21.7027012983788,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999997954,
+        "from_xy_m": [
+          2237.847958118088,
+          727.8957725101349
+        ],
+        "to_xy_m": [
+          2238.647958118088,
+          728.4957725101349
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.7027012983788,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999997954,
+        "from_xy_m": [
+          2237.847958118088,
+          727.8957725101349
+        ],
+        "to_xy_m": [
+          2238.647958118088,
+          728.4957725101349
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "max_grade_deg": 21.330862476820393,
+      "worst": {
+        "grade_deg": 21.330862476820393,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000386,
+        "from_xy_m": [
+          2013.614450764489,
+          571.6607041551282
+        ],
+        "to_xy_m": [
+          2013.738485499078,
+          572.6529820318419
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.330862476820393,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000386,
+        "from_xy_m": [
+          2013.614450764489,
+          571.6607041551282
+        ],
+        "to_xy_m": [
+          2013.738485499078,
+          572.6529820318419
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "dwarf_hold",
+      "max_grade_deg": 21.65587109323238,
+      "worst": {
+        "grade_deg": 21.65587109323238,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.00000000000017,
+        "from_xy_m": [
+          2729.5571830367403,
+          689.5065229362262
+        ],
+        "to_xy_m": [
+          2729.10996944124,
+          688.6120957452263
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.65587109323238,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.00000000000017,
+        "from_xy_m": [
+          2729.5571830367403,
+          689.5065229362262
+        ],
+        "to_xy_m": [
+          2729.10996944124,
+          688.6120957452263
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "max_grade_deg": 21.703496419932538,
+      "worst": {
+        "grade_deg": 21.703496419932538,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000466,
+        "from_xy_m": [
+          2733.6979749764896,
+          568.1710919386064
+        ],
+        "to_xy_m": [
+          2734.0918942750686,
+          569.0902369686246
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.703496419932538,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000466,
+        "from_xy_m": [
+          2733.6979749764896,
+          568.1710919386064
+        ],
+        "to_xy_m": [
+          2734.0918942750686,
+          569.0902369686246
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "max_grade_deg": 21.84291734566199,
+      "worst": {
+        "grade_deg": 21.84291734566199,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999998985,
+        "from_xy_m": [
+          1989.4399658178286,
+          1133.6541597347866
+        ],
+        "to_xy_m": [
+          1988.5585357795392,
+          1134.1264743413794
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.84291734566199,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999998985,
+        "from_xy_m": [
+          1989.4399658178286,
+          1133.6541597347866
+        ],
+        "to_xy_m": [
+          1988.5585357795392,
+          1134.1264743413794
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "max_grade_deg": 21.922396420641082,
+      "worst": {
+        "grade_deg": 21.922396420641082,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          2416.4246673536168,
+          1215.444275196754
+        ],
+        "to_xy_m": [
+          2417.1317741348034,
+          1216.1513819779404
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.922396420641082,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          2416.4246673536168,
+          1215.444275196754
+        ],
+        "to_xy_m": [
+          2417.1317741348034,
+          1216.1513819779404
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "max_grade_deg": 21.922396420648088,
+      "worst": {
+        "grade_deg": 21.922396420648088,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          2417.1077677743847,
+          1216.127375617522
+        ],
+        "to_xy_m": [
+          2416.400660993198,
+          1215.4202688363353
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.922396420648088,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001688,
+        "from_xy_m": [
+          2417.1077677743847,
+          1216.127375617522
+        ],
+        "to_xy_m": [
+          2416.400660993198,
+          1215.4202688363353
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "max_grade_deg": 21.91560132061394,
+      "worst": {
+        "grade_deg": 21.91560132061394,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999364,
+        "from_xy_m": [
+          2733.686611584098,
+          1465.6707904798707
+        ],
+        "to_xy_m": [
+          2734.5441045098105,
+          1466.1852862352982
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.91560132061394,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999364,
+        "from_xy_m": [
+          2733.686611584098,
+          1465.6707904798707
+        ],
+        "to_xy_m": [
+          2734.5441045098105,
+          1466.1852862352982
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_war_camp",
+      "max_grade_deg": 21.359373360741472,
+      "worst": {
+        "grade_deg": 21.359373360741472,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000684,
+        "from_xy_m": [
+          2716.722717579148,
+          1471.5966529072211
+        ],
+        "to_xy_m": [
+          2717.617144770148,
+          1472.0438665027211
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.359373360741472,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000684,
+        "from_xy_m": [
+          2716.722717579148,
+          1471.5966529072211
+        ],
+        "to_xy_m": [
+          2717.617144770148,
+          1472.0438665027211
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "max_grade_deg": 21.922396420640382,
+      "worst": {
+        "grade_deg": 21.922396420640382,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          2417.170318400288,
+          1216.1899262434254
+        ],
+        "to_xy_m": [
+          2416.4632116191015,
+          1215.482819462239
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.922396420640382,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          2417.170318400288,
+          1216.1899262434254
+        ],
+        "to_xy_m": [
+          2416.4632116191015,
+          1215.482819462239
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 28,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "max_grade_deg": 21.952651784043645,
+      "worst": {
+        "grade_deg": 21.952651784043645,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000466,
+        "from_xy_m": [
+          3038.8304243998014,
+          1805.373439929863
+        ],
+        "to_xy_m": [
+          3039.2243436983804,
+          1806.2925849598812
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.952651784043645,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000466,
+        "from_xy_m": [
+          3038.8304243998014,
+          1805.373439929863
+        ],
+        "to_xy_m": [
+          3039.2243436983804,
+          1806.2925849598812
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 27,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "max_grade_deg": 21.114392015364444,
+      "worst": {
+        "grade_deg": 21.114392015364444,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999448,
+        "from_xy_m": [
+          3074.0156200195865,
+          1807.0481197630504
+        ],
+        "to_xy_m": [
+          3073.7208433348123,
+          1808.003685933503
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.114392015364444,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999448,
+        "from_xy_m": [
+          3074.0156200195865,
+          1807.0481197630504
+        ],
+        "to_xy_m": [
+          3073.7208433348123,
+          1808.003685933503
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 22,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "max_grade_deg": 16.14563398640624,
+      "worst": {
+        "grade_deg": 16.14563398640624,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999598,
+        "from_xy_m": [
+          266.813419995307,
+          1901.8416930525507
+        ],
+        "to_xy_m": [
+          265.8234705016459,
+          1901.7002716963134
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 16.14563398640624,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999598,
+        "from_xy_m": [
+          266.813419995307,
+          1901.8416930525507
+        ],
+        "to_xy_m": [
+          265.8234705016459,
+          1901.7002716963134
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 135,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "coastal_ruins",
+      "b": "nature_shrine",
+      "max_grade_deg": 21.451830181360094,
+      "worst": {
+        "grade_deg": 21.451830181360094,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999636,
+        "from_xy_m": [
+          335.53245722490334,
+          2349.469253153342
+        ],
+        "to_xy_m": [
+          335.6968562122087,
+          2350.455647077174
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.451830181360094,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999999636,
+        "from_xy_m": [
+          335.53245722490334,
+          2349.469253153342
+        ],
+        "to_xy_m": [
+          335.6968562122087,
+          2350.455647077174
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_forest_clearing",
+      "max_grade_deg": 21.471888667532472,
+      "worst": {
+        "grade_deg": 21.471888667532472,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000724,
+        "from_xy_m": [
+          346.52758515971937,
+          2604.699060744709
+        ],
+        "to_xy_m": [
+          346.3861638034821,
+          2605.6890102383704
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.471888667532472,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000724,
+        "from_xy_m": [
+          346.52758515971937,
+          2604.699060744709
+        ],
+        "to_xy_m": [
+          346.3861638034821,
+          2605.6890102383704
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "max_grade_deg": 20.804303069287595,
+      "worst": {
+        "grade_deg": 20.804303069287595,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          801.6852362060572,
+          2428.1558244413513
+        ],
+        "to_xy_m": [
+          802.3923429872441,
+          2428.8629312225376
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 20.804303069287595,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          801.6852362060572,
+          2428.1558244413513
+        ],
+        "to_xy_m": [
+          802.3923429872441,
+          2428.8629312225376
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 76,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "max_grade_deg": 21.89034103187035,
+      "worst": {
+        "grade_deg": 21.89034103187035,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999997997,
+        "from_xy_m": [
+          631.3909356475591,
+          3304.0411439332224
+        ],
+        "to_xy_m": [
+          631.7237557652943,
+          3303.0981535996398
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.89034103187035,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999999999997997,
+        "from_xy_m": [
+          631.3909356475591,
+          3304.0411439332224
+        ],
+        "to_xy_m": [
+          631.7237557652943,
+          3303.0981535996398
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_river_woodland",
+      "max_grade_deg": 21.40130429508899,
+      "worst": {
+        "grade_deg": 21.40130429508899,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9998654961649361,
+        "from_xy_m": [
+          330.09368307481964,
+          2731.8874594574
+        ],
+        "to_xy_m": [
+          330.73680586062,
+          2732.653046874228
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.40130429508899,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9998654961649361,
+        "from_xy_m": [
+          330.09368307481964,
+          2731.8874594574
+        ],
+        "to_xy_m": [
+          330.73680586062,
+          2732.653046874228
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_river_woodland",
+      "b": "nature_treehold",
+      "max_grade_deg": 21.267889921968976,
+      "worst": {
+        "grade_deg": 21.267889921968976,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999773620117118,
+        "from_xy_m": [
+          631.3063633607034,
+          3304.287078403948
+        ],
+        "to_xy_m": [
+          631.6371939013735,
+          3303.343412214082
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.267889921968976,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999773620117118,
+        "from_xy_m": [
+          631.3063633607034,
+          3304.287078403948
+        ],
+        "to_xy_m": [
+          631.6371939013735,
+          3303.343412214082
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "max_grade_deg": 21.96122167402541,
+      "worst": {
+        "grade_deg": 21.96122167402541,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.24999837950698453,
+        "from_xy_m": [
+          607.9721091182043,
+          2351.258217134733
+        ],
+        "to_xy_m": [
+          607.8477333346779,
+          2351.4750808113326
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.96122167402541,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.24999837950698453,
+        "from_xy_m": [
+          607.9721091182043,
+          2351.258217134733
+        ],
+        "to_xy_m": [
+          607.8477333346779,
+          2351.4750808113326
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 116,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "max_grade_deg": 21.740698451430976,
+      "worst": {
+        "grade_deg": 21.740698451430976,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.2500000000000422,
+        "from_xy_m": [
+          780.0437746291802,
+          2200.632009923298
+        ],
+        "to_xy_m": [
+          779.8669979338836,
+          2200.4552332280014
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.740698451483073,
+        "distance_m": 0.046680077929977415,
+        "chord_distance_m": 0.04668007793020036,
+        "from_xy_m": [
+          780.2535591241275,
+          2200.841794418245
+        ],
+        "to_xy_m": [
+          780.2205513244769,
+          2200.8087866185942
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 24,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "max_grade_deg": 20.804303069287595,
+      "worst": {
+        "grade_deg": 20.804303069287595,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          802.4459304912617,
+          2428.9165187265558
+        ],
+        "to_xy_m": [
+          801.7388237100753,
+          2428.209411945369
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 20.804303069287595,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          802.4459304912617,
+          2428.9165187265558
+        ],
+        "to_xy_m": [
+          801.7388237100753,
+          2428.209411945369
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 25,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "max_grade_deg": 21.15684651523956,
+      "worst": {
+        "grade_deg": 21.15684651523956,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.2500000000001226,
+        "from_xy_m": [
+          771.9049687617855,
+          2196.476227819411
+        ],
+        "to_xy_m": [
+          771.7281920664888,
+          2196.653004514708
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.15684651523956,
+        "distance_m": 0.25,
+        "chord_distance_m": 0.2500000000001226,
+        "from_xy_m": [
+          771.9049687617855,
+          2196.476227819411
+        ],
+        "to_xy_m": [
+          771.7281920664888,
+          2196.653004514708
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 26,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "max_grade_deg": 21.900900278168262,
+      "worst": {
+        "grade_deg": 21.900900278168262,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000003584,
+        "from_xy_m": [
+          3095.6083030847267,
+          1123.5412684600826
+        ],
+        "to_xy_m": [
+          3096.588883760418,
+          1123.7373845952209
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.971291106815016,
+        "distance_m": 0.15939964012864039,
+        "chord_distance_m": 0.15939964012850558,
+        "from_xy_m": [
+          1158.4318182766729,
+          1339.5080577512167
+        ],
+        "to_xy_m": [
+          1158.5572129968414,
+          1339.6064671482627
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Polish_Landing_central_inlet_ferry_0_deck_0"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 34,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "max_grade_deg": 21.787482501792052,
+      "worst": {
+        "grade_deg": 21.787482501792052,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000533,
+        "from_xy_m": [
+          1226.3215190015655,
+          3018.3790022575113
+        ],
+        "to_xy_m": [
+          1226.8360147569933,
+          3019.2364951832237
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.787482501792052,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000533,
+        "from_xy_m": [
+          1226.3215190015655,
+          3018.3790022575113
+        ],
+        "to_xy_m": [
+          1226.8360147569933,
+          3019.2364951832237
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "max_grade_deg": 21.922396420633376,
+      "worst": {
+        "grade_deg": 21.922396420633376,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          2416.3123405779493,
+          1215.3319484210867
+        ],
+        "to_xy_m": [
+          2417.019447359136,
+          1216.0390552022732
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.922396420633376,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.000000000000008,
+        "from_xy_m": [
+          2416.3123405779493,
+          1215.3319484210867
+        ],
+        "to_xy_m": [
+          2417.019447359136,
+          1216.0390552022732
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "max_grade_deg": 21.515411695298436,
+      "worst": {
+        "grade_deg": 21.515411695298436,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001315,
+        "from_xy_m": [
+          1550.7199071905725,
+          2766.9025325496373
+        ],
+        "to_xy_m": [
+          1549.8624142648598,
+          2766.3880367942097
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.515411695298436,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000001315,
+        "from_xy_m": [
+          1550.7199071905725,
+          2766.9025325496373
+        ],
+        "to_xy_m": [
+          1549.8624142648598,
+          2766.3880367942097
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ash_plain",
+      "max_grade_deg": 21.703466587282065,
+      "worst": {
+        "grade_deg": 21.703466587282065,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999516873674587,
+        "from_xy_m": [
+          1804.8916343518074,
+          3038.8116489160384
+        ],
+        "to_xy_m": [
+          1804.9019607843136,
+          3039.811547281804
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 21.703466587282065,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9999516873674587,
+        "from_xy_m": [
+          1804.8916343518074,
+          3038.8116489160384
+        ],
+        "to_xy_m": [
+          1804.9019607843136,
+          3039.811547281804
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "max_grade_deg": 20.932578520521943,
+      "worst": {
+        "grade_deg": 20.932578520521943,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9991500590050576,
+        "from_xy_m": [
+          2614.0280154718803,
+          3122.8751612543733
+        ],
+        "to_xy_m": [
+          2614.8584211891152,
+          3122.319529015214
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 20.932578520521943,
+        "distance_m": 1.0,
+        "chord_distance_m": 0.9991500590050576,
+        "from_xy_m": [
+          2614.0280154718803,
+          3122.8751612543733
+        ],
+        "to_xy_m": [
+          2614.8584211891152,
+          3122.319529015214
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 1,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "max_grade_deg": 20.47037148247118,
+      "worst": {
+        "grade_deg": 20.47037148247118,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000537,
+        "from_xy_m": [
+          2250.9803921568628,
+          3040.1960784313724
+        ],
+        "to_xy_m": [
+          2251.950534657008,
+          3040.438614056409
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 20.47037148247118,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000537,
+        "from_xy_m": [
+          2250.9803921568628,
+          3040.1960784313724
+        ],
+        "to_xy_m": [
+          2251.950534657008,
+          3040.438614056409
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    },
+    {
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "max_grade_deg": 19.593599215974145,
+      "worst": {
+        "grade_deg": 19.593599215974145,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000104,
+        "from_xy_m": [
+          2719.470582509506,
+          3150.0616213779813
+        ],
+        "to_xy_m": [
+          2720.3388256516305,
+          3150.5577603163383
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "raw_maximum_including_sub_20cm_intervals": {
+        "grade_deg": 19.593599215974145,
+        "distance_m": 1.0,
+        "chord_distance_m": 1.0000000000000104,
+        "from_xy_m": [
+          2719.470582509506,
+          3150.0616213779813
+        ],
+        "to_xy_m": [
+          2720.3388256516305,
+          3150.5577603163383
+        ],
+        "actors": [
+          "Soul_Composition_3500_r1",
+          "Soul_Composition_3500_r1"
+        ]
+      },
+      "sub_20cm_intervals_excluded_from_acceptance": 0,
+      "misses": 0,
+      "passes": true
+    }
+  ]
+}

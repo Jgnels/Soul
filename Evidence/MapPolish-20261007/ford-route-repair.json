@@ -1,0 +1,26 @@
+{
+  "route": [
+    "crossroads",
+    "river_ford"
+  ],
+  "before": {
+    "length_m": 439.09350678681085,
+    "max_grade_deg": 25.238634317986968,
+    "invalid_samples": 0,
+    "over22_1_samples": 14
+  },
+  "attempts": [
+    {
+      "last_m": 25,
+      "found": true
+    }
+  ],
+  "terrain_edited": false,
+  "after": {
+    "length_m": 438.9286542243009,
+    "max_grade_deg": 21.81330211224986,
+    "invalid_samples": 0,
+    "over22_1_samples": 0
+  },
+  "accepted": true
+}

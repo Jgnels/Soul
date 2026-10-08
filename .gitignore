@@ -62,3 +62,6 @@ Evidence/CampaignTerrainProduction-20260929/runs/0[1-8]-*/*.png
 /Content/SoulCampaignComposition/
 /Data/CampaignCompositionLocal/
 /Evidence/ProductionWorldComposition-20261007/Local/
+
+# Map-polish local licensed snapshots, renders and analysis dependencies
+/Evidence/MapPolish-20261007/Local/

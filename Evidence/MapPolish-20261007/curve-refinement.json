@@ -1,0 +1,261 @@
+{
+  "terrain_edited": false,
+  "maximum_corner_trim_m": 8,
+  "routes": [
+    {
+      "a": "human_capital",
+      "b": "crossroads",
+      "rounded_corners": 5
+    },
+    {
+      "a": "crossroads",
+      "b": "old_quarry",
+      "rounded_corners": 8
+    },
+    {
+      "a": "crossroads",
+      "b": "river_ford",
+      "rounded_corners": 4
+    },
+    {
+      "a": "crossroads",
+      "b": "forest_edge",
+      "rounded_corners": 4
+    },
+    {
+      "a": "old_quarry",
+      "b": "ancient_shrine",
+      "rounded_corners": 6
+    },
+    {
+      "a": "river_ford",
+      "b": "orc_watch",
+      "rounded_corners": 35
+    },
+    {
+      "a": "forest_edge",
+      "b": "orc_watch",
+      "rounded_corners": 17
+    },
+    {
+      "a": "forest_edge",
+      "b": "north_pass",
+      "rounded_corners": 21
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "rounded_corners": 52
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "rounded_corners": 54
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_forest_track",
+      "rounded_corners": 16
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "rounded_corners": 18
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "viking_snow_pass",
+      "rounded_corners": 15
+    },
+    {
+      "a": "viking_fjord_ridge",
+      "b": "viking_snow_pass",
+      "rounded_corners": 6
+    },
+    {
+      "a": "viking_forest_track",
+      "b": "northwest_march",
+      "rounded_corners": 20
+    },
+    {
+      "a": "northwest_march",
+      "b": "human_capital",
+      "rounded_corners": 5
+    },
+    {
+      "a": "viking_snow_pass",
+      "b": "mountain_shrine",
+      "rounded_corners": 33
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "ancient_shrine",
+      "rounded_corners": 10
+    },
+    {
+      "a": "mountain_shrine",
+      "b": "dwarf_mountain_pass",
+      "rounded_corners": 14
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "dwarf_high_quarry",
+      "rounded_corners": 17
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_snow_basin",
+      "rounded_corners": 31
+    },
+    {
+      "a": "dwarf_high_quarry",
+      "b": "dwarf_forge_approach",
+      "rounded_corners": 23
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "dwarf_hold",
+      "rounded_corners": 7
+    },
+    {
+      "a": "dwarf_snow_basin",
+      "b": "dwarf_hold",
+      "rounded_corners": 12
+    },
+    {
+      "a": "dwarf_mountain_pass",
+      "b": "north_pass",
+      "rounded_corners": 30
+    },
+    {
+      "a": "dwarf_forge_approach",
+      "b": "north_pass",
+      "rounded_corners": 28
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_war_camp",
+      "rounded_corners": 34
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_badlands",
+      "rounded_corners": 0
+    },
+    {
+      "a": "orc_camp",
+      "b": "orc_war_camp",
+      "rounded_corners": 13
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "rounded_corners": 64
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "rounded_corners": 16
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "rounded_corners": 2
+    },
+    {
+      "a": "human_capital",
+      "b": "coastal_ruins",
+      "rounded_corners": 5
+    },
+    {
+      "a": "coastal_ruins",
+      "b": "nature_shrine",
+      "rounded_corners": 6
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_forest_clearing",
+      "rounded_corners": 14
+    },
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "rounded_corners": 9
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_treehold",
+      "rounded_corners": 46
+    },
+    {
+      "a": "nature_forest_clearing",
+      "b": "nature_river_woodland",
+      "rounded_corners": 4
+    },
+    {
+      "a": "nature_river_woodland",
+      "b": "nature_treehold",
+      "rounded_corners": 40
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "rounded_corners": 25
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "river_ford",
+      "rounded_corners": 2
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "rounded_corners": 6
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "rounded_corners": 1
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "rounded_corners": 77
+    },
+    {
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "rounded_corners": 38
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "rounded_corners": 78
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ruined_causeway",
+      "rounded_corners": 18
+    },
+    {
+      "a": "dark_corrupted_valley",
+      "b": "dark_ash_plain",
+      "rounded_corners": 18
+    },
+    {
+      "a": "dark_ruined_causeway",
+      "b": "dark_castle_approach",
+      "rounded_corners": 11
+    },
+    {
+      "a": "dark_ash_plain",
+      "b": "dark_fortress",
+      "rounded_corners": 11
+    },
+    {
+      "a": "dark_castle_approach",
+      "b": "dark_fortress",
+      "rounded_corners": 10
+    }
+  ]
+}

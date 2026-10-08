@@ -1,0 +1,86 @@
+{
+  "passages": [
+    {
+      "id": "central_inlet_ferry",
+      "before_endpoints": [
+        [
+          1098.0392156862745,
+          1303.9215686274508
+        ],
+        [
+          1372.549019607843,
+          1454.9019607843136
+        ]
+      ],
+      "after_endpoints": [
+        [
+          1158.5572129968414,
+          1339.6064671482627
+        ],
+        [
+          1297.3343965975544,
+          1406.2339181286548
+        ]
+      ],
+      "accepted": true,
+      "approaches": [
+        {
+          "length_m": 70.54304190168065,
+          "max_grade_deg": 4.980311258211322,
+          "invalid_samples": 0,
+          "over22_1_samples": 0
+        },
+        {
+          "length_m": 92.06392419491436,
+          "max_grade_deg": 3.270122453640633,
+          "invalid_samples": 0,
+          "over22_1_samples": 0
+        }
+      ],
+      "after_water_fraction": 0.8446601941747572,
+      "after_span_m": 153.94259940734582
+    },
+    {
+      "id": "southern_inlet_ferry",
+      "before_endpoints": [
+        [
+          2196.078431372549,
+          2196.078431372549
+        ],
+        [
+          2100.0,
+          2518.627450980392
+        ]
+      ],
+      "after_endpoints": [
+        [
+          2183.382098199339,
+          2234.701835596896
+        ],
+        [
+          2135.6010014993376,
+          2431.2526602326157
+        ]
+      ],
+      "accepted": true,
+      "approaches": [
+        {
+          "length_m": 40.670256321620585,
+          "max_grade_deg": 11.342629461036383,
+          "invalid_samples": 0,
+          "over22_1_samples": 0
+        },
+        {
+          "length_m": 97.13450897723965,
+          "max_grade_deg": 2.463686670376704,
+          "invalid_samples": 0,
+          "over22_1_samples": 0
+        }
+      ],
+      "after_water_fraction": 0.9064039408866995,
+      "after_span_m": 202.2752082357999
+    }
+  ],
+  "new_legal_edges": 0,
+  "terrain_changed": false
+}

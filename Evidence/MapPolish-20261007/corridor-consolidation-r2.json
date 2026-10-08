@@ -1,0 +1,1968 @@
+{
+  "canonical_edges_removed": 0,
+  "maximum_corridor_offset_m": 45.0,
+  "changes": [
+    {
+      "route": [
+        "nature_forest_clearing",
+        "nature_treehold"
+      ],
+      "kind": "shared woodland approach",
+      "reason": "Clearing road joins River Woodland branch before the common Treehold approach; separate southern crossing remains.",
+      "after": {
+        "length_m": 1519.915214010754,
+        "max_grade_deg": 22.00785943676745,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "dwarf_high_quarry"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "dwarf_mountain_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2100.0,
+        960.7843137254902
+      ],
+      "end": [
+        2071.099884742503,
+        835.8423623787191
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 199.72911962142717,
+        "max_grade_deg": 21.945148548525093,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 200.46648976482254,
+        "max_grade_deg": 21.945148548517846,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_forest_track",
+        "northwest_march"
+      ],
+      "reference": [
+        "viking_harbour",
+        "viking_forest_track"
+      ],
+      "segment": 0,
+      "start": [
+        562.7450980392157,
+        706.8627450980392
+      ],
+      "end": [
+        626.6029570727167,
+        702.0454067798721
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 77.56427224686881,
+        "max_grade_deg": 14.444741816414467,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 78.06146658125674,
+        "max_grade_deg": 14.840964398795027,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "dwarf_high_quarry",
+        "dwarf_forge_approach"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "dwarf_mountain_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2071.099884742503,
+        835.8423623787189
+      ],
+      "end": [
+        2115.1539833548795,
+        824.9675293655929
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 49.03171652120244,
+        "max_grade_deg": 19.71817470436239,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 49.622213032284236,
+        "max_grade_deg": 19.718174704374842,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "dark_corrupted_valley",
+        "dark_ash_plain"
+      ],
+      "reference": [
+        "dark_corrupted_valley",
+        "dark_ruined_causeway"
+      ],
+      "segment": 0,
+      "start": [
+        1633.3333333333333,
+        2683.333333333333
+      ],
+      "end": [
+        1621.4253696883957,
+        2743.1157779479095
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 62.85972443265304,
+        "max_grade_deg": 19.968547312376074,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 64.16412073009523,
+        "max_grade_deg": 19.968547312376074,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "nature_grassland_edge",
+        "nature_river_woodland"
+      ],
+      "reference": [
+        "nature_shrine",
+        "nature_forest_clearing"
+      ],
+      "segment": 0,
+      "start": [
+        379.27691640449655,
+        2559.263254362089
+      ],
+      "end": [
+        344.0660682019757,
+        2631.6084881277707
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 88.49157611148038,
+        "max_grade_deg": 21.92516505799328,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 88.66661313946727,
+        "max_grade_deg": 21.92516505799328,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "reference": [
+        "dwarf_high_quarry",
+        "dwarf_forge_approach"
+      ],
+      "segment": 0,
+      "start": [
+        2559.803921568627,
+        830.3921568627451
+      ],
+      "end": [
+        2463.926892065315,
+        825.4714917647059
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 96.95786280928087,
+        "max_grade_deg": 18.74954564699416,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 98.19187593721341,
+        "max_grade_deg": 18.67964604755485,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "reference": [
+        "old_quarry",
+        "ancient_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        987.063938888816,
+        1172.433034803044
+      ],
+      "end": [
+        1001.9607843137254,
+        1118.627450980392
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 57.76800471195871,
+        "max_grade_deg": 16.371273076512264,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 57.84537751716033,
+        "max_grade_deg": 16.37127307651801,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        1098.0392156862745,
+        1305.9194771241828
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.54095039841259,
+        "max_grade_deg": 5.203653795682958,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.54095039841259,
+        "max_grade_deg": 5.203653795682958,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "reference": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "segment": 2,
+      "start": [
+        2076.3257308964576,
+        1453.1428574450274
+      ],
+      "end": [
+        2182.3529411764703,
+        1434.313725490196
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 135.10103265320913,
+        "max_grade_deg": 21.920043201909454,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 134.8125704084203,
+        "max_grade_deg": 21.920043201909454,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1374.372532198757,
+        1454.2181435627208
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.01143649571463,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 94.01143649571463,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "north_pass",
+        "orc_war_camp"
+      ],
+      "reference": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2182.3529411764703,
+        1434.313725490196
+      ],
+      "end": [
+        2398.7058412529036,
+        963.5507357006289
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 864.161297936404,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 863.9547247010622,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "forest_edge",
+        "orc_watch"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        1098.0392156862745,
+        1305.9194771241828
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.54095039841259,
+        "max_grade_deg": 5.203653795682958,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.54095039841259,
+        "max_grade_deg": 5.203653795682958,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "forest_edge",
+        "orc_watch"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1373.8473767885532,
+        1456.385797562268
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "forest_edge",
+        "orc_watch"
+      ],
+      "reference": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1373.8473767885532,
+        1456.385797562268
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "reference": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2182.3529411764703,
+        1434.313725490196
+      ],
+      "end": [
+        2398.7058412529036,
+        963.5507357006289
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 864.161297936404,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 863.9547247010622,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "reference": [
+        "north_pass",
+        "orc_war_camp"
+      ],
+      "segment": 0,
+      "start": [
+        2182.3529411764703,
+        1434.313725490196
+      ],
+      "end": [
+        2672.5555568032332,
+        980.1783404972227
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 1154.2248961414202,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 1154.346910877171,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "viking_forest_track",
+        "viking_snow_pass"
+      ],
+      "segment": 0,
+      "start": [
+        844.1176470588235,
+        466.66666666666663
+      ],
+      "end": [
+        781.1474119011707,
+        468.63571605231834
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 64.57299727356812,
+        "max_grade_deg": 21.09956079021521,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 65.17273597328204,
+        "max_grade_deg": 18.38735970210212,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "viking_harbour",
+        "viking_fjord_ridge"
+      ],
+      "segment": 0,
+      "start": [
+        754.7959433773509,
+        534.636436056786
+      ],
+      "end": [
+        844.7314735369798,
+        982.3621067378253
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 471.52534411111606,
+        "max_grade_deg": 21.605692071923443,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 472.3758950176944,
+        "max_grade_deg": 21.605692071923443,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        983.8606373523213,
+        1169.122880180487
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 249.30042527168388,
+        "max_grade_deg": 12.877109839007666,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 249.51868203634092,
+        "max_grade_deg": 12.877109839007666,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "segment": 0,
+      "start": [
+        1097.0021903769582,
+        1302.2623281325448
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.49969734199162,
+        "max_grade_deg": 5.102713376200747,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.49969734199162,
+        "max_grade_deg": 5.102713376200747,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "forest_edge",
+        "orc_watch"
+      ],
+      "segment": 0,
+      "start": [
+        1097.0021903769582,
+        1302.2623281325448
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.49969734199162,
+        "max_grade_deg": 5.102713376200747,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.49969734199162,
+        "max_grade_deg": 5.102713376200747,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1372.549019607843,
+        1452.9217794644737
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.04410551475422,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "reference": [
+        "forest_edge",
+        "orc_watch"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1372.549019607843,
+        1452.9217794644737
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "reference": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2408.5649032340207,
+        1417.3007877608397
+      ],
+      "end": [
+        2398.7058412529036,
+        963.5507357006289
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 516.6458062724378,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 516.8272791650379,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "reference": [
+        "north_pass",
+        "orc_war_camp"
+      ],
+      "segment": 0,
+      "start": [
+        2408.5649032340207,
+        1417.3007877608397
+      ],
+      "end": [
+        2672.5555568032332,
+        980.1783404972227
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 807.0974506053958,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 807.2194653411466,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "crossroads",
+        "forest_edge"
+      ],
+      "segment": 0,
+      "start": [
+        966.0927475458619,
+        1735.6290098165523
+      ],
+      "end": [
+        1039.9948964119908,
+        1611.6705450820048
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 146.93688414383297,
+        "max_grade_deg": 21.087618315954007,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 149.64791499675007,
+        "max_grade_deg": 21.152431826139335,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "crossroads",
+        "old_quarry"
+      ],
+      "segment": 0,
+      "start": [
+        966.0927475458619,
+        1735.6290098165523
+      ],
+      "end": [
+        971.0023748322268,
+        1722.7091105278228
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 15.133101957662761,
+        "max_grade_deg": 9.165203823008392,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 15.014268811043108,
+        "max_grade_deg": 9.11906267806008,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        1098.0392156862745,
+        1305.899171994031
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        1098.0392156862745,
+        1305.899171994031
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1373.8473767885532,
+        1456.385797562268
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1373.8473767885532,
+        1456.385797562268
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 94.03559935890857,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "reference": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1372.549019607843,
+        1454.9019607843136
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 92.06392419491436,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 92.06392419491436,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_watch",
+        "orc_ruined_field"
+      ],
+      "reference": [
+        "orc_badlands",
+        "orc_ruined_field"
+      ],
+      "segment": 0,
+      "start": [
+        3115.6399111368682,
+        1281.8201453758948
+      ],
+      "end": [
+        3143.1372549019607,
+        1674.5098039215686
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 862.1747225912068,
+        "max_grade_deg": 21.770392847173373,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 862.4358874212958,
+        "max_grade_deg": 21.770392847173373,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_watch",
+        "orc_ruined_field"
+      ],
+      "reference": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2408.5649032340207,
+        1417.3007877608397
+      ],
+      "end": [
+        2398.7058412529036,
+        963.5507357006289
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 516.6458062724378,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 516.8272791650379,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_watch",
+        "orc_ruined_field"
+      ],
+      "reference": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "segment": 0,
+      "start": [
+        2408.5649032340207,
+        1417.3007877608397
+      ],
+      "end": [
+        2675.056374672921,
+        979.9583354572346
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 807.1965138278717,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 807.1965138278717,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_watch",
+        "orc_ruined_field"
+      ],
+      "reference": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "segment": 0,
+      "start": [
+        2278.4313725490197,
+        1832.3529411764705
+      ],
+      "end": [
+        2675.056374672921,
+        979.9583354572346
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 1328.4124193073808,
+        "max_grade_deg": 22.008033681232217,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 1328.4124193073808,
+        "max_grade_deg": 22.008033681232217,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "reference": [
+        "orc_badlands",
+        "orc_ruined_field"
+      ],
+      "segment": 0,
+      "start": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "end": [
+        3115.6399111368687,
+        1281.8201453758948
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 669.7487791711629,
+        "max_grade_deg": 21.770392847173373,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 670.0099440012523,
+        "max_grade_deg": 21.770392847173373,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "reference": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "segment": 0,
+      "start": [
+        2398.705841252904,
+        963.550735700629
+      ],
+      "end": [
+        2407.1444928335604,
+        1420.0119191674107
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 519.8237792424375,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 519.830270011078,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "reference": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "segment": 0,
+      "start": [
+        2675.1044491453426,
+        980.0064099296561
+      ],
+      "end": [
+        2407.1444928335604,
+        1420.0119191674107
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 810.2674922448139,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 810.2674922448139,
+        "max_grade_deg": 21.92392994838237,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "reference": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "segment": 0,
+      "start": [
+        2675.1044491453426,
+        980.0064099296561
+      ],
+      "end": [
+        2269.9996983698747,
+        1805.883861091802
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 1299.260379856741,
+        "max_grade_deg": 21.981418662330846,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 1303.1023897849936,
+        "max_grade_deg": 22.008033681232217,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "reference": [
+        "orc_watch",
+        "orc_ruined_field"
+      ],
+      "segment": 0,
+      "start": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "end": [
+        2269.9996983698747,
+        1805.883861091802
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 2632.2906831406644,
+        "max_grade_deg": 22.008033681232217,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 2629.2671096742774,
+        "max_grade_deg": 22.008033681232217,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "river_ford",
+        "southern_crossing"
+      ],
+      "segment": 0,
+      "start": [
+        624.5098039215686,
+        2347.0588235294117
+      ],
+      "end": [
+        641.6139409792825,
+        2313.6782266539553
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 45.092075588274156,
+        "max_grade_deg": 14.537448571401406,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 46.396771469755095,
+        "max_grade_deg": 14.669157784627112,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "crossroads",
+        "forest_edge"
+      ],
+      "segment": 0,
+      "start": [
+        966.0927475458619,
+        1735.6290098165523
+      ],
+      "end": [
+        1039.9948964119908,
+        1611.6705450820048
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 146.93688414383297,
+        "max_grade_deg": 21.087618315954007,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 149.64791499675007,
+        "max_grade_deg": 21.152431826139335,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "crossroads",
+        "old_quarry"
+      ],
+      "segment": 0,
+      "start": [
+        966.0927475458619,
+        1735.6290098165523
+      ],
+      "end": [
+        971.0023748322268,
+        1722.7091105278228
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 15.133101957662761,
+        "max_grade_deg": 9.165203823008392,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 15.014268811043108,
+        "max_grade_deg": 9.11906267806008,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        1098.0392156862745,
+        1305.899171994031
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "segment": 0,
+      "start": [
+        1098.0392156862745,
+        1305.899171994031
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 72.52064526826071,
+        "max_grade_deg": 5.203653795679878,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "segment": 0,
+      "start": [
+        828.3075685390668,
+        1989.7106894053036
+      ],
+      "end": [
+        1158.5572129968414,
+        1339.6064671482627
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 838.7883661888551,
+        "max_grade_deg": 21.152431826139335,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 839.3709090460877,
+        "max_grade_deg": 21.152431826139335,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "dwarf_mountain_pass",
+        "dwarf_high_quarry"
+      ],
+      "segment": 2,
+      "start": [
+        2070.0492927076293,
+        838.5047654108912
+      ],
+      "end": [
+        2115.1539833548795,
+        824.9675293655929
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 49.60585341216712,
+        "max_grade_deg": 19.718174704327595,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 49.458979779853436,
+        "max_grade_deg": 19.718174704374842,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "dwarf_high_quarry",
+        "dwarf_forge_approach"
+      ],
+      "segment": 2,
+      "start": [
+        2070.0492927076293,
+        838.5047654108912
+      ],
+      "end": [
+        2267.1053363204874,
+        818.5725532945628
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 206.4919754175512,
+        "max_grade_deg": 21.990468725188318,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 206.53888387383853,
+        "max_grade_deg": 21.990468725184158,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "orc_badlands",
+        "orc_ruined_field"
+      ],
+      "segment": 2,
+      "start": [
+        3115.6399111368682,
+        1281.8201453758948
+      ],
+      "end": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 669.7487791711628,
+        "max_grade_deg": 21.770392847173373,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 670.0099440012518,
+        "max_grade_deg": 21.770392847173373,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "mountain_shrine",
+        "ancient_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1374.2583009850634,
+        1341.0792363652067
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 207.2855641611614,
+        "max_grade_deg": 4.426479529568766,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 206.89096277386133,
+        "max_grade_deg": 4.426479529568614,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "forest_edge",
+        "north_pass"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1372.549019607843,
+        1452.9217794644737
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 94.04410551475422,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "forest_edge",
+        "orc_watch"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1372.549019607843,
+        1452.9217794644737
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "north_pass",
+        "orc_camp"
+      ],
+      "segment": 2,
+      "start": [
+        2498.8551259716737,
+        940.6584644373265
+      ],
+      "end": [
+        2675.056374672921,
+        979.9583354572346
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 188.61680966720292,
+        "max_grade_deg": 21.59550358058809,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 188.91013262970262,
+        "max_grade_deg": 21.59550358058809,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "viking_snow_pass",
+        "mountain_shrine"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1374.2583009850634,
+        1341.0792363652067
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 204.5723165992437,
+        "max_grade_deg": 4.426479529568614,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 204.5723165992437,
+        "max_grade_deg": 4.426479529568614,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "orc_watch",
+        "orc_camp"
+      ],
+      "segment": 2,
+      "start": [
+        2498.8551259716737,
+        940.6584644373265
+      ],
+      "end": [
+        2675.056374672921,
+        979.9583354572346
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 188.91013262970262,
+        "max_grade_deg": 21.59550358058809,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 188.91013262970262,
+        "max_grade_deg": 21.59550358058809,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "river_ford",
+        "orc_watch"
+      ],
+      "segment": 2,
+      "start": [
+        1297.3343965975544,
+        1406.2339181286548
+      ],
+      "end": [
+        1372.549019607843,
+        1452.9217794644737
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 91.72545934013658,
+        "max_grade_deg": 3.2701224536402496,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "orc_watch",
+        "orc_ruined_field"
+      ],
+      "segment": 2,
+      "start": [
+        2498.8551259716737,
+        940.6584644373265
+      ],
+      "end": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 1515.142840089889,
+        "max_grade_deg": 21.946655379889588,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 1515.142840089889,
+        "max_grade_deg": 21.946655379889588,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "route": [
+        "southern_crossing",
+        "orc_broken_bridge"
+      ],
+      "reference": [
+        "orc_broken_bridge",
+        "dark_ruined_causeway"
+      ],
+      "segment": 2,
+      "start": [
+        2498.8551259716737,
+        940.6584644373265
+      ],
+      "end": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "kind": "parallel same-corridor merge",
+      "reason": "Rejoins same corridor at both ends; no distinct site or crossing lost.",
+      "before": {
+        "length_m": 1515.142840089889,
+        "max_grade_deg": 21.946655379889588,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 1515.142840089889,
+        "max_grade_deg": 21.946655379889588,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    }
+  ],
+  "policy": "same local corridor and same crossing; proximity alone never authorizes removal"
+}

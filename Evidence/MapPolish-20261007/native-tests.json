@@ -1,0 +1,7 @@
+{
+  "command": "Automation RunTests Soul.Integration.CampaignWorld",
+  "passed": 2,
+  "expected": 2,
+  "tests_qualify": "Existing campaign geometry/camera/selection implementation in already-built editor; not candidate runtime movement/save/battle",
+  "fresh_build": false
+}

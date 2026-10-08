@@ -1,0 +1,15 @@
+{
+  "routes": {
+    "path": "Evidence/MapPolish-20261007/Local/routes-presentation-r4.json",
+    "sha256": "65940a6505087d919fd1aa7dfaad013cce1b5789fe2c27b90930b3a71a4d1cb9",
+    "bytes": 14754467
+  },
+  "road_mask": {
+    "path": "Evidence/MapPolish-20261007/Local/Composition_Polish_Control_r4.png",
+    "sha256": "115c1de1b0ab3b88061dd8e9f12476a7839c848d577f53c9de725cf5d09f9ad4"
+  },
+  "map_package_sha256": "fe7a6ab40c270fc18d1beb5ee6e782fa4cf3d1fae3091e19c263d78f1766ba6e",
+  "after_shutdown_inherited_differences": [
+    ".gitignore"
+  ]
+}

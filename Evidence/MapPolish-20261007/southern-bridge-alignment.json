@@ -1,0 +1,84 @@
+{
+  "reason": "Actual native parapet hits, not a terrain-grade waiver",
+  "terrain_changed": false,
+  "routes": [
+    {
+      "a": "nature_shrine",
+      "b": "nature_grassland_edge",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 73.25254566978826,
+        "max_grade_deg": 19.396826347223755,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 79.35354007170767,
+        "max_grade_deg": 20.633888161727903,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "southern_crossing",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 35.60490502263673,
+        "max_grade_deg": 19.396826347223755,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "river_ford",
+      "b": "southern_crossing",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 43.18062611051812,
+        "max_grade_deg": 14.569637797564724,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 43.180428188061114,
+        "max_grade_deg": 14.569637797574313,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "southern_crossing",
+      "b": "dark_corrupted_valley",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 35.60309964166683,
+        "max_grade_deg": 19.396826347237102,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    }
+  ]
+}

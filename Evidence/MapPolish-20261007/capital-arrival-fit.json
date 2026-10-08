@@ -1,0 +1,53 @@
+{
+  "routes": [
+    {
+      "route": [
+        "human_capital",
+        "crossroads"
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 75.4392345514315,
+        "max_grade_deg": 7.805258909664648,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 78.06858940645714,
+        "max_grade_deg": 9.928734931987007,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "reason": "Arrival follows the open central street and skirts native housing clusters; capital geometry and scale unchanged."
+    },
+    {
+      "route": [
+        "human_capital",
+        "coastal_ruins"
+      ],
+      "accepted": true,
+      "before": {
+        "length_m": 75.01450699194228,
+        "max_grade_deg": 4.602188350003297,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "after": {
+        "length_m": 82.69901149055694,
+        "max_grade_deg": 5.436049368291383,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      },
+      "reason": "Arrival follows the open central street and skirts native housing clusters; capital geometry and scale unchanged."
+    }
+  ],
+  "forecourt_spur": {
+    "length_m": 18.32719033952742,
+    "max_grade_deg": 10.872464831611012,
+    "invalid_samples": 0,
+    "over22_1_samples": 0
+  },
+  "capital_scale_changed": false,
+  "terrain_changed": false,
+  "waterfront_correspondence": "lake retained; no invented island or quay"
+}

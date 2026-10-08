@@ -1,0 +1,55 @@
+{
+  "rejected_iteration": "r1 used longest AABB axis Y; actual rails run X. Render review caught transverse rails.",
+  "rows": [
+    {
+      "id": "human_north_bridge",
+      "modules": 8,
+      "span_m": 13.0,
+      "width_m": 3.45,
+      "longitudinal_native_axis": "X",
+      "rail_alignment": "parallel to route"
+    },
+    {
+      "id": "orc_broken_bridge",
+      "modules": 5,
+      "span_m": 8.2,
+      "width_m": 3.1,
+      "longitudinal_native_axis": "X",
+      "rail_alignment": "parallel to route"
+    },
+    {
+      "id": "central_inlet_ferry_0",
+      "modules": 8,
+      "span_m": 13.500000000000076,
+      "width_m": 3,
+      "longitudinal_native_axis": "X",
+      "rail_alignment": "parallel to route"
+    },
+    {
+      "id": "central_inlet_ferry_1",
+      "modules": 14,
+      "span_m": 22.24999999999992,
+      "width_m": 3,
+      "longitudinal_native_axis": "X",
+      "rail_alignment": "parallel to route"
+    },
+    {
+      "id": "southern_inlet_ferry_0",
+      "modules": 5,
+      "span_m": 7.9586776859506845,
+      "width_m": 3,
+      "longitudinal_native_axis": "X",
+      "rail_alignment": "parallel to route"
+    },
+    {
+      "id": "southern_inlet_ferry_1",
+      "modules": 12,
+      "span_m": 20.107438016529102,
+      "width_m": 3,
+      "longitudinal_native_axis": "X",
+      "rail_alignment": "parallel to route"
+    }
+  ],
+  "donors_changed": false,
+  "terrain_changed": false
+}

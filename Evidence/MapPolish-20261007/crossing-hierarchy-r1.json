@@ -1,0 +1,57 @@
+{
+  "map": "/Game/SoulCampaignComposition/L_Composition_3500_r2.L_Composition_3500_r2",
+  "rows": [
+    {
+      "actor": "Composition_Bridge_woodland_bridge",
+      "action": "inactive, preserved in map",
+      "reason": "No fitted route uses this crossing; bounded east-bank connection failed. Do not leave a decorative bridge suggesting a false route."
+    },
+    {
+      "actor": "Composition_Bridge_human_north_bridge",
+      "action": "inactive, preserved in map",
+      "reason": "Minor tributary crossing replaced with lighter owned timber modules."
+    },
+    {
+      "id": "human_north_bridge",
+      "type": "owned timber modules",
+      "source": "/Game/Forest_village/Meshes/Wood_modules/SM_bridge_module.SM_bridge_module",
+      "span_m": 13.0,
+      "width_m": 3.45,
+      "modules": 6,
+      "center_xy_m": [
+        743.9215686274509,
+        1559.3872549019607
+      ],
+      "deck_z_m": 7.193668326665357,
+      "gradient": -0.004915104515810265
+    },
+    {
+      "actor": "Composition_Bridge_orc_broken_bridge",
+      "action": "inactive, preserved in map",
+      "reason": "Intact stone span contradicts Broken Bridge; preserve ruined ends and a narrow timber repair for the legal passage."
+    },
+    {
+      "id": "orc_broken_bridge",
+      "type": "owned timber modules",
+      "source": "/Game/Forest_village/Meshes/Wood_modules/SM_bridge_module.SM_bridge_module",
+      "span_m": 8.2,
+      "width_m": 3.1,
+      "modules": 4,
+      "center_xy_m": [
+        3052.9779411764703,
+        1821.3725490196077
+      ],
+      "deck_z_m": 36.0417832245901,
+      "gradient": -0.0013109582409483217
+    },
+    {
+      "id": "orc_broken_bridge",
+      "type": "ruined stone ends with narrow timber repair",
+      "stone_gap_m": 4.878787878787879,
+      "legal_connection_preserved": true
+    }
+  ],
+  "terrain_changed": false,
+  "donors_saved": false,
+  "native_clearance_pending": true
+}

@@ -1,0 +1,127 @@
+{
+  "terrain_changed": false,
+  "trials_max_lateral_m": 4,
+  "fine_validation_spacing_m": 0.025,
+  "repairs": [
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "accepted": true,
+      "amplitude_m": 0.1,
+      "start": [
+        2834.007945414624,
+        1343.6438145189081
+      ],
+      "end": [
+        2825.7706971677558,
+        1365.1924992219108
+      ],
+      "after": {
+        "length_m": 23.199747185409024,
+        "max_grade_deg": 21.519721042693448,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "north_pass",
+      "b": "orc_camp",
+      "accepted": true,
+      "amplitude_m": 0.30000000000000004,
+      "start": [
+        2328.450226244344,
+        1487.89592760181
+      ],
+      "end": [
+        2347.4782285985757,
+        1475.949227641431
+      ],
+      "after": {
+        "length_m": 22.53622183176106,
+        "max_grade_deg": 20.597726576503447,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_watch",
+      "b": "orc_camp",
+      "accepted": true,
+      "amplitude_m": 0.1,
+      "start": [
+        2834.007945414624,
+        1343.6438145189081
+      ],
+      "end": [
+        2825.7706971677558,
+        1365.1924992219108
+      ],
+      "after": {
+        "length_m": 23.199747185409024,
+        "max_grade_deg": 21.519721042693448,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "accepted": true,
+      "amplitude_m": -0.2,
+      "start": [
+        731.0718273420479,
+        420.1988017429194
+      ],
+      "end": [
+        728.1348039215686,
+        396.66666666666663
+      ],
+      "after": {
+        "length_m": 23.731923005534476,
+        "max_grade_deg": 16.08685195502148,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "viking_harbour",
+      "b": "viking_fjord_ridge",
+      "accepted": true,
+      "amplitude_m": -0.2,
+      "start": [
+        754.7121666666667,
+        550.144481886404
+      ],
+      "end": [
+        752.1446078431372,
+        526.9607843137254
+      ],
+      "after": {
+        "length_m": 23.335909475621172,
+        "max_grade_deg": 20.793478368451506,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "nature_grassland_edge",
+      "b": "nature_river_woodland",
+      "accepted": false,
+      "start": [
+        618.0821347127335,
+        2341.1218572551443
+      ],
+      "end": [
+        601.4952139595285,
+        2361.7344072219644
+      ],
+      "best": {
+        "length_m": 27.93010762236127,
+        "max_grade_deg": 22.212079008897092,
+        "invalid_samples": 0,
+        "over22_1_samples": 52,
+        "amplitude_m": 1.1
+      }
+    }
+  ]
+}

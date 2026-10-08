@@ -1,0 +1,19 @@
+{
+  "mesh": "/Game/SoulCampaignComposition/Polish/SM_TimberDeck_Collision_r1.SM_TimberDeck_Collision_r1",
+  "method": "Native simple deck hull from measured owned planks; detailed complex render collision also retained",
+  "center_cm": [
+    85.116386,
+    -118.751488,
+    -2.3
+  ],
+  "dimensions_cm": [
+    170.5,
+    245.503,
+    3.344
+  ],
+  "top_cm": -0.628,
+  "source_plank_top_median_cm": -0.6280427,
+  "rebound_actors": 39,
+  "source_render_mesh_changed": false,
+  "donor_modified": false
+}

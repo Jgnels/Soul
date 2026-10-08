@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "source": "/Game/Forest_village/Meshes/Wood_modules/SM_bridge_module",
+      "derived": "/Game/SoulCampaignComposition/Polish/SM_TimberDeck_Collision_r1",
+      "triangles": 1560,
+      "method": "Native RenderData copy, unchanged geometry/materials, complex collision matches render triangles"
+    },
+    {
+      "source": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01",
+      "derived": "/Game/SoulCampaignComposition/Polish/SM_StoneBridge_Collision_r1",
+      "triangles": 156856,
+      "method": "Native RenderData copy, unchanged geometry/materials, complex collision matches render triangles"
+    }
+  ],
+  "actors": [
+    "Composition_Bridge_southern_crossing",
+    "Composition_Bridge_human_west_bridge",
+    "Polish_Crossing_human_north_bridge_timber_0",
+    "Polish_Crossing_human_north_bridge_timber_1",
+    "Polish_Crossing_human_north_bridge_timber_2",
+    "Polish_Crossing_human_north_bridge_timber_3",
+    "Polish_Crossing_human_north_bridge_timber_4",
+    "Polish_Crossing_human_north_bridge_timber_5",
+    "Polish_Crossing_orc_broken_bridge_timber_0",
+    "Polish_Crossing_orc_broken_bridge_timber_1",
+    "Polish_Crossing_orc_broken_bridge_timber_2",
+    "Polish_Crossing_orc_broken_bridge_timber_3",
+    "Polish_Landing_central_inlet_ferry_0_deck_0",
+    "Polish_Landing_central_inlet_ferry_0_deck_1",
+    "Polish_Landing_central_inlet_ferry_0_deck_2",
+    "Polish_Landing_central_inlet_ferry_0_deck_3",
+    "Polish_Landing_central_inlet_ferry_0_deck_4",
+    "Polish_Landing_central_inlet_ferry_0_deck_5",
+    "Polish_Landing_central_inlet_ferry_1_deck_0",
+    "Polish_Landing_central_inlet_ferry_1_deck_1",
+    "Polish_Landing_central_inlet_ferry_1_deck_2",
+    "Polish_Landing_central_inlet_ferry_1_deck_3",
+    "Polish_Landing_central_inlet_ferry_1_deck_4",
+    "Polish_Landing_central_inlet_ferry_1_deck_5",
+    "Polish_Landing_central_inlet_ferry_1_deck_6",
+    "Polish_Landing_central_inlet_ferry_1_deck_7",
+    "Polish_Landing_central_inlet_ferry_1_deck_8",
+    "Polish_Landing_central_inlet_ferry_1_deck_9",
+    "Polish_Landing_southern_inlet_ferry_0_deck_0",
+    "Polish_Landing_southern_inlet_ferry_0_deck_1",
+    "Polish_Landing_southern_inlet_ferry_0_deck_2",
+    "Polish_Landing_southern_inlet_ferry_0_deck_3",
+    "Polish_Landing_southern_inlet_ferry_1_deck_0",
+    "Polish_Landing_southern_inlet_ferry_1_deck_1",
+    "Polish_Landing_southern_inlet_ferry_1_deck_2",
+    "Polish_Landing_southern_inlet_ferry_1_deck_3",
+    "Polish_Landing_southern_inlet_ferry_1_deck_4",
+    "Polish_Landing_southern_inlet_ferry_1_deck_5",
+    "Polish_Landing_southern_inlet_ferry_1_deck_6",
+    "Polish_Landing_southern_inlet_ferry_1_deck_7",
+    "Polish_Landing_southern_inlet_ferry_1_deck_8"
+  ],
+  "donor_packages_saved": false
+}

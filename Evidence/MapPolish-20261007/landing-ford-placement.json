@@ -1,0 +1,37 @@
+{
+  "jetties": [
+    {
+      "id": "central_inlet_ferry_0",
+      "deck_modules": 6,
+      "span_m": 13.500000000000076,
+      "posts": 14
+    },
+    {
+      "id": "central_inlet_ferry_1",
+      "deck_modules": 10,
+      "span_m": 22.24999999999992,
+      "posts": 22
+    },
+    {
+      "id": "southern_inlet_ferry_0",
+      "deck_modules": 4,
+      "span_m": 7.9586776859506845,
+      "posts": 10
+    },
+    {
+      "id": "southern_inlet_ferry_1",
+      "deck_modules": 9,
+      "span_m": 20.107438016529102,
+      "posts": 20
+    }
+  ],
+  "ford_owned_rock_instances": 38,
+  "meshes": [
+    "/Game/Forest_village/Meshes/Wood_modules/SM_bridge_module.SM_bridge_module",
+    "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+    "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03"
+  ],
+  "terrain_edited": false,
+  "donor_saved": false,
+  "status": "render review required"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "/Game/Kingdom_Capital/Meshes/Bridge/SM_arch_bridge_01.SM_arch_bridge_01",
+  "method": "deterministic plane cuts of owned rendered mesh; original UVs/materials retained",
+  "donor_saved": false,
+  "derivatives": [
+    {
+      "asset": "/Game/SoulCampaignComposition/Polish/SM_RuinedBridge_West_r1.SM_RuinedBridge_West_r1",
+      "triangles": 48730,
+      "cut_local_x_cm": -1350,
+      "bounds": "<Struct 'Box' (0x000001E286358DC0) {min: {x: -1979.999878, y: -623.963562, z: -1032.257324}, max: {x: -1350.000000, y: 36.036556, z: 97.742821}, is_valid: True}>"
+    },
+    {
+      "asset": "/Game/SoulCampaignComposition/Polish/SM_RuinedBridge_East_r1.SM_RuinedBridge_East_r1",
+      "triangles": 50485,
+      "cut_local_x_cm": -660,
+      "bounds": "<Struct 'Box' (0x000001E286352100) {min: {x: -660.000000, y: -623.963562, z: -1032.257324}, max: {x: 0.000000, y: 36.036556, z: 97.742821}, is_valid: True}>"
+    }
+  ]
+}

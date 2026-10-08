@@ -1,0 +1,71 @@
+{
+  "reason": "Actual native crossing seam/parapet hits, not a terrain-grade waiver",
+  "terrain_changed": false,
+  "routes": [
+    {
+      "a": "orc_watch",
+      "b": "orc_ruined_field",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 76.80408564400253,
+        "max_grade_deg": 21.949114919762927,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_badlands",
+      "b": "orc_ruined_field",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 76.80408564400253,
+        "max_grade_deg": 21.949114919762927,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_ruined_field",
+      "b": "orc_broken_bridge",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 38.16471240472819,
+        "max_grade_deg": 21.942201119303256,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "southern_crossing",
+      "b": "orc_broken_bridge",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 39.69799015292416,
+        "max_grade_deg": 21.949114919762927,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    },
+    {
+      "a": "orc_broken_bridge",
+      "b": "dark_ruined_causeway",
+      "accepted": true,
+      "left_found": true,
+      "right_found": true,
+      "assessment": {
+        "length_m": 39.49394423805156,
+        "max_grade_deg": 21.923929948362435,
+        "invalid_samples": 0,
+        "over22_1_samples": 0
+      }
+    }
+  ]
+}
