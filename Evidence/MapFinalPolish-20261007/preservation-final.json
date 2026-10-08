@@ -1,0 +1,2637 @@
+{
+  "utc": "2026-10-08T02:24:04.121971+00:00",
+  "baseline_count": 356,
+  "unchanged": 355,
+  "changed": [
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\L_Composition_3500_r2.umap",
+      "before": "fe7a6ab40c270fc18d1beb5ee6e782fa4cf3d1fae3091e19c263d78f1766ba6e",
+      "after": "4a233e1056a5e1190e2afe413cbe4321808b2ae5a15baddf4016a89fb88a896e",
+      "unchanged": false
+    }
+  ],
+  "files": [
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\MaskTextures\\T_BaseGrass_Ground_1.uasset",
+      "before": "14846b387af9e7427993cdd2a1f6984c916ed4ad5a461b68eb06d7561e6bd3e9",
+      "after": "14846b387af9e7427993cdd2a1f6984c916ed4ad5a461b68eb06d7561e6bd3e9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\MaskTextures\\T_DryGrass_Ground_2.uasset",
+      "before": "4c4fe55a7e37c9735c611ba9a1fbe5b3c0562f7060d8a2245259bf69ba59a875",
+      "after": "4c4fe55a7e37c9735c611ba9a1fbe5b3c0562f7060d8a2245259bf69ba59a875",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\MaskTextures\\T_Farmland_2.uasset",
+      "before": "1c5c72aa964dde700c6979c690950242d44537d9f40a514afe313e96a33a9ac9",
+      "after": "1c5c72aa964dde700c6979c690950242d44537d9f40a514afe313e96a33a9ac9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\MaskTextures\\T_FarmLand_Ground_1.uasset",
+      "before": "5149b446c88b27262b46c916f3a6f2620aff2467781a8f972218ea0b7fcd0843",
+      "after": "5149b446c88b27262b46c916f3a6f2620aff2467781a8f972218ea0b7fcd0843",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\MaskTextures\\T_UV_OffsetMask.uasset",
+      "before": "b020e8024e3d7b30441c288881602590f378d50380e07923bdaf844563c26e23",
+      "after": "b020e8024e3d7b30441c288881602590f378d50380e07923bdaf844563c26e23",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Cliff_1_4K_BCD.uasset",
+      "before": "bc5baea9367a45798d019c8660d2a6d97cc46a197ae302714b8d9f191c1af1dd",
+      "after": "bc5baea9367a45798d019c8660d2a6d97cc46a197ae302714b8d9f191c1af1dd",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Cliff_1_4K_NAOR.uasset",
+      "before": "4eed14f49d66a7a761d4897749beeab7b78873f4fe66bfcf7c3950ae8d8f8945",
+      "after": "4eed14f49d66a7a761d4897749beeab7b78873f4fe66bfcf7c3950ae8d8f8945",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_CliffMask_SMRA.uasset",
+      "before": "e82697f43c9e0c037024bb6e99b4ddd74f5eedb4c06b5803739cb62d86388401",
+      "after": "e82697f43c9e0c037024bb6e99b4ddd74f5eedb4c06b5803739cb62d86388401",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_ForestGround_03_BC.uasset",
+      "before": "74a5da29281c6fc1f2138c34a8c48b762e883c1bd98429e86f8800b95112db58",
+      "after": "74a5da29281c6fc1f2138c34a8c48b762e883c1bd98429e86f8800b95112db58",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_ForestGround_03_BC1.uasset",
+      "before": "129b485411d02f99b830ebb4072d88dcd248d75af6d13f98ffdc0feffd5c69dd",
+      "after": "129b485411d02f99b830ebb4072d88dcd248d75af6d13f98ffdc0feffd5c69dd",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_ForestGround_03_NAOR.uasset",
+      "before": "3f1fab6c9359292af7e1e05a6a204282627cef5a1c3caaa44d6cd20bacb6dace",
+      "after": "3f1fab6c9359292af7e1e05a6a204282627cef5a1c3caaa44d6cd20bacb6dace",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Grass_03_BC.uasset",
+      "before": "f654d63ef505fa24b64c34df358112fa429368f0beddd22214afea5374c6b852",
+      "after": "f654d63ef505fa24b64c34df358112fa429368f0beddd22214afea5374c6b852",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Grass_03_BC1.uasset",
+      "before": "6f63133842c94b4643ab5c41ef68bd339e178afc85a61dc6278c6a71ea77e549",
+      "after": "6f63133842c94b4643ab5c41ef68bd339e178afc85a61dc6278c6a71ea77e549",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Grass_03_NAOR.uasset",
+      "before": "fd6fe08d5d08705ff936331e85cfb39342cf8e7584020c0cca8d9ad08b20a8d7",
+      "after": "fd6fe08d5d08705ff936331e85cfb39342cf8e7584020c0cca8d9ad08b20a8d7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Grass_05_BC.uasset",
+      "before": "681844fd0f58315d475f1983f598bcac230d69edc5688a08850b4f8cfb5de2b2",
+      "after": "681844fd0f58315d475f1983f598bcac230d69edc5688a08850b4f8cfb5de2b2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Grass_05_NAOR.uasset",
+      "before": "e5382ad8e338bf2cf9ea7e75a54315c15bcdcbe2d2fbc91cab56ffa02f32bde3",
+      "after": "e5382ad8e338bf2cf9ea7e75a54315c15bcdcbe2d2fbc91cab56ffa02f32bde3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Rock_04_BC.uasset",
+      "before": "f7f6427978dadf135b9876e7a2c34afa4a70f8f2fd3f3ed8ff55ee9b404d5939",
+      "after": "f7f6427978dadf135b9876e7a2c34afa4a70f8f2fd3f3ed8ff55ee9b404d5939",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Rock_04_BC1.uasset",
+      "before": "fe622e117e7e1997623c08bba8a5ba5a57f311767bff226a6b39308e34725b9d",
+      "after": "fe622e117e7e1997623c08bba8a5ba5a57f311767bff226a6b39308e34725b9d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Rock_04_NAOR.uasset",
+      "before": "101d81b6c9f4d8e1f175bbbfcf43a11cf62ae9bf34da4717fed5c862a5e7e6db",
+      "after": "101d81b6c9f4d8e1f175bbbfcf43a11cf62ae9bf34da4717fed5c862a5e7e6db",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Rock_05_BC.uasset",
+      "before": "ba5aa1b2541b3e15d531c87b25ed340f27538c99013c82b4ff36f3949770b7d3",
+      "after": "ba5aa1b2541b3e15d531c87b25ed340f27538c99013c82b4ff36f3949770b7d3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Rock_05_NAOR.uasset",
+      "before": "1ecad7094911f1c2045d605636dfbd012848762c7c406fabc0cd9d4b8a716500",
+      "after": "1ecad7094911f1c2045d605636dfbd012848762c7c406fabc0cd9d4b8a716500",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Sand_1_BC.uasset",
+      "before": "01f2d3661c05629ae80325c4d30433593df87f854a0fd4a7ab17d66e3bcf085e",
+      "after": "01f2d3661c05629ae80325c4d30433593df87f854a0fd4a7ab17d66e3bcf085e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Sand_1_NAOR.uasset",
+      "before": "d8db0bee0637c9da60320d0385ea55e882c67dc2205cd34d557f5727b1ebb185",
+      "after": "d8db0bee0637c9da60320d0385ea55e882c67dc2205cd34d557f5727b1ebb185",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Sand_2_BC.uasset",
+      "before": "472f9b9b2d829d256fb1beebd0b8ac606bb228ab882cd5238a8cbd0483ee7dc7",
+      "after": "472f9b9b2d829d256fb1beebd0b8ac606bb228ab882cd5238a8cbd0483ee7dc7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Soil_1_BC.uasset",
+      "before": "ca3ccdc04e118e05d921de2ff6c0a4beb1a7bcff9bffdad909b7160e56c4caef",
+      "after": "ca3ccdc04e118e05d921de2ff6c0a4beb1a7bcff9bffdad909b7160e56c4caef",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Soil_1_BC1.uasset",
+      "before": "b0dd3f165852974d18497a4eef92c7a113a4548d76049600479017f8254aeb00",
+      "after": "b0dd3f165852974d18497a4eef92c7a113a4548d76049600479017f8254aeb00",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Soil_1_BC2.uasset",
+      "before": "23e5a63de95e67c70ff874d4dd8887b396df9736c7fc255c2fa5fcf64d33c70f",
+      "after": "23e5a63de95e67c70ff874d4dd8887b396df9736c7fc255c2fa5fcf64d33c70f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Soil_1_NAOR.uasset",
+      "before": "650cca8ba36de453a63a4c329fd6d6ad4e369bc1a0d7de4fff36c9eaa9293d22",
+      "after": "650cca8ba36de453a63a4c329fd6d6ad4e369bc1a0d7de4fff36c9eaa9293d22",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_SoilGround_02_BC.uasset",
+      "before": "602196ba7bc670603b1dd0c4030861249ff5408b5ff5e2c4fb04c7e31a56e75e",
+      "after": "602196ba7bc670603b1dd0c4030861249ff5408b5ff5e2c4fb04c7e31a56e75e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Stone_01_BCD.uasset",
+      "before": "de59655488b1cfb102187a4a1bb35a31255f13df20e855f2b50ed6656b7f9b75",
+      "after": "de59655488b1cfb102187a4a1bb35a31255f13df20e855f2b50ed6656b7f9b75",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_Stone_01_NAOR.uasset",
+      "before": "6ce42af2535c81c3012a18184411911050c30a9eb7b495f3aea0170057ac2a9b",
+      "after": "6ce42af2535c81c3012a18184411911050c30a9eb7b495f3aea0170057ac2a9b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_StoneGround_BC.uasset",
+      "before": "2e310204970946c97b1cf207c0638d37e7bd7019da66a972b6be439113b91b4b",
+      "after": "2e310204970946c97b1cf207c0638d37e7bd7019da66a972b6be439113b91b4b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\LandscapeTextures\\T_StoneGround_NAOR.uasset",
+      "before": "da55afe6eda1d11c1b24d4c411655910eedf97607c225c1b0a3f648be8a8928e",
+      "after": "da55afe6eda1d11c1b24d4c411655910eedf97607c225c1b0a3f648be8a8928e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\M_Master_CL_Landscape.uasset",
+      "before": "41ba18b1ceb06a6b9d37cbc7a2530d3d10d5cd890f24f04c59168054b52cc563",
+      "after": "41ba18b1ceb06a6b9d37cbc7a2530d3d10d5cd890f24f04c59168054b52cc563",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MaterialFunctions\\MF_NormalStrength.uasset",
+      "before": "548dfceb0f2e5d973a9e62c3a2877991e811d3d2be9ec056cfc45608e28bca02",
+      "after": "548dfceb0f2e5d973a9e62c3a2877991e811d3d2be9ec056cfc45608e28bca02",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MaterialFunctions\\MF_ReconstructZ.uasset",
+      "before": "e2c1ac58894ed7188cbe11e350f7d5ccfef1123cb5889b72f0f91bdb0f832dfc",
+      "after": "e2c1ac58894ed7188cbe11e350f7d5ccfef1123cb5889b72f0f91bdb0f832dfc",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_BaseGrass.uasset",
+      "before": "25277fc207c2d796ee5454415b0516ba2dcf3f40d6c17987ff1319e23b5be4cd",
+      "after": "25277fc207c2d796ee5454415b0516ba2dcf3f40d6c17987ff1319e23b5be4cd",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Farmland1.uasset",
+      "before": "5000bb074fff4a2e6fb62593e68c42b4020c913f89b3cac5fce70058697d3cf8",
+      "after": "5000bb074fff4a2e6fb62593e68c42b4020c913f89b3cac5fce70058697d3cf8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Grass.uasset",
+      "before": "ecf116e66d8d03e0f0af199f786e92ccb8aa67cfedc7324e301340fb6e974444",
+      "after": "ecf116e66d8d03e0f0af199f786e92ccb8aa67cfedc7324e301340fb6e974444",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Sand1.uasset",
+      "before": "887c32e33e62f5077fa80a9c25175d15958d05d94a6882f677c8e03ec24c9d5a",
+      "after": "887c32e33e62f5077fa80a9c25175d15958d05d94a6882f677c8e03ec24c9d5a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Sand2.uasset",
+      "before": "64e2286fc59063513707c6513af317c4b94eaa3c7802c347a0dff1ae50cc9e14",
+      "after": "64e2286fc59063513707c6513af317c4b94eaa3c7802c347a0dff1ae50cc9e14",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Slope_Big_Rocks1.uasset",
+      "before": "5b8a8cbe2a5af1a875de3b342b2ebb4d702e5ec058847075bca5c2f4b3de547b",
+      "after": "5b8a8cbe2a5af1a875de3b342b2ebb4d702e5ec058847075bca5c2f4b3de547b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Slope_Small_rocks.uasset",
+      "before": "7de032ebc7f6ad5a1a9336166786dfd04576caf1429a3f7539fa729183f4a678",
+      "after": "7de032ebc7f6ad5a1a9336166786dfd04576caf1429a3f7539fa729183f4a678",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Soil1.uasset",
+      "before": "81e83c2a8893e5aa5b3226ff4a6ea26d51ccec9e4ab068f6c47bd7bc035403d2",
+      "after": "81e83c2a8893e5aa5b3226ff4a6ea26d51ccec9e4ab068f6c47bd7bc035403d2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_Soil2.uasset",
+      "before": "1fa510730dc72adf65f771e971bf70dacfabdd4f6a57a3b86c85f36b8f73f483",
+      "after": "1fa510730dc72adf65f771e971bf70dacfabdd4f6a57a3b86c85f36b8f73f483",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MF_TreeGround.uasset",
+      "before": "997fa5bc66568d5a0e6e18011b78aedabaf83247c1f115f836316a8a44b8a096",
+      "after": "997fa5bc66568d5a0e6e18011b78aedabaf83247c1f115f836316a8a44b8a096",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\MI_CC_Landscape.uasset",
+      "before": "1b4314b4be5e7f333bcd96e43860712fbed430e74a8952051faf15db584da03f",
+      "after": "1b4314b4be5e7f333bcd96e43860712fbed430e74a8952051faf15db584da03f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\RVT_CaliCoast.uasset",
+      "before": "a8579e0d61a920c2a71105df11f6588c1c5dab3a163497f9e0342e99e4e3249b",
+      "after": "a8579e0d61a920c2a71105df11f6588c1c5dab3a163497f9e0342e99e4e3249b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Landscape\\RVT_CaliCoast_SVT.uasset",
+      "before": "245668c78d874f55c86e7ac481f7b7360959e0558c7138bf4069a81aa5266245",
+      "after": "245668c78d874f55c86e7ac481f7b7360959e0558c7138bf4069a81aa5266245",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\LightFunction\\Materials\\M_Master_Light.uasset",
+      "before": "f29949dcc6b93fa44873bb49768ad1d675e93a69e3453d11edb095136c7400ac",
+      "after": "f29949dcc6b93fa44873bb49768ad1d675e93a69e3453d11edb095136c7400ac",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\LightFunction\\Materials\\MI_LightFunction.uasset",
+      "before": "931dbe33b7efd96f771045ecca0ae0a2fe0dbcee25651a6675eae10ad7194176",
+      "after": "931dbe33b7efd96f771045ecca0ae0a2fe0dbcee25651a6675eae10ad7194176",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\LightFunction\\Textures\\T_Clouds_Light_BC.uasset",
+      "before": "b36fd4f90bb1007e4dd701d9b6753ab6edec35160432f1b0e6d283f0625fa04b",
+      "after": "b36fd4f90bb1007e4dd701d9b6753ab6edec35160432f1b0e6d283f0625fa04b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\BaseGrass1_LayerInfo.uasset",
+      "before": "01c7fe90dcedc57d53d2c4a5f5895a3cdf28753619722af3cf13c5fedbb0db14",
+      "after": "01c7fe90dcedc57d53d2c4a5f5895a3cdf28753619722af3cf13c5fedbb0db14",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\Farmland1_LayerInfo.uasset",
+      "before": "d1825aa2517f5a2975ca622e020119332a1bfdc4280642b2fb957f9790c4f79c",
+      "after": "d1825aa2517f5a2975ca622e020119332a1bfdc4280642b2fb957f9790c4f79c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\Grass_LayerInfo.uasset",
+      "before": "d3b1c6dfd323f3906d836401eea1ae681d7ed07a151840c46f3078efe5315271",
+      "after": "d3b1c6dfd323f3906d836401eea1ae681d7ed07a151840c46f3078efe5315271",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\Sand1_LayerInfo.uasset",
+      "before": "ff1f6a3c195dad30eaaac1a42f41bead02dc7c5b33720283917dd66e04299229",
+      "after": "ff1f6a3c195dad30eaaac1a42f41bead02dc7c5b33720283917dd66e04299229",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\Sand2_LayerInfo.uasset",
+      "before": "94cb0b14828de716667a3e9ce269b22a3788113296a1b3c4f30774756b086f4e",
+      "after": "94cb0b14828de716667a3e9ce269b22a3788113296a1b3c4f30774756b086f4e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\Soil1_LayerInfo.uasset",
+      "before": "d74e0eb104b055f9fbce3717c1b1815bd2e294e58ce76cb6cb556624bfe27a19",
+      "after": "d74e0eb104b055f9fbce3717c1b1815bd2e294e58ce76cb6cb556624bfe27a19",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\Soil2_LayerInfo.uasset",
+      "before": "bbf76d7d1bd5c2eee542535853dc4bae756ddac2bbec7487b2f0096ef109c05e",
+      "after": "bbf76d7d1bd5c2eee542535853dc4bae756ddac2bbec7487b2f0096ef109c05e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\CoastalNatureSharedAssets\\TreeGround_LayerInfo.uasset",
+      "before": "28436e5632a340fd9c231ff6e9b68a7848b970fe7e6cf2230a16f60e5143e345",
+      "after": "28436e5632a340fd9c231ff6e9b68a7848b970fe7e6cf2230a16f60e5143e345",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Maps\\Map_CoastalLandscape.umap",
+      "before": "50817bfa7e6f82c8e1b808f938436583ae8de81b6e215f7b8240cc76787afc97",
+      "after": "50817bfa7e6f82c8e1b808f938436583ae8de81b6e215f7b8240cc76787afc97",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Materials\\M_Master_Ocean.uasset",
+      "before": "21c24a3f1a8af26f0160725de46948540f2f00e65c9b2a619a5a01d53220072a",
+      "after": "21c24a3f1a8af26f0160725de46948540f2f00e65c9b2a619a5a01d53220072a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Materials\\MI_Ocean.uasset",
+      "before": "932a9aa14b0b2f9bd732c3a8aeb36a310cca68ee6b52a05e958a8592e0996652",
+      "after": "932a9aa14b0b2f9bd732c3a8aeb36a310cca68ee6b52a05e958a8592e0996652",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Materials\\MI_Ocean1.uasset",
+      "before": "769d6536a136135a5109d12173d725a47624f51660a83750615c9c373ed9bed5",
+      "after": "769d6536a136135a5109d12173d725a47624f51660a83750615c9c373ed9bed5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Meshes\\SM_SeaPlane.uasset",
+      "before": "2b1ca962d25d9cc9fffc27ebcf671366be4872effca543846f37ca4413d6f660",
+      "after": "2b1ca962d25d9cc9fffc27ebcf671366be4872effca543846f37ca4413d6f660",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_FlowMap_N.uasset",
+      "before": "606afa9b136ad2f23a27480d2cca7d876b2041625838151f144504a11d7a45f8",
+      "after": "606afa9b136ad2f23a27480d2cca7d876b2041625838151f144504a11d7a45f8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_Foam_BC.uasset",
+      "before": "cb6d1822a4b681541ce058a3e091796bef7965a626b6ef787ee50d62ad1fd515",
+      "after": "cb6d1822a4b681541ce058a3e091796bef7965a626b6ef787ee50d62ad1fd515",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_Ocean_H.uasset",
+      "before": "89bf4d3e3655e604bf3cb1cf4e176d5f8459d6be592d6cd0424ebe922e34ceeb",
+      "after": "89bf4d3e3655e604bf3cb1cf4e176d5f8459d6be592d6cd0424ebe922e34ceeb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_OceanWave_N.uasset",
+      "before": "ba61c4af0e6c51e95c6b3b92d18334ae8fc6a15d1f3fdf64bf5d1711573e8d12",
+      "after": "ba61c4af0e6c51e95c6b3b92d18334ae8fc6a15d1f3fdf64bf5d1711573e8d12",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_RGBMASK_Landscape_Mask.uasset",
+      "before": "81664e8f65d1a850c9a94477049235c1ccc606250beb6646b78401f23af7a764",
+      "after": "81664e8f65d1a850c9a94477049235c1ccc606250beb6646b78401f23af7a764",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_Water_N.uasset",
+      "before": "e52cc8fcf4abaecf69f1b21157347e8ae6974dbfa3c463cac6bf7637a332eae0",
+      "after": "e52cc8fcf4abaecf69f1b21157347e8ae6974dbfa3c463cac6bf7637a332eae0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_Water_N_2.uasset",
+      "before": "d27a9e16b12e1b83db596dbd8aa8fc4523c65cec00965e2af65927ae9f60797a",
+      "after": "d27a9e16b12e1b83db596dbd8aa8fc4523c65cec00965e2af65927ae9f60797a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_WaveFoam_Mask.uasset",
+      "before": "e3a5138d52e94f0d6e2fcd5adb8b7e0bb1976595c448d64081bbed852211f859",
+      "after": "e3a5138d52e94f0d6e2fcd5adb8b7e0bb1976595c448d64081bbed852211f859",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_WaveFoam_N.uasset",
+      "before": "ccb2101c20a09ff261895277dac4c59c582a5b13f99c3e55e848e2a8498b87c2",
+      "after": "ccb2101c20a09ff261895277dac4c59c582a5b13f99c3e55e848e2a8498b87c2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_WaveHeight_1.uasset",
+      "before": "474285fb1131343cf61003d296f261f71e44ea5d26f9c26bcf344fa219d68afa",
+      "after": "474285fb1131343cf61003d296f261f71e44ea5d26f9c26bcf344fa219d68afa",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_WaveHeight_2.uasset",
+      "before": "8ec9cbeb18321813e9ae3451688dc1b9f27f6b4a5e6897add6acc62d21ac3913",
+      "after": "8ec9cbeb18321813e9ae3451688dc1b9f27f6b4a5e6897add6acc62d21ac3913",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Ocean\\Textures\\T_WaveHeight_3.uasset",
+      "before": "e6d773e4fb0726de17ef7fb12402c0b8522090157f179d34ef90ef0833941f75",
+      "after": "e6d773e4fb0726de17ef7fb12402c0b8522090157f179d34ef90ef0833941f75",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1.uasset",
+      "before": "feb4ca684975d8535033cb0629ea21a9be87cfcab6a4ef1c9343cf2ff1fef7a5",
+      "after": "feb4ca684975d8535033cb0629ea21a9be87cfcab6a4ef1c9343cf2ff1fef7a5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1_2.uasset",
+      "before": "3843d023220fabc66436d596dfe139bfa3ac3e97d7be7cd1b3a401df6cc2cee2",
+      "after": "3843d023220fabc66436d596dfe139bfa3ac3e97d7be7cd1b3a401df6cc2cee2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1_3.uasset",
+      "before": "501acfbd926c7b98011295e3d36a38bc4a83398802dc055e6e89f724ed72f608",
+      "after": "501acfbd926c7b98011295e3d36a38bc4a83398802dc055e6e89f724ed72f608",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1_4.uasset",
+      "before": "c8c7c2b99a2d77d4820374410737bfa05d1e0bef81f70d75b9d3f61793dcae94",
+      "after": "c8c7c2b99a2d77d4820374410737bfa05d1e0bef81f70d75b9d3f61793dcae94",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1_5.uasset",
+      "before": "272824a10f76729d652a665ecb9007ef4229005952b129f46bd09ae785ec8efa",
+      "after": "272824a10f76729d652a665ecb9007ef4229005952b129f46bd09ae785ec8efa",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1_6.uasset",
+      "before": "6454f4381800ec6f198790e95f4021807f66107f421f8da80ae629736a7f91db",
+      "after": "6454f4381800ec6f198790e95f4021807f66107f421f8da80ae629736a7f91db",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\FreshCan-Coastal-4x4km\\Payload\\Content\\FC_Coastal_Landscape\\Sequencer\\1_7.uasset",
+      "before": "0e062df73c12c2cc83630f4bc88f60befa45d5c585bfce6c9cf6ce68a41881bd",
+      "after": "0e062df73c12c2cc83630f4bc88f60befa45d5c585bfce6c9cf6ce68a41881bd",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\TerrainWork\\mesa01-2041-rg.png",
+      "before": "c5fe552aeeda2f2f7715d390e68b7ea64ef86e677a24fb5ad589c19459a3e7d4",
+      "after": "c5fe552aeeda2f2f7715d390e68b7ea64ef86e677a24fb5ad589c19459a3e7d4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\AssetLibraries\\SoulTerrainPreview\\TerrainWork\\mountain05-height.npy",
+      "before": "495fc0f163dd3f365bb337bc724c0ee8385abcf95ec98d878f45112e31c8042f",
+      "after": "495fc0f163dd3f365bb337bc724c0ee8385abcf95ec98d878f45112e31c8042f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r2.uasset",
+      "before": "93d6665388494e165e9ed35de7aabfa8db114e6cbba957e7af4087e2408369e3",
+      "after": "93d6665388494e165e9ed35de7aabfa8db114e6cbba957e7af4087e2408369e3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r3.uasset",
+      "before": "af87ca366f501d708a484e114170ed444bc36f81b8261b966a93d32f4e7e50d8",
+      "after": "af87ca366f501d708a484e114170ed444bc36f81b8261b966a93d32f4e7e50d8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r4.uasset",
+      "before": "de7fa85fd20cb244abd345d30baa74ecc5a2ddee3f77614cdb80d99377948941",
+      "after": "de7fa85fd20cb244abd345d30baa74ecc5a2ddee3f77614cdb80d99377948941",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r5.uasset",
+      "before": "7bf8784220f02ccf759d892a8cb25e2d01a5f1ca9dac85f4cbe8aec8a90fbaf9",
+      "after": "7bf8784220f02ccf759d892a8cb25e2d01a5f1ca9dac85f4cbe8aec8a90fbaf9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r6.uasset",
+      "before": "f29445a9f27a6fddf219e0e63b849d723810d88767b2d37e7090f8dd68ccbc45",
+      "after": "f29445a9f27a6fddf219e0e63b849d723810d88767b2d37e7090f8dd68ccbc45",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r7.uasset",
+      "before": "e54142cb7bdb5830d4bd326e45ec1b6408443fdfdc4c3ee4ce33741b2e2a189e",
+      "after": "e54142cb7bdb5830d4bd326e45ec1b6408443fdfdc4c3ee4ce33741b2e2a189e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r8.uasset",
+      "before": "b1486306d5a581fa73e96559759c00af27b0d8299450757ea18ee0a0625eabd8",
+      "after": "b1486306d5a581fa73e96559759c00af27b0d8299450757ea18ee0a0625eabd8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Base_r9.uasset",
+      "before": "b66373c541a411941fa443aa3f5e735e66043aa1183f2f67482623b413275fdb",
+      "after": "b66373c541a411941fa443aa3f5e735e66043aa1183f2f67482623b413275fdb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Dwarven\\SM_DwarfHold_Upgrade_r2.uasset",
+      "before": "85fcc49ecb9479e9bc2bd8917a6267ac19e82d47b204d1cfd6a21e7eca5a066e",
+      "after": "85fcc49ecb9479e9bc2bd8917a6267ac19e82d47b204d1cfd6a21e7eca5a066e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Diagnostics\\SM_Roof_SourceLOD0_Reduced_r1.uasset",
+      "before": "ed640843d25a3f3e55c496bad32ac32a69ceda01a4fe8d0d1aefaacce42aad05",
+      "after": "ed640843d25a3f3e55c496bad32ac32a69ceda01a4fe8d0d1aefaacce42aad05",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Diagnostics\\SM_Roof_SourceLOD0_Reduced_r2.uasset",
+      "before": "afe3f42e21e1976c426dc4df8d3e2e69411f222cd7b2ee2d6541a1643e018cc1",
+      "after": "afe3f42e21e1976c426dc4df8d3e2e69411f222cd7b2ee2d6541a1643e018cc1",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Diagnostics\\SM_Roof_SourceLOD0_Reduced_r3.uasset",
+      "before": "f9cc8089a88d77adf74c1606c7d53fffb6b31cb959637b5d21895abd045ea5ac",
+      "after": "f9cc8089a88d77adf74c1606c7d53fffb6b31cb959637b5d21895abd045ea5ac",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_DirectArchitecture_r1.uasset",
+      "before": "00ef52e18f3c72465905f81247049093d5beda1f9e947f408ce61454858585ed",
+      "after": "00ef52e18f3c72465905f81247049093d5beda1f9e947f408ce61454858585ed",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_DirectArchitecture_r2.uasset",
+      "before": "a3c77f900f4bf4366882e3ec210f3dabd8a4a634b35ba0e4e095d85ca4e73075",
+      "after": "a3c77f900f4bf4366882e3ec210f3dabd8a4a634b35ba0e4e095d85ca4e73075",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_01a_Fix_r1.uasset",
+      "before": "b9d064514c014dac8dfeff5d59d66fa370b8ac938a0c72c22fdbed72107547f9",
+      "after": "b9d064514c014dac8dfeff5d59d66fa370b8ac938a0c72c22fdbed72107547f9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_01b_Fix_r1.uasset",
+      "before": "017bf4fd873af25b945bee4e785e499120df7c53513ce9c5d2926832a55c7f77",
+      "after": "017bf4fd873af25b945bee4e785e499120df7c53513ce9c5d2926832a55c7f77",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_02_Fix_r1.uasset",
+      "before": "89759750f6cda87508b7175a8546da3379bef17efb2b60380554232aa1a2e596",
+      "after": "89759750f6cda87508b7175a8546da3379bef17efb2b60380554232aa1a2e596",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_03_Fix_r1.uasset",
+      "before": "10f3d0dcb8c275809c68060b44c88ce06f31ffd88e6c9f965a55ad9857845dbc",
+      "after": "10f3d0dcb8c275809c68060b44c88ce06f31ffd88e6c9f965a55ad9857845dbc",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_03a_Fix_r1.uasset",
+      "before": "53e7b9219ebb0f1084fde37d035e20315b9ba1f1e993f2eb68de115d0458d4e9",
+      "after": "53e7b9219ebb0f1084fde37d035e20315b9ba1f1e993f2eb68de115d0458d4e9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_03b_Fix_r1.uasset",
+      "before": "ad3d3116874160fdfe24707cbc4c9b7b9ac33cd39243929a379be58f796105a8",
+      "after": "ad3d3116874160fdfe24707cbc4c9b7b9ac33cd39243929a379be58f796105a8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_04_Fix_r1.uasset",
+      "before": "a07b392f4e6aa3b80770ef995edc790830480e8244b694963500c609c3f61645",
+      "after": "a07b392f4e6aa3b80770ef995edc790830480e8244b694963500c609c3f61645",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_04a_Fix_r1.uasset",
+      "before": "32a73bf9a3a726c6b47f8bb333dcbf45deba8c0ba5ed0d70e0cdcf8dcfa80397",
+      "after": "32a73bf9a3a726c6b47f8bb333dcbf45deba8c0ba5ed0d70e0cdcf8dcfa80397",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_04b_Fix_r1.uasset",
+      "before": "67f043a9964e54d409e9184299d7b53ab368c7b605995e8186c538158575f4b0",
+      "after": "67f043a9964e54d409e9184299d7b53ab368c7b605995e8186c538158575f4b0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_05_Fix_intact_r2.uasset",
+      "before": "e33c90d6b4d1464c05a1f9776f38ab5911ce84861afca81b03c6dc88681e270e",
+      "after": "e33c90d6b4d1464c05a1f9776f38ab5911ce84861afca81b03c6dc88681e270e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_05_Fix_r1.uasset",
+      "before": "f0f0bc1cdd761116ffc17044c2426683a6eeda48eadb806c46b2c445d283ef50",
+      "after": "f0f0bc1cdd761116ffc17044c2426683a6eeda48eadb806c46b2c445d283ef50",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Building_06_Fix_r1.uasset",
+      "before": "3e06ff8081c761016b286cd5d0c58bba799a581ae41bdfc031d741b0d6047847",
+      "after": "3e06ff8081c761016b286cd5d0c58bba799a581ae41bdfc031d741b0d6047847",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Corner_01_intact_r2.uasset",
+      "before": "d26127183772b491854f2a7b126b187616b49b81edc2c364bf2992003fd590fe",
+      "after": "d26127183772b491854f2a7b126b187616b49b81edc2c364bf2992003fd590fe",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Corner_01_r1.uasset",
+      "before": "11530cbfbe508ade7a96d0c75ae19208c67c3f2af03e77bd591b58b3cc05f9c7",
+      "after": "11530cbfbe508ade7a96d0c75ae19208c67c3f2af03e77bd591b58b3cc05f9c7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Corner_02_intact_r2.uasset",
+      "before": "e11df452b29830de42ed31859c724a3dbd0b62c847e4390e60658191ec30ec9d",
+      "after": "e11df452b29830de42ed31859c724a3dbd0b62c847e4390e60658191ec30ec9d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Corner_02_r1.uasset",
+      "before": "073fa55463a406c3669cbcd5e0834a4c19418d458132b7f555e30cfe50398a9d",
+      "after": "073fa55463a406c3669cbcd5e0834a4c19418d458132b7f555e30cfe50398a9d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Stairs_01_intact_r2.uasset",
+      "before": "b0ebed9b83bbdd6e8271a551cc6b980d8ffdb77e3b0dc50ef0618d135cac6f19",
+      "after": "b0ebed9b83bbdd6e8271a551cc6b980d8ffdb77e3b0dc50ef0618d135cac6f19",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Stairs_01_r1.uasset",
+      "before": "fba3a2c3427b949d4bbcc749441e99d9e76172af7289457aef29fb745795b5e3",
+      "after": "fba3a2c3427b949d4bbcc749441e99d9e76172af7289457aef29fb745795b5e3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Tower_01_intact_r2.uasset",
+      "before": "698dab3830f0d2a44e1fdd02e6d8a764189518bffb7dc2ad230187b95a59949f",
+      "after": "698dab3830f0d2a44e1fdd02e6d8a764189518bffb7dc2ad230187b95a59949f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_CurtainWall_Tower_01_r1.uasset",
+      "before": "2d6cd165f7015adcf38043630502c0ddc722e9145dcf50e14041741abd9c7cf5",
+      "after": "2d6cd165f7015adcf38043630502c0ddc722e9145dcf50e14041741abd9c7cf5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Front_Gate_intact_r2.uasset",
+      "before": "8bcabeb9a27280208df8e9cbd07132f79dae6381e3c5677f1ed00f5caeb669ec",
+      "after": "8bcabeb9a27280208df8e9cbd07132f79dae6381e3c5677f1ed00f5caeb669ec",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Front_Gate_r1.uasset",
+      "before": "9303d0e0978aa32cb53fe89cfa943767b61ffe02e0b4b743c4ac7496309c25e8",
+      "after": "9303d0e0978aa32cb53fe89cfa943767b61ffe02e0b4b743c4ac7496309c25e8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Front_Gate_surface_r3.uasset",
+      "before": "34b0d8330560ee4ea14e5664daec379da18c0ae509e0c713574c47bb0fc0aa9f",
+      "after": "34b0d8330560ee4ea14e5664daec379da18c0ae509e0c713574c47bb0fc0aa9f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Front_Hall_intact_r2.uasset",
+      "before": "415b19a0b56044a81635d2b7e07e087fee3cae6d1eacccb534d0905b12d72165",
+      "after": "415b19a0b56044a81635d2b7e07e087fee3cae6d1eacccb534d0905b12d72165",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Front_Hall_r1.uasset",
+      "before": "7bdd933ea9ecd19a4c4e770f43bcb4eaf0a118af3cf7ec6267bdfae2916003d3",
+      "after": "7bdd933ea9ecd19a4c4e770f43bcb4eaf0a118af3cf7ec6267bdfae2916003d3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Front_Hall_surface_r3.uasset",
+      "before": "f0c8c9b244e1ba1dedc2937f265c87ff5cb16c30c5bcd33a56268f438531b56e",
+      "after": "f0c8c9b244e1ba1dedc2937f265c87ff5cb16c30c5bcd33a56268f438531b56e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Full_Castle_intact_r2.uasset",
+      "before": "cb3137ff0c420167263630df4edbe870d6d2af13dc8e6776727b7ae2cb0cf847",
+      "after": "cb3137ff0c420167263630df4edbe870d6d2af13dc8e6776727b7ae2cb0cf847",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Full_Castle_r1.uasset",
+      "before": "7f4455a18bf659e6218772c26121e30454e8248ad67838c4d1643b536e45daac",
+      "after": "7f4455a18bf659e6218772c26121e30454e8248ad67838c4d1643b536e45daac",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Full_Castle_surface_r3.uasset",
+      "before": "f638fc1e43267dbb395852d30440caa20357d8a601c90a4fdfe7890fb3f346f5",
+      "after": "f638fc1e43267dbb395852d30440caa20357d8a601c90a4fdfe7890fb3f346f5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Kings_Hall_intact_r2.uasset",
+      "before": "3bc4a192e0415e25665f406255e496d8a2eb09d7d62515730e3a1f95d975a8fe",
+      "after": "3bc4a192e0415e25665f406255e496d8a2eb09d7d62515730e3a1f95d975a8fe",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Kings_Hall_r1.uasset",
+      "before": "2b6eff5e1312ffa8511e869fdd3dd060922ad119ea67547b2fd5dec95ec0bfe4",
+      "after": "2b6eff5e1312ffa8511e869fdd3dd060922ad119ea67547b2fd5dec95ec0bfe4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Kings_Hall_surface_r3.uasset",
+      "before": "68c5158b5a92992518d023c7618c6d78b1d1586656c8f1437154c6e38f0af1fe",
+      "after": "68c5158b5a92992518d023c7618c6d78b1d1586656c8f1437154c6e38f0af1fe",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_LogStore_01_r1.uasset",
+      "before": "2147d34e49ea325a40003214caeda8a09ec4b6960a04b9c83656aa986e163dd1",
+      "after": "2147d34e49ea325a40003214caeda8a09ec4b6960a04b9c83656aa986e163dd1",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_LogStore_02_r1.uasset",
+      "before": "1f3e9166be8249eb36e75aa0fffbe65b3d00b76743c5765dcd8d31044d2b5960",
+      "after": "1f3e9166be8249eb36e75aa0fffbe65b3d00b76743c5765dcd8d31044d2b5960",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Side_Hall_intact_r2.uasset",
+      "before": "be30a0bd64be91650e628f572e8169b72a4fbfd5e58aef77a9ec3e365e82671a",
+      "after": "be30a0bd64be91650e628f572e8169b72a4fbfd5e58aef77a9ec3e365e82671a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Side_Hall_r1.uasset",
+      "before": "4cc69f482d7a2938decd636017000fbad996aaf5a4858ea6fa8c402dc9540485",
+      "after": "4cc69f482d7a2938decd636017000fbad996aaf5a4858ea6fa8c402dc9540485",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Side_Hall_surface_r3.uasset",
+      "before": "4b8a5f139ee027587e20172ecdc2eaf854df5eab0dc17f98a44919fbc76e6e40",
+      "after": "4b8a5f139ee027587e20172ecdc2eaf854df5eab0dc17f98a44919fbc76e6e40",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Top_Level_intact_r2.uasset",
+      "before": "16b61e2bbaed7c355e964f00b0e37322713685ad9755fb5227308aaad9c17383",
+      "after": "16b61e2bbaed7c355e964f00b0e37322713685ad9755fb5227308aaad9c17383",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Top_Level_r1.uasset",
+      "before": "2fba05fba95be4159b4f588cf12dfee8ff6330ba10d714ca34117810a95f63c0",
+      "after": "2fba05fba95be4159b4f588cf12dfee8ff6330ba10d714ca34117810a95f63c0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_LI_Top_Level_surface_r3.uasset",
+      "before": "e77111303f7979adb21dfa07471eea7a70e8f3a73fc36fa004135d5fd6a6446f",
+      "after": "e77111303f7979adb21dfa07471eea7a70e8f3a73fc36fa004135d5fd6a6446f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_SM_Main_Hall_intact_r2.uasset",
+      "before": "8171ed65b22607357f8f2074787a3ea2b9370adcd29398b87236becfed197166",
+      "after": "8171ed65b22607357f8f2074787a3ea2b9370adcd29398b87236becfed197166",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_SM_Main_Hall_r1.uasset",
+      "before": "6a6eeac7c06148648bf0fb21fa6986be567dbeb51c6c47e151e1fbf896fc6271",
+      "after": "6a6eeac7c06148648bf0fb21fa6986be567dbeb51c6c47e151e1fbf896fc6271",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\Parts\\SM_SM_Main_Hall_surface_r3.uasset",
+      "before": "774e2b52dc568ceecf8810c1444d545483b85b3ec29fbc49f75b44871eea9a74",
+      "after": "774e2b52dc568ceecf8810c1444d545483b85b3ec29fbc49f75b44871eea9a74",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r1.uasset",
+      "before": "754b5c7342075009f08513e2e4f00767431d51313855fb2646a0272571240207",
+      "after": "754b5c7342075009f08513e2e4f00767431d51313855fb2646a0272571240207",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r2.uasset",
+      "before": "737e04b570aa7a3110be69bde0ed32388df72b65c30e03368b866b8139d7d7f0",
+      "after": "737e04b570aa7a3110be69bde0ed32388df72b65c30e03368b866b8139d7d7f0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r3.uasset",
+      "before": "aa425d1020a7a61fc5cb675ce62c89a8dc3196441ace66dbb4f24461ce63edee",
+      "after": "aa425d1020a7a61fc5cb675ce62c89a8dc3196441ace66dbb4f24461ce63edee",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r4.uasset",
+      "before": "1d821c6d233333ab0f35e3214a0fd4865364e9f6ec075155404aa0cb5e0624e6",
+      "after": "1d821c6d233333ab0f35e3214a0fd4865364e9f6ec075155404aa0cb5e0624e6",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r5.uasset",
+      "before": "54917c94bd386f2fbc9f9e70abddab89ff753d432d560083d8ea2656f2824b89",
+      "after": "54917c94bd386f2fbc9f9e70abddab89ff753d432d560083d8ea2656f2824b89",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r6.uasset",
+      "before": "66852ec839ac4f2798ac7944574645402515039748cbb58e72b44f528937b1ee",
+      "after": "66852ec839ac4f2798ac7944574645402515039748cbb58e72b44f528937b1ee",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Base_r7.uasset",
+      "before": "f9975bdc2bb56e1a339b34ce1c373fa1550fc7a46456987d4ee273efc4c04bcc",
+      "after": "f9975bdc2bb56e1a339b34ce1c373fa1550fc7a46456987d4ee273efc4c04bcc",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Upgrade_r1.uasset",
+      "before": "d50f5c07af4a1632eab68774354995a84aea7d98fb33856ef1f35c2a74e5dd21",
+      "after": "d50f5c07af4a1632eab68774354995a84aea7d98fb33856ef1f35c2a74e5dd21",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Upgrade_r5.uasset",
+      "before": "3d5de5384285bb6630445d6a1d093b2edbcf1230a4166fe72ca8b84890da2003",
+      "after": "3d5de5384285bb6630445d6a1d093b2edbcf1230a4166fe72ca8b84890da2003",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Upgrade_r6.uasset",
+      "before": "35a4c11f9684f67cca04fd4569613b05ecc4e120bca9dbdc8595634390ad88ba",
+      "after": "35a4c11f9684f67cca04fd4569613b05ecc4e120bca9dbdc8595634390ad88ba",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SM_HumanCapital_Upgrade_r7.uasset",
+      "before": "bcb1e521d5323ac5b86ccf96a21b071b8c299ef6c662da03ce655a445e81210f",
+      "after": "bcb1e521d5323ac5b86ccf96a21b071b8c299ef6c662da03ce655a445e81210f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Arch_Walkway_Corner_B_weld_r1.uasset",
+      "before": "28c8716efdb3b7c99ffb69048f2b6859437b42decf9da08b959f2c7e9da9f0c8",
+      "after": "28c8716efdb3b7c99ffb69048f2b6859437b42decf9da08b959f2c7e9da9f0c8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Arch_Walkway_Side_B_weld_r1.uasset",
+      "before": "a1872d02d41b675e770cc194b70e2ea648a3287cdc34176a8ffcd303bf78e634",
+      "after": "a1872d02d41b675e770cc194b70e2ea648a3287cdc34176a8ffcd303bf78e634",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Back_Arch_weld_r1.uasset",
+      "before": "9b86a1abc3d0cd264f27a41d44db0282170d08d23f73a2df8bd09b946d3b8c42",
+      "after": "9b86a1abc3d0cd264f27a41d44db0282170d08d23f73a2df8bd09b946d3b8c42",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Banister_weld_r1.uasset",
+      "before": "29780be47d166a62f372655cc2f059a2b5d3d6c5f70479cd0042934c9826d3fd",
+      "after": "29780be47d166a62f372655cc2f059a2b5d3d6c5f70479cd0042934c9826d3fd",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Beam_A_01_weld_r1.uasset",
+      "before": "2eac5e663c55c61885ae3766ef54939198196363d734c363adfaa86731194423",
+      "after": "2eac5e663c55c61885ae3766ef54939198196363d734c363adfaa86731194423",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Beam_A_03_weld_r1.uasset",
+      "before": "f5807f4252e8e0348ebff4e246d13ddde60b8e7cbf4c3ab6e2a7287ecfc6d576",
+      "after": "f5807f4252e8e0348ebff4e246d13ddde60b8e7cbf4c3ab6e2a7287ecfc6d576",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Beam_A_04_weld_r1.uasset",
+      "before": "c3f9be405944805e1099bd384a7b0887b9cba01a120500d37a877646a0195502",
+      "after": "c3f9be405944805e1099bd384a7b0887b9cba01a120500d37a877646a0195502",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Beam_B_04_weld_r1.uasset",
+      "before": "81f79a34d5e4e9ce6f760ca4edd3e55043cc08a5574ede7a794cd25e56ee9975",
+      "after": "81f79a34d5e4e9ce6f760ca4edd3e55043cc08a5574ede7a794cd25e56ee9975",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_BlockA_weld_r1.uasset",
+      "before": "d80993c89bd07c735d095f9d2448cc2252496554a177138a4cfc6e7c45df052d",
+      "after": "d80993c89bd07c735d095f9d2448cc2252496554a177138a4cfc6e7c45df052d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_BlockB_weld_r1.uasset",
+      "before": "c05b095a68e8838e13de87170eb9f131e419fc55a5b20a838e54b97e8a0fb50d",
+      "after": "c05b095a68e8838e13de87170eb9f131e419fc55a5b20a838e54b97e8a0fb50d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_BrickA_weld_r1.uasset",
+      "before": "92b489a70214869ca3050a0c8a7bd1e306b2bcc6fe09285c017972cfb342a4af",
+      "after": "92b489a70214869ca3050a0c8a7bd1e306b2bcc6fe09285c017972cfb342a4af",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Castle_Door_weld_r1.uasset",
+      "before": "399c481b855c8b16e8e4a3d08815da46c0d9481de65c8b421d48dec2b0145e77",
+      "after": "399c481b855c8b16e8e4a3d08815da46c0d9481de65c8b421d48dec2b0145e77",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Castle_SeamHider_01_weld_r1.uasset",
+      "before": "4a446925f545c242eb325b4bdfe7eaf89da457ab30668429ffae833d31b9e120",
+      "after": "4a446925f545c242eb325b4bdfe7eaf89da457ab30668429ffae833d31b9e120",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Castle_SeamHider_02_weld_r1.uasset",
+      "before": "c2b8dbbec083f5674d55d40e43983a59f0139f4d85566ad8e42cbec005dee078",
+      "after": "c2b8dbbec083f5674d55d40e43983a59f0139f4d85566ad8e42cbec005dee078",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_A_01_weld_r1.uasset",
+      "before": "7ab4552dcdb9c52ad4701386d2c18eaed87e3bc6dd1867e0aa412a5e92805ce8",
+      "after": "7ab4552dcdb9c52ad4701386d2c18eaed87e3bc6dd1867e0aa412a5e92805ce8",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_A_02_weld_r1.uasset",
+      "before": "f510f69b96ebd4a57eb2545d629c3c002ab25faf5b2f3dfeff32045ba5ba8d9a",
+      "after": "f510f69b96ebd4a57eb2545d629c3c002ab25faf5b2f3dfeff32045ba5ba8d9a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_A_03_weld_r1.uasset",
+      "before": "f54493c10ed4bcb99085340dc4777f9606d55a7e9ae002ffe2d3e55ffcef07af",
+      "after": "f54493c10ed4bcb99085340dc4777f9606d55a7e9ae002ffe2d3e55ffcef07af",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_A_04_weld_r1.uasset",
+      "before": "bb761d5124d1a7e5d3927572b1710a5440d20a2eaddbe0422fcf4117ee33f883",
+      "after": "bb761d5124d1a7e5d3927572b1710a5440d20a2eaddbe0422fcf4117ee33f883",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_Seam_A_01_weld_r1.uasset",
+      "before": "728ee2e509ad8f7e59ccfcef609d92df00a8be1f352003692035c917b5d3a808",
+      "after": "728ee2e509ad8f7e59ccfcef609d92df00a8be1f352003692035c917b5d3a808",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_Seam_A_02_weld_r1.uasset",
+      "before": "de6ae0d4c57487e60095db53d62ec969e38e9aa26e801cfd017b37e896030c47",
+      "after": "de6ae0d4c57487e60095db53d62ec969e38e9aa26e801cfd017b37e896030c47",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_Seam_A_03_weld_r1.uasset",
+      "before": "e025d85faa13bda24c68d41941d9a37a7b4853eec607218f81ac6cb3ebf1d90e",
+      "after": "e025d85faa13bda24c68d41941d9a37a7b4853eec607218f81ac6cb3ebf1d90e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_Seam_B_01_weld_r1.uasset",
+      "before": "e6d6db19c70a88068e5409db128a979c3cbd97dc1c0ec63f5fc241b4d1c53a21",
+      "after": "e6d6db19c70a88068e5409db128a979c3cbd97dc1c0ec63f5fc241b4d1c53a21",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_Seam_B_02_weld_r1.uasset",
+      "before": "274f8295f7c86a7f5a9dd08c0b4e3a77b669416d0efef0d0501b278d167cfb85",
+      "after": "274f8295f7c86a7f5a9dd08c0b4e3a77b669416d0efef0d0501b278d167cfb85",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Floor_Seam_Corner_weld_r1.uasset",
+      "before": "d5f92489fde48de9cb620f9855ddd8a79759fab599749bce91890f950ec5af4f",
+      "after": "d5f92489fde48de9cb620f9855ddd8a79759fab599749bce91890f950ec5af4f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Pillar_A_01_weld_r1.uasset",
+      "before": "9f3e75904bd9d706c786811adc7fd4bf71dbe76f5db0453ccefb7622817b46b6",
+      "after": "9f3e75904bd9d706c786811adc7fd4bf71dbe76f5db0453ccefb7622817b46b6",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Pillar_A_02_weld_r1.uasset",
+      "before": "f47773919b5cf5f143b10522228abfa7739a7c53346304941a7cd983f46dd10d",
+      "after": "f47773919b5cf5f143b10522228abfa7739a7c53346304941a7cd983f46dd10d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Wall_A_01_weld_r1.uasset",
+      "before": "a0e68af93d01db0c42a4654733557a40eacdc2afc1a3238457c2ffe928b7ccf2",
+      "after": "a0e68af93d01db0c42a4654733557a40eacdc2afc1a3238457c2ffe928b7ccf2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Wall_A_02_weld_r1.uasset",
+      "before": "68893523181eb46f368651611e6e1411255f3af060946fa4651dc4e251469a1b",
+      "after": "68893523181eb46f368651611e6e1411255f3af060946fa4651dc4e251469a1b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Wall_A_03_weld_r1.uasset",
+      "before": "a7b8da8522f0a680389d15f8319b3a93debd07f3aaa9573fc5a5cf6893a07845",
+      "after": "a7b8da8522f0a680389d15f8319b3a93debd07f3aaa9573fc5a5cf6893a07845",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Wall_A_04_weld_r1.uasset",
+      "before": "9f01f84297ed58c6f37ad115edc0f51a25f6a888f480a9117e98cbafd8a2265d",
+      "after": "9f01f84297ed58c6f37ad115edc0f51a25f6a888f480a9117e98cbafd8a2265d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Wall_Door_A_01_weld_r1.uasset",
+      "before": "bdb4ba29d0fe76245b5d47ad64b40d5c0bf837a6afd28184ed235e40fc17db04",
+      "after": "bdb4ba29d0fe76245b5d47ad64b40d5c0bf837a6afd28184ed235e40fc17db04",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Wall_Door_A_03_weld_r1.uasset",
+      "before": "84938bbb9e143dd724ace3a6d05820f2a076295b3654675509a6867ce4fa7087",
+      "after": "84938bbb9e143dd724ace3a6d05820f2a076295b3654675509a6867ce4fa7087",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_WallTopper_A_01_weld_r1.uasset",
+      "before": "d076235314bedc70fbe53dc8ddce1ebfda2bfc9b12c758ec75719c670cedade9",
+      "after": "d076235314bedc70fbe53dc8ddce1ebfda2bfc9b12c758ec75719c670cedade9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_WallTopper_A_02_weld_r1.uasset",
+      "before": "041f3e7fd31408375f7a8ecac7c185809059f7cc7ba41f057d616d0bff63a786",
+      "after": "041f3e7fd31408375f7a8ecac7c185809059f7cc7ba41f057d616d0bff63a786",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_01_weld_r1.uasset",
+      "before": "075434b078e49608ad4e7f2993f50a8d39bf542f39c06c7cdcb8f5dd50874aee",
+      "after": "075434b078e49608ad4e7f2993f50a8d39bf542f39c06c7cdcb8f5dd50874aee",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_04_weld_r1.uasset",
+      "before": "fffbf17baf1fe8bd1b4101c63c7bdd92b0335e1d41d2f6430d61efde947a9572",
+      "after": "fffbf17baf1fe8bd1b4101c63c7bdd92b0335e1d41d2f6430d61efde947a9572",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_07_weld_r1.uasset",
+      "before": "d9c43a605b32ab705a71e47c69d024c61107abe76f4cff1f1155de4152710724",
+      "after": "d9c43a605b32ab705a71e47c69d024c61107abe76f4cff1f1155de4152710724",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_09_weld_r1.uasset",
+      "before": "d63a012ae2db5336140a2e353bb58b0826da5007ffede3a3193f7405c5eef46f",
+      "after": "d63a012ae2db5336140a2e353bb58b0826da5007ffede3a3193f7405c5eef46f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_10_weld_r1.uasset",
+      "before": "24ad2ecd46db4025e3d04bd204e89f410ddd5d1dbb489378cb5d4ecf5eb2a028",
+      "after": "24ad2ecd46db4025e3d04bd204e89f410ddd5d1dbb489378cb5d4ecf5eb2a028",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_12_weld_r1.uasset",
+      "before": "4180d1968c3bda08b6ccbaacbb01df3050d0ca6468b116156125026d9b6dfb8a",
+      "after": "4180d1968c3bda08b6ccbaacbb01df3050d0ca6468b116156125026d9b6dfb8a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_CastleTower_Window_A_13_weld_r1.uasset",
+      "before": "691c0d8cee41e8a626da483ed6898f7a3170ebdc15356f187f00645361e4811e",
+      "after": "691c0d8cee41e8a626da483ed6898f7a3170ebdc15356f187f00645361e4811e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Chimney_Segment_weld_r1.uasset",
+      "before": "b054987dbc68eb47e89c047bd56fb9da076b627b1bbb1e7c36b1f30722883c25",
+      "after": "b054987dbc68eb47e89c047bd56fb9da076b627b1bbb1e7c36b1f30722883c25",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_ConeRoof_01_weld_r1.uasset",
+      "before": "6d1236b7bc8a293b1051a4eb22261da507f861836515af0bd2b72e5e5c55c7b6",
+      "after": "6d1236b7bc8a293b1051a4eb22261da507f861836515af0bd2b72e5e5c55c7b6",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Crenel_A_01_weld_r1.uasset",
+      "before": "83276f1c7ccfc75730b391da64207af327e6f4ac066eb62e7d026b8f7cc66176",
+      "after": "83276f1c7ccfc75730b391da64207af327e6f4ac066eb62e7d026b8f7cc66176",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Crenel_A_02_weld_r1.uasset",
+      "before": "f74384c4a300faec01cb96d09e8a87c262c0fd1b8c8afd443870658444a9c524",
+      "after": "f74384c4a300faec01cb96d09e8a87c262c0fd1b8c8afd443870658444a9c524",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Crenel_A_03_weld_r1.uasset",
+      "before": "6d10e4e3c547e38cf6889ea40dba33ca8182985ee18ffe6eeb4c061f57390d79",
+      "after": "6d10e4e3c547e38cf6889ea40dba33ca8182985ee18ffe6eeb4c061f57390d79",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Crenel_A_Pillar_weld_r1.uasset",
+      "before": "d28383bbc7479f6b3150a7bb656d0351932b0b3877ca5fd886d438f1d4a3f729",
+      "after": "d28383bbc7479f6b3150a7bb656d0351932b0b3877ca5fd886d438f1d4a3f729",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_DoorFrame_A_01_weld_r1.uasset",
+      "before": "def3c039c85365debbb11f3686ceedd405b664c148ffbe6e68373944c127d012",
+      "after": "def3c039c85365debbb11f3686ceedd405b664c148ffbe6e68373944c127d012",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_DoorFrame_A_02_weld_r1.uasset",
+      "before": "2bf6e66aab8675b73cddc8a651c0d58785dd4c4f0de04a6fa0352d154d087e98",
+      "after": "2bf6e66aab8675b73cddc8a651c0d58785dd4c4f0de04a6fa0352d154d087e98",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Doorway_2M_weld_r1.uasset",
+      "before": "0322c8c6619da844bdc3bc075f9f8d54935643f6c87d2f36772ab07878065595",
+      "after": "0322c8c6619da844bdc3bc075f9f8d54935643f6c87d2f36772ab07878065595",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Fireplace_02_weld_r1.uasset",
+      "before": "98a3ebdfac30d9c2af9b3bbf8963306151a271c627edafd2a4c563aa4ef5e6f9",
+      "after": "98a3ebdfac30d9c2af9b3bbf8963306151a271c627edafd2a4c563aa4ef5e6f9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Front_Arch_weld_r1.uasset",
+      "before": "a52741e5c69485c95a6b723bba57ec8b16e9566ff87d088087d5d9273faea1f7",
+      "after": "a52741e5c69485c95a6b723bba57ec8b16e9566ff87d088087d5d9273faea1f7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Front_Top_weld_r1.uasset",
+      "before": "6dd3a41342f5768d9d4f6bcaa160e06fcdd54dce076062c2fc76f0fc36fd350d",
+      "after": "6dd3a41342f5768d9d4f6bcaa160e06fcdd54dce076062c2fc76f0fc36fd350d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Herringbone_4M_weld_r1.uasset",
+      "before": "4b16f577bc15accb691c42d74447786ab6191f704931195a56bb796fe762cc2e",
+      "after": "4b16f577bc15accb691c42d74447786ab6191f704931195a56bb796fe762cc2e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_LargeRoof_01_weld_r1.uasset",
+      "before": "fc56dc2e7d179bdb9969291fd1b5b202531ea990d4d7b90dec63ee8bd30e9945",
+      "after": "fc56dc2e7d179bdb9969291fd1b5b202531ea990d4d7b90dec63ee8bd30e9945",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_LargeRoof_02_weld_r1.uasset",
+      "before": "59bd2c000b4b1fdb07ac54d9483f688fbc166f7beb9d49d117d60563afab289f",
+      "after": "59bd2c000b4b1fdb07ac54d9483f688fbc166f7beb9d49d117d60563afab289f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Main_Stairs_weld_r1.uasset",
+      "before": "536caa1af52543155bb788484beb30a3a1a97fc4bd1ccbc9e51166bb1c02442f",
+      "after": "536caa1af52543155bb788484beb30a3a1a97fc4bd1ccbc9e51166bb1c02442f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Middle_Arch_weld_r1.uasset",
+      "before": "927b78de9c313644774e925818408ab526cf014c6641e40789ddade2e439b035",
+      "after": "927b78de9c313644774e925818408ab526cf014c6641e40789ddade2e439b035",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Planks_4M_weld_r1.uasset",
+      "before": "a9076a84b2183a95110626e4680fdbb12f5875896969ee953e15aeb8f2209b3f",
+      "after": "a9076a84b2183a95110626e4680fdbb12f5875896969ee953e15aeb8f2209b3f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Portcullis_Frame_weld_r1.uasset",
+      "before": "0ab5ab4c3f5db555aa02a4ff8c55eca6efd4683384a0921e6a723267a9de2386",
+      "after": "0ab5ab4c3f5db555aa02a4ff8c55eca6efd4683384a0921e6a723267a9de2386",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_SlabA_weld_r1.uasset",
+      "before": "373e420d5e64977be704f910f487fc4aefe0809b0642819b4367c80a265bd30e",
+      "after": "373e420d5e64977be704f910f487fc4aefe0809b0642819b4367c80a265bd30e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_SlabB_weld_r1.uasset",
+      "before": "a99743d98f19336bbb6a2505f22aeff477d5fca4ec20fc35947dc3645540333b",
+      "after": "a99743d98f19336bbb6a2505f22aeff477d5fca4ec20fc35947dc3645540333b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Spiral_Stairs_Cap_weld_r1.uasset",
+      "before": "1cf77c18b5a742f1a29b19c05a045fb1813e41af0ad27b97e1c869215bd4313b",
+      "after": "1cf77c18b5a742f1a29b19c05a045fb1813e41af0ad27b97e1c869215bd4313b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Spiral_Stairs_weld_r1.uasset",
+      "before": "0985a997c72e35dd12c3b5dc74857e8f49c075812407fe31c882629554f53c27",
+      "after": "0985a997c72e35dd12c3b5dc74857e8f49c075812407fe31c882629554f53c27",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Square_Planks_4M_weld_r1.uasset",
+      "before": "69b28d1e442a4c79c98b37bdd29c0e3b651835b81ffb086b8b6d938cdd2f7863",
+      "after": "69b28d1e442a4c79c98b37bdd29c0e3b651835b81ffb086b8b6d938cdd2f7863",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Tile_A_weld_r1.uasset",
+      "before": "9911b50fc61b427d745c1090bf30494738eb0b14d7acabdf3fa574d21a09b528",
+      "after": "9911b50fc61b427d745c1090bf30494738eb0b14d7acabdf3fa574d21a09b528",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Tile_B_weld_r1.uasset",
+      "before": "2f7080be82afba39d2a189084f471994313656544aba4afb634012d7f1412b2b",
+      "after": "2f7080be82afba39d2a189084f471994313656544aba4afb634012d7f1412b2b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Tile_C_weld_r1.uasset",
+      "before": "3839b56b7f93c2f7ca6c70fbab94887dd78d73b096c9713a2d7c7c4b7379f4ef",
+      "after": "3839b56b7f93c2f7ca6c70fbab94887dd78d73b096c9713a2d7c7c4b7379f4ef",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Tile_D_weld_r1.uasset",
+      "before": "f801ee89ec0237067c2a59c4181ff9ba58b36185391bd12220936b2282b16f2f",
+      "after": "f801ee89ec0237067c2a59c4181ff9ba58b36185391bd12220936b2282b16f2f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Wall_1x5_weld_r1.uasset",
+      "before": "cf9e9f90d13721c4c07f9ae4773378ae3340c916651b7afc1ab72d92dcfec413",
+      "after": "cf9e9f90d13721c4c07f9ae4773378ae3340c916651b7afc1ab72d92dcfec413",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_Wall_Edging_weld_r1.uasset",
+      "before": "de1a2819a141f6ae326992f8846953f432e480398f14a5642be20cdce240d31b",
+      "after": "de1a2819a141f6ae326992f8846953f432e480398f14a5642be20cdce240d31b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Human\\SourceLOD0\\SM_WoodFloor_A_01_weld_r1.uasset",
+      "before": "057a3c60c1b247e8f4eba5bbd3ffb5d0bfa16dbf6e32259789756abf468c0b53",
+      "after": "057a3c60c1b247e8f4eba5bbd3ffb5d0bfa16dbf6e32259789756abf468c0b53",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Camp_Tent_r1.uasset",
+      "before": "445813adcc857574d2e47833f47eddb06e2a4d20fa248ef0a593cb34d068a758",
+      "after": "445813adcc857574d2e47833f47eddb06e2a4d20fa248ef0a593cb34d068a758",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Field_Defenses_A_r1.uasset",
+      "before": "d6f5f02a45f36bdf0b844fd0817560fa55cec220f3b8a8f511ba8e71e97b6785",
+      "after": "d6f5f02a45f36bdf0b844fd0817560fa55cec220f3b8a8f511ba8e71e97b6785",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Field_Defenses_B_r1.uasset",
+      "before": "cb62b360b8cb0759c6a1e0f813ac866d6db61029d58dba6056aaeeb1e5f8042c",
+      "after": "cb62b360b8cb0759c6a1e0f813ac866d6db61029d58dba6056aaeeb1e5f8042c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_A_r1.uasset",
+      "before": "5a0945afb3b4d69d22563ea2a9666ea22467e70554eefbc22d0923a432224df7",
+      "after": "5a0945afb3b4d69d22563ea2a9666ea22467e70554eefbc22d0923a432224df7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_A_r2.uasset",
+      "before": "18ffc340da3ee3b6b6e66e8ed4c1337d154114f6bbd5c9161d5fa88628e7c040",
+      "after": "18ffc340da3ee3b6b6e66e8ed4c1337d154114f6bbd5c9161d5fa88628e7c040",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_B_r1.uasset",
+      "before": "14060907c6db6d4cbb70563dc97050e8943562a78a7e60778362bfab0f61e312",
+      "after": "14060907c6db6d4cbb70563dc97050e8943562a78a7e60778362bfab0f61e312",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Hut_B_r2.uasset",
+      "before": "7caf5881f729221556b5ceb5a3666709e048b30e68d062f5272eff90618e55b4",
+      "after": "7caf5881f729221556b5ceb5a3666709e048b30e68d062f5272eff90618e55b4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Platform_r1.uasset",
+      "before": "2c8a1c94f8bac5baa935c34633934b4ba90d77d735984fd7dfaea591ea1124df",
+      "after": "2c8a1c94f8bac5baa935c34633934b4ba90d77d735984fd7dfaea591ea1124df",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Forest_Platform_r2.uasset",
+      "before": "2b10fa5b5fdbe5c7cfc26d79be75df7e25bca77c3827f79dc09c29240dc28f4a",
+      "after": "2b10fa5b5fdbe5c7cfc26d79be75df7e25bca77c3827f79dc09c29240dc28f4a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_Archway_r1.uasset",
+      "before": "6157f170131ef496ff7afa1c62607725c1dafd23f85bd260490cc08adf1ce21e",
+      "after": "6157f170131ef496ff7afa1c62607725c1dafd23f85bd260490cc08adf1ce21e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_CurtainWall_r1.uasset",
+      "before": "89deca7a30041a79bc9f227a6f9eecb21ebca4b128eb4ad6db23113284bcc35e",
+      "after": "89deca7a30041a79bc9f227a6f9eecb21ebca4b128eb4ad6db23113284bcc35e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_CurtainWall_r2.uasset",
+      "before": "75dee2bba19207a5ab1fbc2a747fbf215ec641b7cd886ad48457738d2701dc82",
+      "after": "75dee2bba19207a5ab1fbc2a747fbf215ec641b7cd886ad48457738d2701dc82",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Ravenhold_GateTower_r1.uasset",
+      "before": "c5c13a201d73291e2774ddeb774ca79a572ba3c1786f81b682f4ff896934591b",
+      "after": "c5c13a201d73291e2774ddeb774ca79a572ba3c1786f81b682f4ff896934591b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_Siege_Trebuchet_r1.uasset",
+      "before": "992232a4426b90f75cb7f3d3a2b34204777bf6fbbf787965cc7c9ee0584e17db",
+      "after": "992232a4426b90f75cb7f3d3a2b34204777bf6fbbf787965cc7c9ee0584e17db",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_WheatGrass_A_Coverage_r1.uasset",
+      "before": "ec989534ec596d3d5f9203a5e6e74b616a971ee63b75862adadda162ad99bc6f",
+      "after": "ec989534ec596d3d5f9203a5e6e74b616a971ee63b75862adadda162ad99bc6f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\CampaignProxies\\Population\\SM_WheatGrass_B_Coverage_r1.uasset",
+      "before": "dc576ab4df5a3babe516534278c850a8e467ab8a08a1f84899f8f21ad52fc9e6",
+      "after": "dc576ab4df5a3babe516534278c850a8e467ab8a08a1f84899f8f21ad52fc9e6",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\L_DwarfHold_Authored.umap",
+      "before": "2535e6ef1a32f17cecacf98329a102be1e1018fa8baafd8efcf5829ee0e7f4db",
+      "after": "2535e6ef1a32f17cecacf98329a102be1e1018fa8baafd8efcf5829ee0e7f4db",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\L_DwarfHold_ProxyAuthoring.umap",
+      "before": "2d133b83ad754ffb8859e0586fd84a1305d8382b6307f66b9147dc93183bf0a5",
+      "after": "2d133b83ad754ffb8859e0586fd84a1305d8382b6307f66b9147dc93183bf0a5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\L_HumanCapital_Authored.umap",
+      "before": "030cb256f00404712d2b834b1bc83c3212438e06f12f6aafaab1a860b5b8b698",
+      "after": "030cb256f00404712d2b834b1bc83c3212438e06f12f6aafaab1a860b5b8b698",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\L_HumanTavern_Inspection.umap",
+      "before": "b1f78cc39c9b2a6c7604479a52df4e603386bf49e8e4f19a3a9377bbdfcad5ab",
+      "after": "b1f78cc39c9b2a6c7604479a52df4e603386bf49e8e4f19a3a9377bbdfcad5ab",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\SL_HumanCapital_Houses.umap",
+      "before": "5771463de5bfe0aaf27dd25aa61ea9e760979bf50e2ab73df0f61ecb79835238",
+      "after": "5771463de5bfe0aaf27dd25aa61ea9e760979bf50e2ab73df0f61ecb79835238",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\SL_HumanCapital_TownProps.umap",
+      "before": "79c268496c1c8ed50ec343b99643d98e1ecabe7a82ff66f16a235746ba7753bc",
+      "after": "79c268496c1c8ed50ec343b99643d98e1ecabe7a82ff66f16a235746ba7753bc",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\SL_HumanCapital_Waterfront.umap",
+      "before": "1ada397f4db1b7d8a5b11b9161d55209d37ae5835b32b5cab49f7436b510e96c",
+      "after": "1ada397f4db1b7d8a5b11b9161d55209d37ae5835b32b5cab49f7436b510e96c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Controls\\T_Composition_Control_r1.uasset",
+      "before": "2222db231c7806afb1028bf40cf05f9d0f41cf3ee6387baa727f3b9789546837",
+      "after": "2222db231c7806afb1028bf40cf05f9d0f41cf3ee6387baa727f3b9789546837",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Controls\\T_Composition_Control_r3.uasset",
+      "before": "74a2857b0da629930c72cf0303aae0d75ded3ef36644c3963b960910188638e9",
+      "after": "74a2857b0da629930c72cf0303aae0d75ded3ef36644c3963b960910188638e9",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Controls\\T_Composition_Control_r4.uasset",
+      "before": "1103e30af05b3f24c2bb0c28cce1b874a84bf8446a88c38aef0de5a7d5b084e0",
+      "after": "1103e30af05b3f24c2bb0c28cce1b874a84bf8446a88c38aef0de5a7d5b084e0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Controls\\T_Composition_Control_r5.uasset",
+      "before": "058d76e29092b8916f1898602a8c2f27b9874e36e4e9fcdc9fda211c7fd70e5e",
+      "after": "058d76e29092b8916f1898602a8c2f27b9874e36e4e9fcdc9fda211c7fd70e5e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\L_Composition_3500_r1.umap",
+      "before": "b91cee7d73d8ad415f16d66e249cd55e1a5a25c96eece5c0010a8c59db6965e4",
+      "after": "b91cee7d73d8ad415f16d66e249cd55e1a5a25c96eece5c0010a8c59db6965e4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\L_Composition_3500_r2.umap",
+      "before": "fe7a6ab40c270fc18d1beb5ee6e782fa4cf3d1fae3091e19c263d78f1766ba6e",
+      "after": "4a233e1056a5e1190e2afe413cbe4321808b2ae5a15baddf4016a89fb88a896e",
+      "unchanged": false
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\M_Composition_Review_r1.uasset",
+      "before": "be8fe78daaace897a2ddf1b2933d2f1e2306268df1a388473b885896cb16dc2a",
+      "after": "be8fe78daaace897a2ddf1b2933d2f1e2306268df1a388473b885896cb16dc2a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\M_Composition_Review_r2.uasset",
+      "before": "8ffbf3101775e629167b6f245c2fe97e8ca40275c6bf8dd95ab3188aa2b6b005",
+      "after": "8ffbf3101775e629167b6f245c2fe97e8ca40275c6bf8dd95ab3188aa2b6b005",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\M_Composition_Review_r3.uasset",
+      "before": "ea23a56e45ff4f761d444aa95759df2d21ba9f2003026cbfb647e36bdfb7841c",
+      "after": "ea23a56e45ff4f761d444aa95759df2d21ba9f2003026cbfb647e36bdfb7841c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\MI_Composition_Review_r1.uasset",
+      "before": "0b9d5e38306854f0b9eefbe38dac4ce5c53399768d22b5a3940c53b58de39d76",
+      "after": "0b9d5e38306854f0b9eefbe38dac4ce5c53399768d22b5a3940c53b58de39d76",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\MI_Composition_Review_r2.uasset",
+      "before": "3c2ce0c13d2d173a3b6b27635f4ed0b86b0825aa043209b26080e84cf2d8ab12",
+      "after": "3c2ce0c13d2d173a3b6b27635f4ed0b86b0825aa043209b26080e84cf2d8ab12",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\MI_Composition_Review_r3.uasset",
+      "before": "0a53c0c1923d232671a8aabc70d069a4ffb1366788f7763f80cf52b285c19af2",
+      "after": "0a53c0c1923d232671a8aabc70d069a4ffb1366788f7763f80cf52b285c19af2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\MI_Composition_Review_r4.uasset",
+      "before": "f70b009634318ed52bd943cd9a30f720666a6babd5da56d77e20656abed778a3",
+      "after": "f70b009634318ed52bd943cd9a30f720666a6babd5da56d77e20656abed778a3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\MI_Composition_River_r1.uasset",
+      "before": "f43755e93bcc1c983147cc3a75d16ff591be9d708940fd571892c4db533a2fb3",
+      "after": "f43755e93bcc1c983147cc3a75d16ff591be9d708940fd571892c4db533a2fb3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\MI_Composition_Water_r1.uasset",
+      "before": "26f42d0e77866c9d7a2c233876e6b10df8505c69180a99752e5045e8223a2cf2",
+      "after": "26f42d0e77866c9d7a2c233876e6b10df8505c69180a99752e5045e8223a2cf2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\M_Polish_r1.uasset",
+      "before": "e6f7ec0f00f0ed2f69989574e5c8a7fb1c50b09a65192bb7e08ce154dea5f24a",
+      "after": "e6f7ec0f00f0ed2f69989574e5c8a7fb1c50b09a65192bb7e08ce154dea5f24a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\MI_Polish_r1.uasset",
+      "before": "903b95ea298b7589833f48f5334e50b86ac1ce06195aec60b392c8c46e1ce03c",
+      "after": "903b95ea298b7589833f48f5334e50b86ac1ce06195aec60b392c8c46e1ce03c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\SM_RuinedBridge_East_r1.uasset",
+      "before": "fef53e14070f90a7f22d843c3a47b13247fa526fb507b1fc77586861650fdef5",
+      "after": "fef53e14070f90a7f22d843c3a47b13247fa526fb507b1fc77586861650fdef5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\SM_RuinedBridge_West_r1.uasset",
+      "before": "2c209230987ec24d6b37fd601eca4e4faaf0f7fb759948a5313240517c7bd308",
+      "after": "2c209230987ec24d6b37fd601eca4e4faaf0f7fb759948a5313240517c7bd308",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\SM_StoneBridge_Collision_r1.uasset",
+      "before": "21c374955c5d7cbb55c1c0eff37e0025955b3dd341866e99135a509370bc1c97",
+      "after": "21c374955c5d7cbb55c1c0eff37e0025955b3dd341866e99135a509370bc1c97",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\SM_TimberDeck_Collision_r1.uasset",
+      "before": "39d882b228721d6ed3af90eff2bd03e02cd63f0bb3b034e4bd765b8949f60fee",
+      "after": "39d882b228721d6ed3af90eff2bd03e02cd63f0bb3b034e4bd765b8949f60fee",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\T_Polish_Control_r1.uasset",
+      "before": "4ad5b3df41b8b0582b026b0afa1b68af728ce337031b0220d4c232222a7efbe7",
+      "after": "4ad5b3df41b8b0582b026b0afa1b68af728ce337031b0220d4c232222a7efbe7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\T_Polish_Control_r2.uasset",
+      "before": "066bfdab8928b0c0fa8ec222c9df689b376f53130445aeadb2f3d281197923cf",
+      "after": "066bfdab8928b0c0fa8ec222c9df689b376f53130445aeadb2f3d281197923cf",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\T_Polish_Control_r3.uasset",
+      "before": "627cce2316668bbbbe84aefa49dde4cfc0f0c892212bccc7c9ba1c0686e154b5",
+      "after": "627cce2316668bbbbe84aefa49dde4cfc0f0c892212bccc7c9ba1c0686e154b5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Polish\\T_Polish_Control_r4.uasset",
+      "before": "7a484906eadfefbbbec704fe1aa49af5c542afb0e73ff7b231c568bc312d8446",
+      "after": "7a484906eadfefbbbec704fe1aa49af5c542afb0e73ff7b231c568bc312d8446",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_eastern_run_r1.uasset",
+      "before": "609e1500153b3ede53e585764ec571279e1ae5c5ec47ae8af0a1d1b39b488609",
+      "after": "609e1500153b3ede53e585764ec571279e1ae5c5ec47ae8af0a1d1b39b488609",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_eastern_run_r2.uasset",
+      "before": "4bb1aa380f2312bd6414cfe1e30199dcbdcdc7246bd2612d43023a3b4227bd00",
+      "after": "4bb1aa380f2312bd6414cfe1e30199dcbdcdc7246bd2612d43023a3b4227bd00",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_heart_river_r1.uasset",
+      "before": "8ec000bd2fe08fd3b58e26977500e98b74dea6af78581981a32405f5d9f9423a",
+      "after": "8ec000bd2fe08fd3b58e26977500e98b74dea6af78581981a32405f5d9f9423a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_heart_river_r2.uasset",
+      "before": "9966d751b64da7c37a21a836929a9ab437e506a93fd2dda746eef025b33e3da6",
+      "after": "9966d751b64da7c37a21a836929a9ab437e506a93fd2dda746eef025b33e3da6",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_heartland_northern_tributary_r1.uasset",
+      "before": "45060cc668b61aa38757be0fb6da31c66c04ccbfb9eeaca814d1472f49abf59a",
+      "after": "45060cc668b61aa38757be0fb6da31c66c04ccbfb9eeaca814d1472f49abf59a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_heartland_northern_tributary_r2.uasset",
+      "before": "ae7f10fd7e98c8066fe1030befdad91303d6cef80f52fd9c93b20e8ab105cba7",
+      "after": "ae7f10fd7e98c8066fe1030befdad91303d6cef80f52fd9c93b20e8ab105cba7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_heartland_tributary_r1.uasset",
+      "before": "84c0b486649552ef3a911467359341c103a12e571f3d6ffefaec2d0e532831bf",
+      "after": "84c0b486649552ef3a911467359341c103a12e571f3d6ffefaec2d0e532831bf",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_heartland_tributary_r2.uasset",
+      "before": "223e9923b25731ab1281f807c88b0e74f65ec07ab15914ff534ed1fee1d198b1",
+      "after": "223e9923b25731ab1281f807c88b0e74f65ec07ab15914ff534ed1fee1d198b1",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_native_lake_0_r1.uasset",
+      "before": "4dd0aac3f38dd3e45ca4e30830988f2870f40a93b540866e4b4dd7af35f8be53",
+      "after": "4dd0aac3f38dd3e45ca4e30830988f2870f40a93b540866e4b4dd7af35f8be53",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_native_lake_0_r2.uasset",
+      "before": "15025b881f5d48896d6c65a580618fc547d09e4067c2e22110310258beb52baf",
+      "after": "15025b881f5d48896d6c65a580618fc547d09e4067c2e22110310258beb52baf",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_native_lake_1_r1.uasset",
+      "before": "32474daac3f94b8cc0045117eed1a790372c3755b3a3032ba359d6ff3f95edf7",
+      "after": "32474daac3f94b8cc0045117eed1a790372c3755b3a3032ba359d6ff3f95edf7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignComposition\\Water\\SM_native_lake_1_r2.uasset",
+      "before": "c376bb817398a73a7e8bb6a5b1ab11c6c2b2f7d3a954133ce3a80c2fb62a12be",
+      "after": "c376bb817398a73a7e8bb6a5b1ab11c6c2b2f7d3a954133ce3a80c2fb62a12be",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\SoulCampaignMountain\\L_evil_waterfront.umap",
+      "before": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "after": "d18c21c2aeadf50036ef3a605737bac971e2e91e2a43aaa988d92f5987a8094f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Data\\CampaignCompositionLocal\\Composition_3500_r2.png",
+      "before": "bd84f1986c9fd71b51725647d8ae89644a0681c5d65f2d2aebcf6ab31383ba6b",
+      "after": "bd84f1986c9fd71b51725647d8ae89644a0681c5d65f2d2aebcf6ab31383ba6b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Data\\CampaignEvilCorridor\\presentation.json",
+      "before": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+      "after": "6d93437e19aaf9efb3683aabace2431ca3b05234dcef935b3c10e0d362e95eaf",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Data\\CampaignMesaLocal\\MesaHeight.r16",
+      "before": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "after": "908f9de444112694afe6a242db86a45c64adef8bcaa392c464e304a1f1c3990b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Data\\soul_world_overmap_v1_20260922.json",
+      "before": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+      "after": "a5efd6b6f3fb53d041e4ed2b9304b46aa6aa7a6d9785391f4aa9ae06fc2bf617",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Soul.cpp",
+      "before": "5ebd62f6042d30fee1e28325ce767fbdf2cda97dc0ecc371c27e45d447a4c6de",
+      "after": "5ebd62f6042d30fee1e28325ce767fbdf2cda97dc0ecc371c27e45d447a4c6de",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulAuthoredEnvironmentSurvey.cpp",
+      "before": "55442a49e99965dbb037b525dc9e92664d7fb10e6d923fcb8b6e5fe7887ba4ee",
+      "after": "55442a49e99965dbb037b525dc9e92664d7fb10e6d923fcb8b6e5fe7887ba4ee",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulAuthoredSettlementQualification.cpp",
+      "before": "d75fb4f5b97dd2e95295d37c129d1ecd8a3588cb4448ce83885b1b85f372d78d",
+      "after": "d75fb4f5b97dd2e95295d37c129d1ecd8a3588cb4448ce83885b1b85f372d78d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulBattlefieldGridActor.cpp",
+      "before": "7dc27616665f5ff02ddc4d7eeae810917944ceb3c49397ac4847647ebbace783",
+      "after": "7dc27616665f5ff02ddc4d7eeae810917944ceb3c49397ac4847647ebbace783",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulBattlefieldLayoutActor.cpp",
+      "before": "5636ac77f06d82b45623e25eafa888f76b3ef636d2309b7e24c84f71b8ff4a7f",
+      "after": "5636ac77f06d82b45623e25eafa888f76b3ef636d2309b7e24c84f71b8ff4a7f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulCampaignCamera.cpp",
+      "before": "220de969b00d217d0ed157c1f9003a98d451362b345fdf2190a7df3ec85ebf43",
+      "after": "220de969b00d217d0ed157c1f9003a98d451362b345fdf2190a7df3ec85ebf43",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulCampaignExpansion.cpp",
+      "before": "7cc73d7b7a38fb330c07994960673d72facca0c5c6811b565de389268eb52efd",
+      "after": "7cc73d7b7a38fb330c07994960673d72facca0c5c6811b565de389268eb52efd",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulCampaignTerrain.cpp",
+      "before": "f5f389afe76e148d1a1728e9882ddf04d2072a29b48f30f5a29f68db433c81eb",
+      "after": "f5f389afe76e148d1a1728e9882ddf04d2072a29b48f30f5a29f68db433c81eb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulCampaignVisualQualification.cpp",
+      "before": "01776a1d8c38666982cc1f084218194f52a845b3b2c82f7b6d0987175426dc9e",
+      "after": "01776a1d8c38666982cc1f084218194f52a845b3b2c82f7b6d0987175426dc9e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulCampaignWorldActor.cpp",
+      "before": "f9b853f8d89f6c9f4cf00f378e1edd03f008f9dbc37012ea9ac1e34521b8492e",
+      "after": "f9b853f8d89f6c9f4cf00f378e1edd03f008f9dbc37012ea9ac1e34521b8492e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulCampaignWorldCapture.cpp",
+      "before": "a9c1e150c5903e807fc9a2add7821228366d3e0625abde90a31e60b7c1c5e422",
+      "after": "a9c1e150c5903e807fc9a2add7821228366d3e0625abde90a31e60b7c1c5e422",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFortificationSegmentActor.cpp",
+      "before": "a403ce063b72e0cf9ab19a8e74db549575ae8c3c75c19c890195886143fa0427",
+      "after": "a403ce063b72e0cf9ab19a8e74db549575ae8c3c75c19c890195886143fa0427",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFoundationBridge.cpp",
+      "before": "0cc020bf1fb33b52a82ef59fe32a16c82ef36d195afbdeaab7d434b9be8e0d95",
+      "after": "0cc020bf1fb33b52a82ef59fe32a16c82ef36d195afbdeaab7d434b9be8e0d95",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFounderPlaytestCampaignActor.cpp",
+      "before": "143ff87c0a9ef69369372cac2def5f52ad689008a532405d7c3e7e3e2c098aa3",
+      "after": "143ff87c0a9ef69369372cac2def5f52ad689008a532405d7c3e7e3e2c098aa3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFounderPlaytestGameMode.cpp",
+      "before": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+      "after": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFounderPlaytestHUD.cpp",
+      "before": "fd9214998fd0ff6e6e0f7b4e14a709c6d398fc352777d871c2eaae76eb99f529",
+      "after": "fd9214998fd0ff6e6e0f7b4e14a709c6d398fc352777d871c2eaae76eb99f529",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFounderPlaytestPlayerController.cpp",
+      "before": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72",
+      "after": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulFounderPlaytestStateSubsystem.cpp",
+      "before": "6d170820cb2267ce434b8a3a3edd7a925fc1a0bf060c878f1c72c030d1c00f94",
+      "after": "6d170820cb2267ce434b8a3a3edd7a925fc1a0bf060c878f1c72c030d1c00f94",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulPlaytestRegionActor.cpp",
+      "before": "801569b44cdf378dd810d9176b6a2e47e8f21addc8e418229d7bd31c4bcc83ff",
+      "after": "801569b44cdf378dd810d9176b6a2e47e8f21addc8e418229d7bd31c4bcc83ff",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementAssetAuthoring.cpp",
+      "before": "4296ddc3eab8dd66667481a78eb5034645dd591e7a435568608a5e559327a696",
+      "after": "4296ddc3eab8dd66667481a78eb5034645dd591e7a435568608a5e559327a696",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementBootstrapActor.cpp",
+      "before": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab",
+      "after": "af6b9aa24e8a0d641140ddb0c2a553df1659cbbf7d5c4a3429fe88d5753c81ab",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementBuildingActor.cpp",
+      "before": "8a6560cbdef3cac7864cb92738e50eb66b59c334bb8cb71e43765d2978908811",
+      "after": "8a6560cbdef3cac7864cb92738e50eb66b59c334bb8cb71e43765d2978908811",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementDevelopmentQualification.cpp",
+      "before": "592b819dd8588e80410f99ff54ab35f692547676fac77549332a5d4439ce3d15",
+      "after": "592b819dd8588e80410f99ff54ab35f692547676fac77549332a5d4439ce3d15",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementPresentationController.cpp",
+      "before": "54bd7769488d2b0cc02e1b12262e78fb8e24e8ca2dd2013afe79b2319bce95e4",
+      "after": "54bd7769488d2b0cc02e1b12262e78fb8e24e8ca2dd2013afe79b2319bce95e4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementScenarioData.cpp",
+      "before": "7914ec1ea98a6d2ddfce2df0d302460b64d59cccf0e6ecfafe14465866f09c72",
+      "after": "7914ec1ea98a6d2ddfce2df0d302460b64d59cccf0e6ecfafe14465866f09c72",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementStateSubsystem.cpp",
+      "before": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864",
+      "after": "5572f07f3568d64dd521407aa20d044a5f39e6c4bb92cdae818c78a95c1fa864",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSettlementVisitGameMode.cpp",
+      "before": "f38fad7c5ef6f4a6b85f0986267d8bb339a3e6a34c4f0dec1a2fb619457bffb4",
+      "after": "f38fad7c5ef6f4a6b85f0986267d8bb339a3e6a34c4f0dec1a2fb619457bffb4",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulSiegeObjectiveActor.cpp",
+      "before": "9eddcd19190f3968563f04c5663c13ca7d7256347b4c28a4f1a356e2988022e7",
+      "after": "9eddcd19190f3968563f04c5663c13ca7d7256347b4c28a4f1a356e2988022e7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\SoulTownViewAnchor.cpp",
+      "before": "9b83d8adff8e197107acb7fe134bc50c069e44b28f3af44a705fcdfd38fb39cb",
+      "after": "9b83d8adff8e197107acb7fe134bc50c069e44b28f3af44a705fcdfd38fb39cb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulBattlefieldGridTests.cpp",
+      "before": "6d897c60aef606b463c49733d2d5f2c8e32dd125f911fdc50f454d5e9cca65a3",
+      "after": "6d897c60aef606b463c49733d2d5f2c8e32dd125f911fdc50f454d5e9cca65a3",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulBattlefieldSelectionTests.cpp",
+      "before": "c1a629f270a5d3c3c7c4d326a6af8db9c6dea6fe6858461a250d18e1d7c8bd6d",
+      "after": "c1a629f270a5d3c3c7c4d326a6af8db9c6dea6fe6858461a250d18e1d7c8bd6d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulBattleResultValidationTests.cpp",
+      "before": "27e0e9838e892fb78c93742c6d03ba52b38c7f596b607173a41e1b2c3c9ccf6b",
+      "after": "27e0e9838e892fb78c93742c6d03ba52b38c7f596b607173a41e1b2c3c9ccf6b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulCampaignManaTests.cpp",
+      "before": "0eeca49a83770595591f521c713bf2e84543b3eafb8fb468db171ac0f2f60f06",
+      "after": "0eeca49a83770595591f521c713bf2e84543b3eafb8fb468db171ac0f2f60f06",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulCampaignWorldTests.cpp",
+      "before": "bd2e6fcacd00654abeb9db692eaca846b01d44771d31f44c3a5ce7b884fb6ccb",
+      "after": "bd2e6fcacd00654abeb9db692eaca846b01d44771d31f44c3a5ce7b884fb6ccb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulSettlementDevelopmentTests.cpp",
+      "before": "fcefab706fe9085ee4b0842d320ec77764e48f6c8721507f8264ad6c72a43615",
+      "after": "fcefab706fe9085ee4b0842d320ec77764e48f6c8721507f8264ad6c72a43615",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulSettlementPresentationTests.cpp",
+      "before": "9193b650c5a63e9b1b4ccebcf8d023b98cbcdd6545bf1fea2440b25dc8946eeb",
+      "after": "9193b650c5a63e9b1b4ccebcf8d023b98cbcdd6545bf1fea2440b25dc8946eeb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulSettlementSaveTests.cpp",
+      "before": "3bc65042471a0c38d0df7c63340660cc6ce5459e5a3199c2c0143da212972d0b",
+      "after": "3bc65042471a0c38d0df7c63340660cc6ce5459e5a3199c2c0143da212972d0b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Private\\Tests\\SoulVerticalCampaignTests.cpp",
+      "before": "f6d746535284ed9f1b4e72850b7a6375ac1cd2a46f25359ad464b65367b6038b",
+      "after": "f6d746535284ed9f1b4e72850b7a6375ac1cd2a46f25359ad464b65367b6038b",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\Soul.h",
+      "before": "2de54d240f294ff7b7e2f9a3f698e968b4674b49df1814587d7b47576a267896",
+      "after": "2de54d240f294ff7b7e2f9a3f698e968b4674b49df1814587d7b47576a267896",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulAuthoredSettlementQualification.h",
+      "before": "34c28cf5241336568c2ff0f7c71effcd46bf7b0d01843f55344c4629aab5efb7",
+      "after": "34c28cf5241336568c2ff0f7c71effcd46bf7b0d01843f55344c4629aab5efb7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulBattlefieldGridActor.h",
+      "before": "20319c26f949d9cf5bbb0cfbca793791c88db1d8e987966aad1926aac8390e71",
+      "after": "20319c26f949d9cf5bbb0cfbca793791c88db1d8e987966aad1926aac8390e71",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulBattlefieldLayoutActor.h",
+      "before": "d6302ca419b98fe15dbd41786f69359f1cf423cc76cdd3077e4fc15d9cf21412",
+      "after": "d6302ca419b98fe15dbd41786f69359f1cf423cc76cdd3077e4fc15d9cf21412",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulCampaignCamera.h",
+      "before": "511efb723fa1777b4dcc9f5d1969ce75b0ee318ca3544b3df0f96b263ea9c730",
+      "after": "511efb723fa1777b4dcc9f5d1969ce75b0ee318ca3544b3df0f96b263ea9c730",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulCampaignExpansion.h",
+      "before": "094794bef0f0d633fad1b0b63560508f7cfefefcf719fedbe1662a4f622acd5e",
+      "after": "094794bef0f0d633fad1b0b63560508f7cfefefcf719fedbe1662a4f622acd5e",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulCampaignTerrain.h",
+      "before": "9a3495a71b78d0644b11ba3baf35449f6812075b2a64d02e1877581a4dc6d225",
+      "after": "9a3495a71b78d0644b11ba3baf35449f6812075b2a64d02e1877581a4dc6d225",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulCampaignWorldActor.h",
+      "before": "a6c78d0abf61ec0796b0356262a42801be6a18c5b9a0d5a267e4dc8113c3fad7",
+      "after": "a6c78d0abf61ec0796b0356262a42801be6a18c5b9a0d5a267e4dc8113c3fad7",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFortificationSegmentActor.h",
+      "before": "c9c41ae0236f6554404bdbbe2a4db4acc5e7f95875ddf5b0f71fb8ec78216ac0",
+      "after": "c9c41ae0236f6554404bdbbe2a4db4acc5e7f95875ddf5b0f71fb8ec78216ac0",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFoundationBridge.h",
+      "before": "883658b8645111bd38ef5e4d1990dc7fe3d11a29b4946b6c7bf6f0b64fcde181",
+      "after": "883658b8645111bd38ef5e4d1990dc7fe3d11a29b4946b6c7bf6f0b64fcde181",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFounderPlaytestCampaignActor.h",
+      "before": "cc72721337cc735354af0b727d2ce7de87447f6c7d383b570f04003fd4b48166",
+      "after": "cc72721337cc735354af0b727d2ce7de87447f6c7d383b570f04003fd4b48166",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFounderPlaytestGameMode.h",
+      "before": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+      "after": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFounderPlaytestHUD.h",
+      "before": "71eb3a809cd12c5c36d007231c7b47b3503c6d4149489430e8b9d24e07cd9b20",
+      "after": "71eb3a809cd12c5c36d007231c7b47b3503c6d4149489430e8b9d24e07cd9b20",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFounderPlaytestPlayerController.h",
+      "before": "bc446d2c9409404a97b0424b13e2adf044ee5cf689d743ac0cc96ec3be1846a2",
+      "after": "bc446d2c9409404a97b0424b13e2adf044ee5cf689d743ac0cc96ec3be1846a2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulFounderPlaytestStateSubsystem.h",
+      "before": "46966c5b22d08bdf4e83254673b973b8ab25b99455b024c8b627481b6d1eacfb",
+      "after": "46966c5b22d08bdf4e83254673b973b8ab25b99455b024c8b627481b6d1eacfb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulPlaytestRegionActor.h",
+      "before": "caf7a192d76109766bddc535e41105d98b57de35a6b301f1f3d880bdfff5c355",
+      "after": "caf7a192d76109766bddc535e41105d98b57de35a6b301f1f3d880bdfff5c355",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementAssetAuthoring.h",
+      "before": "64bbad1afe536b01ba059521b5e73796213c7797ab454239ab816ad53a44c13c",
+      "after": "64bbad1afe536b01ba059521b5e73796213c7797ab454239ab816ad53a44c13c",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementBootstrapActor.h",
+      "before": "32ca50bf21aef276a6b3968348387d5ae1804dd4478089c1726db3cee5bb9376",
+      "after": "32ca50bf21aef276a6b3968348387d5ae1804dd4478089c1726db3cee5bb9376",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementBuildingActor.h",
+      "before": "e295bfdf9311723a60d46c354c6cdf1202c0ce777e6a43d6e0b1dd43bb67d7f2",
+      "after": "e295bfdf9311723a60d46c354c6cdf1202c0ce777e6a43d6e0b1dd43bb67d7f2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementPresentationController.h",
+      "before": "7561b8665d17f1491e8113c4ea2507f255ec8e8804abd6b3ac6f72c220c7828a",
+      "after": "7561b8665d17f1491e8113c4ea2507f255ec8e8804abd6b3ac6f72c220c7828a",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementScenarioData.h",
+      "before": "6edcdc510789c9847eea49e119232bde7511934056a676e799f63ce5c3ca9749",
+      "after": "6edcdc510789c9847eea49e119232bde7511934056a676e799f63ce5c3ca9749",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementStateSubsystem.h",
+      "before": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d",
+      "after": "7add7783a9ad0dedbc08752639135aa5565ccd61782c4c6d0502cfaec6bb456d",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSettlementVisitGameMode.h",
+      "before": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5",
+      "after": "76758d8329390a844228a280901a6f6ed153c242d4d0b674751451af047d3ee5",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulSiegeObjectiveActor.h",
+      "before": "fdaf292fb12db6d1058a347e39c0b115352c50e61da2415db9c8ef506b433002",
+      "after": "fdaf292fb12db6d1058a347e39c0b115352c50e61da2415db9c8ef506b433002",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Source\\Soul\\Public\\SoulTownViewAnchor.h",
+      "before": "edfb3f041711ca858dc88928c7ba5807edbe92e66bd748144e9b3e1aeceb66cb",
+      "after": "edfb3f041711ca858dc88928c7ba5807edbe92e66bd748144e9b3e1aeceb66cb",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\LandscapePackOne\\Maps\\Mountain_05.umap",
+      "before": "3c65ed7ee42b3632aaad11d635432f070735b0fad66f7ee6b132d0d508d987b2",
+      "after": "3c65ed7ee42b3632aaad11d635432f070735b0fad66f7ee6b132d0d508d987b2",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content\\LandscapePackTwo\\Maps\\Mesa_01.umap",
+      "before": "56bc213e5137b71bbc1039d01a0ff592de3dc1c720c41bca253a5e557296cc9c",
+      "after": "56bc213e5137b71bbc1039d01a0ff592de3dc1c720c41bca253a5e557296cc9c",
+      "unchanged": true
+    }
+  ],
+  "inherited_tracked": [
+    {
+      "path": ".gitignore",
+      "before": "719ebe46beabadfd54e62759dd90d39c4e1dcaf567e75f092793f50294ab0235",
+      "after": "719ebe46beabadfd54e62759dd90d39c4e1dcaf567e75f092793f50294ab0235",
+      "unchanged": true,
+      "intentional_own_change": true
+    },
+    {
+      "path": "Config/DefaultEngine.ini",
+      "before": "dd1b81a0935755cad20e3ba9aac144943d267e2e0f012aa35eee8813c0aeccad",
+      "after": "dd1b81a0935755cad20e3ba9aac144943d267e2e0f012aa35eee8813c0aeccad",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Config/DefaultGame.ini",
+      "before": "c5f826e7e613e1ee0686ec1f146c3be87017087cd16d2285791f5eb839c20db2",
+      "after": "c5f826e7e613e1ee0686ec1f146c3be87017087cd16d2285791f5eb839c20db2",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Data/CampaignWorldTerrain/presentation.json",
+      "before": "9a98618ef9747bcc3baf652c97672cd2ca7651fd51b9d944134fb9c69cd2dc8b",
+      "after": "9a98618ef9747bcc3baf652c97672cd2ca7651fd51b9d944134fb9c69cd2dc8b",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md",
+      "before": "bace68c4ce1c107053dd418a8ba973e4e716a5326560e4b5fd52b026c9095353",
+      "after": "bace68c4ce1c107053dd418a8ba973e4e716a5326560e4b5fd52b026c9095353",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Soul.uproject",
+      "before": "9a46e4c95ca753c2fb944f41e7d3c8b48730cdae4bfc78a0f05b49b6395c971c",
+      "after": "9a46e4c95ca753c2fb944f41e7d3c8b48730cdae4bfc78a0f05b49b6395c971c",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignCamera.cpp",
+      "before": "220de969b00d217d0ed157c1f9003a98d451362b345fdf2190a7df3ec85ebf43",
+      "after": "220de969b00d217d0ed157c1f9003a98d451362b345fdf2190a7df3ec85ebf43",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignTerrain.cpp",
+      "before": "f5f389afe76e148d1a1728e9882ddf04d2072a29b48f30f5a29f68db433c81eb",
+      "after": "f5f389afe76e148d1a1728e9882ddf04d2072a29b48f30f5a29f68db433c81eb",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignVisualQualification.cpp",
+      "before": "01776a1d8c38666982cc1f084218194f52a845b3b2c82f7b6d0987175426dc9e",
+      "after": "01776a1d8c38666982cc1f084218194f52a845b3b2c82f7b6d0987175426dc9e",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+      "before": "f9b853f8d89f6c9f4cf00f378e1edd03f008f9dbc37012ea9ac1e34521b8492e",
+      "after": "f9b853f8d89f6c9f4cf00f378e1edd03f008f9dbc37012ea9ac1e34521b8492e",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "before": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+      "after": "4369bc9ae36a59100dedddb08b738261938c61ef18e80448804c747c048e6bb4",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "before": "fd9214998fd0ff6e6e0f7b4e14a709c6d398fc352777d871c2eaae76eb99f529",
+      "after": "fd9214998fd0ff6e6e0f7b4e14a709c6d398fc352777d871c2eaae76eb99f529",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "before": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72",
+      "after": "515180a98244ee30eaba8b61f7f6ad0f2ec44d2f343864c7be8518a5771fee72",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "before": "6d170820cb2267ce434b8a3a3edd7a925fc1a0bf060c878f1c72c030d1c00f94",
+      "after": "6d170820cb2267ce434b8a3a3edd7a925fc1a0bf060c878f1c72c030d1c00f94",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+      "before": "801569b44cdf378dd810d9176b6a2e47e8f21addc8e418229d7bd31c4bcc83ff",
+      "after": "801569b44cdf378dd810d9176b6a2e47e8f21addc8e418229d7bd31c4bcc83ff",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulCampaignWorldTests.cpp",
+      "before": "bd2e6fcacd00654abeb9db692eaca846b01d44771d31f44c3a5ce7b884fb6ccb",
+      "after": "bd2e6fcacd00654abeb9db692eaca846b01d44771d31f44c3a5ce7b884fb6ccb",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Private/Tests/test_weekend_campaign_view.py",
+      "before": "7fa455b97add90c9147265c737728e4e3789a55d1afdebaaf9789f5ba5d3f435",
+      "after": "7fa455b97add90c9147265c737728e4e3789a55d1afdebaaf9789f5ba5d3f435",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignCamera.h",
+      "before": "511efb723fa1777b4dcc9f5d1969ce75b0ee318ca3544b3df0f96b263ea9c730",
+      "after": "511efb723fa1777b4dcc9f5d1969ce75b0ee318ca3544b3df0f96b263ea9c730",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Public/SoulCampaignTerrain.h",
+      "before": "9a3495a71b78d0644b11ba3baf35449f6812075b2a64d02e1877581a4dc6d225",
+      "after": "9a3495a71b78d0644b11ba3baf35449f6812075b2a64d02e1877581a4dc6d225",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "before": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+      "after": "bdcb64c7df41c0c25fd3c6f91d19057fa957ab6bfcce4d797e2c8096de40140f",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "before": "b9a480fa12cc1421b4a076fb886c88f33d7e8ce3b4b386cb03fbc58251f80063",
+      "after": "b9a480fa12cc1421b4a076fb886c88f33d7e8ce3b4b386cb03fbc58251f80063",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/README.md",
+      "before": "fdf4c3c819ef5095bd46f74589c31d2ab11258ef8da45c5238f00e39507cc69c",
+      "after": "fdf4c3c819ef5095bd46f74589c31d2ab11258ef8da45c5238f00e39507cc69c",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/author_world.py",
+      "before": "b2eb076e6f22932932c501f7d2039840bedd892ec23be1ad4f527e10862f9d64",
+      "after": "b2eb076e6f22932932c501f7d2039840bedd892ec23be1ad4f527e10862f9d64",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/bake_surface.py",
+      "before": "eba7d1d2393268ca42e346fdc30a872395cb9dc8a39f3d6fcc5edb6a909bcb16",
+      "after": "eba7d1d2393268ca42e346fdc30a872395cb9dc8a39f3d6fcc5edb6a909bcb16",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/bake_world.py",
+      "before": "fdfce4e95a81242d3636f0caf213b9242f2093b1f9a2a09595ff73a6e4ff9e78",
+      "after": "fdfce4e95a81242d3636f0caf213b9242f2093b1f9a2a09595ff73a6e4ff9e78",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/dress_world.py",
+      "before": "6dc3bc3fb5a7d61d69132945c9d51098cab25ee60940d10f90bff7ff2bc01919",
+      "after": "6dc3bc3fb5a7d61d69132945c9d51098cab25ee60940d10f90bff7ff2bc01919",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/import_masks.py",
+      "before": "6259b58ba27fb29876e2d4cb46b108ba74660e504c1675da8e05929dbbf2862c",
+      "after": "6259b58ba27fb29876e2d4cb46b108ba74660e504c1675da8e05929dbbf2862c",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/qualify_world.py",
+      "before": "6b97626aca48fc0acfb7ba617b0386a319c1d3ec0e175a1ec45047a8db4ab98a",
+      "after": "6b97626aca48fc0acfb7ba617b0386a319c1d3ec0e175a1ec45047a8db4ab98a",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/WorldTerrain/test_world.py",
+      "before": "c5d3a2e6ad351a51a9942a604186aa662903b875ac7f14487a777e8a24ec5d88",
+      "after": "c5d3a2e6ad351a51a9942a604186aa662903b875ac7f14487a777e8a24ec5d88",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/package_soul_weekend.ps1",
+      "before": "eb1c1bb04f588a6c38c2e42d4a7c543903fccf23d9a31538632c7887a94c240c",
+      "after": "eb1c1bb04f588a6c38c2e42d4a7c543903fccf23d9a31538632c7887a94c240c",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/qualify_soul_vertical.py",
+      "before": "b4892894eab8d31328bbb66e7772a352c16922a00ce12d0a72cd6c994ba34f26",
+      "after": "b4892894eab8d31328bbb66e7772a352c16922a00ce12d0a72cd6c994ba34f26",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/test_package_soul_weekend.py",
+      "before": "b6c81531c2ba6730f3b38a6d3366c4e89d80ed6307b5f0ce62617006ee51d1ea",
+      "after": "b6c81531c2ba6730f3b38a6d3366c4e89d80ed6307b5f0ce62617006ee51d1ea",
+      "unchanged": true,
+      "intentional_own_change": false
+    },
+    {
+      "path": "Tools/test_qualify_soul_vertical.py",
+      "before": "3db5a1def908a871316d0a664b91af145929da099af53bbd01c70e202e6102cc",
+      "after": "3db5a1def908a871316d0a664b91af145929da099af53bbd01c70e202e6102cc",
+      "unchanged": true,
+      "intentional_own_change": false
+    }
+  ],
+  "candidate_assets": [
+    {
+      "path": "Content/SoulCampaignComposition/L_Composition_3500_r1.umap",
+      "bytes": 32799343,
+      "sha256": "b91cee7d73d8ad415f16d66e249cd55e1a5a25c96eece5c0010a8c59db6965e4"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/L_Composition_3500_r2.umap",
+      "bytes": 39564253,
+      "sha256": "4a233e1056a5e1190e2afe413cbe4321808b2ae5a15baddf4016a89fb88a896e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r1.uasset",
+      "bytes": 42388,
+      "sha256": "0b9d5e38306854f0b9eefbe38dac4ce5c53399768d22b5a3940c53b58de39d76"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r2.uasset",
+      "bytes": 25230,
+      "sha256": "3c2ce0c13d2d173a3b6b27635f4ed0b86b0825aa043209b26080e84cf2d8ab12"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r3.uasset",
+      "bytes": 25232,
+      "sha256": "0a53c0c1923d232671a8aabc70d069a4ffb1366788f7763f80cf52b285c19af2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Review_r4.uasset",
+      "bytes": 25200,
+      "sha256": "f70b009634318ed52bd943cd9a30f720666a6babd5da56d77e20656abed778a3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_River_r1.uasset",
+      "bytes": 15656,
+      "sha256": "f43755e93bcc1c983147cc3a75d16ff591be9d708940fd571892c4db533a2fb3"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/MI_Composition_Water_r1.uasset",
+      "bytes": 13432,
+      "sha256": "26f42d0e77866c9d7a2c233876e6b10df8505c69180a99752e5045e8223a2cf2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r1.uasset",
+      "bytes": 71058,
+      "sha256": "be8fe78daaace897a2ddf1b2933d2f1e2306268df1a388473b885896cb16dc2a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r2.uasset",
+      "bytes": 72335,
+      "sha256": "8ffbf3101775e629167b6f245c2fe97e8ca40275c6bf8dd95ab3188aa2b6b005"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/M_Composition_Review_r3.uasset",
+      "bytes": 73998,
+      "sha256": "ea23a56e45ff4f761d444aa95759df2d21ba9f2003026cbfb647e36bdfb7841c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r1.uasset",
+      "bytes": 251794,
+      "sha256": "2222db231c7806afb1028bf40cf05f9d0f41cf3ee6387baa727f3b9789546837"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r3.uasset",
+      "bytes": 257462,
+      "sha256": "74a2857b0da629930c72cf0303aae0d75ded3ef36644c3963b960910188638e9"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r4.uasset",
+      "bytes": 258950,
+      "sha256": "1103e30af05b3f24c2bb0c28cce1b874a84bf8446a88c38aef0de5a7d5b084e0"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Controls/T_Composition_Control_r5.uasset",
+      "bytes": 259430,
+      "sha256": "058d76e29092b8916f1898602a8c2f27b9874e36e4e9fcdc9fda211c7fd70e5e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/MI_FinalRoads_r1.uasset",
+      "bytes": 25166,
+      "sha256": "6c18eb5e3e5751f5eba89239740b935faf5cbe186ad755a4161315875b08ea37"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/MI_FordBankWater_r2.uasset",
+      "bytes": 15746,
+      "sha256": "74b80c8e874aa483ce041f8dd69225fe791f749f1bf3149b5239a3a2fc9ea593"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/M_FinalRoads_r1.uasset",
+      "bytes": 73969,
+      "sha256": "bcef2b98dfb127300f3d95b76948066fa54adca46adc1176fa2fed4846852920"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/M_FordBankWater_r2.uasset",
+      "bytes": 38803,
+      "sha256": "d5f45fb09ed5a23d037eae773d518d4c07ff662c807d0d034c9301d95ed7c23c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.uasset",
+      "bytes": 1426447,
+      "sha256": "39cd4c0e3b209f3e6f22973fba5270d46c255b24215f6f59a0bba0c95d7f0031"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_HumanQuay_r1.uasset",
+      "bytes": 762510,
+      "sha256": "f6664aae3991997c275e1d6acdb25f7fd4f5744d680edb57405784a55d885244"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.uasset",
+      "bytes": 264149,
+      "sha256": "f5457965fc42fcf75358bc4331c4852847bf12340f67664775c50badf6b25cc2"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/SM_RuinRubble_r1.uasset",
+      "bytes": 134358,
+      "sha256": "a7050013a3d66fb5bce7f72391f6264ee8bb7747821fd9ca8488fd476948c77d"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final1.uasset",
+      "bytes": 299357,
+      "sha256": "1048a5c7941e0ca6f93b8c67355bb25214a3b097c7809f7b6f69bb3aa22a9704"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final2.uasset",
+      "bytes": 299232,
+      "sha256": "99ed0cde56c9cd53a61a72097b2ede12e1ec47a923aa8cf6cabf3bedae9f853e"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final3.uasset",
+      "bytes": 299348,
+      "sha256": "a0c1d65a03648ee4ad5c519b24b6b9e754df2ff7b1c8e6942c6cc2e22b61a6f7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final4.uasset",
+      "bytes": 297646,
+      "sha256": "c55beef50e8e409ebc059de27da03fb2308bfd42976d03536ba20021004fce67"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/FinalPolish/T_RoadControl_final5.uasset",
+      "bytes": 297834,
+      "sha256": "129902112266f0594a111e6c3b8315e648476a2b92a3f9315a544a4db6f71d12"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/MI_Polish_r1.uasset",
+      "bytes": 25107,
+      "sha256": "903b95ea298b7589833f48f5334e50b86ac1ce06195aec60b392c8c46e1ce03c"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/M_Polish_r1.uasset",
+      "bytes": 73929,
+      "sha256": "e6f7ec0f00f0ed2f69989574e5c8a7fb1c50b09a65192bb7e08ce154dea5f24a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_RuinedBridge_East_r1.uasset",
+      "bytes": 1105006,
+      "sha256": "fef53e14070f90a7f22d843c3a47b13247fa526fb507b1fc77586861650fdef5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_RuinedBridge_West_r1.uasset",
+      "bytes": 1112469,
+      "sha256": "2c209230987ec24d6b37fd601eca4e4faaf0f7fb759948a5313240517c7bd308"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_StoneBridge_Collision_r1.uasset",
+      "bytes": 3222443,
+      "sha256": "21c374955c5d7cbb55c1c0eff37e0025955b3dd341866e99135a509370bc1c97"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/SM_TimberDeck_Collision_r1.uasset",
+      "bytes": 61208,
+      "sha256": "39d882b228721d6ed3af90eff2bd03e02cd63f0bb3b034e4bd765b8949f60fee"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r1.uasset",
+      "bytes": 302597,
+      "sha256": "4ad5b3df41b8b0582b026b0afa1b68af728ce337031b0220d4c232222a7efbe7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r2.uasset",
+      "bytes": 299889,
+      "sha256": "066bfdab8928b0c0fa8ec222c9df689b376f53130445aeadb2f3d281197923cf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r3.uasset",
+      "bytes": 299239,
+      "sha256": "627cce2316668bbbbe84aefa49dde4cfc0f0c892212bccc7c9ba1c0686e154b5"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Polish/T_Polish_Control_r4.uasset",
+      "bytes": 299555,
+      "sha256": "7a484906eadfefbbbec704fe1aa49af5c542afb0e73ff7b231c568bc312d8446"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_eastern_run_r1.uasset",
+      "bytes": 25295,
+      "sha256": "609e1500153b3ede53e585764ec571279e1ae5c5ec47ae8af0a1d1b39b488609"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_eastern_run_r2.uasset",
+      "bytes": 25207,
+      "sha256": "4bb1aa380f2312bd6414cfe1e30199dcbdcdc7246bd2612d43023a3b4227bd00"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r1.uasset",
+      "bytes": 20340,
+      "sha256": "45060cc668b61aa38757be0fb6da31c66c04ccbfb9eeaca814d1472f49abf59a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_northern_tributary_r2.uasset",
+      "bytes": 19989,
+      "sha256": "ae7f10fd7e98c8066fe1030befdad91303d6cef80f52fd9c93b20e8ab105cba7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_tributary_r1.uasset",
+      "bytes": 24956,
+      "sha256": "84c0b486649552ef3a911467359341c103a12e571f3d6ffefaec2d0e532831bf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heartland_tributary_r2.uasset",
+      "bytes": 23513,
+      "sha256": "223e9923b25731ab1281f807c88b0e74f65ec07ab15914ff534ed1fee1d198b1"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heart_river_r1.uasset",
+      "bytes": 34487,
+      "sha256": "8ec000bd2fe08fd3b58e26977500e98b74dea6af78581981a32405f5d9f9423a"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_heart_river_r2.uasset",
+      "bytes": 33182,
+      "sha256": "9966d751b64da7c37a21a836929a9ab437e506a93fd2dda746eef025b33e3da6"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_0_r1.uasset",
+      "bytes": 49865,
+      "sha256": "4dd0aac3f38dd3e45ca4e30830988f2870f40a93b540866e4b4dd7af35f8be53"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_0_r2.uasset",
+      "bytes": 72940,
+      "sha256": "15025b881f5d48896d6c65a580618fc547d09e4067c2e22110310258beb52baf"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_1_r1.uasset",
+      "bytes": 102887,
+      "sha256": "32474daac3f94b8cc0045117eed1a790372c3755b3a3032ba359d6ff3f95edf7"
+    },
+    {
+      "path": "Content/SoulCampaignComposition/Water/SM_native_lake_1_r2.uasset",
+      "bytes": 131805,
+      "sha256": "c376bb817398a73a7e8bb6a5b1ab11c6c2b2f7d3a954133ce3a80c2fb62a12be"
+    }
+  ],
+  "candidate_refresh_utc": "2026-10-08T02:37:48.774343+00:00"
+}

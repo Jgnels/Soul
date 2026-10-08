@@ -1,0 +1,7 @@
+{
+  "command": "Automation RunTests Soul.Integration.CampaignWorld",
+  "passed": 2,
+  "expected": 2,
+  "fresh_build": false,
+  "scope": "Existing built campaign tests, NOT candidate gameplay/input/save/battle"
+}

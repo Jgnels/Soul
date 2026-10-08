@@ -1,0 +1,20 @@
+{
+  "points_m": [
+    [
+      2739.233692924098,
+      581.1004321566404
+    ],
+    [
+      2751.960784,
+      575.647059
+    ]
+  ],
+  "grade": {
+    "length_m": 13.846231474299152,
+    "max_grade_deg": 20.18871150770336,
+    "invalid_samples": 0,
+    "over22_1_samples": 0
+  },
+  "connects": "existing snow-basin road to engineered ramp foot",
+  "terrain_changed": false
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "source": "/Game/CastleTown/Static_Mesh/Cobblestone_Road/SM_Cobbles_4M",
+    "derived": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1",
+    "triangles": 20535,
+    "method": "unchanged native render LOD0 and materials, non-Nanite Soul-owned derivative"
+  },
+  {
+    "source": "/Game/CastleTown/Static_Mesh/DockWalls/SM_DockWall_4x8_01",
+    "derived": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanQuay_r1",
+    "triangles": 15246,
+    "method": "unchanged native render LOD0 and materials, non-Nanite Soul-owned derivative"
+  }
+]

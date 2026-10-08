@@ -1,0 +1,4047 @@
+{
+  "terrain_changed": false,
+  "hold_lift_cm": 325,
+  "hold_xy_scale_unchanged": true,
+  "rejected_modules": [
+    "FinalPolish_Dwarf_HallDeck_0_0",
+    "FinalPolish_Dwarf_HallDeck_0_1",
+    "FinalPolish_Dwarf_HallDeck_0_2",
+    "FinalPolish_Dwarf_HallDeck_0_3",
+    "FinalPolish_Dwarf_HallDeck_0_4",
+    "FinalPolish_Dwarf_HallDeck_0_5",
+    "FinalPolish_Dwarf_HallDeck_1_0",
+    "FinalPolish_Dwarf_HallDeck_1_1",
+    "FinalPolish_Dwarf_HallDeck_1_2",
+    "FinalPolish_Dwarf_HallDeck_1_3",
+    "FinalPolish_Dwarf_HallDeck_1_4",
+    "FinalPolish_Dwarf_HallDeck_1_5",
+    "FinalPolish_Dwarf_HallDeck_2_0",
+    "FinalPolish_Dwarf_HallDeck_2_1",
+    "FinalPolish_Dwarf_HallDeck_2_2",
+    "FinalPolish_Dwarf_HallDeck_2_3",
+    "FinalPolish_Dwarf_HallDeck_2_4",
+    "FinalPolish_Dwarf_HallDeck_2_5",
+    "FinalPolish_Dwarf_GateDeck_0",
+    "FinalPolish_Dwarf_GateDeck_1",
+    "FinalPolish_Dwarf_GateDeck_2",
+    "FinalPolish_Dwarf_GateDeck_3",
+    "FinalPolish_Dwarf_Ramp_0",
+    "FinalPolish_Dwarf_Ramp_1",
+    "FinalPolish_Dwarf_Ramp_2",
+    "FinalPolish_Dwarf_Ramp_3",
+    "FinalPolish_Dwarf_Ramp_4"
+  ],
+  "reason": "Round floor module produced a stepping-stone visual; replaced with reviewed native square paving.",
+  "owned_paving": "/Game/DwarvenCitadel/Meshes/SM_ST_FloorTile_04_T01.SM_ST_FloorTile_04_T01",
+  "owned_retaining_wall": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+  "ramp_grade_deg": 10.856827651511795,
+  "top_cm": 3992.161071872455,
+  "actors": [
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-7",
+      "center_cm": [
+        98796.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-6",
+      "center_cm": [
+        98996.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-5",
+      "center_cm": [
+        99196.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-4",
+      "center_cm": [
+        99396.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-3",
+      "center_cm": [
+        99596.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-2",
+      "center_cm": [
+        99796.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_-1",
+      "center_cm": [
+        99996.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_0",
+      "center_cm": [
+        100196.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_1",
+      "center_cm": [
+        100396.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_2",
+      "center_cm": [
+        100596.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_3",
+      "center_cm": [
+        100796.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_4",
+      "center_cm": [
+        100996.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_5",
+      "center_cm": [
+        101196.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_6",
+      "center_cm": [
+        101396.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_0_7",
+      "center_cm": [
+        101596.07843137253,
+        -115045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-7",
+      "center_cm": [
+        98796.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-6",
+      "center_cm": [
+        98996.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-5",
+      "center_cm": [
+        99196.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-4",
+      "center_cm": [
+        99396.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-3",
+      "center_cm": [
+        99596.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-2",
+      "center_cm": [
+        99796.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_-1",
+      "center_cm": [
+        99996.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_0",
+      "center_cm": [
+        100196.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_1",
+      "center_cm": [
+        100396.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_2",
+      "center_cm": [
+        100596.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_3",
+      "center_cm": [
+        100796.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_4",
+      "center_cm": [
+        100996.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_5",
+      "center_cm": [
+        101196.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_6",
+      "center_cm": [
+        101396.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_1_7",
+      "center_cm": [
+        101596.07843137253,
+        -114845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-7",
+      "center_cm": [
+        98796.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-6",
+      "center_cm": [
+        98996.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-5",
+      "center_cm": [
+        99196.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-4",
+      "center_cm": [
+        99396.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-3",
+      "center_cm": [
+        99596.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-2",
+      "center_cm": [
+        99796.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_-1",
+      "center_cm": [
+        99996.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_0",
+      "center_cm": [
+        100196.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_1",
+      "center_cm": [
+        100396.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_2",
+      "center_cm": [
+        100596.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_3",
+      "center_cm": [
+        100796.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_4",
+      "center_cm": [
+        100996.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_5",
+      "center_cm": [
+        101196.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_6",
+      "center_cm": [
+        101396.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_2_7",
+      "center_cm": [
+        101596.07843137253,
+        -114645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_-5",
+      "center_cm": [
+        99196.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_-4",
+      "center_cm": [
+        99396.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_-3",
+      "center_cm": [
+        99596.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_-2",
+      "center_cm": [
+        99796.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_-1",
+      "center_cm": [
+        99996.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_0",
+      "center_cm": [
+        100196.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_1",
+      "center_cm": [
+        100396.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_2",
+      "center_cm": [
+        100596.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_3",
+      "center_cm": [
+        100796.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_4",
+      "center_cm": [
+        100996.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_3_5",
+      "center_cm": [
+        101196.07843137253,
+        -114445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_-5",
+      "center_cm": [
+        99196.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_-4",
+      "center_cm": [
+        99396.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_-3",
+      "center_cm": [
+        99596.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_-2",
+      "center_cm": [
+        99796.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_-1",
+      "center_cm": [
+        99996.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_0",
+      "center_cm": [
+        100196.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_1",
+      "center_cm": [
+        100396.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_2",
+      "center_cm": [
+        100596.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_3",
+      "center_cm": [
+        100796.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_4",
+      "center_cm": [
+        100996.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_4_5",
+      "center_cm": [
+        101196.07843137253,
+        -114245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_-5",
+      "center_cm": [
+        99196.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_-4",
+      "center_cm": [
+        99396.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_-3",
+      "center_cm": [
+        99596.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_-2",
+      "center_cm": [
+        99796.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_-1",
+      "center_cm": [
+        99996.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_0",
+      "center_cm": [
+        100196.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_1",
+      "center_cm": [
+        100396.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_2",
+      "center_cm": [
+        100596.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_3",
+      "center_cm": [
+        100796.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_4",
+      "center_cm": [
+        100996.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_5_5",
+      "center_cm": [
+        101196.07843137253,
+        -114045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_-5",
+      "center_cm": [
+        99196.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_-4",
+      "center_cm": [
+        99396.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_-3",
+      "center_cm": [
+        99596.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_-2",
+      "center_cm": [
+        99796.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_-1",
+      "center_cm": [
+        99996.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_0",
+      "center_cm": [
+        100196.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_1",
+      "center_cm": [
+        100396.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_2",
+      "center_cm": [
+        100596.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_3",
+      "center_cm": [
+        100796.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_4",
+      "center_cm": [
+        100996.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_6_5",
+      "center_cm": [
+        101196.07843137253,
+        -113845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_-5",
+      "center_cm": [
+        99196.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_-4",
+      "center_cm": [
+        99396.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_-3",
+      "center_cm": [
+        99596.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_-2",
+      "center_cm": [
+        99796.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_-1",
+      "center_cm": [
+        99996.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_0",
+      "center_cm": [
+        100196.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_1",
+      "center_cm": [
+        100396.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_2",
+      "center_cm": [
+        100596.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_3",
+      "center_cm": [
+        100796.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_4",
+      "center_cm": [
+        100996.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_7_5",
+      "center_cm": [
+        101196.07843137253,
+        -113645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_-5",
+      "center_cm": [
+        99196.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_-4",
+      "center_cm": [
+        99396.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_-3",
+      "center_cm": [
+        99596.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_-2",
+      "center_cm": [
+        99796.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_-1",
+      "center_cm": [
+        99996.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_0",
+      "center_cm": [
+        100196.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_1",
+      "center_cm": [
+        100396.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_2",
+      "center_cm": [
+        100596.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_3",
+      "center_cm": [
+        100796.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_4",
+      "center_cm": [
+        100996.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_8_5",
+      "center_cm": [
+        101196.07843137253,
+        -113445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_-5",
+      "center_cm": [
+        99196.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_-4",
+      "center_cm": [
+        99396.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_-3",
+      "center_cm": [
+        99596.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_-2",
+      "center_cm": [
+        99796.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_-1",
+      "center_cm": [
+        99996.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_0",
+      "center_cm": [
+        100196.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_1",
+      "center_cm": [
+        100396.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_2",
+      "center_cm": [
+        100596.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_3",
+      "center_cm": [
+        100796.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_4",
+      "center_cm": [
+        100996.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_9_5",
+      "center_cm": [
+        101196.07843137253,
+        -113245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_-5",
+      "center_cm": [
+        99196.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_-4",
+      "center_cm": [
+        99396.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_-3",
+      "center_cm": [
+        99596.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_-2",
+      "center_cm": [
+        99796.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_-1",
+      "center_cm": [
+        99996.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_0",
+      "center_cm": [
+        100196.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_1",
+      "center_cm": [
+        100396.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_2",
+      "center_cm": [
+        100596.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_3",
+      "center_cm": [
+        100796.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_4",
+      "center_cm": [
+        100996.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_10_5",
+      "center_cm": [
+        101196.07843137253,
+        -113045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_-5",
+      "center_cm": [
+        99196.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_-4",
+      "center_cm": [
+        99396.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_-3",
+      "center_cm": [
+        99596.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_-2",
+      "center_cm": [
+        99796.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_-1",
+      "center_cm": [
+        99996.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_0",
+      "center_cm": [
+        100196.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_1",
+      "center_cm": [
+        100396.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_2",
+      "center_cm": [
+        100596.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_3",
+      "center_cm": [
+        100796.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_4",
+      "center_cm": [
+        100996.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_11_5",
+      "center_cm": [
+        101196.07843137253,
+        -112845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_-5",
+      "center_cm": [
+        99196.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_-4",
+      "center_cm": [
+        99396.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_-3",
+      "center_cm": [
+        99596.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_-2",
+      "center_cm": [
+        99796.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_-1",
+      "center_cm": [
+        99996.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_0",
+      "center_cm": [
+        100196.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_1",
+      "center_cm": [
+        100396.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_2",
+      "center_cm": [
+        100596.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_3",
+      "center_cm": [
+        100796.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_4",
+      "center_cm": [
+        100996.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_12_5",
+      "center_cm": [
+        101196.07843137253,
+        -112645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_-5",
+      "center_cm": [
+        99196.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_-4",
+      "center_cm": [
+        99396.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_-3",
+      "center_cm": [
+        99596.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_-2",
+      "center_cm": [
+        99796.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_-1",
+      "center_cm": [
+        99996.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_0",
+      "center_cm": [
+        100196.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_1",
+      "center_cm": [
+        100396.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_2",
+      "center_cm": [
+        100596.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_3",
+      "center_cm": [
+        100796.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_4",
+      "center_cm": [
+        100996.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_13_5",
+      "center_cm": [
+        101196.07843137253,
+        -112445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_-5",
+      "center_cm": [
+        99196.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_-4",
+      "center_cm": [
+        99396.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_-3",
+      "center_cm": [
+        99596.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_-2",
+      "center_cm": [
+        99796.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_-1",
+      "center_cm": [
+        99996.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_0",
+      "center_cm": [
+        100196.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_1",
+      "center_cm": [
+        100396.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_2",
+      "center_cm": [
+        100596.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_3",
+      "center_cm": [
+        100796.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_4",
+      "center_cm": [
+        100996.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_14_5",
+      "center_cm": [
+        101196.07843137253,
+        -112245.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_-5",
+      "center_cm": [
+        99196.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_-4",
+      "center_cm": [
+        99396.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_-3",
+      "center_cm": [
+        99596.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_-2",
+      "center_cm": [
+        99796.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_-1",
+      "center_cm": [
+        99996.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_0",
+      "center_cm": [
+        100196.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_1",
+      "center_cm": [
+        100396.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_2",
+      "center_cm": [
+        100596.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_3",
+      "center_cm": [
+        100796.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_4",
+      "center_cm": [
+        100996.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_15_5",
+      "center_cm": [
+        101196.07843137253,
+        -112045.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_-5",
+      "center_cm": [
+        99196.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_-4",
+      "center_cm": [
+        99396.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_-3",
+      "center_cm": [
+        99596.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_-2",
+      "center_cm": [
+        99796.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_-1",
+      "center_cm": [
+        99996.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_0",
+      "center_cm": [
+        100196.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_1",
+      "center_cm": [
+        100396.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_2",
+      "center_cm": [
+        100596.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_3",
+      "center_cm": [
+        100796.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_4",
+      "center_cm": [
+        100996.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_16_5",
+      "center_cm": [
+        101196.07843137253,
+        -111845.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_-5",
+      "center_cm": [
+        99196.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_-4",
+      "center_cm": [
+        99396.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_-3",
+      "center_cm": [
+        99596.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_-2",
+      "center_cm": [
+        99796.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_-1",
+      "center_cm": [
+        99996.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_0",
+      "center_cm": [
+        100196.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_1",
+      "center_cm": [
+        100396.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_2",
+      "center_cm": [
+        100596.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_3",
+      "center_cm": [
+        100796.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_4",
+      "center_cm": [
+        100996.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_17_5",
+      "center_cm": [
+        101196.07843137253,
+        -111645.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_-5",
+      "center_cm": [
+        99196.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_-4",
+      "center_cm": [
+        99396.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_-3",
+      "center_cm": [
+        99596.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_-2",
+      "center_cm": [
+        99796.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_-1",
+      "center_cm": [
+        99996.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_0",
+      "center_cm": [
+        100196.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_1",
+      "center_cm": [
+        100396.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_2",
+      "center_cm": [
+        100596.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_3",
+      "center_cm": [
+        100796.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_4",
+      "center_cm": [
+        100996.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_Paving_18_5",
+      "center_cm": [
+        101196.07843137253,
+        -111445.29411764705,
+        3980.161071872455
+      ],
+      "dimensions_cm": [
+        202,
+        202,
+        24
+      ],
+      "pitch": 0,
+      "yaw": 0
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_0_-1",
+      "center_cm": [
+        100098.07843137253,
+        -117340.29411764705,
+        3524.6638146242644
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_0_1",
+      "center_cm": [
+        100294.07843137253,
+        -117340.29411764705,
+        3524.6638146242644
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_0_1",
+      "center_cm": [
+        100396.07843137253,
+        -117340.29411764705,
+        3491.160470125892
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        63.00668899674429
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_1_-1",
+      "center_cm": [
+        100098.07843137253,
+        -117150.29411764705,
+        3561.1035952041198
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_1_1",
+      "center_cm": [
+        100294.07843137253,
+        -117150.29411764705,
+        3561.1035952041198
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_2_-1",
+      "center_cm": [
+        100098.07843137253,
+        -116960.29411764705,
+        3597.543375783975
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_2_1",
+      "center_cm": [
+        100294.07843137253,
+        -116960.29411764705,
+        3597.543375783975
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_3_-1",
+      "center_cm": [
+        100098.07843137253,
+        -116770.29411764705,
+        3633.98315636383
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_3_1",
+      "center_cm": [
+        100294.07843137253,
+        -116770.29411764705,
+        3633.98315636383
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_3_1",
+      "center_cm": [
+        100396.07843137253,
+        -116770.29411764705,
+        3610.6253257598223
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        42.71566120801526
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_4_-1",
+      "center_cm": [
+        100098.07843137253,
+        -116580.29411764705,
+        3670.4229369436853
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_4_1",
+      "center_cm": [
+        100294.07843137253,
+        -116580.29411764705,
+        3670.4229369436853
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_4_-1",
+      "center_cm": [
+        99996.07843137253,
+        -116580.29411764705,
+        3642.5522776472963
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        51.74131859277804
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_4_1",
+      "center_cm": [
+        100396.07843137253,
+        -116580.29411764705,
+        3615.9558960863023
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        104.93408171476585
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_5_-1",
+      "center_cm": [
+        100098.07843137253,
+        -116390.29411764705,
+        3706.8627175235406
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_5_1",
+      "center_cm": [
+        100294.07843137253,
+        -116390.29411764705,
+        3706.8627175235406
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_5_-1",
+      "center_cm": [
+        99996.07843137253,
+        -116390.29411764705,
+        3660.086644729881
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        89.5521455873195
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_5_1",
+      "center_cm": [
+        100396.07843137253,
+        -116390.29411764705,
+        3634.4336549947016
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        140.85812505767808
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_6_-1",
+      "center_cm": [
+        100098.07843137253,
+        -116200.29411764705,
+        3743.302498103396
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_6_1",
+      "center_cm": [
+        100294.07843137253,
+        -116200.29411764705,
+        3743.302498103396
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_6_-1",
+      "center_cm": [
+        99996.07843137253,
+        -116200.29411764705,
+        3691.8373346868393
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        98.93032683311321
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_6_1",
+      "center_cm": [
+        100396.07843137253,
+        -116200.29411764705,
+        3651.858563602269
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        178.88786900225386
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_7_-1",
+      "center_cm": [
+        100098.07843137253,
+        -116010.29411764705,
+        3779.7422786832512
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_7_1",
+      "center_cm": [
+        100294.07843137253,
+        -116010.29411764705,
+        3779.7422786832512
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_7_-1",
+      "center_cm": [
+        99996.07843137253,
+        -116010.29411764705,
+        3727.5819838436096
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        100.32058967928333
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_7_1",
+      "center_cm": [
+        100396.07843137253,
+        -116010.29411764705,
+        3686.376381972203
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        182.73179342209642
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_8_-1",
+      "center_cm": [
+        100098.07843137253,
+        -115820.29411764705,
+        3816.1820592631066
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_8_1",
+      "center_cm": [
+        100294.07843137253,
+        -115820.29411764705,
+        3816.1820592631066
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_8_-1",
+      "center_cm": [
+        99996.07843137253,
+        -115820.29411764705,
+        3762.1736592559873
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        104.01680001423847
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_8_1",
+      "center_cm": [
+        100396.07843137253,
+        -115820.29411764705,
+        3718.3878853547767
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        191.58834781665973
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_9_-1",
+      "center_cm": [
+        100098.07843137253,
+        -115630.29411764705,
+        3852.621839842962
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_9_1",
+      "center_cm": [
+        100294.07843137253,
+        -115630.29411764705,
+        3852.621839842962
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_9_-1",
+      "center_cm": [
+        99996.07843137253,
+        -115630.29411764705,
+        3798.4168200172567
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        104.41003965141044
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_9_1",
+      "center_cm": [
+        100396.07843137253,
+        -115630.29411764705,
+        3752.759762482026
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        195.72415472187186
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_10_-1",
+      "center_cm": [
+        100098.07843137253,
+        -115440.29411764705,
+        3889.0616204228168
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_10_1",
+      "center_cm": [
+        100294.07843137253,
+        -115440.29411764705,
+        3889.0616204228168
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_10_-1",
+      "center_cm": [
+        99996.07843137253,
+        -115440.29411764705,
+        3832.8154496240986
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        108.49234159743673
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_10_1",
+      "center_cm": [
+        100396.07843137253,
+        -115440.29411764705,
+        3783.528088600675
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        207.0670636442842
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_11_-1",
+      "center_cm": [
+        100098.07843137253,
+        -115250.29411764705,
+        3925.501401002672
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_11_1",
+      "center_cm": [
+        100294.07843137253,
+        -115250.29411764705,
+        3925.501401002672
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_11_-1",
+      "center_cm": [
+        99996.07843137253,
+        -115250.29411764705,
+        3863.9277499995624
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        119.14730200621898
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_11_1",
+      "center_cm": [
+        100396.07843137253,
+        -115250.29411764705,
+        3816.808022803216
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        213.38675639891198
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_12_-1",
+      "center_cm": [
+        100098.07843137253,
+        -115060.29411764705,
+        3961.9411815825274
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_PavedRamp_12_1",
+      "center_cm": [
+        100294.07843137253,
+        -115060.29411764705,
+        3961.9411815825274
+      ],
+      "dimensions_cm": [
+        196.4628067839087,
+        198,
+        24
+      ],
+      "pitch": 10.856827651511795,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_12_-1",
+      "center_cm": [
+        99996.07843137253,
+        -115060.29411764705,
+        3897.1451442868047
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        125.59207459144591
+      ],
+      "pitch": 0,
+      "yaw": 90
+    },
+    {
+      "label": "FinalPolish_Dwarf_RampFooting_12_1",
+      "center_cm": [
+        100396.07843137253,
+        -115060.29411764705,
+        3853.6353888394797
+      ],
+      "dimensions_cm": [
+        193.0,
+        65,
+        212.61158548609592
+      ],
+      "pitch": 0,
+      "yaw": 90
+    }
+  ],
+  "review_pending": true
+}

@@ -1,0 +1,120 @@
+[
+  {
+    "label": "Composition_Scale_human_capital",
+    "location": [
+      -100051.21862094058,
+      -10995.250863779103,
+      669.4178634334821
+    ],
+    "scale": [
+      0.24,
+      0.24,
+      0.24
+    ],
+    "bounds_center": [
+      -102254.90196078432,
+      -8921.568627450979,
+      1412.4162179256693
+    ],
+    "extent": [
+      3484.8482226562483,
+      2571.8004199218744,
+      1093.8439892578122
+    ],
+    "mesh": "/Game/Soul/CampaignProxies/Human/SM_HumanCapital_Base_r7.SM_HumanCapital_Base_r7"
+  },
+  {
+    "label": "Composition_Scale_dwarf_hold",
+    "location": [
+      100197.47595334519,
+      -116064.59853048885,
+      3726.68076333974
+    ],
+    "scale": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "bounds_center": [
+      100196.07843137253,
+      -113235.29411764705,
+      4473.260944461566
+    ],
+    "extent": [
+      1525.8816528320312,
+      1934.6867980957031,
+      814.0998725891113
+    ],
+    "mesh": "/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Base_r9.SM_DwarfHold_Base_r9"
+  },
+  {
+    "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_01.SM_ST_WallM_01",
+    "minimum": [
+      -166.26451110839844,
+      2.448749542236328,
+      -0.446044921875
+    ],
+    "maximum": [
+      166.11837768554688,
+      31.030914306640625,
+      1125.850830078125
+    ],
+    "triangles": 6445
+  },
+  {
+    "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+    "minimum": [
+      -660.9441528320312,
+      -43.688039779663086,
+      -6.9217529296875
+    ],
+    "maximum": [
+      655.254150390625,
+      44.93021583557129,
+      1108.0086669921875
+    ],
+    "triangles": 16068
+  },
+  {
+    "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+    "minimum": [
+      -391.8524932861328,
+      -268.60459899902344,
+      -55.43875503540039
+    ],
+    "maximum": [
+      394.97796630859375,
+      268.60462951660156,
+      55.43875503540039
+    ],
+    "triangles": 7122
+  },
+  {
+    "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_CenteralHall_FloorStair_01.SM_ST_CenteralHall_FloorStair_01",
+    "minimum": [
+      -439.04640197753906,
+      -200.88414764404297,
+      -27.767691612243652
+    ],
+    "maximum": [
+      439.58612060546875,
+      200.66532135009766,
+      27.80698585510254
+    ],
+    "triangles": 1336
+  },
+  {
+    "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_ExteriorGate_WallM01.SM_ST_ExteriorGate_WallM01",
+    "minimum": [
+      -93.04167938232422,
+      -123.44751358032227,
+      -0.655517578125
+    ],
+    "maximum": [
+      7.553924560546875,
+      123.80296325683594,
+      584.7942504882812
+    ],
+    "triangles": 1780
+  }
+]

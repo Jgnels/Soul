@@ -1,0 +1,17 @@
+{
+  "kind": "Capped editor review, NOT gameplay performance",
+  "fps_cap": 12,
+  "thermal_cutoff_c": 85,
+  "peak_gpu_c": 64.0,
+  "peak_device_vram_mib": 7273.0,
+  "peak_process_working_set_mib": 5198.03,
+  "peak_private_commit_mib": 8134.94,
+  "average_frame_ms": null,
+  "average_fps": null,
+  "p95_ms": null,
+  "p99_ms": null,
+  "frames_below30": null,
+  "frames_below40": null,
+  "frames_below60": null,
+  "profile_not_run_reason": "Required visual gate has not passed; runtime gate not reached."
+}

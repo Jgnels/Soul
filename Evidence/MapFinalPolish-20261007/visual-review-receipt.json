@@ -1,0 +1,160 @@
+{
+  "editor_only": true,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps_cap": 12,
+  "visual_acceptance": false,
+  "foundation_recommendation": "NO",
+  "notes": {
+    "whole_labels_minimized": "Frozen 3.5 km heightfield, regional masks and 36 anchors unchanged. Whole-world art remains provisional.",
+    "ordinary_campaign": "Several equivalent local corridors now share a trunk. Remaining sharp junctions and near-parallel northern approaches are not all art-qualified.",
+    "human_roads": "Shared Ford, Quarry, Forest and inlet-approach stretches reduce duplicate road marks. Separate legal destinations and the two ferry passages remain.",
+    "human_capital_approach": "Owned CastleTown cobbles and a 24.50 m forecourt link now reach the represented keep doorway. The r7 miniature omits the authored outer gate/curtain walls: exact island/quay correspondence is NOT qualified.",
+    "river_ford": "Still unbridged. Owned partly buried bank rocks and a local water-edge feather improve shallow-crossing cues. Frozen terrain and crossing level preserved. Crossroads route: 21.7605 degrees native.",
+    "major_stone_bridge": "Owned masonry wing walls seat the approach outside the travel lane. Original deck collision and route retained; art remains provisional.",
+    "minor_timber_bridge": "Actual 13 m Human northern timber crossing, with longitudinal rails and six piers beneath the deck. This is not the old hidden unused woodland bridge.",
+    "broken_bridge": "Ruined stone ends plus timber repair retained. Twelve small native masonry-rubble clusters soften the broken ends; some cut faces remain too clean.",
+    "ferry_landing": "Both inlet ferry routes retained. Four existing jetties receive mooring posts. No boat/service simulation or candidate runtime ferry behavior has been qualified.",
+    "dwarf_approach": "REJECTED PRESENTATION. Retaining masonry and paving fix floor contact but the gate/cutaway hall stands on an open slope. Jeff requires a pass fort to close a real canyon around the road. It does not do so here.",
+    "mountain_pass": "Bounded curves and short-kink removal preserve the 22.1-degree sampled gate, but conspicuous switchbacks and angular joins remain. The visual gate has NOT passed.",
+    "orc_routes": "Equivalent Camp/Badlands/War Camp geography shares a trunk. Existing distinct destinations retained. No Mesa heightform or region change.",
+    "nature_paths": "Local curve and kink corrections improve individual turns. Separate Shrine, Clearing, Woodland and Treehold connections remain; some fitted-graph character is still visible.",
+    "close_road": "Widths retained: main 3.8 m, secondary 3.0 m, mountain 2.8 m, woodland 2.4 m, Orc military 3.2 m. Surface-mask roadbed remains provisional.",
+    "dwarf_foundation_close": "Rejected as finished art despite better contact. This is the previously qualified FUNCTIONAL gate/hall cutaway, not a qualified exterior capital.",
+    "dwarf_context": "Wider geography exposes the defect: the walls do not span a canyon and can be bypassed on the surrounding slope.",
+    "broken_bridge_close": "Owned rubble details are outside the legal timber passage. The cut stone faces still need a stronger ruin treatment.",
+    "ford_bank_close": "Local material-only bank feather: full effect within 18 m of the ford, zero beyond 38 m. No generated texture, river mesh edit, water-level change or terrain edit."
+  },
+  "images": [
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/whole_labels_minimized.png",
+      "sha256": "ecc482bd2cc1e3a5e1f5a2bd6f49034371ede9e8a28de16fce84be085259d7b5"
+    },
+    {
+      "path": "Local/captures-final6/whole_labels_minimized.png",
+      "sha256": "e6847910b91039a3eec48d9b29b4e8b93471e7f54d873c03278af49773304a63"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/ordinary_campaign.png",
+      "sha256": "bee5b7a0c63ae498187b7c8690221cf7960300d0dac7d58d6e0e7c193b6ff59e"
+    },
+    {
+      "path": "Local/captures-final6/ordinary_campaign.png",
+      "sha256": "992fd6d07d2c02ec5bbc07453e5ce168011be76a614fbaa92e16d7f0c6a863dc"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/human_roads.png",
+      "sha256": "5412ea2d7ef18b1f287da874ac8d4bedc75441914622f5fcb15759ecde8c4ae5"
+    },
+    {
+      "path": "Local/captures-final6/human_roads.png",
+      "sha256": "fdda6b3d605e6c43de0a947a48fd0e9e1ae1083f3632c590e0f87d87aab24853"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/human_capital_approach.png",
+      "sha256": "8de99c9446bbfd86a814e79458a1ca6ebc77c0cadd94678c053e77d8f509e6d6"
+    },
+    {
+      "path": "Local/captures-final6/human_capital_approach.png",
+      "sha256": "6cbc4778b4fd45e28fcb5a48e444cd885437225f9dfc0a1159ea66dfe8c2758c"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/river_ford.png",
+      "sha256": "c42258182b0e90bfa47a2363a561951a929ea56b5243dfa09a9cf01934ea35d2"
+    },
+    {
+      "path": "Local/captures-ford-edge-r2/river_ford.png",
+      "sha256": "9c9918ad61f291a56378d71ba8a698aa8dc44750886b4defae92b470a894133c"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/major_stone_bridge.png",
+      "sha256": "5550c54ffa613d8529c8df7fd2c64181d7759aa4d79fa69f6fe337be467a905c"
+    },
+    {
+      "path": "Local/captures-final6/major_stone_bridge.png",
+      "sha256": "84a211d55dd3691e10e9de1513cf8bf7d8b3ad551189ebbc3f5c36d2160f0d62"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/minor_timber_bridge.png",
+      "sha256": "49db0bcc6e9a40471b8b4e6f1160bd83330b15eaded71ab80583e33507bdf9d9"
+    },
+    {
+      "path": "Local/captures-final6/minor_timber_bridge.png",
+      "sha256": "83707ce7417474754650298f32dc7b389f4784768ba4a70031ac61ba9516775f"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/broken_bridge.png",
+      "sha256": "3647d3f42ad10529b72cd422b9794b5ae3ad83e2b130ecfbe81307475303d39d"
+    },
+    {
+      "path": "Local/captures-final6/broken_bridge.png",
+      "sha256": "ede5797da0873430c2ca796371cc6027745ab90c9de0626c3842e21182bc4b66"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/ferry_landing.png",
+      "sha256": "a71ae809f919cf759c725f567bbaceb396624134eedf188ab1d99483c0ed32d4"
+    },
+    {
+      "path": "Local/captures-final6/ferry_landing.png",
+      "sha256": "4b3b25c13ffde7fcf39add5adcefc0257c208826ee30a4d98868d65fe8d92d48"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/dwarf_approach.png",
+      "sha256": "5208d73b281c746d102de6f482a1355725a287ea6a5822a36e62145a11a69c16"
+    },
+    {
+      "path": "Local/captures-final6/dwarf_approach.png",
+      "sha256": "a096f5eeb165a02ee2962fa002e63d942c003077a75c39f341ee08fc51417c10"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/mountain_pass.png",
+      "sha256": "9da873d872ae214129c5f051dd7ea36939ddc9104e77f6cf0a97153fd80ca9b7"
+    },
+    {
+      "path": "Local/captures-final6/mountain_pass.png",
+      "sha256": "e6e73a9ccff0e2ccace32ff67422b9a947c121a0893a55ce234af9d0a29bfa9a"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/orc_routes.png",
+      "sha256": "7932fee3969a34b238011f60b3757b9b2d4afe555635921d4277f100a0237528"
+    },
+    {
+      "path": "Local/captures-final6/orc_routes.png",
+      "sha256": "5c053453cef092e1584b7c7bbc7222767155dca427691bfe2d1e1b78a09a3660"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/nature_paths.png",
+      "sha256": "f9f02ba7413992bfad7e72509ed6d5bc4e6c0a195829f95e1e8f46f07609ae52"
+    },
+    {
+      "path": "Local/captures-final6/nature_paths.png",
+      "sha256": "d9708567c99bfdfa370a1e177f12b735e64db7a5b4ed4b371472957426386b15"
+    },
+    {
+      "path": "../MapPolish-20261007/Local/captures-final/close_road.png",
+      "sha256": "ed62ca7a156903e6beead69e5292469054481cfa751c9c883df63838a0c53fba"
+    },
+    {
+      "path": "Local/captures-final6/close_road.png",
+      "sha256": "bda645a512cdb1562f1dddc85871af97693dded37b61b5d6bb40a7916e71ade2"
+    },
+    {
+      "path": "Local/captures-curves-r5/dwarf_foundation_close.png",
+      "sha256": "f5ce0b223272a7a2ce905d47698c29698367cc5e11d934acad2ef8359269f421"
+    },
+    {
+      "path": "Local/captures-dwarf-context/dwarf_context.png",
+      "sha256": "ced2e9b1c8039a0e255933b84faa4172256e3d07505062b7119bf9692a611104"
+    },
+    {
+      "path": "Local/captures-curves-r5/broken_bridge_close.png",
+      "sha256": "2c917e22ab093a4bb2cca4b35dad70d8d77139d4e2c0b5a0d59be2941521c6db"
+    },
+    {
+      "path": "Local/captures-ford-edge-r2/ford_bank_close.png",
+      "sha256": "9b8369ffac895967cf4553138754b52a5d96ada8ce7145516ee02ed598f8f939"
+    }
+  ]
+}

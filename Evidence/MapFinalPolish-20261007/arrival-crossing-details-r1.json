@@ -1,0 +1,231 @@
+{
+  "actors": [
+    {
+      "label": "FinalPolish_HumanForecourt_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -102145.75166666668,
+        -9034.640833333324,
+        320.88305205279903
+      ],
+      "dimensions_cm": [
+        318.3185311758698,
+        280,
+        9
+      ],
+      "pitch": 4.116494292041605,
+      "yaw": -46.01097961624636
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101927.451,
+        -9260.784499999994,
+        339.1275103611333
+      ],
+      "dimensions_cm": [
+        318.3185311758698,
+        280,
+        9
+      ],
+      "pitch": 2.5261782942907702,
+      "yaw": -46.01097961624636
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101709.15033333332,
+        -9486.928166666665,
+        356.50738633717265
+      ],
+      "dimensions_cm": [
+        318.3185311758698,
+        280,
+        9
+      ],
+      "pitch": 3.8027960824560236,
+      "yaw": -46.01097961624636
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_3",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101508.33333333333,
+        -9716.666666666657,
+        374.6951698710618
+      ],
+      "dimensions_cm": [
+        300.7415635794143,
+        280,
+        9
+      ],
+      "pitch": 2.9868253126503386,
+      "yaw": -51.84277341263094
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_4",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101325.0,
+        -9950.0,
+        390.8407828107156
+      ],
+      "dimensions_cm": [
+        300.7415635794143,
+        280,
+        9
+      ],
+      "pitch": 3.24189191990212,
+      "yaw": -51.84277341263094
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_5",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101141.66666666667,
+        -10183.333333333343,
+        420.74651383803575
+      ],
+      "dimensions_cm": [
+        300.7415635794143,
+        280,
+        9
+      ],
+      "pitch": 8.245821371766834,
+      "yaw": -51.84277341263094
+    },
+    {
+      "label": "FinalPolish_Wingwall_southern_crossing_-1_-1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -113038.53314628627,
+        58872.574789264414,
+        965.9317309818728
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": 42.72735226747397
+    },
+    {
+      "label": "FinalPolish_Wingwall_southern_crossing_-1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -113418.49898783941,
+        59283.94561862986,
+        965.9317309818728
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": 42.72735226747397
+    },
+    {
+      "label": "FinalPolish_Wingwall_southern_crossing_1_-1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -111679.54022784685,
+        60127.81908725246,
+        981.5786481202373
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": 42.72735226747397
+    },
+    {
+      "label": "FinalPolish_Wingwall_southern_crossing_1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -112059.5060694,
+        60539.189916617936,
+        981.5786481202373
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": 42.72735226747397
+    },
+    {
+      "label": "FinalPolish_Wingwall_human_west_bridge_-1_-1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -112300.50336381688,
+        4909.163951080554,
+        157.90685112474
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": -15.747787989614688
+    },
+    {
+      "label": "FinalPolish_Wingwall_human_west_bridge_-1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -112148.5175201378,
+        5448.144751593092,
+        157.90685112474
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": -15.747787989614688
+    },
+    {
+      "label": "FinalPolish_Wingwall_human_west_bridge_1_-1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -109557.47607549405,
+        4135.6645680709335,
+        152.66671855033803
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": -15.747787989614688
+    },
+    {
+      "label": "FinalPolish_Wingwall_human_west_bridge_1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        -109405.49023181497,
+        4674.645368583471,
+        152.66671855033803
+      ],
+      "dimensions_cm": [
+        280,
+        65,
+        65.0
+      ],
+      "pitch": 0,
+      "yaw": -15.747787989614688
+    }
+  ],
+  "terrain_changed": false,
+  "travel_collision_unchanged": true,
+  "human_correspondence": "Owned CastleTown cobblestone on existing keep forecourt; represented keep direction retained. Original outer gate/curtain/island are omitted from the existing miniature; exact island correspondence is not claimed."
+}

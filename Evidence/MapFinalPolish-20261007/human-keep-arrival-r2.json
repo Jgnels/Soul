@@ -1,0 +1,24 @@
+{
+  "points_m": [
+    [
+      727.45098,
+      1660.78431
+    ],
+    [
+      738.0,
+      1657.5
+    ],
+    [
+      750.55,
+      1652.66
+    ]
+  ],
+  "grade": {
+    "length_m": 24.499413755549924,
+    "max_grade_deg": 6.903529840526099,
+    "invalid_samples": 0,
+    "over22_1_samples": 0
+  },
+  "method": "Calibrated 50-degree FOV native view: doorway-base image coordinate (897,507), ray against Landscape; final render review required.",
+  "authoritative_outer_gate_correspondence": false
+}

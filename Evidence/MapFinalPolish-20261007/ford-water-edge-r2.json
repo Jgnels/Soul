@@ -1,0 +1,19 @@
+{
+  "source_parent": "/Game/Forest_village/Materials/Master/M_Water.M_Water",
+  "source_instance": "/Game/SoulCampaignComposition/MI_Composition_River_r1.MI_Composition_River_r1",
+  "owned_material": "/Game/SoulCampaignComposition/FinalPolish/M_FordBankWater_r2.M_FordBankWater_r2",
+  "owned_instance": "/Game/SoulCampaignComposition/FinalPolish/MI_FordBankWater_r2.MI_FordBankWater_r2",
+  "center_xy_m": [
+    775.666972773728,
+    2196.255208067845
+  ],
+  "full_effect_radius_m": 18,
+  "zero_effect_radius_m": 38,
+  "bank_feather_m": 1,
+  "river_geometry_changed": false,
+  "terrain_changed": false,
+  "water_height_changed": false,
+  "travel_collision_changed": false,
+  "review_pending": false,
+  "review": "Local bank fade retained after matching native renders; whole river material/shore geometry remains provisional. No fallback/checkerboard observed."
+}

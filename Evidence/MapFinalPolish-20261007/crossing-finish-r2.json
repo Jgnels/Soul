@@ -1,0 +1,808 @@
+{
+  "actors": [
+    {
+      "label": "FinalPolish_HumanForecourt_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -102123.03925,
+        -8962.622875000001,
+        312.807085361208
+      ],
+      "dimensions_cm": [
+        279.21155290884025,
+        240,
+        8
+      ],
+      "pitch": 2.170726811359892,
+      "yaw": -17.293346267955062,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101859.31375,
+        -9044.730625000011,
+        318.5078098215308
+      ],
+      "dimensions_cm": [
+        279.21155290884025,
+        280,
+        8
+      ],
+      "pitch": 0.1932860458776172,
+      "yaw": -17.293346267955062,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101595.58825,
+        -9126.838375000007,
+        318.74571459995786
+      ],
+      "dimensions_cm": [
+        279.21155290884025,
+        280,
+        8
+      ],
+      "pitch": -0.09458742019803257,
+      "yaw": -17.293346267955062,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_3",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101331.86275,
+        -9208.946125000002,
+        313.9044354037105
+      ],
+      "dimensions_cm": [
+        279.21155290884025,
+        280,
+        8
+      ],
+      "pitch": -1.9131968588192885,
+      "yaw": -17.293346267955062,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_4",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -101074.5,
+        -9298.400000000009,
+        310.4259636129718
+      ],
+      "dimensions_cm": [
+        272.0190327839263,
+        280,
+        8
+      ],
+      "pitch": 0.48337463997119035,
+      "yaw": -21.089500776390164,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_5",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -100823.5,
+        -9395.200000000012,
+        315.2910635461958
+      ],
+      "dimensions_cm": [
+        272.0190327839263,
+        280,
+        8
+      ],
+      "pitch": 1.5885485268548267,
+      "yaw": -21.089500776390164,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_6",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -100572.5,
+        -9492.0,
+        330.00128834210045
+      ],
+      "dimensions_cm": [
+        272.0190327839263,
+        280,
+        8
+      ],
+      "pitch": 4.666676340202372,
+      "yaw": -21.089500776390164,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_7",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -100321.5,
+        -9588.799999999988,
+        356.68920028228604
+      ],
+      "dimensions_cm": [
+        272.0190327839263,
+        280,
+        8
+      ],
+      "pitch": 6.6608111668085,
+      "yaw": -21.089500776390164,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_HumanForecourt_8",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_HumanCobble_r1.SM_HumanCobble_r1",
+      "center_cm": [
+        -100070.5,
+        -9685.599999999991,
+        386.52433345922327
+      ],
+      "dimensions_cm": [
+        272.0190327839263,
+        280,
+        8
+      ],
+      "pitch": 5.995635175501457,
+      "yaw": -21.089500776390164,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_-1_-1_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130534.86665175651,
+        7350.996834138146,
+        3608.6783224590104
+      ],
+      "dimensions_cm": [
+        95,
+        85,
+        32
+      ],
+      "pitch": 0,
+      "yaw": -174.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_-1_-1_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130570.86643979454,
+        7375.266470748873,
+        3590.6783224590104
+      ],
+      "dimensions_cm": [
+        107,
+        85,
+        38
+      ],
+      "pitch": -9,
+      "yaw": -145.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_-1_-1_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130606.86622783256,
+        7399.5361073596,
+        3572.6783224590104
+      ],
+      "dimensions_cm": [
+        119,
+        85,
+        44
+      ],
+      "pitch": -18,
+      "yaw": -116.94013115373531,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_-1_1_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130568.7341566293,
+        6968.493249692576,
+        3608.6783224590104
+      ],
+      "dimensions_cm": [
+        95,
+        85,
+        32
+      ],
+      "pitch": 0,
+      "yaw": -174.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_-1_1_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130608.4382030128,
+        6950.926556754566,
+        3590.6783224590104
+      ],
+      "dimensions_cm": [
+        107,
+        85,
+        38
+      ],
+      "pitch": -9,
+      "yaw": -145.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_-1_1_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130648.14224939625,
+        6933.359863816586,
+        3572.6783224590104
+      ],
+      "dimensions_cm": [
+        119,
+        85,
+        44
+      ],
+      "pitch": -18,
+      "yaw": -116.94013115373531,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_1_-1_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130026.85407866474,
+        7306.0165542289615,
+        3608.6783224590104
+      ],
+      "dimensions_cm": [
+        95,
+        85,
+        32
+      ],
+      "pitch": 0,
+      "yaw": -174.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_1_-1_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129987.15003228124,
+        7323.583247166971,
+        3590.6783224590104
+      ],
+      "dimensions_cm": [
+        107,
+        85,
+        38
+      ],
+      "pitch": 9,
+      "yaw": -145.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_1_-1_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129947.4459858978,
+        7341.1499401049805,
+        3572.6783224590104
+      ],
+      "dimensions_cm": [
+        119,
+        85,
+        44
+      ],
+      "pitch": 18,
+      "yaw": -116.94013115373531,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_1_1_0",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130060.72158353752,
+        6923.512969783391,
+        3608.6783224590104
+      ],
+      "dimensions_cm": [
+        95,
+        85,
+        32
+      ],
+      "pitch": 0,
+      "yaw": -174.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_1_1_1",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        130024.7217954995,
+        6899.243333172664,
+        3590.6783224590104
+      ],
+      "dimensions_cm": [
+        107,
+        85,
+        38
+      ],
+      "pitch": 9,
+      "yaw": -145.9401311537353,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_BrokenRubble_1_1_2",
+      "mesh": "/Game/SoulCampaignComposition/FinalPolish/SM_MasonryRubble_r1.SM_MasonryRubble_r1",
+      "center_cm": [
+        129988.72200746147,
+        6874.973696561938,
+        3572.6783224590104
+      ],
+      "dimensions_cm": [
+        119,
+        85,
+        44
+      ],
+      "pitch": 18,
+      "yaw": -116.94013115373531,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_TimberPier_-4_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -100655.32461495964,
+        -18634.92898176948,
+        646.7843643777428
+      ],
+      "dimensions_cm": [
+        22,
+        22,
+        133.09702019023382
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_TimberPier_-4_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -100355.64614475185,
+        -18714.2562437538,
+        671.0857227749925
+      ],
+      "dimensions_cm": [
+        22,
+        22,
+        84.49430339573439
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_TimberPier_0_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -100757.6823723588,
+        -19021.61087881177,
+        614.8342510241418
+      ],
+      "dimensions_cm": [
+        22,
+        22,
+        193.06516328478756
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_TimberPier_0_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -100458.00390215102,
+        -19100.93814079609,
+        629.8243525154103
+      ],
+      "dimensions_cm": [
+        22,
+        22,
+        163.0849603022507
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_TimberPier_4_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -100860.04012975795,
+        -19408.29277585406,
+        648.9495454669764
+      ],
+      "dimensions_cm": [
+        22,
+        22,
+        120.90249078647048
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_TimberPier_4_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -100560.36165955018,
+        -19487.62003783838,
+        661.2393192760014
+      ],
+      "dimensions_cm": [
+        22,
+        22,
+        96.32294316842035
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_central_inlet_ferry_0_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -57898.41024738364,
+        -40607.598959210096,
+        41.41996735096549
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        164.642407517256
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_central_inlet_ferry_0_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -58028.25237926311,
+        -40337.15299272325,
+        40.56327000879614
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        166.3558022015947
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_central_inlet_ferry_1_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -47301.22952876333,
+        -35187.068731079955,
+        40.81805005830947
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        176.59652690548336
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_central_inlet_ferry_1_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        -47171.387396883874,
+        -35457.514697566774,
+        47.7502448866272
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        162.7321372488479
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_southern_inlet_ferry_0_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        43305.41505825176,
+        49240.093026579765,
+        35.49144527544287
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        176.83026566929223
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_southern_inlet_ferry_0_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        43013.90505114314,
+        49169.22755010828,
+        33.225607960773246
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        181.36194029863148
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_southern_inlet_ferry_1_-1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        38879.8708080707,
+        66174.86148626212,
+        40.58084517765834
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        171.19250282529714
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_Mooring_southern_inlet_ferry_1_1",
+      "mesh": "/Game/Forest_village/Meshes/Wood_modules/SM_beam_circular.SM_beam_circular",
+      "center_cm": [
+        39171.38081517932,
+        66245.72696273364,
+        40.269788954884426
+      ],
+      "dimensions_cm": [
+        20,
+        20,
+        171.81461527084497
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_-1_-1_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -97829.28252009167,
+        43890.12975435049,
+        385.30252997219213
+      ],
+      "dimensions_cm": [
+        65,
+        50,
+        28
+      ],
+      "pitch": 0,
+      "yaw": -26,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_-1_-1_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -97850.49572352726,
+        43805.276940608106,
+        389.69632055239344
+      ],
+      "dimensions_cm": [
+        82,
+        60,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 17,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_-1_-1_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -97871.70892696286,
+        43720.42412686575,
+        393.6378431054327
+      ],
+      "dimensions_cm": [
+        99,
+        70,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 60,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_-1_1_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -98168.69377506121,
+        44229.54100932006,
+        404.1240800155647
+      ],
+      "dimensions_cm": [
+        65,
+        50,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 26,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_-1_1_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -98253.54658880358,
+        44208.327805884444,
+        412.241863641917
+      ],
+      "dimensions_cm": [
+        82,
+        60,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 69,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_-1_1_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -98338.39940254598,
+        44187.11460244891,
+        420.0995288183767
+      ],
+      "dimensions_cm": [
+        99,
+        70,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 112,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_1_-1_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -96697.91167019318,
+        45021.500604248955,
+        358.2934925495938
+      ],
+      "dimensions_cm": [
+        65,
+        50,
+        28
+      ],
+      "pitch": 0,
+      "yaw": -26,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_1_-1_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -96613.0588564508,
+        45042.7138076846,
+        360.3963171525829
+      ],
+      "dimensions_cm": [
+        82,
+        60,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 17,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_1_-1_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -96528.2060427084,
+        45063.92701112013,
+        364.0106118783733
+      ],
+      "dimensions_cm": [
+        99,
+        70,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 60,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_1_1_0",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -97037.32292516272,
+        45360.911859218555,
+        382.40790465568716
+      ],
+      "dimensions_cm": [
+        65,
+        50,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 26,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_1_1_1",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -97016.10972172713,
+        45445.76467296091,
+        389.78341062989784
+      ],
+      "dimensions_cm": [
+        82,
+        60,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 69,
+      "roll": 0
+    },
+    {
+      "label": "FinalPolish_FordBank_1_1_2",
+      "mesh": "/Game/Forest_village/Meshes/Rocks/SM_rock_03.SM_rock_03",
+      "center_cm": [
+        -96994.89651829153,
+        45530.6174867033,
+        397.6998342258448
+      ],
+      "dimensions_cm": [
+        99,
+        70,
+        28
+      ],
+      "pitch": 0,
+      "yaw": 112,
+      "roll": 0
+    }
+  ],
+  "terrain_changed": false,
+  "travel_collision_unchanged": true,
+  "ford_unbridged": true,
+  "both_ferries_retained": true,
+  "donors_saved": false
+}

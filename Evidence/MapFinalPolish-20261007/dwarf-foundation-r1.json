@@ -1,0 +1,681 @@
+{
+  "map": "/Game/SoulCampaignComposition/L_Composition_3500_r2.L_Composition_3500_r2",
+  "hold_before_cm": [
+    100197.47595334519,
+    -116064.59853048885,
+    3726.68076333974
+  ],
+  "hold_after_cm": [
+    100197.47595334519,
+    -116064.59853048885,
+    4051.68076333974
+  ],
+  "xy_unchanged": true,
+  "scale_unchanged": true,
+  "terrain_changed": false,
+  "top_cm": 3992.161071872455,
+  "ramp_grade_deg": 10.856827651511795,
+  "actors": [
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_0_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99426.07843137253,
+        -114275.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_0_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99426.07843137253,
+        -113755.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_0_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99426.07843137253,
+        -113235.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_0_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99426.07843137253,
+        -112715.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_0_4",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99426.07843137253,
+        -112195.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_0_5",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99426.07843137253,
+        -111675.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_1_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -114275.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -113755.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_1_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -113235.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_1_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -112715.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_1_4",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -112195.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_1_5",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -111675.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_2_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100966.07843137253,
+        -114275.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_2_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100966.07843137253,
+        -113755.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_2_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100966.07843137253,
+        -113235.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_2_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100966.07843137253,
+        -112715.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_2_4",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100966.07843137253,
+        -112195.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_HallDeck_2_5",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100966.07843137253,
+        -111675.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        526,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_GateDeck_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99041.07843137253,
+        -114815.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        570,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_GateDeck_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        99811.07843137253,
+        -114815.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        570,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_GateDeck_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100581.07843137253,
+        -114815.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        570,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_GateDeck_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        101351.07843137253,
+        -114815.29411764705,
+        3952.161071872455
+      ],
+      "dimensions_cm": [
+        776,
+        570,
+        80
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_-1_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99036.07843137253,
+        -114275.29411764705,
+        3897.3346833413743
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        189.65277706216148
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_-1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99036.07843137253,
+        -113755.29411764705,
+        3840.8894711652174
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        302.54320141447533
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_-1_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99036.07843137253,
+        -113235.29411764705,
+        3773.1045593314484
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        438.11302508201334
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_-1_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99036.07843137253,
+        -112715.29411764705,
+        3683.8386531881843
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        616.6448373685416
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_-1_4",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99036.07843137253,
+        -112195.29411764705,
+        3620.6000041148945
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        743.122135515121
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_-1_5",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99036.07843137253,
+        -111675.29411764705,
+        3620.6000041148945
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        743.122135515121
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_1_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101356.07843137253,
+        -114275.29411764705,
+        3830.5714074337375
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        323.1793288774352
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_1_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101356.07843137253,
+        -113755.29411764705,
+        3832.111655652785
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        320.0988324393402
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_1_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101356.07843137253,
+        -113235.29411764705,
+        3860.93080788674
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        262.46052797143057
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_1_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101356.07843137253,
+        -112715.29411764705,
+        3898.1552520775513
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        188.0116395898076
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_1_4",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101356.07843137253,
+        -112195.29411764705,
+        3900.878784556786
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        182.56457463133847
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Side_1_5",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101356.07843137253,
+        -111675.29411764705,
+        3865.9153572033465
+      ],
+      "dimensions_cm": [
+        526,
+        100,
+        252.49142933821713
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Rear_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99426.07843137253,
+        -111405.29411764705,
+        3589.5918342345685
+      ],
+      "dimensions_cm": [
+        776,
+        100,
+        805.1384752757731
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Rear_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        100196.07843137253,
+        -111405.29411764705,
+        3636.046795008937
+      ],
+      "dimensions_cm": [
+        776,
+        100,
+        712.2285537270363
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Rear_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        100966.07843137253,
+        -111405.29411764705,
+        3805.285410567696
+      ],
+      "dimensions_cm": [
+        776,
+        100,
+        373.75132260951796
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_GateShoulder_-1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        99316.07843137253,
+        -115095.29411764705,
+        3916.7333647614796
+      ],
+      "dimensions_cm": [
+        1260,
+        110,
+        150.85541422195092
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_GateShoulder_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ST_WallM_02.SM_ST_WallM_02",
+      "center_cm": [
+        101076.07843137253,
+        -115095.29411764705,
+        3779.3522935988512
+      ],
+      "dimensions_cm": [
+        1260,
+        110,
+        425.61755654720764
+      ],
+      "yaw": 0
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Ramp_0",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -117188.29411764705,
+        3535.8156390881486
+      ],
+      "dimensions_cm": [
+        509.0032976381626,
+        390,
+        60
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Ramp_1",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -116694.29411764705,
+        3630.5590685957723
+      ],
+      "dimensions_cm": [
+        509.0032976381626,
+        390,
+        60
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Ramp_2",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -116200.29411764705,
+        3725.302498103396
+      ],
+      "dimensions_cm": [
+        509.0032976381626,
+        390,
+        60
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Ramp_3",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -115706.29411764705,
+        3820.0459276110196
+      ],
+      "dimensions_cm": [
+        509.0032976381626,
+        390,
+        60
+      ],
+      "yaw": 90
+    },
+    {
+      "actor": "FinalPolish_Dwarf_Ramp_4",
+      "mesh": "/Game/DwarvenCitadel/Meshes/SM_ExteriorFloor_A_01.SM_ExteriorFloor_A_01",
+      "center_cm": [
+        100196.07843137253,
+        -115212.29411764705,
+        3914.7893571186432
+      ],
+      "dimensions_cm": [
+        509.0032976381626,
+        390,
+        60
+      ],
+      "yaw": 90
+    }
+  ],
+  "review_pending": true
+}

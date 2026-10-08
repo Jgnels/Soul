@@ -1,0 +1,15 @@
+[2026.10.08-01.51.47:115][706]Cmd: Automation RunTests Soul.Integration.CampaignWorld
+[2026.10.08-01.51.47:151][706]Automation: RunTests='Soul.Integration.CampaignWorld' Queued.
+[2026.10.08-01.51.47:152][706]LogPython: Native CampaignWorld regression queued; existing binary, no new build claim.
+[2026.10.08-01.51.59:551][831]LogAutomationCommandLine: Display: Found 2 automation tests based on 'Soul.Integration.CampaignWorld'
+[2026.10.08-01.51.59:551][831]LogAutomationCommandLine: Display: 	Soul.Integration.CampaignWorld.CameraAndSelection
+[2026.10.08-01.51.59:551][831]LogAutomationCommandLine: Display: 	Soul.Integration.CampaignWorld.TerrainAndRoutes
+[2026.10.08-01.51.59:589][832]LogAutomationController: Display: Test Started. Name={CameraAndSelection} Path={Soul.Integration.CampaignWorld.CameraAndSelection}
+[2026.10.08-01.51.59:685][833]LogAutomationController: Display: Test Completed. Result={Success} Name={CameraAndSelection} Path={Soul.Integration.CampaignWorld.CameraAndSelection}
+[2026.10.08-01.51.59:685][833]LogAutomationController: BeginEvents: Soul.Integration.CampaignWorld.CameraAndSelection
+[2026.10.08-01.51.59:685][833]LogAutomationController: EndEvents: Soul.Integration.CampaignWorld.CameraAndSelection
+[2026.10.08-01.51.59:688][834]LogAutomationController: Display: Test Started. Name={TerrainAndRoutes} Path={Soul.Integration.CampaignWorld.TerrainAndRoutes}
+[2026.10.08-01.52.00:234][835]LogAutomationController: Display: Test Completed. Result={Success} Name={TerrainAndRoutes} Path={Soul.Integration.CampaignWorld.TerrainAndRoutes}
+[2026.10.08-01.52.00:234][835]LogAutomationController: BeginEvents: Soul.Integration.CampaignWorld.TerrainAndRoutes
+[2026.10.08-01.52.00:234][835]LogAutomationController: EndEvents: Soul.Integration.CampaignWorld.TerrainAndRoutes
+[2026.10.08-01.52.00:237][836]LogAutomationCommandLine: Display: ...Automation Test Queue Empty 2 tests performed.
