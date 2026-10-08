@@ -1,0 +1,82 @@
+[
+  {
+    "label": "Composition_Scale_dwarf_hold",
+    "location_cm": [
+      100197.47595334519,
+      -116064.59853048885,
+      4051.68076333974
+    ],
+    "scale": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mesh": "/Game/Soul/CampaignProxies/Dwarven/SM_DwarfHold_Base_r9.SM_DwarfHold_Base_r9",
+    "visible": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "label": "Polish_Crossing_broken_West",
+    "location_cm": [
+      129621.26386891717,
+      6841.26287872213,
+      3599.7606525199712
+    ],
+    "scale": [
+      0.7070707070707071,
+      0.8,
+      0.7
+    ],
+    "mesh": "/Game/SoulCampaignComposition/Polish/SM_RuinedBridge_West_r1.SM_RuinedBridge_West_r1",
+    "visible": false,
+    "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+  },
+  {
+    "label": "Polish_Crossing_broken_East",
+    "location_cm": [
+      129621.26386891717,
+      6841.26287872213,
+      3599.7606525199712
+    ],
+    "scale": [
+      0.7070707070707071,
+      0.8,
+      0.7
+    ],
+    "mesh": "/Game/SoulCampaignComposition/Polish/SM_RuinedBridge_East_r1.SM_RuinedBridge_East_r1",
+    "visible": false,
+    "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+  },
+  {
+    "label": "PassGate_BrokenVisual_West",
+    "location_cm": [
+      129621.26386891717,
+      6841.26287872213,
+      3599.7606525199712
+    ],
+    "scale": [
+      0.7070707070707071,
+      0.8,
+      0.7
+    ],
+    "mesh": "/Game/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_West_r1.SM_BrokenBridge_West_r1",
+    "visible": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "label": "PassGate_BrokenVisual_East",
+    "location_cm": [
+      129621.26386891717,
+      6841.26287872213,
+      3599.7606525199712
+    ],
+    "scale": [
+      0.7070707070707071,
+      0.8,
+      0.7
+    ],
+    "mesh": "/Game/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_East_r1.SM_BrokenBridge_East_r1",
+    "visible": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  }
+]

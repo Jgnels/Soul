@@ -1,0 +1,173 @@
+{
+  "terrain_changed": false,
+  "trials": [
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "center_xy_m": [
+        2058.8,
+        1070.6
+      ],
+      "success": false,
+      "message": "Positive directional derivative for linesearch",
+      "iterations": 19,
+      "local": {
+        "length_m": 107.79859823538018,
+        "max_grade_deg": 33.81698573511801,
+        "invalid_samples": 0,
+        "over22_1_samples": 259
+      },
+      "route_check": {
+        "length_m": 777.2898712877857,
+        "max_grade_deg": 33.76693065701419,
+        "invalid_samples": 0,
+        "over22_1_samples": 115
+      },
+      "max_control_shift_m": 5.868274823967534,
+      "elapsed_s": 1.577999999979511,
+      "accepted": false
+    },
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "center_xy_m": [
+        2058.8,
+        1070.6
+      ],
+      "success": false,
+      "message": "Iteration limit reached",
+      "iterations": 90,
+      "local": {
+        "length_m": 126.57050070360586,
+        "max_grade_deg": 28.010462820284275,
+        "invalid_samples": 0,
+        "over22_1_samples": 158
+      },
+      "route_check": {
+        "length_m": 796.061773756011,
+        "max_grade_deg": 28.01046282023755,
+        "invalid_samples": 0,
+        "over22_1_samples": 70
+      },
+      "max_control_shift_m": 0.2990779176794372,
+      "elapsed_s": 6.76600000000326,
+      "accepted": false
+    },
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "center_xy_m": [
+        2024.5,
+        1111.8
+      ],
+      "success": true,
+      "message": "Optimization terminated successfully",
+      "iterations": 32,
+      "local": {
+        "length_m": 84.76591669957645,
+        "max_grade_deg": 23.54265439336176,
+        "invalid_samples": 0,
+        "over22_1_samples": 7
+      },
+      "route_check": {
+        "length_m": 806.4856595429237,
+        "max_grade_deg": 23.542654393301323,
+        "invalid_samples": 0,
+        "over22_1_samples": 3
+      },
+      "max_control_shift_m": 4.372273027729786,
+      "elapsed_s": 0.9530000000377186,
+      "accepted": false
+    },
+    {
+      "route": [
+        "dwarf_mountain_pass",
+        "north_pass"
+      ],
+      "center_xy_m": [
+        2024.5,
+        1111.8
+      ],
+      "success": true,
+      "message": "Optimization terminated successfully",
+      "iterations": 24,
+      "local": {
+        "length_m": 86.40937940476037,
+        "max_grade_deg": 23.49358705502448,
+        "invalid_samples": 0,
+        "over22_1_samples": 5
+      },
+      "route_check": {
+        "length_m": 808.1291222481073,
+        "max_grade_deg": 23.49358705489893,
+        "invalid_samples": 0,
+        "over22_1_samples": 2
+      },
+      "max_control_shift_m": 3.7615591040370404,
+      "elapsed_s": 1.7339999999967404,
+      "accepted": false
+    },
+    {
+      "route": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "center_xy_m": [
+        2347.1,
+        1139.2
+      ],
+      "success": false,
+      "message": "Iteration limit reached",
+      "iterations": 90,
+      "local": {
+        "length_m": 114.7588655486446,
+        "max_grade_deg": 26.53217154019394,
+        "invalid_samples": 0,
+        "over22_1_samples": 157
+      },
+      "route_check": {
+        "length_m": 1108.8874759008356,
+        "max_grade_deg": 26.010318240502126,
+        "invalid_samples": 0,
+        "over22_1_samples": 74
+      },
+      "max_control_shift_m": 4.512552717433853,
+      "elapsed_s": 4.39100000000326,
+      "accepted": false
+    },
+    {
+      "route": [
+        "dwarf_forge_approach",
+        "north_pass"
+      ],
+      "center_xy_m": [
+        2347.1,
+        1139.2
+      ],
+      "success": false,
+      "message": "Positive directional derivative for linesearch",
+      "iterations": 19,
+      "local": {
+        "length_m": 134.29593079783302,
+        "max_grade_deg": 35.5951163648794,
+        "invalid_samples": 0,
+        "over22_1_samples": 371
+      },
+      "route_check": {
+        "length_m": 1128.4245411500242,
+        "max_grade_deg": 35.541381367629576,
+        "invalid_samples": 0,
+        "over22_1_samples": 169
+      },
+      "max_control_shift_m": 4.9896703294721805,
+      "elapsed_s": 5.282000000006519,
+      "accepted": false
+    }
+  ]
+}

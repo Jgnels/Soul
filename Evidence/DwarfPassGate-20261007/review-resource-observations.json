@@ -1,0 +1,12 @@
+{
+  "capped_editor_only": true,
+  "cap_fps": 12,
+  "campaign_performance_not_run": true,
+  "peak_temperature_c": 66.0,
+  "peak_vram_mib": 6925.0,
+  "peak_editor_working_set_mib": 5274.88,
+  "peak_editor_private_commit_mib": 7277.02,
+  "thermal_cutoff_c": 85,
+  "stop_reason": "requested_authoring_close",
+  "cleanup": "Guard wait timed out after termination; subsequent Win32_Process query confirmed PID 30296 absent."
+}

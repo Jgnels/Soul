@@ -1,0 +1,60 @@
+{
+  "method": "Angled fracture cuts plus asymmetric parapet notches of owned stone bridge; native materials retained; no generated art.",
+  "collision_unchanged": true,
+  "timber_unchanged": true,
+  "terrain_changed": false,
+  "derivatives": [
+    {
+      "side": "West",
+      "source": "/Game/SoulCampaignComposition/Polish/SM_RuinedBridge_West_r1.SM_RuinedBridge_West_r1",
+      "visual": "/Game/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_West_r1.SM_BrokenBridge_West_r1",
+      "before_triangles": 48730,
+      "after_triangles": 37292,
+      "collision_actor": "Polish_Crossing_broken_West",
+      "cut_local_x_cm": -1392,
+      "cut_yaw_deg": 11,
+      "notches": [
+        [
+          -1460,
+          5,
+          165,
+          155,
+          135
+        ],
+        [
+          -1650,
+          -585,
+          125,
+          145,
+          110
+        ]
+      ]
+    },
+    {
+      "side": "East",
+      "source": "/Game/SoulCampaignComposition/Polish/SM_RuinedBridge_East_r1.SM_RuinedBridge_East_r1",
+      "visual": "/Game/SoulCampaignComposition/PassGatePolish/SM_BrokenBridge_East_r1.SM_BrokenBridge_East_r1",
+      "before_triangles": 50485,
+      "after_triangles": 37825,
+      "collision_actor": "Polish_Crossing_broken_East",
+      "cut_local_x_cm": -618,
+      "cut_yaw_deg": -8,
+      "notches": [
+        [
+          -550,
+          -585,
+          200,
+          155,
+          170
+        ],
+        [
+          -405,
+          5,
+          110,
+          150,
+          100
+        ]
+      ]
+    }
+  ]
+}
