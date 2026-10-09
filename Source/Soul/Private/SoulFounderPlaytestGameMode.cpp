@@ -1,5 +1,6 @@
 #include "SoulFounderPlaytestGameMode.h"
 #include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
 #include "SoulCampaignCamera.h"
 #include "SoulCampaignWorldActor.h"
 #include "SoulCampaignTerrain.h"
@@ -99,6 +100,16 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if(State && State->IsFourFactionAlpha() && !State->bPersistenceBusy && FPlatformTime::Seconds()>=AlphaNextActionTime)
+    {
+        State->RunNextAlphaAction();AlphaNextActionTime=FPlatformTime::Seconds()+0.75;
+        if(State->HasPendingBattle() && !bAlphaBattleTravel)
+        {
+            bAlphaBattleTravel=true;
+            UGameplayStatics::OpenLevel(this,State->PendingBattle.MapPackage,true,TEXT("game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode"));return;
+        }
+    }
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaQualification"))){if(!bDone)TickFourFactionAlphaQualification(Seconds);return;}
     FString ControlledAttacker;
     if(FParse::Value(FCommandLine::Get(),TEXT("SoulControlledBattle="),ControlledAttacker)
         && !FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignLoadProof")))

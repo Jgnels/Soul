@@ -11,6 +11,10 @@ public:
     virtual void BeginPlay() override;
     virtual void Tick(float Seconds) override;
 private:
+    bool bAlphaBattleTravel = false;
+    double AlphaNextActionTime = 0;
+    void TickFourFactionAlphaQualification(float Seconds);
+    double AlphaProofNextTime = 0;
     void TickCompositionTraversal(float Seconds);
     void TickSixFactionQualification(float Seconds);
     void TickControlledBattleQualification(float Seconds);

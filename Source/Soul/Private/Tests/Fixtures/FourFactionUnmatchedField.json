@@ -1,0 +1,486 @@
+{
+  "player_region": "southern_crossing",
+  "enemy_region": "orc_camp",
+  "player_faction": "humans",
+  "enemy_faction": "orcs",
+  "day": 36,
+  "ap": 3,
+  "max_ap": 3,
+  "ordinal": 1,
+  "won": true,
+  "hired": false,
+  "army": {
+    "human_knight": 45
+  },
+  "enemies": {},
+  "resources": {
+    "gold": 19250
+  },
+  "income": {
+    "gold": 450
+  },
+  "pools": {
+    "human_knight": 24
+  },
+  "owners": {
+    "viking_harbour": "vikings",
+    "viking_fjord_ridge": "vikings",
+    "viking_forest_track": "vikings",
+    "viking_snow_pass": "vikings",
+    "mountain_shrine": "dwarves",
+    "northwest_march": "vikings",
+    "dwarf_high_quarry": "vikings",
+    "dwarf_snow_basin": "orcs",
+    "dwarf_forge_approach": "orcs",
+    "dwarf_hold": "orcs",
+    "dwarf_mountain_pass": "vikings",
+    "human_capital": "vikings",
+    "crossroads": "vikings",
+    "old_quarry": "None",
+    "river_ford": "vikings",
+    "forest_edge": "vikings",
+    "ancient_shrine": "None",
+    "orc_watch": "dwarves",
+    "north_pass": "vikings",
+    "orc_camp": "orcs",
+    "orc_badlands": "orcs",
+    "orc_war_camp": "orcs",
+    "orc_ruined_field": "orcs",
+    "orc_broken_bridge": "orcs",
+    "coastal_ruins": "vikings",
+    "nature_shrine": "vikings",
+    "nature_forest_clearing": "nature",
+    "nature_treehold": "nature",
+    "nature_river_woodland": "vikings",
+    "nature_grassland_edge": "vikings",
+    "southern_crossing": "humans",
+    "dark_corrupted_valley": "dwarves",
+    "dark_ruined_causeway": "dwarves",
+    "dark_ash_plain": "dwarves",
+    "dark_castle_approach": "dark",
+    "dark_fortress": "dark"
+  },
+  "rewarded": [
+    "river_ford",
+    "southern_crossing"
+  ],
+  "resolved": [
+    "encounter.5.1.dwarf_mountain_pass.mountain_shrine"
+  ],
+  "explored": [
+    "coastal_ruins",
+    "crossroads",
+    "dark_corrupted_valley",
+    "forest_edge",
+    "human_capital",
+    "nature_grassland_edge",
+    "northwest_march",
+    "old_quarry",
+    "orc_broken_bridge",
+    "orc_watch",
+    "river_ford",
+    "southern_crossing"
+  ],
+  "hero_kind": 0,
+  "hero": {
+    "Level": 2,
+    "Mana": 80,
+    "max_mana": 80,
+    "Points": 2,
+    "xp": 280
+  },
+  "skills": {},
+  "spells": [
+    "Magic.Spell.Fire.Firebolt"
+  ],
+  "result_id": "encounter.5.1.dwarf_mountain_pass.mountain_shrine",
+  "result_target": "mountain_shrine",
+  "result_won": true,
+  "result": {
+    "Enemy": 0,
+    "enemy_waves": 4,
+    "Magic": 0,
+    "Player": 11,
+    "player_waves": 4
+  },
+  "result_mana": 0,
+  "profile": "Soul.Composition3500.FourFactionAlpha",
+  "six_faction_version": 1,
+  "alpha_turn_day": 36,
+  "alpha_cursor": 3,
+  "alpha_seed": 1702,
+  "alpha_recap": "Day 36 activity\ndwarves: moved to Corrupted Valley.\norcs: captured Broken Bridge.\nvikings: captured High Quarry.",
+  "canonical_regions": [
+    {
+      "id": "ancient_shrine",
+      "owner": "None"
+    },
+    {
+      "id": "coastal_ruins",
+      "owner": "vikings"
+    },
+    {
+      "id": "crossroads",
+      "owner": "vikings"
+    },
+    {
+      "id": "dark_ash_plain",
+      "owner": "dwarves"
+    },
+    {
+      "id": "dark_castle_approach",
+      "owner": "dark"
+    },
+    {
+      "id": "dark_corrupted_valley",
+      "owner": "dwarves"
+    },
+    {
+      "id": "dark_fortress",
+      "owner": "dark"
+    },
+    {
+      "id": "dark_ruined_causeway",
+      "owner": "dwarves"
+    },
+    {
+      "id": "dwarf_forge_approach",
+      "owner": "orcs"
+    },
+    {
+      "id": "dwarf_high_quarry",
+      "owner": "vikings"
+    },
+    {
+      "id": "dwarf_hold",
+      "owner": "orcs"
+    },
+    {
+      "id": "dwarf_mountain_pass",
+      "owner": "vikings"
+    },
+    {
+      "id": "dwarf_snow_basin",
+      "owner": "orcs"
+    },
+    {
+      "id": "forest_edge",
+      "owner": "vikings"
+    },
+    {
+      "id": "human_capital",
+      "owner": "vikings"
+    },
+    {
+      "id": "mountain_shrine",
+      "owner": "dwarves"
+    },
+    {
+      "id": "nature_forest_clearing",
+      "owner": "nature"
+    },
+    {
+      "id": "nature_grassland_edge",
+      "owner": "vikings"
+    },
+    {
+      "id": "nature_river_woodland",
+      "owner": "vikings"
+    },
+    {
+      "id": "nature_shrine",
+      "owner": "vikings"
+    },
+    {
+      "id": "nature_treehold",
+      "owner": "nature"
+    },
+    {
+      "id": "north_pass",
+      "owner": "vikings"
+    },
+    {
+      "id": "northwest_march",
+      "owner": "vikings"
+    },
+    {
+      "id": "old_quarry",
+      "owner": "None"
+    },
+    {
+      "id": "orc_badlands",
+      "owner": "orcs"
+    },
+    {
+      "id": "orc_broken_bridge",
+      "owner": "orcs"
+    },
+    {
+      "id": "orc_camp",
+      "owner": "orcs"
+    },
+    {
+      "id": "orc_ruined_field",
+      "owner": "orcs"
+    },
+    {
+      "id": "orc_war_camp",
+      "owner": "orcs"
+    },
+    {
+      "id": "orc_watch",
+      "owner": "dwarves"
+    },
+    {
+      "id": "river_ford",
+      "owner": "vikings"
+    },
+    {
+      "id": "southern_crossing",
+      "owner": "humans"
+    },
+    {
+      "id": "viking_fjord_ridge",
+      "owner": "vikings"
+    },
+    {
+      "id": "viking_forest_track",
+      "owner": "vikings"
+    },
+    {
+      "id": "viking_harbour",
+      "owner": "vikings"
+    },
+    {
+      "id": "viking_snow_pass",
+      "owner": "vikings"
+    }
+  ],
+  "other_faction_states": [
+    {
+      "faction": "dwarves",
+      "army_id": "dwarves.primary",
+      "army_owner": "dwarves",
+      "region": "dark_corrupted_valley",
+      "unit": "dwarf_warrior",
+      "troops": 23,
+      "day": 36,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 17070
+      },
+      "income": {
+        "gold": 450
+      },
+      "recruitment_pools": {
+        "dwarf_warrior": 16
+      },
+      "explored": [
+        "ancient_shrine",
+        "coastal_ruins",
+        "crossroads",
+        "dark_ash_plain",
+        "dark_castle_approach",
+        "dark_corrupted_valley",
+        "dark_fortress",
+        "dark_ruined_causeway",
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_hold",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin",
+        "forest_edge",
+        "human_capital",
+        "mountain_shrine",
+        "nature_forest_clearing",
+        "nature_grassland_edge",
+        "nature_river_woodland",
+        "nature_shrine",
+        "nature_treehold",
+        "north_pass",
+        "northwest_march",
+        "old_quarry",
+        "orc_badlands",
+        "orc_broken_bridge",
+        "orc_camp",
+        "orc_ruined_field",
+        "orc_war_camp",
+        "orc_watch",
+        "river_ford",
+        "southern_crossing",
+        "viking_snow_pass"
+      ],
+      "visible": [
+        "dark_ash_plain",
+        "dark_corrupted_valley",
+        "dark_ruined_causeway",
+        "southern_crossing"
+      ]
+    },
+    {
+      "faction": "orcs",
+      "army_id": "orcs.primary",
+      "army_owner": "orcs",
+      "region": "orc_broken_bridge",
+      "unit": "orc_hammer_warrior",
+      "troops": 30,
+      "day": 36,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 18750
+      },
+      "income": {
+        "gold": 450
+      },
+      "recruitment_pools": {
+        "orc_hammer_warrior": 24
+      },
+      "explored": [
+        "coastal_ruins",
+        "crossroads",
+        "dark_ash_plain",
+        "dark_castle_approach",
+        "dark_corrupted_valley",
+        "dark_fortress",
+        "dark_ruined_causeway",
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_hold",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin",
+        "forest_edge",
+        "human_capital",
+        "mountain_shrine",
+        "nature_forest_clearing",
+        "nature_grassland_edge",
+        "nature_river_woodland",
+        "nature_shrine",
+        "nature_treehold",
+        "north_pass",
+        "northwest_march",
+        "old_quarry",
+        "orc_badlands",
+        "orc_broken_bridge",
+        "orc_camp",
+        "orc_ruined_field",
+        "orc_war_camp",
+        "orc_watch",
+        "river_ford",
+        "southern_crossing"
+      ],
+      "visible": [
+        "dark_ruined_causeway",
+        "orc_broken_bridge",
+        "orc_ruined_field",
+        "southern_crossing"
+      ]
+    },
+    {
+      "faction": "vikings",
+      "army_id": "vikings.primary",
+      "army_owner": "vikings",
+      "region": "dwarf_high_quarry",
+      "unit": "viking_axe_warrior",
+      "troops": 20,
+      "day": 36,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 15950
+      },
+      "income": {
+        "gold": 450
+      },
+      "recruitment_pools": {
+        "viking_axe_warrior": 8
+      },
+      "explored": [
+        "ancient_shrine",
+        "coastal_ruins",
+        "crossroads",
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin",
+        "forest_edge",
+        "human_capital",
+        "mountain_shrine",
+        "nature_forest_clearing",
+        "nature_grassland_edge",
+        "nature_river_woodland",
+        "nature_shrine",
+        "nature_treehold",
+        "north_pass",
+        "northwest_march",
+        "old_quarry",
+        "orc_camp",
+        "orc_war_camp",
+        "orc_watch",
+        "river_ford",
+        "southern_crossing",
+        "viking_fjord_ridge",
+        "viking_forest_track",
+        "viking_harbour",
+        "viking_snow_pass"
+      ],
+      "visible": [
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin"
+      ]
+    },
+    {
+      "faction": "nature",
+      "army_id": "nature.primary",
+      "army_owner": "nature",
+      "region": "nature_treehold",
+      "unit": "nature_bear_warrior",
+      "troops": 30,
+      "day": 36,
+      "ap": 3,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "recruitment_pools": {},
+      "explored": [
+        "nature_forest_clearing",
+        "nature_treehold"
+      ],
+      "visible": [
+        "nature_forest_clearing",
+        "nature_river_woodland",
+        "nature_treehold"
+      ]
+    },
+    {
+      "faction": "dark",
+      "army_id": "dark.primary",
+      "army_owner": "dark",
+      "region": "dark_fortress",
+      "unit": "None",
+      "troops": 30,
+      "day": 36,
+      "ap": 3,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "recruitment_pools": {},
+      "explored": [
+        "dark_castle_approach",
+        "dark_fortress"
+      ],
+      "visible": [
+        "dark_ash_plain",
+        "dark_castle_approach",
+        "dark_fortress"
+      ]
+    }
+  ]
+}

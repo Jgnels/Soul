@@ -33,6 +33,7 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
         && !MapPackage.IsNone() && !ReturnMapPackage.IsNone()
         && PlayerStrategicCount > 0 && EnemyStrategicCount > 0
         && ActiveCapPerSide > 0 && ActiveCapPerSide <= 35
+        && TacticalPlayerSide >= 0 && TacticalPlayerSide <= 1
         && PlayerMana >= 0
         && SupportsExactPair(PlayerFaction, PlayerUnitId, EnemyFaction, EnemyUnitId);
 }

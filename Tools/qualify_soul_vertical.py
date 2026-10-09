@@ -186,7 +186,8 @@ def main():
     authored_human = ("-SoulHumanSettlementProof" in args.ue_arg
         and "-SoulAuthoredSettlementQualification" in args.ue_arg
         and args.completion_marker in ("SOUL_AUTHORED_SETTLEMENT_PASS", "SOUL_AUTHORED_FRESH_LOAD_PASS"))
-    completion_limit = 7200 if authored_human else 900
+    alpha_campaign = "-SoulFourFactionAlpha" in args.ue_arg and "-SoulAlphaQualification" in args.ue_arg
+    completion_limit = 7200 if authored_human or alpha_campaign else 900
     if args.completion_marker and not args.duration <= args.completion_timeout <= completion_limit:
         p.error(f"completion-timeout must be >=duration and <={completion_limit} seconds")
     if args.stage != "G0" and (not args.map_url or args.expected_active_units < 2):

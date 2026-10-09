@@ -33,7 +33,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualReaction(int32 Side, E
     if(FormationRole==ESoulRealtimeFormationRole::Ranged) Path=TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Stunned_Start.Stunned_Start");
     else if(FormationRole==ESoulRealtimeFormationRole::Apex && Side==0) Path=TEXT("/Game/QuadrapedCreatures/Griffon/Animations/ANIM_Griffon_FlyGetHitStationary.ANIM_Griffon_FlyGetHitStationary");
     else if(FormationRole==ESoulRealtimeFormationRole::Apex) Path=TEXT("/Game/QuadrapedCreatures/MountainDragon/Animations/ANIM_MOUNTAIN_DRAGON_FlyStationaryGetHit.ANIM_MOUNTAIN_DRAGON_FlyStationaryGetHit");
-    else if(FormationRole==ESoulRealtimeFormationRole::Hero && Side==0) Path=TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Stun_Start.Stun_Start");
+    else if(FormationRole==ESoulRealtimeFormationRole::Hero && CampaignVisualSide(Side)==0) Path=TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Stun_Start.Stun_Start");
     else if(FormationRole==ESoulRealtimeFormationRole::Breaker && Side==0) Path=TEXT("/Game/AfricanAnimalsPack/Elephant/Animations/ANIM_Elephant_GetHit.ANIM_Elephant_GetHit");
     else if(FormationRole==ESoulRealtimeFormationRole::Breaker && UsesEvilVisualRoster()) Path=TEXT("/Game/Kraken/Animations/KRAKEN_getHit.KRAKEN_getHit");
     else if(Side==0 || !UsesEvilVisualRoster()) Path=TEXT("/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1.Anim_Warrior_Get_Hit_1");
@@ -72,7 +72,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveStanceAnimation(int32 Side, 
         static const TCHAR* Clips[]={TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Jog_Fwd.Jog_Fwd"),TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Jog_Bwd.Jog_Bwd"),TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Jog_Left.Jog_Left"),TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Jog_Right.Jog_Right")};
         return Mode==5 ? ResolveVisualAnimation(Side,false,FormationRole) : LoadObject<UAnimationAsset>(nullptr,Clips[FMath::Clamp(Mode-1,0,3)]);
     }
-    if(Side==0 && FormationRole==ESoulRealtimeFormationRole::Hero)
+    if(CampaignVisualSide(Side)==0 && FormationRole==ESoulRealtimeFormationRole::Hero)
     {
         static const TCHAR* Clips[]={TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Fwd_Combat.Jog_Fwd_Combat"),TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Bwd_Combat.Jog_Bwd_Combat"),TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Left_Combat.Jog_Left_Combat"),TEXT("/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Right_Combat.Jog_Right_Combat")};
         return Mode==5 ? ResolveVisualAnimation(Side,false,FormationRole) : LoadObject<UAnimationAsset>(nullptr,Clips[FMath::Clamp(Mode-1,0,3)]);

@@ -618,7 +618,7 @@ FString ASoulRealtimeArenaGameMode::ReinforcementSummary(int32 Side) const
         : NextBodies > 0 ? FString::Printf(TEXT("next +%d ready"), NextBodies)
             : TEXT("waiting for frontline losses");
     FString Summary = FString::Printf(TEXT("%s: %d reserve | %s"),
-        Side == 0 ? TEXT("Allies") : TEXT("Enemy"), Reserve, *Readiness);
+        Side == ControlledSide ? TEXT("Allies") : TEXT("Enemy"), Reserve, *Readiness);
     if (ReinforcementWaves[Side] > 0)
         Summary += FString::Printf(TEXT(" | Last arrival: +%d (wave %d)"),
             LastReinforcementBodies[Side], ReinforcementWaves[Side]);
@@ -634,7 +634,7 @@ FString ASoulRealtimeArenaGameMode::AlliedOrderSummary() const
         for (const auto& Member : Group.Members)
         {
             const int32 I = Index(Member);
-            if (I != INDEX_NONE && Combatants[I].Side == 0 && Combatants[I].Health > 0)
+            if (I != INDEX_NONE && Combatants[I].Side == ControlledSide && Combatants[I].Health > 0)
             { AlliedAndAlive = true; break; }
         }
         if (!AlliedAndAlive) continue;
@@ -662,12 +662,12 @@ FString ASoulRealtimeArenaGameMode::TacticalSummary() const
         Morale[State.Side] += State.MoralePermille;
         Routing[State.Side] += State.bRouting ? 1 : 0;
     }
-    const int32 AlliedMorale = Living[0] > 0 ? Morale[0] / Living[0] : 0;
-    const int32 EnemyMorale = Living[1] > 0 ? Morale[1] / Living[1] : 0;
+    const int32 AlliedMorale = Living[ControlledSide] > 0 ? Morale[ControlledSide] / Living[ControlledSide] : 0;
+    const int32 EnemyMorale = Living[1-ControlledSide] > 0 ? Morale[1-ControlledSide] / Living[1-ControlledSide] : 0;
     return FString::Printf(
         TEXT("%s  |  Morale A %d%% (%d routing)  E %d%% (%d routing)"),
         FSoulRealtimeTacticalRules::PhaseLabel(BattlePhase),
-        AlliedMorale / 10, Routing[0], EnemyMorale / 10, Routing[1]);
+        AlliedMorale / 10, Routing[ControlledSide], EnemyMorale / 10, Routing[1-ControlledSide]);
 }
 
 FString ASoulRealtimeArenaGameMode::SpellSummary() const
@@ -679,7 +679,7 @@ int32 ASoulRealtimeArenaGameMode::AlliedFormationCount() const
 {
     int32 Count = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
-        if (State.Side == 0) ++Count;
+        if (State.Side == ControlledSide) ++Count;
     return Count;
 }
 
@@ -688,7 +688,7 @@ FString ASoulRealtimeArenaGameMode::AlliedFormationSummary(int32 Slot) const
     int32 CurrentSlot = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
     {
-        if (State.Side != 0) continue;
+        if (State.Side != ControlledSide) continue;
         if (CurrentSlot++ != Slot) continue;
         FRBCombatGroup Core;
         const TCHAR* Order = TEXT("HOLD");
@@ -724,7 +724,7 @@ FString ASoulRealtimeArenaGameMode::SelectedFormationSummary() const
     int32 Slot = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
     {
-        if (State.Side != 0) continue;
+        if (State.Side != ControlledSide) continue;
         if (State.GroupIndex == SelectedAlliedFormation)
             return AlliedFormationSummary(Slot);
         ++Slot;
@@ -1237,6 +1237,9 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             EnemyVisualFaction = Encounter->EnemyFaction;
             EnemyVisualUnitId = Encounter->EnemyUnitId;
             EnemyVisualRegion = Encounter->TargetRegion;
+            ControlledSide = Encounter->TacticalPlayerSide;
+            bCampaignAutoResolve = Encounter->bAutoResolve;
+            bAutobattle = bAutobattle || Encounter->bAutoResolve;
             PlayerMana = static_cast<float>(Encounter->PlayerMana);
             // Automatic casting belongs to explicit qualification. Normal play
             // uses the existing [1] input and must not spend mana on its own.
@@ -1588,7 +1591,7 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
         // Reserve one existing active slot for the player even in small armies.
         // A separate command formation is optional; an embodied camera is not.
         const bool bPlayer =
-            !bProof && !bAutobattle && Side == 0 && !PlayerHero && I == 0;
+            !bProof && !bAutobattle && Side == ControlledSide && !PlayerHero && I == 0;
         if (bPlayer) MemberRole = ESoulRealtimeFormationRole::Hero;
         if (!SpawnCombatant(
                 Side, MemberRole, GroupIndex, Location, bPlayer))
@@ -2041,6 +2044,7 @@ bool ASoulRealtimeArenaGameMode::UsesVikingCampaignRoster(int32 Side) const
 }
 ESoulRealtimeFormationRole ASoulRealtimeArenaGameMode::CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const
 {
+    if (!bAutobattle && ControlledSide==1 && Side==ControlledSide && Requested==ESoulRealtimeFormationRole::Hero && CampaignFactionForSide(Side)==TEXT("humans")) return Requested;
     return (UsesControlledExactInfantry()||UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side)||UsesNatureCampaignRoster(Side))?ESoulRealtimeFormationRole::Line:Requested;
 }
 bool ASoulRealtimeArenaGameMode::UsesEvilVisualRoster() const
@@ -2357,7 +2361,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         UE_LOG(LogTemp, Error, TEXT("SOUL_PBIL_REGISTER_FAIL: side=%d id=%s"), Side, *Data.Id.ToString());
         return false;
     }
-    if (Side == 0 && !PlayerHero) PlayerHero = Actor;
+    if (bAutobattle && Side == ControlledSide && !PlayerHero) PlayerHero = Actor;
     return Actors.Num() == Combatants.Num() &&
         Bindings.Num() == Combatants.Num() &&
         Ranged.Num() == Combatants.Num() &&
@@ -2579,7 +2583,7 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
             Side,Existing.GroupIndex,Count,*ArrivalAnchor.ToCompactString());
         bSpawnCommitted=true;
         PushBattleNotice(FString::Printf(TEXT("%s reinforcements: %d troops"),
-            Side==0?TEXT("Your"):TEXT("Enemy"),Count),Side);
+            Side==ControlledSide?TEXT("Your"):TEXT("Enemy"),Count),Side);
         return true;
     }
 
@@ -2611,7 +2615,7 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     Drivers.Add(Driver);
     bSpawnCommitted = RefreshDriverRepresentations();
     if(bSpawnCommitted) PushBattleNotice(FString::Printf(TEXT("%s reinforcements: %d troops"),
-        Side==0?TEXT("Your"):TEXT("Enemy"),Count),Side);
+        Side==ControlledSide?TEXT("Your"):TEXT("Enemy"),Count),Side);
     return bSpawnCommitted;
 }
 
@@ -2859,7 +2863,7 @@ void ASoulRealtimeArenaGameMode::SelectNextAlliedFormation()
 {
     TArray<int32> AlliedGroups;
     for (const FSoulBattleFormationState& State : TacticalFormations)
-        if (State.Side == 0 && AliveInGroup(State.GroupIndex) > 0)
+        if (State.Side == ControlledSide && AliveInGroup(State.GroupIndex) > 0)
             AlliedGroups.Add(State.GroupIndex);
 
     if (AlliedGroups.IsEmpty())
@@ -2894,7 +2898,7 @@ void ASoulRealtimeArenaGameMode::SelectAlliedFormationSlot(int32 Slot)
     int32 CurrentSlot = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
     {
-        if (State.Side != 0) continue;
+        if (State.Side != ControlledSide) continue;
         if (CurrentSlot++ != Slot) continue;
         bSelectAllAllies = false;
         SelectedAlliedFormation = State.GroupIndex;
@@ -2998,7 +3002,7 @@ void ASoulRealtimeArenaGameMode::CommandSelectedAllies(
     int32 Eligible = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
     {
-        if (State.Side != 0 || State.bRouting || AliveInGroup(State.GroupIndex) <= 0 ||
+        if (State.Side != ControlledSide || State.bRouting || AliveInGroup(State.GroupIndex) <= 0 ||
             (!bSelectAllAllies &&
              State.GroupIndex != SelectedAlliedFormation))
             continue;
@@ -3045,7 +3049,7 @@ void ASoulRealtimeArenaGameMode::ReturnSelectedAlliesToAI()
     int32 Changed = 0;
     for (auto& State : TacticalFormations)
     {
-        if (State.Side != 0 || (!bSelectAllAllies && State.GroupIndex != SelectedAlliedFormation)) continue;
+        if (State.Side != ControlledSide || (!bSelectAllAllies && State.GroupIndex != SelectedAlliedFormation)) continue;
         State.ManualOverrideUntil = -1.0f;
         ++Changed;
     }
@@ -3081,7 +3085,7 @@ void ASoulRealtimeArenaGameMode::UpdateDefeatedRepresentations()
         }
 
         DefeatedRepresentations.Add(I);
-        if(Actors[I]==PlayerHero) PushBattleNotice(TEXT("Hero fallen - command your army"),0);
+        if(Actors[I]==PlayerHero) PushBattleNotice(TEXT("Hero fallen - command your army"),ControlledSide);
         const int32 GroupIndex = Combatants[I].GroupIndex;
         if (Groups.IsValidIndex(GroupIndex) && Groups[GroupIndex].Leader.Id == Combatants[I].Id)
         {
@@ -3154,7 +3158,7 @@ int32 ASoulRealtimeArenaGameMode::FindPlayerSpellTarget(
 
     for (int32 I = 0; I < Combatants.Num(); ++I)
     {
-        if (Combatants[I].Side == 0 ||
+        if (Combatants[I].Side == ControlledSide ||
             Combatants[I].Health <= 0.0f ||
             !Actors.IsValidIndex(I) || !Actors[I])
             continue;
@@ -3592,7 +3596,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
         const FVector Aim = PlayerHero->GetActorForwardVector();
         for (int32 I = 0; I < Combatants.Num(); ++I)
         {
-            if (Combatants[I].Side == 0 ||
+            if (Combatants[I].Side == ControlledSide ||
                 Combatants[I].Health <= 0.0f || !Actors[I])
                 continue;
             const FVector Delta =
@@ -3676,6 +3680,7 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
         return;
     }
     if (bReadabilityProof) TickReadabilityProof();
+    TickHumanDefenseQualification();
     // Camera inspection remains available after resolution as well as during pause.
     if (!bAutobattle && !Combatants.IsEmpty()) PlayerTick(Seconds);
     TickCombatPresentation(bBattlePaused ? 0.f : Seconds);
@@ -4009,7 +4014,7 @@ void ASoulRealtimeArenaGameMode::UpdateFormationMorale()
             State.RoutingSeconds = 0.0f;
             ++RoutedSides[State.Side];
             PushBattleNotice(FString::Printf(TEXT("%s %s is routing"),
-                State.Side==0?TEXT("Your"):TEXT("Enemy"),
+                State.Side==ControlledSide?TEXT("Your"):TEXT("Enemy"),
                 FSoulRealtimeTacticalRules::FormationKindLabel(State.Kind)),State.Side);
             UE_LOG(LogTemp, Display,
                 TEXT("SOUL_FORMATION_ROUT: side=%d group=%d kind=%s morale=%d"),
@@ -4026,7 +4031,7 @@ void ASoulRealtimeArenaGameMode::UpdateFormationMorale()
             State.bRallied = true;
             State.RallyGraceUntil = BattleElapsed + 8.0f;
             PushBattleNotice(FString::Printf(TEXT("%s %s has rallied"),
-                State.Side==0?TEXT("Your"):TEXT("Enemy"),
+                State.Side==ControlledSide?TEXT("Your"):TEXT("Enemy"),
                 FSoulRealtimeTacticalRules::FormationKindLabel(State.Kind)),State.Side);
             UE_LOG(LogTemp, Display,
                 TEXT("SOUL_FORMATION_RALLY: side=%d group=%d morale=%d"),
@@ -4323,9 +4328,10 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         FinishProof(false, TEXT("Battle resolved without required PBIL query and RB Combat order participation"));
         return;
     }
-    BattleResultLabel = bWon
-        ? (bSideMoraleDefeated[1] ? TEXT("VICTORY / ENEMY ROUTED") : TEXT("VICTORY"))
-        : (bSideMoraleDefeated[0] ? TEXT("DEFEAT / ARMY ROUTED") : TEXT("DEFEAT"));
+    const bool bHumanWon = ControlledSide == 0 ? bWon : EnemySurvivors > 0 && PlayerSurvivors == 0;
+    BattleResultLabel = bHumanWon
+        ? (bSideMoraleDefeated[1-ControlledSide] ? TEXT("VICTORY / ENEMY ROUTED") : TEXT("VICTORY"))
+        : (bSideMoraleDefeated[ControlledSide] ? TEXT("DEFEAT / ARMY ROUTED") : TEXT("DEFEAT"));
     if (bCampaignBattle)
     {
         auto* Bridge = GetGameInstance()->GetSubsystem<USoulCampaignBattleBridge>();

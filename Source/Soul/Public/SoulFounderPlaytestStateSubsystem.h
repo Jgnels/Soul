@@ -14,6 +14,7 @@ struct FSoulControlledCampaignAction
 {
     FName FactionId, ArmyId, SourceRegion, TargetRegion;
     FString ExpectedProfile, ExpectedCampaignState;
+    int32 RecruitQuantity = 0; // Zero is travel; positive uses the same finite recruitment authority.
     uint32 ExpectedLoadRevision = 0;
 };
 
@@ -80,6 +81,12 @@ public:
     FSoulCampaignBattleResult LastBattleResult;
     static const TArray<FName>& HumanPlaytestRoster();
     FString BuildSummary() const;
+    bool IsFourFactionAlpha() const { return bFourFactionAlpha; }
+    bool IsAlphaTurnActive() const { return bFourFactionAlpha && AlphaNextFaction<3; }
+    bool IsAlphaActiveFaction(FName Id) const;
+    void RunNextAlphaAction();
+    bool PrepareControlledRecruitment(FName Id,int32 Quantity,FSoulControlledCampaignAction& Out,FString& Error) const;
+    int32 GetAlphaSeed() const { return AlphaSeed; }
     bool IsSixFactionProfile() const { return bSixFactionProfile; }
     bool InspectFactionArmy(FName FactionId, FSoulFactionCampaignState& Out) const;
     bool MoveFactionArmy(FName FactionId, FName TargetRegion, FString& OutError);
@@ -95,6 +102,11 @@ public:
 private:
     // Human state stays in the existing founder fields, never mirrored here.
     // All factions use this existing Soul.Campaign RBSave provider.
+    bool bFourFactionAlpha = false;
+    int32 AlphaNextFaction = 3, AlphaSeed = 1701, AlphaTurnDay = 0;
+    void InitializeFourFactionAlpha();
+    bool ValidateControlledRecruitment(FName Id,FName ArmyId,FName Region,int32 Quantity,FString& Error) const;
+    bool ExecuteControlledRecruitment(const FSoulControlledCampaignAction& A,FString& Error);
     bool bSixFactionProfile = false;
     FString SixFactionSaveSlot = TEXT("Soul.Composition3500.SixFactionProof");
     TMap<FName, FSoulFactionCampaignState> OtherFactionStates;

@@ -27,6 +27,8 @@ bool ASoulSettlementVisitGameMode::CanVisit(const USoulFounderPlaytestStateSubsy
     auto Reject = [&OutError](const TCHAR* Reason) { OutError = Reason; return false; };
     if (!Campaign || !Campaign->IsSettlementDevelopmentReady())
         return Reject(TEXT("The settlement development environment is not ready."));
+    if (Campaign->IsAlphaTurnActive())
+        return Reject(TEXT("Wait for the other factions to finish their turns before visiting."));
     const auto* Scenario = Campaign->GetSettlementScenario();
     const auto* Region = Campaign->World.Regions.Find(Scenario->RegionId);
     const auto* Authority = Campaign->GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>();
@@ -116,7 +118,12 @@ void ASoulSettlementVisitGameMode::HandleAction(FName Action)
     {
         if (State->BeginSettlementConstruction(State->GetTavernBuildingId(), LastMessage)) LastMessage = State->GetDevelopmentBuildingName() + TEXT(" construction started.");
     }
-    else if (Action == TEXT("EndDay")) { State->AdvanceDay(); LastMessage = TEXT("A new day begins."); }
+    else if (Action == TEXT("EndDay"))
+    {
+        State->AdvanceDay(); LastMessage = TEXT("A new day begins.");
+        // AI turns run in the existing campaign mode, never a second scheduler in the city.
+        if(State->IsFourFactionAlpha() && State->IsAlphaTurnActive()){HandleAction(TEXT("Return"));return;}
+    }
     else if (Action == TEXT("Hire"))
         LastMessage = State->HireTavernHero() ? TEXT("Tavern companion hired.")
             : TEXT("Hiring requires an operational tavern, 1200 gold and an available companion.");

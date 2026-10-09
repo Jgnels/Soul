@@ -300,6 +300,11 @@ private:
     void FinishBattle();
     bool bMapOnly = false;
     bool bAutobattle = false;
+    bool bCampaignAutoResolve = false;
+    int32 ControlledSide = 0;
+    bool bDefenseControlChecked = false;
+    void TickHumanDefenseQualification();
+    friend class FSoulHumanDefenseControlTest;
     bool bQualification = false;
     bool bTacticalMagic = false;
     bool bCampaignBattle = false;

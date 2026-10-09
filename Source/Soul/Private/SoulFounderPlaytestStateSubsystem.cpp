@@ -111,7 +111,13 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     const bool bVikingMatchupProof = FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof"));
     if(bVikingMatchupProof&&(!bComposition||bAuthoredEnvironmentProof||FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"))))
     {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_VIKING_PROOF_FAIL requires isolated Composition fixture"));return;}
-    const bool bSixFactionRequested = FParse::Param(FCommandLine::Get(),TEXT("SoulSixFactionProof"));
+    const bool bAlphaRequested=FParse::Param(FCommandLine::Get(),TEXT("SoulFourFactionAlpha"));
+    const bool bSixFactionRequested = bAlphaRequested || FParse::Param(FCommandLine::Get(),TEXT("SoulSixFactionProof"));
+    FString ConflictingControlled;
+    if(bAlphaRequested && (FParse::Value(FCommandLine::Get(),TEXT("SoulControlledBattle="),ConflictingControlled)
+        || FParse::Param(FCommandLine::Get(),TEXT("SoulControlledTurn"))
+        || (FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaDefenseProof")) && FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaAttackProof")))))
+    {UE_LOG(LogSoulCampaign,Error,TEXT("Alpha cannot share a controlled qualification slot."));return;}
     if(bSixFactionRequested&&(!bComposition||bAuthoredEnvironmentProof||bVikingMatchupProof||FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"))))
     {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_SIX_FACTION_FAIL requires isolated Composition profile"));return;}
     const bool bOrcMatchupProof = FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"));
@@ -327,7 +333,7 @@ bool USoulFounderPlaytestStateSubsystem::ValidateSettlementDevelopmentBinding(FS
     const auto* Region = SettlementScenario ? World.Regions.Find(SettlementScenario->RegionId) : nullptr;
     if (!Settlement || !Region || Settlement->RegionId != SettlementScenario->RegionId
         || Settlement->FactionId != SettlementScenario->FactionId || Settlement->FactionId != PlayerFaction
-        || Region->OwnerFactionId != PlayerFaction)
+        || (!bFourFactionAlpha && Region->OwnerFactionId != PlayerFaction))
     {
         OutError = TEXT("Saved settlement region or ownership differs from the proof binding; saved state was preserved.");
         return false;
@@ -343,7 +349,7 @@ bool USoulFounderPlaytestStateSubsystem::BeginSettlementConstruction(FName Build
     const auto* Region = World.Regions.Find(SettlementScenario->RegionId);
     auto* Settlement = SettlementAuthority->FindSettlement(SettlementScenario->SettlementId);
     const auto* Definition = SettlementScenario->FindDevelopmentDefinition(BuildingId);
-    if (HasPendingBattle() || bPersistenceBusy || PlayerRegion != SettlementScenario->RegionId
+    if (HasPendingBattle() || bPersistenceBusy || IsAlphaTurnActive() || PlayerRegion != SettlementScenario->RegionId
         || !Region || Region->OwnerFactionId != PlayerFaction || !Settlement
         || Settlement->FactionId != PlayerFaction || Settlement->RegionId != PlayerRegion || !Definition)
     { OutError = TEXT("Construction requires the owned current settlement, a defined building and no active battle or save operation."); return false; }
@@ -397,7 +403,7 @@ bool USoulFounderPlaytestStateSubsystem::HasHostileGarrison(FName RegionId) cons
         for(const auto& P:OtherFactionStates)
             if(P.Value.Army.RegionId==RegionId && P.Key==World.Regions.FindChecked(RegionId).OwnerFactionId)
                 return P.Value.Army.TroopCount>0;
-        return true; // Unspecified hostile garrison is not permission to occupy.
+        return !bFourFactionAlpha || !IsAlphaActiveFaction(World.Regions.FindChecked(RegionId).OwnerFactionId); // Alpha explicitly models one field army per faction, no hidden garrisons.
     }
     const int32* Defenders = EnemyArmies.Find(RegionId);
     // Only an explicit exhausted ledger permits occupation. Missing force data
@@ -407,6 +413,7 @@ bool USoulFounderPlaytestStateSubsystem::HasHostileGarrison(FName RegionId) cons
 bool USoulFounderPlaytestStateSubsystem::MovePlayerTo(FName Target)
 {
     InitializeScenario();
+    if (IsAlphaTurnActive() || (bFourFactionAlpha && PlayerArmy.FindRef(PlayerUnitId)<=0 && World.Regions.Contains(Target) && World.Regions[Target].OwnerFactionId!=PlayerFaction))return false;
     if (!bInitialized||HasPendingBattle()||bPersistenceBusy||HasHostileGarrison(Target)
         ||(IsHostile(Target)&&PlayerArmy.FindRef(PlayerUnitId)<=0)
         ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)) return false;
@@ -422,6 +429,8 @@ bool USoulFounderPlaytestStateSubsystem::MovePlayerTo(FName Target)
 }
 bool USoulFounderPlaytestStateSubsystem::BuildBattleDescriptor(FName Target,FSoulCampaignBattleDescriptor& Out,FString& Error) const
 {
+    if(bFourFactionAlpha && (IsAlphaTurnActive() || !World.Regions.Contains(Target) || !IsAlphaActiveFaction(World.Regions[Target].OwnerFactionId)))
+    {Error=TEXT("Alpha: wait for your turn; Nature and Dark are nonbelligerent.");return false;}
     if (!bInitialized||HasPendingBattle()||bPersistenceBusy||!IsHostile(Target)
         ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)||PlayerArmy.FindRef(PlayerUnitId)<=0||ArmyCountAtRegion(Target)<=0)
     {Error=TEXT("Encounter requires adjacent hostile forces and a living player army.");return false;}
@@ -468,7 +477,11 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
         if (!Attacker || (PendingBattle.EnemyFaction!=PlayerFaction && !Defender)) return false;
         Attacker->Army.TroopCount=R.PlayerSurvivors;
         if (Defender) Defender->Army.TroopCount=R.EnemySurvivors;
-        else PlayerArmy.FindOrAdd(PendingBattle.EnemyUnitId)=R.EnemySurvivors;
+        else
+        {
+            PlayerArmy.FindOrAdd(PendingBattle.EnemyUnitId)=R.EnemySurvivors;
+            if(PendingBattle.TacticalPlayerSide==1) Hero.Mana=R.PlayerManaRemaining;
+        }
         Attacker->Army.RegionId=R.bPlayerWon?PendingBattle.TargetRegion:PendingBattle.SourceRegion;
         if (R.bPlayerWon) FSoulWorldRules::Capture(World,PendingBattle.TargetRegion,PendingBattle.PlayerFaction);
         FSoulWorldRules::RefreshVision(World,PendingBattle.PlayerFaction,Attacker->Army.RegionId);
@@ -478,6 +491,8 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
         UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CONTROLLED_RESULT attacker=%s defender=%s region=%s owner=%s victory=%d survivors=%d/%d"),
             *PendingBattle.PlayerFaction.ToString(),*PendingBattle.EnemyFaction.ToString(),*Attacker->Army.RegionId.ToString(),
             *World.Regions.FindChecked(PendingBattle.TargetRegion).OwnerFactionId.ToString(),R.bPlayerWon,R.PlayerSurvivors,R.EnemySurvivors);
+        if(bFourFactionAlpha)LastAIReport+=FString::Printf(TEXT("\n%s won at %s; %d troops remain."),
+            *(R.bPlayerWon?PendingBattle.PlayerFaction:PendingBattle.EnemyFaction).ToString(),*RegionDisplayNames.FindRef(R.TargetRegion),R.bPlayerWon?R.PlayerSurvivors:R.EnemySurvivors);
         LastBattleResult=R;ResolvedEncounters.Add(R.EncounterId);PendingBattle=FSoulCampaignBattleDescriptor();return true;
     }
     PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;
@@ -501,16 +516,20 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
     return true;
 }
 void USoulFounderPlaytestStateSubsystem::HandleBattleResolved(const FSoulCampaignBattleResult& R)
-{if(ApplyBattleResult(R)) SaveCampaign();else UE_LOG(LogSoulCampaign,Error,TEXT("Rejected campaign result"));}
+{if(ApplyBattleResult(R)){if(!bFourFactionAlpha)SaveCampaign();}else UE_LOG(LogSoulCampaign,Error,TEXT("Rejected campaign result"));}
+// In the playable alpha, returning from battle preserves GameInstance state but does not overwrite the player's F5 checkpoint.
 void USoulFounderPlaytestStateSubsystem::AdvanceDay()
 {
-    InitializeScenario();if(HasPendingBattle()||bPersistenceBusy)return;
+    InitializeScenario();if(HasPendingBattle()||bPersistenceBusy||IsAlphaTurnActive())return;
     FSoulSettlementState* Settlement = nullptr;
     if (bSettlementDevelopmentRequested)
     {
         if (!IsSettlementDevelopmentReady()) return;
         Settlement = SettlementAuthority->FindSettlement(SettlementScenario->SettlementId);
         if (!Settlement) return;
+        // Occupation changes campaign ownership, not the authored building-state identity.
+        // Preserve construction while occupied; it resumes only after lawful recapture.
+        if(bFourFactionAlpha && World.Regions.FindChecked(SettlementScenario->RegionId).OwnerFactionId!=PlayerFaction) Settlement=nullptr;
     }
     FSoulCampaignRules::AdvanceDay(Economy);
     if(bSixFactionProfile)for(auto& P:OtherFactionStates)FSoulCampaignRules::AdvanceDay(P.Value.Economy);
@@ -518,9 +537,9 @@ void USoulFounderPlaytestStateSubsystem::AdvanceDay()
     Hero.Mana=FMath::Min(Hero.MaxMana,Hero.Mana+6);AdvanceEnemyAI();
 }
 void USoulFounderPlaytestStateSubsystem::AdvanceEnemyAI()
-{if(bSixFactionProfile){LastAIReport=TEXT("Six-faction strategic AI OFF. Only explicit player/qualification actions run.");return;}LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold; no synthetic strategic army bypasses encounter resolution."):TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
+{if(bFourFactionAlpha){if(AlphaTurnDay>=Economy.Day)return;AlphaTurnDay=Economy.Day;AlphaNextFaction=0;LastAIReport=FString::Printf(TEXT("Day %d activity"),Economy.Day);return;}if(bSixFactionProfile){LastAIReport=TEXT("Six-faction strategic AI OFF. Only explicit player/qualification actions run.");return;}LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold; no synthetic strategic army bypasses encounter resolution."):TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
 bool USoulFounderPlaytestStateSubsystem::Recruit(FName Id)
-{InitializeScenario();if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||!FSoulCampaignRules::Recruit(Economy,Id,1))return false;PlayerArmy.FindOrAdd(Id)++;return true;}
+{InitializeScenario();if(IsAlphaTurnActive())return false;if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||(bFourFactionAlpha&&World.Regions.FindChecked(PlayerRegion).OwnerFactionId!=PlayerFaction)||!FSoulCampaignRules::Recruit(Economy,Id,1))return false;PlayerArmy.FindOrAdd(Id)++;return true;}
 bool USoulFounderPlaytestStateSubsystem::ChooseSkill(FName Id)
 {
     if(HasPendingBattle()||bPersistenceBusy||!FSoulHeroRules::SpendSkillPoint(Hero,Id,2))return false;
@@ -650,7 +669,15 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
             else Valid &= Result.FindRef(TEXT("player")) == 0;
         }
     }
+    int32 RestoredCursor=3,RestoredSeed=1701,RestoredTurnDay=0;FString RestoredRecap;
+    if(bFourFactionAlpha)
+        Valid &= ReadNonNegativeInt(*Root,TEXT("alpha_cursor"),RestoredCursor)&&RestoredCursor<=3
+            && ReadNonNegativeInt(*Root,TEXT("alpha_turn_day"),RestoredTurnDay)&&RestoredTurnDay<=Day
+            && (RestoredTurnDay==Day || (Day==1 && RestoredTurnDay==0 && RestoredCursor==3))
+            && ReadNonNegativeInt(*Root,TEXT("alpha_seed"),RestoredSeed)&&RestoredSeed<=1000000
+            && Root->TryGetStringField(TEXT("alpha_recap"),RestoredRecap)&&RestoredRecap.Len()<=4096;
     if(!Valid){Error=TEXT("Campaign snapshot failed validation.");return false;}
+    if(bFourFactionAlpha){AlphaNextFaction=RestoredCursor;AlphaSeed=RestoredSeed;AlphaTurnDay=RestoredTurnDay;LastAIReport=MoveTemp(RestoredRecap);}
     if(bSixFactionProfile){World=MoveTemp(RestoredWorld);OtherFactionStates=MoveTemp(RestoredFactions);}
     for(auto& P:World.Regions)P.Value.OwnerFactionId=FName(*(*Owners)->GetStringField(P.Key.ToString()));
     Economy.Day=Day;Economy.ActionPoints=AP;Economy.MaxActionPoints=MaxAP;Economy.Resources=MoveTemp(Resources);Economy.DailyIncome=MoveTemp(Income);

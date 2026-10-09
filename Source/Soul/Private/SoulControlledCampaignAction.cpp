@@ -1,4 +1,6 @@
 #include "SoulFounderPlaytestStateSubsystem.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 
 bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FName ArmyId,
     FName Source, FName Target, FSoulCampaignBattleDescriptor& Encounter, FString& Error) const
@@ -12,27 +14,37 @@ bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FNam
     if (!FSoulCampaignRules::CanonicalFactions().Contains(Id))
         return Reject(TEXT("REJECT_UNKNOWN_FACTION"));
     FSoulFactionCampaignState F;
-    if (!InspectFactionArmy(Id, F) || F.Army.ArmyId != ArmyId || F.Army.TroopCount <= 0)
+    if (!InspectFactionArmy(Id, F) || F.Army.ArmyId != ArmyId)
         return Reject(TEXT("REJECT_MISSING_ARMY"));
     if (F.Army.FactionId != Id) return Reject(TEXT("REJECT_ARMY_OWNER"));
     if (F.Army.RegionId != Source) return Reject(TEXT("REJECT_STALE_SOURCE"));
     const auto* Origin = World.Regions.Find(Source);
     const auto* Destination = World.Regions.Find(Target);
     if (!Origin || !Destination) return Reject(TEXT("REJECT_INVALID_REGION"));
-    if (Origin->OwnerFactionId != Id) return Reject(TEXT("REJECT_SOURCE_OWNER"));
+    const bool EmptyWithdrawal=bFourFactionAlpha && F.Army.TroopCount==0 && Destination->OwnerFactionId==Id;
+    if(F.Army.TroopCount<=0 && !EmptyWithdrawal)return Reject(TEXT("REJECT_MISSING_ARMY"));
+    if (Origin->OwnerFactionId != Id && !EmptyWithdrawal) return Reject(TEXT("REJECT_SOURCE_OWNER"));
     if (!Destination->OwnerFactionId.IsNone() && !FSoulCampaignRules::CanonicalFactions().Contains(Destination->OwnerFactionId))
         return Reject(TEXT("REJECT_DESTINATION_OWNER"));
     if (!FSoulWorldRules::CanMove(World, Source, Target)) return Reject(TEXT("REJECT_NONADJACENT"));
     const bool Hostile = !Destination->OwnerFactionId.IsNone() && Destination->OwnerFactionId != Id;
+    if(bFourFactionAlpha && (!IsAlphaActiveFaction(Id) || (Hostile&&!IsAlphaActiveFaction(Destination->OwnerFactionId))))
+        return Reject(TEXT("REJECT_ALPHA_PASSIVE_FACTION"));
+    if(bFourFactionAlpha && Id==PlayerFaction && IsAlphaTurnActive())return Reject(TEXT("REJECT_AI_TURN_ACTIVE"));
     const int32 Cost = !Hostile && Id == PlayerFaction && Hero.Skills.FindRef(TEXT("Adventure")) >= 2 ? 0 : 1;
     // Evaluate the same spend rule against a copy; admission never debits live state.
     auto Funds = F.Economy;
     if (!FSoulCampaignRules::SpendAction(Funds, Cost)) return Reject(TEXT("REJECT_INSUFFICIENT_AP"));
-    if (Hostile)
+    if (Hostile && !(bFourFactionAlpha && ArmyCountAtRegion(Target)==0))
     {
         if (!BuildFactionBattleDescriptor(Id, Target, Encounter, Error)) return false;
         const auto* Recipe = BattlefieldTemplates.FindByPredicate([&](const FSoulBattlefieldTemplate& T) { return T.Id==Encounter.BattlefieldId; });
-        if (!Recipe || (!Recipe->Biomes.Contains(Encounter.BattleContext.Biome)
+        // Playable Alpha uses the same already-qualified field fallback as Human attacks.
+        // This admits a provisional battlefield, not a fabricated directed approach or roster.
+        // Earlier controlled qualification profiles keep their strict geography requirement.
+        const bool AlphaFieldFallback=bFourFactionAlpha && Recipe && Recipe->bPlayable
+            && Recipe->Id==TEXT("dragon_graveyard") && Recipe->MapPackage==BattleMap && Recipe->ArenaOrigin==BattleOrigin;
+        if (!Recipe || (!AlphaFieldFallback && !Recipe->Biomes.Contains(Encounter.BattleContext.Biome)
             && !Recipe->Landforms.Contains(Encounter.BattleContext.Landform)
             && !Recipe->Features.Contains(Encounter.BattleContext.Feature)))
             return Reject(TEXT("REJECT_NO_GEOGRAPHIC_APPROACH"));
@@ -60,6 +72,7 @@ bool USoulFounderPlaytestStateSubsystem::PrepareControlledAction(FName Id, FName
 
 bool USoulFounderPlaytestStateSubsystem::ExecuteControlledAction(const FSoulControlledCampaignAction& Action, FString& Error)
 {
+    if(Action.RecruitQuantity>0)return ExecuteControlledRecruitment(Action,Error);
     // No authority is granted by a proposal. Revalidate everything on the game thread,
     // including battle admission, immediately before the normal authority executes.
     if (!IsInGameThread()) { Error=TEXT("REJECT_NOT_GAME_THREAD"); return false; }
@@ -87,6 +100,8 @@ bool USoulFounderPlaytestStateSubsystem::ExecuteControlledAction(const FSoulCont
             F->Economy = MoveTemp(Paid); PendingBattle = Encounter; EncounterOrdinal = Encounter.EncounterOrdinal;
             UE_LOG(LogTemp,Display,TEXT("SOUL_CONTROLLED_ENCOUNTER faction=%s from=%s to=%s recipe=%s ap=%d"),
                 *Action.FactionId.ToString(),*Encounter.SourceRegion.ToString(),*Encounter.TargetRegion.ToString(),*Encounter.BattlefieldId.ToString(),F->Economy.ActionPoints);
+            if(bFourFactionAlpha && Encounter.BattlefieldId==TEXT("dragon_graveyard"))
+                UE_LOG(LogTemp,Display,TEXT("SOUL_ALPHA_FIELD_FALLBACK target=%s exact_rosters=1 provisional_environment=1 directed_approach_unchanged=1"),*Encounter.TargetRegion.ToString());
         }
         Error.Reset(); return true;
     }
@@ -115,7 +130,10 @@ bool USoulFounderPlaytestStateSubsystem::BuildFactionBattleDescriptor(FName Id, 
     Out.BattlefieldId=Recipe->Id;Out.MapPackage=Recipe->MapPackage;Out.ArenaOrigin=Recipe->ArenaOrigin;Out.ReturnMapPackage=CampaignMap;
     Out.PlayerFaction=Id;Out.PlayerUnitId=Attacker.Army.UnitId;Out.PlayerStrategicCount=Attacker.Army.TroopCount;
     Out.EnemyFaction=Defender.Army.FactionId;Out.EnemyUnitId=Defender.Army.UnitId;Out.EnemyStrategicCount=Defender.Army.TroopCount;
-    Out.PlayerMana=0; // This exact infantry army has no Human founder hero/spell authority.
+    Out.bAutoResolve=bFourFactionAlpha && Defender.Army.FactionId!=PlayerFaction;
+    Out.PlayerMana=0;
+    if (Defender.Army.FactionId==PlayerFaction && (bFourFactionAlpha || FParse::Param(FCommandLine::Get(),TEXT("SoulHumanDefenseProof"))))
+    { Out.TacticalPlayerSide=1; Out.PlayerMana=Hero.Mana; }
     Out.ActiveCapPerSide=ActiveCapPerSide;Out.EncounterOrdinal=EncounterOrdinal+1;
     Out.EncounterId=FName(*FString::Printf(TEXT("encounter.%d.%d.%s.%s"),Attacker.Economy.Day,Out.EncounterOrdinal,*Out.SourceRegion.ToString(),*Target.ToString()));
     if (!Out.IsValid()) { Error=TEXT("REJECT_INVALID_EXACT_DESCRIPTOR"); return false; }

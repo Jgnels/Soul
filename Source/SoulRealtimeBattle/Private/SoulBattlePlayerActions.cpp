@@ -115,6 +115,7 @@ void ASoulRealtimeArenaGameMode::SelectPlayerSpell(int32 Slot)
 }
 void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
 {
+    if(bCampaignAutoResolve)return; // The Human observer cannot command either AI army.
     const FString Name=Action.ToString();
     UE_LOG(LogTemp,Display,TEXT("SOUL_BATTLE_UI: action=%s"),*Name);
     if(Action==TEXT("CloseGrimoire")) { bSpellbookOpen=false; return; }
@@ -161,7 +162,7 @@ void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
             return;
         }
         if(bPlaceFormationOrder) { Status=TEXT("Choose clear ground for the formation waypoint."); return; }
-        if(Combatants[I].Side==0)
+        if(Combatants[I].Side==ControlledSide)
         {
             bSelectAllAllies=false;
             SelectedAlliedFormation=Combatants[I].GroupIndex;
@@ -222,14 +223,14 @@ void ASoulRealtimeArenaGameMode::MoveSelectedToPointer()
     FVector SelectionCenter=FVector::ZeroVector;
     int32 SelectedCount=0;
     for(const auto& State:TacticalFormations)
-        if(State.Side==0 && AliveInGroup(State.GroupIndex)>0 &&
+        if(State.Side==ControlledSide && AliveInGroup(State.GroupIndex)>0 &&
             (bSelectAllAllies || State.GroupIndex==SelectedAlliedFormation))
         { SelectionCenter+=GroupCenter(State.GroupIndex); ++SelectedCount; }
     if(SelectedCount==0) return;
     SelectionCenter/=SelectedCount;
     for(const auto& State:TacticalFormations)
     {
-        if(State.Side!=0 || State.bRouting || AliveInGroup(State.GroupIndex)<=0 ||
+        if(State.Side!=ControlledSide || State.bRouting || AliveInGroup(State.GroupIndex)<=0 ||
             (!bSelectAllAllies && State.GroupIndex!=SelectedAlliedFormation)) continue;
         const FVector Center=GroupCenter(State.GroupIndex);
         const FVector Anchor=Projected.Location+(bSelectAllAllies ? Center-SelectionCenter : FVector::ZeroVector);
@@ -278,6 +279,7 @@ bool ASoulRealtimeArenaGameMode::IsDirectGroundRouteClear(
 
 void ASoulRealtimeArenaGameMode::HandleGamepadAction(FName Action)
 {
+    if(bCampaignAutoResolve)return;
     bGamepadActive=true;
     if(Action==TEXT("Cancel"))
     { bSpellbookOpen=false; SelectedSpellSlot=INDEX_NONE; bPlaceFormationOrder=false; Status=TEXT("Targeting cancelled"); return; }

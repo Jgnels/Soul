@@ -24,6 +24,9 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     int32 EnemyStrategicCount = 0;
     int32 ActiveCapPerSide = 5;
     int32 EncounterOrdinal = 0;
+    // Combat accounting remains attacker=0 / defender=1. Input ownership is separate.
+    int32 TacticalPlayerSide = 0;
+    bool bAutoResolve = false;
     int32 PlayerMana = 80;
     static bool SupportsExactPair(FName Attacker, FName AttackerUnit, FName Defender, FName DefenderUnit);
     bool IsValid() const;

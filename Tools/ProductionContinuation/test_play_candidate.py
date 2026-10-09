@@ -34,11 +34,12 @@ class ReviewLaunchBoundary(unittest.TestCase):
    self.assertFalse(p['automatic_inputs']);self.assertFalse(p['promotion']);self.assertEqual(p['thermal_cutoff_c'],85)
    if flag:self.assertIn('--ue-arg='+flag,p['command'])
  def test_six_and_viking_have_independent_slots_without_automation(self):
-  for key,name,flag in [('six','SixFactionProof','-SoulSixFactionProof'),('viking','VikingProof','-SoulVikingMatchupProof')]:
+  for key,name,flag in [('six','SixFactionProof','-SoulSixFactionProof'),('viking','VikingProof','-SoulVikingMatchupProof'),('alpha','FourFactionAlpha','-SoulFourFactionAlpha')]:
    plan=self.plan(**{key:True});self.assertEqual(plan['save_slot'],'Soul.Composition3500.'+name)
    self.assertIn('--ue-arg='+flag,plan['command']);self.assertFalse(plan['automatic_inputs'])
    self.assertNotIn('--ue-arg=-SoulAutobattle',plan['command'])
-  for args in [dict(six=True,viking=True),dict(six=True,orc=True),dict(viking=True,human=True)]:
+   self.assertNotIn('--ue-arg=-SoulAlphaQualification',plan['command'])
+  for args in [dict(six=True,viking=True),dict(six=True,orc=True),dict(viking=True,human=True),dict(alpha=True,six=True)]:
    with self.assertRaises(ValueError):self.plan(**args)
  def test_binary_change_rejected(self):
   self.file('Soul/Binaries/Win64/SoulComposition.exe',b'different')

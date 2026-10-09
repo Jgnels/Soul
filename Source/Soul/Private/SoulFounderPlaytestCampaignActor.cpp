@@ -127,6 +127,7 @@ FName ASoulFounderPlaytestCampaignActor::ViewFaction() const
 
 void ASoulFounderPlaytestCampaignActor::CycleFactionInspection()
 {
+    if(State && State->IsFourFactionAlpha()){LastMessage=TEXT("Army intelligence is limited to places currently in sight.");return;}
     if(!State||!State->IsSixFactionProfile()||State->HasPendingBattle()||State->bPersistenceBusy)return;
     const auto& Ids=FSoulCampaignRules::CanonicalFactions();
     const int32 Index=InspectionFaction.IsNone()?-1:Ids.IndexOfByKey(InspectionFaction);
@@ -149,6 +150,7 @@ void ASoulFounderPlaytestCampaignActor::SelectCompany()
 void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 {
     if (!State || bTownPanelOpen) return;
+    if(State->IsAlphaTurnActive()){LastMessage=TEXT("Wait for the other factions to finish their turns.");return;}
     if (!FSoulWorldRules::IsExplored(State->World, ViewFaction(), RegionId)) return;
     if(IsFactionInspection())
     {SelectedRegion=RegionId;LastMessage=State->ArmyInspectionAtRegion(RegionId);RefreshRegionVisuals();return;}
@@ -188,6 +190,8 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         LastMessage = TEXT("Follow connected roads to reach this place.");
         return;
     }
+    if(State->IsFourFactionAlpha() && !Target->OwnerFactionId.IsNone() && !State->IsAlphaActiveFaction(Target->OwnerFactionId))
+    {LastMessage=TEXT("Nature and Dark are nonbelligerent in this alpha.");return;}
     if (State->HasHostileGarrison(RegionId))
     {
         SelectedBattleRegion = RegionId;

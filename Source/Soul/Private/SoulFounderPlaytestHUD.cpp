@@ -87,7 +87,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     Text(TEXT("S O U L"),28,24,Gold,1.35f);
     Text(FString::Printf(TEXT("DAY %d     GOLD %d     MOVEMENT %d / %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints,S->Economy.MaxActionPoints),150,30,Ink);
     bool HostileRemains=false;for(const auto& Region:S->World.Regions)HostileRemains|=S->IsHostile(Region.Key);
-    Text(S->IsSixFactionProfile()?TEXT("SIX-FACTION SANDBOX | AI OFF | [I] INSPECT ARMIES"):(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED")),150,52,Muted,.85f);
+    Text(S->IsFourFactionAlpha()?(S->IsAlphaTurnActive()?TEXT("FOUR-FACTION ALPHA | AI TURN IN PROGRESS"):TEXT("FOUR-FACTION ALPHA | YOUR TURN")):S->IsSixFactionProfile()?TEXT("SIX-FACTION SANDBOX | AI OFF | [I] INSPECT ARMIES"):(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED")),150,52,Muted,.85f);
     int32 Army=0;for(const auto& P:S->PlayerArmy)Army+=P.Value;
 
     Button(TEXT("Company"),FString::Printf(TEXT("SELECT YOUR ARMY  %d  [Home]"),Army),W-557,26,266);
@@ -166,6 +166,12 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         Text(TEXT("A skill point is available"),X+15,H-219,Gold);
         const TCHAR* Skills[]={TEXT("Command"),TEXT("Adventure"),TEXT("Magic")};
         for(int32 I=0;I<3;++I)Button(FName(*FString::Printf(TEXT("Recruit%d"),I+1)),FString::Printf(TEXT("[%d] %s     rank %d / 2"),I+1,Skills[I],S->Hero.Skills.FindRef(Skills[I])),X+15,H-195+I*30,248);
+    }
+    if(S->IsFourFactionAlpha() && !C->IsTownPanelOpen())
+    {
+        TArray<FString> Recap;S->LastAIReport.ParseIntoArrayLines(Recap);const int32 Start=FMath::Max(0,Recap.Num()-5);
+        Panel(28,H-250,600,135);
+        for(int32 I=Start;I<Recap.Num();++I)UI.FitText(Recap[I],43,H-239+(I-Start)*23,570,Ink,.85f);
     }
     if(C->IsTownPanelOpen())
     {

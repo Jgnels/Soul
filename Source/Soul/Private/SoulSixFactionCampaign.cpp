@@ -98,6 +98,7 @@ bool USoulFounderPlaytestStateSubsystem::InitializeSixFactionState(const FJsonOb
     World=MoveTemp(CandidateWorld);OtherFactionStates=MoveTemp(CandidateStates);
     EnemyArmies.Reset(); // The legacy two-side ledger is inactive in this profile.
     bSixFactionProfile=true; LastAIReport=TEXT("Six canonical factions; strategic AI OFF; qualification forces, balance pending.");
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulFourFactionAlpha"))) InitializeFourFactionAlpha();
     Error.Reset();return true;
 }
 
@@ -138,12 +139,15 @@ FString USoulFounderPlaytestStateSubsystem::ArmyInspectionAtRegion(FName Region)
 }
 bool USoulFounderPlaytestStateSubsystem::MoveFactionArmy(FName Id,FName Target,FString& Error)
 {
-    // Explicit controlled action only. No scheduler/AI calls this method.
+    // Both player proposals and the opt-in alpha scheduler use this authority.
+    if(bFourFactionAlpha&&!IsAlphaActiveFaction(Id)){Error=TEXT("REJECT_ALPHA_PASSIVE_FACTION");return false;}
     if(!bSixFactionProfile||!bInitialized||HasPendingBattle()||bPersistenceBusy){Error=TEXT("Campaign is not ready.");return false;}
     if(Id==PlayerFaction){const bool Ok=MovePlayerTo(Target);Error=Ok?TEXT(""):TEXT("Player movement rejected.");return Ok;}
     auto* F=OtherFactionStates.Find(Id);const auto* Destination=World.Regions.Find(Target);
-    if(!F||!Destination||F->Army.TroopCount<=0||!FSoulWorldRules::CanMove(World,F->Army.RegionId,Target)
-        ||(!Destination->OwnerFactionId.IsNone()&&Destination->OwnerFactionId!=Id))
+    const bool EmptyWithdrawal=bFourFactionAlpha&&F&&Destination&&F->Army.TroopCount==0&&Destination->OwnerFactionId==Id;
+    if(!F||!Destination||(F->Army.TroopCount<=0&&!EmptyWithdrawal)||!FSoulWorldRules::CanMove(World,F->Army.RegionId,Target)
+        ||(!Destination->OwnerFactionId.IsNone()&&Destination->OwnerFactionId!=Id
+            && !(bFourFactionAlpha&&IsAlphaActiveFaction(Id)&&IsAlphaActiveFaction(Destination->OwnerFactionId)&&ArmyCountAtRegion(Target)==0)))
     {Error=TEXT("Movement requires a legal non-hostile canonical edge; non-Human battle admission is unavailable.");return false;}
     if(!FSoulCampaignRules::SpendAction(F->Economy)){Error=TEXT("No action points.");return false;}
     F->Army.RegionId=Target;FSoulWorldRules::Capture(World,Target,Id);FSoulWorldRules::RefreshVision(World,Id,Target);Error.Reset();return true;
@@ -153,6 +157,11 @@ void USoulFounderPlaytestStateSubsystem::CaptureSixFactionState(FJsonObject& Roo
 {
     Root.SetStringField(TEXT("profile"),GetCampaignSaveSlotName());
     Root.SetNumberField(TEXT("six_faction_version"),1);
+    if(bFourFactionAlpha)
+    {
+        Root.SetNumberField(TEXT("alpha_turn_day"),AlphaTurnDay);Root.SetNumberField(TEXT("alpha_cursor"),AlphaNextFaction);Root.SetNumberField(TEXT("alpha_seed"),AlphaSeed);
+        Root.SetStringField(TEXT("alpha_recap"),LastAIReport);
+    }
     TArray<TSharedPtr<FJsonValue>> Regions,States;TArray<FName> Keys;World.Regions.GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)
     {
@@ -167,6 +176,11 @@ void USoulFounderPlaytestStateSubsystem::CaptureSixFactionState(FJsonObject& Roo
         O->SetStringField(TEXT("unit"),F.Army.UnitId.ToString());O->SetNumberField(TEXT("troops"),F.Army.TroopCount);
         O->SetNumberField(TEXT("day"),F.Economy.Day);O->SetNumberField(TEXT("ap"),F.Economy.ActionPoints);O->SetNumberField(TEXT("max_ap"),F.Economy.MaxActionPoints);
         O->SetObjectField(TEXT("resources"),Numbers(F.Economy.Resources));O->SetObjectField(TEXT("income"),Numbers(F.Economy.DailyIncome));
+        if(bFourFactionAlpha)
+        {
+            TMap<FName,int32> Pools;for(const auto& P:F.Economy.RecruitmentPools)Pools.Add(P.Key,P.Value.Available);
+            O->SetObjectField(TEXT("recruitment_pools"),Numbers(Pools));
+        }
         const auto& K=World.KnowledgeByFaction.FindChecked(Id);
         O->SetArrayField(TEXT("explored"),Names(K.ExploredRegions));O->SetArrayField(TEXT("visible"),Names(K.VisibleRegions));
         States.Add(MakeShared<FJsonValueObject>(O));
@@ -219,7 +233,21 @@ bool USoulFounderPlaytestStateSubsystem::ValidateSixFactionRestore(const FJsonOb
             ||!Number(*O,TEXT("ap"),F.Economy.ActionPoints)||!Number(*O,TEXT("max_ap"),F.Economy.MaxActionPoints)
             ||F.Economy.MaxActionPoints!=3||F.Economy.ActionPoints>F.Economy.MaxActionPoints
             ||!ReadNumbers(*O,TEXT("resources"),F.Economy.Resources)||!ReadNumbers(*O,TEXT("income"),F.Economy.DailyIncome)
-            ||F.Economy.Resources.Num()!=1||!F.Economy.Resources.Contains(TEXT("gold"))||F.Economy.DailyIncome.Num()!=0)return false;
+            ||F.Economy.Resources.Num()!=1||!F.Economy.Resources.Contains(TEXT("gold")))return false;
+        const bool ActiveIncome=bFourFactionAlpha&&IsAlphaActiveFaction(Faction);
+        if(ActiveIncome ? (F.Economy.DailyIncome.Num()!=1||F.Economy.DailyIncome.FindRef(TEXT("gold"))!=450) : F.Economy.DailyIncome.Num()!=0)return false;
+        if(bFourFactionAlpha)
+        {
+            TMap<FName,int32> Pools;
+            if(!ReadNumbers(*O,TEXT("recruitment_pools"),Pools))return false;
+            F.Economy.RecruitmentPools=OtherFactionStates.FindChecked(Faction).Economy.RecruitmentPools;
+            if(Pools.Num()!=F.Economy.RecruitmentPools.Num())return false;
+            for(const auto& P:Pools)
+            {
+                auto* Pool=F.Economy.RecruitmentPools.Find(P.Key);if(!Pool||P.Value>Pool->Capacity)return false;
+                Pool->Available=P.Value;
+            }
+        }
         if(F.Army.TroopCount>0)
         {
             if(OutWorld.Regions.FindChecked(Location).OwnerFactionId!=Faction||Occupied.Contains(Location))return false;

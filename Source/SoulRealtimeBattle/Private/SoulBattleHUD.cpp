@@ -21,6 +21,14 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     if (!Host || !Canvas) return;
     FSoulHUDTheme UI(*this,*Canvas);
     const float W=UI.W,H=UI.H;
+    if(Host->bCampaignAutoResolve)
+    {
+        UI.Panel(14,12,W-28,92);
+        UI.Text(FString::Printf(TEXT("AI BATTLE  |  %s vs %s"),*Host->CampaignFactionForSide(0).ToString(),*Host->CampaignFactionForSide(1).ToString()),28,24,UI.Gold);
+        UI.Text(FString::Printf(TEXT("Attacker: %d active + %d reserve     Defender: %d active + %d reserve"),Host->AliveForSide(0),Host->ReserveBodiesForSide(0),Host->AliveForSide(1),Host->ReserveBodiesForSide(1)),28,49,FLinearColor::White);
+        UI.Text(TEXT("Armies fight automatically. You will return to the campaign when the battle ends."),28,74,FLinearColor::White);
+        return;
+    }
     const FLinearColor Ally(.2f,.78f,.86f), Enemy(.88f,.30f,.18f);
     FString Tooltip;
     // Subordinate, shape-distinct allegiance markers. Health uses combat authority.
@@ -36,11 +44,11 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         if (P.Z<=0 || P.X<8 || P.X>W-8 || P.Y<54 || P.Y>H-124) continue;
         AddHitBox(FVector2D(P.X-14,P.Y-19)*UI.Scale,FVector2D(28,30)*UI.Scale,
             FName(*FString::Printf(TEXT("Unit%d"),I)),true,5);
-        const FLinearColor Team = Unit.Side==0 ? FLinearColor(0.2f,0.85f,1) : FLinearColor(1,0.3f,0.15f);
+        const FLinearColor Team = Unit.Side==Host->ControlledSide ? FLinearColor(0.2f,0.85f,1) : FLinearColor(1,0.3f,0.15f);
         UI.Line(P.X-5,P.Y-4,P.X,P.Y+1,Team,2);
         UI.Line(P.X,P.Y+1,P.X+5,P.Y-4,Team,2);
-        if(Unit.Side==1) UI.Line(P.X-5,P.Y-6,P.X+5,P.Y-6,Team,2);
-        if(Unit.Side==0 && (Host->bSelectAllAllies || Unit.GroupIndex==Host->SelectedAlliedFormation))
+        if(Unit.Side==1-Host->ControlledSide) UI.Line(P.X-5,P.Y-6,P.X+5,P.Y-6,Team,2);
+        if(Unit.Side==Host->ControlledSide && (Host->bSelectAllAllies || Unit.GroupIndex==Host->SelectedAlliedFormation))
         {
             UI.Bar(P.X-13,P.Y-13,26,Unit.Health/FMath::Max(1.f,Unit.MaxHealth),Team);
         }
@@ -49,7 +57,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     if(Host->bTacticalCameraActive && !Host->bFinished)
     for(const auto& Formation:Host->TacticalFormations)
     {
-        if(Formation.Side!=0 || Formation.bRouting ||
+        if(Formation.Side!=Host->ControlledSide || Formation.bRouting ||
             Formation.ManualOverrideUntil<=Host->BattleElapsed || Host->AliveInGroup(Formation.GroupIndex)<=0 ||
             (!Host->bSelectAllAllies && Formation.GroupIndex!=Host->SelectedAlliedFormation)) continue;
         FVector P=Project(Formation.TacticalAnchor+FVector(0,0,18));
@@ -78,7 +86,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         {
             const auto* Binding=Hit.GetActor()?Hit.GetActor()->FindComponentByClass<USoulRealtimeArenaBinding>():nullptr;
             const int32 Index=Binding?Host->Index(FRBHostIdentity::From(Binding->GetCombatant())):INDEX_NONE;
-            Valid=Valid && Host->Combatants.IsValidIndex(Index) && Host->Combatants[Index].Side==1 && Host->Combatants[Index].Health>0;
+            Valid=Valid && Host->Combatants.IsValidIndex(Index) && Host->Combatants[Index].Side==1-Host->ControlledSide && Host->Combatants[Index].Health>0;
             if(Host->Actors.IsValidIndex(Index) && Host->Actors[Index]) Target=Host->Actors[Index]->GetActorLocation();
         }
         if(Slot==2 && HaveTarget) Target.Z=Host->ResolveSpawnLocation(Target).Z-94.f;
@@ -107,14 +115,14 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     UI.Panel(12,12,W-24,38);
     UI.Emblem(6,28,31,10,UI.Gold);
     UI.Text(TEXT("S O U L"),47,24,UI.Bright);
-    UI.Text(FString::Printf(TEXT("ALLIES %d (+%d)"),Host->AliveForSide(0),Host->ReserveBodiesForSide(0)),135,24,Ally);
-    UI.Text(FString::Printf(TEXT("ENEMY %d (+%d)"),Host->AliveForSide(1),Host->ReserveBodiesForSide(1)),295,24,Enemy);
+    UI.Text(FString::Printf(TEXT("ALLIES %d (+%d)"),Host->AliveForSide(Host->ControlledSide),Host->ReserveBodiesForSide(Host->ControlledSide)),135,24,Ally);
+    UI.Text(FString::Printf(TEXT("ENEMY %d (+%d)"),Host->AliveForSide(1-Host->ControlledSide),Host->ReserveBodiesForSide(1-Host->ControlledSide)),295,24,Enemy);
     FString Phase=Host->TacticalSummary();
     int32 PhaseSeparator=INDEX_NONE;
     if(Phase.FindChar(TCHAR('|'),PhaseSeparator)) Phase.LeftInline(PhaseSeparator);
     Phase.TrimEndInline();
     UI.FitText(Host->bFinished?Host->BattleResultLabel:Host->bBattlePaused?TEXT("PAUSED"):Phase,465,18,W-900,UI.Bright);
-    const float Friendly=Host->FieldStrengthEstimate(0),Hostile=Host->FieldStrengthEstimate(1);
+    const float Friendly=Host->FieldStrengthEstimate(Host->ControlledSide),Hostile=Host->FieldStrengthEstimate(1-Host->ControlledSide);
     const float Balance=Friendly+Hostile>0 ? Friendly/(Friendly+Hostile) : .5f;
     const float BalanceW=FMath::Min(210.f,W-900);
     UI.Rect(465,39,BalanceW,5,Enemy);
@@ -167,7 +175,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     int32 Slot=0;
     for(const auto& Formation:Host->TacticalFormations)
     {
-        if(Formation.Side!=0) continue;
+        if(Formation.Side!=Host->ControlledSide) continue;
         const float X=12+Slot*(CardW+6),Y=H-120;
         const bool Selected=Host->bSelectAllAllies||Host->SelectedAlliedFormation==Formation.GroupIndex;
         if(UI.Button(FName(*FString::Printf(TEXT("Formation%d"),Slot)),TEXT(""),X,Y,CardW,54,Selected))
@@ -344,7 +352,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         const float Y=58+NoticeRow*28;
         UI.Panel(W-322,Y,310,24);
         ShieldUI(FName(*FString::Printf(TEXT("Notice%d"),NoticeRow)),W-322,Y,310,24);
-        UI.FitText(Notice.Text,W-312,Y+5,290,Notice.Side==0?Ally:Notice.Side==1?Enemy:UI.Bright,1.f);
+        UI.FitText(Notice.Text,W-312,Y+5,290,Notice.Side==Host->ControlledSide?Ally:Notice.Side==1-Host->ControlledSide?Enemy:UI.Bright,1.f);
         ++NoticeRow;
     }
     if(Host->bShowBattleHelp)

@@ -97,7 +97,7 @@ void ASoulFounderPlaytestGameMode::TickControlledBattleQualification(float Secon
             && A.Army.RegionId==(R.bPlayerWon?Target:AttackerPath.Last()) && H.Army.RegionId==Target
             && A.Army.TroopCount==R.PlayerSurvivors && H.Army.TroopCount==R.EnemySurvivors
             && State->World.Regions[Target].OwnerFactionId==(R.bPlayerWon?Attacker:Defender)
-            && R.MagicCasts==0 && State->bLastSaveSucceeded;
+            && (R.MagicCasts==0 || FParse::Param(FCommandLine::Get(),TEXT("SoulHumanDefenseProof"))) && State->bLastSaveSucceeded;
         if(!Valid){Fail(TEXT("directional result/ownership/army accounting"));return;}
         FRBSaveDomainState Snapshot;if(!State->CaptureRBSaveDomain_Implementation(Snapshot,Error)){Fail(Error);return;}
         ExpectedSnapshot=Snapshot.Fields[0].StringValue;
