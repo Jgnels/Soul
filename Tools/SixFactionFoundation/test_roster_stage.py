@@ -1,7 +1,7 @@
 from pathlib import Path
 import tempfile,json,unittest,sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'ProductionContinuation'))
-from roster_stage import append_viking_cook,PACKAGES,PREFIX
+from roster_stage import append_viking_cook,append_faction_cook,PACKAGES,PREFIX,NATURE_PACKAGES,FACTION_ROOTS
 from stage_manifest import verify_manifest_presence
 class AdditiveCookTests(unittest.TestCase):
  def setUp(self):
@@ -26,4 +26,19 @@ class AdditiveCookTests(unittest.TestCase):
  def test_missing_cooked_dependency_rejected(self):
   (self.cook/(PREFIX/PACKAGES[0]).with_suffix('.uasset')).unlink()
   with self.assertRaises(AssertionError):append_viking_cook(self.cook,self.stage,self.manifest)
+ def test_nature_addition_is_bounded_and_keeps_base_registry(self):
+  for name in NATURE_PACKAGES:
+   f=self.cook/Path(name).with_suffix('.uasset');f.parent.mkdir(parents=True,exist_ok=True);f.write_bytes(name.encode())
+  registry=self.stage/'Soul/AssetRegistry.bin';registry.parent.mkdir(parents=True);registry.write_bytes(b'unchanged base registry')
+  rows=append_faction_cook(self.cook,self.stage,self.manifest)
+  self.assertEqual(len(rows),12+len(NATURE_PACKAGES));self.assertEqual(registry.read_bytes(),b'unchanged base registry')
+  self.assertEqual(len(FACTION_ROOTS),15)
+  self.assertTrue(all('/Animals_Warrior_Pack/' in x or '/Viking_Ulf/' in x for x in FACTION_ROOTS))
+  self.assertEqual(len({x['relative'] for x in rows}),len(rows))
+ def test_nature_never_overwrites_existing_base_package(self):
+  for name in NATURE_PACKAGES:
+   f=self.cook/Path(name).with_suffix('.uasset');f.parent.mkdir(parents=True,exist_ok=True);f.write_bytes(name.encode())
+  existing=self.stage/Path(NATURE_PACKAGES[0]).with_suffix('.uasset');existing.parent.mkdir(parents=True);existing.write_bytes(b'protected')
+  with self.assertRaises(AssertionError):append_faction_cook(self.cook,self.stage,self.manifest)
+  self.assertEqual(existing.read_bytes(),b'protected')
 if __name__=='__main__':unittest.main()

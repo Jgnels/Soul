@@ -4,6 +4,7 @@ import json,unittest,sys,subprocess
 R=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(R/'Tools/ProductionContinuation'))
 from cook_profile import verify_compatible_cook_profile
+from roster_stage import FACTION_ROOTS
 class Contracts(unittest.TestCase):
  def test_canonical_overlay_not_rewritten(self):
   cfg=json.loads((R/'Data/CampaignComposition/SixFactionRuntimeProof.json').read_text())
@@ -21,7 +22,7 @@ class Contracts(unittest.TestCase):
   before=json.loads(subprocess.check_output(['git','show','41f604475e94905ff9afc2cb0e55148e0412618b:Data/CampaignComposition/PackageProfile.json'],cwd=R,text=True))
   after=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text())
   with self.assertRaises(ValueError):verify_compatible_cook_profile(before,after)
-  self.assertEqual(set(after['cook_roots'])-set(before['cook_roots']),{'/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe'})
+  self.assertEqual(set(after['cook_roots'])-set(before['cook_roots']),set(FACTION_ROOTS))
   self.assertEqual(set(before['cook_roots'])-set(after['cook_roots']),set())
   for k,v in before['save_slots'].items():self.assertEqual(after['save_slots'][k],v)
   self.assertEqual(len(set(after['save_slots'].values())),len(after['save_slots']))

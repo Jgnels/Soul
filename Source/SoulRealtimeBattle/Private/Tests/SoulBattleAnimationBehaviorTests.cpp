@@ -284,7 +284,7 @@ bool FSoulVikingCampaignRosterTest::RunTest(const FString&)
     for(int32 R=0;R<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++R)
     {
         const auto Role=static_cast<ESoulRealtimeFormationRole>(R);
-        TestTrue(TEXT("deployment/reserves admit axe infantry only"),Host->CampaignFormationRole(1,Role)==ESoulRealtimeFormationRole::Line);
+        TestTrue(TEXT("deployment/reserves admit exact infantry only"),Host->CampaignFormationRole(1,Role)==ESoulRealtimeFormationRole::Line);
         TestTrue(TEXT("player formation roles unchanged"),Host->CampaignFormationRole(0,Role)==Role);
         TestTrue(TEXT("no requested tactical role substitutes another enemy species"),Host->ResolveVisualMesh(1,Role)==Mesh);
         Check(Host->ResolveVisualAnimation(1,false,Role));Check(Host->ResolveVisualAnimation(1,true,Role));
@@ -299,7 +299,7 @@ bool FSoulVikingCampaignRosterTest::RunTest(const FString&)
     TInlineComponentArray<UStaticMeshComponent*> Pieces(Body);int32 Weapons=0;
     for(auto* Piece:Pieces)if(Piece->ComponentHasTag(TEXT("SoulVisualWeapon")))
     {
-        ++Weapons;TestEqual(TEXT("owned axe"),GetNameSafe(Piece->GetStaticMesh()),FString(TEXT("SM_Viking_Axe")));
+        ++Weapons;TestEqual(TEXT("owned Viking axe"),GetNameSafe(Piece->GetStaticMesh()),FString(TEXT("SM_Viking_Axe")));
         TestEqual(TEXT("native right hand attachment"),Piece->GetAttachSocketName(),FName(TEXT("hand_r")));
         TestTrue(TEXT("weapon authoring scale matches body"),Piece->GetComponentScale().Equals(Body->GetMesh()->GetComponentScale(),.001f));
         TestEqual(TEXT("cosmetic weapon has no independent damage collision"),Piece->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
@@ -309,7 +309,7 @@ bool FSoulVikingCampaignRosterTest::RunTest(const FString&)
     Host->Combatants.Add(Unit);
     const auto Weapon=Host->Profile(0);
     TestEqual(TEXT("existing RB weapon profile carries Viking identity"),Weapon.Id,FName(TEXT("Soul.Viking.Axe")));
-    TestEqual(TEXT("axe category"),Weapon.Category,FName(TEXT("Axe")));
+    TestEqual(TEXT("native Viking axe category"),Weapon.Category,FName(TEXT("Axe")));
     TestTrue(TEXT("existing RB physical damage/reach retained"),Weapon.BaseDamage>0&&Weapon.Reach>0);
     Host->StrategicBodies[1]=30;Host->ActiveCap=15;Host->SetupReinforcementState();
     bool FoundReserve=false;
@@ -319,6 +319,123 @@ bool FSoulVikingCampaignRosterTest::RunTest(const FString&)
     Host->EnemyVisualFaction=TEXT("dwarves");Host->EnemyVisualUnitId=TEXT("dwarf_warrior");
     TestFalse(TEXT("Dwarf pair never selects Viking roster"),Host->UsesVikingCampaignRoster(1));
     TestTrue(TEXT("Dwarf mesh differs from Viking"),Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line)!=Mesh);
+    World->DestroyWorld(false);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulNatureCampaignRosterTest,
+    "Soul.RealtimeBattle.Vertical.ExactNatureCampaignRoster",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulNatureCampaignRosterTest::RunTest(const FString&)
+{
+    UWorld* World=UWorld::CreateWorld(EWorldType::Game,false);
+    auto* Host=World->SpawnActor<ASoulRealtimeArenaGameMode>();
+    Host->bVisualUnits=true;
+    Host->EnemyVisualFaction=TEXT("nature");Host->EnemyVisualUnitId=TEXT("nature_bear_warrior");
+    TestFalse(TEXT("standalone roster cannot masquerade as exact campaign proof"),Host->UsesNatureCampaignRoster(1));
+    Host->bCampaignBattle=true;
+    TestTrue(TEXT("exact campaign Nature pair recognized"),Host->UsesNatureCampaignRoster(1));
+    TestFalse(TEXT("human side cannot inherit enemy mesh"),Host->UsesNatureCampaignRoster(0));
+    auto* Mesh=Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line);
+    if(!TestNotNull(TEXT("owned Nature mesh loads"),Mesh)){World->DestroyWorld(false);return false;}
+    TestEqual(TEXT("exact owned mesh"),Mesh->GetPathName(),FString(TEXT("/Game/Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full.SK_Bear_Full")));
+    auto Check=[&](UAnimationAsset* Asset)
+    {
+        auto* Clip=Cast<UAnimSequence>(Asset);
+        if(!TestNotNull(TEXT("native full-pose sequence"),Clip))return;
+        TestTrue(TEXT("strict own-skeleton compatibility"),Clip->GetSkeleton()->IsCompatibleMesh(Mesh,true));
+        TestFalse(TEXT("no additive substitution"),Clip->IsValidAdditive());
+        TestTrue(TEXT("positive duration"),Clip->GetPlayLength()>0);
+        TestTrue(TEXT("clip comes from owned Nature family"),Clip->GetPathName().StartsWith(TEXT("/Game/Animals_Warrior_Pack/Animations/1With_Weapon/")));
+    };
+    for(int32 R=0;R<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++R)
+    {
+        const auto Role=static_cast<ESoulRealtimeFormationRole>(R);
+        TestTrue(TEXT("deployment/reserves admit exact infantry only"),Host->CampaignFormationRole(1,Role)==ESoulRealtimeFormationRole::Line);
+        TestTrue(TEXT("Nature proof fields exact Human infantry"),Host->CampaignFormationRole(0,Role)==ESoulRealtimeFormationRole::Line);
+        TestTrue(TEXT("no requested tactical role substitutes another enemy species"),Host->ResolveVisualMesh(1,Role)==Mesh);
+        Check(Host->ResolveVisualAnimation(1,false,Role));Check(Host->ResolveVisualAnimation(1,true,Role));
+        Check(Host->ResolveVisualDeath(1,Role));Check(Host->ResolveVisualReaction(1,Role));
+        TSet<UAnimationAsset*> Attacks;
+        for(int32 V=0;V<4;++V){auto* Clip=Host->ResolveVisualAttack(1,Role,V);Check(Clip);Attacks.Add(Clip);}
+        TestEqual(TEXT("four authored warrior attacks"),Attacks.Num(),4);
+        for(int32 Mode=0;Mode<6;++Mode)Check(Host->ResolveStanceAnimation(1,Role,Mode));
+    }
+    auto* Body=World->SpawnActor<ACharacter>();Body->GetMesh()->SetSkeletalMeshAsset(Mesh);
+    Host->EquipVisualWeapons(Body,1,ESoulRealtimeFormationRole::Line);
+    TInlineComponentArray<UStaticMeshComponent*> Pieces(Body);int32 Weapons=0;
+    for(auto* Piece:Pieces)if(Piece->ComponentHasTag(TEXT("SoulVisualWeapon")))
+    {
+        ++Weapons;TestEqual(TEXT("owned blade (donor package is named Axe)"),GetNameSafe(Piece->GetStaticMesh()),FString(TEXT("SM_Warrior_02_Axe")));
+        TestEqual(TEXT("native right hand attachment"),Piece->GetAttachSocketName(),FName(TEXT("hand_r")));
+        TestTrue(TEXT("weapon authoring scale matches body"),Piece->GetComponentScale().Equals(Body->GetMesh()->GetComponentScale(),.001f));
+        TestEqual(TEXT("cosmetic weapon has no independent damage collision"),Piece->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
+    }
+    TestEqual(TEXT("one visible blade"),Weapons,1);
+    FSoulRealtimeArenaCombatant Unit;Unit.Id=FGuid::NewGuid();Unit.Side=1;Unit.Role=ESoulRealtimeFormationRole::Line;Unit.Health=160;Unit.MaxHealth=160;
+    Host->Combatants.Add(Unit);
+    const auto Weapon=Host->Profile(0);
+    TestEqual(TEXT("existing RB weapon profile carries Nature identity"),Weapon.Id,FName(TEXT("Soul.Nature.BearBlade")));
+    TestEqual(TEXT("rendered blade category"),Weapon.Category,FName(TEXT("Sword")));
+    TestTrue(TEXT("existing RB physical damage/reach retained"),Weapon.BaseDamage>0&&Weapon.Reach>0);
+    Host->StrategicBodies[1]=30;Host->ActiveCap=15;Host->SetupReinforcementState();
+    bool FoundReserve=false;
+    for(const auto& Formation:Host->ReinforcementBattle.Formations)if(Formation.SideId==FName(TEXT("Enemy")))
+    {FoundReserve=true;TestEqual(TEXT("reserve keeps exact Nature unit identity"),Formation.UnitId,FName(TEXT("nature_bear_warrior")));}
+    TestTrue(TEXT("Nature reserve exists"),FoundReserve);
+    Host->EnemyVisualFaction=TEXT("dwarves");Host->EnemyVisualUnitId=TEXT("dwarf_warrior");
+    TestFalse(TEXT("Dwarf pair never selects Nature roster"),Host->UsesNatureCampaignRoster(1));
+    TestTrue(TEXT("Dwarf mesh differs from Nature"),Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line)!=Mesh);
+    World->DestroyWorld(false);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulReverseCampaignRosterTest,"Soul.RealtimeBattle.Vertical.ExactReverseCampaignRosters",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FSoulReverseCampaignRosterTest::RunTest(const FString&)
+{
+    UWorld* World=UWorld::CreateWorld(EWorldType::Game,false);
+    auto* Host=World->SpawnActor<ASoulRealtimeArenaGameMode>();Host->bCampaignBattle=true;Host->bVisualUnits=true;
+    Host->EnemyVisualFaction=TEXT("humans");Host->EnemyVisualUnitId=TEXT("human_knight");Host->EnemyVisualRegion=TEXT("north_pass");
+    const TMap<FName,FName> Units={{TEXT("dwarves"),TEXT("dwarf_warrior")},{TEXT("orcs"),TEXT("orc_hammer_warrior")},{TEXT("vikings"),TEXT("viking_axe_warrior")},{TEXT("nature"),TEXT("nature_bear_warrior")}};
+    const TMap<FName,FString> Bodies={{TEXT("dwarves"),TEXT("SK_Dwarf_Bedvar_Full")},{TEXT("orcs"),TEXT("SK_Orc_Hummer")},{TEXT("vikings"),TEXT("SK_Ulf_Full")},{TEXT("nature"),TEXT("SK_Bear_Full")}};
+    const TMap<FName,FString> Weapons={{TEXT("dwarves"),TEXT("SM_Dwarf_Bedvar_Hammer_Mesh")},{TEXT("orcs"),TEXT("SM_Hummer")},{TEXT("vikings"),TEXT("SM_Viking_Axe")},{TEXT("nature"),TEXT("SM_Warrior_02_Axe")}};
+    for(const auto& Pair:Units)
+    {
+        Host->PlayerVisualFaction=Pair.Key;Host->PlayerVisualUnitId=Pair.Value;
+        TArray<FName> Defenders={TEXT("humans")};
+        if(Pair.Key!=TEXT("nature"))for(FName Other:TArray<FName>{TEXT("dwarves"),TEXT("orcs"),TEXT("vikings")})if(Other!=Pair.Key)Defenders.Add(Other);
+        for(FName Defender:Defenders)
+        {
+        Host->EnemyVisualFaction=Defender;Host->EnemyVisualUnitId=Defender==TEXT("humans")?FName(TEXT("human_knight")):Units[Defender];
+        const FString DefenderBody=Defender==TEXT("humans")?FString(TEXT("SK_Knight_02_Full_01")):Bodies[Defender];
+        const FString DefenderWeapon=Defender==TEXT("humans")?FString(TEXT("SM_Knight_02_Sword")):Weapons[Defender];
+        for(int32 Side=0;Side<2;++Side)
+        {
+            auto* Mesh=Host->ResolveVisualMesh(Side,ESoulRealtimeFormationRole::Line);
+            if(!TestNotNull(TEXT("exact reverse body loads"),Mesh))continue;
+            TestEqual(TEXT("side-correct body"),Mesh->GetName(),Side==0?Bodies[Pair.Key]:DefenderBody);
+            for(int32 R=0;R<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++R)
+            {
+                const auto Role=static_cast<ESoulRealtimeFormationRole>(R);
+                TestTrue(TEXT("reverse proof fields exact infantry"),Host->CampaignFormationRole(Side,Role)==ESoulRealtimeFormationRole::Line);
+                TestTrue(TEXT("no side/role substitution"),Host->ResolveVisualMesh(Side,Role)==Mesh);
+                TArray<UAnimationAsset*> Clips={Host->ResolveVisualAnimation(Side,false,Role),Host->ResolveVisualAnimation(Side,true,Role),Host->ResolveVisualReaction(Side,Role),Host->ResolveVisualDeath(Side,Role)};
+                for(int32 V=0;V<4;++V)Clips.Add(Host->ResolveVisualAttack(Side,Role,V));
+                for(int32 M=0;M<6;++M)Clips.Add(Host->ResolveStanceAnimation(Side,Role,M));
+                for(auto* Asset:Clips)
+                {
+                    auto* Clip=Cast<UAnimSequence>(Asset);if(!TestNotNull(TEXT("owned full pose"),Clip))continue;
+                    TestTrue(TEXT("compatible exact skeleton"),Clip->GetSkeleton()->IsCompatibleMesh(Mesh,true));
+                    TestTrue(TEXT("usable nonadditive animation"),Clip->GetPlayLength()>0&&!Clip->IsValidAdditive());
+                }
+            }
+            auto* Body=World->SpawnActor<ACharacter>();Body->GetMesh()->SetSkeletalMeshAsset(Mesh);Host->EquipVisualWeapons(Body,Side,ESoulRealtimeFormationRole::Line);
+            int32 Count=0;TInlineComponentArray<UStaticMeshComponent*> Pieces(Body);
+            for(auto* P:Pieces)if(P->ComponentTags.Contains(TEXT("SoulVisualWeapon")))
+            {++Count;TestEqual(TEXT("side-correct weapon"),GetNameSafe(P->GetStaticMesh()),Side==0?Weapons[Pair.Key]:DefenderWeapon);TestTrue(TEXT("actual bone attachment"),Mesh->GetRefSkeleton().FindBoneIndex(P->GetAttachSocketName())!=INDEX_NONE);}
+            TestEqual(TEXT("one exact weapon"),Count,1);
+        }
+        Host->StrategicBodies[0]=30;Host->StrategicBodies[1]=45;Host->ActiveCap=15;Host->SetupReinforcementState();
+        for(const auto& Formation:Host->ReinforcementBattle.Formations)
+            TestEqual(TEXT("reserves retain actual faction unit"),Formation.UnitId,Formation.SideId==TEXT("Human")?Pair.Value:Host->EnemyVisualUnitId);
+    }
+        }
     World->DestroyWorld(false);return true;
 }
 #endif

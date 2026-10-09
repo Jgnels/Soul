@@ -9,6 +9,14 @@
 #include "SoulWorld.h"
 #include "SoulFounderPlaytestStateSubsystem.generated.h"
 
+// Ephemeral proposal only: never serialized and never campaign authority.
+struct FSoulControlledCampaignAction
+{
+    FName FactionId, ArmyId, SourceRegion, TargetRegion;
+    FString ExpectedProfile, ExpectedCampaignState;
+    uint32 ExpectedLoadRevision = 0;
+};
+
 UCLASS()
 class SOUL_API USoulFounderPlaytestStateSubsystem : public UGameInstanceSubsystem, public IRBSaveDomainProvider
 {
@@ -75,6 +83,12 @@ public:
     bool IsSixFactionProfile() const { return bSixFactionProfile; }
     bool InspectFactionArmy(FName FactionId, FSoulFactionCampaignState& Out) const;
     bool MoveFactionArmy(FName FactionId, FName TargetRegion, FString& OutError);
+    bool PrepareControlledAction(FName FactionId, FName ArmyId, FName ExpectedSource, FName TargetRegion,
+        FSoulControlledCampaignAction& Out, FString& Error) const;
+    bool ExecuteControlledAction(const FSoulControlledCampaignAction& Action, FString& Error);
+    bool BuildFactionBattleDescriptor(FName FactionId, FName TargetRegion, FSoulCampaignBattleDescriptor& Out, FString& Error) const;
+
+
     int32 ArmyCountAtRegion(FName RegionId) const;
     FName ArmyUnitAtRegion(FName RegionId) const;
     FString ArmyInspectionAtRegion(FName RegionId) const;
@@ -82,7 +96,10 @@ private:
     // Human state stays in the existing founder fields, never mirrored here.
     // All factions use this existing Soul.Campaign RBSave provider.
     bool bSixFactionProfile = false;
+    FString SixFactionSaveSlot = TEXT("Soul.Composition3500.SixFactionProof");
     TMap<FName, FSoulFactionCampaignState> OtherFactionStates;
+    bool ValidateControlledAction(FName FactionId, FName ArmyId, FName ExpectedSource, FName TargetRegion,
+        FSoulCampaignBattleDescriptor& Encounter, FString& Error) const;
     bool InitializeSixFactionState(const class FJsonObject& Starts, const class FJsonObject& Config, FString& Error);
     void CaptureSixFactionState(class FJsonObject& Root) const;
     bool ValidateSixFactionRestore(const class FJsonObject& Root,

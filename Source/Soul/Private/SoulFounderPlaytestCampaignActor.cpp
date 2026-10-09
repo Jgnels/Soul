@@ -43,7 +43,7 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
     {
         const auto& Result=State->LastBattleResult;
         LastMessage=FString::Printf(TEXT("%s at %s. %d soldiers remain. [Space] restores travel actions."),
-            Result.bPlayerWon?TEXT("Victory"):TEXT("Defeat"),*DisplayName(Result.TargetRegion),Result.PlayerSurvivors);
+            State->IsSixFactionProfile()?(Result.bPlayerWon?TEXT("Attacker victory"):TEXT("Attacker defeat")):(Result.bPlayerWon?TEXT("Victory"):TEXT("Defeat")),*DisplayName(Result.TargetRegion),Result.PlayerSurvivors);
     }
     WorldPresentation = GetWorld()->SpawnActor<ASoulCampaignWorldActor>();
     WorldPresentation->Build(State);
@@ -376,9 +376,10 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
     if (!State->LastBattleResult.EncounterId.IsNone())
     {
         const auto& Result = State->LastBattleResult;
-        Lines.Add(FString::Printf(TEXT("Last battle: %s at %s | Survivors: allied %d, enemy %d"),
-            Result.bPlayerWon ? TEXT("VICTORY") : TEXT("DEFEAT"), *DisplayName(Result.TargetRegion),
-            Result.PlayerSurvivors, Result.EnemySurvivors));
+        Lines.Add(FString::Printf(TEXT("Last battle: %s at %s | Survivors: %s %d, %s %d"),
+            State->IsSixFactionProfile()?(Result.bPlayerWon?TEXT("ATTACKER VICTORY"):TEXT("ATTACKER DEFEAT")):(Result.bPlayerWon?TEXT("VICTORY"):TEXT("DEFEAT")), *DisplayName(Result.TargetRegion),
+            State->IsSixFactionProfile()?TEXT("attackers"):TEXT("allied"),Result.PlayerSurvivors,
+            State->IsSixFactionProfile()?TEXT("defenders"):TEXT("enemy"),Result.EnemySurvivors));
     }
     if (State->PlayerArmy.FindRef(State->PlayerUnitId) == 0)
         Lines.Add(TEXT("Army lost: return to Human Capital and press T, then 1 to recruit. Space restores actions."));

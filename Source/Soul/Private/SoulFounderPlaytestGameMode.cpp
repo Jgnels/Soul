@@ -99,6 +99,10 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    FString ControlledAttacker;
+    if(FParse::Value(FCommandLine::Get(),TEXT("SoulControlledBattle="),ControlledAttacker)
+        && !FParse::Param(FCommandLine::Get(),TEXT("SoulCampaignLoadProof")))
+    {if(!bDone)TickControlledBattleQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulSixFactionQualification")))
     {if(!bDone)TickSixFactionQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulCompositionTraversal")))

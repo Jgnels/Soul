@@ -156,9 +156,9 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     {
         const auto& R=S->LastBattleResult;
         Panel(X,305,312,83);
-        Text(R.bPlayerWon?TEXT("VICTORY"):TEXT("DEFEAT"),X+15,319,Gold);
+        Text(S->IsSixFactionProfile()?(R.bPlayerWon?TEXT("ATTACKERS WON"):TEXT("DEFENDERS WON")):(R.bPlayerWon?TEXT("VICTORY"):TEXT("DEFEAT")),X+15,319,Gold);
         Text(C->DisplayName(R.TargetRegion),X+15,341,Ink);
-        Text(FString::Printf(TEXT("Survivors: %d allied / %d hostile"),R.PlayerSurvivors,R.EnemySurvivors),X+15,363,Muted);
+        Text(FString::Printf(TEXT("Survivors: %d %s / %d %s"),R.PlayerSurvivors,S->IsSixFactionProfile()?TEXT("attackers"):TEXT("allied"),R.EnemySurvivors,S->IsSixFactionProfile()?TEXT("defenders"):TEXT("hostile")),X+15,363,Muted);
     }
     if(C->IsSkillChoiceOpen())
     {

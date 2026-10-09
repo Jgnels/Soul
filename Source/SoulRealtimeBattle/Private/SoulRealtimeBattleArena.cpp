@@ -390,6 +390,7 @@ FRBWeaponProfile ASoulRealtimeArenaGameMode::Profile(int32 I) const
         : (C.Role == ESoulRealtimeFormationRole::Apex
             ? TEXT("Claw") : TEXT("Sword"));
     if(UsesOrcCampaignRoster(C.Side)){P.Id=TEXT("Soul.Orc.Hammer");P.Category=TEXT("Hammer");}
+    if(UsesNatureCampaignRoster(C.Side)){P.Id=TEXT("Soul.Nature.BearBlade");P.Category=TEXT("Sword");}
     if(UsesVikingCampaignRoster(C.Side)){P.Id=TEXT("Soul.Viking.Axe");P.Category=TEXT("Axe");}
     P.DamageType = TEXT("Physical");
     P.BaseDamage = RoleDamage(C.Role);
@@ -1231,6 +1232,8 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             ActiveCap = Encounter->ActiveCapPerSide;
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
+            PlayerVisualFaction = Encounter->PlayerFaction;
+            PlayerVisualUnitId = Encounter->PlayerUnitId;
             EnemyVisualFaction = Encounter->EnemyFaction;
             EnemyVisualUnitId = Encounter->EnemyUnitId;
             EnemyVisualRegion = Encounter->TargetRegion;
@@ -1481,6 +1484,11 @@ bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
             ESoulBattleFormationKind::CommandReserve};
     }
 
+    if (UsesControlledExactInfantry())
+    {
+        Roles.Init(ESoulRealtimeFormationRole::Line,GroupCount);
+        Kinds.Init(ESoulBattleFormationKind::FrontLine,GroupCount);
+    }
     const float Direction = Side == 0 ? 1.0f : -1.0f;
     const float BaseX = Side == 0 ? -1500.0f : 1500.0f;
     int32 FrontLineSlot = 0;
@@ -1497,6 +1505,8 @@ bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
             case ESoulBattleFormationKind::CommandReserve: Rearward = 850.0f; Lateral = 700.0f; break;
             default: Lateral = GroupCount == 5 ? (FrontLineSlot++ == 0 ? -260.0f : 360.0f) : 250.0f; break;
         }
+        if (UsesControlledExactInfantry())
+            Lateral=(G-(GroupCount-1)*.5f)*650.f;
         const FVector Anchor = ArenaOrigin + FVector(
             BaseX - Direction * Rearward, Direction * Lateral, 100.0f);
         if (!SpawnFormation(Side, Roles[G], Count, Anchor))
@@ -1677,8 +1687,11 @@ FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
 USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
+    if(UsesNatureCampaignRoster(Side))return LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full.SK_Bear_Full"));
     if(UsesVikingCampaignRoster(Side))return LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SK_Ulf_Full.SK_Ulf_Full"));
     if(UsesOrcCampaignRoster(Side))return LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SK_Orc_Hummer.SK_Orc_Hummer"));
+    Side=CampaignVisualSide(Side);
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Ranged)
         return LoadObject<USkeletalMesh>(nullptr, Side == 0
@@ -1785,12 +1798,15 @@ USkeletalMesh* ASoulRealtimeArenaGameMode::ResolveVisualMesh(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
     int32 Side, bool bRunning, ESoulRealtimeFormationRole FormationRole) const
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
+    if(UsesNatureCampaignRoster(Side))return NatureInfantryAnimation(bRunning?TEXT("Run"):TEXT("Idle"));
     if(UsesVikingCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,bRunning
         ? TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run")
         : TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle"));
     if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,bRunning
         ? TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Run.Anim_Orc_Hummer_Run")
         : TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Idle.Anim_Orc_Hummer_Idle"));
+    Side=CampaignVisualSide(Side);
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Ranged)
         return LoadObject<UAnimationAsset>(nullptr, bRunning
@@ -1867,6 +1883,12 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAnimation(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
     int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Variation) const
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
+    if(UsesNatureCampaignRoster(Side))
+    {
+        static const TCHAR* Attacks[]={TEXT("Attack_1"),TEXT("Attack_2"),TEXT("Attack_3"),TEXT("Attack_4")};
+        return NatureInfantryAnimation(Attacks[FMath::Abs(Variation%4)]);
+    }
     if(UsesVikingCampaignRoster(Side))
     {
         static const TCHAR* Attacks[]={TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1.Anim_Warrior_Attack_1"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2.Anim_Warrior_Attack_2"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3.Anim_Warrior_Attack_3"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4.Anim_Warrior_Attack_4")};
@@ -1877,6 +1899,7 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
         static const TCHAR* Attacks[]={TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_1.Anim_Orc_Hummer_Attack_1"),TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_2.Anim_Orc_Hummer_Attack_2"),TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Attack_3.Anim_Orc_Hummer_Attack_3")};
         return LoadObject<UAnimationAsset>(nullptr,Attacks[FMath::Abs(Variation)%UE_ARRAY_COUNT(Attacks)]);
     }
+    Side=CampaignVisualSide(Side);
     if (FormationRole == ESoulRealtimeFormationRole::Ranged) return nullptr;
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Apex)
@@ -1933,8 +1956,11 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualAttack(
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
     int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
+    if(UsesNatureCampaignRoster(Side))return NatureInfantryAnimation(TEXT("Dead_1"));
     if(UsesVikingCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1.Anim_Warrior_Dead_1"));
     if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Dead.Anim_Orc_Hummer_Dead"));
+    Side=CampaignVisualSide(Side);
     const TCHAR* Path = nullptr;
     if (FormationRole == ESoulRealtimeFormationRole::Ranged)
         return LoadObject<UAnimationAsset>(nullptr,
@@ -1979,22 +2005,47 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
     return Path ? LoadObject<UAnimationAsset>(nullptr, Path) : nullptr;
 }
 
+bool ASoulRealtimeArenaGameMode::UsesControlledExactInfantry() const
+{
+    return bCampaignBattle && ((!PlayerVisualFaction.IsNone() && PlayerVisualFaction!=TEXT("humans")) || UsesNatureCampaignRoster(1));
+}
+FName ASoulRealtimeArenaGameMode::CampaignFactionForSide(int32 Side) const
+{ return Side==0?PlayerVisualFaction:Side==1?EnemyVisualFaction:NAME_None; }
+FName ASoulRealtimeArenaGameMode::CampaignUnitForSide(int32 Side) const
+{ return Side==0?PlayerVisualUnitId:Side==1?EnemyVisualUnitId:NAME_None; }
+int32 ASoulRealtimeArenaGameMode::CampaignVisualSide(int32 Side) const
+{
+    if (!UsesControlledExactInfantry()) return Side;
+    // Reuse the already qualified Human/Dwarf visual families independently of spawn side.
+    return CampaignFactionForSide(Side)==TEXT("humans")?0:1;
+}
 bool ASoulRealtimeArenaGameMode::UsesOrcCampaignRoster(int32 Side) const
 {
-    return bCampaignBattle && Side==1 && EnemyVisualFaction==TEXT("orcs")
-        && EnemyVisualUnitId==TEXT("orc_hammer_warrior");
+    return bCampaignBattle && (Side==0 || Side==1) && CampaignFactionForSide(Side)==TEXT("orcs")
+        && CampaignUnitForSide(Side)==TEXT("orc_hammer_warrior");
+}
+bool ASoulRealtimeArenaGameMode::UsesNatureCampaignRoster(int32 Side) const
+{
+    return bCampaignBattle && (Side==0 || Side==1) && CampaignFactionForSide(Side)==TEXT("nature")
+        && CampaignUnitForSide(Side)==TEXT("nature_bear_warrior");
+}
+UAnimationAsset* ASoulRealtimeArenaGameMode::NatureInfantryAnimation(const TCHAR* Clip) const
+{
+    const FString Name=FString(TEXT("Anim_Warrior_"))+Clip;
+    return LoadObject<UAnimationAsset>(nullptr,*(FString(TEXT("/Game/Animals_Warrior_Pack/Animations/1With_Weapon/"))+Name+TEXT(".")+Name));
 }
 bool ASoulRealtimeArenaGameMode::UsesVikingCampaignRoster(int32 Side) const
 {
-    return bCampaignBattle && Side==1 && EnemyVisualFaction==TEXT("vikings")
-        && EnemyVisualUnitId==TEXT("viking_axe_warrior");
+    return bCampaignBattle && (Side==0 || Side==1) && CampaignFactionForSide(Side)==TEXT("vikings")
+        && CampaignUnitForSide(Side)==TEXT("viking_axe_warrior");
 }
 ESoulRealtimeFormationRole ASoulRealtimeArenaGameMode::CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const
 {
-    return (UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side))?ESoulRealtimeFormationRole::Line:Requested;
+    return (UsesControlledExactInfantry()||UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side)||UsesNatureCampaignRoster(Side))?ESoulRealtimeFormationRole::Line:Requested;
 }
 bool ASoulRealtimeArenaGameMode::UsesEvilVisualRoster() const
 {
+    if (UsesControlledExactInfantry()) return false; // exact Orc/Viking paths are resolved before legacy families.
 
     return EnemyVisualFaction == FName(TEXT("orcs")) ||
            EnemyVisualFaction == FName(TEXT("evil")) ||
@@ -2175,6 +2226,9 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Visual->RefreshBoneTransforms();
         Visual->UpdateComponentToWorld();
         EquipVisualWeapons(Actor, Side, FormationRole);
+        if (bCampaignBattle)
+            UE_LOG(LogTemp,Display,TEXT("SOUL_EXACT_ROSTER_BODY side=%d faction=%s unit=%s index=%d mesh=%s role=%s health=%.1f"),
+                Side,*CampaignFactionForSide(Side).ToString(),*CampaignUnitForSide(Side).ToString(),NewIndex,*Mesh->GetPathName(),*RoleLabel(FormationRole),Data.Health);
         if(UsesVikingCampaignRoster(Side))
             UE_LOG(LogTemp,Display,TEXT("SOUL_VIKING_ROSTER_BODY index=%d faction=vikings unit=viking_axe_warrior mesh=%s idle=%s role=%s health=%.1f group=%d scale=%s facing=%s"),NewIndex,*Mesh->GetPathName(),*Idle->GetPathName(),*RoleLabel(FormationRole),Data.Health,GroupIndex,*Visual->GetRelativeScale3D().ToCompactString(),*Visual->GetRelativeRotation().ToCompactString());
         if(UsesOrcCampaignRoster(Side))
@@ -2366,7 +2420,7 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
         FSoulRealtimeFormation Formation;
         Formation.FormationId = GroupFormationId(Side, GroupIndex);
         Formation.SideId = RealtimeSideId(Side);
-        Formation.UnitId = (UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side))?EnemyVisualUnitId:FName(*RoleLabel(Combatants[LeaderIndex].Role));
+        Formation.UnitId = (UsesControlledExactInfantry()||UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side)||UsesNatureCampaignRoster(Side))?CampaignUnitForSide(Side):FName(*RoleLabel(Combatants[LeaderIndex].Role));
         Formation.Role = Combatants[LeaderIndex].Role;
         Formation.StrategicCount = Groups[GroupIndex].Members.Num();
         Formation.ActiveCount = Formation.StrategicCount;
@@ -2388,7 +2442,7 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
         FSoulRealtimeFormation Reserve;
         Reserve.FormationId = ReserveFormationId(Side);
         Reserve.SideId = RealtimeSideId(Side);
-        Reserve.UnitId = (UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side))?EnemyVisualUnitId:FName(TEXT("Soul.Reserve.Line"));
+        Reserve.UnitId = (UsesControlledExactInfantry()||UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side)||UsesNatureCampaignRoster(Side))?CampaignUnitForSide(Side):FName(TEXT("Soul.Reserve.Line"));
         Reserve.Role = ESoulRealtimeFormationRole::Line;
         Reserve.StrategicCount = FMath::Max(0, StrategicBodies[Side] - AliveForSide(Side));
         Reserve.ActiveCount = 0;

@@ -1,4 +1,5 @@
 #include "Misc/AutomationTest.h"
+#include "Async/Async.h"
 #include "Misc/CommandLine.h"
 #include "Engine/GameInstance.h"
 #include "SoulFounderPlaytestStateSubsystem.h"
@@ -168,4 +169,256 @@ bool FSoulSixFactionConsequenceTest::RunTest(const FString&)
     }
     return true;
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulControlledActionTest,"Soul.Integration.SixFaction.ControlledActionAdmission",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FSoulControlledActionTest::RunTest(const FString&)
+{
+    FFixture F; auto* S=F.S; FString Error; FSoulControlledCampaignAction A;
+    const FString Initial=Snapshot(S);
+    auto Rejected=[&](FName Faction,FName Army,FName Source,FName Target)
+    {
+        const FString Before=Snapshot(S);
+        TestFalse(TEXT("invalid proposal rejected"),S->PrepareControlledAction(Faction,Army,Source,Target,A,Error));
+        TestFalse(TEXT("explicit rejection"),Error.IsEmpty());
+        TestEqual(TEXT("rejection leaves campaign exact"),Snapshot(S),Before);
+        TestTrue(TEXT("failed preparation clears proposal"),A.ExpectedCampaignState.IsEmpty());
+    };
+    Rejected(TEXT("aliens"),TEXT("aliens.primary"),TEXT("human_capital"),TEXT("crossroads"));
+    Rejected(TEXT("humans"),TEXT("missing"),TEXT("human_capital"),TEXT("crossroads"));
+    Rejected(TEXT("humans"),TEXT("orcs.primary"),TEXT("human_capital"),TEXT("crossroads"));
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("crossroads"),TEXT("human_capital"));
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("invalid"));
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("dark_fortress"));
+    S->World.Regions[TEXT("crossroads")].OwnerFactionId=TEXT("unknown_owner");
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("crossroads"));
+    TestEqual(TEXT("malformed destination owner reason"),Error,FString(TEXT("REJECT_DESTINATION_OWNER")));
+    S->World.Regions[TEXT("crossroads")].OwnerFactionId=TEXT("humans");
+    S->World.Regions[TEXT("human_capital")].OwnerFactionId=TEXT("orcs");
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("crossroads"));
+    TestEqual(TEXT("foreign source reason"),Error,FString(TEXT("REJECT_SOURCE_OWNER")));
+    S->World.Regions[TEXT("human_capital")].OwnerFactionId=TEXT("humans");
+    S->bPersistenceBusy=true;
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("crossroads"));
+    S->bPersistenceBusy=false;
+    S->Economy.ActionPoints=0;
+    Rejected(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("crossroads"));
+    S->Economy.ActionPoints=3;
+    TestTrue(TEXT("legal preparation"),S->PrepareControlledAction(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("crossroads"),A,Error));
+    TestEqual(TEXT("preparation read-only"),Snapshot(S),Initial);
+    const auto OffThread=Async(EAsyncExecution::ThreadPool,[S,A]()
+    {
+        FString PrepareError,ExecuteError;FSoulControlledCampaignAction Proposal;
+        const bool P=S->PrepareControlledAction(TEXT("humans"),TEXT("humans.primary"),TEXT("human_capital"),TEXT("crossroads"),Proposal,PrepareError);
+        const bool X=S->ExecuteControlledAction(A,ExecuteError);
+        return TArray<FString>{P?FString(TEXT("accepted")):PrepareError,X?FString(TEXT("accepted")):ExecuteError,Proposal.ExpectedCampaignState.IsEmpty()?TEXT("cleared"):TEXT("dirty")};
+    }).Get();
+    TestEqual(TEXT("off-thread preparation rejected"),OffThread[0],FString(TEXT("REJECT_NOT_GAME_THREAD")));
+    TestEqual(TEXT("off-thread execution rejected"),OffThread[1],FString(TEXT("REJECT_NOT_GAME_THREAD")));
+    TestEqual(TEXT("off-thread proposal cleared"),OffThread[2],FString(TEXT("cleared")));
+    TestEqual(TEXT("off-thread calls leave live state exact"),Snapshot(S),Initial);
+    auto Bad=A; Bad.ExpectedProfile=TEXT("Soul.VerticalCampaign");
+    TestFalse(TEXT("wrong save profile rejected"),S->ExecuteControlledAction(Bad,Error));
+    TestEqual(TEXT("profile rejection exact"),Snapshot(S),Initial);
+    ++S->CampaignLoadRevision;
+    TestFalse(TEXT("restored state invalidates proposal"),S->ExecuteControlledAction(A,Error));
+    --S->CampaignLoadRevision;
+    S->World.Regions[TEXT("crossroads")].OwnerFactionId=NAME_None;
+    FString Changed=Snapshot(S);
+    TestFalse(TEXT("changed destination rejects stale action"),S->ExecuteControlledAction(A,Error));
+    TestEqual(TEXT("no stale capture"),Snapshot(S),Changed);
+    S->World.Regions[TEXT("crossroads")].OwnerFactionId=TEXT("humans");
+    S->Economy.Resources[TEXT("gold")]+=1; Changed=Snapshot(S);
+    TestFalse(TEXT("other campaign mutation rejects proposal"),S->ExecuteControlledAction(A,Error));
+    TestEqual(TEXT("no stale spend"),Snapshot(S),Changed);
+    S->Economy.Resources[TEXT("gold")]-=1;
+    const TMap<FName,FName> Targets={{TEXT("humans"),TEXT("crossroads")},{TEXT("dwarves"),TEXT("dwarf_forge_approach")},{TEXT("orcs"),TEXT("orc_war_camp")},{TEXT("vikings"),TEXT("viking_forest_track")},{TEXT("nature"),TEXT("nature_forest_clearing")},{TEXT("dark"),TEXT("dark_castle_approach")}};
+    for(FName Id:FSoulCampaignRules::CanonicalFactions())
+    {
+        FSoulFactionCampaignState Before,After; S->InspectFactionArmy(Id,Before);
+        TestTrue(TEXT("controlled six-faction proposal"),S->PrepareControlledAction(Id,Before.Army.ArmyId,Before.Army.RegionId,Targets[Id],A,Error));
+        TestTrue(TEXT("normal authority executes"),S->ExecuteControlledAction(A,Error));
+        S->InspectFactionArmy(Id,After);
+        TestEqual(TEXT("correct faction location"),After.Army.RegionId,Targets[Id]);
+        TestEqual(TEXT("correct faction pays AP"),After.Economy.ActionPoints,Before.Economy.ActionPoints-1);
+        const FString Executed=Snapshot(S);
+        TestFalse(TEXT("proposal cannot be replayed"),S->ExecuteControlledAction(A,Error));
+        TestEqual(TEXT("replay rejection exact"),Snapshot(S),Executed);
+    }
+    const FString BeforeAI=Snapshot(S); S->AdvanceEnemyAI();
+    TestEqual(TEXT("autonomous AI stays off"),Snapshot(S),BeforeAI);
+    FFixture Captures;
+    const TMap<FName,TArray<FName>> Paths={
+        {TEXT("humans"),{TEXT("crossroads"),TEXT("old_quarry")}},
+        {TEXT("dwarves"),{TEXT("dwarf_forge_approach"),TEXT("dwarf_high_quarry")}},
+        {TEXT("orcs"),{TEXT("orc_badlands")}}, {TEXT("vikings"),{TEXT("viking_fjord_ridge")}},
+        {TEXT("nature"),{TEXT("nature_river_woodland")}}, {TEXT("dark"),{TEXT("dark_ash_plain")}}};
+    for(FName Id:FSoulCampaignRules::CanonicalFactions())
+    {
+        TestTrue(TEXT("capture target initially neutral"),Captures.S->World.Regions[Paths[Id].Last()].OwnerFactionId.IsNone());
+        for(FName Target:Paths[Id])
+        {
+            FSoulFactionCampaignState Army;Captures.S->InspectFactionArmy(Id,Army);
+            TestTrue(TEXT("neutral proposal admitted without a combat roster"),Captures.S->PrepareControlledAction(Id,Army.Army.ArmyId,Army.Army.RegionId,Target,A,Error));
+            TestTrue(TEXT("normal capture executed"),Captures.S->ExecuteControlledAction(A,Error));
+            TestEqual(TEXT("right capturing owner"),Captures.S->World.Regions[Target].OwnerFactionId,Id);
+            TestFalse(TEXT("neutral capture never starts combat"),Captures.S->HasPendingBattle());
+        }
+    }
+    FRBSaveDomainState Captured;Captures.S->CaptureRBSaveDomain_Implementation(Captured,Error);
+    FFixture Restored;TestTrue(TEXT("all-six captures restore"),Restored.S->RestoreRBSaveDomain_Implementation(Captured,Error));
+    TestEqual(TEXT("capture snapshot exact"),Snapshot(Restored.S),Snapshot(Captures.S));
+    FFixture Legacy(false);
+    TestFalse(TEXT("default profile cannot execute six-faction action"),Legacy.S->ExecuteControlledAction(A,Error));
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulControlledReverseTest,"Soul.Integration.SixFaction.ControlledReverseBattleConsequences",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FSoulControlledReverseTest::RunTest(const FString&)
+{
+    for(FName Id:TArray<FName>{TEXT("dwarves"),TEXT("orcs"),TEXT("vikings")}) for(bool Won:{false,true})
+    {
+        FFixture F;auto* S=F.S;FString Error;
+        const TArray<FName> Human={TEXT("crossroads"),TEXT("forest_edge"),TEXT("north_pass")};
+        auto Move=[&](FName Who,FName Target)
+        {
+            FSoulFactionCampaignState A;S->InspectFactionArmy(Who,A);
+            if(A.Economy.ActionPoints==0){S->AdvanceDay();S->InspectFactionArmy(Who,A);}
+            FSoulControlledCampaignAction Proposal;
+            return S->PrepareControlledAction(Who,A.Army.ArmyId,A.Army.RegionId,Target,Proposal,Error)&&S->ExecuteControlledAction(Proposal,Error);
+        };
+        for(FName R:Human)TestTrue(TEXT("Human legally occupies pass"),Move(TEXT("humans"),R));
+        TArray<FName> Steps;
+        if(Id==TEXT("dwarves"))Steps={TEXT("dwarf_forge_approach")};
+        if(Id==TEXT("vikings"))Steps={TEXT("viking_fjord_ridge"),TEXT("viking_snow_pass"),TEXT("mountain_shrine"),TEXT("dwarf_mountain_pass")};
+        for(FName R:Steps)TestTrue(TEXT("attacker stages legally"),Move(Id,R));
+        FSoulFactionCampaignState Before;S->InspectFactionArmy(Id,Before);
+        if(Before.Economy.ActionPoints==0){S->AdvanceDay();S->InspectFactionArmy(Id,Before);}
+        const auto HumanEconomy=S->Economy;const auto HumanMana=S->Hero.Mana;
+        FSoulControlledCampaignAction A;
+        TestTrue(TEXT("reverse proposal admitted"),S->PrepareControlledAction(Id,Before.Army.ArmyId,Before.Army.RegionId,TEXT("north_pass"),A,Error));
+        const FString Unchanged=Snapshot(S);
+        const auto Recipes=S->BattlefieldTemplates;S->BattlefieldTemplates.Reset();
+        TestFalse(TEXT("lost approach rejects before mutation"),S->ExecuteControlledAction(A,Error));
+        TestEqual(TEXT("failed battlefield admission exact"),Snapshot(S),Unchanged);S->BattlefieldTemplates=Recipes;
+        // Admission can become unavailable after preparation. A pending bridge
+        // must reject without AP/ownership/save mutation or replacing that battle.
+        auto* Bridge=F.GI->GetSubsystem<USoulCampaignBattleBridge>();FSoulCampaignBattleDescriptor Occupied;
+        TestTrue(TEXT("build occupied bridge fixture"),S->BuildFactionBattleDescriptor(Id,TEXT("north_pass"),Occupied,Error));
+        TestTrue(TEXT("existing bridge occupied"),Bridge->BeginEncounter(Occupied));
+        TestFalse(TEXT("late bridge occupancy rejects"),S->ExecuteControlledAction(A,Error));
+        TestEqual(TEXT("bridge rejection exact campaign"),Snapshot(S),Unchanged);
+        TestEqual(TEXT("occupied encounter preserved"),Bridge->GetPendingEncounter()->EncounterId,Occupied.EncounterId);
+        FSoulCampaignBattleResult Release;Release.EncounterId=Occupied.EncounterId;Release.TargetRegion=Occupied.TargetRegion;Release.bPlayerWon=false;Release.PlayerSurvivors=0;Release.EnemySurvivors=17;
+        AddExpectedError(TEXT("Rejected campaign result"),EAutomationExpectedErrorFlags::Contains,1);
+        TestTrue(TEXT("test fixture clears bridge through normal result validation"),Bridge->ResolveEncounter(Release));
+        TestEqual(TEXT("no campaign pending means no spurious result mutation"),Snapshot(S),Unchanged);
+        TestTrue(TEXT("reverse battle commits"),S->ExecuteControlledAction(A,Error));
+        const auto D=S->PendingBattle;
+        TestEqual(TEXT("attacker faction"),D.PlayerFaction,Id);TestEqual(TEXT("defender Human"),D.EnemyFaction,FName(TEXT("humans")));
+        TestEqual(TEXT("exact attacker unit"),D.PlayerUnitId,Before.Army.UnitId);TestEqual(TEXT("exact Human unit"),D.EnemyUnitId,FName(TEXT("human_knight")));
+        TestEqual(TEXT("Human AP is not spent"),S->Economy.ActionPoints,HumanEconomy.ActionPoints);
+        FSoulFactionCampaignState Paid;S->InspectFactionArmy(Id,Paid);TestEqual(TEXT("acting army pays"),Paid.Economy.ActionPoints,Before.Economy.ActionPoints-1);
+        FSoulCampaignBattleResult R;R.EncounterId=D.EncounterId;R.TargetRegion=D.TargetRegion;R.bPlayerWon=Won;
+        R.PlayerSurvivors=Won?13:0;R.EnemySurvivors=Won?0:17;R.PlayerManaRemaining=0;R.PlayerReinforcements=2;R.EnemyReinforcements=1;
+        // Arranged authority test only. Natural combat is a separate rendered runtime gate.
+        TestTrue(TEXT("valid directed result accepted"),S->ApplyBattleResult(R));
+        S->InspectFactionArmy(Id,Paid);
+        TestEqual(TEXT("attacker survivor ledger"),Paid.Army.TroopCount,R.PlayerSurvivors);
+        TestEqual(TEXT("Human defender survivor ledger"),S->PlayerArmy.FindRef(S->PlayerUnitId),R.EnemySurvivors);
+        TestEqual(TEXT("attacker return location"),Paid.Army.RegionId,Won?D.TargetRegion:D.SourceRegion);
+        TestEqual(TEXT("Human identity/location not swapped"),S->PlayerRegion,D.TargetRegion);
+        TestEqual(TEXT("correct capture"),S->World.Regions[D.TargetRegion].OwnerFactionId,Won?Id:FName(TEXT("humans")));
+        TestEqual(TEXT("Human hero untouched"),S->Hero.Mana,HumanMana);
+        TestEqual(TEXT("occupied-region army excludes defeated colocated army"),S->ArmyCountAtRegion(D.TargetRegion),Won?R.PlayerSurvivors:R.EnemySurvivors);
+        FRBSaveDomainState Save;TestTrue(TEXT("capture directed result"),S->CaptureRBSaveDomain_Implementation(Save,Error));
+        FFixture Fresh;TestTrue(TEXT("fresh authority restores all six armies"),Fresh.S->RestoreRBSaveDomain_Implementation(Save,Error));
+        TestEqual(TEXT("fresh snapshot exact"),Snapshot(Fresh.S),Snapshot(S));
+        TestFalse(TEXT("result cannot apply twice"),S->ApplyBattleResult(R));
+    }
+    for(FName Id:TArray<FName>{TEXT("nature"),TEXT("dark")})
+    {
+        FFixture F;auto* S=F.S;
+        if(Id==TEXT("nature"))
+        {
+            FRBSaveDomainState Saved;FString Error;S->CaptureRBSaveDomain_Implementation(Saved,Error);
+            const auto Unbound=Edited(Saved,[](FJsonObject& O){for(const auto& V:O.GetArrayField(TEXT("other_faction_states")))if(V->AsObject()->GetStringField(TEXT("faction"))==TEXT("nature"))V->AsObject()->SetStringField(TEXT("unit"),TEXT("None"));});
+            TestTrue(TEXT("earlier unbound Nature save preserved"),S->RestoreRBSaveDomain_Implementation(Unbound,Error));
+        }
+        FSoulFactionCampaignState Army;S->InspectFactionArmy(Id,Army);
+        TestTrue(TEXT("unsupported fixture has no roster"),Army.Army.UnitId.IsNone());
+        // Minimal hostile test arrangement; production observer never overrides owners.
+        const FName Target=S->World.Regions[Army.Army.RegionId].Neighbors[0];
+        S->PlayerRegion=Target;S->World.Regions[Target].OwnerFactionId=TEXT("humans");
+        const FString Before=Snapshot(S);FString Error;FSoulControlledCampaignAction A;
+        TestFalse(TEXT("unbound faction hostile proposal rejects"),S->PrepareControlledAction(Id,Army.Army.ArmyId,Army.Army.RegionId,Target,A,Error));
+        TestEqual(TEXT("unsupported roster remains exact"),Snapshot(S),Before);
+        TestEqual(TEXT("explicit unsupported pair reason"),Error,FString(TEXT("REJECT_UNSUPPORTED_ORDERED_PAIR")));
+    }
+    return true;
+}
+
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulControlledOtherPairsTest,"Soul.Integration.SixFaction.ControlledNonHumanPairs",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FSoulControlledOtherPairsTest::RunTest(const FString&)
+{
+    struct FPlan {FName Attacker,Defender;TArray<FName> AttackSteps,DefendSteps;FName Target;};
+    const FPlan Plans[]={
+        {TEXT("dwarves"),TEXT("orcs"),{TEXT("dwarf_forge_approach")},{TEXT("north_pass")},TEXT("north_pass")},
+        {TEXT("orcs"),TEXT("dwarves"),{},{TEXT("dwarf_forge_approach"),TEXT("north_pass")},TEXT("north_pass")},
+        {TEXT("dwarves"),TEXT("vikings"),{TEXT("dwarf_forge_approach"),TEXT("north_pass")},{TEXT("viking_fjord_ridge"),TEXT("viking_snow_pass"),TEXT("mountain_shrine"),TEXT("dwarf_mountain_pass")},TEXT("dwarf_mountain_pass")},
+        {TEXT("vikings"),TEXT("dwarves"),{TEXT("viking_fjord_ridge"),TEXT("viking_snow_pass"),TEXT("mountain_shrine")},{TEXT("dwarf_forge_approach"),TEXT("north_pass"),TEXT("dwarf_mountain_pass")},TEXT("dwarf_mountain_pass")},
+        {TEXT("orcs"),TEXT("vikings"),{},{TEXT("viking_fjord_ridge"),TEXT("viking_snow_pass"),TEXT("mountain_shrine"),TEXT("dwarf_mountain_pass"),TEXT("north_pass")},TEXT("north_pass")},
+        {TEXT("vikings"),TEXT("orcs"),{TEXT("viking_fjord_ridge"),TEXT("viking_snow_pass"),TEXT("mountain_shrine"),TEXT("dwarf_mountain_pass")},{TEXT("north_pass")},TEXT("north_pass")}
+    };
+    for(const auto& P:Plans)for(bool Won:{false,true})
+    {
+        FFixture F;auto* S=F.S;FString Error;
+        auto Travel=[&](FName Id,const TArray<FName>& Path)
+        {
+            for(FName Target:Path)
+            {
+                FSoulFactionCampaignState A;S->InspectFactionArmy(Id,A);
+                if(A.Economy.ActionPoints<1){S->AdvanceDay();S->InspectFactionArmy(Id,A);}
+                FSoulControlledCampaignAction Action;
+                if(!S->PrepareControlledAction(Id,A.Army.ArmyId,A.Army.RegionId,Target,Action,Error)||!S->ExecuteControlledAction(Action,Error))return false;
+            }
+            return true;
+        };
+        if(!TestTrue(TEXT("defender legal staging"),Travel(P.Defender,P.DefendSteps))||!TestTrue(TEXT("attacker legal staging"),Travel(P.Attacker,P.AttackSteps)))continue;
+        FSoulFactionCampaignState Before,Defender;S->InspectFactionArmy(P.Attacker,Before);S->InspectFactionArmy(P.Defender,Defender);
+        if(Before.Economy.ActionPoints<1){S->AdvanceDay();S->InspectFactionArmy(P.Attacker,Before);}
+        const auto HumanArmy=S->PlayerArmy;const auto HumanRegion=S->PlayerRegion;const auto HumanMana=S->Hero.Mana;
+        const auto HumanGold=S->Economy.Resources.FindRef(TEXT("gold"));const auto HumanAP=S->Economy.ActionPoints;
+        FSoulControlledCampaignAction Action;
+        if(!TestTrue(TEXT("exact ordered proposal"),S->PrepareControlledAction(P.Attacker,Before.Army.ArmyId,Before.Army.RegionId,P.Target,Action,Error)))continue;
+        TestTrue(TEXT("normal hostile execution"),S->ExecuteControlledAction(Action,Error));const auto D=S->PendingBattle;
+        TestEqual(TEXT("attacker identity"),D.PlayerFaction,P.Attacker);TestEqual(TEXT("defender identity"),D.EnemyFaction,P.Defender);
+        TestEqual(TEXT("attacker roster"),D.PlayerUnitId,Before.Army.UnitId);TestEqual(TEXT("defender roster"),D.EnemyUnitId,Defender.Army.UnitId);
+        TestEqual(TEXT("existing canonical pass recipe"),D.BattlefieldId,FName(TEXT("dragon_pass")));
+        FSoulFactionCampaignState Paid;S->InspectFactionArmy(P.Attacker,Paid);TestEqual(TEXT("normal hostile AP debit"),Paid.Economy.ActionPoints,Before.Economy.ActionPoints-1);
+        FSoulCampaignBattleResult R;R.EncounterId=D.EncounterId;R.TargetRegion=P.Target;R.bPlayerWon=Won;R.PlayerSurvivors=Won?11:0;R.EnemySurvivors=Won?0:14;
+        R.PlayerReinforcements=2;R.EnemyReinforcements=3;
+        // Arranged validator coverage, not evidence of natural battle outcomes.
+        TestTrue(TEXT("side-correct result applies"),S->ApplyBattleResult(R));
+        FSoulFactionCampaignState A,B;S->InspectFactionArmy(P.Attacker,A);S->InspectFactionArmy(P.Defender,B);
+        TestEqual(TEXT("attacker survivor authority"),A.Army.TroopCount,R.PlayerSurvivors);TestEqual(TEXT("defender survivor authority"),B.Army.TroopCount,R.EnemySurvivors);
+        TestEqual(TEXT("attacker return"),A.Army.RegionId,Won?P.Target:D.SourceRegion);TestEqual(TEXT("defender remains at encounter"),B.Army.RegionId,P.Target);
+        TestEqual(TEXT("capture actual victorious faction"),S->World.Regions[P.Target].OwnerFactionId,Won?P.Attacker:P.Defender);
+        TestTrue(TEXT("uninvolved Human army untouched"),S->PlayerArmy.OrderIndependentCompareEqual(HumanArmy));TestEqual(TEXT("Human region untouched"),S->PlayerRegion,HumanRegion);
+        TestEqual(TEXT("Human mana untouched"),S->Hero.Mana,HumanMana);TestEqual(TEXT("Human gold untouched"),S->Economy.Resources.FindRef(TEXT("gold")),HumanGold);TestEqual(TEXT("Human AP untouched"),S->Economy.ActionPoints,HumanAP);
+        FRBSaveDomainState Save;TestTrue(TEXT("all faction result capture"),S->CaptureRBSaveDomain_Implementation(Save,Error));FFixture Fresh;
+        TestTrue(TEXT("fresh result restore"),Fresh.S->RestoreRBSaveDomain_Implementation(Save,Error));TestEqual(TEXT("exact non-Human result state"),Snapshot(Fresh.S),Snapshot(S));
+    }
+    int32 Admitted=0;
+    for(FName A:FSoulCampaignRules::CanonicalFactions())for(FName B:FSoulCampaignRules::CanonicalFactions())
+    {
+        const FName AU=FSoulCampaignRules::AdmittedStrategicUnit(A),BU=FSoulCampaignRules::AdmittedStrategicUnit(B);
+        const bool Expected=A!=B&&A!=TEXT("dark")&&B!=TEXT("dark")&&(!(A==TEXT("nature")||B==TEXT("nature"))||A==TEXT("humans")||B==TEXT("humans"));
+        const bool Actual=FSoulCampaignBattleDescriptor::SupportsExactPair(A,AU,B,BU);
+        TestEqual(TEXT("explicit pair surface"),Actual,Expected);if(Actual)++Admitted;
+        TestFalse(TEXT("wrong roster never aliases"),FSoulCampaignBattleDescriptor::SupportsExactPair(A,TEXT("wrong_unit"),B,BU));
+    }
+    TestEqual(TEXT("fourteen ordered exact pairs"),Admitted,14);
+    return true;
+}
+
 #endif

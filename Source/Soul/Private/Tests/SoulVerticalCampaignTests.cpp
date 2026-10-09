@@ -203,7 +203,7 @@ bool FSoulVerticalSupportedMatchupTest::RunTest(const FString&)
         Invalid = Valid;
         Swap(Invalid.PlayerFaction, Invalid.EnemyFaction);
         Swap(Invalid.PlayerUnitId, Invalid.EnemyUnitId);
-        Reject(TEXT("unsupported reversed matchup rejected"), Invalid);
+        TestTrue(TEXT("explicit exact reverse Dwarf/Human pair admitted"), Invalid.IsValid());
 
         auto Orc = Valid;
         Orc.EnemyFaction = TEXT("orcs");

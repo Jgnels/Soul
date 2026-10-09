@@ -50,8 +50,9 @@ void ASoulRealtimeArenaGameMode::DressDragonBattlefield()
 void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
     ACharacter* Actor,int32 Side,ESoulRealtimeFormationRole FormationRole)
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
     if(!Actor) return;
-    if(!UsesOrcCampaignRoster(Side) && !UsesVikingCampaignRoster(Side) && (FormationRole==ESoulRealtimeFormationRole::Ranged ||
+    if(!UsesOrcCampaignRoster(Side) && !UsesVikingCampaignRoster(Side) && !UsesNatureCampaignRoster(Side) && (FormationRole==ESoulRealtimeFormationRole::Ranged ||
         FormationRole==ESoulRealtimeFormationRole::Apex ||
         FormationRole==ESoulRealtimeFormationRole::Breaker)) return;
     const TCHAR* Weapon=nullptr;
@@ -61,9 +62,11 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
         Weapon=TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SM_Hummer");
         WeaponHand=TEXT("CATRigRArmPalm");
     }
+    else if(UsesNatureCampaignRoster(Side))
+        Weapon=TEXT("/Game/Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe");
     else if(UsesVikingCampaignRoster(Side))
         Weapon=TEXT("/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe");
-    else if(Side==0)
+    else if(CampaignVisualSide(Side)==0)
     {
         // Aurora carries her authored weapon as part of the hero mesh.
         if(FormationRole==ESoulRealtimeFormationRole::Hero) return;
@@ -115,6 +118,6 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
     // The qualified Dwarf Warrior rig's Weapon_Soket is identity on hand_r.
     // The knight shares that parent chain, so use the bone without modifying a donor socket.
     Attach(Weapon,WeaponHand);
-    if(Side==0 && FormationRole==ESoulRealtimeFormationRole::Guard)
+    if(CampaignVisualSide(Side)==0 && FormationRole==ESoulRealtimeFormationRole::Guard)
         Attach(TEXT("/Game/Knights_Pack/Meshes/Knight_04/Weapon/SM_Knight_04_Shield"),TEXT("hand_l"));
 }

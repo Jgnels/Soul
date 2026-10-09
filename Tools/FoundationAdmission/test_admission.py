@@ -23,7 +23,7 @@ class AdmissionContracts(unittest.TestCase):
  def test_every_compiled_source_is_tracked_or_explicit_admission(self):
   tracked=set(subprocess.check_output(['git','ls-files','Source'],cwd=R,text=True).splitlines())
   actual={p.relative_to(R).as_posix() for p in (R/'Source').rglob('*') if p.suffix in {'.cpp','.h','.cs'}}
-  self.assertEqual(actual-tracked,{'Source/Soul/Private/SoulCompositionTraversalQualification.cpp', 'Source/Soul/Private/SoulSixFactionCampaign.cpp', 'Source/Soul/Private/SoulSixFactionQualification.cpp', 'Source/Soul/Private/Tests/SoulSixFactionCampaignTests.cpp'}-tracked)
+  self.assertEqual(actual-tracked,{'Source/Soul/Private/SoulControlledCampaignAction.cpp', 'Source/Soul/Private/SoulControlledBattleQualification.cpp', 'Source/Soul/Private/SoulCompositionTraversalQualification.cpp', 'Source/Soul/Private/SoulSixFactionCampaign.cpp', 'Source/Soul/Private/SoulSixFactionQualification.cpp', 'Source/Soul/Private/Tests/SoulSixFactionCampaignTests.cpp'}-tracked)
  def test_reference_and_composition_data_are_unchanged(self):
   checkpoint=json.loads((E/'checkpoint.json').read_text())
   # The expensive donor preservation inventory is rechecked at closeout; this

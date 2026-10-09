@@ -1,9 +1,10 @@
 #include "SoulFounderPlaytestStateSubsystem.h"
 #include "Dom/JsonObject.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 
 namespace
 {
-    const TCHAR* SixProfile = TEXT("Soul.Composition3500.SixFactionProof");
     bool Number(const FJsonObject& O, const TCHAR* K, int32& Out)
     {
         double N;
@@ -82,6 +83,18 @@ bool USoulFounderPlaytestStateSubsystem::InitializeSixFactionState(const FJsonOb
             ||!ReadRegions(**Knowledge,TEXT("visible_regions"),CandidateWorld,K.VisibleRegions))return false;
         CandidateWorld.KnowledgeByFaction.Add(Id,MoveTemp(K));
     }
+    FString ControlledAttacker;
+    if (FParse::Value(FCommandLine::Get(),TEXT("SoulControlledBattle="),ControlledAttacker))
+    {
+        if (ControlledAttacker!=TEXT("dwarves") && ControlledAttacker!=TEXT("orcs") && ControlledAttacker!=TEXT("vikings") && ControlledAttacker!=TEXT("nature") && ControlledAttacker!=TEXT("human_nature") && ControlledAttacker!=TEXT("dwarves_orcs") && ControlledAttacker!=TEXT("orcs_dwarves") && ControlledAttacker!=TEXT("dwarves_vikings") && ControlledAttacker!=TEXT("vikings_dwarves") && ControlledAttacker!=TEXT("orcs_vikings") && ControlledAttacker!=TEXT("vikings_orcs"))
+        { Error=TEXT("Unknown controlled proof faction."); return false; }
+        SixFactionSaveSlot=TEXT("Soul.Composition3500.Controlled.")+ControlledAttacker;
+    }
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulControlledTurn")))
+    {
+        if(!ControlledAttacker.IsEmpty()){Error=TEXT("Controlled proof modes conflict.");return false;}
+        SixFactionSaveSlot=TEXT("Soul.Composition3500.ControlledTurn");
+    }
     World=MoveTemp(CandidateWorld);OtherFactionStates=MoveTemp(CandidateStates);
     EnemyArmies.Reset(); // The legacy two-side ledger is inactive in this profile.
     bSixFactionProfile=true; LastAIReport=TEXT("Six canonical factions; strategic AI OFF; qualification forces, balance pending.");
@@ -101,15 +114,15 @@ bool USoulFounderPlaytestStateSubsystem::InspectFactionArmy(FName Id,FSoulFactio
 int32 USoulFounderPlaytestStateSubsystem::ArmyCountAtRegion(FName Region) const
 {
     if(!bSixFactionProfile)return EnemyArmies.FindRef(Region);
-    if(Region==PlayerRegion)return PlayerArmy.FindRef(PlayerUnitId);
-    for(const auto& P:OtherFactionStates)if(P.Value.Army.RegionId==Region)return P.Value.Army.TroopCount;
+    if(Region==PlayerRegion && PlayerArmy.FindRef(PlayerUnitId)>0)return PlayerArmy.FindRef(PlayerUnitId);
+    for(const auto& P:OtherFactionStates)if(P.Value.Army.RegionId==Region && P.Value.Army.TroopCount>0)return P.Value.Army.TroopCount;
     return 0;
 }
 FName USoulFounderPlaytestStateSubsystem::ArmyUnitAtRegion(FName Region) const
 {
     if(!bSixFactionProfile)return EnemyUnitId;
-    if(Region==PlayerRegion)return PlayerUnitId;
-    for(const auto& P:OtherFactionStates)if(P.Value.Army.RegionId==Region)return P.Value.Army.UnitId;
+    if(Region==PlayerRegion && PlayerArmy.FindRef(PlayerUnitId)>0)return PlayerUnitId;
+    for(const auto& P:OtherFactionStates)if(P.Value.Army.RegionId==Region && P.Value.Army.TroopCount>0)return P.Value.Army.UnitId;
     return NAME_None;
 }
 FString USoulFounderPlaytestStateSubsystem::ArmyInspectionAtRegion(FName Region) const
@@ -138,7 +151,7 @@ bool USoulFounderPlaytestStateSubsystem::MoveFactionArmy(FName Id,FName Target,F
 
 void USoulFounderPlaytestStateSubsystem::CaptureSixFactionState(FJsonObject& Root) const
 {
-    Root.SetStringField(TEXT("profile"),SixProfile);
+    Root.SetStringField(TEXT("profile"),GetCampaignSaveSlotName());
     Root.SetNumberField(TEXT("six_faction_version"),1);
     TArray<TSharedPtr<FJsonValue>> Regions,States;TArray<FName> Keys;World.Regions.GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)
@@ -168,7 +181,7 @@ bool USoulFounderPlaytestStateSubsystem::ValidateSixFactionRestore(const FJsonOb
     FString Profile;int32 Version=0;
     const TArray<TSharedPtr<FJsonValue>>* Regions=nullptr;const TArray<TSharedPtr<FJsonValue>>* States=nullptr;
     const TSharedPtr<FJsonObject>* Owners=nullptr;
-    if(!Root.TryGetStringField(TEXT("profile"),Profile)||Profile!=SixProfile||!Number(Root,TEXT("six_faction_version"),Version)||Version!=1
+    if(!Root.TryGetStringField(TEXT("profile"),Profile)||Profile!=GetCampaignSaveSlotName()||!Number(Root,TEXT("six_faction_version"),Version)||Version!=1
         ||!Root.TryGetArrayField(TEXT("canonical_regions"),Regions)||Regions->Num()!=World.Regions.Num()||Regions->Num()!=36
         ||!Root.TryGetArrayField(TEXT("other_faction_states"),States)||States->Num()!=5
         ||!Root.TryGetObjectField(TEXT("owners"),Owners)||(*Owners)->Values.Num()!=36)return false;
@@ -198,8 +211,8 @@ bool USoulFounderPlaytestStateSubsystem::ValidateSixFactionRestore(const FJsonOb
         if(Faction==PlayerFaction||!FSoulCampaignRules::CanonicalFactions().Contains(Faction)||OutStates.Contains(Faction)
             ||Owner!=Id||ArmyId!=Id+TEXT(".primary")||!OutWorld.Regions.Contains(Location)
             || (FName(*Unit)!=FSoulCampaignRules::AdmittedStrategicUnit(Faction)
-                && !(Faction==TEXT("vikings")&&FName(*Unit).IsNone())))return false;
-        // Earlier SixFactionProof saves intentionally had no Viking combat binding.
+                && !((Faction==TEXT("vikings")||Faction==TEXT("nature"))&&FName(*Unit).IsNone())))return false;
+        // Earlier SixFactionProof saves intentionally had no Viking/Nature combat binding.
         // Preserve that None exactly; never silently upgrade a saved army roster.
         FSoulFactionCampaignState F;F.Army={FName(*ArmyId),Faction,Location,FName(*Unit),0};
         if(!Number(*O,TEXT("troops"),F.Army.TroopCount)||!Number(*O,TEXT("day"),F.Economy.Day)||F.Economy.Day!=PlayerDay

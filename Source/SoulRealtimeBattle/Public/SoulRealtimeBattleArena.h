@@ -362,9 +362,17 @@ private:
     UAnimationAsset* ResolveVisualDeath(
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     bool UsesEvilVisualRoster() const;
+    bool UsesControlledExactInfantry() const;
+    FName CampaignFactionForSide(int32 Side) const;
+    FName CampaignUnitForSide(int32 Side) const;
+    int32 CampaignVisualSide(int32 Side) const;
+    friend class FSoulReverseCampaignRosterTest;
     bool UsesOrcCampaignRoster(int32 Side) const;
     bool UsesVikingCampaignRoster(int32 Side) const;
+    bool UsesNatureCampaignRoster(int32 Side) const;
+    UAnimationAsset* NatureInfantryAnimation(const TCHAR* Clip) const;
     friend class FSoulVikingCampaignRosterTest;
+    friend class FSoulNatureCampaignRosterTest;
     ESoulRealtimeFormationRole CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const;
     friend class FSoulOrcCampaignRosterTest;
     void UpdateVisualAnimations();
@@ -426,6 +434,8 @@ private:
     int32 LastReinforcementBodies[2] = {0, 0};
     TArray<bool> VisualRunning;
     FVector ArenaOrigin = FVector::ZeroVector;
+    FName PlayerVisualFaction = NAME_None;
+    FName PlayerVisualUnitId = NAME_None;
     FName EnemyVisualFaction = NAME_None;
     FName EnemyVisualUnitId = NAME_None;
     FName EnemyVisualRegion = NAME_None;

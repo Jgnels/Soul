@@ -1,5 +1,30 @@
 #include "SoulCampaignBattleBridge.h"
 
+bool FSoulCampaignBattleDescriptor::SupportsExactPair(FName Attacker, FName AttackerUnit, FName Defender, FName DefenderUnit)
+{
+    // Explicit ordered admission, not a Cartesian product of available bodies.
+    struct FPair { FName A, AU, D, DU; };
+    static const FPair Pairs[] = {
+        {TEXT("humans"),TEXT("human_knight"),TEXT("dwarves"),TEXT("dwarf_warrior")},
+        {TEXT("humans"),TEXT("human_knight"),TEXT("orcs"),TEXT("orc_hammer_warrior")},
+        {TEXT("humans"),TEXT("human_knight"),TEXT("vikings"),TEXT("viking_axe_warrior")},
+        {TEXT("dwarves"),TEXT("dwarf_warrior"),TEXT("humans"),TEXT("human_knight")},
+        {TEXT("orcs"),TEXT("orc_hammer_warrior"),TEXT("humans"),TEXT("human_knight")},
+        {TEXT("vikings"),TEXT("viking_axe_warrior"),TEXT("humans"),TEXT("human_knight")},
+        {TEXT("humans"),TEXT("human_knight"),TEXT("nature"),TEXT("nature_bear_warrior")},
+        {TEXT("nature"),TEXT("nature_bear_warrior"),TEXT("humans"),TEXT("human_knight")},
+        {TEXT("dwarves"),TEXT("dwarf_warrior"),TEXT("orcs"),TEXT("orc_hammer_warrior")},
+        {TEXT("orcs"),TEXT("orc_hammer_warrior"),TEXT("dwarves"),TEXT("dwarf_warrior")},
+        {TEXT("dwarves"),TEXT("dwarf_warrior"),TEXT("vikings"),TEXT("viking_axe_warrior")},
+        {TEXT("vikings"),TEXT("viking_axe_warrior"),TEXT("dwarves"),TEXT("dwarf_warrior")},
+        {TEXT("orcs"),TEXT("orc_hammer_warrior"),TEXT("vikings"),TEXT("viking_axe_warrior")},
+        {TEXT("vikings"),TEXT("viking_axe_warrior"),TEXT("orcs"),TEXT("orc_hammer_warrior")}
+    };
+    for (const auto& P : Pairs)
+        if (P.A==Attacker && P.AU==AttackerUnit && P.D==Defender && P.DU==DefenderUnit) return true;
+    return false;
+}
+
 bool FSoulCampaignBattleDescriptor::IsValid() const
 {
     return !EncounterId.IsNone() && !SourceRegion.IsNone() && !TargetRegion.IsNone()
@@ -9,12 +34,7 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
         && PlayerStrategicCount > 0 && EnemyStrategicCount > 0
         && ActiveCapPerSide > 0 && ActiveCapPerSide <= 35
         && PlayerMana >= 0
-        // Each admitted pair has an exact owned physical roster. A faction name
-        // alone cannot select a visually unrelated side-based fallback.
-        && PlayerFaction == TEXT("humans") && PlayerUnitId == TEXT("human_knight")
-        && ((EnemyFaction == TEXT("dwarves") && EnemyUnitId == TEXT("dwarf_warrior"))
-            || (EnemyFaction == TEXT("orcs") && EnemyUnitId == TEXT("orc_hammer_warrior"))
-            || (EnemyFaction == TEXT("vikings") && EnemyUnitId == TEXT("viking_axe_warrior")));
+        && SupportsExactPair(PlayerFaction, PlayerUnitId, EnemyFaction, EnemyUnitId);
 }
 
 bool USoulCampaignBattleBridge::BeginEncounter(const FSoulCampaignBattleDescriptor& Descriptor)

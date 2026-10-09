@@ -25,6 +25,7 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     int32 ActiveCapPerSide = 5;
     int32 EncounterOrdinal = 0;
     int32 PlayerMana = 80;
+    static bool SupportsExactPair(FName Attacker, FName AttackerUnit, FName Defender, FName DefenderUnit);
     bool IsValid() const;
 };
 

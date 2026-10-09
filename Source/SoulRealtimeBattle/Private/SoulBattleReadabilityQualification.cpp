@@ -309,9 +309,9 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
     if(ReadabilityStarted==0) ReadabilityStarted=Now;
     // Explicit staged inspection only; ordinary battle qualification never uses
     // SoulAnimationPoseProof. Inspect the actual admitted infantry actor/weapon.
-    const bool bViking = UsesVikingCampaignRoster(1);
-    if (bViking && !bBattlePaused) ToggleBattlePause();
-    const int32 CaptureCount = bViking ? 8 : 24;
+    const bool bExactInfantry = UsesVikingCampaignRoster(1)||UsesNatureCampaignRoster(1);
+    if (bExactInfantry && !bBattlePaused) ToggleBattlePause();
+    const int32 CaptureCount = bExactInfantry ? 8 : 24;
     if(!ReadabilityCaptureName.IsEmpty())
     {
         if(Now<ReadabilityCaptureAt || FScreenshotRequest::IsScreenshotRequested()) return;
@@ -325,15 +325,15 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
     if(Now-ReadabilityStarted<3 || Now<ReadabilityNextCapture) return;
     if(ReadabilityStage>=CaptureCount)
     {
-        if (bViking && Now-ReadabilityStarted<75.0) return;
-        UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_PASS: captures=%d rosters=%d exactViking=%d"),CaptureCount,bViking?1:2,bViking);
+        if (bExactInfantry && Now-ReadabilityStarted<75.0) return;
+        UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_PASS: captures=%d rosters=%d exactInfantry=%d"),CaptureCount,bExactInfantry?1:2,bExactInfantry);
         FPlatformMisc::RequestExitWithStatus(false,0);return;
     }
     const int32 CaptureIndex=ReadabilityStage++;
-    const int32 Side=bViking ? 1 : CaptureIndex/12;
-    const int32 Stage=bViking ? CaptureIndex : CaptureIndex%12;
-    const bool bDeath = bViking ? Stage==7 : Stage==11;
-    const auto Wanted=bViking ? ESoulRealtimeFormationRole::Line : Stage<8 ? ESoulRealtimeFormationRole::Guard : Stage<10 ? ESoulRealtimeFormationRole::Hero : ESoulRealtimeFormationRole::Apex;
+    const int32 Side=bExactInfantry ? 1 : CaptureIndex/12;
+    const int32 Stage=bExactInfantry ? CaptureIndex : CaptureIndex%12;
+    const bool bDeath = bExactInfantry ? Stage==7 : Stage==11;
+    const auto Wanted=bExactInfantry ? ESoulRealtimeFormationRole::Line : Stage<8 ? ESoulRealtimeFormationRole::Guard : Stage<10 ? ESoulRealtimeFormationRole::Hero : ESoulRealtimeFormationRole::Apex;
     int32 Subject=INDEX_NONE;
     for(int32 I=0;I<Combatants.Num();++I)
         if(Combatants[I].Side==Side && Combatants[I].Role==Wanted) { Subject=I;break; }
@@ -351,7 +351,7 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
     StageLocation.Z+=Actor->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()-96.f;
     Actor->SetActorLocationAndRotation(StageLocation,FRotator::ZeroRotator);
     UAnimationAsset* Clip=nullptr;
-    if (bViking)
+    if (bExactInfantry)
     {
         if (Stage<2) Clip=ResolveVisualAnimation(Side,Stage==1,Wanted);
         else if (Stage<6) Clip=ResolveVisualAttack(Side,Wanted,Stage-2);
@@ -404,6 +404,11 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
     TacticalFocus=PoseBounds.IsValid ? PoseBounds.GetCenter() : Actor->GetActorLocation();
     TacticalDistance=PoseBounds.IsValid ? FMath::Max(900.f,float(PoseBounds.GetExtent().Size())*4.5f) : 1250.f;
     TacticalRotation=FRotator(-20,140,0);
+    if (UsesNatureCampaignRoster(Side))
+    {
+        TacticalDistance=650.f;
+        TacticalRotation=FRotator(-15,-40,0); // Inspect the weapon hand, not the occluding back.
+    }
     UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_FRAME: capture=%d bones=%d focus=%s distance=%.1f"),CaptureIndex,Mesh->GetNumBones(),*TacticalFocus.ToCompactString(),TacticalDistance);
     Status=FString::Printf(TEXT("STAGED ANIMATION INSPECTION / %s"),*Clip->GetName());
     ReadabilityCaptureName=FString::Printf(TEXT("%02d-%s"),CaptureIndex,*Clip->GetName());

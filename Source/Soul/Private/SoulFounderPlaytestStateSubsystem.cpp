@@ -461,6 +461,25 @@ bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
 bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBattleResult& R)
 {
     if (!HasPendingBattle() || ResolvedEncounters.Contains(R.EncounterId) || !R.IsValidFor(PendingBattle)) return false;
+    if (bSixFactionProfile && PendingBattle.PlayerFaction!=PlayerFaction)
+    {
+        auto* Attacker=OtherFactionStates.Find(PendingBattle.PlayerFaction);
+        auto* Defender=PendingBattle.EnemyFaction==PlayerFaction?nullptr:OtherFactionStates.Find(PendingBattle.EnemyFaction);
+        if (!Attacker || (PendingBattle.EnemyFaction!=PlayerFaction && !Defender)) return false;
+        Attacker->Army.TroopCount=R.PlayerSurvivors;
+        if (Defender) Defender->Army.TroopCount=R.EnemySurvivors;
+        else PlayerArmy.FindOrAdd(PendingBattle.EnemyUnitId)=R.EnemySurvivors;
+        Attacker->Army.RegionId=R.bPlayerWon?PendingBattle.TargetRegion:PendingBattle.SourceRegion;
+        if (R.bPlayerWon) FSoulWorldRules::Capture(World,PendingBattle.TargetRegion,PendingBattle.PlayerFaction);
+        FSoulWorldRules::RefreshVision(World,PendingBattle.PlayerFaction,Attacker->Army.RegionId);
+        FSoulWorldRules::RefreshVision(World,PendingBattle.EnemyFaction,PendingBattle.TargetRegion);
+        // PlayerRegion/hero/economy remain the real Human state. No temporary faction swapping.
+        bBattleWon=R.bPlayerWon; // Existing saved result flag is attacker-side outcome.
+        UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CONTROLLED_RESULT attacker=%s defender=%s region=%s owner=%s victory=%d survivors=%d/%d"),
+            *PendingBattle.PlayerFaction.ToString(),*PendingBattle.EnemyFaction.ToString(),*Attacker->Army.RegionId.ToString(),
+            *World.Regions.FindChecked(PendingBattle.TargetRegion).OwnerFactionId.ToString(),R.bPlayerWon,R.PlayerSurvivors,R.EnemySurvivors);
+        LastBattleResult=R;ResolvedEncounters.Add(R.EncounterId);PendingBattle=FSoulCampaignBattleDescriptor();return true;
+    }
     PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;
     if(bSixFactionProfile)OtherFactionStates.FindChecked(PendingBattle.EnemyFaction).Army.TroopCount=R.EnemySurvivors;
     else EnemyArmies.FindOrAdd(PendingBattle.TargetRegion)=R.EnemySurvivors;
@@ -649,7 +668,7 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
 }
 FString USoulFounderPlaytestStateSubsystem::GetCampaignSaveSlotName() const
 {
-    if(bSixFactionProfile)return TEXT("Soul.Composition3500.SixFactionProof");
+    if(bSixFactionProfile)return SixFactionSaveSlot;
     if(SoulCampaignTerrain::Composition()&&FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof")))
         return TEXT("Soul.Composition3500.VikingProof");
     // Presentation profiles retain the same RB Save domains/schema, but a

@@ -12,6 +12,7 @@ FName FSoulCampaignRules::AdmittedStrategicUnit(FName FactionId)
     if (FactionId == TEXT("dwarves")) return TEXT("dwarf_warrior");
     if (FactionId == TEXT("orcs")) return TEXT("orc_hammer_warrior");
     if (FactionId == TEXT("vikings")) return TEXT("viking_axe_warrior");
+    if (FactionId == TEXT("nature")) return TEXT("nature_bear_warrior");
     return NAME_None;
 }
 

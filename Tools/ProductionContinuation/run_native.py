@@ -16,5 +16,13 @@ except subprocess.TimeoutExpired:receipt['timeout']=True
 receipt['seconds']=time.time()-start
 text=(O/'unreal.log').read_text(encoding='utf-8-sig',errors='replace') if (O/'unreal.log').exists() else ''
 receipt['tests']=[l for l in text.splitlines() if 'Test Completed. Result=' in l]
-receipt['pass']=receipt.get('exit_code')==0 and len(receipt['tests'])==a.expected_tests and all('Result={Success}' in l for l in receipt['tests'])
+report=O/'report/index.json'
+structured=json.loads(report.read_text(encoding='utf-8-sig')) if report.is_file() else {}
+completed=structured.get('tests',[])
+receipt['structured_tests']=[{'name':t.get('fullTestPath'),'state':t.get('state')} for t in completed]
+receipt['report_sha256']=hashlib.sha256(report.read_bytes()).hexdigest() if report.is_file() else None
+receipt['pass']=receipt.get('exit_code')==0 and len(completed)==a.expected_tests and structured.get('succeeded',0)+structured.get('succeededWithWarnings',0)==a.expected_tests and structured.get('failed')==0 and structured.get('notRun')==0 and all(t.get('state')=='Success' and t.get('fullTestPath','').startswith(a.tests) for t in completed) and len(receipt['tests'])<=a.expected_tests and all('Result={Success}' in l for l in receipt['tests'])
+receipt['text_completion_count']=len(receipt['tests'])
+receipt['succeeded_with_warnings']=structured.get('succeededWithWarnings',0)
+receipt['warnings']=[{'test':t.get('fullTestPath'),'message':e['event'].get('message')} for t in completed for e in t.get('entries',[]) if e.get('event',{}).get('type')=='Warning']
 (O/'receipt.json').write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt,indent=2));raise SystemExit(0 if receipt['pass'] else 1)

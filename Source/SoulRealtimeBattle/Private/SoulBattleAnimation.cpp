@@ -25,6 +25,8 @@ FRotator ASoulRealtimeArenaGameMode::VisualMeshRotation(ESoulRealtimeMovementArc
 
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualReaction(int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
+    if(UsesNatureCampaignRoster(Side))return NatureInfantryAnimation(TEXT("Get_Hit_1"));
     if(UsesVikingCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1.Anim_Warrior_Get_Hit_1"));
     if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Get_hit.Anim_Orc_Hummer_Get_hit"));
     const TCHAR* Path=nullptr;
@@ -49,6 +51,12 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveAerialFall(int32 Side) const
 // Clips remain on their donor skeleton; no animation-driven combat outcomes.
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveStanceAnimation(int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Mode) const
 {
+    FormationRole=CampaignFormationRole(Side,FormationRole);
+    if(UsesNatureCampaignRoster(Side))
+    {
+        static const TCHAR* Clips[]={TEXT("Idle"),TEXT("Run"),TEXT("Run_Back"),TEXT("Run_Left"),TEXT("Run_Right"),TEXT("Idle_Sit")};
+        return NatureInfantryAnimation(Clips[FMath::Clamp(Mode,0,5)]);
+    }
     if(UsesVikingCampaignRoster(Side))
     {
         if(Mode==0)return ResolveVisualAnimation(Side,false,FormationRole);

@@ -240,7 +240,21 @@
     "/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_36",
     "/RBWeather/Presentation/DA_RBWeather_DefaultPresentation",
     "/RBWeather/Presentation/MPC_RBWeather",
-    "/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe"
+    "/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe",
+    "/Game/Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full",
+    "/Game/Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle_Sit",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Back",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Left",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Right",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3",
+    "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4"
   ],
   "candidate_only_cook_roots": [
     "/Game/SoulCampaignComposition/L_Composition_3500_r2"
@@ -265,7 +279,19 @@
     "composition_human_proof": "Soul.Composition3500.HumanProof",
     "composition_orc_proof": "Soul.Composition3500.OrcProof",
     "composition_six_faction_proof": "Soul.Composition3500.SixFactionProof",
-    "composition_viking_proof": "Soul.Composition3500.VikingProof"
+    "composition_viking_proof": "Soul.Composition3500.VikingProof",
+    "controlled_dwarves": "Soul.Composition3500.Controlled.dwarves",
+    "controlled_orcs": "Soul.Composition3500.Controlled.orcs",
+    "controlled_vikings": "Soul.Composition3500.Controlled.vikings",
+    "controlled_nature": "Soul.Composition3500.Controlled.nature",
+    "controlled_human_nature": "Soul.Composition3500.Controlled.human_nature",
+    "controlled_turn": "Soul.Composition3500.ControlledTurn",
+    "controlled_dwarves_orcs": "Soul.Composition3500.Controlled.dwarves_orcs",
+    "controlled_orcs_dwarves": "Soul.Composition3500.Controlled.orcs_dwarves",
+    "controlled_dwarves_vikings": "Soul.Composition3500.Controlled.dwarves_vikings",
+    "controlled_vikings_dwarves": "Soul.Composition3500.Controlled.vikings_dwarves",
+    "controlled_orcs_vikings": "Soul.Composition3500.Controlled.orcs_vikings",
+    "controlled_vikings_orcs": "Soul.Composition3500.Controlled.vikings_orcs"
   },
   "cooking_does_not_authorize_promotion": true,
   "inactive_source_only_roots": {
