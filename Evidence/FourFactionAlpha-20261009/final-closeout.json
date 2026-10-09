@@ -1,0 +1,229 @@
+{
+  "started_utc": "2026-10-09T16:01:06+00:00",
+  "closed_utc": "2026-10-09T19:57:25.842845+00:00",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "starting_head": "ba4d03a00394d81eb0338353f1497c10b0588c1a",
+  "implementation_commit": "6d4887808dfabdb32414f27f3204011569676e3d",
+  "ending_head_receipt": "final-head.txt",
+  "remote_head_unchanged": "4842eeb403f6b9be6effdf9fe18fc5c24b499887",
+  "outcomes": {
+    "PLAYABLE FOUR-FACTION CAMPAIGN ALPHA": "PASS",
+    "HUMAN DEFENSE AGAINST AI": "PASS",
+    "AUTONOMOUS DWARF/ORC/VIKING TURNS": "PASS",
+    "AI-vs-AI BATTLES": "PASS",
+    "AI RECRUITMENT / CAMPAIGN SUSTAINABILITY": "PASS",
+    "20-TURN CAMPAIGN": "PASS",
+    "MID-CAMPAIGN F5/F9": "PASS",
+    "COLD RESTORE": "PASS",
+    "COOKED PLAYABLE ALPHA": "PASS"
+  },
+  "world_foundation": "KEEP",
+  "profile": "Soul.Composition3500.FourFactionAlpha",
+  "AI_active": [
+    "dwarves",
+    "orcs",
+    "vikings"
+  ],
+  "passive": [
+    "nature",
+    "dark"
+  ],
+  "player": "humans",
+  "roster_substitution": false,
+  "forced_results": false,
+  "default_promotion": false,
+  "push": false,
+  "merge": false,
+  "final_executable_sha256": "e142da67cae5a024a0553df2119a528ce0347468e0cbf323adde9bbed350b6f7",
+  "cooked_runs": [
+    "Local/final-seed1701",
+    "Local/final-seed1702",
+    "Local/final-cold40",
+    "Local/final-human-attack",
+    "Local/final-human-defense",
+    "Local/final-defense-cold12"
+  ],
+  "interactive_startup": {
+    "path": "Local\\manual-play-fourfactionalpha-20261009T195117Z",
+    "clean": true,
+    "observed_seconds": 61.14,
+    "automatic_inputs": false,
+    "desktop_hardware_input_proof": false
+  },
+  "fresh_builds": {
+    "SoulEditor": "editor-alpha-build-r13.log",
+    "Soul": "Soul-alpha-admission-build.log",
+    "SoulComposition": "SoulComposition-alpha-admission-build.log"
+  },
+  "native_tests": {
+    "final_alpha": 7,
+    "strict_six_faction": 8,
+    "default_CampaignWorld": 2,
+    "Composition_CampaignWorld": 2,
+    "Vertical_combat_save": 19,
+    "physical_combat": 12,
+    "note": "Final alpha suite on final r13; unchanged-boundary suites passed during implementation, not all rerun on r13."
+  },
+  "tool_tests": {
+    "source": 11,
+    "launcher": 8,
+    "runner_safety": 12
+  },
+  "stage_integrity": {
+    "checked_utc": "2026-10-09T19:54:24.741344+00:00",
+    "stage_receipt": "Evidence\\FourFactionAlpha-20261009\\Local\\stage-alpha-r2\\Diagnostics\\receipt.json",
+    "manifest_entries_present": 12761,
+    "base_cooked_files_hash_checked": 10754,
+    "base_cooked_mismatches": [],
+    "supplemental_copied_files_hash_checked": 104,
+    "binary_matches_fresh_build": true,
+    "pass": true,
+    "external_remover_diagnosed": false
+  },
+  "preservation": {
+    "checked": 585,
+    "pass": true,
+    "receipt": "preservation-final.json"
+  },
+  "performance_qualification": "NOT RUN \u2014 prior sustained 85 C cutoff remains open",
+  "functional_peak_gpu_c": 70,
+  "admitted_source_tool_hashes": [
+    {
+      "path": "Source/Soul/Private/SoulControlledBattleQualification.cpp",
+      "sha256": "086e62d6941c57be456416b66924c59e43740ee18078b5e2f345ff711fc28b9d"
+    },
+    {
+      "path": "Source/Soul/Private/SoulControlledCampaignAction.cpp",
+      "sha256": "19b79494cc15a3dfb64008b7269bbf97189e53bd9daa26696c3afb4fcef4215c"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+      "sha256": "c78996d4bf95253e5a5ce527acbff859ea295958588b15c35e9d14f29f9275ee"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "sha256": "5e093da2c3fb363e3e230d0be4b4d76b0c6fff1c65aa90bc7af7d578512d35e5"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "sha256": "9a6dce3655f14fdd21899425b9fbc401c01c52eb1508e350c338b85559103af4"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "sha256": "5eb46dafaaa483f1a45a775f8c8b57d1054762fb92fa09bec5dac501af93eaab"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementVisitGameMode.cpp",
+      "sha256": "6b90d0f698f94e63410bb5c45bd43ceaf9abb28a6be891e1bcbfe9c8140960dd"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSixFactionCampaign.cpp",
+      "sha256": "dcfe910c1774a2886ceb55b7a3bc4b77934873b0d403f6bab7af9bd6c386c842"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "sha256": "dc01c31c584c8381e5e27e1e2b1a1ce1c0725f63b4bd738c41897833bdfd7ed6"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "sha256": "2a708a4b2dc27a9a312c554d4aa21eb772731cb20c587112d114f73271a058f6"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "sha256": "1ec8fbeb1affefb7be3726156b1941c1ae72b3e4c02ed2ce0ba701db4423c305"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaignBattleBridge.h",
+      "sha256": "126d79e9acf072d65ef07f350ece4782cd8f19b21ce79d9912cda9494aea0cd0"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+      "sha256": "ea000af826d9aded6c369032e94cd39a4d98cbd0a80f21f56c28a3371a6203c9"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+      "sha256": "5ea4e686784fb63179729dca190ca2b2449eb405dec68193d88bf08d0f63d498"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleMagicProjectile.cpp",
+      "sha256": "92372f7e67c304cfa8c6a78424591fbf710f936a814b0ba962c92e7b1014221e"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp",
+      "sha256": "09047ec30970be29a366155caff1e52c1ed18f2c84906b32fa79e406107ea303"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "sha256": "1167dc5793f8ca7fde8fb97184393033d5b6721c99ff744462646511690064a2"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "sha256": "31b79b2ec49674f4d01a231d80a8b0e9dfc3e027d36ee5d91e001883a76e899b"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFourFactionAlpha.cpp",
+      "sha256": "78d6bed3e66a69f1617b1b3c77c26773e56ac3a4fe13e4b11e8e2e01d5d97ef3"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFourFactionAlphaQualification.cpp",
+      "sha256": "a2c24fe45fc78d384db9062e62bb20ad5737b728a8a3136da270fef61de25281"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulFourFactionAlphaTests.cpp",
+      "sha256": "0318dcf53c2e0e20542904d893d1437dc695becbfdd4cddb6569fe6c87bc72c6"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/Fixtures/FourFactionBlockedFrontier.json",
+      "sha256": "fbf91edd50756b8bbf52b0e7f56850060effb088331a7c41d9cb42cc9305213a"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/Fixtures/FourFactionUnmatchedField.json",
+      "sha256": "d59b6e0f145d8bd1c046ae2b9ccf2735118a65ce52f81e8cdbd9d29b58aeac19"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulHumanDefenseQualification.cpp",
+      "sha256": "ef72c2c7a6ff068dca43bd869f45d95b7c9309da8e85892567ebfd3a0f5b6921"
+    },
+    {
+      "path": "Tools/ProductionContinuation/play_candidate.py",
+      "sha256": "8bd686525a68f2327027c39302e090747be2c9f52f0cb30f450c6c5a4b9f53c1"
+    },
+    {
+      "path": "Tools/ProductionContinuation/test_play_candidate.py",
+      "sha256": "1687ec7d9b14da4ca4d1cf395f77bd1b00fa898be5f9f0d3359bdeaed9dd408d"
+    },
+    {
+      "path": "Tools/qualify_soul_vertical.py",
+      "sha256": "26100549f231bd8c05e0b1487246e4c2504cd8f76668423f655181dd98bd1b00"
+    },
+    {
+      "path": "Tools/FourFactionAlpha/qualify_alpha.py",
+      "sha256": "ee514dd815d924c758dda1720ed37d87875f9aeef6492364d617a585f38327d2"
+    },
+    {
+      "path": "Tools/FourFactionAlpha/README.md",
+      "sha256": "2b6023f0bea1c6cf78cca67b776b402b02927c8692990bebb5987e3e43ee3086"
+    },
+    {
+      "path": "Tools/FourFactionAlpha/stage_binary_update.py",
+      "sha256": "abc220263847437943f876def5370ef3ffe69466b20099598d1b93fa32f193b2"
+    },
+    {
+      "path": "Tools/FourFactionAlpha/summarize_campaign.py",
+      "sha256": "e5dd24751ea84bf343eae77e0f794a6bb7b9c40979c13530d644bac47aa0b4aa"
+    }
+  ],
+  "evidence": "campaign-outcomes.json",
+  "action_log": "action-log.jsonl",
+  "visual_review": "visual-review.html",
+  "known_limits": [
+    "Embodied AI battles take about 1\u20132 minutes plus load.",
+    "Undefended recapture churn; provisional economy and basic AI.",
+    "A defeated commander without owned supply/escape can be stranded.",
+    "Inherited zero-army capital-recruitment guidance can be misleading after capital occupation.",
+    "Field fallback/material/terrain art remains provisional.",
+    "No fresh desktop mouse/gamepad proof; Nwiro/game-session and computer-use kernel were unavailable.",
+    "Temp-file aging/removal remains undiagnosed."
+  ],
+  "next_action": "Founder plays isolated alpha; then bounded Nature-versus-active-roster admission before isolated five-faction activation."
+}

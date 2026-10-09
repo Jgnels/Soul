@@ -1,0 +1,23 @@
+{
+  "head": "ba4d03a00394d81eb0338353f1497c10b0588c1a",
+  "utc": "2026-10-09T16:04:14.395547+00:00",
+  "inherited_tracked": {
+    ".gitignore": "719ebe46beabadfd54e62759dd90d39c4e1dcaf567e75f092793f50294ab0235",
+    "Config/DefaultEngine.ini": "dd1b81a0935755cad20e3ba9aac144943d267e2e0f012aa35eee8813c0aeccad",
+    "Config/DefaultGame.ini": "c5f826e7e613e1ee0686ec1f146c3be87017087cd16d2285791f5eb839c20db2",
+    "Data/CampaignWorldTerrain/presentation.json": "9a98618ef9747bcc3baf652c97672cd2ca7651fd51b9d944134fb9c69cd2dc8b",
+    "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md": "bace68c4ce1c107053dd418a8ba973e4e716a5326560e4b5fd52b026c9095353",
+    "Evidence/ProductionPush-20261008/HANDOFF.md": "c0be43a575583548f4b3ba590fc3bc8d20507224da444cedc09fe512712d063f",
+    "Soul.uproject": "9a46e4c95ca753c2fb944f41e7d3c8b48730cdae4bfc78a0f05b49b6395c971c",
+    "Tools/WorldTerrain/README.md": "fdf4c3c819ef5095bd46f74589c31d2ab11258ef8da45c5238f00e39507cc69c",
+    "Tools/WorldTerrain/author_world.py": "b2eb076e6f22932932c501f7d2039840bedd892ec23be1ad4f527e10862f9d64",
+    "Tools/WorldTerrain/bake_surface.py": "eba7d1d2393268ca42e346fdc30a872395cb9dc8a39f3d6fcc5edb6a909bcb16",
+    "Tools/WorldTerrain/bake_world.py": "fdfce4e95a81242d3636f0caf213b9242f2093b1f9a2a09595ff73a6e4ff9e78",
+    "Tools/WorldTerrain/dress_world.py": "6dc3bc3fb5a7d61d69132945c9d51098cab25ee60940d10f90bff7ff2bc01919",
+    "Tools/WorldTerrain/import_masks.py": "6259b58ba27fb29876e2d4cb46b108ba74660e504c1675da8e05929dbbf2862c",
+    "Tools/WorldTerrain/qualify_world.py": "6b97626aca48fc0acfb7ba617b0386a319c1d3ec0e175a1ec45047a8db4ab98a",
+    "Tools/WorldTerrain/test_world.py": "c5d3a2e6ad351a51a9942a604186aa662903b875ac7f14487a777e8a24ec5d88",
+    "Tools/package_soul_weekend.ps1": "46169759f037b57cb5e3ee9fcb2dac3e364d10c1c75235893b46271f7f024387",
+    "Tools/test_package_soul_weekend.py": "53c31a3cb63a467df5e408275064f3b4e40d5a7fd8fb7043846f866f9021c9b0"
+  }
+}

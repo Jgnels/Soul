@@ -1,0 +1,219 @@
+{"run": "final-seed1701", "day": 2, "faction": "dwarves", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 30, "gold": 3450, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 2, "faction": "orcs", "action": "captured Badlands", "region": "orc_badlands", "troops": 30, "gold": 3450, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 2, "faction": "vikings", "action": "captured Fjord Ridge", "region": "viking_fjord_ridge", "troops": 30, "gold": 3450, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 3, "faction": "dwarves", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 3900, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 3, "faction": "orcs", "action": "captured Ruined Field", "region": "orc_ruined_field", "troops": 30, "gold": 3900, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 3, "faction": "vikings", "action": "captured Snow Pass", "region": "viking_snow_pass", "troops": 30, "gold": 3900, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 4, "faction": "dwarves", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 30, "gold": 4350, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 4, "faction": "orcs", "action": "captured Orc Watch", "region": "orc_watch", "troops": 30, "gold": 4350, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 4, "faction": "vikings", "action": "captured Mountain Shrine", "region": "mountain_shrine", "troops": 30, "gold": 4350, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 5, "faction": "dwarves", "action": "attacked Mountain Shrine", "region": "dwarf_mountain_pass", "troops": 30, "gold": 4800, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 5, "faction": "orcs", "action": "captured River Ford", "region": "river_ford", "troops": 30, "gold": 4800, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 5, "faction": "vikings", "action": "withdrew to Snow Pass", "region": "viking_snow_pass", "troops": 0, "gold": 4800, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 6, "faction": "dwarves", "action": "moved to Mountain Pass", "region": "dwarf_mountain_pass", "troops": 6, "gold": 5250, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 6, "faction": "orcs", "action": "captured Crossroads", "region": "crossroads", "troops": 30, "gold": 5250, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 6, "faction": "vikings", "action": "withdrew to Fjord Ridge", "region": "viking_fjord_ridge", "troops": 0, "gold": 5250, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 7, "faction": "dwarves", "action": "moved to High Quarry", "region": "dwarf_high_quarry", "troops": 6, "gold": 5700, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 7, "faction": "orcs", "action": "captured Human Capital", "region": "human_capital", "troops": 30, "gold": 5700, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 7, "faction": "vikings", "action": "withdrew to Viking Harbour", "region": "viking_harbour", "troops": 0, "gold": 5700, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 8, "faction": "dwarves", "action": "moved to Forge Approach", "region": "dwarf_forge_approach", "troops": 6, "gold": 6150, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 8, "faction": "orcs", "action": "captured Northwest March", "region": "northwest_march", "troops": 30, "gold": 6150, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 8, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 4, "gold": 5590, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 9, "faction": "dwarves", "action": "moved to Dwarf Hold", "region": "dwarf_hold", "troops": 6, "gold": 6600, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 9, "faction": "orcs", "action": "captured Forest Track", "region": "viking_forest_track", "troops": 30, "gold": 6600, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 9, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 8, "gold": 5480, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 10, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 10, "gold": 6490, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 10, "faction": "orcs", "action": "captured Snow Pass", "region": "viking_snow_pass", "troops": 30, "gold": 7050, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 10, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 12, "gold": 5370, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 11, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 14, "gold": 6380, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 11, "faction": "orcs", "action": "captured Mountain Shrine", "region": "mountain_shrine", "troops": 30, "gold": 7500, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 11, "faction": "vikings", "action": "captured Forest Track", "region": "viking_forest_track", "troops": 12, "gold": 5820, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 12, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 18, "gold": 6270, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 12, "faction": "orcs", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 30, "gold": 7950, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 12, "faction": "vikings", "action": "moved to Viking Harbour", "region": "viking_harbour", "troops": 12, "gold": 6270, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 13, "faction": "dwarves", "action": "moved to Forge Approach", "region": "dwarf_forge_approach", "troops": 18, "gold": 6720, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 13, "faction": "orcs", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 8400, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 13, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 12, "gold": 6720, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 14, "faction": "dwarves", "action": "captured North Pass", "region": "north_pass", "troops": 18, "gold": 7170, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 14, "faction": "orcs", "action": "captured Forge Approach", "region": "dwarf_forge_approach", "troops": 30, "gold": 8850, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 14, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 12, "gold": 7170, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 15, "faction": "dwarves", "action": "captured War Camp", "region": "orc_war_camp", "troops": 18, "gold": 7620, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 15, "faction": "orcs", "action": "captured Dwarf Hold", "region": "dwarf_hold", "troops": 30, "gold": 9300, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 15, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 16, "gold": 7060, "ap": 2, "cursor": 3}
+{"run": "final-seed1701", "day": 16, "faction": "dwarves", "action": "captured Orc Stronghold", "region": "orc_camp", "troops": 18, "gold": 8070, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 16, "faction": "orcs", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 30, "gold": 9750, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 16, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 16, "gold": 7510, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 17, "faction": "dwarves", "action": "captured Orc Watch", "region": "orc_watch", "troops": 18, "gold": 8520, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 17, "faction": "orcs", "action": "moved to High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 10200, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 17, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 16, "gold": 7960, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 18, "faction": "dwarves", "action": "captured River Ford", "region": "river_ford", "troops": 18, "gold": 8970, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 18, "faction": "orcs", "action": "moved to Forge Approach", "region": "dwarf_forge_approach", "troops": 30, "gold": 10650, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 18, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 16, "gold": 8410, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 19, "faction": "dwarves", "action": "captured Crossroads", "region": "crossroads", "troops": 18, "gold": 9420, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 19, "faction": "orcs", "action": "captured North Pass", "region": "north_pass", "troops": 30, "gold": 11100, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 19, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 16, "gold": 8860, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 20, "faction": "dwarves", "action": "captured Human Capital", "region": "human_capital", "troops": 18, "gold": 9870, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 20, "faction": "orcs", "action": "captured War Camp", "region": "orc_war_camp", "troops": 30, "gold": 11550, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 20, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 16, "gold": 9310, "ap": 3, "cursor": 3}
+{"run": "final-seed1701", "day": 21, "faction": "dwarves", "action": "captured Northwest March", "region": "northwest_march", "troops": 18, "gold": 10320, "ap": 2, "cursor": 1}
+{"run": "final-seed1701", "day": 21, "faction": "orcs", "action": "captured Orc Stronghold", "region": "orc_camp", "troops": 30, "gold": 12000, "ap": 2, "cursor": 2}
+{"run": "final-seed1701", "day": 21, "faction": "vikings", "action": "held position", "region": "viking_harbour", "troops": 16, "gold": 9760, "ap": 3, "cursor": 3}
+{"run": "final-seed1702", "day": 2, "faction": "dwarves", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 30, "gold": 3450, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 2, "faction": "orcs", "action": "captured Badlands", "region": "orc_badlands", "troops": 30, "gold": 3450, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 2, "faction": "vikings", "action": "captured Fjord Ridge", "region": "viking_fjord_ridge", "troops": 30, "gold": 3450, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 3, "faction": "dwarves", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 3900, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 3, "faction": "orcs", "action": "captured Ruined Field", "region": "orc_ruined_field", "troops": 30, "gold": 3900, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 3, "faction": "vikings", "action": "captured Snow Pass", "region": "viking_snow_pass", "troops": 30, "gold": 3900, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 4, "faction": "dwarves", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 30, "gold": 4350, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 4, "faction": "orcs", "action": "captured Broken Bridge", "region": "orc_broken_bridge", "troops": 30, "gold": 4350, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 4, "faction": "vikings", "action": "captured Mountain Shrine", "region": "mountain_shrine", "troops": 30, "gold": 4350, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 5, "faction": "dwarves", "action": "attacked Mountain Shrine", "region": "dwarf_mountain_pass", "troops": 30, "gold": 4800, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 5, "faction": "orcs", "action": "captured Ruined Causeway", "region": "dark_ruined_causeway", "troops": 30, "gold": 4800, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 5, "faction": "vikings", "action": "moved to Snow Pass", "region": "viking_snow_pass", "troops": 9, "gold": 4800, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 6, "faction": "dwarves", "action": "withdrew to High Quarry", "region": "dwarf_high_quarry", "troops": 0, "gold": 5250, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 6, "faction": "orcs", "action": "captured Corrupted Valley", "region": "dark_corrupted_valley", "troops": 30, "gold": 5250, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 6, "faction": "vikings", "action": "moved to Fjord Ridge", "region": "viking_fjord_ridge", "troops": 9, "gold": 5250, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 7, "faction": "dwarves", "action": "withdrew to Forge Approach", "region": "dwarf_forge_approach", "troops": 0, "gold": 5700, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 7, "faction": "orcs", "action": "captured Ash Plain", "region": "dark_ash_plain", "troops": 30, "gold": 5700, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 7, "faction": "vikings", "action": "moved to Viking Harbour", "region": "viking_harbour", "troops": 9, "gold": 5700, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 8, "faction": "dwarves", "action": "withdrew to Dwarf Hold", "region": "dwarf_hold", "troops": 0, "gold": 6150, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 8, "faction": "orcs", "action": "moved to Corrupted Valley", "region": "dark_corrupted_valley", "troops": 30, "gold": 6150, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 8, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 13, "gold": 5590, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 9, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 4, "gold": 6040, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 9, "faction": "orcs", "action": "moved to Ruined Causeway", "region": "dark_ruined_causeway", "troops": 30, "gold": 6600, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 9, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 17, "gold": 5480, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 10, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 8, "gold": 5930, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 10, "faction": "orcs", "action": "moved to Broken Bridge", "region": "orc_broken_bridge", "troops": 30, "gold": 7050, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 10, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 21, "gold": 5370, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 11, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 12, "gold": 5820, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 11, "faction": "orcs", "action": "moved to Ruined Field", "region": "orc_ruined_field", "troops": 30, "gold": 7500, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 11, "faction": "vikings", "action": "moved to Forest Track", "region": "viking_forest_track", "troops": 21, "gold": 5820, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 12, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 12, "gold": 6270, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 12, "faction": "orcs", "action": "captured Orc Watch", "region": "orc_watch", "troops": 30, "gold": 7950, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 12, "faction": "vikings", "action": "captured Northwest March", "region": "northwest_march", "troops": 21, "gold": 6270, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 13, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 12, "gold": 6720, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 13, "faction": "orcs", "action": "captured River Ford", "region": "river_ford", "troops": 30, "gold": 8400, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 13, "faction": "vikings", "action": "captured Human Capital", "region": "human_capital", "troops": 21, "gold": 6720, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 14, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 12, "gold": 7170, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 14, "faction": "orcs", "action": "captured Crossroads", "region": "crossroads", "troops": 30, "gold": 8850, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 14, "faction": "vikings", "action": "captured Coastal Ruins", "region": "coastal_ruins", "troops": 21, "gold": 7170, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 15, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 16, "gold": 7060, "ap": 2, "cursor": 1}
+{"run": "final-seed1702", "day": 15, "faction": "orcs", "action": "captured Human Capital", "region": "human_capital", "troops": 30, "gold": 9300, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 15, "faction": "vikings", "action": "captured Forest Shrine", "region": "nature_shrine", "troops": 21, "gold": 7620, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 16, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 16, "gold": 7510, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 16, "faction": "orcs", "action": "captured Coastal Ruins", "region": "coastal_ruins", "troops": 30, "gold": 9750, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 16, "faction": "vikings", "action": "captured Grassland Edge", "region": "nature_grassland_edge", "troops": 21, "gold": 8070, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 17, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 16, "gold": 7960, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 17, "faction": "orcs", "action": "captured Forest Shrine", "region": "nature_shrine", "troops": 30, "gold": 10200, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 17, "faction": "vikings", "action": "captured River Ford", "region": "river_ford", "troops": 21, "gold": 8520, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 18, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 16, "gold": 8410, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 18, "faction": "orcs", "action": "captured Grassland Edge", "region": "nature_grassland_edge", "troops": 30, "gold": 10650, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 18, "faction": "vikings", "action": "captured Crossroads", "region": "crossroads", "troops": 21, "gold": 8970, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 19, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 16, "gold": 8860, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 19, "faction": "orcs", "action": "captured River Ford", "region": "river_ford", "troops": 30, "gold": 11100, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 19, "faction": "vikings", "action": "captured Human Capital", "region": "human_capital", "troops": 21, "gold": 9420, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 20, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 16, "gold": 9310, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 20, "faction": "orcs", "action": "captured Crossroads", "region": "crossroads", "troops": 30, "gold": 11550, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 20, "faction": "vikings", "action": "captured Coastal Ruins", "region": "coastal_ruins", "troops": 21, "gold": 9870, "ap": 2, "cursor": 3}
+{"run": "final-seed1702", "day": 21, "faction": "dwarves", "action": "held position", "region": "dwarf_hold", "troops": 16, "gold": 9760, "ap": 3, "cursor": 1}
+{"run": "final-seed1702", "day": 21, "faction": "orcs", "action": "captured Human Capital", "region": "human_capital", "troops": 30, "gold": 12000, "ap": 2, "cursor": 2}
+{"run": "final-seed1702", "day": 21, "faction": "vikings", "action": "captured Forest Shrine", "region": "nature_shrine", "troops": 21, "gold": 10320, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 22, "faction": "dwarves", "action": "captured Coastal Ruins", "region": "coastal_ruins", "troops": 23, "gold": 10770, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 22, "faction": "orcs", "action": "captured Orc Watch", "region": "orc_watch", "troops": 30, "gold": 12450, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 22, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 20, "gold": 9650, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 23, "faction": "dwarves", "action": "captured Forest Shrine", "region": "nature_shrine", "troops": 23, "gold": 11220, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 23, "faction": "orcs", "action": "captured Ruined Field", "region": "orc_ruined_field", "troops": 30, "gold": 12900, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 23, "faction": "vikings", "action": "moved to Forest Track", "region": "viking_forest_track", "troops": 20, "gold": 10100, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 24, "faction": "dwarves", "action": "captured Grassland Edge", "region": "nature_grassland_edge", "troops": 23, "gold": 11670, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 24, "faction": "orcs", "action": "captured Badlands", "region": "orc_badlands", "troops": 30, "gold": 13350, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 24, "faction": "vikings", "action": "captured Northwest March", "region": "northwest_march", "troops": 20, "gold": 10550, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 25, "faction": "dwarves", "action": "captured River Woodland", "region": "nature_river_woodland", "troops": 23, "gold": 12120, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 25, "faction": "orcs", "action": "captured Orc Stronghold", "region": "orc_camp", "troops": 30, "gold": 13800, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 25, "faction": "vikings", "action": "captured Human Capital", "region": "human_capital", "troops": 20, "gold": 11000, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 26, "faction": "dwarves", "action": "moved to Grassland Edge", "region": "nature_grassland_edge", "troops": 23, "gold": 12570, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 26, "faction": "orcs", "action": "captured North Pass", "region": "north_pass", "troops": 30, "gold": 14250, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 26, "faction": "vikings", "action": "captured Coastal Ruins", "region": "coastal_ruins", "troops": 20, "gold": 11450, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 27, "faction": "dwarves", "action": "captured River Ford", "region": "river_ford", "troops": 23, "gold": 13020, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 27, "faction": "orcs", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 30, "gold": 14700, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 27, "faction": "vikings", "action": "captured Forest Shrine", "region": "nature_shrine", "troops": 20, "gold": 11900, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 28, "faction": "dwarves", "action": "captured Orc Watch", "region": "orc_watch", "troops": 23, "gold": 13470, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 28, "faction": "orcs", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 15150, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 28, "faction": "vikings", "action": "captured Grassland Edge", "region": "nature_grassland_edge", "troops": 20, "gold": 12350, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 29, "faction": "dwarves", "action": "captured Orc Stronghold", "region": "orc_camp", "troops": 23, "gold": 13920, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 29, "faction": "orcs", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 30, "gold": 15600, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 29, "faction": "vikings", "action": "captured River Woodland", "region": "nature_river_woodland", "troops": 20, "gold": 12800, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 30, "faction": "dwarves", "action": "captured Badlands", "region": "orc_badlands", "troops": 23, "gold": 14370, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 30, "faction": "orcs", "action": "captured Dwarf Hold", "region": "dwarf_hold", "troops": 30, "gold": 16050, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 30, "faction": "vikings", "action": "moved to Grassland Edge", "region": "nature_grassland_edge", "troops": 20, "gold": 13250, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 31, "faction": "dwarves", "action": "captured Ruined Field", "region": "orc_ruined_field", "troops": 23, "gold": 14820, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 31, "faction": "orcs", "action": "captured Forge Approach", "region": "dwarf_forge_approach", "troops": 30, "gold": 16500, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 31, "faction": "vikings", "action": "captured River Ford", "region": "river_ford", "troops": 20, "gold": 13700, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 32, "faction": "dwarves", "action": "captured Broken Bridge", "region": "orc_broken_bridge", "troops": 23, "gold": 15270, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 32, "faction": "orcs", "action": "moved to North Pass", "region": "north_pass", "troops": 30, "gold": 16950, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 32, "faction": "vikings", "action": "captured Crossroads", "region": "crossroads", "troops": 20, "gold": 14150, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 33, "faction": "dwarves", "action": "captured Ruined Causeway", "region": "dark_ruined_causeway", "troops": 23, "gold": 15720, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 33, "faction": "orcs", "action": "captured Orc Stronghold", "region": "orc_camp", "troops": 30, "gold": 17400, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 33, "faction": "vikings", "action": "captured Forest Edge", "region": "forest_edge", "troops": 20, "gold": 14600, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 34, "faction": "dwarves", "action": "captured Corrupted Valley", "region": "dark_corrupted_valley", "troops": 23, "gold": 16170, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 34, "faction": "orcs", "action": "captured Badlands", "region": "orc_badlands", "troops": 30, "gold": 17850, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 34, "faction": "vikings", "action": "captured North Pass", "region": "north_pass", "troops": 20, "gold": 15050, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 35, "faction": "dwarves", "action": "captured Ash Plain", "region": "dark_ash_plain", "troops": 23, "gold": 16620, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 35, "faction": "orcs", "action": "captured Ruined Field", "region": "orc_ruined_field", "troops": 30, "gold": 18300, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 35, "faction": "vikings", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 20, "gold": 15500, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 36, "faction": "dwarves", "action": "moved to Corrupted Valley", "region": "dark_corrupted_valley", "troops": 23, "gold": 17070, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 36, "faction": "orcs", "action": "captured Broken Bridge", "region": "orc_broken_bridge", "troops": 30, "gold": 18750, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 36, "faction": "vikings", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 20, "gold": 15950, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 37, "faction": "dwarves", "action": "moved to Ruined Causeway", "region": "dark_ruined_causeway", "troops": 23, "gold": 17520, "ap": 2, "cursor": 1}
+{"run": "final-cold40", "day": 37, "faction": "orcs", "action": "attacked Ruined Causeway", "region": "orc_broken_bridge", "troops": 30, "gold": 19200, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 37, "faction": "vikings", "action": "captured Forge Approach", "region": "dwarf_forge_approach", "troops": 20, "gold": 16400, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 38, "faction": "dwarves", "action": "field army destroyed", "region": "dark_ruined_causeway", "troops": 0, "gold": 17970, "ap": 3, "cursor": 1}
+{"run": "final-cold40", "day": 38, "faction": "orcs", "action": "captured Corrupted Valley", "region": "dark_corrupted_valley", "troops": 25, "gold": 19650, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 38, "faction": "vikings", "action": "captured Dwarf Hold", "region": "dwarf_hold", "troops": 20, "gold": 16850, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 39, "faction": "dwarves", "action": "field army destroyed", "region": "dark_ruined_causeway", "troops": 0, "gold": 18420, "ap": 3, "cursor": 1}
+{"run": "final-cold40", "day": 39, "faction": "orcs", "action": "captured Ash Plain", "region": "dark_ash_plain", "troops": 25, "gold": 20100, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 39, "faction": "vikings", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 20, "gold": 17300, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 40, "faction": "dwarves", "action": "field army destroyed", "region": "dark_ruined_causeway", "troops": 0, "gold": 18870, "ap": 3, "cursor": 1}
+{"run": "final-cold40", "day": 40, "faction": "orcs", "action": "moved to Corrupted Valley", "region": "dark_corrupted_valley", "troops": 25, "gold": 20550, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 40, "faction": "vikings", "action": "moved to High Quarry", "region": "dwarf_high_quarry", "troops": 20, "gold": 17750, "ap": 2, "cursor": 3}
+{"run": "final-cold40", "day": 41, "faction": "dwarves", "action": "field army destroyed", "region": "dark_ruined_causeway", "troops": 0, "gold": 19320, "ap": 3, "cursor": 1}
+{"run": "final-cold40", "day": 41, "faction": "orcs", "action": "moved to Ruined Causeway", "region": "dark_ruined_causeway", "troops": 25, "gold": 21000, "ap": 2, "cursor": 2}
+{"run": "final-cold40", "day": 41, "faction": "vikings", "action": "moved to Mountain Pass", "region": "dwarf_mountain_pass", "troops": 20, "gold": 18200, "ap": 2, "cursor": 3}
+{"run": "final-human-attack", "day": 2, "faction": "dwarves", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 30, "gold": 3450, "ap": 2, "cursor": 1}
+{"run": "final-human-attack", "day": 2, "faction": "orcs", "action": "captured Badlands", "region": "orc_badlands", "troops": 30, "gold": 3450, "ap": 2, "cursor": 2}
+{"run": "final-human-attack", "day": 2, "faction": "vikings", "action": "captured Fjord Ridge", "region": "viking_fjord_ridge", "troops": 30, "gold": 3450, "ap": 2, "cursor": 3}
+{"run": "final-human-attack", "day": 3, "faction": "dwarves", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 3900, "ap": 2, "cursor": 1}
+{"run": "final-human-attack", "day": 3, "faction": "orcs", "action": "field army destroyed", "region": "orc_badlands", "troops": 0, "gold": 3900, "ap": 3, "cursor": 2}
+{"run": "final-human-attack", "day": 3, "faction": "vikings", "action": "captured Snow Pass", "region": "viking_snow_pass", "troops": 30, "gold": 3900, "ap": 2, "cursor": 3}
+{"run": "final-human-defense", "day": 2, "faction": "dwarves", "action": "captured Snow Basin", "region": "dwarf_snow_basin", "troops": 30, "gold": 3450, "ap": 2, "cursor": 1}
+{"run": "final-human-defense", "day": 2, "faction": "orcs", "action": "attacked North Pass", "region": "orc_camp", "troops": 30, "gold": 3450, "ap": 2, "cursor": 2}
+{"run": "final-human-defense", "day": 2, "faction": "vikings", "action": "captured Fjord Ridge", "region": "viking_fjord_ridge", "troops": 30, "gold": 3450, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 3, "faction": "dwarves", "action": "captured High Quarry", "region": "dwarf_high_quarry", "troops": 30, "gold": 3900, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 3, "faction": "orcs", "action": "captured Forest Edge", "region": "forest_edge", "troops": 24, "gold": 3900, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 3, "faction": "vikings", "action": "captured Snow Pass", "region": "viking_snow_pass", "troops": 30, "gold": 3900, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 4, "faction": "dwarves", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 30, "gold": 4350, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 4, "faction": "orcs", "action": "captured Crossroads", "region": "crossroads", "troops": 24, "gold": 4350, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 4, "faction": "vikings", "action": "captured Mountain Shrine", "region": "mountain_shrine", "troops": 30, "gold": 4350, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 5, "faction": "dwarves", "action": "attacked Mountain Shrine", "region": "dwarf_mountain_pass", "troops": 30, "gold": 4800, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 5, "faction": "orcs", "action": "attacked Human Capital", "region": "crossroads", "troops": 24, "gold": 4800, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 5, "faction": "vikings", "action": "withdrew to Snow Pass", "region": "viking_snow_pass", "troops": 0, "gold": 4800, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 6, "faction": "dwarves", "action": "moved to Mountain Pass", "region": "dwarf_mountain_pass", "troops": 10, "gold": 5250, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 6, "faction": "orcs", "action": "recruited 4 infantry at Human Capital", "region": "human_capital", "troops": 28, "gold": 4690, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 6, "faction": "vikings", "action": "withdrew to Fjord Ridge", "region": "viking_fjord_ridge", "troops": 0, "gold": 5250, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 7, "faction": "dwarves", "action": "moved to High Quarry", "region": "dwarf_high_quarry", "troops": 10, "gold": 5700, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 7, "faction": "orcs", "action": "recruited 4 infantry at Human Capital", "region": "human_capital", "troops": 32, "gold": 4580, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 7, "faction": "vikings", "action": "withdrew to Viking Harbour", "region": "viking_harbour", "troops": 0, "gold": 5700, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 8, "faction": "dwarves", "action": "moved to Forge Approach", "region": "dwarf_forge_approach", "troops": 10, "gold": 6150, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 8, "faction": "orcs", "action": "captured Northwest March", "region": "northwest_march", "troops": 32, "gold": 5030, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 8, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 4, "gold": 5590, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 9, "faction": "dwarves", "action": "moved to Dwarf Hold", "region": "dwarf_hold", "troops": 10, "gold": 6600, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 9, "faction": "orcs", "action": "captured Forest Track", "region": "viking_forest_track", "troops": 32, "gold": 5480, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 9, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 8, "gold": 5480, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 10, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 14, "gold": 6490, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 10, "faction": "orcs", "action": "captured Snow Pass", "region": "viking_snow_pass", "troops": 32, "gold": 5930, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 10, "faction": "vikings", "action": "recruited 4 infantry at Viking Harbour", "region": "viking_harbour", "troops": 12, "gold": 5370, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 11, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 18, "gold": 6380, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 11, "faction": "orcs", "action": "captured Mountain Shrine", "region": "mountain_shrine", "troops": 32, "gold": 6380, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 11, "faction": "vikings", "action": "captured Forest Track", "region": "viking_forest_track", "troops": 12, "gold": 5820, "ap": 2, "cursor": 3}
+{"run": "final-defense-cold12", "day": 12, "faction": "dwarves", "action": "recruited 4 infantry at Dwarf Hold", "region": "dwarf_hold", "troops": 22, "gold": 6270, "ap": 2, "cursor": 1}
+{"run": "final-defense-cold12", "day": 12, "faction": "orcs", "action": "captured Mountain Pass", "region": "dwarf_mountain_pass", "troops": 32, "gold": 6830, "ap": 2, "cursor": 2}
+{"run": "final-defense-cold12", "day": 12, "faction": "vikings", "action": "moved to Viking Harbour", "region": "viking_harbour", "troops": 12, "gold": 6270, "ap": 2, "cursor": 3}
