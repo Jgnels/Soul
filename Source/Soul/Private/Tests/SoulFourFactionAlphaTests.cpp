@@ -95,6 +95,9 @@ bool FSoulAlphaOccupationTest::RunTest(const FString&)
     FSoulWorldRules::Capture(S->World,TEXT("human_capital"),TEXT("orcs"));
     TestTrue(TEXT("building identity survives occupation"),S->IsSettlementDevelopmentReady());
     TestFalse(TEXT("Human cannot recruit at occupied capital"),S->Recruit(TEXT("human_knight")));
+    TestTrue(TEXT("recovery explains occupation"),S->HumanRecoveryGuidance().Contains(TEXT("Capital occupied")));
+    TestTrue(TEXT("occupied capital is not advertised as supply"),S->FindOwnedRecruitmentDestination(TEXT("humans")).IsNone());
+    FString Services;TestFalse(TEXT("occupied services interaction is disabled"),S->CanOpenHumanSettlementServices(Services));
     TestFalse(TEXT("occupied tavern grants no Human service"),S->IsTavernOperational());
     FString Error;TestFalse(TEXT("occupation blocks new construction"),S->BeginSettlementConstruction(S->GetTavernBuildingId(),Error));
     S->AdvanceDay();TestEqual(TEXT("campaign still advances"),S->Economy.Day,2);
@@ -123,6 +126,15 @@ bool FSoulAlphaWithdrawalTest::RunTest(const FString&)
     TestEqual(TEXT("no free gold"),V.Economy.Resources.FindRef(TEXT("gold")),3000);
     TestEqual(TEXT("captured harbour remains Orc"),S->World.Regions[TEXT("viking_harbour")].OwnerFactionId,FName(TEXT("orcs")));
     TestFalse(TEXT("empty army cannot attack back"),S->PrepareControlledAction(TEXT("vikings"),TEXT("vikings.primary"),TEXT("viking_forest_track"),TEXT("viking_harbour"),A,Error));
+    TestTrue(TEXT("no reachable Viking supply remains"),S->FindOwnedRecruitmentDestination(TEXT("vikings")).IsNone());
+    S->AdvanceDay();S->RunNextAlphaAction();S->RunNextAlphaAction();S->RunNextAlphaAction();
+    S->InspectFactionArmy(TEXT("vikings"),V);
+    TestEqual(TEXT("stranded AI stays at the legal location"),V.Army.RegionId,FName(TEXT("viking_forest_track")));
+    TestEqual(TEXT("stranded AI spends no action on impossible recovery"),V.Economy.ActionPoints,3);
+    TestTrue(TEXT("stranded state is explained"),S->LastAIReport.Contains(TEXT("Vikings: stranded; no owned supply route")));
+    TestFalse(TEXT("other factions finish their turn"),S->IsAlphaTurnActive());
+    const auto Stable=Snapshot(S);S->RunNextAlphaAction();
+    TestEqual(TEXT("completed stranded turn is stable"),Snapshot(S).Fields[0].StringValue,Stable.Fields[0].StringValue);
     return true;
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulAlphaFrontierTest,"Soul.Integration.FourFactionAlpha.BlockedFrontierDoesNotOscillate",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)

@@ -1,0 +1,5 @@
+{
+  "stage_receipt": "Evidence/FourFactionAlpha-20261009/Local/PlaytestReadiness/Local/stage-playtest-final/Diagnostics/receipt.json",
+  "default_fps": 30,
+  "note": "30 FPS default: the three-minute startup check peaked at 82 C. Thermal margin is narrow; save with F5. The 40 FPS target tripped the 85 C guard. Sustained thermal qualification remains open."
+}

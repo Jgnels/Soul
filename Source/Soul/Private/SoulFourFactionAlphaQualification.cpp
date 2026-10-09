@@ -31,6 +31,8 @@ void ASoulFounderPlaytestGameMode::TickFourFactionAlphaQualification(float Secon
     const bool Defense=FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaDefenseProof"));
     const bool Attack=FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaAttackProof"));
     const bool Cold=FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaColdContinue"));
+    int32 CheckpointDay=10;FParse::Value(FCommandLine::Get(),TEXT("SoulAlphaCheckpointDay="),CheckpointDay);
+    CheckpointDay=FMath::Clamp(CheckpointDay,5,10); // Short smoke can restore mid-run without changing gameplay.
     if(FFileHelper::LoadFileToString(Text,*ProgressPath))
     {if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),P)){Fail(TEXT("invalid observation progress"));return;}}
     else {P->SetNumberField(TEXT("phase"),Cold?10:0);P->SetNumberField(TEXT("last_day"),0);}
@@ -73,9 +75,9 @@ void ASoulFounderPlaytestGameMode::TickFourFactionAlphaQualification(float Secon
         UE_LOG(LogTemp,Display,TEXT("SOUL_ALPHA_HUMAN_RECOVERY_PASS cold_restore=1 legal_withdrawal=3 recruited=4 paid_gold=%d pool_spent=4"),Gold-State->Economy.Resources.FindRef(TEXT("gold")));
         return;
     }
-    if(Phase==1 && State->Economy.Day>=13)
+    if(Phase==1 && State->Economy.Day>=CheckpointDay+3)
     {P->SetNumberField(TEXT("phase"),2);Write();Key(EKeys::F9);return;}
-    if(State->Economy.Day==10 && Phase==0)
+    if(State->Economy.Day==CheckpointDay && Phase==0)
     {
         if(!FFileHelper::SaveStringToFile(Current.Fields[0].StringValue,*(Root/TEXT("AlphaMidExpected.json")))){Fail(TEXT("checkpoint evidence"));return;}
         Key(EKeys::F5);P->SetNumberField(TEXT("phase"),1);Write();return;

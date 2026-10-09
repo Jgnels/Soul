@@ -21,6 +21,58 @@ FName Capital(FName Id)
 bool USoulFounderPlaytestStateSubsystem::IsAlphaActiveFaction(FName Id) const
 {return Id==PlayerFaction || ActiveAI().Contains(Id);}
 
+void USoulFounderPlaytestStateSubsystem::AppendAlphaBattleRecap(const FSoulCampaignBattleResult& R)
+{
+    if(!bFourFactionAlpha)return;
+    auto Name=[](FName Id){FString N=Id.ToString();if(!N.IsEmpty())N[0]=FChar::ToUpper(N[0]);return N;};
+    LastAIReport+=FString::Printf(TEXT("\n%s defeated %s at %s. Survivors %d/%d; owner: %s."),
+        *Name(R.bPlayerWon?PendingBattle.PlayerFaction:PendingBattle.EnemyFaction),
+        *Name(R.bPlayerWon?PendingBattle.EnemyFaction:PendingBattle.PlayerFaction),
+        *RegionDisplayNames.FindRef(R.TargetRegion),R.bPlayerWon?R.PlayerSurvivors:R.EnemySurvivors,
+        R.bPlayerWon?R.EnemySurvivors:R.PlayerSurvivors,*Name(World.Regions.FindChecked(R.TargetRegion).OwnerFactionId));
+}
+
+FName USoulFounderPlaytestStateSubsystem::FindOwnedRecruitmentDestination(FName Id) const
+{
+    FSoulFactionCampaignState F;
+    if(!InspectFactionArmy(Id,F) || !World.Regions.Contains(F.Army.RegionId))return NAME_None;
+    TArray<FName> Queue{F.Army.RegionId};TSet<FName> Seen{F.Army.RegionId};
+    for(int32 I=0;I<Queue.Num();++I)
+    {
+        const auto& Node=World.Regions.FindChecked(Queue[I]);
+        // Human recruitment is currently capital-only. Do not advertise services at other settlements.
+        if(Node.OwnerFactionId==Id && (Id==PlayerFaction?Queue[I]==TEXT("human_capital"):Node.bSettlement))return Queue[I];
+        TArray<FName> Ns=Node.Neighbors;Ns.Sort(FNameLexicalLess());
+        for(FName N:Ns)if(!Seen.Contains(N) && World.Regions.FindChecked(N).OwnerFactionId==Id)
+        {Seen.Add(N);Queue.Add(N);}
+    }
+    return NAME_None;
+}
+
+FString USoulFounderPlaytestStateSubsystem::HumanRecoveryGuidance() const
+{
+    const auto* Home=World.Regions.Find(TEXT("human_capital"));
+    if(!Home || Home->OwnerFactionId!=PlayerFaction)
+        return TEXT("Capital occupied: recruitment is unavailable. Withdraw along owned roads if possible; otherwise your commander is stranded. [Space] continues the campaign.");
+    if(FindOwnedRecruitmentDestination(PlayerFaction).IsNone())
+        return TEXT("Routed: no owned road route reaches Human Capital. Recruitment is unavailable here. Your commander must wait; [Space] continues the campaign.");
+    if(PlayerRegion==TEXT("human_capital"))
+        return TEXT("Recruit here: [T] opens town; [1] recruits Knights using gold and weekly stock. No free reinforcements.");
+    return TEXT("Withdraw to Human Capital along owned roads to recruit. [Home] selects your commander; [Space] restores travel actions.");
+}
+
+bool USoulFounderPlaytestStateSubsystem::CanOpenHumanSettlementServices(FString& Reason) const
+{
+    if(IsAlphaTurnActive() || bPersistenceBusy || HasPendingBattle())
+    {Reason=TEXT("Wait for the current turn, battle or save operation to finish.");return false;}
+    if(PlayerRegion!=GetDevelopmentRegion())
+    {Reason=TEXT("Reach your owned settlement to open its services.");return false;}
+    const auto* Here=World.Regions.Find(PlayerRegion);
+    if(bFourFactionAlpha && (!Here || Here->OwnerFactionId!=PlayerFaction))
+    {Reason=TEXT("Capital occupied: recruitment, construction and visits are unavailable.");return false;}
+    Reason.Reset();return true;
+}
+
 void USoulFounderPlaytestStateSubsystem::InitializeFourFactionAlpha()
 {
     bFourFactionAlpha=true;SixFactionSaveSlot=TEXT("Soul.Composition3500.FourFactionAlpha");
@@ -87,7 +139,8 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
 {
     if(!bFourFactionAlpha || !IsAlphaTurnActive() || HasPendingBattle() || bPersistenceBusy)return;
     const FName Id=ActiveAI()[AlphaNextFaction];FSoulFactionCampaignState F;InspectFactionArmy(Id,F);
-    FString Error,Verb=F.Army.TroopCount>0?TEXT("held position"):TEXT("field army destroyed");FSoulControlledCampaignAction Best;int32 BestScore=MIN_int32;
+    const bool Stranded=F.Army.TroopCount==0 && FindOwnedRecruitmentDestination(Id).IsNone();
+    FString Error,Verb=Stranded?TEXT("stranded; no owned supply route"):F.Army.TroopCount>0?TEXT("held position"):TEXT("routed; waiting for supply");FSoulControlledCampaignAction Best;int32 BestScore=MIN_int32;
     auto Consider=[&](const FSoulControlledCampaignAction& A,int32 Score)
     {
         // Stable seed/day/name tie break; no hidden mutable random stream to lose on restore.
@@ -103,7 +156,7 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
         if(Count>0)Consider(A,F.Army.TroopCount<18?350:130);
     }
     const auto* Here=World.Regions.Find(F.Army.RegionId);
-    if(Here)
+    if(Here && !Stranded)
     {
         // Route planning uses explored topology, ownership only when currently visible.
         auto Distance=[&](FName Start,bool Supply)
@@ -173,7 +226,8 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
     }
     else if(BestScore!=MIN_int32)Verb=TEXT("held: ")+Error;
     ++AlphaNextFaction;
-    const FString Line=Id.ToString()+TEXT(": ")+Verb+TEXT(".");
+    FString FactionName=Id.ToString();FactionName[0]=FChar::ToUpper(FactionName[0]);
+    const FString Line=FactionName+TEXT(": ")+Verb+TEXT(".");
     LastAIReport+=TEXT("\n")+Line;
     InspectFactionArmy(Id,F);
     UE_LOG(LogTemp,Display,TEXT("SOUL_ALPHA_ACTION day=%d faction=%s action=%s region=%s troops=%d gold=%d ap=%d cursor=%d"),

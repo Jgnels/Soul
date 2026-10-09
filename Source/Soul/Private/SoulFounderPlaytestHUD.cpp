@@ -135,12 +135,17 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     if(C->IsFactionInspection()){}
     else if(C->IsBattleAvailable())
     {
-        if(S->PlayerArmy.FindRef(S->PlayerUnitId)<=0)Text(TEXT("Recruit Knights at the capital first."),X+15,249,Gold);
+        if(S->PlayerArmy.FindRef(S->PlayerUnitId)<=0)Text(S->IsFourFactionAlpha()?TEXT("Routed: see recovery guidance."):TEXT("Recruit Knights at the capital first."),X+15,249,Gold);
         else if(S->Economy.ActionPoints<=0)Button(TEXT("BattleRest"),TEXT("Next day restores actions  [Space]"),X+15,237,282);
         else Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,237,282);
     }
     else if(C->IsCompanySelected())Button(TEXT("Focus"),TEXT("ARMY SELECTED / choose a highlighted road"),X+15,237,282);
-    else if(S->PlayerRegion==S->GetDevelopmentRegion())Button(TEXT("Town"),TEXT("Settlement services  [T]"),X+15,237,282);
+    else if(S->PlayerRegion==S->GetDevelopmentRegion())
+    {
+        FString Reason;
+        if(S->IsFourFactionAlpha() && !S->CanOpenHumanSettlementServices(Reason))UI.FitText(Reason,X+15,249,282,Gold,.8f);
+        else Button(TEXT("Town"),TEXT("Settlement services  [T]"),X+15,237,282);
+    }
     else Button(TEXT("Focus"),TEXT("Select your army  [Home]"),X+15,237,282);
     Panel(14,H-85,W-28,42);
     Wrapped(C->LastMessage,28,H-74,W-56,Ink,2);
@@ -149,8 +154,8 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     if(!S->LastPersistenceReport.IsEmpty()) { Rect(14,77,640,27,Back);Text(S->LastPersistenceReport.Replace(TEXT(" with RB Save"),TEXT("")),28,84,Muted); }
     if(S->PlayerArmy.FindRef(S->PlayerUnitId)==0&&!C->IsTownPanelOpen())
     {
-        Panel(28,112,380,78);Text(TEXT("Your fighting company needs recruits"),43,125,Gold);
-        Wrapped(TEXT("Return to the capital: [T] opens town, [1] recruits Knights. [Space] restores travel actions."),43,147,350,Ink,2);
+        Panel(28,112,490,112);Text(TEXT("Routed company / recovery"),43,125,Gold);
+        Wrapped(S->IsFourFactionAlpha()?S->HumanRecoveryGuidance():TEXT("Return to the capital: [T] opens town, [1] recruits Knights. [Space] restores travel actions."),43,150,460,Ink,4);
     }
     if(!S->LastBattleResult.EncounterId.IsNone())
     {
@@ -169,9 +174,10 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     }
     if(S->IsFourFactionAlpha() && !C->IsTownPanelOpen())
     {
-        TArray<FString> Recap;S->LastAIReport.ParseIntoArrayLines(Recap);const int32 Start=FMath::Max(0,Recap.Num()-5);
-        Panel(28,H-250,600,135);
-        for(int32 I=Start;I<Recap.Num();++I)UI.FitText(Recap[I],43,H-239+(I-Start)*23,570,Ink,.85f);
+        TArray<FString> Recap;S->LastAIReport.ParseIntoArrayLines(Recap);const int32 Start=FMath::Max(0,Recap.Num()-7);
+        const float RecapHeight=20+23*FMath::Max(1,Recap.Num()-Start),RecapTop=H-115-RecapHeight;
+        Panel(28,RecapTop,720,RecapHeight);
+        for(int32 I=Start;I<Recap.Num();++I)UI.FitText(Recap[I],43,RecapTop+11+(I-Start)*23,690,Ink,.85f);
     }
     if(C->IsTownPanelOpen())
     {

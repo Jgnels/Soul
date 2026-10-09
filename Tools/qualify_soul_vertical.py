@@ -168,6 +168,7 @@ def parser():
     p.add_argument("--diagnostic-rhi", choices=["d3d11", "d3d12"])
     p.add_argument("--output", type=Path)
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--interactive-play", action="store_true", help="Capped Human play: normal user exit is not a failed qualification.")
     return p
 
 
@@ -180,6 +181,10 @@ def main():
         p.error("Authorized machine is DESKTOP-Q1S3RPU")
     if args.duration < 60 or not 1 <= args.startup_timeout <= 600:
         p.error("Require duration >=60 seconds and startup-timeout in [1,600]")
+    if args.interactive_play and (args.stage != 'G0' or args.max_fps not in (30,40)
+            or args.duration > 7200 or args.completion_marker or '-SoulFourFactionAlpha' not in args.ue_arg
+            or any('Qualification' in flag or 'Autobattle' in flag for flag in args.ue_arg)):
+        p.error('Interactive play requires capped 30/40 FPS FourFactionAlpha, no gameplay automation, and at most two hours.')
     # The intact Human city crosses several real asynchronous map loads in
     # the existing construction/visit/save/battle proof. Keep ordinary runs
     # at fifteen minutes; only that explicit observer gets a two-hour bound.
@@ -377,6 +382,11 @@ def main():
         alive_duration = (max(0, last_observed_alive_at-ready_at)
                           if ready_at is not None and last_observed_alive_at is not None else 0)
         record["alive_observed_after_ready_seconds"] = round(alive_duration, 2)
+        record['interactive_play'] = args.interactive_play
+        if (args.interactive_play and stop_reason == 'process_exited' and ready_at is not None
+                and record.get('exit_code') == 0 and not record.get('crash_signatures')):
+            record['stop_reason'] = 'interactive_user_exit'
+            record['clean_shutdown'] = True
         # Never count the final polling interval after an already-dead process
         # toward the observation minimum. A marker alone cannot grant success.
         if (args.completion_marker and stop_reason == "process_exited" and
@@ -391,7 +401,7 @@ def main():
         (output / "summary.json").write_text(json.dumps(record, indent=2), encoding="utf-8")
     print(json.dumps(record, indent=2))
     return 0 if (record["stop_reason"] in (
-                    "observation_duration_reached", "completion_marker_process_exit") and
+                    "observation_duration_reached", "completion_marker_process_exit", "interactive_user_exit") and
                  record.get("clean_shutdown") and not record.get("crash_signatures")) else 1
 
 

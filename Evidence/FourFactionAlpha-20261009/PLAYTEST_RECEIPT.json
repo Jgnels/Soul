@@ -1,0 +1,175 @@
+{
+  "starting_head": "c19fff7eb746ac25b91e2aae589fb48a174c8c4f",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "recorded_utc": "2026-10-09T23:53:47.132314+00:00",
+  "playtest_build_ready": true,
+  "default_fps": 30,
+  "guard_c": 85,
+  "forty_fps_smoke": {
+    "exit_code": 1,
+    "output": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\FourFactionAlpha-20261009\\Local\\manual-play-fourfactionalpha-20261009T234156Z",
+    "peak_gpu_temperature_c": 85.0,
+    "default_fps": 30,
+    "status": "FALLBACK",
+    "stop_reason": "thermal_cutoff_85c",
+    "cold_continue_day11": true,
+    "source_save_unchanged": true,
+    "copied_save_unchanged": true,
+    "performance_qualification": false,
+    "automatic_gameplay_inputs": false,
+    "resolution": "1920x1080",
+    "screen_percentage": 100,
+    "duration_after_ready_seconds": 96.91
+  },
+  "thirty_fps_startup": {
+    "utc": "2026-10-09T23:52:59.093436+00:00",
+    "status": "PASS",
+    "fps_cap": 30,
+    "observed_seconds": 183.39,
+    "peak_gpu_c": 82.0,
+    "resolution": "1920x1080",
+    "screen_percentage": 100,
+    "automatic_gameplay_inputs": false,
+    "launched_through_one_step_cmd_and_N_menu": true,
+    "source_save_exists": false,
+    "user_directory": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Saved\\CompositionPlaytest\\FourFactionAlpha\\HumanSessions\\Jeff-20261009T234725Z-ac7a2204",
+    "narrow_thermal_margin": true,
+    "performance_qualification": false,
+    "inherited_dirty_hashes_checked": 18,
+    "inherited_dirty_mismatches": [],
+    "executable_sha256_after_all_runtime": "790fa66886b2fa1562cc6eeb16df50404c29657fd0ea405b9bedc81895f07dcf"
+  },
+  "launcher": "Tools/ProductionContinuation/play_four_faction_alpha.cmd",
+  "desktop_shortcut": "C:/Users/Jeff/Desktop/PLAY SOUL FOUR FACTION ALPHA.lnk",
+  "new": "N creates a unique clean Human session; no old save is deleted.",
+  "continue": "C restores current Human session last F5 using normal RBSave; rejects if no F5 exists.",
+  "human_session_root": "Saved/CompositionPlaytest/FourFactionAlpha/HumanSessions",
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Soul\\CampaignAlphas\\FourFactionAlpha-7p1z6_1s\\Stage",
+  "stage_receipt": "Evidence\\FourFactionAlpha-20261009\\Local\\PlaytestReadiness\\Local\\stage-playtest-final\\Diagnostics\\receipt.json",
+  "executable_sha256": "790fa66886b2fa1562cc6eeb16df50404c29657fd0ea405b9bedc81895f07dcf",
+  "zero_army_occupied_capital_ux": "FIXED; truthful supply/occupation guidance, disabled occupied services, stranded AI stable hold.",
+  "ai_recap": "READY; 7-line maximum fits contents, persists until next day, winner/survivors/current owner.",
+  "ai_battle_wait": "UNCHANGED; bounded inspection found no existing safe acceleration path.",
+  "recapture_churn": "UNCHANGED; optional scoring/history change deferred to player feedback.",
+  "final_campaign_smoke": {
+    "turns": 10,
+    "mid_save_restore_exact": true,
+    "continued_after_restore": true,
+    "actions": {
+      "dwarves": {
+        "turn_actions": 10,
+        "captures": 3,
+        "moves": 4,
+        "withdrawals": 0,
+        "attacks": 1,
+        "recruit_actions": 2,
+        "recruited": 8,
+        "holds": 0
+      },
+      "orcs": {
+        "turn_actions": 10,
+        "captures": 10,
+        "moves": 0,
+        "withdrawals": 0,
+        "attacks": 0,
+        "recruit_actions": 0,
+        "recruited": 0,
+        "holds": 0
+      },
+      "vikings": {
+        "turn_actions": 10,
+        "captures": 4,
+        "moves": 0,
+        "withdrawals": 3,
+        "attacks": 0,
+        "recruit_actions": 3,
+        "recruited": 12,
+        "holds": 0
+      }
+    },
+    "battles": [
+      {
+        "attacker": "dwarves",
+        "defender": "vikings",
+        "target_region": "mountain_shrine",
+        "recipe": "dragon_pass",
+        "attacker_return_region": "mountain_shrine",
+        "owner": "dwarves",
+        "attacker_won": true,
+        "survivors": [
+          12,
+          0
+        ]
+      }
+    ],
+    "passive_factions_unchanged": true
+  },
+  "human_defense": "PASS; Orc attacker, Human side 1 Aurora, 3 Human/0 enemy formations commanded; natural Orc victory 28/0; return and exact F5/F9.",
+  "normal_cold_continue": "PASS; separate process day 11; no automated gameplay input; source/copy save hashes unchanged.",
+  "builds": {
+    "SoulComposition": "PASS; final executable, composition-final-build.log, 145.31 seconds",
+    "SoulEditor": "PASS for state/input/native batch before final recap-height-only draw change",
+    "Soul": "Not rebuilt; final playtest target is SoulComposition; ordinary default target unchanged."
+  },
+  "tests": {
+    "native_alpha": 7,
+    "source": 11,
+    "launcher_session": 15,
+    "guard": 14,
+    "all_pass": true
+  },
+  "stage_integrity": {
+    "manifest_entries": 12761,
+    "base_cooked_hashes": 10754,
+    "mismatches": 0,
+    "candidate_assets_verified": true,
+    "fresh_asset_recook": false,
+    "fresh_executable": true,
+    "R10_Expansion_active": false
+  },
+  "preservation": {
+    "donor_reference_assets_prior_saves_inherited_files_checked": 585,
+    "mismatches": 0,
+    "final_inherited_dirty_hashes_checked": 18,
+    "licensed_payloads_committed": false,
+    "machine_configuration_committed": false
+  },
+  "evidence_root": "Evidence\\FourFactionAlpha-20261009\\Local\\PlaytestReadiness",
+  "reviewed_captures": [
+    "Local/playtest-final-ten-turn/User/Saved/Screenshots/Alpha_Player_Turn.png",
+    "Local/playtest-final-ten-turn/User/Saved/Screenshots/Alpha_Final_Campaign.png",
+    "Local/playtest-final-human-defense/User/Saved/Screenshots/Alpha_Final_Campaign.png"
+  ],
+  "desktop_input_limit": "Computer-use kernel initialization failed (path not found). Native input handlers exercised; no desktop replay claimed. Nwiro not exposed.",
+  "known_issues": [
+    "30 FPS margin is narrow at 82 C; sustained thermal safety not established.",
+    "AI-only embodied battles can take 1-2 minutes plus loading.",
+    "Recapture ping-pong, provisional balance/art and known cooked material warnings remain.",
+    "A legitimately stranded zero-troop commander may have no recovery; turn continuation and guidance are explicit.",
+    "Nature/Dark remain passive."
+  ],
+  "source_files": [
+    "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "Source/Soul/Private/SoulFourFactionAlpha.cpp",
+    "Source/Soul/Private/SoulFourFactionAlphaQualification.cpp",
+    "Source/Soul/Private/Tests/SoulFourFactionAlphaTests.cpp",
+    "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+    "Tools/FourFactionAlpha/qualify_alpha.py",
+    "Tools/ProductionContinuation/play_candidate.py",
+    "Tools/ProductionContinuation/test_play_candidate.py",
+    "Tools/ProductionContinuation/play_four_faction_alpha.py",
+    "Tools/ProductionContinuation/test_play_four_faction_alpha.py",
+    "Tools/ProductionContinuation/play_four_faction_alpha.cmd",
+    "Tools/ProductionContinuation/four_faction_playtest.json",
+    "Tools/qualify_soul_vertical.py",
+    "Tools/test_qualify_soul_vertical.py",
+    "Evidence/FourFactionAlpha-20261009/JEFF_PLAYTEST.md"
+  ],
+  "push": false,
+  "merge": false,
+  "default_map_promoted": false,
+  "next_action": "Jeff: launch desktop shortcut, choose N, play first 5-10 minutes, F5, then test Continue and report confusing/slow moments."
+}

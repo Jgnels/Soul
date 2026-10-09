@@ -169,6 +169,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         bCompanySelected = false;
         if (RegionId == State->GetDevelopmentRegion())
         {
+            if(State->IsFourFactionAlpha() && !State->CanOpenHumanSettlementServices(LastMessage))return;
             bTownPanelOpen = true;
             LastMessage = TEXT("Settlement panel opened. Choose construction, services or a visit.");
         }
@@ -194,6 +195,8 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     {LastMessage=TEXT("Nature and Dark are nonbelligerent in this alpha.");return;}
     if (State->HasHostileGarrison(RegionId))
     {
+        if(State->IsFourFactionAlpha() && State->PlayerArmy.FindRef(State->PlayerUnitId)==0)
+        {LastMessage=State->HumanRecoveryGuidance();return;}
         SelectedBattleRegion = RegionId;
         bBattlePromptOpen = true;
         LastMessage = FString::Printf(TEXT("%s: press B to commit to battle."), *DisplayName(RegionId));
@@ -204,6 +207,8 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     const int32 BeforeLevel = State->Hero.Level;
     if (!State->MovePlayerTo(RegionId))
     {
+        if(State->IsFourFactionAlpha() && State->PlayerArmy.FindRef(State->PlayerUnitId)==0 && State->Economy.ActionPoints>0)
+        {LastMessage=State->HumanRecoveryGuidance();return;}
         LastMessage = State->Economy.ActionPoints <= 0
             ? TEXT("No action points. Press Space to end the day.")
             : TEXT("That region is not an adjacent legal move.");
@@ -322,6 +327,8 @@ void ASoulFounderPlaytestCampaignActor::VisitSettlement()
 
 void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()
 {
+    if(State && State->IsFourFactionAlpha() && !State->CanOpenHumanSettlementServices(LastMessage))
+    {bTownPanelOpen=false;return;}
     if (!State || State->PlayerRegion != State->GetDevelopmentRegion())
     {
         LastMessage = TEXT("Return to your settlement to open its services.");

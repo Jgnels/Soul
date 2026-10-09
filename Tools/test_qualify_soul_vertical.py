@@ -21,7 +21,7 @@ SPEC.loader.exec_module(RUNNER)
 class CompletionSafetyTests(unittest.TestCase):
     def scenario(self, *, ticks=(100, 100, 160, 170, 170, 170), exit_at=170,
                  exit_code=0, marker=True, expect_marker=True, crash=False,
-                 hot=False, completion_timeout=300, resolution="1280x720", packaged=False):
+                 hot=False, completion_timeout=300, resolution="1280x720", packaged=False, interactive=False):
         with tempfile.TemporaryDirectory(prefix="soul-runner-mock-") as directory:
             root = Path(directory).resolve()
             self.assertEqual(root.parent, Path(tempfile.gettempdir()).resolve())
@@ -79,6 +79,8 @@ class CompletionSafetyTests(unittest.TestCase):
             if expect_marker:
                 arguments += ["--completion-marker", "SOUL_MOCK_COMPLETED",
                               "--completion-timeout", str(completion_timeout)]
+            if interactive:
+                arguments += ['--interactive-play','--max-fps','40','--ue-arg=-SoulFourFactionAlpha']
             if packaged:
                 arguments += ['--ue-arg=-UserDir=' + str(root / 'isolated-user')]
             with patch.object(sys, "argv", arguments), \
@@ -166,6 +168,15 @@ class CompletionSafetyTests(unittest.TestCase):
                                        exit_at=999, expect_marker=False)
         self.assertEqual(result, 0)
         self.assertEqual(record["stop_reason"], "observation_duration_reached")
+
+    def test_interactive_user_exit_is_not_qualification_failure(self):
+        result,record=self.scenario(ticks=(100,100,155,155,155),exit_at=155,expect_marker=False,interactive=True)
+        self.assertEqual(result,0);self.assertEqual(record['stop_reason'],'interactive_user_exit')
+        self.assertFalse(record['automatic_acceptance'])
+
+    def test_interactive_play_keeps_thermal_failure(self):
+        result,record=self.scenario(ticks=(100,100,160,160,160),hot=True,expect_marker=False,interactive=True)
+        self.assertEqual(result,1);self.assertEqual(record['stop_reason'],'thermal_cutoff_85c')
 
 
 if __name__ == "__main__":

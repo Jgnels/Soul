@@ -44,6 +44,23 @@ class ReviewLaunchBoundary(unittest.TestCase):
  def test_binary_change_rejected(self):
   self.file('Soul/Binaries/Win64/SoulComposition.exe',b'different')
   with self.assertRaisesRegex(ValueError,'executable'):self.plan()
+ def test_human_playtest_caps_remain_guarded_and_bounded(self):
+  for cap in (30,40):
+   plan=self.plan(alpha=True,playtest_fps=cap,minutes=120)
+   self.assertEqual(plan['review_fps_cap'],cap);self.assertEqual(plan['thermal_cutoff_c'],85)
+   self.assertFalse(plan['automatic_inputs']);self.assertNotIn('--ue-arg=-nosound',plan['command'])
+  for cap in (0,20,60):
+   with self.assertRaises(ValueError):self.plan(alpha=True,playtest_fps=cap)
+  with self.assertRaises(ValueError):self.plan(playtest_fps=40)
+  with self.assertRaises(ValueError):self.plan(alpha=True,playtest_fps=40,minutes=121)
+ def test_human_session_isolation_and_resume_without_input_automation(self):
+  user=self.root/'Saved/CompositionPlaytest/FourFactionAlpha/HumanSessions/Jeff-test'
+  plan=self.plan(alpha=True,playtest_fps=30,user_directory=user,continue_campaign=True)
+  self.assertEqual(Path(plan['persistent_isolated_user_directory']),user)
+  self.assertIn('--ue-arg=-SoulContinueCampaign',plan['command'])
+  self.assertFalse(plan['automatic_inputs']);self.assertFalse(user.exists())
+  with self.assertRaises(ValueError):self.plan(alpha=True,user_directory=self.root/'Evidence/Proof')
+  with self.assertRaises(ValueError):self.plan(alpha=True,continue_campaign=True)
  def test_missing_orc_fixture_rejected(self):
   p=self.e/'staged-isolation-verification.json';d=json.loads(p.read_text());d['additional_data']=[x for x in d['additional_data'] if not x['path'].endswith('OrcRuntimeProof.json')];p.write_text(json.dumps(d))
   with self.assertRaisesRegex(ValueError,'fixture'):self.plan(orc=True)
@@ -59,5 +76,10 @@ class ReviewLaunchBoundary(unittest.TestCase):
  def test_mismatched_stage_rejected(self):
   p=self.e/'staged-isolation-verification.json';d=json.loads(p.read_text());d['stage']=str(self.root/'OldStage');p.write_text(json.dumps(d))
   with self.assertRaisesRegex(ValueError,'isolation'):self.plan()
+ def test_stage_local_receipt_preserves_old_stage_authority(self):
+  p=self.e/'staged-isolation-verification.json';original=p.read_bytes()
+  (self.receipt.parent/'isolation-verification.json').write_bytes(original)
+  d=json.loads(p.read_text());d['stage']=str(self.root/'EarlierStage');p.write_text(json.dumps(d))
+  self.assertEqual(self.plan()['candidate_cooked_files_verified'],1)
 
 if __name__=='__main__':unittest.main(verbosity=2)

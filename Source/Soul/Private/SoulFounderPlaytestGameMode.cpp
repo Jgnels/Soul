@@ -37,6 +37,12 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
     Super::BeginPlay();if(!GetWorld())return;
     State=GetGameInstance()->GetSubsystem<USoulFounderPlaytestStateSubsystem>();
     if(State)State->InitializeScenario();
+    if(State && State->IsFourFactionAlpha() && !State->bPlaytestContinueAttempted
+        && FParse::Param(FCommandLine::Get(),TEXT("SoulContinueCampaign")))
+    {
+        State->bPlaytestContinueAttempted=true;State->bPlaytestContinuePending=true;
+        State->LoadCampaign(); // Normal RBSave load; no simulated gameplay input or qualification fixture.
+    }
     Campaign=GetWorld()->SpawnActor<ASoulFounderPlaytestCampaignActor>();
     if(!SoulCampaignTerrain::Composition())
     {
@@ -100,6 +106,16 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if(State && State->bPlaytestContinuePending && !State->bPersistenceBusy)
+    {
+        State->bPlaytestContinuePending=false;
+        if(!State->bLastLoadSucceeded)
+        {
+            UE_LOG(LogTemp,Error,TEXT("SOUL_PLAYTEST_CONTINUE_FAILED: %s; existing save preserved."),*State->LastPersistenceReport);
+            FPlatformMisc::RequestExitWithStatus(false,1);return;
+        }
+        UE_LOG(LogTemp,Display,TEXT("SOUL_PLAYTEST_CONTINUE_PASS day=%d region=%s troops=%d"),State->Economy.Day,*State->PlayerRegion.ToString(),State->PlayerArmy.FindRef(State->PlayerUnitId));
+    }
     if(State && State->IsFourFactionAlpha() && !State->bPersistenceBusy && FPlatformTime::Seconds()>=AlphaNextActionTime)
     {
         State->RunNextAlphaAction();AlphaNextActionTime=FPlatformTime::Seconds()+0.75;

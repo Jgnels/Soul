@@ -491,8 +491,7 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
         UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CONTROLLED_RESULT attacker=%s defender=%s region=%s owner=%s victory=%d survivors=%d/%d"),
             *PendingBattle.PlayerFaction.ToString(),*PendingBattle.EnemyFaction.ToString(),*Attacker->Army.RegionId.ToString(),
             *World.Regions.FindChecked(PendingBattle.TargetRegion).OwnerFactionId.ToString(),R.bPlayerWon,R.PlayerSurvivors,R.EnemySurvivors);
-        if(bFourFactionAlpha)LastAIReport+=FString::Printf(TEXT("\n%s won at %s; %d troops remain."),
-            *(R.bPlayerWon?PendingBattle.PlayerFaction:PendingBattle.EnemyFaction).ToString(),*RegionDisplayNames.FindRef(R.TargetRegion),R.bPlayerWon?R.PlayerSurvivors:R.EnemySurvivors);
+        AppendAlphaBattleRecap(R);
         LastBattleResult=R;ResolvedEncounters.Add(R.EncounterId);PendingBattle=FSoulCampaignBattleDescriptor();return true;
     }
     PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;
@@ -510,6 +509,7 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
     }
     else PlayerRegion=PendingBattle.SourceRegion;
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);
+    AppendAlphaBattleRecap(R);
     LastBattleResult=R;ResolvedEncounters.Add(R.EncounterId);PendingBattle=FSoulCampaignBattleDescriptor();
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_RESULT id=%s target=%s victory=%d survivors=%d/%d player_region=%s"),
         *R.EncounterId.ToString(),*R.TargetRegion.ToString(),R.bPlayerWon,R.PlayerSurvivors,R.EnemySurvivors,*PlayerRegion.ToString());

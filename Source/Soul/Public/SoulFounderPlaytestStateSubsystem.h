@@ -84,6 +84,10 @@ public:
     bool IsFourFactionAlpha() const { return bFourFactionAlpha; }
     bool IsAlphaTurnActive() const { return bFourFactionAlpha && AlphaNextFaction<3; }
     bool IsAlphaActiveFaction(FName Id) const;
+    FName FindOwnedRecruitmentDestination(FName Faction) const;
+    FString HumanRecoveryGuidance() const;
+    bool CanOpenHumanSettlementServices(FString& Reason) const;
+    bool bPlaytestContinueAttempted = false, bPlaytestContinuePending = false; // Process-only; never rewound by F9.
     void RunNextAlphaAction();
     bool PrepareControlledRecruitment(FName Id,int32 Quantity,FSoulControlledCampaignAction& Out,FString& Error) const;
     int32 GetAlphaSeed() const { return AlphaSeed; }
@@ -105,6 +109,7 @@ private:
     bool bFourFactionAlpha = false;
     int32 AlphaNextFaction = 3, AlphaSeed = 1701, AlphaTurnDay = 0;
     void InitializeFourFactionAlpha();
+    void AppendAlphaBattleRecap(const FSoulCampaignBattleResult& Result);
     bool ValidateControlledRecruitment(FName Id,FName ArmyId,FName Region,int32 Quantity,FString& Error) const;
     bool ExecuteControlledRecruitment(const FSoulControlledCampaignAction& A,FString& Error);
     bool bSixFactionProfile = false;

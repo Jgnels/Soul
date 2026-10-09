@@ -13,6 +13,7 @@ proof=p.add_mutually_exclusive_group()
 proof.add_argument('--alpha-defense',action='store_true')
 proof.add_argument('--alpha-attack',action='store_true')
 p.add_argument('--fps',type=int,default=10)
+p.add_argument('--checkpoint-day',type=int,choices=range(5,11),default=10)
 a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to(R/'Evidence')
 assert 10<=a.fps<=30 and 0<=a.seed<=1000000 and 2<=a.target_day<=60
 assert all(c.isalnum() or c in '-_' for c in a.run)
@@ -40,7 +41,7 @@ if a.mode in ['defense','defense-load']:
  else:flags+=['-SoulCampaignLoadProof']
  marker='SOUL_CONTROLLED_BATTLE_PASS' if a.mode=='defense' else 'SOUL_CAMPAIGN_COLD_LOAD_PASS'
 else:
- flags+=['-SoulFourFactionAlpha','-SoulAlphaQualification','-SoulAlphaSeed='+str(a.seed),'-SoulAlphaTargetDay='+str(a.target_day)]
+ flags+=['-SoulFourFactionAlpha','-SoulAlphaQualification','-SoulAlphaSeed='+str(a.seed),'-SoulAlphaTargetDay='+str(a.target_day),'-SoulAlphaCheckpointDay='+str(a.checkpoint_day)]
  if a.mode=='cold':flags+=['-SoulAlphaColdContinue']
  if a.alpha_defense:flags+=['-SoulAlphaDefenseProof']
  if a.alpha_attack:flags+=['-SoulAlphaAttackProof']
