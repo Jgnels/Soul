@@ -1,0 +1,522 @@
+{
+  "directed_connections": 102,
+  "explicit_runtime_approaches": 20,
+  "unset": 82,
+  "new_explicit_records_added": 0,
+  "authority": "Data\\soul_overmap_battle_handoff_v1_20260922.json",
+  "authority_sha256": "42a1f583a3f22f2a0877c898dfc2f36b7fac96cd159f26d5508b2628bfbca24e",
+  "structural_compass_metadata_is_not_runtime_admission": true,
+  "reason": "Runtime loads ApproachFromNeighbor only from battle handoff records. Structural runtime_routes compass strings are not battle-entry admission. Existing unset approaches remain unset; exercised canonical pass/watch recipes use the established geographic fallback.",
+  "rows": [
+    {
+      "source": "human_capital",
+      "target": "crossroads",
+      "explicit_runtime_approach": "west"
+    },
+    {
+      "source": "crossroads",
+      "target": "human_capital",
+      "explicit_runtime_approach": "east"
+    },
+    {
+      "source": "crossroads",
+      "target": "old_quarry",
+      "explicit_runtime_approach": "south_west"
+    },
+    {
+      "source": "old_quarry",
+      "target": "crossroads",
+      "explicit_runtime_approach": "north_east"
+    },
+    {
+      "source": "crossroads",
+      "target": "river_ford",
+      "explicit_runtime_approach": "north_west"
+    },
+    {
+      "source": "river_ford",
+      "target": "crossroads",
+      "explicit_runtime_approach": "south_east"
+    },
+    {
+      "source": "crossroads",
+      "target": "forest_edge",
+      "explicit_runtime_approach": "west"
+    },
+    {
+      "source": "forest_edge",
+      "target": "crossroads",
+      "explicit_runtime_approach": "east"
+    },
+    {
+      "source": "old_quarry",
+      "target": "ancient_shrine",
+      "explicit_runtime_approach": "west"
+    },
+    {
+      "source": "ancient_shrine",
+      "target": "old_quarry",
+      "explicit_runtime_approach": "east"
+    },
+    {
+      "source": "river_ford",
+      "target": "orc_watch",
+      "explicit_runtime_approach": "west"
+    },
+    {
+      "source": "orc_watch",
+      "target": "river_ford",
+      "explicit_runtime_approach": "east"
+    },
+    {
+      "source": "forest_edge",
+      "target": "orc_watch",
+      "explicit_runtime_approach": "north_west"
+    },
+    {
+      "source": "orc_watch",
+      "target": "forest_edge",
+      "explicit_runtime_approach": "south_east"
+    },
+    {
+      "source": "forest_edge",
+      "target": "north_pass",
+      "explicit_runtime_approach": "west"
+    },
+    {
+      "source": "north_pass",
+      "target": "forest_edge",
+      "explicit_runtime_approach": "east"
+    },
+    {
+      "source": "north_pass",
+      "target": "orc_camp",
+      "explicit_runtime_approach": "north_west"
+    },
+    {
+      "source": "orc_camp",
+      "target": "north_pass",
+      "explicit_runtime_approach": "south_east"
+    },
+    {
+      "source": "orc_watch",
+      "target": "orc_camp",
+      "explicit_runtime_approach": "west"
+    },
+    {
+      "source": "orc_camp",
+      "target": "orc_watch",
+      "explicit_runtime_approach": "east"
+    },
+    {
+      "source": "viking_harbour",
+      "target": "viking_forest_track",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_forest_track",
+      "target": "viking_harbour",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_harbour",
+      "target": "viking_fjord_ridge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_fjord_ridge",
+      "target": "viking_harbour",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_forest_track",
+      "target": "viking_snow_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_snow_pass",
+      "target": "viking_forest_track",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_fjord_ridge",
+      "target": "viking_snow_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_snow_pass",
+      "target": "viking_fjord_ridge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_forest_track",
+      "target": "northwest_march",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "northwest_march",
+      "target": "viking_forest_track",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "northwest_march",
+      "target": "human_capital",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "human_capital",
+      "target": "northwest_march",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "viking_snow_pass",
+      "target": "mountain_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "mountain_shrine",
+      "target": "viking_snow_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "mountain_shrine",
+      "target": "ancient_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "ancient_shrine",
+      "target": "mountain_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "mountain_shrine",
+      "target": "dwarf_mountain_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_mountain_pass",
+      "target": "mountain_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_mountain_pass",
+      "target": "dwarf_high_quarry",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_high_quarry",
+      "target": "dwarf_mountain_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_high_quarry",
+      "target": "dwarf_snow_basin",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_snow_basin",
+      "target": "dwarf_high_quarry",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_high_quarry",
+      "target": "dwarf_forge_approach",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_forge_approach",
+      "target": "dwarf_high_quarry",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_forge_approach",
+      "target": "dwarf_hold",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_hold",
+      "target": "dwarf_forge_approach",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_snow_basin",
+      "target": "dwarf_hold",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_hold",
+      "target": "dwarf_snow_basin",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_mountain_pass",
+      "target": "north_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "north_pass",
+      "target": "dwarf_mountain_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dwarf_forge_approach",
+      "target": "north_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "north_pass",
+      "target": "dwarf_forge_approach",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "north_pass",
+      "target": "orc_war_camp",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_war_camp",
+      "target": "north_pass",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_camp",
+      "target": "orc_badlands",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_badlands",
+      "target": "orc_camp",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_camp",
+      "target": "orc_war_camp",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_war_camp",
+      "target": "orc_camp",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_watch",
+      "target": "orc_ruined_field",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_ruined_field",
+      "target": "orc_watch",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_badlands",
+      "target": "orc_ruined_field",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_ruined_field",
+      "target": "orc_badlands",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_ruined_field",
+      "target": "orc_broken_bridge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_broken_bridge",
+      "target": "orc_ruined_field",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "human_capital",
+      "target": "coastal_ruins",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "coastal_ruins",
+      "target": "human_capital",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "coastal_ruins",
+      "target": "nature_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_shrine",
+      "target": "coastal_ruins",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_shrine",
+      "target": "nature_forest_clearing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_forest_clearing",
+      "target": "nature_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_shrine",
+      "target": "nature_grassland_edge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "target": "nature_shrine",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_forest_clearing",
+      "target": "nature_treehold",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_treehold",
+      "target": "nature_forest_clearing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_forest_clearing",
+      "target": "nature_river_woodland",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_river_woodland",
+      "target": "nature_forest_clearing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_river_woodland",
+      "target": "nature_treehold",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_treehold",
+      "target": "nature_river_woodland",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "target": "nature_river_woodland",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_river_woodland",
+      "target": "nature_grassland_edge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "target": "river_ford",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "river_ford",
+      "target": "nature_grassland_edge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "target": "southern_crossing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "southern_crossing",
+      "target": "nature_grassland_edge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "river_ford",
+      "target": "southern_crossing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "southern_crossing",
+      "target": "river_ford",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "southern_crossing",
+      "target": "orc_broken_bridge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_broken_bridge",
+      "target": "southern_crossing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "southern_crossing",
+      "target": "dark_corrupted_valley",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_corrupted_valley",
+      "target": "southern_crossing",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "orc_broken_bridge",
+      "target": "dark_ruined_causeway",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_ruined_causeway",
+      "target": "orc_broken_bridge",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_corrupted_valley",
+      "target": "dark_ruined_causeway",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_ruined_causeway",
+      "target": "dark_corrupted_valley",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_corrupted_valley",
+      "target": "dark_ash_plain",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_ash_plain",
+      "target": "dark_corrupted_valley",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_ruined_causeway",
+      "target": "dark_castle_approach",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_castle_approach",
+      "target": "dark_ruined_causeway",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_ash_plain",
+      "target": "dark_fortress",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_fortress",
+      "target": "dark_ash_plain",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_castle_approach",
+      "target": "dark_fortress",
+      "explicit_runtime_approach": null
+    },
+    {
+      "source": "dark_fortress",
+      "target": "dark_castle_approach",
+      "explicit_runtime_approach": null
+    }
+  ]
+}

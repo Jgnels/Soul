@@ -1,0 +1,27 @@
+{
+  "run": "editor-nature-poses-r3",
+  "paired_run": "editor-nature-poses-r2",
+  "body": "SK_Bear_Full",
+  "weapon_package": "SM_Warrior_02_Axe",
+  "rendered_weapon": "Slim sword-like blade with hilt; donor filename is misleading. Combat profile corrected to Soul.Nature.BearBlade / Sword before natural qualification.",
+  "poses_reviewed": [
+    "idle",
+    "run",
+    "attack1",
+    "attack2",
+    "attack3",
+    "attack4",
+    "hit",
+    "death"
+  ],
+  "body_pose_result": "Coherent full body, grounded feet, no checkerboard or obvious skeleton deformation.",
+  "attachment_result": "Weapon follows right hand across sampled poses; opposite-side close view confirms hilt/grip.",
+  "limitations": "Staged paused poses do not qualify natural combat, attack timing or cooked assets. Fur and metal presentation remains existing owned art, not final art approval.",
+  "generative_assets": false,
+  "weapon_cross_check": "Dependency closure confirms M_Warrior_2_Sword and Textures/Warrior_02/Sword; actual source is a sword despite the static-mesh package name.",
+  "natural_battle_images_reviewed": [
+    "Local/editor-human-nature-r1/User/Saved/Screenshots/Vertical_Battle.png",
+    "Local/editor-nature-human-r1/User/Saved/Screenshots/Vertical_Battle.png"
+  ],
+  "natural_side_review": "Human/Nature bodies exchange actual attacker and defender sides; Nature has its owned bear body, Human its owned Knight body. Exact infantry formation icons and reserves appear on both directions. Non-Human attacker mana is zero."
+}

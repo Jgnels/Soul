@@ -1,0 +1,7 @@
+{
+  "run": "editor-nature-poses-r1",
+  "accepted": false,
+  "reason": "Autobattle skips PlayerTick, so paused tactical inspection camera never follows the staged actor. Images show unusable frozen zoom/blur, not evidence of valid visual poses.",
+  "fix": "Remove SoulAutobattle only for controlled-pose launcher mode; retain natural battle flags unchanged.",
+  "asset_changes": false
+}

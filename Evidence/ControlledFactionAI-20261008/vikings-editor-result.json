@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "vikings",
+  "defender": "humans",
+  "runtime": [
+    {
+      "run": "editor-reverse-vikings-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 259.36,
+      "peak_gpu_c": 66.0,
+      "summary": "Local\\editor-reverse-vikings-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "editor-reverse-vikings-load-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 122.97,
+      "peak_gpu_c": 63.0,
+      "summary": "Local\\editor-reverse-vikings-load-r1\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "defender_victory",
+  "target": "viking_snow_pass",
+  "attacker_return_region": "viking_fjord_ridge",
+  "owner": "humans",
+  "result": {
+    "enemy": 25,
+    "enemy_waves": 4,
+    "magic": 0,
+    "player": 0,
+    "player_waves": 4
+  },
+  "physical_result": {
+    "attacker": 7,
+    "defender": 25,
+    "attacker_routed": true,
+    "defender_routed": false
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 30,
+    "1": 31
+  },
+  "rb_accepted_contacts": 589,
+  "slot": "Soul.Composition3500.Controlled.vikings",
+  "save_sha256": "425319002deabb42227fe0d6ddc1db2d7cc44f8ce2591566f40fa83e840883e2",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\editor-reverse-vikings-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "967cc4b903ec6afbbe337f47aa14814bde710951139ec51c426c273ff1f2ba01"
+    },
+    {
+      "path": "Local\\editor-reverse-vikings-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "958e62cad69df7ae10fde1c8355b8159adfbf97eddfeada1634d813c803a385d"
+    },
+    {
+      "path": "Local\\editor-reverse-vikings-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "e1380c1fdc8b996046b90c227c2ad6e405d01b844fed95c2c61b90d682f3233e"
+    },
+    {
+      "path": "Local\\editor-reverse-vikings-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "41e9cb2133ab11f8ec161c52d078a8372b57a34ed955cd11b001f4ff6511a16c"
+    }
+  ],
+  "performance_qualification": false
+}

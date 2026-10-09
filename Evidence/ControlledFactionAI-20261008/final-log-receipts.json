@@ -1,0 +1,59 @@
+{
+  "logs": [
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/corrected-SoulEditor-build.log",
+      "sha256": "85aa47917259072c1c12f40f4ae26d072039e5896d63c05082ffde005f8e98b8",
+      "bytes": 3002,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/corrected-Soul-build.log",
+      "sha256": "01ccf968302d5b39329e103c4376ce030c77ba512529b5debb8dc45dfc4058c8",
+      "bytes": 8331,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/corrected-SoulComposition-build.log",
+      "sha256": "3f3167f076bf03036b45569e64331e00a4d8ced0cdccbb0673335f3588cf7e81",
+      "bytes": 8443,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/final-source-tools-r3.log",
+      "sha256": "d649369c07b61fcb2b2ae4b274313a0d60361eae8f47df05f76da4da69ffa076",
+      "bytes": 121,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/final-six-native.log",
+      "sha256": "0545498433912992442fcedfed00fd37440ddf42d4eb4db5eaa69d8ea9eee6c2",
+      "bytes": 3766,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/final-combat-native-r2.log",
+      "sha256": "47d5d49dd5fe912f7bc6700e0726ddb55dff2352a69a9d2df6409e5bc114c3fd",
+      "bytes": 6266,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/final-vertical-native.log",
+      "sha256": "ae4e429715eb08c81c79d46458329e9c6b601cb0d11c541c36b6b4810a8bd631",
+      "bytes": 7335,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/final-default-native.log",
+      "sha256": "630b9650fdacd32c0e533daf9c7e72d3480c42437b5940b0164edfe1d40044ed",
+      "bytes": 1809,
+      "local_only_due_repository_ignore": true
+    },
+    {
+      "path": "Evidence/ControlledFactionAI-20261008/final-composition-native.log",
+      "sha256": "8ec16b6557a242a77bb57081103554a1e3de3a3ba3431c3e36276433546da7a5",
+      "bytes": 1842,
+      "local_only_due_repository_ignore": true
+    }
+  ],
+  "note": "Raw build/native/source logs remain locally preserved under the repository log ignore; compact qualified-builds/final-native-results receipts carry results."
+}

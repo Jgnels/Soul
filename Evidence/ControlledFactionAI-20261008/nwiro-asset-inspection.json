@@ -1,0 +1,151 @@
+{
+  "pass": true,
+  "interface": "Nwiro loopback MCP native read_asset/search_assets/get_project_info",
+  "project": "Soul",
+  "engine": "5.8.3",
+  "body": "/Game/Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full.SK_Bear_Full",
+  "skeleton": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton",
+  "source_triangle_count": 129425,
+  "source_bounds_cm": {
+    "extent": [
+      72.129524,
+      26.985217,
+      90.836463
+    ]
+  },
+  "clips": [
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 61,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle_Sit",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 61,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 31,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Back",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 31,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Left",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 31,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Right",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 31,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 41,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 61,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 71,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 71,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 76,
+      "additive_type": 0,
+      "root_motion": false
+    },
+    {
+      "clip": "/Game/Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4",
+      "skeleton": {
+        "class": "Skeleton",
+        "path": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton.SK_Mannequin_Skeleton"
+      },
+      "frames": 71,
+      "additive_type": 0,
+      "root_motion": false
+    }
+  ],
+  "weapon": "/Game/Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe.SM_Warrior_02_Axe",
+  "weapon_materials": [
+    "(MaterialInterface=\"/Script/Engine.Material'/Game/Animals_Warrior_Pack/Materials/Warrior_02/M_Warrior_2_Sword.M_Warrior_2_Sword'\",MaterialSlotName=\"Axe\",ImportedMaterialSlotName=\"Axe\",UVChannelData=(bInitialized=True,LocalUVDensities[0]=47.451775,LocalUVDensities[1]=54.187553))"
+  ],
+  "asset_references_result": {
+    "success": false,
+    "error": "AssetRegistry discovery is in progress; wait for it to finish and retry",
+    "code": "registry_not_ready"
+  },
+  "asset_saves": 0,
+  "donor_maps_opened": 0,
+  "performance_qualification": false,
+  "limitations": "Source LOD0 is 129425 triangles; this inspection establishes asset identity/compatibility, not sustained performance or LOD suitability."
+}

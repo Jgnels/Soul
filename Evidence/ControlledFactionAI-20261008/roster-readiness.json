@@ -1,0 +1,30 @@
+{
+  "scope": "Exact infantry qualification, not final balance or autonomous strategy.",
+  "nature": {
+    "faction": "nature",
+    "unit": "nature_bear_warrior",
+    "body": "/Game/Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full",
+    "weapon": "/Game/Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe",
+    "weapon_rendered_type": "Sword",
+    "profile": "Soul.Nature.BearBlade",
+    "skeleton": "/Game/Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton",
+    "donor": "D:/Unreal Projects/AoEAssetRenderLab/Content/Animals_Warrior_Pack",
+    "runtime_body_count": 30,
+    "unit_balance_final": false,
+    "native_pose_gate": "PASS: final-combat-native-r2, exact body/animations/weapon plus reverse-side and reserve checks",
+    "editor_both_directions": "PASS with F5/F9 and fresh process restoration",
+    "cooked": "PASS both Human->Nature and Nature->Human, natural result/F5/F9/separate-process identical save bytes"
+  },
+  "dark": {
+    "unit": null,
+    "status": "REJECT_UNSUPPORTED_ROSTER",
+    "local_candidate": "Fantasy Executioner",
+    "blocking_gap": "No locally verified complete exact infantry attack/hit/death set from the selected candidate; not retargeted this mission because Nature supplied a complete own-skeleton set.",
+    "future_candidate_rejected": false
+  },
+  "save_compatibility": "No schema change. Existing Viking/Nature None roster saves remain None and cannot silently enter exact battles. New fresh isolated six-faction fixtures use the admitted Nature unit.",
+  "full_ai": false,
+  "battle_control_limit": "Automated attacker-side battle qualification. Human defensive interactive hero/controller role switching is not implemented or claimed.",
+  "morale_semantics": "Existing rout result gives zero effective campaign survivors to the routed side; physical surviving bodies and reserves are reported separately.",
+  "performance": "All rendered qualification capped/85 C guarded. No uncapped performance claim."
+}

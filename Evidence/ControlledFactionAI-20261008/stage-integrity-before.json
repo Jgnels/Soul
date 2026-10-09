@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-09T09:25:54.037633+00:00",
+  "pass": true,
+  "stage_receipt": "Evidence\\ControlledFactionAI-20261008\\Local\\stage-controlled-factions-r1\\Diagnostics\\receipt.json",
+  "manifest_entries_present": 12761,
+  "base_cooked_files": 10754,
+  "base_hash_validation": "Stage performed full post-UAT SHA256 verification and same-file hardlink checks; its manifest matches the historical verified cook exactly. Reused rather than redundantly hashing 18 GB again.",
+  "supplemental_files_hash_checked": 104,
+  "executable_sha256": "6ad3ee125193a32ba9f30c8e5d92a38fcadcb4bba8548535dd9aa1ee9a6a447c",
+  "configuration_unchanged": true,
+  "source_commit": "43060da2e40d415afe2dd24387e4b2f9d29bb2d3",
+  "default_promoted": false,
+  "external_removal_issue_diagnosed": false
+}

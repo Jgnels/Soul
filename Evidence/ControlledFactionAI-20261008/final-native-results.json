@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "tests": 43,
+  "suites": [
+    {
+      "run": "final-six-native",
+      "tests": 8,
+      "pass": true,
+      "seconds": 153.4513337612152,
+      "warnings": [],
+      "receipt_sha256": "606b53de0381bd83ca567fe4cf5ebc69aef150ac11577f9cd4707a029852389b"
+    },
+    {
+      "run": "final-combat-native-r2",
+      "tests": 12,
+      "pass": true,
+      "seconds": 115.51300692558289,
+      "warnings": [
+        {
+          "test": "Soul.RealtimeBattle.Vertical.AnimationStancesAndFieldStrength",
+          "message": "LogLinker: Unable to load Orion_Proto_Retarget with outer Package /Game/ParagonSparrow/Characters/Heroes/Sparrow/Meshes/Orion_Proto_Retarget because its class (Rig) does not exist"
+        },
+        {
+          "test": "Soul.RealtimeBattle.Vertical.AnimationStancesAndFieldStrength",
+          "message": "LogLinker: Unable to load Orion_Proto_Retarget with outer Package /Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Orion_Proto_Retarget because its class (Rig) does not exist"
+        },
+        {
+          "test": "Soul.RealtimeBattle.Vertical.AnimationStancesAndFieldStrength",
+          "message": "LogSpawn: UWorld::DestroyActor: World has no context! World: Untitled, Actor: /Temp/Untitled_1.Untitled:PersistentLevel.Character_0"
+        },
+        {
+          "test": "Soul.RealtimeBattle.Vertical.AnimationStancesAndFieldStrength",
+          "message": "LogSpawn: UWorld::DestroyActor: World has no context! World: Untitled, Actor: /Temp/Untitled_1.Untitled:PersistentLevel.Character_1"
+        }
+      ],
+      "receipt_sha256": "4527f16fc22fe760adf82ff51f262048448acac7d5e7788db36a376d3230da84"
+    },
+    {
+      "run": "final-vertical-native",
+      "tests": 19,
+      "pass": true,
+      "seconds": 23.068115234375,
+      "warnings": [],
+      "receipt_sha256": "a146d5230b7faf75e57c00be14749d4d9ff207245ccc327cef28c1a040195a2a"
+    },
+    {
+      "run": "final-default-native",
+      "tests": 2,
+      "pass": true,
+      "seconds": 20.850642442703247,
+      "warnings": [],
+      "receipt_sha256": "dc79fbf5b79f65dfe69d3756e465625ae5082bd1957e1050cb0d9093469c9e74"
+    },
+    {
+      "run": "final-composition-native",
+      "tests": 2,
+      "pass": true,
+      "seconds": 21.528095722198486,
+      "warnings": [],
+      "receipt_sha256": "fcef7a116d3fef460cf0f0e2d7d08fd80c242de95d0f55e3b73d967a73856919"
+    }
+  ],
+  "rejected_iteration": "Local/final-combat-native/receipt.json preserved; wrong Viking test expectation repaired, no runtime weapon change"
+}

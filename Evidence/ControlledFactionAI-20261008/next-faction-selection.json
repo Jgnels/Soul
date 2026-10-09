@@ -1,0 +1,22 @@
+{
+  "selected": "nature",
+  "unit": "nature_bear_warrior",
+  "audit_started_utc": "2026-10-09T06:46:04Z",
+  "decision_utc": "2026-10-09T06:51:30.640792+00:00",
+  "decision": "Implementation candidate only; require strict native skeleton/full-pose/weapon checks and rendered review before admission.",
+  "why": "Owned Animals Warrior Bear full body shares its exact skeleton with a complete armed infantry animation set and an owned right-hand blade. Distinct Nature beast infantry with minimum adaptation.",
+  "dark": "Executioner full body and own axe exist, but demo supplies only mannequin locomotion/jump, no own complete attacks/hit/death; retarget validation would add work. Not rejected as future content.",
+  "nature_other": "Paragon Fey hero ability/additive presentation is a larger core-infantry adaptation.",
+  "source_priority": "AoEAssetRenderLab first; no download or purchase",
+  "donor": "D:/Unreal Projects/AoEAssetRenderLab/Content/Animals_Warrior_Pack",
+  "proof_dependencies": "nature-candidate-inventory.json; nature-donor-copy.json",
+  "autonomous_ai_enabled": false,
+  "native_candidate_gate": "PASS: Local/nature-candidate-native-r1/receipt.json",
+  "selection_minutes_upper_bound": 14,
+  "canonical_admission": "Human <-> Nature both editor and cooked natural battle/F5/F9/separate-process restoration PASS; exact admission only.",
+  "weapon_visual_correction": "Static mesh SM_Warrior_02_Axe is actually the donor sword (M_Warrior_2_Sword / Sword textures). Use Soul.Nature.BearBlade, Sword category; unit remains nature_bear_warrior.",
+  "rendered_review": "nature-visual-inspection.json",
+  "human_attacking_runtime": "PASS: human_nature-reverse-result.json",
+  "nature_attacking_runtime": "PASS: nature-reverse-result.json",
+  "nwiro_inspection": "PASS exact body/skeleton/twelve non-additive clips/weapon material; nwiro-asset-inspection.json. Dependency registry query deferred to native/cook authority."
+}

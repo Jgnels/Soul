@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "dwarves",
+  "defender": "humans",
+  "runtime": [
+    {
+      "run": "cooked-dwarves-r1",
+      "runtime_kind": "packaged",
+      "seconds": 198.97,
+      "peak_gpu_c": 70.0,
+      "summary": "Local\\cooked-dwarves-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "cooked-dwarves-r1-load",
+      "runtime_kind": "packaged",
+      "seconds": 86.55,
+      "peak_gpu_c": 61.0,
+      "summary": "Local\\cooked-dwarves-r1-load\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "defender_victory",
+  "target": "dwarf_mountain_pass",
+  "attacker_return_region": "dwarf_high_quarry",
+  "owner": "humans",
+  "result": {
+    "enemy": 23,
+    "enemy_waves": 5,
+    "magic": 0,
+    "player": 0,
+    "player_waves": 4
+  },
+  "physical_result": {
+    "attacker": 8,
+    "defender": 23,
+    "attacker_routed": true,
+    "defender_routed": false
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 30,
+    "1": 35
+  },
+  "rb_accepted_contacts": 598,
+  "slot": "Soul.Composition3500.Controlled.dwarves",
+  "save_sha256": "2ce6b9a23c9def49cb7b9c4a801f4b65e4516af86fe151cb078d9cca52f8a2a2",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\cooked-dwarves-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "ce89542794f15da562462e353df2f7341a5d339dd3691cddd04a1489cbaee1d4"
+    },
+    {
+      "path": "Local\\cooked-dwarves-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "9a68ccf4943662af8d5c568ad8e839bfa5502bb1fc0ef43a840b6bea3fbd93fb"
+    },
+    {
+      "path": "Local\\cooked-dwarves-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "c73095849357741c394a8e521148febb0f4e3e281afe83883e4ecca7d605c692"
+    },
+    {
+      "path": "Local\\cooked-dwarves-r1-load\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "fe4e13458eea27a6c3ae0dcebd0335bcca10c7a8ec6f848b55c75154244be109"
+    }
+  ],
+  "performance_qualification": false
+}

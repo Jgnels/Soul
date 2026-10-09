@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "nature",
+  "defender": "humans",
+  "runtime": [
+    {
+      "run": "cooked-nature-r1",
+      "runtime_kind": "packaged",
+      "seconds": 188.83,
+      "peak_gpu_c": 70.0,
+      "summary": "Local\\cooked-nature-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "cooked-nature-r1-load",
+      "runtime_kind": "packaged",
+      "seconds": 86.56,
+      "peak_gpu_c": 64.0,
+      "summary": "Local\\cooked-nature-r1-load\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "defender_victory",
+  "target": "orc_watch",
+  "attacker_return_region": "orc_ruined_field",
+  "owner": "humans",
+  "result": {
+    "enemy": 26,
+    "enemy_waves": 4,
+    "magic": 0,
+    "player": 0,
+    "player_waves": 4
+  },
+  "physical_result": {
+    "attacker": 8,
+    "defender": 26,
+    "attacker_routed": true,
+    "defender_routed": false
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 30,
+    "1": 31
+  },
+  "rb_accepted_contacts": 562,
+  "slot": "Soul.Composition3500.Controlled.nature",
+  "save_sha256": "71dc794d433fd67ac49982f826bda351efe10431c57d76d3d040ddddb7acfc4c",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\cooked-nature-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "5860723c09bf729e5f1a77f14b1725ca42a1546f94eaf463845d66bbbbfa1862"
+    },
+    {
+      "path": "Local\\cooked-nature-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "2a8fb2212bcd4b858b84e444fe3b396ff865a2950a221783c3d165c1a309e1e9"
+    },
+    {
+      "path": "Local\\cooked-nature-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "11803d963020d3b7143a8dd077d6d9e19f83034a79bf70c81b27c5556a2ac2dc"
+    },
+    {
+      "path": "Local\\cooked-nature-r1-load\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "dfc74510ef6d83c99b97fe30f20ecf5a4cca60edd5075e28aae1939744354b0d"
+    }
+  ],
+  "performance_qualification": false
+}

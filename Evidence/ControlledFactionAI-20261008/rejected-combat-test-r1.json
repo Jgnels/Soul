@@ -1,0 +1,8 @@
+{
+  "failure": "ExactVikingCampaignRoster expected Sword although the established Viking profile and owned mesh are Axe.",
+  "cause": "Overbroad test text replacement during Nature weapon naming correction. Runtime Viking profile remained correct.",
+  "correction": "Scoped to Viking test block: restore Axe expectation and axe labels. Nature remains BearBlade/Sword.",
+  "failed_receipt": "Local/final-combat-native/receipt.json",
+  "native_runtime_changes": false,
+  "required_requalification": "Fresh builds and corrected combat suite; final remaining native suites."
+}

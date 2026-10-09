@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "vikings",
+  "defender": "humans",
+  "runtime": [
+    {
+      "run": "cooked-vikings-r1",
+      "runtime_kind": "packaged",
+      "seconds": 199.08,
+      "peak_gpu_c": 69.0,
+      "summary": "Local\\cooked-vikings-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "cooked-vikings-r1-load",
+      "runtime_kind": "packaged",
+      "seconds": 86.55,
+      "peak_gpu_c": 62.0,
+      "summary": "Local\\cooked-vikings-r1-load\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "attacker_victory",
+  "target": "viking_snow_pass",
+  "attacker_return_region": "viking_snow_pass",
+  "owner": "vikings",
+  "result": {
+    "enemy": 0,
+    "enemy_waves": 5,
+    "magic": 0,
+    "player": 9,
+    "player_waves": 4
+  },
+  "physical_result": {
+    "attacker": 9,
+    "defender": 23,
+    "attacker_routed": false,
+    "defender_routed": true
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 30,
+    "1": 35
+  },
+  "rb_accepted_contacts": 579,
+  "slot": "Soul.Composition3500.Controlled.vikings",
+  "save_sha256": "351f2dcbaac677fa97de157f3b0275328a652a9acd91335adc5a16daa9a02068",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\cooked-vikings-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "0f316dc6b63ef4fee1fd3f40e07806a25426a84402e045abf20b6057df64062f"
+    },
+    {
+      "path": "Local\\cooked-vikings-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "4ebea338b2ce3cb62195cf0dd8d90cd9644c22510e4359a46806bbafd22f20ac"
+    },
+    {
+      "path": "Local\\cooked-vikings-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "d9e62e96e73de40ea130c8f01b7a6ff7d746bd1014b8e3b7158bd3aa1b475d94"
+    },
+    {
+      "path": "Local\\cooked-vikings-r1-load\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "912113677278ea1d6e4659be31b533ae2d7b787e4a00a4f51e68b03675bf64c9"
+    }
+  ],
+  "performance_qualification": false
+}

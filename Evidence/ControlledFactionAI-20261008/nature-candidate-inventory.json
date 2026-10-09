@@ -1,0 +1,281 @@
+{
+  "audit_started_utc": "2026-10-09T06:46:04Z",
+  "inspected_utc": "2026-10-09T06:50:50.298648+00:00",
+  "donor_root": "D:\\Unreal Projects\\AoEAssetRenderLab\\Content",
+  "roots": [
+    "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full",
+    "Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle_Sit",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Back",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Left",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Right",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4"
+  ],
+  "packages": {
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_4": {
+      "bytes": 149836,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton": {
+      "bytes": 14748,
+      "references": [
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_3": {
+      "bytes": 140618,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_2": {
+      "bytes": 161598,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack_1": {
+      "bytes": 138972,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Dead_1": {
+      "bytes": 145058,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Dead",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1": {
+      "bytes": 132762,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Right": {
+      "bytes": 126154,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Right",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Left": {
+      "bytes": 126597,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Left",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Back": {
+      "bytes": 127613,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Back",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run": {
+      "bytes": 126211,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Run",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle_Sit": {
+      "bytes": 143175,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle_Sit",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle": {
+      "bytes": 144830,
+      "references": [
+        "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Idle",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe": {
+      "bytes": 902766,
+      "references": [
+        "Animals_Warrior_Pack/Materials/Warrior_02/M_Warrior_2_Sword",
+        "Animals_Warrior_Pack/Mesh/Warrior_02/SM_Warrior_02_Axe"
+      ]
+    },
+    "Animals_Warrior_Pack/Materials/Warrior_02/M_Warrior_2_Sword": {
+      "bytes": 156012,
+      "references": [
+        "Animals_Warrior_Pack/Materials/Warrior_02/M_Warrior_2_Sword",
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Albedo",
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Ao",
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Metallic",
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Normals": {
+      "bytes": 2649135,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Metallic": {
+      "bytes": 5435976,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Metallic"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Ao": {
+      "bytes": 1037485,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Ao"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Albedo": {
+      "bytes": 3776387,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Warrior_02/Sword/T_Sword_Albedo"
+      ]
+    },
+    "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full": {
+      "bytes": 24043924,
+      "references": [
+        "Animals_Warrior_Pack/Materials/Bear/M_Bear_Armors",
+        "Animals_Warrior_Pack/Materials/Bear/M_Bear_Body",
+        "Animals_Warrior_Pack/Materials/Bear/M_Bear_Fur",
+        "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full",
+        "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full_PhysicsAsset",
+        "Animals_Warrior_Pack/Mesh/Mannequin/SK_Mannequin_Skeleton"
+      ]
+    },
+    "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full_PhysicsAsset": {
+      "bytes": 135002,
+      "references": [
+        "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full",
+        "Animals_Warrior_Pack/Mesh/Bear/SK_Bear_Full_PhysicsAsset"
+      ]
+    },
+    "Animals_Warrior_Pack/Materials/Bear/M_Bear_Fur": {
+      "bytes": 146316,
+      "references": [
+        "Animals_Warrior_Pack/Materials/Bear/M_Bear_Fur",
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Albedo",
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Ao",
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Metallic",
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Normals": {
+      "bytes": 14594016,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Metallic": {
+      "bytes": 25397,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Metallic"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Ao": {
+      "bytes": 9396078,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Ao"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Albedo": {
+      "bytes": 24942187,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Fur/T_Bear_Fur_Albedo"
+      ]
+    },
+    "Animals_Warrior_Pack/Materials/Bear/M_Bear_Body": {
+      "bytes": 153568,
+      "references": [
+        "Animals_Warrior_Pack/Materials/Bear/M_Bear_Body",
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Albedo",
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Ao",
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Metallic",
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Normals": {
+      "bytes": 36778671,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Metallic": {
+      "bytes": 14347492,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Metallic"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Ao": {
+      "bytes": 4815140,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Ao"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Albedo": {
+      "bytes": 15496973,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Body/T_Bear_Body_Albedo"
+      ]
+    },
+    "Animals_Warrior_Pack/Materials/Bear/M_Bear_Armors": {
+      "bytes": 145840,
+      "references": [
+        "Animals_Warrior_Pack/Materials/Bear/M_Bear_Armors",
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Albedo",
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Ao",
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Metallic",
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Normals": {
+      "bytes": 35250344,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Normals"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Metallic": {
+      "bytes": 20125496,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Metallic"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Ao": {
+      "bytes": 6288425,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Ao"
+      ]
+    },
+    "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Albedo": {
+      "bytes": 22164202,
+      "references": [
+        "Animals_Warrior_Pack/Textures/Bear/Armors/T_Bear_Armors_Albedo"
+      ]
+    }
+  },
+  "missing": [
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Attack",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Dead",
+    "Animals_Warrior_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit"
+  ],
+  "bytes": 244485004,
+  "status": "dependency string inventory; native load/skeleton/render verification still required"
+}

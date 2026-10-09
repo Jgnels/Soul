@@ -1,0 +1,323 @@
+{
+  "admitted": 14,
+  "total_ordered_pairs": 30,
+  "rows": [
+    {
+      "attacker": "humans",
+      "defender": "dwarves",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+        "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "orcs",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+        "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "vikings",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+        "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "nature",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\human_nature-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\dwarves-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "orcs",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\dwarves_orcs-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "vikings",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\dwarves_vikings-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "nature",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "orcs",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\orcs-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "orcs",
+      "defender": "dwarves",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\orcs_dwarves-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "orcs",
+      "defender": "vikings",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\orcs_vikings-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "orcs",
+      "defender": "nature",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "orcs",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "vikings",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\vikings-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "vikings",
+      "defender": "dwarves",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\vikings_dwarves-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "vikings",
+      "defender": "orcs",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\vikings_orcs-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "vikings",
+      "defender": "nature",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "vikings",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\nature-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "nature",
+      "defender": "dwarves",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "orcs",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "vikings",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "humans",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "dwarves",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "orcs",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "vikings",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "nature",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    }
+  ],
+  "autonomous_ai_enabled": false,
+  "note": "Pair admission is necessary, not sufficient: no-approach or other action-specific rejection can still prevent a particular encounter."
+}

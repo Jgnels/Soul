@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-09T10:28:16.811427+00:00",
+  "pass": true,
+  "baseline_entries": 496,
+  "baseline_groups": {
+    "inherited_dirty": 17,
+    "protected": 314,
+    "existing_qualification_saves": 54,
+    "viking_donor": 50,
+    "viking_local_copy": 50,
+    "latest_qualification_saves": 11
+  },
+  "nature_donor_and_copy_hash_checks": 72,
+  "compiled_source_files": 162,
+  "fresh_targets": 3,
+  "editor_modules": 3,
+  "mismatches": [],
+  "seconds": 69.64100000006147,
+  "head": "43060da2e40d415afe2dd24387e4b2f9d29bb2d3",
+  "donors_saved": false,
+  "performance_qualification": false
+}

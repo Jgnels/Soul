@@ -1,0 +1,7 @@
+{
+  "changed_since_first_final_builds": [
+    "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp"
+  ],
+  "runtime_source_unchanged": true,
+  "required_regression": "Combat native test expectations corrected; all previously unrun final suites still required. Three fresh targets rebuilding despite runtime source unchanged."
+}

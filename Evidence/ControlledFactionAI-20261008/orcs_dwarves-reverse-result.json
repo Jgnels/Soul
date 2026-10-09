@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "orcs",
+  "defender": "dwarves",
+  "runtime": [
+    {
+      "run": "cooked-orcs-dwarves-r1",
+      "runtime_kind": "packaged",
+      "seconds": 168.42,
+      "peak_gpu_c": 69.0,
+      "summary": "Local\\cooked-orcs-dwarves-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "cooked-orcs-dwarves-r1-load",
+      "runtime_kind": "packaged",
+      "seconds": 86.48,
+      "peak_gpu_c": 65.0,
+      "summary": "Local\\cooked-orcs-dwarves-r1-load\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "attacker_victory",
+  "target": "north_pass",
+  "attacker_return_region": "north_pass",
+  "owner": "orcs",
+  "result": {
+    "enemy": 0,
+    "enemy_waves": 4,
+    "magic": 0,
+    "player": 16,
+    "player_waves": 3
+  },
+  "physical_result": {
+    "attacker": 16,
+    "defender": 9,
+    "attacker_routed": false,
+    "defender_routed": true
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 27,
+    "1": 30
+  },
+  "rb_accepted_contacts": 497,
+  "slot": "Soul.Composition3500.Controlled.orcs_dwarves",
+  "save_sha256": "8ab881bc72aedc60acfb0b4a586bf8f5d098c17cb41ba217ce8b8cb53a4e7751",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\cooked-orcs-dwarves-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "80606cc0d6e91c60efa4f1211476196a34e0a792ab592ed3a6c6f54c7c59018e"
+    },
+    {
+      "path": "Local\\cooked-orcs-dwarves-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "0cace45f771a2d88d16c7ada4b498401b022a1213e22edcb3e1df067f5b9de2c"
+    },
+    {
+      "path": "Local\\cooked-orcs-dwarves-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "0fb4a2f651221a5fe9c609a04e50cbd81f6502a57b10d0b085d6a7ffd1106d70"
+    },
+    {
+      "path": "Local\\cooked-orcs-dwarves-r1-load\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "fa3738db8bb5067884cf7f50ec4199cdccd0ff723ee2fb7332115652adc57e18"
+    }
+  ],
+  "performance_qualification": false
+}

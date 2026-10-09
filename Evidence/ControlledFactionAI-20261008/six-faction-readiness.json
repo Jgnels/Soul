@@ -1,0 +1,641 @@
+{
+  "status": "CONTROLLED_FOUNDATION_PASS_NOT_FULL_AUTONOMOUS_AI",
+  "regions": 36,
+  "edges": 51,
+  "owned_start": 12,
+  "neutral_start": 24,
+  "factions": [
+    {
+      "faction": "humans",
+      "capital_region": "human_capital",
+      "secondary_region": "crossroads",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "human_capital",
+        "crossroads"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "humans.primary",
+      "qualification_count": 45,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "human_knight",
+      "settlement_capital_status": "Authored CastleTown visit/battle/state proof and deterministic strategic miniature previously qualified; unchanged.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Previously qualified complete CastleTown authored city and Dragon Graveyard field variants. Unchanged this mission.",
+      "save_restore": "PASS current cooked controlled-turn F5/F9 and separate-process restoration; controlled-turn-cooked.json",
+      "ai_enabled": false,
+      "ai_readiness": "Controlled proposed actions only. No scheduler, diplomacy, recruitment planning or automatic war decisions.",
+      "seven_unit_families_ready": false,
+      "controlled_action_api": "PASS native adversarial admission and actual cooked execution; no autonomous scheduler",
+      "autonomous_ai_enabled": false,
+      "ordered_attacker_pairs": [
+        {
+          "defender": "dwarves",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+            "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+          }
+        },
+        {
+          "defender": "orcs",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+            "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+          }
+        },
+        {
+          "defender": "vikings",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+            "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+          }
+        },
+        {
+          "defender": "nature",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\human_nature-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        }
+      ],
+      "controlled_turn": "PASS cooked eight legal moves, six neutral captures, eight replay rejections, F5/F9 and cold restore"
+    },
+    {
+      "faction": "vikings",
+      "capital_region": "viking_harbour",
+      "secondary_region": "viking_forest_track",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "viking_harbour",
+        "viking_forest_track"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "vikings.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "viking_axe_warrior",
+      "settlement_capital_status": "Harbor/capital canonical location exists; strategic settlement art provisional; no authored Viking capital proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Exact axe infantry at canonical Snow Pass using existing Dragon Graveyard rocky pass field. Snow/boreal art and actual Viking capital remain unqualified.",
+      "save_restore": "PASS current cooked controlled-turn F5/F9 and separate-process restoration; controlled-turn-cooked.json",
+      "ai_enabled": false,
+      "ai_readiness": "Controlled proposed actions only. No scheduler, diplomacy, recruitment planning or automatic war decisions.",
+      "seven_unit_families_ready": false,
+      "controlled_action_api": "PASS native adversarial admission and actual cooked execution; no autonomous scheduler",
+      "autonomous_ai_enabled": false,
+      "ordered_attacker_pairs": [
+        {
+          "defender": "humans",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\vikings-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        },
+        {
+          "defender": "dwarves",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\vikings_dwarves-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        },
+        {
+          "defender": "orcs",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\vikings_orcs-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        }
+      ],
+      "controlled_turn": "PASS cooked eight legal moves, six neutral captures, eight replay rejections, F5/F9 and cold restore"
+    },
+    {
+      "faction": "dwarves",
+      "capital_region": "dwarf_hold",
+      "secondary_region": "dwarf_forge_approach",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "dwarf_hold",
+        "dwarf_forge_approach"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "dwarves.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "dwarf_warrior",
+      "settlement_capital_status": "Authored Hold/state proof qualified; campaign exterior PROVISIONAL; untouched.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Previously qualified authored Dwarf Hold environment and inherited field matchup. Strategic exterior remains provisional.",
+      "save_restore": "PASS current cooked controlled-turn F5/F9 and separate-process restoration; controlled-turn-cooked.json",
+      "ai_enabled": false,
+      "ai_readiness": "Controlled proposed actions only. No scheduler, diplomacy, recruitment planning or automatic war decisions.",
+      "seven_unit_families_ready": false,
+      "controlled_action_api": "PASS native adversarial admission and actual cooked execution; no autonomous scheduler",
+      "autonomous_ai_enabled": false,
+      "ordered_attacker_pairs": [
+        {
+          "defender": "humans",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\dwarves-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        },
+        {
+          "defender": "orcs",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\dwarves_orcs-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        },
+        {
+          "defender": "vikings",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\dwarves_vikings-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        }
+      ],
+      "controlled_turn": "PASS cooked eight legal moves, six neutral captures, eight replay rejections, F5/F9 and cold restore"
+    },
+    {
+      "faction": "orcs",
+      "capital_region": "orc_camp",
+      "secondary_region": "orc_war_camp",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "orc_camp",
+        "orc_war_camp"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "orcs.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "orc_hammer_warrior",
+      "settlement_capital_status": "Campaign camp/ruins presentation provisional; no authored Orc capital proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Qualified owned Orc Hammer infantry on Dragon Graveyard badlands field; no Orc authored-capital integration claimed.",
+      "save_restore": "PASS current cooked controlled-turn F5/F9 and separate-process restoration; controlled-turn-cooked.json",
+      "ai_enabled": false,
+      "ai_readiness": "Controlled proposed actions only. No scheduler, diplomacy, recruitment planning or automatic war decisions.",
+      "seven_unit_families_ready": false,
+      "controlled_action_api": "PASS native adversarial admission and actual cooked execution; no autonomous scheduler",
+      "autonomous_ai_enabled": false,
+      "ordered_attacker_pairs": [
+        {
+          "defender": "humans",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\orcs-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        },
+        {
+          "defender": "dwarves",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\orcs_dwarves-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        },
+        {
+          "defender": "vikings",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\orcs_vikings-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        }
+      ],
+      "controlled_turn": "PASS cooked eight legal moves, six neutral captures, eight replay rejections, F5/F9 and cold restore"
+    },
+    {
+      "faction": "nature",
+      "capital_region": "nature_treehold",
+      "secondary_region": "nature_forest_clearing",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "nature_treehold",
+        "nature_forest_clearing"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "nature.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "nature_bear_warrior",
+      "settlement_capital_status": "Canonical Treehold and approved Forest_village donors; strategic presentation provisional; no deep authored proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Human <-> Nature at canonical Orc Watch with existing geographically matched dragon_watch field fallback. Both editor/cooked natural outcomes and save/cold restore PASS. No Nature forest/city integration claimed.",
+      "save_restore": "PASS current cooked controlled-turn F5/F9 and separate-process restoration; controlled-turn-cooked.json",
+      "ai_enabled": false,
+      "ai_readiness": "Controlled proposed actions only. No scheduler, diplomacy, recruitment planning or automatic war decisions.",
+      "seven_unit_families_ready": false,
+      "controlled_action_api": "PASS native adversarial admission and actual cooked execution; no autonomous scheduler",
+      "autonomous_ai_enabled": false,
+      "ordered_attacker_pairs": [
+        {
+          "defender": "humans",
+          "status": "PASS",
+          "evidence": {
+            "path": "Evidence\\ControlledFactionAI-20261008\\nature-reverse-result.json",
+            "scope": [
+              "packaged",
+              "packaged"
+            ]
+          }
+        }
+      ],
+      "controlled_turn": "PASS cooked eight legal moves, six neutral captures, eight replay rejections, F5/F9 and cold restore"
+    },
+    {
+      "faction": "dark",
+      "capital_region": "dark_fortress",
+      "secondary_region": "dark_castle_approach",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "dark_fortress",
+        "dark_castle_approach"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "dark.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": null,
+      "settlement_capital_status": "Canonical fortress and owned regional donors; strategic fortress/causeway presentation provisional; no deep authored proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "No exact admitted combat roster. Neutral/owned movement supported; hostile admission rejects before mutation.",
+      "save_restore": "PASS current cooked controlled-turn F5/F9 and separate-process restoration; controlled-turn-cooked.json",
+      "ai_enabled": false,
+      "ai_readiness": "Controlled proposed actions only. No scheduler, diplomacy, recruitment planning or automatic war decisions.",
+      "seven_unit_families_ready": false,
+      "controlled_action_api": "PASS native adversarial admission and actual cooked execution; no autonomous scheduler",
+      "autonomous_ai_enabled": false,
+      "ordered_attacker_pairs": [],
+      "controlled_turn": "PASS cooked eight legal moves, six neutral captures, eight replay rejections, F5/F9 and cold restore"
+    }
+  ],
+  "ordered_matchups": [
+    {
+      "attacker": "humans",
+      "defender": "dwarves",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+        "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "orcs",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+        "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "vikings",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\SixFactionFoundation-20261008\\six-faction-readiness.json",
+        "scope": "Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission."
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "nature",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\human_nature-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "humans",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\dwarves-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "orcs",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\dwarves_orcs-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "vikings",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\dwarves_vikings-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "nature",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "orcs",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\orcs-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "orcs",
+      "defender": "dwarves",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\orcs_dwarves-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "orcs",
+      "defender": "vikings",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\orcs_vikings-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "orcs",
+      "defender": "nature",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "orcs",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "vikings",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\vikings-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "vikings",
+      "defender": "dwarves",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\vikings_dwarves-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "vikings",
+      "defender": "orcs",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\vikings_orcs-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "vikings",
+      "defender": "nature",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "vikings",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "humans",
+      "status": "PASS",
+      "admitted": true,
+      "reason": "Exact ordered admission; encounter still requires a legal occupied hostile edge and a geographically matched existing recipe.",
+      "evidence": {
+        "path": "Evidence\\ControlledFactionAI-20261008\\nature-reverse-result.json",
+        "scope": [
+          "packaged",
+          "packaged"
+        ]
+      }
+    },
+    {
+      "attacker": "nature",
+      "defender": "dwarves",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "orcs",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "vikings",
+      "status": "REJECT_OTHER_EXPLICIT_REASON",
+      "admitted": false,
+      "reason": "Exact rosters exist but this ordered pair is not on the explicit admission list.",
+      "evidence": null
+    },
+    {
+      "attacker": "nature",
+      "defender": "dark",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "humans",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "dwarves",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "orcs",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "vikings",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    },
+    {
+      "attacker": "dark",
+      "defender": "nature",
+      "status": "REJECT_UNSUPPORTED_ROSTER",
+      "admitted": false,
+      "reason": "At least one faction lacks an admitted exact infantry roster.",
+      "evidence": null
+    }
+  ],
+  "admitted_ordered_pairs": 14,
+  "explicit_directed_approaches": 20,
+  "unset_directed_approaches": 82,
+  "full_six_faction_ai": false,
+  "balance_final": false,
+  "world_foundation": "KEEP",
+  "performance_qualification": "NOT RUN; prior 85 C sustained cutoff unresolved",
+  "ready_for_first_bounded_autonomous_military_experiment": true,
+  "experiment_scope": "Opt-in capped observer experiment through prepared/executed actions. Interactive Human defensive control is not qualified."
+}

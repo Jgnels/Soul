@@ -1,0 +1,188 @@
+{
+  "utc": "2026-10-09T08:40:15.774901+00:00",
+  "pass": true,
+  "packages": [
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_4.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Mesh\\Mannequin\\SK_Mannequin_Skeleton.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_3.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_2.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_1.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Dead_1.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Get_Hit_1.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run_Right.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run_Left.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run_Back.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Idle_Sit.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Idle.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Mesh\\Warrior_02\\SM_Warrior_02_Axe.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Materials\\Warrior_02\\M_Warrior_2_Sword.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Warrior_02\\Sword\\T_Sword_Normals.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Warrior_02\\Sword\\T_Sword_Metallic.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Warrior_02\\Sword\\T_Sword_Ao.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Warrior_02\\Sword\\T_Sword_Albedo.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Mesh\\Bear\\SK_Bear_Full.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Mesh\\Bear\\SK_Bear_Full_PhysicsAsset.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Materials\\Bear\\M_Bear_Fur.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Fur\\T_Bear_Fur_Normals.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Fur\\T_Bear_Fur_Metallic.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Fur\\T_Bear_Fur_Ao.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Fur\\T_Bear_Fur_Albedo.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Materials\\Bear\\M_Bear_Body.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Body\\T_Bear_Body_Normals.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Body\\T_Bear_Body_Metallic.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Body\\T_Bear_Body_Ao.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Body\\T_Bear_Body_Albedo.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Materials\\Bear\\M_Bear_Armors.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Armors\\T_Bear_Armors_Normals.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Armors\\T_Bear_Armors_Metallic.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Armors\\T_Bear_Armors_Ao.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    },
+    {
+      "path": "Content\\Animals_Warrior_Pack\\Textures\\Bear\\Armors\\T_Bear_Armors_Albedo.uasset",
+      "donor_unchanged": true,
+      "copy_unchanged": true
+    }
+  ],
+  "dependency_query": "Two bounded attempts returned registry_not_ready; no dependency completeness claim from Nwiro. Existing native audit and actual cook remain authority.",
+  "session_shutdown": "Owned read-only editor required bounded termination after WM_CLOSE; this is not a clean runtime-exit qualification."
+}

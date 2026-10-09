@@ -1,0 +1,5 @@
+{
+  "reason": "ForceLogFlush introduced approximately 50-100 ms per startup log line on this worker. The in-flight SixFaction suite is retained; later suites use normal buffered logging.",
+  "acceptance_unchanged": "Require actual exported structured report: exact expected count, every Success, zero failed/notRun, matching test prefix, process exit zero. Any observed text failure still rejects. A missing text completion line cannot override the complete structured report.",
+  "source_or_binary_changed": false
+}

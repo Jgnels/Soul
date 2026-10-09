@@ -1,0 +1,6 @@
+{
+  "pass": true,
+  "scope": "Warnings/errors mentioning the explicit new roster families; other inherited engine/cook warnings remain in the full log.",
+  "new_roster_family_messages": [],
+  "full_log": "Local/cook-factions-r1/Diagnostics/cook.log"
+}

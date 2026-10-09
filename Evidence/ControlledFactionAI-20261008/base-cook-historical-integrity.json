@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-09T08:51:46.990101+00:00",
+  "pass": true,
+  "historical_manifest": "Evidence\\SixFactionFoundation-20261008\\Local\\stage-six-viking-r2\\Diagnostics\\prelinked-cooked-files.json",
+  "historical_manifest_sha256": "f6e24cdb83a85defa995478ca529f3c9853c2341b01e42be980c9ea94300502d",
+  "base_cook": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionCookPayload_dikr_ozr\\Cooked",
+  "files_checked": 10754,
+  "mismatches": [],
+  "seconds": 176.68551516532898,
+  "external_removal_issue_diagnosed": false
+}

@@ -1,0 +1,8 @@
+{
+  "run": "fourteen-pairs-six-native-r1",
+  "wrapper_pass": false,
+  "structured_tests_passed": 8,
+  "text_completion_lines": 7,
+  "report_sha256": "ba794f04c6d369966149f2bf8f631a7f748a9f4b3f3b1c6bc91a009e6e7e843a",
+  "action": "ForceLogFlush and require exact successful structured report as well as absence of failed completion lines. Original receipt retained; fresh suite will verify wrapper."
+}

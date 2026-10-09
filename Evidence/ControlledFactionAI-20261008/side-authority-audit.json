@@ -1,0 +1,10 @@
+{
+  "descriptor_fields": "Existing Player/Enemy fields are attacker side0 / defender side1; no save schema rename. Exact faction/unit fields select actual owned bodies and weapons.",
+  "rb_side_labels": "Existing Human/Enemy RB formation side IDs remain logical side identifiers for compatibility, not roster aliases.",
+  "health": "Exact infantry uses existing Line health105 \u00d7 shared1.6 =168 on both sides and reserves; no Human hero stat bonus is copied to non-Human attackers.",
+  "damage": "Existing Line physical base damage14, existing RB contact/cooldown/defense/morale authority. Nature profile identifies the inspected sword; no forced outcome.",
+  "non_human_mana": 0,
+  "human_hero_state": "Non-Human result path leaves actual Human location/hero/economy unchanged unless Humans are the defending army, whose troop ledger changes normally.",
+  "qualification_scope": "Native tests verify both directions, side-specific exact meshes/animations/weapons/reserves and arranged win/loss accounting. Natural runtime receipts separately establish real outcomes.",
+  "interactive_defender_control_qualified": false
+}

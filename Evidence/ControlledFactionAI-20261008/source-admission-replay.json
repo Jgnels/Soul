@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-09T09:17:39.794726+00:00",
+  "head": "43060da2e40d415afe2dd24387e4b2f9d29bb2d3",
+  "pass": true,
+  "compiled_source_files": 162,
+  "working_bytes_match_qualified_build": true,
+  "head_matches_after_git_line_ending_normalization": true,
+  "mismatches": [],
+  "no_licensed_payload_in_commit": true,
+  "inherited_config_not_admitted": true,
+  "reproduction_boundary": "Committed source plus existing owned/local packages and documented build compatibility flags. No untracked C++ implementation is required."
+}

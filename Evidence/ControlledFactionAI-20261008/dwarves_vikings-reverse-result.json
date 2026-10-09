@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "dwarves",
+  "defender": "vikings",
+  "runtime": [
+    {
+      "run": "cooked-dwarves-vikings-r1",
+      "runtime_kind": "packaged",
+      "seconds": 204.27,
+      "peak_gpu_c": 69.0,
+      "summary": "Local\\cooked-dwarves-vikings-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "cooked-dwarves-vikings-r1-load",
+      "runtime_kind": "packaged",
+      "seconds": 86.62,
+      "peak_gpu_c": 63.0,
+      "summary": "Local\\cooked-dwarves-vikings-r1-load\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "defender_victory",
+  "target": "dwarf_mountain_pass",
+  "attacker_return_region": "north_pass",
+  "owner": "vikings",
+  "result": {
+    "enemy": 8,
+    "enemy_waves": 4,
+    "magic": 0,
+    "player": 0,
+    "player_waves": 4
+  },
+  "physical_result": {
+    "attacker": 5,
+    "defender": 8,
+    "attacker_routed": true,
+    "defender_routed": false
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 30,
+    "1": 30
+  },
+  "rb_accepted_contacts": 620,
+  "slot": "Soul.Composition3500.Controlled.dwarves_vikings",
+  "save_sha256": "f9a54f8cd6cb608df95ef219f2d40871849d7011e719d15ffa7dc84f34b6b139",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\cooked-dwarves-vikings-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "680ee3531f650e2d9d4c1d29cb266a56629fbf35a29850efe96a933da0adc7e4"
+    },
+    {
+      "path": "Local\\cooked-dwarves-vikings-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "ca2821f8fe2a8b7631ff184f32b5005a918e43ab36f5ebeb3e00f7493798c46e"
+    },
+    {
+      "path": "Local\\cooked-dwarves-vikings-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "abaf94cf091c510aac3a9498825fd35c62c8be00aff399fb23f6339061da2e74"
+    },
+    {
+      "path": "Local\\cooked-dwarves-vikings-r1-load\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "66c0857a1bb073ccfecc7c657bcd1a116fa08c7d03da6027658084aaab74407c"
+    }
+  ],
+  "performance_qualification": false
+}

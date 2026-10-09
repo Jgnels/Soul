@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "humans",
+  "defender": "nature",
+  "runtime": [
+    {
+      "run": "editor-human-nature-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 248.38,
+      "peak_gpu_c": 63.0,
+      "summary": "Local\\editor-human-nature-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "editor-human-nature-load-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 107.62,
+      "peak_gpu_c": 56.0,
+      "summary": "Local\\editor-human-nature-load-r1\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "attacker_victory",
+  "target": "orc_watch",
+  "attacker_return_region": "orc_watch",
+  "owner": "humans",
+  "result": {
+    "enemy": 0,
+    "enemy_waves": 4,
+    "magic": 0,
+    "player": 29,
+    "player_waves": 3
+  },
+  "physical_result": {
+    "attacker": 29,
+    "defender": 8,
+    "attacker_routed": false,
+    "defender_routed": true
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 27,
+    "1": 30
+  },
+  "rb_accepted_contacts": 532,
+  "slot": "Soul.Composition3500.Controlled.human_nature",
+  "save_sha256": "a52dc032888bf88e6ed3a1d2221b94608f52539ff938531b108216bb8319f73a",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\editor-human-nature-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "70d8a63353ee7d92d7ac848f67c5695fd15a31acba3c84a82c3cb747bcbe1a20"
+    },
+    {
+      "path": "Local\\editor-human-nature-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "870a0192ceee9f2ca186e7b72bce9644de63474f25a8188856f7e82cb626fc64"
+    },
+    {
+      "path": "Local\\editor-human-nature-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "9767948099c611635e8d4dd586b22c6a0d7e8d53be93c2f652506bb4f5804c22"
+    },
+    {
+      "path": "Local\\editor-human-nature-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "f4a96bb968657dc6207b13ad856f0c8a2c1136711821128178a145f9fdf98c12"
+    }
+  ],
+  "performance_qualification": false
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "proof": "dwarves_orcs",
+    "attacker": "dwarves",
+    "defender": "orcs",
+    "attacker_staging": [
+      "dwarf_hold",
+      "dwarf_forge_approach"
+    ],
+    "defender_staging": [
+      "orc_camp",
+      "north_pass"
+    ],
+    "hostile_edge": [
+      "dwarf_forge_approach",
+      "north_pass"
+    ],
+    "recipe": "dragon_pass",
+    "status": "PASS_COOKED_NATURAL_RESULT_AND_COLD_RESTORE",
+    "reason": "Existing canonical pass; legal staging through own/neutral regions only; no novel field recipe or ownership override.",
+    "original_plan_status": "PLANNED_ONLY_NOT_ADMITTED",
+    "native_receipt": "Local/final-six-native/receipt.json",
+    "natural_receipt": "dwarves_orcs-reverse-result.json",
+    "natural_result": "defender_victory",
+    "owner": "orcs",
+    "attacker_return_region": "dwarf_forge_approach"
+  },
+  {
+    "proof": "orcs_dwarves",
+    "attacker": "orcs",
+    "defender": "dwarves",
+    "attacker_staging": [
+      "orc_camp"
+    ],
+    "defender_staging": [
+      "dwarf_hold",
+      "dwarf_forge_approach",
+      "north_pass"
+    ],
+    "hostile_edge": [
+      "orc_camp",
+      "north_pass"
+    ],
+    "recipe": "dragon_pass",
+    "status": "PASS_COOKED_NATURAL_RESULT_AND_COLD_RESTORE",
+    "reason": "Existing canonical pass; legal staging through own/neutral regions only; no novel field recipe or ownership override.",
+    "original_plan_status": "PLANNED_ONLY_NOT_ADMITTED",
+    "native_receipt": "Local/final-six-native/receipt.json",
+    "natural_receipt": "orcs_dwarves-reverse-result.json",
+    "natural_result": "attacker_victory",
+    "owner": "orcs",
+    "attacker_return_region": "north_pass"
+  },
+  {
+    "proof": "dwarves_vikings",
+    "attacker": "dwarves",
+    "defender": "vikings",
+    "attacker_staging": [
+      "dwarf_hold",
+      "dwarf_forge_approach",
+      "north_pass"
+    ],
+    "defender_staging": [
+      "viking_harbour",
+      "viking_fjord_ridge",
+      "viking_snow_pass",
+      "mountain_shrine",
+      "dwarf_mountain_pass"
+    ],
+    "hostile_edge": [
+      "north_pass",
+      "dwarf_mountain_pass"
+    ],
+    "recipe": "dragon_pass",
+    "status": "PASS_COOKED_NATURAL_RESULT_AND_COLD_RESTORE",
+    "reason": "Existing canonical pass; legal staging through own/neutral regions only; no novel field recipe or ownership override.",
+    "original_plan_status": "PLANNED_ONLY_NOT_ADMITTED",
+    "native_receipt": "Local/final-six-native/receipt.json",
+    "natural_receipt": "dwarves_vikings-reverse-result.json",
+    "natural_result": "defender_victory",
+    "owner": "vikings",
+    "attacker_return_region": "north_pass"
+  },
+  {
+    "proof": "vikings_dwarves",
+    "attacker": "vikings",
+    "defender": "dwarves",
+    "attacker_staging": [
+      "viking_harbour",
+      "viking_fjord_ridge",
+      "viking_snow_pass",
+      "mountain_shrine"
+    ],
+    "defender_staging": [
+      "dwarf_hold",
+      "dwarf_forge_approach",
+      "north_pass",
+      "dwarf_mountain_pass"
+    ],
+    "hostile_edge": [
+      "mountain_shrine",
+      "dwarf_mountain_pass"
+    ],
+    "recipe": "dragon_pass",
+    "status": "PASS_COOKED_NATURAL_RESULT_AND_COLD_RESTORE",
+    "reason": "Existing canonical pass; legal staging through own/neutral regions only; no novel field recipe or ownership override.",
+    "original_plan_status": "PLANNED_ONLY_NOT_ADMITTED",
+    "native_receipt": "Local/final-six-native/receipt.json",
+    "natural_receipt": "vikings_dwarves-reverse-result.json",
+    "natural_result": "attacker_victory",
+    "owner": "vikings",
+    "attacker_return_region": "dwarf_mountain_pass"
+  },
+  {
+    "proof": "orcs_vikings",
+    "attacker": "orcs",
+    "defender": "vikings",
+    "attacker_staging": [
+      "orc_camp"
+    ],
+    "defender_staging": [
+      "viking_harbour",
+      "viking_fjord_ridge",
+      "viking_snow_pass",
+      "mountain_shrine",
+      "dwarf_mountain_pass",
+      "north_pass"
+    ],
+    "hostile_edge": [
+      "orc_camp",
+      "north_pass"
+    ],
+    "recipe": "dragon_pass",
+    "status": "PASS_COOKED_NATURAL_RESULT_AND_COLD_RESTORE",
+    "reason": "Existing canonical pass; legal staging through own/neutral regions only; no novel field recipe or ownership override.",
+    "original_plan_status": "PLANNED_ONLY_NOT_ADMITTED",
+    "native_receipt": "Local/final-six-native/receipt.json",
+    "natural_receipt": "orcs_vikings-reverse-result.json",
+    "natural_result": "attacker_victory",
+    "owner": "orcs",
+    "attacker_return_region": "north_pass"
+  },
+  {
+    "proof": "vikings_orcs",
+    "attacker": "vikings",
+    "defender": "orcs",
+    "attacker_staging": [
+      "viking_harbour",
+      "viking_fjord_ridge",
+      "viking_snow_pass",
+      "mountain_shrine",
+      "dwarf_mountain_pass"
+    ],
+    "defender_staging": [
+      "orc_camp",
+      "north_pass"
+    ],
+    "hostile_edge": [
+      "dwarf_mountain_pass",
+      "north_pass"
+    ],
+    "recipe": "dragon_pass",
+    "status": "PASS_COOKED_NATURAL_RESULT_AND_COLD_RESTORE",
+    "reason": "Existing canonical pass; legal staging through own/neutral regions only; no novel field recipe or ownership override.",
+    "original_plan_status": "PLANNED_ONLY_NOT_ADMITTED",
+    "native_receipt": "Local/final-six-native/receipt.json",
+    "natural_receipt": "vikings_orcs-reverse-result.json",
+    "natural_result": "defender_victory",
+    "owner": "orcs",
+    "attacker_return_region": "dwarf_mountain_pass"
+  }
+]

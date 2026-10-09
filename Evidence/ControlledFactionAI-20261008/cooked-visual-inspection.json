@@ -1,0 +1,95 @@
+{
+  "captures": [
+    {
+      "path": "Local/cooked-human-nature-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T09:30:04.502116+00:00",
+      "finding": "Nature bear bodies at defender side and Human knights at attacker side; three infantry formation icons; no obvious body checkerboard. Existing field-ground tiling remains presentation debt. This approach capture alone is not a completed-battle proof."
+    },
+    {
+      "path": "Local/cooked-human-nature-r1/User/Saved/Screenshots/Controlled_Return.png",
+      "finding": "Cooked campaign returned to River Ford after a natural Human defeat. HUD shows 0 attackers / 10 defenders, Human army0 and AI OFF. The captured UI already reports reload; exact pre/post state is established by observer and cold-load receipts, not screenshot filename alone."
+    },
+    {
+      "path": "Local/cooked-nature-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T09:36:31.572072+00:00",
+      "finding": "Exact Nature bears now occupy attacker/blue side; Human knights occupy defender/red side. Three infantry icons and zero attacker mana. Existing Hero/spell HUD remains observer-oriented; interactive non-Human/Human-defender control is not claimed."
+    },
+    {
+      "path": "Local/cooked-dwarves-orcs-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T09:45:04.922011+00:00",
+      "finding": "Cooked Dwarf attacker is blue/right, Orc defender red/left, with their distinct exact bodies and three infantry formation icons. Zero attacker mana. No obvious missing-body/checkerboard defect; shiny repeating ground remains inherited art debt."
+    },
+    {
+      "path": "Local/cooked-dwarves-orcs-r1-load/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "reviewed_utc": "2026-10-09T09:45:04.922011+00:00",
+      "finding": "Fresh process restores North Pass defender victory 0/22. Uninvolved Human founder remains at capital with 45 troops and day1, 3000 gold,3AP. HUD shows six-faction sandbox AI OFF. Exact Orc ownership and Dwarf return location are corroborated by state receipts, not inferred from this Human-focused view."
+    },
+    {
+      "path": "Local/cooked-orcs-dwarves-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T09:48:51.435762+00:00",
+      "finding": "Reverse of the prior pair: Orc bodies occupy blue attacker/right, Dwarf bodies red defender/left. Three infantry formation icons, zero mana and no obvious missing materials on units. Existing observer HUD and ground art limitations remain."
+    },
+    {
+      "path": "Local/cooked-dwarves-vikings-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T09:52:28.582199+00:00",
+      "finding": "Dwarf gold-armored bodies on blue attacker/right, Viking axe infantry on red defender/left. Exact-side log validation corroborates the visible distinct roster silhouettes. No obvious unit fallback; three infantry icons and zero mana. Existing ground/HUD art limits unchanged."
+    },
+    {
+      "path": "Local/cooked-vikings-dwarves-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T10:01:12.440167+00:00",
+      "finding": "Viking axe infantry visibly occupies blue attacker/right and gold-armored Dwarves red defender/left. Distinct bodies and three infantry icons; zero non-Human mana. No obvious new unit material failure."
+    },
+    {
+      "path": "Local/cooked-orcs-vikings-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T10:01:12.440167+00:00",
+      "finding": "Orc hammer infantry visibly occupies blue attacker/right, Viking axe infantry red defender/left. Roster silhouettes differ, infantry icons and zero mana agree with exact log/pose checks. No new visible unit fallback; inherited terrain tiling remains."
+    },
+    {
+      "path": "Local/cooked-vikings-orcs-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T10:05:43.805153+00:00",
+      "finding": "Viking axe infantry on blue attacker/right, larger Orc hammer bodies on red defender/left. Correct distinct rosters, three infantry icons and zero mana. No obvious new unit fallback; existing observer HUD and field-surface limitations unchanged."
+    },
+    {
+      "path": "Local/cooked-dwarves-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T10:12:59.276246+00:00",
+      "finding": "Dwarf exact infantry on blue attacker/right, Human knights on red defender/left. HUD reserve totals correctly differ: attacker15+15, defender15+30. Three infantry icons replace the earlier editor proof icon issue. Zero non-Human mana; no obvious unit fallback."
+    },
+    {
+      "path": "Local/cooked-orcs-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T10:16:28.428759+00:00",
+      "finding": "Orc hammer bodies blue/right versus Human knight bodies red/left; reserve UI15+15 versus15+30, three infantry icons and zero non-Human mana. Correct roster presentation with no obvious new material fallback."
+    },
+    {
+      "path": "Local/cooked-orcs-r1/User/Saved/Screenshots/Controlled_Restored.png",
+      "reviewed_utc": "2026-10-09T10:16:28.428759+00:00",
+      "finding": "Post-F9 HUD shows North Pass hostile to Humans, Human army0, attackers won20/0 and AI OFF. Human defender remains at the encounter. Gold/XP reflect prior legal Human staging/captures; no claim that this image alone proves pre/post economy equality. Native side-consequence tests check unchanged Human economy explicitly. Existing Your Army0 marker and defensive-control UX remain provisional."
+    },
+    {
+      "path": "Local/cooked-vikings-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "reviewed_utc": "2026-10-09T10:20:29.880948+00:00",
+      "finding": "Viking axe infantry blue/right against Human knight infantry red/left, with matching15+15 versus15+30 reserve display. Three infantry formation icons and zero non-Human mana. No obvious new unit material fallback. Attacker-side observer scope remains explicit."
+    },
+    {
+      "path": "Local/cooked-controlled-turn-r1/User/Saved/Screenshots/SixFaction_nature.png",
+      "reviewed_utc": "2026-10-09T10:24:47.421515+00:00",
+      "finding": "Initial read-only Nature inspection shows30troops,3AP and exact nature_bear_warrior at Treehold; AI OFF. This is a pre-action roster inspection, not post-capture evidence."
+    },
+    {
+      "path": "Local/cooked-controlled-turn-r1/User/Saved/Screenshots/SixFaction_dark.png",
+      "reviewed_utc": "2026-10-09T10:24:47.421515+00:00",
+      "finding": "Initial Dark inspection explicitly says battle roster unavailable, with30strategic troops and3AP. No replacement body is claimed. AI OFF."
+    },
+    {
+      "path": "Local/cooked-controlled-turn-r1/User/Saved/Screenshots/SixFaction_Restored.png",
+      "reviewed_utc": "2026-10-09T10:24:47.421515+00:00",
+      "finding": "After controlled actions and F9, Human army45 is at captured Old Quarry with1AP, day1,3250gold and140XP under normal capture rules. All-six ownership/AP restoration is established by the state receipt, not this Human-focused screenshot alone."
+    },
+    {
+      "path": "Local/cooked-controlled-turn-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "reviewed_utc": "2026-10-09T10:28:50.504740+00:00",
+      "finding": "Fresh process restores Human Old Quarry state:45troops,1AP,day1,3250gold,140XP and AI OFF. Camera framing differs from the prior in-process capture as expected; camera-pose persistence is not claimed. All-six exact state/bytes are verified by controlled-turn-cooked.json."
+    }
+  ],
+  "scope": "Actual cooked screenshots inspected; not final art or performance approval.",
+  "outcome_variation": "Human->Nature and Viking->Human produced different natural winners between editor and cooked runs. Neither winner was prescribed. Physical-combat replay determinism and balance are not qualified; every actual outcome is preserved separately."
+}

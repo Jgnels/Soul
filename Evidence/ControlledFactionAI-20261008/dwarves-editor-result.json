@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "dwarves",
+  "defender": "humans",
+  "runtime": [
+    {
+      "run": "editor-reverse-dwarves-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 453.88,
+      "peak_gpu_c": 83.0,
+      "summary": "Local\\editor-reverse-dwarves-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "editor-reverse-dwarves-load-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 138.62,
+      "peak_gpu_c": 59.0,
+      "summary": "Local\\editor-reverse-dwarves-load-r1\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "defender_victory",
+  "target": "dwarf_mountain_pass",
+  "attacker_return_region": "dwarf_high_quarry",
+  "owner": "humans",
+  "result": {
+    "enemy": 9,
+    "enemy_waves": 8,
+    "magic": 0,
+    "player": 0,
+    "player_waves": 4
+  },
+  "physical_result": {
+    "attacker": 5,
+    "defender": 9,
+    "attacker_routed": true,
+    "defender_routed": false
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 30,
+    "1": 45
+  },
+  "rb_accepted_contacts": 827,
+  "slot": "Soul.Composition3500.Controlled.dwarves",
+  "save_sha256": "85f7f0af82eb4e0a2fec121427ab3a53e5b420dd2a41440a94b021312a778d3b",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\editor-reverse-dwarves-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "0ada1bc7823dd16d269b55e9fd9581dc4872b0aebcbed3e1cc32f83a0e13ffa5"
+    },
+    {
+      "path": "Local\\editor-reverse-dwarves-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "e453ec8afcfd02e4a9a1fc4c8e72c7da5d3382fee66e10c3733d62fe2a82b65e"
+    },
+    {
+      "path": "Local\\editor-reverse-dwarves-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "b8317e1c759b3ea26b678d085c75144fb301a4aa2c5e343c647be80c9fa1b5fa"
+    },
+    {
+      "path": "Local\\editor-reverse-dwarves-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "9b4a6521cc64e635a8b67195b2d41bd78dc3f924058ff8407557a7fe7650af2e"
+    }
+  ],
+  "performance_qualification": false
+}

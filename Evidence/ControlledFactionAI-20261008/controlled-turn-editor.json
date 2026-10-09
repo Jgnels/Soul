@@ -1,0 +1,247 @@
+{
+  "pass": true,
+  "runtime": [
+    {
+      "run": "editor-controlled-turn-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 133.84,
+      "peak_gpu_c": 64.0,
+      "summary": "Local\\editor-controlled-turn-r1\\runtime\\summary.json",
+      "markers": [
+        "[2026.10.09-07.50.19:027][190]LogTemp: Display: SOUL_SIX_FACTION_START regions=36 edges=51 owned=12 neutral=24 ai=OFF",
+        "[2026.10.09-07.50.22:027][220]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=humans army=humans.primary region=human_capital unit=human_knight troops=45 ap=3 gold=3000",
+        "[2026.10.09-07.50.28:715][277]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=dwarves army=dwarves.primary region=dwarf_hold unit=dwarf_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-07.50.34:633][334]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=orcs army=orcs.primary region=orc_camp unit=orc_hammer_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-07.50.40:728][393]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=vikings army=vikings.primary region=viking_harbour unit=viking_axe_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-07.50.46:726][451]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=nature army=nature.primary region=nature_treehold unit=nature_bear_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-07.50.52:634][508]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=dark army=dark.primary region=dark_fortress unit=None troops=30 ap=3 gold=3000",
+        "[2026.10.09-07.50.58:686][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=humans from=human_capital to=crossroads ap=2 controlled=1",
+        "[2026.10.09-07.50.58:689][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=humans from=crossroads to=old_quarry ap=1 controlled=1",
+        "[2026.10.09-07.50.58:690][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=dwarves from=dwarf_hold to=dwarf_forge_approach ap=2 controlled=1",
+        "[2026.10.09-07.50.58:692][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=dwarves from=dwarf_forge_approach to=dwarf_high_quarry ap=1 controlled=1",
+        "[2026.10.09-07.50.58:693][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=orcs from=orc_camp to=orc_badlands ap=2 controlled=1",
+        "[2026.10.09-07.50.58:695][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=vikings from=viking_harbour to=viking_fjord_ridge ap=2 controlled=1",
+        "[2026.10.09-07.50.58:696][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=nature from=nature_treehold to=nature_river_woodland ap=2 controlled=1",
+        "[2026.10.09-07.50.58:698][566]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=dark from=dark_fortress to=dark_ash_plain ap=2 controlled=1",
+        "[2026.10.09-07.51.07:704][654]LogTemp: Display: SOUL_CONTROLLED_TURN_PASS factions=6 moves=8 neutral_captures=6 replay_rejections=8 owned=18 neutral=18 F5=1 F9=1 exact_snapshot=1 ai=OFF"
+      ]
+    },
+    {
+      "run": "editor-controlled-turn-load-r1",
+      "runtime_kind": "editor_game",
+      "seconds": 174.42,
+      "peak_gpu_c": 52.0,
+      "summary": "Local\\editor-controlled-turn-load-r1\\runtime\\summary.json",
+      "markers": [
+        "[2026.10.09-09.14.49:706][ 87]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=old_quarry exact_snapshot=1 controller_F9=1"
+      ]
+    }
+  ],
+  "slot": "Soul.Composition3500.ControlledTurn",
+  "rb_save_domain": "Soul.Campaign",
+  "rb_save_schema": 1,
+  "save_sha256": "9766eb2ec965e4a442ca4c8deaed1a6f7667207e51844941f720edb773947041",
+  "fresh_process_saved_bytes_identical": true,
+  "regions": 36,
+  "legal_pairs": 51,
+  "controlled_admission": true,
+  "neutral_captures": 6,
+  "replayed_proposals_rejected": 8,
+  "owned_regions": 18,
+  "neutral_regions": 18,
+  "armies": [
+    {
+      "faction": "humans",
+      "army_id": "humans.primary",
+      "army_owner": "humans",
+      "region": "old_quarry",
+      "unit": "human_knight",
+      "troops": 45,
+      "day": 1,
+      "ap": 1,
+      "resources": {
+        "gold": 3250
+      }
+    },
+    {
+      "faction": "dwarves",
+      "army_id": "dwarves.primary",
+      "army_owner": "dwarves",
+      "region": "dwarf_high_quarry",
+      "unit": "dwarf_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 1,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_hold",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin",
+        "north_pass"
+      ],
+      "visible": [
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_mountain_pass",
+        "dwarf_snow_basin"
+      ]
+    },
+    {
+      "faction": "orcs",
+      "army_id": "orcs.primary",
+      "army_owner": "orcs",
+      "region": "orc_badlands",
+      "unit": "orc_hammer_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "orc_badlands",
+        "orc_camp",
+        "orc_ruined_field",
+        "orc_war_camp"
+      ],
+      "visible": [
+        "orc_badlands",
+        "orc_camp",
+        "orc_ruined_field"
+      ]
+    },
+    {
+      "faction": "vikings",
+      "army_id": "vikings.primary",
+      "army_owner": "vikings",
+      "region": "viking_fjord_ridge",
+      "unit": "viking_axe_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "viking_fjord_ridge",
+        "viking_forest_track",
+        "viking_harbour",
+        "viking_snow_pass"
+      ],
+      "visible": [
+        "viking_fjord_ridge",
+        "viking_harbour",
+        "viking_snow_pass"
+      ]
+    },
+    {
+      "faction": "nature",
+      "army_id": "nature.primary",
+      "army_owner": "nature",
+      "region": "nature_river_woodland",
+      "unit": "nature_bear_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "nature_forest_clearing",
+        "nature_grassland_edge",
+        "nature_river_woodland",
+        "nature_treehold"
+      ],
+      "visible": [
+        "nature_forest_clearing",
+        "nature_grassland_edge",
+        "nature_river_woodland",
+        "nature_treehold"
+      ]
+    },
+    {
+      "faction": "dark",
+      "army_id": "dark.primary",
+      "army_owner": "dark",
+      "region": "dark_ash_plain",
+      "unit": "None",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "dark_ash_plain",
+        "dark_castle_approach",
+        "dark_corrupted_valley",
+        "dark_fortress"
+      ],
+      "visible": [
+        "dark_ash_plain",
+        "dark_corrupted_valley",
+        "dark_fortress"
+      ]
+    }
+  ],
+  "strategic_ai_enabled": false,
+  "forces_are_test_fixture_not_approved_balance": true,
+  "controller_I_inspection": true,
+  "controller_F5": true,
+  "controller_F9": true,
+  "exact_fresh_restore": true,
+  "camera_pose_persistence_claimed": false,
+  "captures": [
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_dark.png",
+      "sha256": "81802abfeda6310bce6ad1aa03f10c5b0d84e7de7e8c7722d0c5b5dec55c994b"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_dwarves.png",
+      "sha256": "f8b4feaed3c8171f6e8291c966a502352c40be79307b4b4d36820aa4d44b562c"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_humans.png",
+      "sha256": "7b328e778b4587f886c34f970d9da82a1037888d1743fe628ee447267737b51e"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_nature.png",
+      "sha256": "14bb87f69edef0071a9bedf4e2360bd895578ab4f501b6a450c7867e1f5d251c"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_orcs.png",
+      "sha256": "3fa0ce460da6c42a1db05059a4bee1a356a722855b0daf89090a690e76d56d83"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_Restored.png",
+      "sha256": "0a098c09ba6b7f723401069982acecc7d805333a998d39ace5971829667b0dfd"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_Saved.png",
+      "sha256": "082377667ee91814d25fab482cbd2d2c57999a9b3f0a10e9e14f5a3995454a65"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-r1\\User\\Saved\\Screenshots\\SixFaction_vikings.png",
+      "sha256": "564640be1e1ee7f12b56c491079af247b064a3d8c80c220c4f6209713a431575"
+    },
+    {
+      "path": "Local\\editor-controlled-turn-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "8a5f9b6ca5bfaa19dea66d45892cf76c9a8b03b4aeb595e2a74218a6c043dd76"
+    }
+  ],
+  "performance_qualification": false
+}

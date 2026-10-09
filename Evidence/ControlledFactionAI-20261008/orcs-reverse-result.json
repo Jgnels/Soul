@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "attacker": "orcs",
+  "defender": "humans",
+  "runtime": [
+    {
+      "run": "cooked-orcs-r1",
+      "runtime_kind": "packaged",
+      "seconds": 163.22,
+      "peak_gpu_c": 63.0,
+      "summary": "Local\\cooked-orcs-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "cooked-orcs-r1-load",
+      "runtime_kind": "packaged",
+      "seconds": 86.62,
+      "peak_gpu_c": 62.0,
+      "summary": "Local\\cooked-orcs-r1-load\\runtime\\summary.json"
+    }
+  ],
+  "natural_result": "attacker_victory",
+  "target": "north_pass",
+  "attacker_return_region": "north_pass",
+  "owner": "orcs",
+  "result": {
+    "enemy": 0,
+    "enemy_waves": 5,
+    "magic": 0,
+    "player": 20,
+    "player_waves": 2
+  },
+  "physical_result": {
+    "attacker": 20,
+    "defender": 24,
+    "attacker_routed": false,
+    "defender_routed": true
+  },
+  "survivor_semantics": "Existing morale-defeated forces have zero effective campaign survivors; physical alive/reserve totals are reported separately.",
+  "exact_body_counts": {
+    "0": 23,
+    "1": 35
+  },
+  "rb_accepted_contacts": 430,
+  "slot": "Soul.Composition3500.Controlled.orcs",
+  "save_sha256": "8944da47654175507ff0f198786048548febb6bc422dca0fb3e1f7ce5a152f72",
+  "fresh_process_save_bytes_identical": true,
+  "captures": [
+    {
+      "path": "Local\\cooked-orcs-r1\\User\\Saved\\Screenshots\\Controlled_Restored.png",
+      "sha256": "609caeddda76d4a91e296200fa119499f5ebe15e5fc9ed4e90e4f91ba01efc6d"
+    },
+    {
+      "path": "Local\\cooked-orcs-r1\\User\\Saved\\Screenshots\\Controlled_Return.png",
+      "sha256": "489d72a50ef388574df127c95df79e04b765700890d2d0efbb156251b1f99ea5"
+    },
+    {
+      "path": "Local\\cooked-orcs-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "9ef0e289e12f9f7c7ebeedd8d0e1be8cc6d4e06a942253c52c763598fab95a6f"
+    },
+    {
+      "path": "Local\\cooked-orcs-r1-load\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "db432bae644f44642a156e817408b469a8b0c7cd171b70baab92aaac56868719"
+    }
+  ],
+  "performance_qualification": false
+}

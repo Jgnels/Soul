@@ -14,10 +14,13 @@ def main():
  prior=R/'Evidence/SixFactionFoundation-20261008/six-faction-readiness.json'
  for x in json.loads(prior.read_text())['ordered_matchups']:
   if x['admitted']:evidence[(x['attacker'],x['defender'])]={'path':str(prior.relative_to(R)),'scope':'Inherited qualified natural battle; unchanged forward visual branch, focused native regression required this mission.'}
- for f in E.glob('*-result.json'):
+ for f in sorted(E.glob('*-result.json')):
   d=json.loads(f.read_text())
   if d.get('pass') and d.get('attacker') and d.get('defender'):
-   evidence[(d['attacker'],d['defender'])]={'path':str(f.relative_to(R)),'scope':[x.get('runtime_kind') for x in d.get('runtime',[])]}
+   key=(d['attacker'],d['defender']);scope=[x.get('runtime_kind') for x in d.get('runtime',[])]
+   current=evidence.get(key,{}).get('scope');current_score=current.count('packaged') if isinstance(current,list) else -1
+   # Preserved editor receipts must not downgrade a completed cooked proof.
+   if scope.count('packaged')>=current_score:evidence[key]={'path':str(f.relative_to(R)),'scope':scope}
  rows=[]
  for a,d in itertools.permutations(ids,2):
   admitted=(a,d) in pairs
