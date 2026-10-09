@@ -1,0 +1,239 @@
+{
+  "pass": true,
+  "runtime": [
+    {
+      "run": "packaged-six-state-r1",
+      "runtime_kind": "packaged",
+      "seconds": 122.49,
+      "peak_gpu_c": 55.0,
+      "summary": "Local\\packaged-six-state-r1\\runtime\\summary.json",
+      "markers": [
+        "[2026.10.09-00.06.32:929][297]LogTemp: Display: SOUL_SIX_FACTION_START regions=36 edges=51 owned=12 neutral=24 ai=OFF",
+        "[2026.10.09-00.06.35:929][342]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=humans army=humans.primary region=human_capital unit=human_knight troops=45 ap=3 gold=3000",
+        "[2026.10.09-00.06.41:957][429]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=dwarves army=dwarves.primary region=dwarf_hold unit=dwarf_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-00.06.47:909][515]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=orcs army=orcs.primary region=orc_camp unit=orc_hammer_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-00.06.53:950][602]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=vikings army=vikings.primary region=viking_harbour unit=viking_axe_warrior troops=30 ap=3 gold=3000",
+        "[2026.10.09-00.06.59:920][686]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=nature army=nature.primary region=nature_treehold unit=None troops=30 ap=3 gold=3000",
+        "[2026.10.09-00.07.05:968][772]LogTemp: Display: SOUL_SIX_FACTION_INSPECT faction=dark army=dark.primary region=dark_fortress unit=None troops=30 ap=3 gold=3000",
+        "[2026.10.09-00.07.11:931][858]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=humans from=human_capital to=crossroads ap=2",
+        "[2026.10.09-00.07.11:931][858]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=dwarves from=dwarf_hold to=dwarf_forge_approach ap=2",
+        "[2026.10.09-00.07.11:931][858]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=orcs from=orc_camp to=orc_war_camp ap=2",
+        "[2026.10.09-00.07.11:931][858]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=vikings from=viking_harbour to=viking_forest_track ap=2",
+        "[2026.10.09-00.07.11:931][858]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=nature from=nature_treehold to=nature_forest_clearing ap=2",
+        "[2026.10.09-00.07.11:931][858]LogTemp: Display: SOUL_SIX_FACTION_MOVE faction=dark from=dark_fortress to=dark_castle_approach ap=2",
+        "[2026.10.09-00.07.20:927][989]LogTemp: Display: SOUL_SIX_FACTION_STATE_PASS factions=6 controlled_moves=6 owned=12 neutral=24 controller_I=1 controller_F5=1 controller_F9=1 exact_snapshot=1 ai=OFF"
+      ]
+    },
+    {
+      "run": "packaged-six-load-r1",
+      "runtime_kind": "packaged",
+      "seconds": 86.55,
+      "peak_gpu_c": 58.0,
+      "summary": "Local\\packaged-six-load-r1\\runtime\\summary.json",
+      "markers": [
+        "[2026.10.09-00.08.57:754][147]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=crossroads exact_snapshot=1 controller_F9=1"
+      ]
+    }
+  ],
+  "slot": "Soul.Composition3500.SixFactionProof",
+  "rb_save_domain": "Soul.Campaign",
+  "rb_save_schema": 1,
+  "save_sha256": "1798da2fb8e4c6b0d71590097b739eab4c191c8d85c4bbb9862397e9b001967f",
+  "fresh_process_saved_bytes_identical": true,
+  "regions": 36,
+  "legal_pairs": 51,
+  "owned_regions": 12,
+  "neutral_regions": 24,
+  "armies": [
+    {
+      "faction": "humans",
+      "army_id": "humans.primary",
+      "army_owner": "humans",
+      "region": "crossroads",
+      "unit": "human_knight",
+      "troops": 45,
+      "day": 1,
+      "ap": 2,
+      "resources": {
+        "gold": 3000
+      }
+    },
+    {
+      "faction": "dwarves",
+      "army_id": "dwarves.primary",
+      "army_owner": "dwarves",
+      "region": "dwarf_forge_approach",
+      "unit": "dwarf_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_hold",
+        "north_pass"
+      ],
+      "visible": [
+        "dwarf_forge_approach",
+        "dwarf_high_quarry",
+        "dwarf_hold",
+        "north_pass"
+      ]
+    },
+    {
+      "faction": "orcs",
+      "army_id": "orcs.primary",
+      "army_owner": "orcs",
+      "region": "orc_war_camp",
+      "unit": "orc_hammer_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "north_pass",
+        "orc_camp",
+        "orc_war_camp"
+      ],
+      "visible": [
+        "north_pass",
+        "orc_camp",
+        "orc_war_camp"
+      ]
+    },
+    {
+      "faction": "vikings",
+      "army_id": "vikings.primary",
+      "army_owner": "vikings",
+      "region": "viking_forest_track",
+      "unit": "viking_axe_warrior",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "northwest_march",
+        "viking_forest_track",
+        "viking_harbour",
+        "viking_snow_pass"
+      ],
+      "visible": [
+        "northwest_march",
+        "viking_forest_track",
+        "viking_harbour",
+        "viking_snow_pass"
+      ]
+    },
+    {
+      "faction": "nature",
+      "army_id": "nature.primary",
+      "army_owner": "nature",
+      "region": "nature_forest_clearing",
+      "unit": "None",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "nature_forest_clearing",
+        "nature_river_woodland",
+        "nature_shrine",
+        "nature_treehold"
+      ],
+      "visible": [
+        "nature_forest_clearing",
+        "nature_river_woodland",
+        "nature_shrine",
+        "nature_treehold"
+      ]
+    },
+    {
+      "faction": "dark",
+      "army_id": "dark.primary",
+      "army_owner": "dark",
+      "region": "dark_castle_approach",
+      "unit": "None",
+      "troops": 30,
+      "day": 1,
+      "ap": 2,
+      "max_ap": 3,
+      "resources": {
+        "gold": 3000
+      },
+      "income": {},
+      "explored": [
+        "dark_castle_approach",
+        "dark_fortress",
+        "dark_ruined_causeway"
+      ],
+      "visible": [
+        "dark_castle_approach",
+        "dark_fortress",
+        "dark_ruined_causeway"
+      ]
+    }
+  ],
+  "strategic_ai_enabled": false,
+  "forces_are_test_fixture_not_approved_balance": true,
+  "controller_I_inspection": true,
+  "controller_F5": true,
+  "controller_F9": true,
+  "exact_fresh_restore": true,
+  "camera_pose_persistence_claimed": false,
+  "captures": [
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_dark.png",
+      "sha256": "8288e40dba5c19ff175e4680b805e260564c0306d27fe8ba27d86a66ab014783"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_dwarves.png",
+      "sha256": "ae57106ac26139fb2d30903f703f05517ff61c06a0dcf215ad45187fc7899b80"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_humans.png",
+      "sha256": "609c2a6807c5b44f9ad931a290a0215be56c46701cc7f2bf4018db4b25e41988"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_nature.png",
+      "sha256": "ad450997177428584c1c81ff20be208860b623674df9d407717954b8004ef0bc"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_orcs.png",
+      "sha256": "d69b89a01508fcf469c8e276879f3e7b0f08092f44bdf50e68047ef5d6471fd0"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_Restored.png",
+      "sha256": "47afbca517d499ed6cdf7438532391be0530639a8be3c150ed8ce2054e2187c6"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_Saved.png",
+      "sha256": "a733931b90d97afa8314d46c082d0be2c3f4c2a66593e84ce6a9a930d3bfac8b"
+    },
+    {
+      "path": "Local\\packaged-six-state-r1\\User\\Saved\\Screenshots\\SixFaction_vikings.png",
+      "sha256": "f3a49840fd04ae7e2f765cfd6a9d172941b54d851529fb2729236900b3f46d06"
+    },
+    {
+      "path": "Local\\packaged-six-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "f44070a053a29cd41dda8f0ea3dc12de10200c3582c67b698afa04d0670409c9"
+    }
+  ],
+  "performance_qualification": false
+}

@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "summary": "Local/packaged-six-final-load-r1/runtime/summary.json",
+  "source_full_state_proof": "state-proof-cooked.json",
+  "binary_sha256": "f42eab96854c71936e954e2bfe077bf91e789c8fbd063faf7a6625581c3c8986",
+  "six_faction_save_sha256": "1798da2fb8e4c6b0d71590097b739eab4c191c8d85c4bbb9862397e9b001967f",
+  "save_bytes_identical": true,
+  "exact_snapshot_after_controller_F9": true,
+  "runtime_kind": "packaged",
+  "region": "crossroads",
+  "ai": "OFF"
+}

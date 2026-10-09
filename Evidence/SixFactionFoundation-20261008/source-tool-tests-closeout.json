@@ -1,0 +1,50 @@
+[
+  {
+    "suite": "six-foundation",
+    "command": [
+      "C:\\Users\\Jeff\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "Tools/SixFactionFoundation",
+      "-p",
+      "test_*.py"
+    ],
+    "exit": 0,
+    "seconds": 0.7970000000204891,
+    "log": "Evidence/SixFactionFoundation-20261008/Local/source-tests-six-foundation-closeout.log"
+  },
+  {
+    "suite": "admission",
+    "command": [
+      "C:\\Users\\Jeff\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "Tools/FoundationAdmission",
+      "-p",
+      "test_*.py"
+    ],
+    "exit": 0,
+    "seconds": 5.421999999962281,
+    "log": "Evidence/SixFactionFoundation-20261008/Local/source-tests-admission-closeout.log"
+  },
+  {
+    "suite": "continuation",
+    "command": [
+      "C:\\Users\\Jeff\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "Tools/ProductionContinuation",
+      "-p",
+      "test_*.py"
+    ],
+    "exit": 0,
+    "seconds": 1.9060000000172295,
+    "log": "Evidence/SixFactionFoundation-20261008/Local/source-tests-continuation-closeout.log"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "scope": "Lossless compression of inactive generated build objects/symbols only; no deletion; external cache junctions skipped",
+  "files": [
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Engine.hdd-backup-20261002\\SharedPCH.Engine.Project.Exceptions.ValApi.ValExpApi.Cpp20.h.obj",
+      "sha256": "4ec1140afba9310114cb5a04e1a29ccd057a4cfbe11d79dc15195d6327d3b331",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Engine.hdd-backup-20261002\\SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp20.h.obj",
+      "sha256": "13535ddb33cce620a7150f2cf4746a5471a732e248de21dd2fb7d17efb564eee",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\Core\\SharedPCH.Core.Project.ValApi.ValExpApi.Cpp20.h.obj",
+      "sha256": "8820764147aaea0b6fd753cc75511e9ceeb4c137b9b2afadd8816131a8d2813d",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\Core.hdd-backup-20261002\\SharedPCH.Core.Project.ValApi.ValExpApi.Cpp20.h.obj",
+      "sha256": "8f309cef2ea261dfd17917a0527341b3b696c1050db8f70a38715f18edf025a0",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\UnrealEd\\SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj",
+      "sha256": "b0402f5c416816251655287684e8e3cf23f2ea8ce4a1e9e1840bde199bec96f4",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\UnrealEd.hdd-backup-20261002\\SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj",
+      "sha256": "8f5a486c5e3367741137db0b4ea8350e691baf0e5bfcf70ab032fedcf01c7d70",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\UnrealGame\\Development\\Soul\\SoulSixFactionCampaign.cpp.obj",
+      "sha256": "56fcf4148bf706790f4c9be83318bb221d4bbe1993901964825104823d72e113",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\UnrealGame\\Development\\Soul\\SoulSixFactionCampaignTests.cpp.obj",
+      "sha256": "605edc90396e1529f4f05ff72b0cacd0b714743f237320b76fa0c9374001e674",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Intermediate\\Build\\Win64\\x64\\UnrealGame\\Development\\Soul\\SoulSixFactionQualification.cpp.obj",
+      "sha256": "84d7ef0e8009e62c6cb5814a69bff164aa3725158bbe37a5c39eacef87e283fc",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Binaries\\Win64\\Soul.pdb",
+      "sha256": "30053f2d1bed2cfb5d89af66044805d8a0479c9a52aff28c8ab42d01d7e31736",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Binaries\\Win64\\SoulComposition.pdb",
+      "sha256": "50f4d7ac2325902b9c7973486264c52ba7c7fa433eb86f8ad5289c2247da72a5",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Binaries\\Win64\\UnrealEditor-Soul.pdb",
+      "sha256": "0b20b29854174d8115cb92f170cf2b1a1e9f2263704a4675bb1fe07327436059",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Binaries\\Win64\\UnrealEditor-SoulCore.pdb",
+      "sha256": "1e0664b379eff8367ddd599264a2f0063b9f600ed63eaa61a4a6e84b093cf6f1",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "Binaries\\Win64\\UnrealEditor-SoulRealtimeBattle.pdb",
+      "sha256": "6b9d0858ec7f2e654024d9eafa58534b0419e30be4cafbccfb7a9f6fa1012e5a",
+      "bytes_unchanged": true
+    }
+  ],
+  "skipped": [
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Engine.cache-junction-20261004\\SharedPCH.Engine.Project.Exceptions.ValApi.ValExpApi.Cpp20.h.obj",
+    "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\Soul\\Development\\Engine.cache-junction-20261004\\SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp20.h.obj"
+  ],
+  "free_c_bytes": 10071437312,
+  "free_d_bytes": 1950367744
+}

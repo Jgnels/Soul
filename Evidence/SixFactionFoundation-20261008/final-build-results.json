@@ -1,0 +1,96 @@
+{
+  "pass": true,
+  "editor": {
+    "command": [
+      "C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat",
+      "SoulEditor",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile",
+      "-gather",
+      "-OverrideBuildEnvironment",
+      "-CompilerArguments=/FID:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Tools\\SoulNoPchCompatibility.h"
+    ],
+    "started_utc": "2026-10-09T00:18:43.156087+00:00",
+    "exit_code": 0,
+    "seconds": 48.89000000001397,
+    "passed": true
+  },
+  "games": [
+    {
+      "target": "Soul",
+      "command": [
+        "C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat",
+        "Soul",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929/Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-gather"
+      ],
+      "started_utc": "2026-10-09T00:38:44.685179+00:00",
+      "exit_code": 0,
+      "seconds": 637.2559967041016,
+      "passed": true
+    },
+    {
+      "target": "SoulComposition",
+      "command": [
+        "C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat",
+        "SoulComposition",
+        "Win64",
+        "Development",
+        "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929/Soul.uproject",
+        "-WaitMutex",
+        "-NoPCH",
+        "-NoUBA",
+        "-MaxParallelActions=2",
+        "-ForceRulesCompile",
+        "-gather"
+      ],
+      "started_utc": "2026-10-09T00:49:21.974862+00:00",
+      "exit_code": 0,
+      "seconds": 538.1895558834076,
+      "passed": true
+    }
+  ],
+  "source_changes_since_final_build": [],
+  "intentional_changed_source": [
+    "Source/Soul/Soul.Build.cs",
+    "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+    "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+    "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+    "Source/Soul/Public/SoulFounderPlaytestPlayerController.h",
+    "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+    "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+    "Source/SoulCore/Private/SoulCampaign.cpp",
+    "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+    "Source/SoulCore/Public/SoulCampaign.h",
+    "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp",
+    "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+    "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+    "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp"
+  ],
+  "unexpected_source_changes": [],
+  "binary_sha256": {
+    "Binaries/Win64/Soul.exe": "376da330f9cbc542aa957aecc144a30df7eab0841e403f28e5eec0e6f4292309",
+    "Binaries/Win64/SoulComposition.exe": "f42eab96854c71936e954e2bfe077bf91e789c8fbd063faf7a6625581c3c8986",
+    "Binaries/Win64/UnrealEditor-Soul.dll": "1a36ec748fe560e2da7f5c543da73a6bad36e456475f62a7525e2cd931f965e0",
+    "Binaries/Win64/UnrealEditor-SoulRealtimeBattle.dll": "868a73cfc44fa0d68713894b71c63825d45d37f228569b7e4ac9cf138c10e7b7"
+  }
+}

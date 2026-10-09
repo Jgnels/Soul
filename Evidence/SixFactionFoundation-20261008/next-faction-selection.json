@@ -1,0 +1,19 @@
+{
+  "selected": "vikings",
+  "unit": "viking_axe_warrior",
+  "audit_started_utc": "2026-10-08 23:04:56",
+  "decision": "implementation candidate; native compatibility/rendered qualification pending",
+  "primary_donor": "D:/Unreal Projects/AoEAssetRenderLab/Content",
+  "evidence": "viking-donor-audit.json",
+  "candidates": {
+    "vikings": "50 character/shared-warrior packages match donor hashes; own axe; standard warrior animation family; existing mountain field recipe",
+    "nature": "Fey has hero ability/additive animation family; animal warriors require distinct silhouette/weapon review; no exact infantry binding currently",
+    "dark": "Befouler/Demon/Devil/Executioner/Troll families local but exact compatible infantry/weapon not established; more integration work than Ulf"
+  },
+  "battlefield": "Existing Dragon Graveyard dragon_pass approach; rocky constrained mountain field. Matches Snow Pass landform, NOT final snow/boreal biome art or authored Viking settlement.",
+  "fixture": "Human approach at canonical mountain_shrine, Viking garrison at adjacent viking_snow_pass; isolated qualification ownership only; six-faction sandbox unchanged",
+  "cook_gap": "Viking axe and its material/textures not present in previous stage; candidate-specific cook required",
+  "audit_decision_utc": "2026-10-08T23:10:36Z",
+  "selection_elapsed_minutes_upper_bound": 5.67,
+  "final_outcome": "Exact Viking infantry now qualified by native compatibility, reviewed pose captures, ordinary cooked battle and fresh-process restore. Initial decision string above records the earlier candidate stage."
+}

@@ -1,0 +1,55 @@
+{
+  "pass": true,
+  "faction": "vikings",
+  "unit": "viking_axe_warrior",
+  "runtime": [
+    {
+      "run": "packaged-viking-defeat-r1",
+      "runtime_kind": "packaged",
+      "seconds": 117.23,
+      "peak_gpu_c": 56.0,
+      "summary": "Local\\packaged-viking-defeat-r1\\runtime\\summary.json"
+    },
+    {
+      "run": "packaged-viking-defeat-load-r1",
+      "runtime_kind": "packaged",
+      "seconds": 86.62,
+      "peak_gpu_c": 57.0,
+      "summary": "Local\\packaged-viking-defeat-load-r1\\runtime\\summary.json"
+    }
+  ],
+  "ordinary_battle_no_spell_observer": true,
+  "natural_result": "defeat",
+  "source_region": "mountain_shrine",
+  "target_region": "viking_snow_pass",
+  "return_region": "mountain_shrine",
+  "result": {
+    "enemy": 30,
+    "enemy_waves": 0,
+    "magic": 0,
+    "player": 0,
+    "player_waves": 0
+  },
+  "exact_owned_body_count": 15,
+  "exact_owned_axe_count": 15,
+  "rb_accepted_contact_log_count": 55,
+  "slot": "Soul.Composition3500.VikingProof",
+  "save_sha256": "5886fd21aa4e719e8a86ae5a6985b23884b57556d3a395e41257b5f05f5c56fb",
+  "fresh_process_save_bytes_identical": true,
+  "exact_restore": true,
+  "captures": [
+    {
+      "path": "Local\\packaged-viking-defeat-r1\\User\\Saved\\Screenshots\\Vertical_Battle.png",
+      "sha256": "15d18bdef79a604b86602c92372ba577f8f7a7c1b435292fa08355984ddc86e1"
+    },
+    {
+      "path": "Local\\packaged-viking-defeat-r1\\User\\Saved\\Screenshots\\Vertical_Campaign_Return.png",
+      "sha256": "adb058703a8f36a3286ed313887b0d75e190d193892ee2ba18d3004a346f9959"
+    },
+    {
+      "path": "Local\\packaged-viking-defeat-load-r1\\User\\Saved\\Screenshots\\Campaign_Cold_Load.png",
+      "sha256": "2b380999137d7a10d3850174b719931f61cdd21806265a72e1557686b86479e0"
+    }
+  ],
+  "performance_qualification": false
+}

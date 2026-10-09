@@ -1,0 +1,8 @@
+{
+  "source": "Source\\SoulRealtimeBattle\\Private\\SoulBattleReadabilityQualification.cpp",
+  "before_sha256": "8db3da7775da4b38a6c02c1c94df0f71de1e6e4906e1f3211666e9c546acc7c8",
+  "after_sha256": "ee0b40504780c7522f158c9cab2608ae81ea94aa206c117af51915e119bbc3c4",
+  "purpose": "Close idle/run/four attacks/hit/death inspection of actual Viking actor and weapon via existing explicit paused pose observer. No ordinary combat changes; no generated assets.",
+  "old_default_24_pose_path_preserved": true,
+  "requires_new_builds": true
+}

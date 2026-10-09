@@ -1,0 +1,858 @@
+{
+  "status": "OPT_IN_QUALIFICATION_STATE; NOT SIX_FACTION_GAMEPLAY_RELEASE",
+  "regions": 36,
+  "edges": 51,
+  "owned_start": 12,
+  "neutral_start": 24,
+  "factions": [
+    {
+      "faction": "humans",
+      "capital_region": "human_capital",
+      "secondary_region": "crossroads",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "human_capital",
+        "crossroads"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "humans.primary",
+      "qualification_count": 45,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "human_knight",
+      "settlement_capital_status": "Authored CastleTown visit/battle/state proof and deterministic strategic miniature previously qualified; unchanged.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Previously qualified complete CastleTown authored city and Dragon Graveyard field variants. Unchanged this mission.",
+      "save_restore": "Cooked F5/F9 and separate process exact restore; adversarial atomic rejection and RBSave rollback pass.",
+      "ai_enabled": false,
+      "ai_readiness": "OFF; no diplomacy, non-Human recruitment economy, balancing or autonomous scheduling implemented.",
+      "seven_unit_families_ready": false
+    },
+    {
+      "faction": "vikings",
+      "capital_region": "viking_harbour",
+      "secondary_region": "viking_forest_track",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "viking_harbour",
+        "viking_forest_track"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "vikings.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "viking_axe_warrior",
+      "settlement_capital_status": "Harbor/capital canonical location exists; strategic settlement art provisional; no authored Viking capital proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Exact axe infantry at canonical Snow Pass using existing Dragon Graveyard rocky pass field. Snow/boreal art and actual Viking capital remain unqualified.",
+      "save_restore": "Cooked F5/F9 and separate process exact restore; adversarial atomic rejection and RBSave rollback pass.",
+      "ai_enabled": false,
+      "ai_readiness": "OFF; no diplomacy, non-Human recruitment economy, balancing or autonomous scheduling implemented.",
+      "seven_unit_families_ready": false
+    },
+    {
+      "faction": "dwarves",
+      "capital_region": "dwarf_hold",
+      "secondary_region": "dwarf_forge_approach",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "dwarf_hold",
+        "dwarf_forge_approach"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "dwarves.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "dwarf_warrior",
+      "settlement_capital_status": "Authored Hold/state proof qualified; campaign exterior PROVISIONAL; untouched.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Previously qualified authored Dwarf Hold environment and inherited field matchup. Strategic exterior remains provisional.",
+      "save_restore": "Cooked F5/F9 and separate process exact restore; adversarial atomic rejection and RBSave rollback pass.",
+      "ai_enabled": false,
+      "ai_readiness": "OFF; no diplomacy, non-Human recruitment economy, balancing or autonomous scheduling implemented.",
+      "seven_unit_families_ready": false
+    },
+    {
+      "faction": "orcs",
+      "capital_region": "orc_camp",
+      "secondary_region": "orc_war_camp",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "orc_camp",
+        "orc_war_camp"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "orcs.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": "orc_hammer_warrior",
+      "settlement_capital_status": "Campaign camp/ruins presentation provisional; no authored Orc capital proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Qualified owned Orc Hammer infantry on Dragon Graveyard badlands field; no Orc authored-capital integration claimed.",
+      "save_restore": "Cooked F5/F9 and separate process exact restore; adversarial atomic rejection and RBSave rollback pass.",
+      "ai_enabled": false,
+      "ai_readiness": "OFF; no diplomacy, non-Human recruitment economy, balancing or autonomous scheduling implemented.",
+      "seven_unit_families_ready": false
+    },
+    {
+      "faction": "nature",
+      "capital_region": "nature_treehold",
+      "secondary_region": "nature_forest_clearing",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "nature_treehold",
+        "nature_forest_clearing"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "nature.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": null,
+      "settlement_capital_status": "Canonical Treehold and approved Forest_village donors; strategic presentation provisional; no deep authored proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "No exact admitted combat roster/battle environment pairing. Approved Nature donors remain content candidates.",
+      "save_restore": "Cooked F5/F9 and separate process exact restore; adversarial atomic rejection and RBSave rollback pass.",
+      "ai_enabled": false,
+      "ai_readiness": "OFF; no diplomacy, non-Human recruitment economy, balancing or autonomous scheduling implemented.",
+      "seven_unit_families_ready": false
+    },
+    {
+      "faction": "dark",
+      "capital_region": "dark_fortress",
+      "secondary_region": "dark_castle_approach",
+      "starting_ownership_ready": true,
+      "starting_possessions": [
+        "dark_fortress",
+        "dark_castle_approach"
+      ],
+      "strategic_army_ready": true,
+      "army_id": "dark.primary",
+      "qualification_count": 30,
+      "army_visual": "Existing campaign marker/count plus exact faction inspection; final six-faction army miniature art not claimed.",
+      "exact_unit": null,
+      "settlement_capital_status": "Canonical fortress and owned regional donors; strategic fortress/causeway presentation provisional; no deep authored proof.",
+      "environment_role_authority": "Evidence/SettlementEnvironmentPlan-20261005/faction-role-matrix.md",
+      "battlefield_coverage": "Owned evil regional environments exist; no exact admitted Dark combat roster pairing.",
+      "save_restore": "Cooked F5/F9 and separate process exact restore; adversarial atomic rejection and RBSave rollback pass.",
+      "ai_enabled": false,
+      "ai_readiness": "OFF; no diplomacy, non-Human recruitment economy, balancing or autonomous scheduling implemented.",
+      "seven_unit_families_ready": false
+    }
+  ],
+  "ordered_matchups": [
+    {
+      "attacker": "humans",
+      "defender": "vikings",
+      "admitted": true,
+      "reason": "Exact tested ordered bridge pair"
+    },
+    {
+      "attacker": "humans",
+      "defender": "dwarves",
+      "admitted": true,
+      "reason": "Exact tested ordered bridge pair"
+    },
+    {
+      "attacker": "humans",
+      "defender": "orcs",
+      "admitted": true,
+      "reason": "Exact tested ordered bridge pair"
+    },
+    {
+      "attacker": "humans",
+      "defender": "nature",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "humans",
+      "defender": "dark",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "vikings",
+      "defender": "humans",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "vikings",
+      "defender": "dwarves",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "vikings",
+      "defender": "orcs",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "vikings",
+      "defender": "nature",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "vikings",
+      "defender": "dark",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "humans",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "vikings",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "orcs",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "nature",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dwarves",
+      "defender": "dark",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "orcs",
+      "defender": "humans",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "orcs",
+      "defender": "vikings",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "orcs",
+      "defender": "dwarves",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "orcs",
+      "defender": "nature",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "orcs",
+      "defender": "dark",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "nature",
+      "defender": "humans",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "nature",
+      "defender": "vikings",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "nature",
+      "defender": "dwarves",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "nature",
+      "defender": "orcs",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "nature",
+      "defender": "dark",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dark",
+      "defender": "humans",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dark",
+      "defender": "vikings",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dark",
+      "defender": "dwarves",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dark",
+      "defender": "orcs",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    },
+    {
+      "attacker": "dark",
+      "defender": "nature",
+      "admitted": false,
+      "reason": "Explicit rejection; no reversed/generic roster substitution"
+    }
+  ],
+  "admitted_ordered_pairs": 3,
+  "unsupported_ordered_pairs": 27,
+  "approaches": [
+    {
+      "source": "human_capital",
+      "destination": "crossroads",
+      "entry_direction": "west"
+    },
+    {
+      "source": "crossroads",
+      "destination": "human_capital",
+      "entry_direction": "east"
+    },
+    {
+      "source": "crossroads",
+      "destination": "old_quarry",
+      "entry_direction": "south_west"
+    },
+    {
+      "source": "old_quarry",
+      "destination": "crossroads",
+      "entry_direction": "north_east"
+    },
+    {
+      "source": "crossroads",
+      "destination": "river_ford",
+      "entry_direction": "north_west"
+    },
+    {
+      "source": "river_ford",
+      "destination": "crossroads",
+      "entry_direction": "south_east"
+    },
+    {
+      "source": "crossroads",
+      "destination": "forest_edge",
+      "entry_direction": "west"
+    },
+    {
+      "source": "forest_edge",
+      "destination": "crossroads",
+      "entry_direction": "east"
+    },
+    {
+      "source": "old_quarry",
+      "destination": "ancient_shrine",
+      "entry_direction": "west"
+    },
+    {
+      "source": "ancient_shrine",
+      "destination": "old_quarry",
+      "entry_direction": "east"
+    },
+    {
+      "source": "river_ford",
+      "destination": "orc_watch",
+      "entry_direction": "west"
+    },
+    {
+      "source": "orc_watch",
+      "destination": "river_ford",
+      "entry_direction": "east"
+    },
+    {
+      "source": "forest_edge",
+      "destination": "orc_watch",
+      "entry_direction": "north_west"
+    },
+    {
+      "source": "orc_watch",
+      "destination": "forest_edge",
+      "entry_direction": "south_east"
+    },
+    {
+      "source": "forest_edge",
+      "destination": "north_pass",
+      "entry_direction": "west"
+    },
+    {
+      "source": "north_pass",
+      "destination": "forest_edge",
+      "entry_direction": "east"
+    },
+    {
+      "source": "north_pass",
+      "destination": "orc_camp",
+      "entry_direction": "north_west"
+    },
+    {
+      "source": "orc_camp",
+      "destination": "north_pass",
+      "entry_direction": "south_east"
+    },
+    {
+      "source": "orc_watch",
+      "destination": "orc_camp",
+      "entry_direction": "west"
+    },
+    {
+      "source": "orc_camp",
+      "destination": "orc_watch",
+      "entry_direction": "east"
+    },
+    {
+      "source": "viking_harbour",
+      "destination": "viking_forest_track",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_forest_track",
+      "destination": "viking_harbour",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_harbour",
+      "destination": "viking_fjord_ridge",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_fjord_ridge",
+      "destination": "viking_harbour",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_forest_track",
+      "destination": "viking_snow_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_snow_pass",
+      "destination": "viking_forest_track",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_fjord_ridge",
+      "destination": "viking_snow_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_snow_pass",
+      "destination": "viking_fjord_ridge",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_forest_track",
+      "destination": "northwest_march",
+      "entry_direction": null
+    },
+    {
+      "source": "northwest_march",
+      "destination": "viking_forest_track",
+      "entry_direction": null
+    },
+    {
+      "source": "northwest_march",
+      "destination": "human_capital",
+      "entry_direction": null
+    },
+    {
+      "source": "human_capital",
+      "destination": "northwest_march",
+      "entry_direction": null
+    },
+    {
+      "source": "viking_snow_pass",
+      "destination": "mountain_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "mountain_shrine",
+      "destination": "viking_snow_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "mountain_shrine",
+      "destination": "ancient_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "ancient_shrine",
+      "destination": "mountain_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "mountain_shrine",
+      "destination": "dwarf_mountain_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_mountain_pass",
+      "destination": "mountain_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_mountain_pass",
+      "destination": "dwarf_high_quarry",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_high_quarry",
+      "destination": "dwarf_mountain_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_high_quarry",
+      "destination": "dwarf_snow_basin",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_snow_basin",
+      "destination": "dwarf_high_quarry",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_high_quarry",
+      "destination": "dwarf_forge_approach",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_forge_approach",
+      "destination": "dwarf_high_quarry",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_forge_approach",
+      "destination": "dwarf_hold",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_hold",
+      "destination": "dwarf_forge_approach",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_snow_basin",
+      "destination": "dwarf_hold",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_hold",
+      "destination": "dwarf_snow_basin",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_mountain_pass",
+      "destination": "north_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "north_pass",
+      "destination": "dwarf_mountain_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "dwarf_forge_approach",
+      "destination": "north_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "north_pass",
+      "destination": "dwarf_forge_approach",
+      "entry_direction": null
+    },
+    {
+      "source": "north_pass",
+      "destination": "orc_war_camp",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_war_camp",
+      "destination": "north_pass",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_camp",
+      "destination": "orc_badlands",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_badlands",
+      "destination": "orc_camp",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_camp",
+      "destination": "orc_war_camp",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_war_camp",
+      "destination": "orc_camp",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_watch",
+      "destination": "orc_ruined_field",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_ruined_field",
+      "destination": "orc_watch",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_badlands",
+      "destination": "orc_ruined_field",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_ruined_field",
+      "destination": "orc_badlands",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_ruined_field",
+      "destination": "orc_broken_bridge",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_broken_bridge",
+      "destination": "orc_ruined_field",
+      "entry_direction": null
+    },
+    {
+      "source": "human_capital",
+      "destination": "coastal_ruins",
+      "entry_direction": null
+    },
+    {
+      "source": "coastal_ruins",
+      "destination": "human_capital",
+      "entry_direction": null
+    },
+    {
+      "source": "coastal_ruins",
+      "destination": "nature_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_shrine",
+      "destination": "coastal_ruins",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_shrine",
+      "destination": "nature_forest_clearing",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_forest_clearing",
+      "destination": "nature_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_shrine",
+      "destination": "nature_grassland_edge",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "destination": "nature_shrine",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_forest_clearing",
+      "destination": "nature_treehold",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_treehold",
+      "destination": "nature_forest_clearing",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_forest_clearing",
+      "destination": "nature_river_woodland",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_river_woodland",
+      "destination": "nature_forest_clearing",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_river_woodland",
+      "destination": "nature_treehold",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_treehold",
+      "destination": "nature_river_woodland",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "destination": "nature_river_woodland",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_river_woodland",
+      "destination": "nature_grassland_edge",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "destination": "river_ford",
+      "entry_direction": null
+    },
+    {
+      "source": "river_ford",
+      "destination": "nature_grassland_edge",
+      "entry_direction": null
+    },
+    {
+      "source": "nature_grassland_edge",
+      "destination": "southern_crossing",
+      "entry_direction": null
+    },
+    {
+      "source": "southern_crossing",
+      "destination": "nature_grassland_edge",
+      "entry_direction": null
+    },
+    {
+      "source": "river_ford",
+      "destination": "southern_crossing",
+      "entry_direction": null
+    },
+    {
+      "source": "southern_crossing",
+      "destination": "river_ford",
+      "entry_direction": null
+    },
+    {
+      "source": "southern_crossing",
+      "destination": "orc_broken_bridge",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_broken_bridge",
+      "destination": "southern_crossing",
+      "entry_direction": null
+    },
+    {
+      "source": "southern_crossing",
+      "destination": "dark_corrupted_valley",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_corrupted_valley",
+      "destination": "southern_crossing",
+      "entry_direction": null
+    },
+    {
+      "source": "orc_broken_bridge",
+      "destination": "dark_ruined_causeway",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_ruined_causeway",
+      "destination": "orc_broken_bridge",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_corrupted_valley",
+      "destination": "dark_ruined_causeway",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_ruined_causeway",
+      "destination": "dark_corrupted_valley",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_corrupted_valley",
+      "destination": "dark_ash_plain",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_ash_plain",
+      "destination": "dark_corrupted_valley",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_ruined_causeway",
+      "destination": "dark_castle_approach",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_castle_approach",
+      "destination": "dark_ruined_causeway",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_ash_plain",
+      "destination": "dark_fortress",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_fortress",
+      "destination": "dark_ash_plain",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_castle_approach",
+      "destination": "dark_fortress",
+      "entry_direction": null
+    },
+    {
+      "source": "dark_fortress",
+      "destination": "dark_castle_approach",
+      "entry_direction": null
+    }
+  ],
+  "explicit_approaches": 20,
+  "unset_approaches": 82,
+  "new_exercised_connection": {
+    "source": "mountain_shrine",
+    "destination": "viking_snow_pass",
+    "battlefield": "dragon_pass",
+    "entry_direction": null,
+    "status": "Existing landform/feature-matched fallback exercised; no unverified directional staging recipe fabricated."
+  },
+  "ai_enabled": false,
+  "ready_for_controlled_six_faction_ai": false,
+  "next_gates": [
+    "Define a bounded controlled-AI action/admission policy that explicitly handles unsupported encounters; no implicit resolution.",
+    "Qualify Nature/Dark exact rosters and additional ordered matchups before full military AI.",
+    "Approve starting forces, non-Human resources/recruitment and diplomacy separately."
+  ],
+  "evidence": [
+    "state-proof-cooked.json",
+    "viking-victory-result.json",
+    "native-regressions-final.json"
+  ]
+}

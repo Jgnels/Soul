@@ -1,0 +1,13 @@
+{
+  "accepted": false,
+  "state_marker_reached": true,
+  "guard_result": "process_exited",
+  "alive_after_ready_seconds": 56.49,
+  "peak_gpu_c": 52.0,
+  "reason": [
+    "Observer exited before required live observation finished.",
+    "Screenshot requested and next I input queued in same frame; reviewed Human/Viking capture names actually showed following faction."
+  ],
+  "fix": "Separate capture and advance steps; hold to 105 simulation seconds. No campaign state rule changed.",
+  "raw": "Local/editor-six-state-r1/runtime/summary.json"
+}

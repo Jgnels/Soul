@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "manifest_files": 12655,
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows",
+  "receipt": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Evidence\\CleanFoundationAdmission-20261008\\Local\\stage-orc-r1\\Diagnostics\\receipt.json",
+  "standalone_bytes": 842098229,
+  "largest_standalone": [
+    [
+      343173120,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe"
+    ],
+    [
+      239993784,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\CEF3\\Win64\\128.4.13+ge76af7e+chromium-128.0.6613.138+v2\\libcef.dll"
+    ],
+    [
+      20817848,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\CEF3\\Win64\\128.4.13+ge76af7e+chromium-128.0.6613.138+v2\\dxcompiler.dll"
+    ],
+    [
+      19509136,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\Vulkan\\Win64\\VkLayer_khronos_validation.dll"
+    ],
+    [
+      18538488,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Soul\\Binaries\\Win64\\DML\\x64\\DirectML.dll"
+    ],
+    [
+      17339384,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Plugins\\NNE\\NNERuntimeORT\\Binaries\\ThirdParty\\Onnxruntime\\Win64\\onnxruntime.dll"
+    ],
+    [
+      10468208,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\CEF3\\Win64\\128.4.13+ge76af7e+chromium-128.0.6613.138+v2\\icudtl.dat"
+    ],
+    [
+      8959416,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\CEF3\\Win64\\128.4.13+ge76af7e+chromium-128.0.6613.138+v2\\libGLESv2.dll"
+    ],
+    [
+      8683856,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\CEF3\\Win64\\128.4.13+ge76af7e+chromium-128.0.6613.138+v2\\resources.pak"
+    ],
+    [
+      8331362,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Soul\\Data\\CampaignMesaLocal\\MesaHeight.r16"
+    ],
+    [
+      8331362,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Soul\\Data\\CampaignCompositionLocal\\Composition_3500_r2.r16"
+    ],
+    [
+      8166288,
+      "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Engine\\Binaries\\ThirdParty\\Vulkan\\Win64\\VkLayer_gfxreconstruct.dll"
+    ]
+  ],
+  "free_bytes": {
+    "C:/": 8715427840,
+    "D:/": 1871454208
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "unique_tests": 38,
+  "final_combat_regression": 10,
+  "pass": true,
+  "runs": [
+    {
+      "run": "native-six-final",
+      "suite": "Soul.Integration.SixFaction",
+      "tests": 5,
+      "receipt": "Local/native-six-final/receipt.json",
+      "pass": true
+    },
+    {
+      "run": "native-vertical-final",
+      "suite": "Soul.Integration.Vertical",
+      "tests": 19,
+      "receipt": "Local/native-vertical-final/receipt.json",
+      "pass": true
+    },
+    {
+      "run": "native-combat-final",
+      "suite": "Soul.RealtimeBattle.Vertical",
+      "tests": 10,
+      "receipt": "Local/native-combat-final/receipt.json",
+      "pass": true
+    },
+    {
+      "run": "native-default-world-final",
+      "suite": "Soul.Integration.CampaignWorld",
+      "tests": 2,
+      "receipt": "Local/native-default-world-final/receipt.json",
+      "pass": true
+    },
+    {
+      "run": "native-composition-world-final",
+      "suite": "Soul.Integration.CampaignWorld",
+      "tests": 2,
+      "receipt": "Local/native-composition-world-final/receipt.json",
+      "pass": true
+    },
+    {
+      "run": "native-combat-pose-final",
+      "suite": "Soul.RealtimeBattle.Vertical",
+      "tests": 10,
+      "repeat_reason": "final pose-only diagnostic source",
+      "receipt": "Local/native-combat-pose-final/receipt.json",
+      "pass": true
+    }
+  ]
+}

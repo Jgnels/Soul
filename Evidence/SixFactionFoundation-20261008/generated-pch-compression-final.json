@@ -1,0 +1,9 @@
+{
+  "scope": "Inactive generated precompiled-header cache; current builds explicitly NoPCH; no deletion",
+  "path": "Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\UnrealEd\\SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.pch",
+  "sha256_before": "9b5c335a5506d8815e6133b595f4b83412c733b9ad6c06e0f2a2ad2f1f1c9a19",
+  "sha256_after": "9b5c335a5506d8815e6133b595f4b83412c733b9ad6c06e0f2a2ad2f1f1c9a19",
+  "bytes_unchanged": true,
+  "output": "\n Compressing files in D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Intermediate\\Build\\Win64\\x64\\SoulEditor\\Development\\UnrealEd\\\n\nSharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.pch 2575171552 : 927059968 = 2.8 to 1 [OK]\n\n1 files within 1 directories were compressed.\n2,575,171,552 total bytes of data are stored in 927,059,968 bytes.\nThe compression ratio is 2.8 to 1.\n",
+  "free_d_bytes": 3598450688
+}

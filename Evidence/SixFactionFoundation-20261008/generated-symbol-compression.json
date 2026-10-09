@@ -1,0 +1,47 @@
+{
+  "scope": "lossless NTFS compression of generated single-link PDB files only; no deletion",
+  "files": [
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\Soul.pdb",
+      "size": 403656704,
+      "sha256": "096c694a0e99bbc8700068cfe3e43bcec3b34fa0b2dea5d710f9e2419be50ea6",
+      "unchanged": true,
+      "exit_code": 0,
+      "output": "\n Compressing files in D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\\n\nSoul.pdb            403656704 : 220491776 = 1.8 to 1 [OK]\n\n1 files within 1 directories were compressed.\n403,656,704 total bytes of data are stored in 220,491,776 bytes.\nThe compression ratio is 1.8 to 1.\n"
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\SoulComposition.pdb",
+      "size": 403673088,
+      "sha256": "4f7f055387924af28e7036f07739a26fdd12da4c00db98898d4e9c6a447c1f33",
+      "unchanged": true,
+      "exit_code": 0,
+      "output": "\n Compressing files in D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\\n\nSoulComposition.pdb 403673088 : 220766208 = 1.8 to 1 [OK]\n\n1 files within 1 directories were compressed.\n403,673,088 total bytes of data are stored in 220,766,208 bytes.\nThe compression ratio is 1.8 to 1.\n"
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\UnrealEditor-Soul.pdb",
+      "size": 35262464,
+      "sha256": "9fbe3fbb49b2202a6595327f11b7fbf0c51dc17de2fa51d7bb998fa60de74e3d",
+      "unchanged": true,
+      "exit_code": 0,
+      "output": "\n Compressing files in D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\\n\nUnrealEditor-Soul.pdb  35262464 :  16928768 = 2.1 to 1 [OK]\n\n1 files within 1 directories were compressed.\n35,262,464 total bytes of data are stored in 16,928,768 bytes.\nThe compression ratio is 2.1 to 1.\n"
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\UnrealEditor-SoulCore.pdb",
+      "size": 10924032,
+      "sha256": "c5db571ed5295beba74ba3c7861a34d4f2383eef84dd3eace7b5dbe191fdaa93",
+      "unchanged": true,
+      "exit_code": 0,
+      "output": "\n Compressing files in D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\\n\nUnrealEditor-SoulCore.pdb  10924032 :   5734400 = 1.9 to 1 [OK]\n\n1 files within 1 directories were compressed.\n10,924,032 total bytes of data are stored in 5,734,400 bytes.\nThe compression ratio is 1.9 to 1.\n"
+    },
+    {
+      "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\UnrealEditor-SoulRealtimeBattle.pdb",
+      "size": 38072320,
+      "sha256": "df51b28698be1be10a3c938ae140d3453da187ec6a10e97d0b78a44c950cfbbc",
+      "unchanged": true,
+      "exit_code": 0,
+      "output": "\n Compressing files in D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Binaries\\Win64\\\n\nUnrealEditor-SoulRealtimeBattle.pdb  38072320 :  17887232 = 2.1 to 1 [OK]\n\n1 files within 1 directories were compressed.\n38,072,320 total bytes of data are stored in 17,887,232 bytes.\nThe compression ratio is 2.1 to 1.\n"
+    }
+  ],
+  "free_C": 8707252224,
+  "free_D": 1907212288
+}

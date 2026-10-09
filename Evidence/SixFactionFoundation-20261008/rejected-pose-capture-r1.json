@@ -1,0 +1,7 @@
+{
+  "run": "Local/editor-viking-poses-r1",
+  "visual_acceptance": false,
+  "reason": "Pose marker/captures alone were insufficient: the autobattle launch suppressed PlayerTick and the inspection camera did not reach its close view. Screenshots show motion streaking, not a usable unit inspection.",
+  "correction": "Remove SoulAutobattle only from the explicit paused rosterposes launch. Ordinary natural battle remains unchanged.",
+  "source_change_required_for_correction": false
+}

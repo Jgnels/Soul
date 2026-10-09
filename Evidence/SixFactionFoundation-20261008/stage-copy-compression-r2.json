@@ -1,0 +1,12 @@
+{
+  "scope": "Lossless single-link generated stage copies; completed run; no deletion",
+  "files": [
+    {
+      "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_ne1nr30y\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe",
+      "sha256": "edd69db7d306129ff1111d0b2b7a6c71dce98ba8cbae10fb3e5ca2aeee4be2f8",
+      "bytes_unchanged": true,
+      "exit": 0,
+      "output": "\n Compressing files in C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_ne1nr30y\\Stage\\Windows\\Soul\\Binaries\\Win64\\\n\nSoulComposition.exe 343281664 : 210280448 = 1.6 to 1 [OK]\n\n1 files within 1 directories were compressed.\n343,281,664 total bytes of data are stored in 210,280,448 bytes.\nThe compression ratio is 1.6 to 1.\n"
+    }
+  ]
+}

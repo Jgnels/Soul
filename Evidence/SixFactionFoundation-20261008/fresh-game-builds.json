@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat",
+      "Soul",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile",
+      "-gather"
+    ],
+    "target": "Soul",
+    "started_utc": "2026-10-08T23:34:29.000411+00:00",
+    "exit_code": 0,
+    "seconds": 604.4155104160309,
+    "pass": true
+  },
+  {
+    "command": [
+      "C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat",
+      "SoulComposition",
+      "Win64",
+      "Development",
+      "-Project=D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Soul.uproject",
+      "-WaitMutex",
+      "-NoPCH",
+      "-NoUBA",
+      "-MaxParallelActions=2",
+      "-ForceRulesCompile",
+      "-gather"
+    ],
+    "target": "SoulComposition",
+    "started_utc": "2026-10-08T23:44:33.416929+00:00",
+    "exit_code": 0,
+    "seconds": 556.178869009018,
+    "pass": true
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "suite": "six-foundation",
+    "exit": 0,
+    "seconds": 0.3561360836029053,
+    "log": "Evidence\\SixFactionFoundation-20261008\\Local\\source-tests-six-foundation-r2.log"
+  },
+  {
+    "suite": "admission",
+    "exit": 0,
+    "seconds": 1.8480191230773926,
+    "log": "Evidence\\SixFactionFoundation-20261008\\Local\\source-tests-admission-r2.log"
+  },
+  {
+    "suite": "continuation",
+    "exit": 0,
+    "seconds": 1.3677482604980469,
+    "log": "Evidence\\SixFactionFoundation-20261008\\Local\\source-tests-continuation-r2.log"
+  }
+]

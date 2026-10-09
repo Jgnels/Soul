@@ -1,0 +1,117 @@
+{
+  "scope": "Capped functional observations only; prior uncapped 85 C failure remains open; guard never weakened",
+  "runs": [
+    {
+      "run": "editor-six-load-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 102.19,
+      "peak_gpu_c": 62.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "editor-six-state-r1",
+      "clean_shutdown": false,
+      "marker_observed": true,
+      "seconds": 169.0,
+      "peak_gpu_c": 52.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "editor-six-state-r2",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 133.3,
+      "peak_gpu_c": 56.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "editor-viking-ordinary-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 372.22,
+      "peak_gpu_c": 57.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "editor-viking-poses-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 307.95,
+      "peak_gpu_c": 59.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "editor-viking-poses-r2",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 117.92,
+      "peak_gpu_c": 58.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-six-final-load-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 86.58,
+      "peak_gpu_c": 59.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-six-load-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 86.55,
+      "peak_gpu_c": 58.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-six-state-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 122.49,
+      "peak_gpu_c": 55.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-viking-defeat-load-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 86.62,
+      "peak_gpu_c": 57.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-viking-defeat-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 117.23,
+      "peak_gpu_c": 56.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-viking-load-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 86.56,
+      "peak_gpu_c": 59.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-viking-ordinary-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 194.02,
+      "peak_gpu_c": 67.0,
+      "performance_qualification": false
+    },
+    {
+      "run": "packaged-viking-poses-r1",
+      "clean_shutdown": true,
+      "marker_observed": true,
+      "seconds": 102.58,
+      "peak_gpu_c": 58.0,
+      "performance_qualification": false
+    }
+  ]
+}

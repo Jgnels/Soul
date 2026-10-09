@@ -1,0 +1,34 @@
+{
+  "scope": "lossless single-link generated stage executable copies only; no deletion",
+  "files": [
+    {
+      "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_35c5a96z\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe",
+      "sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "bytes_unchanged": true,
+      "exit": 0,
+      "output": "\n Compressing files in C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_35c5a96z\\Stage\\Windows\\Soul\\Binaries\\Win64\\\n\nSoulComposition.exe 343276032 : 210214912 = 1.6 to 1 [OK]\n\n1 files within 1 directories were compressed.\n343,276,032 total bytes of data are stored in 210,214,912 bytes.\nThe compression ratio is 1.6 to 1.\n"
+    },
+    {
+      "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_gvki6ewv\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe",
+      "sha256": "36dc3889d9aec512e9941a45687cfd96b9c4874290c17107105dd5a5879e4b18",
+      "bytes_unchanged": true,
+      "exit": 0,
+      "output": "\n Compressing files in C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_gvki6ewv\\Stage\\Windows\\Soul\\Binaries\\Win64\\\n\nSoulComposition.exe 343158272 : 210071552 = 1.6 to 1 [OK]\n\n1 files within 1 directories were compressed.\n343,158,272 total bytes of data are stored in 210,071,552 bytes.\nThe compression ratio is 1.6 to 1.\n"
+    },
+    {
+      "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe",
+      "sha256": "0e9243b4e000fa9dd68230dfed944ef7647da5e66cfa691a3c347b2568060900",
+      "bytes_unchanged": true,
+      "exit": 0,
+      "output": "\n Compressing files in C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_odmtlcab\\Stage\\Windows\\Soul\\Binaries\\Win64\\\n\nSoulComposition.exe 343173120 : 210042880 = 1.6 to 1 [OK]\n\n1 files within 1 directories were compressed.\n343,173,120 total bytes of data are stored in 210,042,880 bytes.\nThe compression ratio is 1.6 to 1.\n"
+    },
+    {
+      "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_rffb6atp\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe",
+      "sha256": "1bf1e101a0896a6c068593788ca5d94392e927fb0b82f9241cd101a5170c1afa",
+      "bytes_unchanged": true,
+      "exit": 0,
+      "output": "\n Compressing files in C:\\Users\\Jeff\\AppData\\Local\\Temp\\SoulCompositionStage_rffb6atp\\Stage\\Windows\\Soul\\Binaries\\Win64\\\n\nSoulComposition.exe 343276032 : 210214912 = 1.6 to 1 [OK]\n\n1 files within 1 directories were compressed.\n343,276,032 total bytes of data are stored in 210,214,912 bytes.\nThe compression ratio is 1.6 to 1.\n"
+    }
+  ],
+  "free_C": 12325109760
+}

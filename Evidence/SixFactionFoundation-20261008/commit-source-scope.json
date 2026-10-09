@@ -1,0 +1,191 @@
+{
+  "starting_head": "41f604475e94905ff9afc2cb0e55148e0412618b",
+  "files": [
+    {
+      "path": "Data/CampaignComposition/PackageProfile.json",
+      "sha256": "7fe7d19d9ece39568b7ef96486444ee1eb902f49dbea8c2ba6fd2f547f6e4062"
+    },
+    {
+      "path": "Data/CampaignComposition/SixFactionRuntimeProof.json",
+      "sha256": "f63af0b6f0972eb3d2a725cce4f29282de3b4e8bd7bafdc0e7791e842401c75c"
+    },
+    {
+      "path": "Data/CampaignComposition/VikingRuntimeProof.json",
+      "sha256": "d962e7ed9a7b3370961f030c65aa5143a29e959110cb200aea1ae53439a2412d"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+      "sha256": "98b51cc0a0c6f4686b6010acfc8cbc037ad495fa01499c288a567d9110ff0429"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "sha256": "6e2279acb621c1a7bdf442fae9a1b49374338857016d17f5658e562386d41697"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "sha256": "f1c2fb149b45653cbe1ba1886ead3c9165c01947aaa50f516821e1f710395105"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "sha256": "51b0d7ad594cfb7bc441246d1304ecb8161aa0b28cd1cb9cb17f1de1b039539f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "sha256": "581d02a3fb91fc54a367b7366e47c7f3b27cd55d90f8dce884bade3b4244bd18"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSixFactionCampaign.cpp",
+      "sha256": "998e9fde690b7259238b39d93e29dd07b616b097541f76ce2fef97668b4010aa"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSixFactionQualification.cpp",
+      "sha256": "3aa63aa4c9dd64240ca2708655ab887dcd4cb244d57f7ac9247e9e748d6ee026"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSixFactionCampaignTests.cpp",
+      "sha256": "01fba27d0e14c2c16ce986a9b74206746e6414fdae2d7ba95011d3773a23ce25"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulVerticalCampaignTests.cpp",
+      "sha256": "bce2bcff859a21277eaf2e0fdbe3f42caefc111b8814d8992642d1d8a4151d5e"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+      "sha256": "1018cd75baabda00cd6017d2567b272b3c2848327728df4cd15e54782e103194"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "sha256": "8c9a9b523fc6467bec79ae95aecf01c79103eb06d1b6a07d58e561977e67b640"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestPlayerController.h",
+      "sha256": "88f8cc41c1183ab30fdd0c78f05801aa603b77fb8875b34fa0bd3d67e9b3d46b"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "sha256": "18397d9dc78eeffb9c42cb37b879d5b9f6901781910841cc7abe13ccc680a380"
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "sha256": "34704206cfec0b9b9d795cd28999869408f2623e5239cca454a6304d4fc52d3d"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaign.cpp",
+      "sha256": "62edd1c9ce3751faa3b42cb0f28e71c50adb9dfba5dadc7e5998cf4c5a4c466d"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "sha256": "014706eb759e9d9da3eeb003d88196f43bb7ead6c6c4b43a3fe4df07fac173d2"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaign.h",
+      "sha256": "732424930f83042be70c6a001a361b7a71119430eeb19e7c9234a1f58d636509"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleAnimation.cpp",
+      "sha256": "4e7c8d966594096cbf6c56b77d73cfcc16afcf6930f46a0face54e6cdda4525b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp",
+      "sha256": "ee0b40504780c7522f158c9cab2608ae81ea94aa206c117af51915e119bbc3c4"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp",
+      "sha256": "d68d28c5602e0d49ead2006e8ddfad626599c1189e7b88177489727d4b347d21"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "sha256": "1d4a30ab0ae6f82d7293c23cb1beb2d9af62817d48a7bba470e72aaa1a0090c3"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleAnimationBehaviorTests.cpp",
+      "sha256": "9beb76705c354833833d18affc0e2079922d14953752ffffbf3a7b064517af76"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "sha256": "21a25d0fe1282a60d7b6ced4dfab77c87413833b637c22706e9819991253d678"
+    },
+    {
+      "path": "Tools/FoundationAdmission/test_admission.py",
+      "sha256": "9eeee79fedb526ad9c47848af289242a634ddc1a3ab4a4f8c4a46978fa032492"
+    },
+    {
+      "path": "Tools/ProductionContinuation/cook_candidate.py",
+      "sha256": "d38a8d3e3d3668f42ec8a707f4d55abf2c1f9f0e5f197407536b4fc6b6665d24"
+    },
+    {
+      "path": "Tools/ProductionContinuation/play_candidate.py",
+      "sha256": "16016cd915323b6244ce811f2c5ef11835edb40c1d85b882efcfacb15ed777fc"
+    },
+    {
+      "path": "Tools/ProductionContinuation/qualify_runtime.py",
+      "sha256": "72a538ccddf2a96f4c5d45fb249ff85cd695df30caba474f92dd8fa1cc3f11a6"
+    },
+    {
+      "path": "Tools/ProductionContinuation/roster_stage.py",
+      "sha256": "2c6b82dddd9a662fd75bd95a0f5f8ca9824025b62d4fd5ac1de97735c8f3171a"
+    },
+    {
+      "path": "Tools/ProductionContinuation/stage_candidate.py",
+      "sha256": "5fbbb4fa12cd6652ab257c919b8476f13d4bc4657e0dfc66990ec44c657435fd"
+    },
+    {
+      "path": "Tools/ProductionContinuation/stage_manifest.py",
+      "sha256": "1d71046ef7eafb2c58cc860a16c760085185971840a524ac284c36a608248029"
+    },
+    {
+      "path": "Tools/ProductionContinuation/test_play_candidate.py",
+      "sha256": "6b286cdbcb0b87183402b9ee7e2a360d67f8ea80a6a79c6c383f1f9ea317edc2"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/build_review.py",
+      "sha256": "1f30fdc42658f46c15047e556504230870dca0eeafad65b353869fa409de743c"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/collect_matchup.py",
+      "sha256": "6c39c8614492cd58f05ac9a7bffef5ee64e3bc4439cab404e181ee3ee65c5978"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/collect_state.py",
+      "sha256": "df0dce70d932320d584317b6107262202d90b065f866c636ed1ba31184d59a1e"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/readiness.py",
+      "sha256": "70b51e9b587a034b9ba26403261f75b50336f18e0ebd7ac1ca98f8afad4f620b"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/test_foundation.py",
+      "sha256": "943126fd523fab735e5d1879fcbd95db6de07658c0a6cfc67de23ee93b41945d"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/test_roster_stage.py",
+      "sha256": "bde43028cd5cf4b6b5c84da2b856fa26506ecc21d812bef8fa8a1fb09d726dc4"
+    },
+    {
+      "path": "Tools/SixFactionFoundation/verify_final_stage.py",
+      "sha256": "fc40ff3ebde2d2c2eb04c736c7e75bf3504187831a9e21af4ee9a7f553d6f2ea"
+    }
+  ],
+  "diff_check_pass": true,
+  "licensed_payloads_included": false,
+  "machine_config_included": false,
+  "inherited_dirty_excluded": [
+    ".gitignore",
+    "Config/DefaultEngine.ini",
+    "Config/DefaultGame.ini",
+    "Data/CampaignWorldTerrain/presentation.json",
+    "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md",
+    "Evidence/ProductionPush-20261008/HANDOFF.md",
+    "Soul.uproject",
+    "Tools/WorldTerrain/README.md",
+    "Tools/WorldTerrain/author_world.py",
+    "Tools/WorldTerrain/bake_surface.py",
+    "Tools/WorldTerrain/bake_world.py",
+    "Tools/WorldTerrain/dress_world.py",
+    "Tools/WorldTerrain/import_masks.py",
+    "Tools/WorldTerrain/qualify_world.py",
+    "Tools/WorldTerrain/test_world.py",
+    "Tools/package_soul_weekend.ps1",
+    "Tools/test_package_soul_weekend.py"
+  ]
+}

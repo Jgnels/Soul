@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "checked_utc": "2026-10-09T02:25:06.386341+00:00",
+  "stage_receipt": "Evidence\\SixFactionFoundation-20261008\\Local\\stage-six-viking-r2\\Diagnostics\\receipt.json",
+  "entries_present": 12673,
+  "base_cooked_files_pre_and_post_uat_hash_verified": 10754,
+  "supplemental_copied_files_hash_checked": 16,
+  "binary_sha256": "f42eab96854c71936e954e2bfe077bf91e789c8fbd063faf7a6625581c3c8986",
+  "external_remover_diagnosed": false
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "run": "native-six-final",
+    "suite": "Soul.Integration.SixFaction",
+    "count": 5,
+    "exit": 0
+  },
+  {
+    "run": "native-vertical-final",
+    "suite": "Soul.Integration.Vertical",
+    "count": 19,
+    "exit": 0
+  },
+  {
+    "run": "native-combat-final",
+    "suite": "Soul.RealtimeBattle.Vertical",
+    "count": 10,
+    "exit": 0
+  },
+  {
+    "run": "native-default-world-final",
+    "suite": "Soul.Integration.CampaignWorld",
+    "count": 2,
+    "exit": 0
+  },
+  {
+    "run": "native-composition-world-final",
+    "suite": "Soul.Integration.CampaignWorld",
+    "count": 2,
+    "exit": 0
+  }
+]

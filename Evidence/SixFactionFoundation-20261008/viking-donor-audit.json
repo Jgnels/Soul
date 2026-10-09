@@ -1,0 +1,352 @@
+[
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Materials\\M_Ulf.uasset",
+    "donor_sha256": "3131bece3852676c2c35facc015d4345bb42520bc331d6f763c657f691056585",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Materials\\M_Ulf_Axe.uasset",
+    "donor_sha256": "ad278e6cfb8bb06dbaf834937c283555213ac5b943272cc8585078a7eee75089",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Mesh\\SK_Ulf_Full.uasset",
+    "donor_sha256": "4593685ff7b5459d51377f86ab51b4fd813749fd5e07e58e0ecdb24641927933",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Mesh\\SK_Ulf_Full_PhysicsAsset.uasset",
+    "donor_sha256": "5ecaa531f22fb1153611ab7fd04ff7b8577e3c2ede63bd182df76eb545196eee",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Mesh\\SM_Viking_Axe.uasset",
+    "donor_sha256": "d6f09342c6904b0f45ea1baa211d58e8e950707c76b447dabeb03b642b81b7a3",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Axe\\T_Axe_Ulf_Albedo.uasset",
+    "donor_sha256": "9ab19d2d0e7f8118f3e69803caaf65c1de50f6aeeaa94fe4022f59998ba9ac94",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Axe\\T_Axe_Ulf_Ao.uasset",
+    "donor_sha256": "1699e4d0b3972f1d587613e02b1b43da20a9ab78da784c62e69ed82fca40fdd0",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Axe\\T_Axe_Ulf_Metallic.uasset",
+    "donor_sha256": "89d4ec33838a65e8a787648681826afe7b9c3772a7378c20883e3a4ed223b1f3",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Axe\\T_Axe_Ulf_Normals.uasset",
+    "donor_sha256": "cc08a897b31de1a29e0907b622f01a67f20fab01014043c30071c467abf97b4c",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Character\\T_Ulf_Albedo.uasset",
+    "donor_sha256": "16d056fd2602b5b6632c5bd52d9b33cf8c86cf52a60699a19feee8f550508f3d",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Character\\T_Ulf_Ao.uasset",
+    "donor_sha256": "86bfe907484bda1878d6e3a9ff90e53fb2c21072afc7a243ef9871339698f08f",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Character\\T_Ulf_Metallic.uasset",
+    "donor_sha256": "c4e47a36871213a57916b060c602e3d738a935ad44ab1b0c326b4fafbbacce96",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Characters\\Viking_Ulf\\Textures\\Character\\T_Ulf_Normals.uasset",
+    "donor_sha256": "84b404712be8f6a57fe0701d53287cbd46814926edc8408b4e3ea2a9ffbf2e8e",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_1.uasset",
+    "donor_sha256": "8693ab171351f6ef56e288fa86ebf69e8046e1695b32db02f111d4a814481b17",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_2.uasset",
+    "donor_sha256": "6669c485beeb7ca1663f4350971d747aedb38c3b3e992cc538ed85440642fc47",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_3.uasset",
+    "donor_sha256": "e24031376869d37d1eb9644ff9090a7c81220fdbf37d9d8fe36087a4a9fe1290",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_4.uasset",
+    "donor_sha256": "56465b5940fd690ae5f2f79a528bffa846eec8c3e3bb37de0ee041b9974b2e11",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_5.uasset",
+    "donor_sha256": "c12db2ad36046651158ca004b0b235e3103fe5818272dd9af635af507de08c2e",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_6.uasset",
+    "donor_sha256": "7eaa9c8e899f4241078c9786bc227bacc891b04424b0b0b2485c0c879e8e5251",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_7.uasset",
+    "donor_sha256": "56c3d07a733126b9b821fb23bb9d8ffa68752ed15d90b471abee2d93c484e4fd",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Attack_8.uasset",
+    "donor_sha256": "fd2695d335ed2114d9be0403e666f93a34377b4faac2cfc23c67a53878646837",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Dead_1.uasset",
+    "donor_sha256": "a6082d5de4735b4e5199c98f28dfd2bd7702e2e1192311186d2d6f205416bfab",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Dead_2.uasset",
+    "donor_sha256": "054f698d675f49de5714a6230203f93f3085f9328f2185f8841215cc8a21fac1",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Dead_3.uasset",
+    "donor_sha256": "d27439d634ef663d24e62aa24355aacc40286f4e43ac8ef5fede186579e7ae8d",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Dead_4.uasset",
+    "donor_sha256": "7b92195e40a7dafd836d471b5f8616d067800f322f04b569a285fc54d293ddbe",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Get_Hit_1.uasset",
+    "donor_sha256": "addcb2152f3559e8b49401354cea3d4a8aa9cceb451f6162d4783d8f5658379d",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Get_Hit_2.uasset",
+    "donor_sha256": "144a6819c99def3f64f9f49048b5ff24bffa05fb932b43fc00db9ef8b3aa810b",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Idle.uasset",
+    "donor_sha256": "c0e1c54e881b7ca8a76660830297c0b5b640cd5c1b58d44dee9cb33c4f8df0fe",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Idle_Othe.uasset",
+    "donor_sha256": "191c936ab0dbe1da630a931973994885c7ebb10aac087e9b6186d1bda7f48794",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Idle_Other_02.uasset",
+    "donor_sha256": "9f5865d94bf4ce5f82f70fdef1392b8d3499cf2803d05c1491fa662d57888360",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Idle_Sit.uasset",
+    "donor_sha256": "6d6a25371514d0a73d0c4c7d8572b759a43c7f2d29086eed9a50610449bedb0c",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Jump.uasset",
+    "donor_sha256": "84b52fb4305286522b5a6bf15ed6d0c607066e9fd22ff2cfd7b637bf9466797b",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run.uasset",
+    "donor_sha256": "3ee82a54a169216264468f7f0d275bbb7f031950e5ed0403fb4c92b1d74c3bdb",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run_Back.uasset",
+    "donor_sha256": "2a884960d4142b12954783a72a894208c3b1fa3b07977c73d36aaccd90c637f1",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run_Left.uasset",
+    "donor_sha256": "d581e590403572e071da95a9b1f5fbd3e51cd6170130bde32ee8458973993ba5",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Run_Right.uasset",
+    "donor_sha256": "fd34d899ea36ceade1e2bc906174b415455e247b81eb519c0b4b8c706ecaa647",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": true
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Shout.uasset",
+    "donor_sha256": "26ec1a081da0ab5e96b4245b427979d92c587341c86d9fbaf05dddceabf81194",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Take_Weapon.uasset",
+    "donor_sha256": "20d2c0b300999e8609b7455b250ebfb6aedb76d991fbfb88e5662497dd8cc35c",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Turn_left.uasset",
+    "donor_sha256": "1b07208304539dcfe8537500a255aa709deabbff160a19fe2498268584a8165c",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Turn_left_Sit.uasset",
+    "donor_sha256": "10f491e338fe1b3bc7cffef5619ea3eda839d4d2bcfb727361c7d676806d0460",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Turn_Right.uasset",
+    "donor_sha256": "38a9da431dfd2a0b2a32ce9c96dcfa97a73adec93ddf84e4aa7bd0271b579840",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Turn_Right_Sit.uasset",
+    "donor_sha256": "3011f2fe2bf74afe00b7218336102253680384b0459232435ba61c8103eadc7e",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk.uasset",
+    "donor_sha256": "19dbcf11e576dd55a7ded06b0cc1e9526aad5d16e9016389174db434a3245874",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Back.uasset",
+    "donor_sha256": "93836cd7ccdbf95d0bec8074d4b80b750e79faef05af968128c26b9f41338810",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Back_Sit.uasset",
+    "donor_sha256": "be46abb01c19734744c2c492c0ad197f3bdefaf64525c6b4f2c23322ba7f55fe",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Left.uasset",
+    "donor_sha256": "bd253d0bc7f62a8f37288dc291de6b1f90be81fa15aadba19365a54b7202ad0e",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Left_Sit.uasset",
+    "donor_sha256": "6cf9a675454824a75a2acf0b5b1b73dd292446da7efd947bf4f93b9cdf317d69",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Right.uasset",
+    "donor_sha256": "c5e342437667642b17a5f77a6f4460f64046ca9effa3159f33e347901120f3eb",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Sit.uasset",
+    "donor_sha256": "91ddbecfe4d5eda6b9d49806e1199b4be3c2ed4ae50a125857d18514c1954178",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  },
+  {
+    "path": "Fantasy_Pack\\Animations\\1With_Weapon\\Anim_Warrior_Walk_Sit_Right.uasset",
+    "donor_sha256": "abf202558152bf1b7fbee9a97288fc2a39019a55821af65ee28058034c926b9b",
+    "soul_exists": true,
+    "soul_matches": true,
+    "cooked": false
+  }
+]

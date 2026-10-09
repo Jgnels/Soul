@@ -1,0 +1,131 @@
+{
+  "scope": "Diagnostic signatures only; not a claim of zero hidden art defects. No donor repair undertaken.",
+  "runs": [
+    {
+      "run": "packaged-six-state-r1",
+      "matching_diagnostic_count": 4,
+      "diagnostics": [
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'WinPixGpuCapturer.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "run": "packaged-six-load-r1",
+      "matching_diagnostic_count": 4,
+      "diagnostics": [
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'WinPixGpuCapturer.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "run": "packaged-viking-ordinary-r1",
+      "matching_diagnostic_count": 6,
+      "diagnostics": [
+        {
+          "message": "LogPackageName: Error: GetLocalBaseFilenameWithPath: Failed converting package name \"/MeshModelingToolsetExp/Materials/GetDisplacementVectorForDepthBias\" to file name",
+          "count": 1
+        },
+        {
+          "message": "LogSoulCampaign: Error: SOUL_SETTLEMENT_DEVELOPMENT_UNREADY Development must bind an existing owned settlement region and the player faction.",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'WinPixGpuCapturer.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "run": "packaged-viking-load-r1",
+      "matching_diagnostic_count": 5,
+      "diagnostics": [
+        {
+          "message": "LogSoulCampaign: Error: SOUL_SETTLEMENT_DEVELOPMENT_UNREADY Development must bind an existing owned settlement region and the player faction.",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'WinPixGpuCapturer.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "run": "editor-viking-poses-r2",
+      "matching_diagnostic_count": 5,
+      "diagnostics": [
+        {
+          "message": "LogSoulCampaign: Error: SOUL_SETTLEMENT_DEVELOPMENT_UNREADY Development must bind an existing owned settlement region and the player faction.",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'WinPixGpuCapturer.dll' (GetLastError=126)",
+          "count": 1
+        },
+        {
+          "message": "LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

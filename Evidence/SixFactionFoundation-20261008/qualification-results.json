@@ -1,0 +1,56 @@
+{
+  "starting_head": "41f604475e94905ff9afc2cb0e55148e0412618b",
+  "source_commit": "14a840e089fa8c9a7a9f6fead4582a5c36db7963",
+  "candidate": "/Game/SoulCampaignComposition/L_Composition_3500_r2",
+  "world_foundation": "KEEP",
+  "six_faction_canonical_state": "PASS",
+  "adversarial_save_safety": "PASS",
+  "next_faction_matchup": "PASS",
+  "selected_faction": "vikings",
+  "ready_for_controlled_six_faction_ai": false,
+  "ai_enabled": false,
+  "canonical_regions": 36,
+  "canonical_edges": 51,
+  "initial_owned": 12,
+  "initial_neutral": 24,
+  "supported_ordered_matchups": 3,
+  "unsupported_ordered_matchups": 27,
+  "explicit_directed_approaches": 20,
+  "unset_directed_approaches": 82,
+  "natural_victory_survivors": [
+    34,
+    0
+  ],
+  "natural_defeat_survivors": [
+    0,
+    30
+  ],
+  "fresh_process_restoration": "PASS for six-faction, Viking victory and Viking defeat",
+  "native_tests": 38,
+  "final_combat_repeat": 10,
+  "source_tool_tests": 36,
+  "fresh_builds": [
+    "SoulEditor",
+    "Soul",
+    "SoulComposition"
+  ],
+  "performance_qualification": "NOT RUN; prior 85 C failure remains open",
+  "functional_peak_gpu_c": 67,
+  "preservation": "PASS",
+  "receipts": {
+    "state-proof-cooked.json": "71a43f996cab8595732c2ceeb1de60d8669e5cf145889168d614d1d0cf59c4be",
+    "state-proof-final-binary.json": "daae77bdee8ce0af4ab8e1245a9fd2e597b6bc9b36ff6beb67bf41fb8abe954a",
+    "viking-victory-result.json": "b0f515ac15a9af626b71c1666e5595b44d79bb007f003422383acda3818259ca",
+    "viking-defeat-result.json": "1c4a47249d48e5e4704fc79b1ffbe8ed2fafc74e3e017cacc4ffe51893b5ca33",
+    "viking-pose-result.json": "e93ce067d241d486c82c2cc31c0844a8ff60766e1ddac3f70c880643a17af41d",
+    "final-build-results.json": "2dd13c8dc021997d2174dd7ebd0f00742107d43a513530b93c561fc30a7bdb80",
+    "final-native-results.json": "a5e1a74a5f41ec5a8cb6f5fefe7b269d69c447dd6f7890d338304178534dc568",
+    "stage-integrity-before-final.json": "f16f709bb373926354a962c4d0da01ddd8c2fe8b0788c4ccc9a96bc0dea90d48",
+    "stage-integrity-after-final.json": "8e9abeb1e48a4c13e3ce4586f9117e0ad3e67fc2262c7e657a6051e8bdddab94",
+    "preservation-after.json": "2be058e3ff5fd3a8ecd3f26000e7800eefc6ca3bceee22d2e62e84aef829c008"
+  },
+  "no_push": true,
+  "no_merge": true,
+  "no_promotion": true,
+  "all_requested_phases_complete": true
+}

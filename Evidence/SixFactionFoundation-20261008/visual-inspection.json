@@ -1,0 +1,191 @@
+{
+  "reviewed_utc": "2026-10-09T02:34:55.580062+00:00",
+  "captures": [
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_humans.png",
+      "sha256": "609c2a6807c5b44f9ad931a290a0215be56c46701cc7f2bf4018db4b25e41988",
+      "review": "Viewed at native 1920x1080. Correct distinct faction, canonical site, troop/AP state and read-only inspection. Nature/Dark explicitly say battle roster unavailable.",
+      "art_limit": "Existing map art and abstract non-Human army markers remain provisional; no new art acceptance."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_dwarves.png",
+      "sha256": "ae57106ac26139fb2d30903f703f05517ff61c06a0dcf215ad45187fc7899b80",
+      "review": "Viewed at native 1920x1080. Correct distinct faction, canonical site, troop/AP state and read-only inspection. Nature/Dark explicitly say battle roster unavailable.",
+      "art_limit": "Existing map art and abstract non-Human army markers remain provisional; no new art acceptance."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_orcs.png",
+      "sha256": "d69b89a01508fcf469c8e276879f3e7b0f08092f44bdf50e68047ef5d6471fd0",
+      "review": "Viewed at native 1920x1080. Correct distinct faction, canonical site, troop/AP state and read-only inspection. Nature/Dark explicitly say battle roster unavailable.",
+      "art_limit": "Existing map art and abstract non-Human army markers remain provisional; no new art acceptance."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_vikings.png",
+      "sha256": "f3a49840fd04ae7e2f765cfd6a9d172941b54d851529fb2729236900b3f46d06",
+      "review": "Viewed at native 1920x1080. Correct distinct faction, canonical site, troop/AP state and read-only inspection. Nature/Dark explicitly say battle roster unavailable.",
+      "art_limit": "Existing map art and abstract non-Human army markers remain provisional; no new art acceptance."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_nature.png",
+      "sha256": "ad450997177428584c1c81ff20be208860b623674df9d407717954b8004ef0bc",
+      "review": "Viewed at native 1920x1080. Correct distinct faction, canonical site, troop/AP state and read-only inspection. Nature/Dark explicitly say battle roster unavailable.",
+      "art_limit": "Existing map art and abstract non-Human army markers remain provisional; no new art acceptance."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_dark.png",
+      "sha256": "8288e40dba5c19ff175e4680b805e260564c0306d27fe8ba27d86a66ab014783",
+      "review": "Viewed at native 1920x1080. Correct distinct faction, canonical site, troop/AP state and read-only inspection. Nature/Dark explicitly say battle roster unavailable.",
+      "art_limit": "Existing map art and abstract non-Human army markers remain provisional; no new art acceptance."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_Saved.png",
+      "sha256": "a733931b90d97afa8314d46c082d0be2c3f4c2a66593e84ce6a9a930d3bfac8b",
+      "review": "F5 at Crossroads; 45 troops, 2 AP, day 1, gold 3000."
+    },
+    {
+      "path": "Local/packaged-six-state-r1/User/Saved/Screenshots/SixFaction_Restored.png",
+      "sha256": "47afbca517d499ed6cdf7438532391be0530639a8be3c150ed8ce2054e2187c6",
+      "review": "F9 restores the same gameplay values after a real day advance."
+    },
+    {
+      "path": "Local/packaged-six-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "sha256": "f44070a053a29cd41dda8f0ea3dc12de10200c3582c67b698afa04d0670409c9",
+      "review": "Separate cooked process shows Crossroads and exact saved gameplay state; camera pose persistence not claimed."
+    },
+    {
+      "path": "Local/packaged-viking-ordinary-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "sha256": "45be93071a1567a6b59fcbf5534f3f8349ced86bdfc9733abee997397c2597a4",
+      "review": "Actual cooked Viking infantry visible on enemy side, upright and comparable in human scale; no obvious body fallback. Too wide to accept grip/individual poses."
+    },
+    {
+      "path": "Local/packaged-viking-ordinary-r1/User/Saved/Screenshots/Vertical_Campaign_Return.png",
+      "sha256": "f02c9e36f181941ac1a375c023cff34e310a6838c139202a3545d8e3eabbf42f",
+      "review": "Natural victory: Snow Pass, 34 allied/0 hostile, gold 3600, AP 2; correct return."
+    },
+    {
+      "path": "Local/packaged-viking-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "sha256": "1490b354c3d936f5d769493e72a9c534e67815845b346ce875f100f0c507122d",
+      "review": "Fresh process restores the same victory and campaign state."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/00-Anim_Warrior_Idle.png",
+      "sha256": "bd813622542c763c21d6483972ab7532dd82cb64bcbd436eb0ede681e48e8209",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/01-Anim_Warrior_Run.png",
+      "sha256": "edef82c9d3ebcbf8b24bfa107f452f1756e6615fa5b57e90983220be74bb45f2",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/02-Anim_Warrior_Attack_1.png",
+      "sha256": "48ddca188fe64aa8802d0e248392637770fec0bd4c5a63fb899e2259a9d4f19a",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/03-Anim_Warrior_Attack_2.png",
+      "sha256": "781000cf856bf161c318441576384015ecd82206d86968a9f0513c80350f5e7e",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/04-Anim_Warrior_Attack_3.png",
+      "sha256": "7f55e64ed08719556e7e4f92fcbd785ef68b8ce30055a8393c3266f837120852",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/05-Anim_Warrior_Attack_4.png",
+      "sha256": "d784155abf80ef8f4c97c673389cd4170398dad0a3b8b6e88e0756e82b6d165a",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/06-Anim_Warrior_Get_Hit_1.png",
+      "sha256": "3a101a73cf31edda164d9ca602449efdfe47b71a4e9ac6208cd2d357c464d3e4",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/editor-viking-poses-r2/User/Saved/Screenshots/AnimationPoses/07-Anim_Warrior_Dead_1.png",
+      "sha256": "d03be1f5d61b8716b52a54c0b5a0063f4109ba157c67adecfb56caefc2ec3405",
+      "review": "Reviewed close view of owned Ulf body and axe: correct proportions, deformation, right-hand attachment and facing. Idle/run/four attacks/hit/death inspected. Explicit paused pose diagnostic; not natural combat evidence.",
+      "art_limit": "Existing tactical texture quality; no new cinematic-art acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/00-Anim_Warrior_Idle.png",
+      "sha256": "5ce181fb00904ae1051e985c7eef3c5f0ec60dd3db160025c0f74ddb7d6322a9",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/01-Anim_Warrior_Run.png",
+      "sha256": "edef1f7726fcaefc06afe46919c4f1251a5f4db42a1c0ee3fea072fa18b4e098",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/02-Anim_Warrior_Attack_1.png",
+      "sha256": "be3e36a4c7d34a37b3e8b85ec5fa9293440cd4a4be176d3435f66e4d8867e1ca",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/03-Anim_Warrior_Attack_2.png",
+      "sha256": "da7ddfb5bdc237f5a419890a10dac578f93b80ead8f4174412f071ec6a98aee3",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/04-Anim_Warrior_Attack_3.png",
+      "sha256": "d23196afb8ceef6b90d5a0afbbe0c3295ee2bb15fafc6dd03f7eafa182c75e4a",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/05-Anim_Warrior_Attack_4.png",
+      "sha256": "5726f24605111dad54e37c9fe20f2ccd483ebe37a89d11fc0eeff073de16c41b",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/06-Anim_Warrior_Get_Hit_1.png",
+      "sha256": "5378ea6428403103a58e54f56ed5d525c241e6fd3f9bf8f6f30769540f3b05c1",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/07-Anim_Warrior_Dead_1.png",
+      "sha256": "1203da9c2234d7a0631f3087cca94d4172342b9a49c0fa5dc8a5abf558830da4",
+      "review": "Final cooked stage: reviewed owned Ulf body and axe at close range. Idle, run, four attacks, hit and death deform correctly; the axe stays with the right hand; facing and proportions are coherent. Paused pose diagnostic, separate from natural combat proof.",
+      "art_limit": "Soft tactical body textures and existing ground tiling remain; no final art or performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-defeat-r1/User/Saved/Screenshots/Vertical_Battle.png",
+      "sha256": "15d18bdef79a604b86602c92372ba577f8f7a7c1b435292fa08355984ddc86e1",
+      "review": "Natural 3-versus-30 battle; defeat returns to Mountain Shrine with 0 Human / 30 Viking survivors, day 1, AP 2 and gold 3000.",
+      "art_limit": "Existing campaign/battle art unchanged; no performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-defeat-r1/User/Saved/Screenshots/Vertical_Campaign_Return.png",
+      "sha256": "adb058703a8f36a3286ed313887b0d75e190d193892ee2ba18d3004a346f9959",
+      "review": "Natural 3-versus-30 battle; defeat returns to Mountain Shrine with 0 Human / 30 Viking survivors, day 1, AP 2 and gold 3000.",
+      "art_limit": "Existing campaign/battle art unchanged; no performance acceptance."
+    },
+    {
+      "path": "Local/packaged-viking-defeat-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "sha256": "2b380999137d7a10d3850174b719931f61cdd21806265a72e1557686b86479e0",
+      "review": "Fresh final-binary load visibly restores the same Mountain Shrine defeat, 0/30 survivors and campaign resources.",
+      "art_limit": "Existing campaign/battle art unchanged; no performance acceptance."
+    },
+    {
+      "path": "Local/packaged-six-final-load-r1/User/Saved/Screenshots/Campaign_Cold_Load.png",
+      "sha256": "7c040752572bc99c6c96d91fd965b50ada42a17ae27c4f7232f2b367c9714d7c",
+      "review": "Fresh final-binary load visibly restores SixFactionProof at Crossroads: 45 Human troops, 2 AP, day 1, gold 3000; AI OFF. Full six-army snapshot verified by the existing observer.",
+      "art_limit": "Existing campaign/battle art unchanged; no performance acceptance."
+    }
+  ]
+}

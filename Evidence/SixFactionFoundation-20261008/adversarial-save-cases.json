@@ -1,0 +1,42 @@
+{
+  "native_receipt": "Local/native-six-final/receipt.json",
+  "pass": true,
+  "corrupt_snapshot_cases": [
+    "wrong profile",
+    "missing profile",
+    "old nine-region shape",
+    "wrong region count",
+    "missing canonical region",
+    "duplicate region",
+    "unknown region owner",
+    "owner mirror disagreement",
+    "unknown faction",
+    "duplicate faction",
+    "wrong army owner",
+    "wrong army identity",
+    "unsupported roster substitution",
+    "foreign occupied region",
+    "negative troops",
+    "fractional troops",
+    "overflow gold",
+    "missing gold",
+    "invalid AP",
+    "foreign day",
+    "null army row"
+  ],
+  "all_cases_require_explicit_failure_and_exact_live_snapshot_preservation": true,
+  "additional_cross_profile_checks": [
+    "Actual retained nine-region save into SixFactionProof rejects atomically",
+    "SixFactionProof snapshot into retained/default subsystem rejects atomically"
+  ],
+  "positive_checks": [
+    "Distinct per-owner gold/AP values restore exactly",
+    "New subsystem restores exact six-faction snapshot",
+    "Earlier unbound Viking None remains None and cannot battle"
+  ],
+  "cross_domain_checks": [
+    "Corrupt Soul.Campaign rolls both registered domains back",
+    "Corrupt Soul.Settlements rolls both registered domains back",
+    "Valid domain restore still succeeds afterward"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "pass": true,
+  "runtime_kind": "packaged",
+  "binary_sha256": "f42eab96854c71936e954e2bfe077bf91e789c8fbd063faf7a6625581c3c8986",
+  "summary": "Local/packaged-viking-poses-r1/runtime/summary.json",
+  "mesh": "/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SK_Ulf_Full",
+  "weapon": "/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe",
+  "attachment": "hand_r; native transform; cosmetic collision disabled; existing RBCombat owns damage",
+  "body_scale": 1,
+  "body_yaw_degrees": -90,
+  "animation_family": "/Game/Fantasy_Pack/Animations/1With_Weapon/",
+  "native_compatibility": "Soul.RealtimeBattle.Vertical.ExactVikingCampaignRoster",
+  "visual_review": "All eight cooked images actually inspected; correct deformation, facing, proportions and axe grip. Soft tactical texture quality remains.",
+  "captures": [
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/00-Anim_Warrior_Idle.png",
+      "sha256": "5ce181fb00904ae1051e985c7eef3c5f0ec60dd3db160025c0f74ddb7d6322a9"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/01-Anim_Warrior_Run.png",
+      "sha256": "edef1f7726fcaefc06afe46919c4f1251a5f4db42a1c0ee3fea072fa18b4e098"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/02-Anim_Warrior_Attack_1.png",
+      "sha256": "be3e36a4c7d34a37b3e8b85ec5fa9293440cd4a4be176d3435f66e4d8867e1ca"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/03-Anim_Warrior_Attack_2.png",
+      "sha256": "da7ddfb5bdc237f5a419890a10dac578f93b80ead8f4174412f071ec6a98aee3"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/04-Anim_Warrior_Attack_3.png",
+      "sha256": "d23196afb8ceef6b90d5a0afbbe0c3295ee2bb15fafc6dd03f7eafa182c75e4a"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/05-Anim_Warrior_Attack_4.png",
+      "sha256": "5726f24605111dad54e37c9fe20f2ccd483ebe37a89d11fc0eeff073de16c41b"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/06-Anim_Warrior_Get_Hit_1.png",
+      "sha256": "5378ea6428403103a58e54f56ed5d525c241e6fd3f9bf8f6f30769540f3b05c1"
+    },
+    {
+      "path": "Local/packaged-viking-poses-r1/User/Saved/Screenshots/AnimationPoses/07-Anim_Warrior_Dead_1.png",
+      "sha256": "1203da9c2234d7a0631f3087cca94d4172342b9a49c0fa5dc8a5abf558830da4"
+    }
+  ],
+  "paused_diagnostic_not_combat_result": true,
+  "performance_qualification": false
+}

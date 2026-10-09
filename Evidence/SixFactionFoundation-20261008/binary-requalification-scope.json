@@ -1,0 +1,15 @@
+{
+  "compiled_changes_after_ordinary_cooked_victory": [
+    "Source/SoulRealtimeBattle/Private/SoulBattleReadabilityQualification.cpp"
+  ],
+  "noncompiled_manifest_differences": [
+    "Source/Soul/Private/Tests/__pycache__/test_weekend_campaign_view.cpython-311.pyc",
+    "Source/Soul/Private/Tests/__pycache__/test_weekend_campaign_view.cpython-312.pyc",
+    "Source/Soul/Private/Tests/test_weekend_campaign_view.py"
+  ],
+  "scope": "Explicit paused Viking pose observer only; normal campaign/combat/save compiled source unchanged. Final binary receives cooked pose, natural defeat, and fresh-load regression. Prior ordinary victory and full six-state evidence retained.",
+  "fresh_builds": "final-build-results.json",
+  "source_hash_manifest_before": "final-source-build-inputs.json",
+  "source_hash_manifest_final": "final-source-build-inputs-pose.json",
+  "noncompiled_note": "Inventory scope differs: the earlier manifest filtered compiled source. The Python test path already appears in the baseline git status; Python cache entries are generated and not compiled/admitted gameplay."
+}

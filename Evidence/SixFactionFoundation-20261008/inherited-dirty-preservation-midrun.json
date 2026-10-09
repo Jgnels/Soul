@@ -1,0 +1,104 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256_before": "719ebe46beabadfd54e62759dd90d39c4e1dcaf567e75f092793f50294ab0235",
+    "sha256_now": "719ebe46beabadfd54e62759dd90d39c4e1dcaf567e75f092793f50294ab0235",
+    "unchanged": true
+  },
+  {
+    "path": "Config/DefaultEngine.ini",
+    "sha256_before": "dd1b81a0935755cad20e3ba9aac144943d267e2e0f012aa35eee8813c0aeccad",
+    "sha256_now": "dd1b81a0935755cad20e3ba9aac144943d267e2e0f012aa35eee8813c0aeccad",
+    "unchanged": true
+  },
+  {
+    "path": "Config/DefaultGame.ini",
+    "sha256_before": "c5f826e7e613e1ee0686ec1f146c3be87017087cd16d2285791f5eb839c20db2",
+    "sha256_now": "c5f826e7e613e1ee0686ec1f146c3be87017087cd16d2285791f5eb839c20db2",
+    "unchanged": true
+  },
+  {
+    "path": "Data/CampaignWorldTerrain/presentation.json",
+    "sha256_before": "9a98618ef9747bcc3baf652c97672cd2ca7651fd51b9d944134fb9c69cd2dc8b",
+    "sha256_now": "9a98618ef9747bcc3baf652c97672cd2ca7651fd51b9d944134fb9c69cd2dc8b",
+    "unchanged": true
+  },
+  {
+    "path": "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md",
+    "sha256_before": "bace68c4ce1c107053dd418a8ba973e4e716a5326560e4b5fd52b026c9095353",
+    "sha256_now": "bace68c4ce1c107053dd418a8ba973e4e716a5326560e4b5fd52b026c9095353",
+    "unchanged": true
+  },
+  {
+    "path": "Evidence/ProductionPush-20261008/HANDOFF.md",
+    "sha256_before": "c0be43a575583548f4b3ba590fc3bc8d20507224da444cedc09fe512712d063f",
+    "sha256_now": "c0be43a575583548f4b3ba590fc3bc8d20507224da444cedc09fe512712d063f",
+    "unchanged": true
+  },
+  {
+    "path": "Soul.uproject",
+    "sha256_before": "9a46e4c95ca753c2fb944f41e7d3c8b48730cdae4bfc78a0f05b49b6395c971c",
+    "sha256_now": "9a46e4c95ca753c2fb944f41e7d3c8b48730cdae4bfc78a0f05b49b6395c971c",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/README.md",
+    "sha256_before": "fdf4c3c819ef5095bd46f74589c31d2ab11258ef8da45c5238f00e39507cc69c",
+    "sha256_now": "fdf4c3c819ef5095bd46f74589c31d2ab11258ef8da45c5238f00e39507cc69c",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/author_world.py",
+    "sha256_before": "b2eb076e6f22932932c501f7d2039840bedd892ec23be1ad4f527e10862f9d64",
+    "sha256_now": "b2eb076e6f22932932c501f7d2039840bedd892ec23be1ad4f527e10862f9d64",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/bake_surface.py",
+    "sha256_before": "eba7d1d2393268ca42e346fdc30a872395cb9dc8a39f3d6fcc5edb6a909bcb16",
+    "sha256_now": "eba7d1d2393268ca42e346fdc30a872395cb9dc8a39f3d6fcc5edb6a909bcb16",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/bake_world.py",
+    "sha256_before": "fdfce4e95a81242d3636f0caf213b9242f2093b1f9a2a09595ff73a6e4ff9e78",
+    "sha256_now": "fdfce4e95a81242d3636f0caf213b9242f2093b1f9a2a09595ff73a6e4ff9e78",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/dress_world.py",
+    "sha256_before": "6dc3bc3fb5a7d61d69132945c9d51098cab25ee60940d10f90bff7ff2bc01919",
+    "sha256_now": "6dc3bc3fb5a7d61d69132945c9d51098cab25ee60940d10f90bff7ff2bc01919",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/import_masks.py",
+    "sha256_before": "6259b58ba27fb29876e2d4cb46b108ba74660e504c1675da8e05929dbbf2862c",
+    "sha256_now": "6259b58ba27fb29876e2d4cb46b108ba74660e504c1675da8e05929dbbf2862c",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/qualify_world.py",
+    "sha256_before": "6b97626aca48fc0acfb7ba617b0386a319c1d3ec0e175a1ec45047a8db4ab98a",
+    "sha256_now": "6b97626aca48fc0acfb7ba617b0386a319c1d3ec0e175a1ec45047a8db4ab98a",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/WorldTerrain/test_world.py",
+    "sha256_before": "c5d3a2e6ad351a51a9942a604186aa662903b875ac7f14487a777e8a24ec5d88",
+    "sha256_now": "c5d3a2e6ad351a51a9942a604186aa662903b875ac7f14487a777e8a24ec5d88",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/package_soul_weekend.ps1",
+    "sha256_before": "46169759f037b57cb5e3ee9fcb2dac3e364d10c1c75235893b46271f7f024387",
+    "sha256_now": "46169759f037b57cb5e3ee9fcb2dac3e364d10c1c75235893b46271f7f024387",
+    "unchanged": true
+  },
+  {
+    "path": "Tools/test_package_soul_weekend.py",
+    "sha256_before": "53c31a3cb63a467df5e408275064f3b4e40d5a7fd8fb7043846f866f9021c9b0",
+    "sha256_now": "53c31a3cb63a467df5e408275064f3b4e40d5a7fd8fb7043846f866f9021c9b0",
+    "unchanged": true
+  }
+]
