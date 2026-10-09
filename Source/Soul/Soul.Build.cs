@@ -44,6 +44,8 @@ public class Soul : ModuleRules
                     "Data/CampaignComposition/RuntimeProof.json",
                     "Data/CampaignComposition/HumanRuntimeProof.json",
                     "Data/CampaignComposition/OrcRuntimeProof.json",
+                    "Data/CampaignComposition/SixFactionRuntimeProof.json",
+                    "Data/CampaignComposition/VikingRuntimeProof.json",
                     "Data/CampaignCompositionLocal/Composition_3500_r2.r16"
                 })
                     RuntimeDependencies.Add("$(ProjectDir)/" + File, StagedFileType.NonUFS);

@@ -13,7 +13,8 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
         // alone cannot select a visually unrelated side-based fallback.
         && PlayerFaction == TEXT("humans") && PlayerUnitId == TEXT("human_knight")
         && ((EnemyFaction == TEXT("dwarves") && EnemyUnitId == TEXT("dwarf_warrior"))
-            || (EnemyFaction == TEXT("orcs") && EnemyUnitId == TEXT("orc_hammer_warrior")));
+            || (EnemyFaction == TEXT("orcs") && EnemyUnitId == TEXT("orc_hammer_warrior"))
+            || (EnemyFaction == TEXT("vikings") && EnemyUnitId == TEXT("viking_axe_warrior")));
 }
 
 bool USoulCampaignBattleBridge::BeginEncounter(const FSoulCampaignBattleDescriptor& Descriptor)

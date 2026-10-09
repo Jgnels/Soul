@@ -25,6 +25,7 @@ FRotator ASoulRealtimeArenaGameMode::VisualMeshRotation(ESoulRealtimeMovementArc
 
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualReaction(int32 Side, ESoulRealtimeFormationRole FormationRole) const
 {
+    if(UsesVikingCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Get_Hit_1.Anim_Warrior_Get_Hit_1"));
     if(UsesOrcCampaignRoster(Side))return LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Animations/Anim_Orc_Hummer_Get_hit.Anim_Orc_Hummer_Get_hit"));
     const TCHAR* Path=nullptr;
     if(FormationRole==ESoulRealtimeFormationRole::Ranged) Path=TEXT("/Game/ParagonSparrow/Characters/Heroes/Sparrow/Animations/Stunned_Start.Stunned_Start");
@@ -48,6 +49,12 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveAerialFall(int32 Side) const
 // Clips remain on their donor skeleton; no animation-driven combat outcomes.
 UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveStanceAnimation(int32 Side, ESoulRealtimeFormationRole FormationRole, int32 Mode) const
 {
+    if(UsesVikingCampaignRoster(Side))
+    {
+        if(Mode==0)return ResolveVisualAnimation(Side,false,FormationRole);
+        static const TCHAR* Clips[]={TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Run.Anim_Warrior_Run"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Back.Anim_Warrior_Run_Back"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Left.Anim_Warrior_Run_Left"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Run_Right.Anim_Warrior_Run_Right"),TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/Anim_Warrior_Idle_Sit.Anim_Warrior_Idle_Sit")};
+        return LoadObject<UAnimationAsset>(nullptr,Clips[FMath::Clamp(Mode-1,0,4)]);
+    }
     if(UsesOrcCampaignRoster(Side))return ResolveVisualAnimation(Side,Mode!=0&&Mode!=5,FormationRole);
     if(Mode==0) return ResolveVisualAnimation(Side,false,FormationRole);
     if(FormationRole==ESoulRealtimeFormationRole::Apex || FormationRole==ESoulRealtimeFormationRole::Breaker)

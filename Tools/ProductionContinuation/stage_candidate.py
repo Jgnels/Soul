@@ -5,17 +5,31 @@ R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261
 sys.path[:0]=[str(R/'Tools'),str(R/'Tools/WorldTerrain')]
 from qualify_soul_vertical import conflicting_processes,gpu_sample,process_memory_sample
 from host_commit import system_commit_sample
-p=argparse.ArgumentParser();p.add_argument('--cook',type=Path,required=True);p.add_argument('--prior-profile',type=Path,help='Exact profile used for the verified cook, only for added loose fixture/save-slot compatibility.');p.add_argument('--run',required=True);p.add_argument('--minutes',type=int,default=45);p.add_argument('--loose-hardlink',action='store_true',help='Stage loose cooked content with same-volume hardlinks in a fresh temporary stage; not a distributable archive.');p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
+p=argparse.ArgumentParser();p.add_argument('--cook',type=Path,required=True);p.add_argument('--roster-cook',type=Path,help='Verified additive Viking axe cook; loose qualification stage only.');p.add_argument('--prior-profile',type=Path,help='Exact profile used for the verified cook, only for added loose fixture/save-slot compatibility.');p.add_argument('--run',required=True);p.add_argument('--minutes',type=int,default=45);p.add_argument('--loose-hardlink',action='store_true',help='Stage loose cooked content with same-volume hardlinks in a fresh temporary stage; not a distributable archive.');p.add_argument('--evidence-root',type=Path,default=E);a=p.parse_args();E=a.evidence_root.resolve();assert E.is_relative_to((R/'Evidence').resolve());E.mkdir(parents=True,exist_ok=True)
 assert 1<=a.minutes<=60 and all(c.isalnum() or c in '-_' for c in a.run)
 cook=a.cook.resolve();assert cook.is_relative_to((R/'Evidence').resolve())
 cr=json.loads((cook/'Diagnostics/receipt.json').read_text());assert cr['pass'] and cr['scope']=='runtime'
 profile=R/'Data/CampaignComposition/PackageProfile.json'
+roster=None
+if a.roster_cook:
+ assert a.loose_hardlink and a.roster_cook.resolve().is_relative_to((R/'Evidence').resolve())
+ roster=json.loads((a.roster_cook/'Diagnostics/receipt.json').read_text())
+ assert roster['pass'] and roster['scope']=='viking-roster' and roster['inline_material_shaders']
+ assert roster['profile_sha256']==hashlib.sha256(profile.read_bytes()).hexdigest()
+ assert roster['requested_roots']==['/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe']
 cook_compatibility={'asset_cook_inputs_unchanged':True,'added_loose_fixtures':[],'added_isolated_save_slots':{},'fresh_asset_cook':False}
 if hashlib.sha256(profile.read_bytes()).hexdigest()!=cr['profile_sha256']:
  assert a.prior_profile and a.prior_profile.resolve().is_relative_to((R/'Evidence').resolve()),'Changed profile needs its preserved exact cook profile'
  assert hashlib.sha256(a.prior_profile.read_bytes()).hexdigest()==cr['profile_sha256'],'Prior profile does not belong to this cook'
  from cook_profile import verify_compatible_cook_profile
- cook_compatibility=verify_compatible_cook_profile(json.loads(a.prior_profile.read_text()),json.loads(profile.read_text()))
+ old=json.loads(a.prior_profile.read_text());current=json.loads(profile.read_text())
+ if roster:
+  assert set(current['cook_roots'])-set(old['cook_roots'])==set(roster['requested_roots'])
+  assert set(old['cook_roots'])<=set(current['cook_roots'])
+  # Explicit fresh additive cook, not an unchanged-asset compatibility waiver.
+  old['cook_roots']=current['cook_roots']
+ cook_compatibility=verify_compatible_cook_profile(old,current)
+ if roster:cook_compatibility.update(asset_cook_inputs_unchanged=False,fresh_asset_cook=True,additive_roots=roster['requested_roots'],base_world_recooked=False)
  cook_compatibility['prior_profile']=str(a.prior_profile.resolve())
  cook_compatibility['prior_profile_sha256']=cr['profile_sha256']
 cook_compatibility['current_profile_sha256']=hashlib.sha256(profile.read_bytes()).hexdigest()
@@ -97,6 +111,11 @@ for ini in stage.rglob('*.ini') if stage.exists() else []:
 if receipt['exit_code']==0 and exe.exists() and not receipt.get('stop_reason'):
  resource_cmd=['powershell','-NoProfile','-NonInteractive','-File',str(R/'Tools/Stage-SoulTcatResources.ps1'),'-ProjectRoot',str(R),'-WindowsPackageRoots',str(stage/'Windows'),'-ExecutableName','SoulComposition.exe']
  resources=subprocess.run(resource_cmd,capture_output=True,text=True,creationflags=subprocess.CREATE_NO_WINDOW);receipt['resources_exit']=resources.returncode;(logs/'supplemental-resources.txt').write_text(resources.stdout+resources.stderr,encoding='utf-8')
+if roster and receipt['exit_code']==0 and receipt.get('resources_exit')==0:
+ from roster_stage import append_viking_cook
+ receipt['supplemental_cooked_files']=append_viking_cook(Path(roster['cooked_directory']),stage/'Windows',logs/'UAT/Manifest_UFSFiles_Win64.txt')
+ receipt['additive_cook_receipt']=str(a.roster_cook/'Diagnostics/receipt.json')
+ receipt['asset_registry_note']='Verified base registry retained; additive axe packages are explicit LoadObject dependencies, not discovery/AssetManager content. Local loose qualification only.'
 if receipt['exit_code']==0 and receipt.get('resources_exit')==0:
  from staged_copy_timestamps import refresh_stage_copies
  receipt['staged_copy_freshness']=refresh_stage_copies(stage/'Windows')

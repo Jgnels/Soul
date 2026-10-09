@@ -1,5 +1,20 @@
 #include "SoulCampaign.h"
 
+const TArray<FName>& FSoulCampaignRules::CanonicalFactions()
+{
+    static const TArray<FName> Ids = {TEXT("humans"), TEXT("dwarves"), TEXT("orcs"), TEXT("vikings"), TEXT("nature"), TEXT("dark")};
+    return Ids;
+}
+
+FName FSoulCampaignRules::AdmittedStrategicUnit(FName FactionId)
+{
+    if (FactionId == TEXT("humans")) return TEXT("human_knight");
+    if (FactionId == TEXT("dwarves")) return TEXT("dwarf_warrior");
+    if (FactionId == TEXT("orcs")) return TEXT("orc_hammer_warrior");
+    if (FactionId == TEXT("vikings")) return TEXT("viking_axe_warrior");
+    return NAME_None;
+}
+
 bool FSoulCampaignRules::SpendAction(FSoulCampaignEconomy& Campaign, int32 Cost)
 {
     Cost = FMath::Max(0, Cost);

@@ -363,6 +363,8 @@ private:
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     bool UsesEvilVisualRoster() const;
     bool UsesOrcCampaignRoster(int32 Side) const;
+    bool UsesVikingCampaignRoster(int32 Side) const;
+    friend class FSoulVikingCampaignRosterTest;
     ESoulRealtimeFormationRole CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const;
     friend class FSoulOrcCampaignRosterTest;
     void UpdateVisualAnimations();

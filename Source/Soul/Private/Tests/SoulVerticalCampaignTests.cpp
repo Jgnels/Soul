@@ -221,6 +221,12 @@ bool FSoulVerticalSupportedMatchupTest::RunTest(const FString&)
         WrongPair=Orc;WrongPair.EnemyFaction=TEXT("evil");
         Reject(TEXT("Dark faction is not an Orc alias"),WrongPair);
 
+        auto Viking=Valid;Viking.EnemyFaction=TEXT("vikings");Viking.EnemyUnitId=TEXT("viking_axe_warrior");
+        TestTrue(TEXT("exact Viking axe pair admitted"),Viking.IsValid());
+        for(FName Faction:TArray<FName>{TEXT("humans"),TEXT("dwarves"),TEXT("orcs"),TEXT("nature"),TEXT("dark")})
+        {auto Wrong=Viking;Wrong.EnemyFaction=Faction;Reject(TEXT("Viking unit never aliases another faction"),Wrong);}
+        auto WrongViking=Viking;WrongViking.EnemyUnitId=TEXT("human_knight");Reject(TEXT("Vikings never inherit Human visual roster"),WrongViking);
+
         const int32 AP = S->Economy.ActionPoints;
         S->EnemyUnitId = TEXT("unknown_unit");
         TestFalse(TEXT("campaign cannot commit unsupported descriptor"), S->BeginBattle(Target));

@@ -41,6 +41,7 @@ void ASoulFounderPlaytestPlayerController::SetupInputComponent()
 
     InputComponent->BindKey(EKeys::MouseScrollUp, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomIn);
     InputComponent->BindKey(EKeys::MouseScrollDown, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomOut);
+    InputComponent->BindKey(EKeys::I, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::InspectNextFaction);
     InputComponent->BindKey(EKeys::Home, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::SoulFocusCompany);
     InputComponent->BindKey(EKeys::One, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Number1);
     InputComponent->BindKey(EKeys::Two, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Number2);
@@ -73,6 +74,13 @@ void ASoulFounderPlaytestPlayerController::SetupInputComponent()
     InputComponent->BindKey(EKeys::Gamepad_RightTrigger, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ZoomIn);
     InputComponent->BindKey(EKeys::Gamepad_Special_Left, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::SoulFocusCompany);
     InputComponent->BindKey(EKeys::Gamepad_Special_Right, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::EndDay);
+}
+
+void ASoulFounderPlaytestPlayerController::InspectNextFaction()
+{
+    auto* C=GetCampaign();if(!C||!C->GetState()||!C->GetState()->IsSixFactionProfile())return;
+    C->CycleFactionInspection();
+    if(auto* Camera=Cast<ASoulCampaignCamera>(GetViewTarget()))Camera->Focus(ASoulCampaignWorldActor::Locations().FindRef(C->GetSelectedRegion()));
 }
 
 void ASoulFounderPlaytestPlayerController::GamepadSelect()

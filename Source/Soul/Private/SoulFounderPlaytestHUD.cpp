@@ -87,7 +87,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     Text(TEXT("S O U L"),28,24,Gold,1.35f);
     Text(FString::Printf(TEXT("DAY %d     GOLD %d     MOVEMENT %d / %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints,S->Economy.MaxActionPoints),150,30,Ink);
     bool HostileRemains=false;for(const auto& Region:S->World.Regions)HostileRemains|=S->IsHostile(Region.Key);
-    Text(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED"),150,52,Muted,.85f);
+    Text(S->IsSixFactionProfile()?TEXT("SIX-FACTION SANDBOX | AI OFF | [I] INSPECT ARMIES"):(HostileRemains?TEXT("SECURE THE STRONGHOLDS"):TEXT("STRONGHOLDS SECURED")),150,52,Muted,.85f);
     int32 Army=0;for(const auto& P:S->PlayerArmy)Army+=P.Value;
 
     Button(TEXT("Company"),FString::Printf(TEXT("SELECT YOUR ARMY  %d  [Home]"),Army),W-557,26,266);
@@ -109,23 +109,31 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     }
     const float X=W-326;
     const FName Selected=C->GetSelectedRegion();
-    const bool Explored=FSoulWorldRules::IsExplored(S->World,S->PlayerFaction,Selected),Visible=FSoulWorldRules::IsVisible(S->World,S->PlayerFaction,Selected);
+    const bool Explored=FSoulWorldRules::IsExplored(S->World,C->ViewFaction(),Selected),Visible=FSoulWorldRules::IsVisible(S->World,C->ViewFaction(),Selected);
     Panel(X,94,312,197);
     const FString SelectedTitle=C->IsCompanySelected()&&Selected==S->PlayerRegion
         ? FString::Printf(TEXT("YOUR ARMY / %s"),*C->DisplayName(Selected))
         : (Explored?C->DisplayName(Selected):TEXT("Uncharted territory"));
     UI.FitText(SelectedTitle,X+15,109,282,Gold,1.32f);
-    if(Explored)
+    if(C->IsFactionInspection())
+    {
+        Text(FString::Printf(TEXT("%s / READ-ONLY ARMY INSPECTION"),*C->ViewFaction().ToString()),X+15,135,Gold);
+        UI.FitText(S->ArmyInspectionAtRegion(Selected),X+15,168,282,Ink,.8f);
+        Text(TEXT("[I] next faction  /  [HOME] your army"),X+15,207,Muted);
+    }
+    else if(Explored)
     {
         const auto* Region=S->World.Regions.Find(Selected);
         Text(C->IsCompanySelected()?FString::Printf(TEXT("ARMY SELECTED / %d MOVEMENT LEFT"),S->Economy.ActionPoints):(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT")),X+15,135,C->IsCompanySelected()?Gold:Muted);
         Text(C->IsCompanySelected()?TEXT("Click a highlighted neighbouring place."):(Selected==S->PlayerRegion?TEXT("Your company is stationed here."):FSoulWorldRules::CanMove(S->World,S->PlayerRegion,Selected)?TEXT("Connected by a traversable road."):TEXT("Reach this place through its neighbours.")),X+15,162,Ink);
         if(C->IsCompanySelected())Text(TEXT("Each road move costs 1 movement."),X+15,185,Muted);
-        else if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->EnemyArmies.FindRef(Selected)),X+15,185,Ink);
+        else if(Visible&&S->IsSixFactionProfile())UI.FitText(S->ArmyInspectionAtRegion(Selected),X+15,185,282,Ink,.8f);
+        else if(Visible&&S->HasHostileGarrison(Selected))Text(FString::Printf(TEXT("Defenders + reserves: %d"),S->ArmyCountAtRegion(Selected)),X+15,185,Ink);
         else Text(Visible?TEXT("Click a nearby place to travel."):TEXT("Return within sight for current forces."),X+15,185,Muted);
         Text(FString::Printf(TEXT("Hero %d  |  XP %d  |  Mana %d/%d"),S->Hero.Level,S->Hero.Experience,S->Hero.Mana,S->Hero.MaxMana),X+15,209,Muted);
     }
-    if(C->IsBattleAvailable())
+    if(C->IsFactionInspection()){}
+    else if(C->IsBattleAvailable())
     {
         if(S->PlayerArmy.FindRef(S->PlayerUnitId)<=0)Text(TEXT("Recruit Knights at the capital first."),X+15,249,Gold);
         else if(S->Economy.ActionPoints<=0)Button(TEXT("BattleRest"),TEXT("Next day restores actions  [Space]"),X+15,237,282);

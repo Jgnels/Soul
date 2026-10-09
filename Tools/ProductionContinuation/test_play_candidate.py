@@ -14,7 +14,7 @@ class ReviewLaunchBoundary(unittest.TestCase):
   self.file('Soul/Binaries/Win64/SoulComposition.exe',b'build')
   self.file('Engine/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin',b'{}')
   data=[]
-  for name in ['RuntimeProof','HumanRuntimeProof','OrcRuntimeProof']:
+  for name in ['RuntimeProof','HumanRuntimeProof','OrcRuntimeProof','SixFactionRuntimeProof','VikingRuntimeProof']:
    path='Data/CampaignComposition/'+name+'.json';p=self.file('Soul/'+path,b'{}');data.append({'path':path,'sha256':launch.digest(p)})
   asset=self.file('Soul/Content/SoulCampaignComposition/L_Composition_3500_r2.umap',b'cooked')
   self.receipt.write_text(json.dumps({'pass':True,'stage':str(self.s.parent),'binary_sha256':launch.digest(self.s/'Soul/Binaries/Win64/SoulComposition.exe')}))
@@ -33,11 +33,18 @@ class ReviewLaunchBoundary(unittest.TestCase):
    self.assertEqual(Path(p['persistent_isolated_user_directory']).name,name)
    self.assertFalse(p['automatic_inputs']);self.assertFalse(p['promotion']);self.assertEqual(p['thermal_cutoff_c'],85)
    if flag:self.assertIn('--ue-arg='+flag,p['command'])
+ def test_six_and_viking_have_independent_slots_without_automation(self):
+  for key,name,flag in [('six','SixFactionProof','-SoulSixFactionProof'),('viking','VikingProof','-SoulVikingMatchupProof')]:
+   plan=self.plan(**{key:True});self.assertEqual(plan['save_slot'],'Soul.Composition3500.'+name)
+   self.assertIn('--ue-arg='+flag,plan['command']);self.assertFalse(plan['automatic_inputs'])
+   self.assertNotIn('--ue-arg=-SoulAutobattle',plan['command'])
+  for args in [dict(six=True,viking=True),dict(six=True,orc=True),dict(viking=True,human=True)]:
+   with self.assertRaises(ValueError):self.plan(**args)
  def test_binary_change_rejected(self):
   self.file('Soul/Binaries/Win64/SoulComposition.exe',b'different')
   with self.assertRaisesRegex(ValueError,'executable'):self.plan()
  def test_missing_orc_fixture_rejected(self):
-  p=self.e/'staged-isolation-verification.json';d=json.loads(p.read_text());d['additional_data'].pop();p.write_text(json.dumps(d))
+  p=self.e/'staged-isolation-verification.json';d=json.loads(p.read_text());d['additional_data']=[x for x in d['additional_data'] if not x['path'].endswith('OrcRuntimeProof.json')];p.write_text(json.dumps(d))
   with self.assertRaisesRegex(ValueError,'fixture'):self.plan(orc=True)
  def test_cooked_candidate_change_rejected(self):
   self.file('Soul/Content/SoulCampaignComposition/L_Composition_3500_r2.umap',b'changed')

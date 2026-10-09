@@ -72,7 +72,21 @@ public:
     FSoulCampaignBattleResult LastBattleResult;
     static const TArray<FName>& HumanPlaytestRoster();
     FString BuildSummary() const;
+    bool IsSixFactionProfile() const { return bSixFactionProfile; }
+    bool InspectFactionArmy(FName FactionId, FSoulFactionCampaignState& Out) const;
+    bool MoveFactionArmy(FName FactionId, FName TargetRegion, FString& OutError);
+    int32 ArmyCountAtRegion(FName RegionId) const;
+    FName ArmyUnitAtRegion(FName RegionId) const;
+    FString ArmyInspectionAtRegion(FName RegionId) const;
 private:
+    // Human state stays in the existing founder fields, never mirrored here.
+    // All factions use this existing Soul.Campaign RBSave provider.
+    bool bSixFactionProfile = false;
+    TMap<FName, FSoulFactionCampaignState> OtherFactionStates;
+    bool InitializeSixFactionState(const class FJsonObject& Starts, const class FJsonObject& Config, FString& Error);
+    void CaptureSixFactionState(class FJsonObject& Root) const;
+    bool ValidateSixFactionRestore(const class FJsonObject& Root,
+        TMap<FName, FSoulFactionCampaignState>& OutStates, FSoulWorldState& OutWorld, FString& Error) const;
     void HandleBattleResolved(const FSoulCampaignBattleResult& Result);
     UFUNCTION() void OnCampaignSaved(const FRBSaveOperationResult& Result);
     UFUNCTION() void OnCampaignLoaded(const FRBSaveOperationResult& Result);

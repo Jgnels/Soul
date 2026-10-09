@@ -99,6 +99,8 @@ void ASoulFounderPlaytestGameMode::BeginPlay()
 void ASoulFounderPlaytestGameMode::Tick(float Seconds)
 {
     Super::Tick(Seconds);
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulSixFactionQualification")))
+    {if(!bDone)TickSixFactionQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulCompositionTraversal")))
     {if(!bDone)TickCompositionTraversal(Seconds);return;}
     if(bSettlementDevelopmentQualification)
@@ -295,10 +297,15 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             for(auto& Pair:State->EnemyArmies)Pair.Value=FMath::Max(1,Count);
         if(FParse::Value(FCommandLine::Get(),TEXT("SoulActivePerSide="),Count))State->ActiveCapPerSide=FMath::Clamp(Count,1,35);
         UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_QUALIFICATION_SETUP pools=%d/%d cap=%d"),
-            State->PlayerArmy.FindRef(State->PlayerUnitId),State->EnemyArmies.FindRef(TEXT("orc_watch")),State->ActiveCapPerSide);
-        Campaign->HandleRegionClicked(TEXT("crossroads"));
-        Campaign->HandleRegionClicked(TEXT("river_ford"));
-        Campaign->HandleRegionClicked(TEXT("orc_watch"));
+            State->PlayerArmy.FindRef(State->PlayerUnitId),State->EnemyArmies.FindRef(FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof"))?FName(TEXT("viking_snow_pass")):FName(TEXT("orc_watch"))),State->ActiveCapPerSide);
+        if(FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof")))
+            Campaign->HandleRegionClicked(TEXT("viking_snow_pass"));
+        else
+        {
+            Campaign->HandleRegionClicked(TEXT("crossroads"));
+            Campaign->HandleRegionClicked(TEXT("river_ford"));
+            Campaign->HandleRegionClicked(TEXT("orc_watch"));
+        }
         if(auto* PC=GetWorld()->GetFirstPlayerController())
         {
             PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::B,IE_Pressed,1));
@@ -320,8 +327,9 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             UE_LOG(LogTemp,Error,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_FAIL expected defeat or explicitly requested enemy wave"));
             bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;
         }
-        const FName Target=TEXT("orc_watch");
-        const FName ExpectedRegion=Result.bPlayerWon?Target:FName(TEXT("river_ford"));
+        const bool bVikingProof=FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof"));
+        const FName Target=bVikingProof?TEXT("viking_snow_pass"):TEXT("orc_watch");
+        const FName ExpectedRegion=Result.bPlayerWon?Target:FName(bVikingProof?TEXT("mountain_shrine"):TEXT("river_ford"));
         const auto* Territory=State->World.Regions.Find(Target);
         const bool Correct=Result.TargetRegion==Target && !State->HasPendingBattle()
             && State->ResolvedEncounters.Contains(Result.EncounterId)
@@ -365,7 +373,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_ROUNDTRIP_VERIFIED id=%s target=%s victory=%d survivors=%d/%d persistence=RBSave holdSeconds=70"),
             *State->LastBattleResult.EncounterId.ToString(),*State->LastBattleResult.TargetRegion.ToString(),
             State->LastBattleResult.bPlayerWon,State->LastBattleResult.PlayerSurvivors,State->LastBattleResult.EnemySurvivors);
-        if(FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof")))
+        if(FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"))||FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof")))
         {
             if(!FFileHelper::SaveStringToFile(ExpectedSnapshot,*(FPaths::ProjectSavedDir()/TEXT("CampaignInputExpectedSnapshot.json"))))
             {UE_LOG(LogTemp,Error,TEXT("SOUL_ORC_PROOF_FAIL cannot preserve fresh-load checkpoint"));bDone=true;FPlatformMisc::RequestExitWithStatus(false,1);return;}

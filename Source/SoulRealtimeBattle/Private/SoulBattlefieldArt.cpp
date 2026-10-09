@@ -51,7 +51,7 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
     ACharacter* Actor,int32 Side,ESoulRealtimeFormationRole FormationRole)
 {
     if(!Actor) return;
-    if(!UsesOrcCampaignRoster(Side) && (FormationRole==ESoulRealtimeFormationRole::Ranged ||
+    if(!UsesOrcCampaignRoster(Side) && !UsesVikingCampaignRoster(Side) && (FormationRole==ESoulRealtimeFormationRole::Ranged ||
         FormationRole==ESoulRealtimeFormationRole::Apex ||
         FormationRole==ESoulRealtimeFormationRole::Breaker)) return;
     const TCHAR* Weapon=nullptr;
@@ -61,6 +61,8 @@ void ASoulRealtimeArenaGameMode::EquipVisualWeapons(
         Weapon=TEXT("/Game/Fantasy_Pack/Characters/Orc_Hummer/Mesh/SM_Hummer");
         WeaponHand=TEXT("CATRigRArmPalm");
     }
+    else if(UsesVikingCampaignRoster(Side))
+        Weapon=TEXT("/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe");
     else if(Side==0)
     {
         // Aurora carries her authored weapon as part of the hero mesh.

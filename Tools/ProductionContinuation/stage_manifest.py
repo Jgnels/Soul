@@ -1,5 +1,6 @@
 """Require the recorded local stage resources before launching a qualified binary."""
 from pathlib import Path
+import json,hashlib
 
 def verify_manifest_presence(stage_receipt: Path, stage: Path):
     stage=stage.resolve();count=0;missing=[]
@@ -12,5 +13,11 @@ def verify_manifest_presence(stage_receipt: Path, stage: Path):
             count+=1
             if not path.is_file():missing.append(name)
     if missing:raise ValueError('Staged resources are missing: '+str(len(missing))+'; first: '+missing[0])
+    receipt=json.loads(stage_receipt.read_text())
+    for row in receipt.get('supplemental_cooked_files',[]):
+        count+=1
+        path=(stage/row['relative']).resolve()
+        if not path.is_relative_to(stage) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=row['sha256']:
+            raise ValueError('Additive cooked package changed or missing: '+row['relative'])
     if not count:raise ValueError('Empty stage manifests')
     return count

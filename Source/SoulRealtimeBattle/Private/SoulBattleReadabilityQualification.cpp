@@ -307,6 +307,11 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
 {
     const double Now=FPlatformTime::Seconds();
     if(ReadabilityStarted==0) ReadabilityStarted=Now;
+    // Explicit staged inspection only; ordinary battle qualification never uses
+    // SoulAnimationPoseProof. Inspect the actual admitted infantry actor/weapon.
+    const bool bViking = UsesVikingCampaignRoster(1);
+    if (bViking && !bBattlePaused) ToggleBattlePause();
+    const int32 CaptureCount = bViking ? 8 : 24;
     if(!ReadabilityCaptureName.IsEmpty())
     {
         if(Now<ReadabilityCaptureAt || FScreenshotRequest::IsScreenshotRequested()) return;
@@ -318,15 +323,17 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
         return;
     }
     if(Now-ReadabilityStarted<3 || Now<ReadabilityNextCapture) return;
-    if(ReadabilityStage>=24)
+    if(ReadabilityStage>=CaptureCount)
     {
-        UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_PASS: captures=24 rosters=2"));
+        if (bViking && Now-ReadabilityStarted<75.0) return;
+        UE_LOG(LogTemp,Display,TEXT("SOUL_POSE_PASS: captures=%d rosters=%d exactViking=%d"),CaptureCount,bViking?1:2,bViking);
         FPlatformMisc::RequestExitWithStatus(false,0);return;
     }
     const int32 CaptureIndex=ReadabilityStage++;
-    const int32 Side=CaptureIndex/12;
-    const int32 Stage=CaptureIndex%12;
-    const auto Wanted=Stage<8 ? ESoulRealtimeFormationRole::Guard : Stage<10 ? ESoulRealtimeFormationRole::Hero : ESoulRealtimeFormationRole::Apex;
+    const int32 Side=bViking ? 1 : CaptureIndex/12;
+    const int32 Stage=bViking ? CaptureIndex : CaptureIndex%12;
+    const bool bDeath = bViking ? Stage==7 : Stage==11;
+    const auto Wanted=bViking ? ESoulRealtimeFormationRole::Line : Stage<8 ? ESoulRealtimeFormationRole::Guard : Stage<10 ? ESoulRealtimeFormationRole::Hero : ESoulRealtimeFormationRole::Apex;
     int32 Subject=INDEX_NONE;
     for(int32 I=0;I<Combatants.Num();++I)
         if(Combatants[I].Side==Side && Combatants[I].Role==Wanted) { Subject=I;break; }
@@ -344,7 +351,14 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
     StageLocation.Z+=Actor->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()-96.f;
     Actor->SetActorLocationAndRotation(StageLocation,FRotator::ZeroRotator);
     UAnimationAsset* Clip=nullptr;
-    if(Stage==0) Clip=ResolveStanceAnimation(Side,Wanted,0);
+    if (bViking)
+    {
+        if (Stage<2) Clip=ResolveVisualAnimation(Side,Stage==1,Wanted);
+        else if (Stage<6) Clip=ResolveVisualAttack(Side,Wanted,Stage-2);
+        else if (Stage==6) Clip=ResolveVisualReaction(Side,Wanted);
+        else Clip=ResolveVisualDeath(Side,Wanted);
+    }
+    else if(Stage==0) Clip=ResolveStanceAnimation(Side,Wanted,0);
     else if(Stage==1) Clip=ResolveStanceAnimation(Side,Wanted,5);
     else if(Stage<6) Clip=ResolveVisualAttack(Side,Wanted,Stage-2);
     else if(Stage==6) Clip=ResolveVisualReaction(Side,Wanted);
@@ -359,12 +373,12 @@ void ASoulRealtimeArenaGameMode::TickAnimationPoseProof()
     }
     Actor->GetMesh()->bPauseAnims=false;
     Actor->GetMesh()->PlayAnimation(Clip,false);
-    Actor->GetMesh()->SetPosition(Clip->GetPlayLength()*(Stage==11?.95f:.42f),false);
+    Actor->GetMesh()->SetPosition(Clip->GetPlayLength()*(bDeath?.95f:.42f),false);
     Actor->GetMesh()->TickAnimation(0,false);
     Actor->GetMesh()->RefreshBoneTransforms();
     Actor->GetMesh()->bPauseAnims=true;
     Combatants[Subject].bVisualAttackPlaying=true;
-    if(Stage==11)
+    if(bDeath)
     {
         FVector P=Actor->GetMesh()->GetRelativeLocation();P.Z=-Actor->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight();
         Actor->GetMesh()->SetRelativeLocation(P);

@@ -256,4 +256,69 @@ bool FSoulOrcCampaignRosterTest::RunTest(const FString&)
     TestTrue(TEXT("Dwarf mesh differs from Orc"),Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line)!=Mesh);
     World->DestroyWorld(false);return true;
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulVikingCampaignRosterTest,
+    "Soul.RealtimeBattle.Vertical.ExactVikingCampaignRoster",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulVikingCampaignRosterTest::RunTest(const FString&)
+{
+    UWorld* World=UWorld::CreateWorld(EWorldType::Game,false);
+    auto* Host=World->SpawnActor<ASoulRealtimeArenaGameMode>();
+    Host->bVisualUnits=true;
+    Host->EnemyVisualFaction=TEXT("vikings");Host->EnemyVisualUnitId=TEXT("viking_axe_warrior");
+    TestFalse(TEXT("standalone roster cannot masquerade as exact campaign proof"),Host->UsesVikingCampaignRoster(1));
+    Host->bCampaignBattle=true;
+    TestTrue(TEXT("exact campaign Viking pair recognized"),Host->UsesVikingCampaignRoster(1));
+    TestFalse(TEXT("human side cannot inherit enemy mesh"),Host->UsesVikingCampaignRoster(0));
+    auto* Mesh=Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line);
+    if(!TestNotNull(TEXT("owned Viking mesh loads"),Mesh)){World->DestroyWorld(false);return false;}
+    TestEqual(TEXT("exact owned mesh"),Mesh->GetPathName(),FString(TEXT("/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SK_Ulf_Full.SK_Ulf_Full")));
+    auto Check=[&](UAnimationAsset* Asset)
+    {
+        auto* Clip=Cast<UAnimSequence>(Asset);
+        if(!TestNotNull(TEXT("native full-pose sequence"),Clip))return;
+        TestTrue(TEXT("strict own-skeleton compatibility"),Clip->GetSkeleton()->IsCompatibleMesh(Mesh,true));
+        TestFalse(TEXT("no additive substitution"),Clip->IsValidAdditive());
+        TestTrue(TEXT("positive duration"),Clip->GetPlayLength()>0);
+        TestTrue(TEXT("clip comes from owned Viking family"),Clip->GetPathName().StartsWith(TEXT("/Game/Fantasy_Pack/Animations/1With_Weapon/")));
+    };
+    for(int32 R=0;R<=static_cast<int32>(ESoulRealtimeFormationRole::Hero);++R)
+    {
+        const auto Role=static_cast<ESoulRealtimeFormationRole>(R);
+        TestTrue(TEXT("deployment/reserves admit axe infantry only"),Host->CampaignFormationRole(1,Role)==ESoulRealtimeFormationRole::Line);
+        TestTrue(TEXT("player formation roles unchanged"),Host->CampaignFormationRole(0,Role)==Role);
+        TestTrue(TEXT("no requested tactical role substitutes another enemy species"),Host->ResolveVisualMesh(1,Role)==Mesh);
+        Check(Host->ResolveVisualAnimation(1,false,Role));Check(Host->ResolveVisualAnimation(1,true,Role));
+        Check(Host->ResolveVisualDeath(1,Role));Check(Host->ResolveVisualReaction(1,Role));
+        TSet<UAnimationAsset*> Attacks;
+        for(int32 V=0;V<4;++V){auto* Clip=Host->ResolveVisualAttack(1,Role,V);Check(Clip);Attacks.Add(Clip);}
+        TestEqual(TEXT("four authored warrior attacks"),Attacks.Num(),4);
+        for(int32 Mode=0;Mode<6;++Mode)Check(Host->ResolveStanceAnimation(1,Role,Mode));
+    }
+    auto* Body=World->SpawnActor<ACharacter>();Body->GetMesh()->SetSkeletalMeshAsset(Mesh);
+    Host->EquipVisualWeapons(Body,1,ESoulRealtimeFormationRole::Line);
+    TInlineComponentArray<UStaticMeshComponent*> Pieces(Body);int32 Weapons=0;
+    for(auto* Piece:Pieces)if(Piece->ComponentHasTag(TEXT("SoulVisualWeapon")))
+    {
+        ++Weapons;TestEqual(TEXT("owned axe"),GetNameSafe(Piece->GetStaticMesh()),FString(TEXT("SM_Viking_Axe")));
+        TestEqual(TEXT("native right hand attachment"),Piece->GetAttachSocketName(),FName(TEXT("hand_r")));
+        TestTrue(TEXT("weapon authoring scale matches body"),Piece->GetComponentScale().Equals(Body->GetMesh()->GetComponentScale(),.001f));
+        TestEqual(TEXT("cosmetic weapon has no independent damage collision"),Piece->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
+    }
+    TestEqual(TEXT("one visible axe"),Weapons,1);
+    FSoulRealtimeArenaCombatant Unit;Unit.Id=FGuid::NewGuid();Unit.Side=1;Unit.Role=ESoulRealtimeFormationRole::Line;Unit.Health=160;Unit.MaxHealth=160;
+    Host->Combatants.Add(Unit);
+    const auto Weapon=Host->Profile(0);
+    TestEqual(TEXT("existing RB weapon profile carries Viking identity"),Weapon.Id,FName(TEXT("Soul.Viking.Axe")));
+    TestEqual(TEXT("axe category"),Weapon.Category,FName(TEXT("Axe")));
+    TestTrue(TEXT("existing RB physical damage/reach retained"),Weapon.BaseDamage>0&&Weapon.Reach>0);
+    Host->StrategicBodies[1]=30;Host->ActiveCap=15;Host->SetupReinforcementState();
+    bool FoundReserve=false;
+    for(const auto& Formation:Host->ReinforcementBattle.Formations)if(Formation.SideId==FName(TEXT("Enemy")))
+    {FoundReserve=true;TestEqual(TEXT("reserve keeps exact Viking unit identity"),Formation.UnitId,FName(TEXT("viking_axe_warrior")));}
+    TestTrue(TEXT("Viking reserve exists"),FoundReserve);
+    Host->EnemyVisualFaction=TEXT("dwarves");Host->EnemyVisualUnitId=TEXT("dwarf_warrior");
+    TestFalse(TEXT("Dwarf pair never selects Viking roster"),Host->UsesVikingCampaignRoster(1));
+    TestTrue(TEXT("Dwarf mesh differs from Viking"),Host->ResolveVisualMesh(1,ESoulRealtimeFormationRole::Line)!=Mesh);
+    World->DestroyWorld(false);return true;
+}
 #endif

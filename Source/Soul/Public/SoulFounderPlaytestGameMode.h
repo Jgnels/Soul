@@ -12,6 +12,7 @@ public:
     virtual void Tick(float Seconds) override;
 private:
     void TickCompositionTraversal(float Seconds);
+    void TickSixFactionQualification(float Seconds);
     void TickVisualQualification(float Seconds);
     void TickSettlementDevelopmentQualification(float Seconds);
     bool bSettlementDevelopmentQualification=false;

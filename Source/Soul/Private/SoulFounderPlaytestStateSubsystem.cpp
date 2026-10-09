@@ -108,6 +108,12 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     const bool bHumanEnvironmentProof = FParse::Param(FCommandLine::Get(), TEXT("SoulHumanSettlementProof"));
     const bool bAuthoredEnvironmentProof = bDwarfEnvironmentProof || bHumanEnvironmentProof;
     const bool bComposition = SoulCampaignTerrain::Composition();
+    const bool bVikingMatchupProof = FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof"));
+    if(bVikingMatchupProof&&(!bComposition||bAuthoredEnvironmentProof||FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"))))
+    {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_VIKING_PROOF_FAIL requires isolated Composition fixture"));return;}
+    const bool bSixFactionRequested = FParse::Param(FCommandLine::Get(),TEXT("SoulSixFactionProof"));
+    if(bSixFactionRequested&&(!bComposition||bAuthoredEnvironmentProof||bVikingMatchupProof||FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"))))
+    {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_SIX_FACTION_FAIL requires isolated Composition profile"));return;}
     const bool bOrcMatchupProof = FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof"));
     if(bOrcMatchupProof&&(!bComposition||bAuthoredEnvironmentProof))
     {UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_ORC_PROOF_FAIL requires isolated Composition fixture without authored-city proof"));return;}
@@ -117,7 +123,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
         || (bDwarfEnvironmentProof && bHumanEnvironmentProof))
     { UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_AUTHORED_PROOF_FAIL requires one explicit settlement and the retained EvilCorridor terrain profile")); return; }
     TSharedPtr<FJsonObject> Config,Geography,Starts,Handoffs;
-    const bool bConfigLoaded = bComposition ? ReadData(bOrcMatchupProof?TEXT("CampaignComposition/OrcRuntimeProof.json"):bHumanEnvironmentProof?TEXT("CampaignComposition/HumanRuntimeProof.json"):TEXT("CampaignComposition/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
+    const bool bConfigLoaded = bComposition ? ReadData(bSixFactionRequested?TEXT("CampaignComposition/SixFactionRuntimeProof.json"):bVikingMatchupProof?TEXT("CampaignComposition/VikingRuntimeProof.json"):bOrcMatchupProof?TEXT("CampaignComposition/OrcRuntimeProof.json"):bHumanEnvironmentProof?TEXT("CampaignComposition/HumanRuntimeProof.json"):TEXT("CampaignComposition/RuntimeProof.json"),Config) : bDwarfEnvironmentProof
         ? ReadData(TEXT("SettlementEnvironments/DwarfHoldRuntimeProof.json"), Config)
         : bHumanEnvironmentProof ? ReadData(TEXT("SettlementEnvironments/HumanCapitalRuntimeProof.json"), Config)
         : ReadData(TEXT("soul_vertical_scenario_20260925.json"), Config);
@@ -147,10 +153,10 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
         Region.Feature=FName(*Node->GetStringField(TEXT("feature")));
         FString Owner,Settlement; Owners->TryGetStringField(Region.Id.ToString(),Owner);
         // Explicit qualification faction overlay preserves accepted stable geography IDs.
-        Region.OwnerFactionId=Owner==TEXT("orcs")?EnemyFaction:FName(*Owner);
+        Region.OwnerFactionId=!bSixFactionRequested&&Owner==TEXT("orcs")?EnemyFaction:FName(*Owner);
         Region.bSettlement=Node->TryGetStringField(TEXT("settlement_id"),Settlement)&&!Settlement.IsEmpty();
         const FString DisplayName=Node->GetStringField(TEXT("name"));
-        RegionDisplayNames.Add(Region.Id,EnemyFaction==TEXT("dwarves")?DisplayName.Replace(TEXT("Orc"),TEXT("Dwarf")):DisplayName);
+        RegionDisplayNames.Add(Region.Id,!bSixFactionRequested&&EnemyFaction==TEXT("dwarves")?DisplayName.Replace(TEXT("Orc"),TEXT("Dwarf")):DisplayName);
         World.Regions.Add(Region.Id,Region);
     }
     for (const auto& Value:Geography->GetArrayField(TEXT("edges")))
@@ -262,6 +268,11 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Hero=FSoulHeroState();Hero.HeroId=TEXT("human_founder_hero"); Hero.UnspentSkillPoints=1;Hero.MaxMana=80;Hero.Mana=80;
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
     LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold their regions; strategic reserves feed the active battle."):TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
+    if(bSixFactionRequested)
+    {
+        FString Error;
+        if(!InitializeSixFactionState(*Starts,*Config,Error)){UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_SIX_FACTION_FAIL %s"),*Error);return;}
+    }
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
     if (bComposition || bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
     {
@@ -381,6 +392,13 @@ bool USoulFounderPlaytestStateSubsystem::IsHostile(FName RegionId) const
 bool USoulFounderPlaytestStateSubsystem::HasHostileGarrison(FName RegionId) const
 {
     if (!IsHostile(RegionId)) return false;
+    if(bSixFactionProfile)
+    {
+        for(const auto& P:OtherFactionStates)
+            if(P.Value.Army.RegionId==RegionId && P.Key==World.Regions.FindChecked(RegionId).OwnerFactionId)
+                return P.Value.Army.TroopCount>0;
+        return true; // Unspecified hostile garrison is not permission to occupy.
+    }
     const int32* Defenders = EnemyArmies.Find(RegionId);
     // Only an explicit exhausted ledger permits occupation. Missing force data
     // must never grant access to hostile territory.
@@ -405,7 +423,7 @@ bool USoulFounderPlaytestStateSubsystem::MovePlayerTo(FName Target)
 bool USoulFounderPlaytestStateSubsystem::BuildBattleDescriptor(FName Target,FSoulCampaignBattleDescriptor& Out,FString& Error) const
 {
     if (!bInitialized||HasPendingBattle()||bPersistenceBusy||!IsHostile(Target)
-        ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)||PlayerArmy.FindRef(PlayerUnitId)<=0||EnemyArmies.FindRef(Target)<=0)
+        ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)||PlayerArmy.FindRef(PlayerUnitId)<=0||ArmyCountAtRegion(Target)<=0)
     {Error=TEXT("Encounter requires adjacent hostile forces and a living player army.");return false;}
     Out=FSoulCampaignBattleDescriptor();Out.SourceRegion=PlayerRegion;Out.TargetRegion=Target;
     Out.BattleContext = FSoulWorldRules::BuildBattleContext(World, PlayerRegion, Target, NAME_None, NAME_None, false);
@@ -414,12 +432,18 @@ bool USoulFounderPlaytestStateSubsystem::BuildBattleDescriptor(FName Target,FSou
     { Error=TEXT("No admitted battlefield supports this encounter."); return false; }
     Out.BattlefieldId = Battlefield->Id;
     Out.PlayerFaction=PlayerFaction;Out.EnemyFaction=World.Regions.FindChecked(Target).OwnerFactionId;
-    Out.PlayerUnitId=PlayerUnitId;Out.EnemyUnitId=EnemyUnitId;Out.MapPackage=Battlefield->MapPackage;Out.ReturnMapPackage=CampaignMap;
-    Out.ArenaOrigin=Battlefield->ArenaOrigin;Out.PlayerStrategicCount=PlayerArmy.FindRef(PlayerUnitId);Out.EnemyStrategicCount=EnemyArmies.FindRef(Target);
+    Out.PlayerUnitId=PlayerUnitId;Out.EnemyUnitId=ArmyUnitAtRegion(Target);Out.MapPackage=Battlefield->MapPackage;Out.ReturnMapPackage=CampaignMap;
+    Out.ArenaOrigin=Battlefield->ArenaOrigin;Out.PlayerStrategicCount=PlayerArmy.FindRef(PlayerUnitId);Out.EnemyStrategicCount=ArmyCountAtRegion(Target);
     Out.PlayerMana = Hero.Mana;
     Out.ActiveCapPerSide=ActiveCapPerSide;Out.EncounterOrdinal=EncounterOrdinal+1;
     Out.EncounterId=FName(*FString::Printf(TEXT("encounter.%d.%d.%s.%s"),Economy.Day,Out.EncounterOrdinal,*PlayerRegion.ToString(),*Target.ToString()));
-    Error.Reset();return Out.IsValid();
+    if(!Out.IsValid())
+    {
+        Error=FString::Printf(TEXT("Unsupported exact battle binding: %s/%s versus %s/%s. No roster substitution."),
+            *Out.PlayerFaction.ToString(),*Out.PlayerUnitId.ToString(),*Out.EnemyFaction.ToString(),*Out.EnemyUnitId.ToString());
+        return false;
+    }
+    Error.Reset();return true;
 }
 bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
 {
@@ -437,7 +461,10 @@ bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
 bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBattleResult& R)
 {
     if (!HasPendingBattle() || ResolvedEncounters.Contains(R.EncounterId) || !R.IsValidFor(PendingBattle)) return false;
-    PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;EnemyArmies.FindOrAdd(PendingBattle.TargetRegion)=R.EnemySurvivors;bBattleWon=R.bPlayerWon;
+    PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;
+    if(bSixFactionProfile)OtherFactionStates.FindChecked(PendingBattle.EnemyFaction).Army.TroopCount=R.EnemySurvivors;
+    else EnemyArmies.FindOrAdd(PendingBattle.TargetRegion)=R.EnemySurvivors;
+    bBattleWon=R.bPlayerWon;
     Hero.Mana = R.PlayerManaRemaining;
     UE_LOG(LogSoulCampaign, Display, TEXT("SOUL_CAMPAIGN_MANA id=%s before=%d after=%d casts=%d"),
         *R.EncounterId.ToString(), PendingBattle.PlayerMana, Hero.Mana, R.MagicCasts);
@@ -467,11 +494,12 @@ void USoulFounderPlaytestStateSubsystem::AdvanceDay()
         if (!Settlement) return;
     }
     FSoulCampaignRules::AdvanceDay(Economy);
+    if(bSixFactionProfile)for(auto& P:OtherFactionStates)FSoulCampaignRules::AdvanceDay(P.Value.Economy);
     if (Settlement) { FSoulSettlementRules::AdvanceDay(*Settlement); ++SettlementDevelopmentRevision; }
     Hero.Mana=FMath::Min(Hero.MaxMana,Hero.Mana+6);AdvanceEnemyAI();
 }
 void USoulFounderPlaytestStateSubsystem::AdvanceEnemyAI()
-{LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold; no synthetic strategic army bypasses encounter resolution."):TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
+{if(bSixFactionProfile){LastAIReport=TEXT("Six-faction strategic AI OFF. Only explicit player/qualification actions run.");return;}LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold; no synthetic strategic army bypasses encounter resolution."):TEXT("Dwarf garrisons hold; no synthetic strategic army bypasses encounter resolution.");}
 bool USoulFounderPlaytestStateSubsystem::Recruit(FName Id)
 {InitializeScenario();if(HasPendingBattle()||bPersistenceBusy||PlayerRegion!=TEXT("human_capital")||!FSoulCampaignRules::Recruit(Economy,Id,1))return false;PlayerArmy.FindOrAdd(Id)++;return true;}
 bool USoulFounderPlaytestStateSubsystem::ChooseSkill(FName Id)
@@ -513,6 +541,7 @@ bool USoulFounderPlaytestStateSubsystem::CaptureRBSaveDomain_Implementation(FRBS
     TMap<FName,int32> Result={{TEXT("player"),LastBattleResult.PlayerSurvivors},{TEXT("enemy"),LastBattleResult.EnemySurvivors},{TEXT("player_waves"),LastBattleResult.PlayerReinforcements},{TEXT("enemy_waves"),LastBattleResult.EnemyReinforcements},{TEXT("magic"),LastBattleResult.MagicCasts}};
     Root->SetObjectField(TEXT("result"),IntMap(Result));
     Root->SetNumberField(TEXT("result_mana"), LastBattleResult.PlayerManaRemaining);
+    if(bSixFactionProfile)CaptureSixFactionState(*Root);
     FString Json;if(!FJsonSerializer::Serialize(Root,TJsonWriterFactory<>::Create(&Json)))return false;
     Out=FRBSaveDomainState();Out.DomainId=GetRBSaveDomainId_Implementation();Out.SchemaVersion=1;
     FRBSaveField Field;Field.Name=TEXT("CampaignJson");Field.Type=ERBSaveFieldType::String;Field.StringValue=Json;Out.Fields.Add(Field);Error.Reset();return true;
@@ -524,6 +553,11 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
     TSharedPtr<FJsonObject> Root;
     if(!Field||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Field->StringValue),Root)||!Root.IsValid()){Error=TEXT("Invalid campaign JSON.");return false;}
     InitializeScenario();if(!bInitialized)return false;
+    // Explicit profile payload prevents cross-slot copies being interpreted as legacy saves.
+    if(Root->HasField(TEXT("profile"))!=bSixFactionProfile)
+    {Error=TEXT("Campaign profile mismatch; no migration is permitted.");return false;}
+    TMap<FName,FSoulFactionCampaignState> RestoredFactions;FSoulWorldState RestoredWorld;
+    if(bSixFactionProfile&&!ValidateSixFactionRestore(*Root,RestoredFactions,RestoredWorld,Error))return false;
     // Restore into temporary values: invalid snapshots must not partially mutate authority.
     TMap<FName,int32> Army,Enemies,Resources,Income,Pools,Numbers,Skills,Result;
     TSet<FName> Rewarded,Resolved,Explored,Spells;
@@ -574,10 +608,11 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
         for(const auto& P:World.Regions)
         {
             FString Owner;Valid&=(*Owners)->TryGetStringField(P.Key.ToString(),Owner);
-            Valid&=Owner==TEXT("None")||FName(*Owner)==PlayerFaction||FName(*Owner)==EnemyFaction;
+            Valid&=Owner==TEXT("None")||(bSixFactionProfile?FSoulCampaignRules::CanonicalFactions().Contains(FName(*Owner)):(FName(*Owner)==PlayerFaction||FName(*Owner)==EnemyFaction));
             // A hostile region needs an explicit ledger, including zero after
             // mutual exhaustion. Captured regions cannot hide surviving enemies.
-            if (FName(*Owner) == EnemyFaction) Valid &= Enemies.Contains(P.Key);
+            if(bSixFactionProfile)Valid &= Enemies.Num()==0;
+            else if (FName(*Owner) == EnemyFaction) Valid &= Enemies.Contains(P.Key);
             else Valid &= Enemies.FindRef(P.Key) == 0;
         }
         const FName LastId(*ResultId), LastTarget(*ResultTarget);
@@ -597,6 +632,7 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
         }
     }
     if(!Valid){Error=TEXT("Campaign snapshot failed validation.");return false;}
+    if(bSixFactionProfile){World=MoveTemp(RestoredWorld);OtherFactionStates=MoveTemp(RestoredFactions);}
     for(auto& P:World.Regions)P.Value.OwnerFactionId=FName(*(*Owners)->GetStringField(P.Key.ToString()));
     Economy.Day=Day;Economy.ActionPoints=AP;Economy.MaxActionPoints=MaxAP;Economy.Resources=MoveTemp(Resources);Economy.DailyIncome=MoveTemp(Income);
     for(const auto& P:Pools)Economy.RecruitmentPools[P.Key].Available=P.Value;
@@ -613,6 +649,9 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
 }
 FString USoulFounderPlaytestStateSubsystem::GetCampaignSaveSlotName() const
 {
+    if(bSixFactionProfile)return TEXT("Soul.Composition3500.SixFactionProof");
+    if(SoulCampaignTerrain::Composition()&&FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof")))
+        return TEXT("Soul.Composition3500.VikingProof");
     // Presentation profiles retain the same RB Save domains/schema, but a
     // 36-region candidate must never overwrite the qualified founder slot.
     if (SoulCampaignTerrain::Composition() && FParse::Param(FCommandLine::Get(),TEXT("SoulOrcMatchupProof")))

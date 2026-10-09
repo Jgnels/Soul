@@ -19,6 +19,9 @@ public:
 
     void HandleRegionClicked(FName RegionId);
     void SelectCompany();
+    void CycleFactionInspection();
+    FName ViewFaction() const;
+    bool IsFactionInspection() const { return !InspectionFaction.IsNone(); }
     void EndDay();
     void HandleNumberKey(int32 Index);
     void HireTavernHero();
@@ -49,6 +52,7 @@ private:
 
     UPROPERTY() TObjectPtr<class ASoulCampaignWorldActor> WorldPresentation;
     FName SelectedBattleRegion;
+    FName InspectionFaction; // Read-only qualification UI, not campaign authority or saved state.
     uint32 ObservedLoadRevision = 0;
     bool bTownPanelOpen = false;
     bool bBattlePromptOpen = false;

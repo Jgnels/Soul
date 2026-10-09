@@ -239,7 +239,8 @@
     "/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_24",
     "/Game/Spell_Mix/frame/Textures/T_spells_mix_frame_36",
     "/RBWeather/Presentation/DA_RBWeather_DefaultPresentation",
-    "/RBWeather/Presentation/MPC_RBWeather"
+    "/RBWeather/Presentation/MPC_RBWeather",
+    "/Game/Fantasy_Pack/Characters/Viking_Ulf/Mesh/SM_Viking_Axe"
   ],
   "candidate_only_cook_roots": [
     "/Game/SoulCampaignComposition/L_Composition_3500_r2"
@@ -249,7 +250,9 @@
     "Data/CampaignComposition/RuntimeProof.json",
     "Data/CampaignComposition/HumanRuntimeProof.json",
     "Data/CampaignCompositionLocal/Composition_3500_r2.r16",
-    "Data/CampaignComposition/OrcRuntimeProof.json"
+    "Data/CampaignComposition/OrcRuntimeProof.json",
+    "Data/CampaignComposition/SixFactionRuntimeProof.json",
+    "Data/CampaignComposition/VikingRuntimeProof.json"
   ],
   "excluded_runtime_prefixes": [
     "Data/CampaignWorldTerrain/",
@@ -260,7 +263,9 @@
     "default": "Soul.VerticalCampaign",
     "composition_founder": "Soul.Composition3500.Founder",
     "composition_human_proof": "Soul.Composition3500.HumanProof",
-    "composition_orc_proof": "Soul.Composition3500.OrcProof"
+    "composition_orc_proof": "Soul.Composition3500.OrcProof",
+    "composition_six_faction_proof": "Soul.Composition3500.SixFactionProof",
+    "composition_viking_proof": "Soul.Composition3500.VikingProof"
   },
   "cooking_does_not_authorize_promotion": true,
   "inactive_source_only_roots": {

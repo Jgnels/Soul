@@ -89,6 +89,14 @@ FLinearColor ASoulFounderPlaytestCampaignActor::RegionColor(FName RegionId) cons
     const FSoulRegionState* Region = State->World.Regions.Find(RegionId);
     if (!Region) return FLinearColor::Gray;
     if (Region->OwnerFactionId == TEXT("humans")) return FLinearColor(0.12f, 0.35f, 0.95f);
+    if(State->IsSixFactionProfile())
+    {
+        if(Region->OwnerFactionId==TEXT("dwarves"))return FLinearColor(.75f,.52f,.20f);
+        if(Region->OwnerFactionId==TEXT("orcs"))return FLinearColor(.75f,.22f,.10f);
+        if(Region->OwnerFactionId==TEXT("vikings"))return FLinearColor(.20f,.70f,.85f);
+        if(Region->OwnerFactionId==TEXT("nature"))return FLinearColor(.22f,.65f,.28f);
+        if(Region->OwnerFactionId==TEXT("dark"))return FLinearColor(.60f,.27f,.70f);
+    }
     if (Region->OwnerFactionId == State->EnemyFaction) return FLinearColor(0.85f, 0.15f, 0.10f);
     return FLinearColor(0.35f, 0.35f, 0.35f);
 }
@@ -100,7 +108,7 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
     {
         if (!Pair.Value) continue;
         const bool bVisible = FSoulWorldRules::IsExplored(
-            State->World, TEXT("humans"), Pair.Key);
+            State->World, ViewFaction(), Pair.Key);
         const bool bLegalDestination = bCompanySelected &&
             Pair.Key != State->PlayerRegion &&
             FSoulWorldRules::CanMove(State->World, State->PlayerRegion, Pair.Key);
@@ -108,16 +116,31 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
             RegionColor(Pair.Key),
             bVisible,
             Pair.Key == State->PlayerRegion,
-            FSoulWorldRules::IsVisible(State->World, State->PlayerFaction, Pair.Key),
+            FSoulWorldRules::IsVisible(State->World, ViewFaction(), Pair.Key),
             Pair.Key == SelectedRegion || Pair.Key == HoveredRegion || bLegalDestination,
-            State->EnemyArmies.FindRef(Pair.Key));
+            State->ArmyCountAtRegion(Pair.Key));
     }
+}
+
+FName ASoulFounderPlaytestCampaignActor::ViewFaction() const
+{return State?(InspectionFaction.IsNone()?State->PlayerFaction:InspectionFaction):NAME_None;}
+
+void ASoulFounderPlaytestCampaignActor::CycleFactionInspection()
+{
+    if(!State||!State->IsSixFactionProfile()||State->HasPendingBattle()||State->bPersistenceBusy)return;
+    const auto& Ids=FSoulCampaignRules::CanonicalFactions();
+    const int32 Index=InspectionFaction.IsNone()?-1:Ids.IndexOfByKey(InspectionFaction);
+    const FName Next=Ids[(Index+1)%Ids.Num()];FSoulFactionCampaignState F;
+    if(!State->InspectFactionArmy(Next,F))return;
+    CancelPanel();bCompanySelected=false;InspectionFaction=Next;SelectedRegion=F.Army.RegionId;
+    LastMessage=State->ArmyInspectionAtRegion(SelectedRegion)+TEXT(" | Read-only inspection. I: next faction, Home: your army.");
+    RefreshRegionVisuals();
 }
 
 void ASoulFounderPlaytestCampaignActor::SelectCompany()
 {
     if(!State)return;
-    CancelPanel();SelectedBattleRegion=NAME_None;SelectedRegion=State->PlayerRegion;bCompanySelected=true;
+    InspectionFaction=NAME_None;CancelPanel();SelectedBattleRegion=NAME_None;SelectedRegion=State->PlayerRegion;bCompanySelected=true;
     int32 Army=0;for(const auto& Unit:State->PlayerArmy)Army+=Unit.Value;
     LastMessage=FString::Printf(TEXT("YOUR ARMY selected: %d troops at %s. Highlighted places cost 1 movement."),Army,*DisplayName(State->PlayerRegion));
     RefreshRegionVisuals();
@@ -126,7 +149,9 @@ void ASoulFounderPlaytestCampaignActor::SelectCompany()
 void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 {
     if (!State || bTownPanelOpen) return;
-    if (!FSoulWorldRules::IsExplored(State->World, State->PlayerFaction, RegionId)) return;
+    if (!FSoulWorldRules::IsExplored(State->World, ViewFaction(), RegionId)) return;
+    if(IsFactionInspection())
+    {SelectedRegion=RegionId;LastMessage=State->ArmyInspectionAtRegion(RegionId);RefreshRegionVisuals();return;}
     if (RegionId == State->PlayerRegion && bCompanySelected)
     {
         SelectedRegion = RegionId;
@@ -318,6 +343,11 @@ void ASoulFounderPlaytestCampaignActor::CancelPanel()
 
 void ASoulFounderPlaytestCampaignActor::StartBattle()
 {
+    if(State&&State->IsSixFactionProfile())
+    {
+        FSoulCampaignBattleDescriptor Descriptor;FString Error;
+        if(!State->BuildBattleDescriptor(SelectedBattleRegion,Descriptor,Error)){LastMessage=Error;return;}
+    }
     if (!State || !IsBattleAvailable() || !State->BeginBattle(SelectedBattleRegion))
     { LastMessage = TEXT("Battle needs an adjacent hostile force, an army and one action point."); return; }
     LastMessage = TEXT("Deploying to the battlefield...");
@@ -354,7 +384,7 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
         Lines.Add(TEXT("Army lost: return to Human Capital and press T, then 1 to recruit. Space restores actions."));
     if (bBattlePromptOpen && IsBattleAvailable())
         Lines.Add(FString::Printf(TEXT("Selected: %s | %d defenders including reserves | B commits 1 action"),
-            *DisplayName(SelectedBattleRegion), State->EnemyArmies.FindRef(SelectedBattleRegion)));
+            *DisplayName(SelectedBattleRegion), State->ArmyCountAtRegion(SelectedBattleRegion)));
     Lines.Add(LastMessage);
     Lines.Add(State->LastPersistenceReport);
     Lines.Add(TEXT("Controls: click region | T town | Space end day | B battle | F5 save | F9 load | Esc close panel"));
@@ -399,7 +429,7 @@ void ASoulFounderPlaytestCampaignActor::Tick(float Seconds)
         if(ObservedLoadRevision!=State->CampaignLoadRevision)
         {
             ObservedLoadRevision=State->CampaignLoadRevision;
-            CancelPanel();SelectedBattleRegion=NAME_None;HoveredRegion=NAME_None;
+            InspectionFaction=NAME_None;CancelPanel();SelectedBattleRegion=NAME_None;HoveredRegion=NAME_None;
             SelectedRegion=State->PlayerRegion;
             LastMessage=TEXT("Campaign restored. Continue from the saved company location.");
             WorldPresentation->PresentPlayerLocation(State->PlayerRegion,false,true);

@@ -23,7 +23,7 @@ class AdmissionContracts(unittest.TestCase):
  def test_every_compiled_source_is_tracked_or_explicit_admission(self):
   tracked=set(subprocess.check_output(['git','ls-files','Source'],cwd=R,text=True).splitlines())
   actual={p.relative_to(R).as_posix() for p in (R/'Source').rglob('*') if p.suffix in {'.cpp','.h','.cs'}}
-  self.assertEqual(actual-tracked,{'Source/Soul/Private/SoulCompositionTraversalQualification.cpp'}-tracked)
+  self.assertEqual(actual-tracked,{'Source/Soul/Private/SoulCompositionTraversalQualification.cpp', 'Source/Soul/Private/SoulSixFactionCampaign.cpp', 'Source/Soul/Private/SoulSixFactionQualification.cpp', 'Source/Soul/Private/Tests/SoulSixFactionCampaignTests.cpp'}-tracked)
  def test_reference_and_composition_data_are_unchanged(self):
   checkpoint=json.loads((E/'checkpoint.json').read_text())
   # The expensive donor preservation inventory is rechecked at closeout; this
@@ -39,7 +39,11 @@ class AdmissionContracts(unittest.TestCase):
   rule=(R/'Source/Soul/Soul.Build.cs').read_bytes().replace(b'\r\n',b'\n')
   admitted=b'                    "Data/CampaignComposition/OrcRuntimeProof.json",\n'
   self.assertEqual(rule.count(admitted),1)
-  self.assertEqual(rule.replace(admitted,b''),subprocess.check_output(['git','show','10aa400d75c6a4bf5db2d7f403122a6e3e17b323:Source/Soul/Soul.Build.cs'],cwd=R).replace(b'\r\n',b'\n'))
+  six=b'                    "Data/CampaignComposition/SixFactionRuntimeProof.json",\n'
+  self.assertEqual(rule.count(six),1)
+  viking=b'                    "Data/CampaignComposition/VikingRuntimeProof.json",\n'
+  self.assertEqual(rule.count(viking),1)
+  self.assertEqual(rule.replace(admitted,b'').replace(six,b'').replace(viking,b''),subprocess.check_output(['git','show','10aa400d75c6a4bf5db2d7f403122a6e3e17b323:Source/Soul/Soul.Build.cs'],cwd=R).replace(b'\r\n',b'\n'))
   profile=json.loads((R/'Data/CampaignComposition/PackageProfile.json').read_text())
   self.assertEqual(profile['required_launch_args'],['-SoulComposition'])
   self.assertTrue(profile['default_map_unchanged'])

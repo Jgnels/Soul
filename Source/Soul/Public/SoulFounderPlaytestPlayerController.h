@@ -22,6 +22,7 @@ private:
     class ASoulFounderPlaytestCampaignActor* GetCampaign() const;
     void PrimaryClick();
     void GamepadSelect();
+    void InspectNextFaction();
     void ZoomIn();
     void ZoomOut();
     void Number1();

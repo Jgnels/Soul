@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "scenario_id": "composition_3500_six_faction_state_qualification",
+  "description": "No-AI state qualification. Canonical ownership loaded directly from existing sandbox. 45 Human / 30 per other faction are inherited qualification test magnitudes, NOT approved starting balance. Unsupported physical rosters remain None and cannot battle.",
+  "player_faction": "humans",
+  "enemy_faction": "orcs",
+  "player_unit_id": "human_knight",
+  "enemy_unit_id": "orc_hammer_warrior",
+  "player_strategic_count": 45,
+  "enemy_strategic_count": 30,
+  "active_cap_per_side": 15,
+  "battle_map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+  "battlefield_candidates": [
+    {
+      "id": "dragon_watch",
+      "enabled": true,
+      "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+      "biomes": [
+        "badlands"
+      ],
+      "landforms": [
+        "mesa"
+      ],
+      "features": [
+        "watch"
+      ],
+      "arena_origin": [
+        4000,
+        -18000,
+        0
+      ]
+    },
+    {
+      "id": "dragon_pass",
+      "enabled": true,
+      "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+      "biomes": [
+        "mountain"
+      ],
+      "landforms": [
+        "pass"
+      ],
+      "features": [
+        "narrow_pass"
+      ],
+      "arena_origin": [
+        -4000,
+        -16000,
+        0
+      ]
+    },
+    {
+      "id": "dragon_stronghold",
+      "enabled": true,
+      "map": "/Game/Dragon_graveyard/Level/L_showcase_level",
+      "biomes": [
+        "badlands"
+      ],
+      "landforms": [
+        "ruined_city_edge"
+      ],
+      "features": [
+        "stronghold"
+      ],
+      "arena_origin": [
+        14000,
+        -10000,
+        0
+      ]
+    }
+  ],
+  "campaign_map": "/Engine/Maps/Entry",
+  "arena_origin": [
+    14000,
+    -10000,
+    0
+  ],
+  "start_state": {
+    "status": "CANONICAL_SANDBOX_OVERLAY_NO_AI",
+    "region_ids": [
+      "viking_harbour",
+      "viking_fjord_ridge",
+      "viking_forest_track",
+      "viking_snow_pass",
+      "mountain_shrine",
+      "northwest_march",
+      "dwarf_high_quarry",
+      "dwarf_snow_basin",
+      "dwarf_forge_approach",
+      "dwarf_hold",
+      "dwarf_mountain_pass",
+      "human_capital",
+      "crossroads",
+      "old_quarry",
+      "river_ford",
+      "forest_edge",
+      "ancient_shrine",
+      "orc_watch",
+      "north_pass",
+      "orc_camp",
+      "orc_badlands",
+      "orc_war_camp",
+      "orc_ruined_field",
+      "orc_broken_bridge",
+      "coastal_ruins",
+      "nature_shrine",
+      "nature_forest_clearing",
+      "nature_treehold",
+      "nature_river_woodland",
+      "nature_grassland_edge",
+      "southern_crossing",
+      "dark_corrupted_valley",
+      "dark_ruined_causeway",
+      "dark_ash_plain",
+      "dark_castle_approach",
+      "dark_fortress"
+    ],
+    "owners": {},
+    "player_faction": "humans",
+    "player_start_region": "human_capital",
+    "enemy_primary_region": "orc_camp",
+    "initial_knowledge": {
+      "humans": {
+        "visible_regions": [
+          "human_capital",
+          "crossroads"
+        ],
+        "explored_regions": [
+          "human_capital",
+          "crossroads"
+        ]
+      }
+    },
+    "diplomacy": "OUT_OF_SCOPE_UNSET"
+  },
+  "status": "OPT_IN_STATE_PROOF_AI_OFF_BALANCE_PENDING",
+  "canonical_start_scenario": "six_faction_sandbox_candidate",
+  "qualification_nonplayer_troops": 30
+}
