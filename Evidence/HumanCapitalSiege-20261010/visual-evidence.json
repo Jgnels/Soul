@@ -1,0 +1,66 @@
+{
+  "actual_unreal_captures": [
+    {
+      "path": "Local/cooked-defender-final/User/Saved/Screenshots/Siege_Battle_Result.png",
+      "sha256": "ab2c1f35ae09e18b2d2f09c9387ead1a92db715744c8dfa0254c91aa65a234b1"
+    },
+    {
+      "path": "Local/cooked-defender-final/User/Saved/Screenshots/Siege_Campaign_Result.png",
+      "sha256": "101099abab3cc92ae6052ba7e251a34f715610c0d79367e6537293f191943b6e"
+    },
+    {
+      "path": "Local/cooked-defender-final/User/Saved/Screenshots/Siege_Cold_Restore.png",
+      "sha256": "1c68932469d8494d883c7e3d5a0029a3cf3abb020880e8eba272e5093b1681e2"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Battle_Result.png",
+      "sha256": "c39bd9c68bc4b92f7a64a635cc9cc0d6c4da9a520267a9aede5e68ee1a15ee81"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Breached.png",
+      "sha256": "ef08c035b9d036ae2e905e0cabd0bbcbad19e70b2a611c8a3b7d610e9f25f525"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Campaign_Result.png",
+      "sha256": "1bb034882d3d23dfc0ea40483a1deed12e9216d6ceacfb276893baea414c29a3"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Cold_Restore.png",
+      "sha256": "22f9d611e2f540bcb5dd0f647b3a68a1c78bc955abfd783aa478b6fed53f98b9"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Courtyard_Control.png",
+      "sha256": "8e1da26de8e5248d4175877cb9630d8abb0b235fda7875a87b940ba62243604c"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Damaged.png",
+      "sha256": "527ea440dddb0910f031bdeb5e049e536721e11c886cdac756ab45dd5e0dcadc"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Defenders_Inside.png",
+      "sha256": "8ec343b32cafc65e42bcee5e92cbf9de8d52a5e89e3745484a288d037d93cae4"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Hero_Intact.png",
+      "sha256": "5b058b20332343111dc9a9d54d6d2f91d468c16efd5b62c2581a68125b79f304"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Outside_Intact.png",
+      "sha256": "3eb3430a6045bf43e30383ec5f1c8b335b85d613cf40f6870eb7ed27ec7af6a7"
+    },
+    {
+      "path": "Local/cooked-siege-final/User/Saved/Screenshots/Siege_Troops_Through_Gate.png",
+      "sha256": "5e15cf29db32b32699d1ef3ff4acfcae6db37a7a62c8db64abdb53d3bd1c28ee"
+    },
+    {
+      "path": "Local\\cooked-siege-r3\\User\\Saved\\Screenshots\\Siege_Inside_Combat.png",
+      "sha256": "81cc6be6c43bf1d96406e5fbb2016fb19cd59b2186d7c45d8b6d58a94b2124b6"
+    },
+    {
+      "path": "Local\\cooked-siege-r5\\User\\Saved\\Screenshots\\Siege_Battle_Result.png",
+      "sha256": "2ea89ccbbf0d8542bb227aae30d669af36dbd7162eae979a7e1f30d2db8a5ce1"
+    }
+  ],
+  "generated_art": false,
+  "scope": "Final R6 frames plus explicitly labelled earlier hero-interior and R5 courtyard-capture evidence."
+}

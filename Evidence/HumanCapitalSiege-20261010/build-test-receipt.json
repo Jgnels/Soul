@@ -1,0 +1,103 @@
+{
+  "builds": [
+    {
+      "target": "SoulEditor",
+      "pass": true,
+      "log": "Local/editor-build-r7.log",
+      "log_sha256": "9f0cf9fec217374ea6da003e93325308bc7c51079026c9b3e6a922e3f7654d33"
+    },
+    {
+      "target": "Soul",
+      "pass": true,
+      "log": "Local/game-build-final.log",
+      "log_sha256": "72e4243c18f28ec63acc3585fbb6f8fb59e524759174b07b558190f92a655176"
+    },
+    {
+      "target": "SoulComposition",
+      "pass": true,
+      "log": "Local/composition-build-r8.log",
+      "log_sha256": "9e130794cc02229dc641a861925643467bb1995bd6d013e14c259b3f8f6ada00"
+    }
+  ],
+  "native": [
+    {
+      "group": "core-siege",
+      "pass": true,
+      "tests": 3,
+      "receipt": "Local\\native-final-core-siege\\receipt.json"
+    },
+    {
+      "group": "siege",
+      "pass": true,
+      "tests": 1,
+      "receipt": "Local\\native-final-siege\\receipt.json"
+    },
+    {
+      "group": "heartland",
+      "pass": true,
+      "tests": 9,
+      "receipt": "Local\\native-final-heartland\\receipt.json"
+    },
+    {
+      "group": "vertical",
+      "pass": true,
+      "tests": 19,
+      "receipt": "Local\\native-final-vertical\\receipt.json"
+    },
+    {
+      "group": "controls",
+      "pass": true,
+      "tests": 7,
+      "receipt": "Local\\native-final-controls\\receipt.json"
+    },
+    {
+      "group": "ground",
+      "pass": true,
+      "tests": 1,
+      "receipt": "Local\\native-final-ground\\receipt.json"
+    },
+    {
+      "group": "default",
+      "pass": true,
+      "tests": 2,
+      "receipt": "Local\\native-final-default\\receipt.json"
+    },
+    {
+      "group": "composition",
+      "pass": true,
+      "tests": 2,
+      "receipt": "Local\\native-final-composition\\receipt.json"
+    }
+  ],
+  "save_followup": [
+    {
+      "group": "siege",
+      "pass": true,
+      "tests": 1,
+      "receipt": "Local\\native-siege-save-r1\\receipt.json"
+    },
+    {
+      "group": "vertical",
+      "pass": true,
+      "tests": 19,
+      "receipt": "Local\\native-vertical-save-r1\\receipt.json"
+    },
+    {
+      "group": "heartland",
+      "pass": true,
+      "tests": 9,
+      "receipt": "Local\\native-heartland-save-r1\\receipt.json"
+    }
+  ],
+  "tool_tests": {
+    "count": 22,
+    "pass": true,
+    "log": "Local/tools-r1.log"
+  },
+  "launcher_tests": {
+    "count": 16,
+    "pass": true,
+    "log": "Local/launcher-tests.log"
+  },
+  "pass": true
+}

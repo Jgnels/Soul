@@ -1,0 +1,143 @@
+{
+  "starting_head": "5f212fdd9ef38b46c52fe84813ce1d069b777447",
+  "files": [
+    {
+      "path": "Data/SettlementEnvironments/EnvironmentRegistry.json",
+      "sha256": "598e82169604bf67299c76d1bd7d734a16643d8c0575cc22ad06ecae2ce6ab57"
+    },
+    {
+      "path": "Source/Soul/Private/SoulControlledCampaignAction.cpp",
+      "sha256": "43377f976919178d2fd6eeb6aaea0062c5e2c8f022329ff93b6b9f90868091ad"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "sha256": "d7b1562c9ff265bc40d6d745bf47fc27683a3962a60dffbb262e387c69bc8568"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "sha256": "2d7ee36a3ef645b4e52b4e2a79d45ddf374112d21c14d8db506180d40427c0a2"
+    },
+    {
+      "path": "Source/Soul/Private/SoulHumanCapitalSiegeQualification.cpp",
+      "sha256": "c2b2c437c29e35031b4deba11b46c46c7e398f3a7278def2dda6baf81b0e7d34"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementEnvironmentRegistry.cpp",
+      "sha256": "18590ea582865c5331c36635400d7ebdfcff6dfa86b38e7e7feba88da57b4020"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulHeartlandTests.cpp",
+      "sha256": "9a71cd15b09a0d4e7489f01678ee9ad3f83fa02f2617c4a19f85c13b389d57a3"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulSiegeCampaignTests.cpp",
+      "sha256": "bbd5fa3b7faf98265d9e7efab5102e6d84c6b8741708294fdc4c5bd25a396fb9"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "sha256": "6deb18f7e56e44c3d77d97d35f6ed8d067cf881f1d8156434ec71f5da034aad1"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementEnvironmentRegistry.h",
+      "sha256": "3daa9f9527b81214154f65b5f0a5845abd8a84b703c65c23bf7f1238be127473"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "sha256": "5e0bc5f19bad2c291427e7678693fd85e8e452cc3a9db57102e799d17c356eed"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulSiege.cpp",
+      "sha256": "918634059a17063550c70888e1b050d28040bfa2e5daeae261df58de949370af"
+    },
+    {
+      "path": "Source/SoulCore/Private/Tests/SoulGateAssaultTests.cpp",
+      "sha256": "b120086bef4b76bc9cce80f7f7dc8f1b3486a3f60b1a13ccd38f55b2b2cc6bc1"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaignBattleBridge.h",
+      "sha256": "a71a9243bfa8c936c8c3374ee1fc1ef494eacdd026ffbe2d50431d0944bed6e3"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulSiege.h",
+      "sha256": "0f7d172d12335945e0af730124858ec69b0f5cc7b342ffd6336b95e807e633c8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleControl.cpp",
+      "sha256": "95e325cd268faa8df6ae3e56567fd329e5cafe66a469e8f6adeb92e4420d7150"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+      "sha256": "34272f2dd438dc04c13eaad360d9424e60ce03a432500d851d6f554606594332"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp",
+      "sha256": "ec76a84631d1e516cf28aa4ef894cfab4f08379940d4160119e25231c0d52243"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "sha256": "e63ff74b7bda7e65da9da0ad407cda216a8a7386e42052b0cbed842170fbfca1"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleControlTests.cpp",
+      "sha256": "d0bfdc1d0ccef83896b01fd2a96a6014330690b859f17f64c04eb3a6cb4f0a2b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "sha256": "f2f0cacf1e811e1a6cdc358113debe3fad2ea796590494c01ddd3eb0bdf6d8c2"
+    }
+  ],
+  "excluded_inherited": [
+    ".gitignore",
+    "Config/DefaultEngine.ini",
+    "Config/DefaultGame.ini",
+    "Data/CampaignWorldTerrain/presentation.json",
+    "Evidence/CampaignWorldTerrain-20261005/ARCHITECTURE.md",
+    "Evidence/ProductionPush-20261008/HANDOFF.md",
+    "Soul.uproject",
+    "Tools/WorldTerrain/README.md",
+    "Tools/WorldTerrain/author_world.py",
+    "Tools/WorldTerrain/bake_surface.py",
+    "Tools/WorldTerrain/bake_world.py",
+    "Tools/WorldTerrain/dress_world.py",
+    "Tools/WorldTerrain/import_masks.py",
+    "Tools/WorldTerrain/qualify_world.py",
+    "Tools/WorldTerrain/test_world.py",
+    "Tools/package_soul_weekend.ps1",
+    "Tools/test_package_soul_weekend.py",
+    "Source/Soul/Private/SoulCampaignVisualQualification.cpp"
+  ],
+  "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+  "note": "Final runtime executable hash is in final-closeout.json. The normal game target may also be built; neither target promotes the default map.",
+  "stage_receipt": "Evidence/HumanCapitalSiege-20261010/Local/stage-siege-r6/Diagnostics/receipt.json",
+  "implementation_commit": "61a6532cfc09bfd0086670b52293892446dab668",
+  "tools": [
+    {
+      "path": "Tools/HumanCapitalSiege/inspect_gate.py",
+      "sha256": "3935fae7d9d9d1e3bab3046c5875a3a09b5e50cf58369956f15a93d250096ba1"
+    },
+    {
+      "path": "Tools/HumanCapitalSiege/measure_gate.py",
+      "sha256": "c1ea729743f93ed16573bd0ad958f344c28d38ff1e4c692258af37e60dd0bb5e"
+    },
+    {
+      "path": "Tools/HumanCapitalSiege/play_siege.cmd",
+      "sha256": "722aff8370cef7c8658e379a68f3f767c26a60eb5fa21da70185e91084bd4ba3"
+    },
+    {
+      "path": "Tools/HumanCapitalSiege/play_siege.py",
+      "sha256": "fcca7e7070eda49cb4955d4c75d0f89b713273a8fc75e5eda7243d2451fe55f7"
+    },
+    {
+      "path": "Tools/HumanCapitalSiege/playtest.json",
+      "sha256": "46828c6783b96b5287003d0acd7061944cacac71f68dbbf1683e72c5a8f7b993"
+    },
+    {
+      "path": "Tools/HumanCapitalSiege/qualify_siege.py",
+      "sha256": "ab2b574286264f99bf28205f4adf73736192c40799e69421b5bc145e7ea4d157"
+    },
+    {
+      "path": "Tools/HumanCapitalSiege/README.md",
+      "sha256": "d774e116b3f42b5e81daf19d154604116404f2698dbf0834c182a5a96b782aac"
+    }
+  ]
+}

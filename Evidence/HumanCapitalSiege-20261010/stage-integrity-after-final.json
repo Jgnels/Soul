@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-10-10T18:00:06.600154+00:00",
+  "stage_receipt": "Evidence\\HumanCapitalSiege-20261010\\Local\\stage-siege-r6\\Diagnostics\\receipt.json",
+  "manifest_entries_present": 13348,
+  "base_cooked_files_hash_checked": 10754,
+  "base_cooked_mismatches": [],
+  "supplemental_copied_files_hash_checked": 661,
+  "binary_matches_fresh_build": true,
+  "pass": true,
+  "external_remover_diagnosed": false
+}

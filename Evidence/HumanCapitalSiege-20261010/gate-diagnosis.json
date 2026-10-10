@@ -1,0 +1,21 @@
+{
+  "native_gate_mesh": "/Game/CastleTown/Static_Mesh/Castle_Kit/Buildings/Castle_Gate/SM_Portcullis",
+  "native_gate_base_cm": [
+    5376.591898303266,
+    1390.9534189082117,
+    1050.0
+  ],
+  "survey_stations": 153,
+  "survey_width_m": 2.2,
+  "survey_length_m": 50,
+  "max_sampled_walkable_floor_grade_degrees": 16.89386520196596,
+  "ground_threshold_cm": 787,
+  "native_gate_raised_above_ground_cm": 263,
+  "proposed_change": "Lower only the native portcullis to its measured threshold in the transient siege world; remove its blocking representation only after RBCombat-accepted hits exhaust integrity. No donor or terrain writes.",
+  "editor_failure": "Full-city nested editor load exceeded paging capacity; measurement JSON completed first; no repeated heavy editor load.",
+  "initial_capsule_route_status": "UNPROVEN: must be verified in cooked runtime",
+  "capsule_route_status": "PASS: final cooked native survey zero misses/blocks; closed human capsule blocked by native gate; actual troop traversal after real breach.",
+  "runtime_evidence": "runtime-receipt.json",
+  "actual_gate_base_z_cm": 788.97,
+  "actual_runtime_drop_cm": -261.03
+}

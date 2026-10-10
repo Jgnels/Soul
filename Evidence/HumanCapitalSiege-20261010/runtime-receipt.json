@@ -1,0 +1,189 @@
+{
+  "runs": [
+    {
+      "run": "cooked-siege-final",
+      "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+      "completion_marker": "SOUL_SIEGE_QUAL_PASS",
+      "marker_observed": true,
+      "clean_shutdown": true,
+      "stop_reason": "completion_marker_process_exit",
+      "peak_gpu_c": 67.0,
+      "seconds": 548.59,
+      "evidence": "Local/cooked-siege-final",
+      "performance_qualification": false,
+      "siege_summary": {
+        "result_siege": true,
+        "result_siege_gate": 0,
+        "result_siege_courtyard": false
+      },
+      "owner": "humans",
+      "army": {
+        "human_archer": 0,
+        "human_guard": 1,
+        "human_knight": 25
+      },
+      "hero_condition": 1,
+      "captor": "None",
+      "capture_region": "None",
+      "dwarf_commander": {
+        "condition": 2,
+        "recovery": 0,
+        "captor": "humans",
+        "region": "human_capital"
+      },
+      "result": {
+        "Enemy": 0,
+        "enemy_waves": 4,
+        "Magic": 0,
+        "Player": 26,
+        "player_waves": 4
+      },
+      "wall_integrity": 0,
+      "scars": [
+        "human.gate.breached"
+      ],
+      "gate_hits": 62,
+      "physical_troop_traversal": true,
+      "courtyard_captured": false,
+      "closed_capsule_blocked": true,
+      "route_survey_pass": true
+    },
+    {
+      "run": "cold-victory-final",
+      "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+      "completion_marker": "SOUL_SIEGE_COLD_PASS",
+      "marker_observed": true,
+      "clean_shutdown": true,
+      "stop_reason": "completion_marker_process_exit",
+      "peak_gpu_c": 58.0,
+      "seconds": 91.75,
+      "evidence": "Local/cold-victory-final",
+      "performance_qualification": false
+    },
+    {
+      "run": "cooked-defender-final",
+      "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+      "completion_marker": "SOUL_SIEGE_QUAL_PASS",
+      "marker_observed": true,
+      "clean_shutdown": true,
+      "stop_reason": "completion_marker_process_exit",
+      "peak_gpu_c": 70.0,
+      "seconds": 276.28,
+      "evidence": "Local/cooked-defender-final",
+      "performance_qualification": false,
+      "siege_summary": {
+        "result_siege": true,
+        "result_siege_gate": 0,
+        "result_siege_courtyard": false
+      },
+      "owner": "dwarves",
+      "army": {
+        "human_archer": 0,
+        "human_guard": 0,
+        "human_knight": 0
+      },
+      "hero_condition": 2,
+      "captor": "dwarves",
+      "capture_region": "human_capital",
+      "dwarf_commander": {
+        "condition": 0,
+        "recovery": 0,
+        "captor": "None",
+        "region": "None"
+      },
+      "result": {
+        "Enemy": 24,
+        "enemy_waves": 1,
+        "Magic": 0,
+        "Player": 0,
+        "player_waves": 0
+      },
+      "wall_integrity": 0,
+      "scars": [
+        "human.gate.breached"
+      ],
+      "gate_hits": 72,
+      "physical_troop_traversal": false,
+      "courtyard_captured": false,
+      "closed_capsule_blocked": true,
+      "route_survey_pass": true
+    },
+    {
+      "run": "cold-defender-final",
+      "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+      "completion_marker": "SOUL_SIEGE_COLD_PASS",
+      "marker_observed": true,
+      "clean_shutdown": true,
+      "stop_reason": "completion_marker_process_exit",
+      "peak_gpu_c": 55.0,
+      "seconds": 91.83,
+      "evidence": "Local/cold-defender-final",
+      "performance_qualification": false
+    },
+    {
+      "run": "cooked-objective-final",
+      "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+      "completion_marker": "SOUL_SIEGE_QUAL_PASS",
+      "marker_observed": true,
+      "clean_shutdown": true,
+      "stop_reason": "completion_marker_process_exit",
+      "peak_gpu_c": 67.0,
+      "seconds": 517.27,
+      "evidence": "Local/cooked-objective-final",
+      "performance_qualification": false,
+      "siege_summary": {
+        "result_siege": true,
+        "result_siege_gate": 0,
+        "result_siege_courtyard": false
+      },
+      "owner": "humans",
+      "army": {
+        "human_archer": 1,
+        "human_guard": 2,
+        "human_knight": 29
+      },
+      "hero_condition": 1,
+      "captor": "None",
+      "capture_region": "None",
+      "dwarf_commander": {
+        "condition": 2,
+        "recovery": 0,
+        "captor": "humans",
+        "region": "human_capital"
+      },
+      "result": {
+        "Enemy": 0,
+        "enemy_waves": 4,
+        "Magic": 0,
+        "Player": 32,
+        "player_waves": 3
+      },
+      "wall_integrity": 0,
+      "scars": [
+        "human.gate.breached"
+      ],
+      "gate_hits": 62,
+      "physical_troop_traversal": true,
+      "courtyard_captured": false,
+      "closed_capsule_blocked": true,
+      "route_survey_pass": true
+    },
+    {
+      "run": "cold-objective-final",
+      "binary_sha256": "45e72066ca9dac01162effb9ff1804f8347e7f19ea767eba8b29edaaa8313eb5",
+      "completion_marker": "SOUL_SIEGE_COLD_PASS",
+      "marker_observed": true,
+      "clean_shutdown": true,
+      "stop_reason": "completion_marker_process_exit",
+      "peak_gpu_c": 56.0,
+      "seconds": 91.7,
+      "evidence": "Local/cold-objective-final",
+      "performance_qualification": false
+    }
+  ],
+  "pass": true,
+  "peak_gpu_c": 70.0,
+  "courtyard_capture_on_final_binary": false,
+  "earlier_courtyard_capture_evidence": "Local/runtime-receipt-r5.json; identical gate/objective implementation, before optional result-summary serialization fix",
+  "rout_policy": "Existing defeated-army cohesion policy: routed strategic survivors become zero. This is not a claim that all physically living routed soldiers were killed."
+}
