@@ -1,0 +1,366 @@
+{
+  "starting_head": "588d0db44ede6a255aa3f2cb80902aa9d6c10fec",
+  "qualified_source_commit": "69b51de3367c1a15b98e5f0bc25d828e9ebe4fe0",
+  "ending_head_receipt": "final-head.txt (written after the evidence commit)",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "remote_unchanged": "4842eeb403f6b9be6effdf9fe18fc5c24b499887",
+  "started_utc": "2026-10-10T06:00:18Z",
+  "consolidated_utc": "2026-10-10T12:57:25.018252+00:00",
+  "playtest_build_ready": true,
+  "default_fps": 30,
+  "thermal_cutoff_c": 85,
+  "uncapped_profile_run": false,
+  "sustained_performance_qualified": false,
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Soul\\CampaignAlphas\\FourFactionAlpha-hcxw3d__\\Stage",
+  "stage_receipt": "Local/stage-depth-r8/Diagnostics/receipt.json",
+  "executable": "C:\\Users\\Jeff\\AppData\\Local\\Soul\\CampaignAlphas\\FourFactionAlpha-hcxw3d__\\Stage\\Windows\\Soul\\Binaries\\Win64\\SoulComposition.exe",
+  "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+  "launcher": "Tools/ProductionContinuation/play_heartland.cmd",
+  "launcher_verification": "Local/final-launcher-dry-run.log",
+  "stage_isolation": "staged-isolation-verification.json",
+  "automatic_inputs": false,
+  "save_profile": "Soul.Composition3500.HeartlandAlpha",
+  "human_sessions": "Saved/CompositionPlaytest/HeartlandAlpha/HumanSessions",
+  "default_map_promoted": false,
+  "outcomes": {
+    "human_multi_role_recruitment": "PASS: human_knight, human_archer, human_guard; no cavalry claim",
+    "visible_companion": "PASS: named assignment and native city embodiment; no field participation",
+    "windmill": "PASS, provisional art",
+    "shrine": "PASS, provisional art",
+    "quarry": "PARTIAL: visible owned rock/scaffold/cart assembly; unfinished excavation silhouette",
+    "location_battlefields": "PASS: city outer approach, woodland, Southern Crossing bridge",
+    "formation_order_contract": "PASS: focused HOLD/MOVE/CHARGE/FOLLOW/AI release; broader pathfinding provisional",
+    "settlement_development": "PASS: Arcane Hall, Veteran Barracks, Expanded Market physical groups and miniature",
+    "mage_guild": "PASS: initial cooked progression, higher tiers/affinity native checks",
+    "kenney_ui": "PASS: scoped Heartland UI and seven cursor states; actual 1280x800 review",
+    "audio_vfx": "PARTIAL: existing 11 battle clips reused; no broad new cue pass or audio audition",
+    "siege": "NOT REACHED: bounded ground-route survey inconclusive; no live gate objective/damage adapter",
+    "diplomacy": "PASS: paid Human-facing V0, real AI day, rejection safety, F5/F9 and cold restoration",
+    "cold_restore": "PASS: new proofs and copied pre-sprint Day 2 Crossroads save"
+  },
+  "battles": {
+    "paid_woodland_attack": {
+      "before": {
+        "infantry": 45,
+        "archers": 3,
+        "guards": 3
+      },
+      "natural_human_win": true,
+      "after": {
+        "infantry": 18,
+        "archers": 0,
+        "guards": 0
+      }
+    },
+    "mixed_human_city_defense": {
+      "fixture_same_total_troops": true,
+      "before": {
+        "infantry": 37,
+        "archers": 4,
+        "guards": 4
+      },
+      "natural_human_win": true,
+      "after": {
+        "infantry": 28,
+        "archers": 4,
+        "guards": 0
+      }
+    },
+    "bridge_orc_attack": {
+      "natural_orc_win": true,
+      "orc_survivors": 14,
+      "human_survivors": 0,
+      "aurora_captured": true,
+      "cold_restore_on_final_binary": true
+    }
+  },
+  "builds": {
+    "SoulEditor": "PASS: Local/editor-build-r14.log",
+    "SoulComposition": "PASS: Local/composition-build-r7.log",
+    "Soul": "NOT RUN this sprint; standalone target unaffected; no inherited build claimed",
+    "asset_cook": "additive Local/stage-depth-r2, carried and verified by final r8; frozen base not recooked"
+  },
+  "native_final": [
+    {
+      "receipt": "Local/depth-heartland-r14/receipt.json",
+      "tests": 9,
+      "pass": true,
+      "sha256": "12edd96d60e5e08926d62dd9137a94275f28a3b8f1d624e1f5480b40b9730057"
+    },
+    {
+      "receipt": "Local/depth-final-alpha/receipt.json",
+      "tests": 7,
+      "pass": true,
+      "sha256": "67d9f0c1c8f075a51e3eeb612fb88469b01a6aa269462e960e03ea6521b101bb"
+    },
+    {
+      "receipt": "Local/depth-final-vertical/receipt.json",
+      "tests": 19,
+      "pass": true,
+      "sha256": "cde83931c12bb99881589a870f3f5244d616b1169c3b84cd737283341160d858"
+    },
+    {
+      "receipt": "Local/depth-final-settlement/receipt.json",
+      "tests": 7,
+      "pass": true,
+      "sha256": "b30fc9db54be4df227ffb0c5742ca7feea050898cef24cc6e9c63e79f66149c3"
+    },
+    {
+      "receipt": "Local/depth-final-default-world/receipt.json",
+      "tests": 2,
+      "pass": true,
+      "sha256": "a8abde3f39d4a342c0df641a83b8cba3d1a9c1fefdde0bdedca3e20b1fe83c73"
+    },
+    {
+      "receipt": "Local/depth-final-composition-world/receipt.json",
+      "tests": 2,
+      "pass": true,
+      "sha256": "932a875afb4c8f63ed6ae716432d414cb2b3c1c6c519acf90a7929d646617f09"
+    }
+  ],
+  "native_unchanged_implementation_carried": {
+    "control": {
+      "count": 6,
+      "receipt": "Local/depth-control-r12/receipt.json"
+    },
+    "bridge": {
+      "count": 1,
+      "receipt": "Local/depth-bridge-r12/receipt.json"
+    },
+    "ground": {
+      "count": 1,
+      "receipt": "Local/depth-ground-r12/receipt.json"
+    }
+  },
+  "tools": {
+    "source_tools_37": "Local/tools-final-r14.log",
+    "launcher_16_including_4_overlapping": "Local/launcher-tests-final.log",
+    "total_unique": 49
+  },
+  "cooked_proofs": [
+    {
+      "run": "cooked-depth-r1",
+      "receipt": "Local/cooked-depth-r1/runtime/summary.json",
+      "receipt_sha256": "268967dbeee942f814cc5f71fa8941528ad61a40c5b630082797af6d0f9fe2ae",
+      "executable_sha256": "0566eef0f6abb59565a41d456bceb31234281a778f461041d3b23a87cbc2828a",
+      "marker": "SOUL_DEPTH_PASS",
+      "observed": true,
+      "peak_gpu_c": 77.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-09.36.42:600][682]LogTemp: Display: SOUL_DEPTH_PASS paid_companies=3 physical_states=3 companion=1 visits=2 F5=1 F9_exact=1"
+      ]
+    },
+    {
+      "run": "cooked-company-r3",
+      "receipt": "Local/cooked-company-r3/runtime/summary.json",
+      "receipt_sha256": "b2ddf3c0016ffc211587f972ef1198d02b2ebcd7a39a4f22489c3f5c52b2b709",
+      "executable_sha256": "a42e5528e770cab01fc2fac85e01acaf579a0ccf7d29737343fc5c7a2fff5a2a",
+      "marker": "SOUL_DEPTH_COMPANY_BATTLE_PASS",
+      "observed": true,
+      "peak_gpu_c": 67.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-11.10.53:711][677]LogTemp: Display: SOUL_DEPTH_COMPANY_BATTLE_PASS natural_win=1 infantry=18 archers=0 guards=0 region=forest_edge paid_checkpoint=1 F5=1 F9=1"
+      ]
+    },
+    {
+      "run": "cold-company-r3",
+      "receipt": "Local/cold-company-r3/runtime/summary.json",
+      "receipt_sha256": "f0bb37df8f01442c6823232c1d08beda202f38bee9ba6fbb930125eab03a255c",
+      "executable_sha256": "a42e5528e770cab01fc2fac85e01acaf579a0ccf7d29737343fc5c7a2fff5a2a",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "observed": true,
+      "peak_gpu_c": 55.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-11.16.49:751][100]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=forest_edge exact_snapshot=1 controller_F9=1"
+      ]
+    },
+    {
+      "run": "cooked-city-r1",
+      "receipt": "Local/cooked-city-r1/runtime/summary.json",
+      "receipt_sha256": "f89d0f641c1e617b2868c9d50fc8b6d758f846a53997b34c05e3b3431486ef4f",
+      "executable_sha256": "33cc87cf674a1536873fa71558d335cd456f37165d9f2cb903ba96fa2043e365",
+      "marker": "SOUL_HEARTLAND_CITY_BATTLE_PASS",
+      "observed": true,
+      "peak_gpu_c": 76.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-10.38.41:514][428]LogTemp: Display: SOUL_HEARTLAND_CITY_BATTLE_PASS natural_result=1 attacker_won=0 survivors=0/25 return=1 F5=1 F9=1"
+      ]
+    },
+    {
+      "run": "cooked-bridge-r3",
+      "receipt": "Local/cooked-bridge-r3/runtime/summary.json",
+      "receipt_sha256": "56bc21af1319637f68d47572bd8e1bb02427c481e4a77a7e216b630f162d8dd7",
+      "executable_sha256": "a42e5528e770cab01fc2fac85e01acaf579a0ccf7d29737343fc5c7a2fff5a2a",
+      "marker": "SOUL_HEARTLAND_CITY_BATTLE_PASS",
+      "observed": true,
+      "peak_gpu_c": 60.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-11.16.10:295][748]LogTemp: Display: SOUL_HEARTLAND_CITY_BATTLE_PASS natural_result=1 attacker_won=1 survivors=14/0 return=1 F5=1 F9=1"
+      ]
+    },
+    {
+      "run": "cold-bridge-r3",
+      "receipt": "Local/cold-bridge-r3/runtime/summary.json",
+      "receipt_sha256": "549a14da6cbcb8bae4ae70c123db1c196ce8c07e88752b281eda06b65364b4d3",
+      "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "observed": true,
+      "peak_gpu_c": 65.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.40.22:568][100]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=southern_crossing exact_snapshot=1 controller_F9=1"
+      ]
+    },
+    {
+      "run": "cooked-review-r4",
+      "receipt": "Local/cooked-review-r4/runtime/summary.json",
+      "receipt_sha256": "4ec28f4d16c68cea2ac7824503e575b4ca4b457ca9f34fd3d3ddc2a633ee385e",
+      "executable_sha256": "efd642bb497b5efe7ead8a38d9570067756aa9bba1716d9b943fcdd25a15e080",
+      "marker": "SOUL_DEPTH_PRESENTATION_PASS",
+      "observed": true,
+      "peak_gpu_c": 73.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.16.35:417][666]LogTemp: Display: SOUL_DEPTH_PRESENTATION_PASS paid_city=1 sites=3 quarry_reward=1 full_mana_reject=1 remote_F5_F9=1"
+      ]
+    },
+    {
+      "run": "cold-cooked-review-r4",
+      "receipt": "Local/cold-cooked-review-r4/runtime/summary.json",
+      "receipt_sha256": "40f043491c4b3588ada6cf61fefe7f36a0f930031f94b6cea4c68759ab7ee2ae",
+      "executable_sha256": "efd642bb497b5efe7ead8a38d9570067756aa9bba1716d9b943fcdd25a15e080",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "observed": true,
+      "peak_gpu_c": 53.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.17.24:472][100]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=ancient_shrine exact_snapshot=1 controller_F9=1"
+      ]
+    },
+    {
+      "run": "cooked-mixed-defense-r1",
+      "receipt": "Local/cooked-mixed-defense-r1/runtime/summary.json",
+      "receipt_sha256": "3924e3b81d4f4021c6c7ad97a26747c9e7db9010e247d8439dc1f2642411fa32",
+      "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+      "marker": "SOUL_HEARTLAND_CITY_BATTLE_PASS",
+      "observed": true,
+      "peak_gpu_c": 82.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.37.48:153][248]LogTemp: Display: SOUL_HEARTLAND_CITY_BATTLE_PASS natural_result=1 attacker_won=0 survivors=0/32 return=1 F5=1 F9=1"
+      ]
+    },
+    {
+      "run": "cold-mixed-defense-r1",
+      "receipt": "Local/cold-mixed-defense-r1/runtime/summary.json",
+      "receipt_sha256": "7223f18153166a472fe22a528f3c2f0e036e4d082ed793deeecfb0055ea3dbde",
+      "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "observed": true,
+      "peak_gpu_c": 65.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.38.36:174][100]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=human_capital exact_snapshot=1 controller_F9=1"
+      ]
+    },
+    {
+      "run": "cooked-diplomacy-r2",
+      "receipt": "Local/cooked-diplomacy-r2/runtime/summary.json",
+      "receipt_sha256": "abc4af2565419a8db01085625e5cc1b1bdeb845d0b379f94eb316aa45814dd89",
+      "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+      "marker": "SOUL_DIPLOMACY_PROOF_PASS",
+      "observed": true,
+      "peak_gpu_c": 57.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.30.17:476][378]LogTemp: Display: SOUL_DIPLOMACY_PROOF_PASS paid_gifts=2 peace=1 real_AI_day=1 pact=1 betrayal=1 F5=1 F9_exact=1"
+      ]
+    },
+    {
+      "run": "cold-cooked-diplomacy-r2",
+      "receipt": "Local/cold-cooked-diplomacy-r2/runtime/summary.json",
+      "receipt_sha256": "392755fbb14178b1219529f7486164d5488446747d9de821d9fda3dc8e0de6c1",
+      "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "observed": true,
+      "peak_gpu_c": 57.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.30.57:961][100]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=human_capital exact_snapshot=1 controller_F9=1"
+      ]
+    },
+    {
+      "run": "cold-legacy-heartland-r1",
+      "receipt": "Local/cold-legacy-heartland-r1/runtime/summary.json",
+      "receipt_sha256": "d282b3813e3963072b6104b4db7a1d0d79cb09a1223f8057524cfc23c95260b8",
+      "executable_sha256": "821a16413bf5ef4b3127f35fc8b6e1e56418dd1a68884dd10b32f447e1d3f1e9",
+      "marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+      "observed": true,
+      "peak_gpu_c": 60.0,
+      "capped_functional_only": true,
+      "markers": [
+        "[2026.10.10-12.45.11:926][100]LogTemp: Display: SOUL_CAMPAIGN_COLD_LOAD_PASS region=crossroads exact_snapshot=1 controller_F9=1"
+      ]
+    }
+  ],
+  "peak_accepted_functional_gpu_c": 82.0,
+  "preservation": {
+    "protected_hashes_checked": 567,
+    "protected_receipt": "Local/preservation-assets-final.json",
+    "protected_receipt_sha256": "68591a262451bd6db2bf4a82231877ea062b70223c8444537137a0bc69fc9bfc",
+    "inherited_tracked_unchanged": 17,
+    "inherited_receipt": "Local/inherited-preservation-final.json",
+    "intentional_soul_owned_map_changes": [
+      {
+        "path": "D:\\RefinedBadger\\Worktrees\\Soul-bannerlord-campaign-map-20260929\\Content\\Soul\\Maps\\Settlements\\SL_HumanCapital_Houses.umap",
+        "reason": "intentional Soul-owned building-state groups",
+        "baseline": "5771463de5bfe0aaf27dd25aa61ea9e760979bf50e2ab73df0f61ecb79835238",
+        "backup_sha256": "5771463de5bfe0aaf27dd25aa61ea9e760979bf50e2ab73df0f61ecb79835238",
+        "backup_matches": true,
+        "current": "4b3ea86516be8d8e4bdf615f68db12395d63642b90bbff89bdf2ba6e99298c3e"
+      }
+    ],
+    "licensed_unreal_payloads_committed": false,
+    "donors_modified": false,
+    "transfer_receipt": "Local/site-transfer-receipt.json",
+    "source_manifest": "Local/site-source-manifest.json",
+    "qualified_source_hashes": "qualified-source-files.json",
+    "source_boundary": "source-boundary.json"
+  },
+  "save_compatibility": {
+    "rbsave_schema_changed": false,
+    "legacy_new_company_stock": 0,
+    "legacy_companion_assignment": "derived from prior hired flag",
+    "optional_diplomacy_field": "heartland_diplomacy inside existing Soul.Campaign domain",
+    "old_binaries_forward_compatible": false,
+    "instruction": "Use the new launcher for saves containing treaties; previous proof saves remain untouched.",
+    "legacy_proof": "Local/legacy-heartland-user/compatibility-expectation.json"
+  },
+  "known_limits": [
+    "Cavalry unqualified; heavy guard is honest third role.",
+    "Rowan city embodiment only; no companion field AI.",
+    "Quarry, woodland lighting, city algae/material warnings and broader crowd movement remain provisional.",
+    "Native facade groups are not new specialist interiors.",
+    "No playable siege; straight ground probes were inconclusive, not evidence that the gate is impossible.",
+    "No sustained thermal/performance claim; accepted capped functional peak 82 C.",
+    "New saves containing diplomacy must not be continued with old executables.",
+    "Disk reserve prevents unnecessary new asset cooks; no safety limits were lowered."
+  ],
+  "rejected_iterations": [
+    "Forest spawn failed against nonphysical authoring-volume collision; final runtime disables those volume collisions.",
+    "Bridge direct approach initially blocked banks/stone: qualified deck, parapet barriers and narrow waypoints replaced it.",
+    "Quarry prop burial/Rowan camera overlap corrected in r4 reviewed captures.",
+    "Diplomacy r1 driver sent UI open and click in one frame; deferred-input r2 qualified.",
+    "Launcher initially lacked final-stage isolation receipt; existing verification tool produced a new measured receipt."
+  ],
+  "next_four_hour_sprint": "Human Capital siege V0: establish one true ground-level gate approach and assault lane, then connect gate damage/objective/result through existing combat/campaign authority. Preserve this qualified field-battle fallback.",
+  "product_judgment": "YES, materially closer in embodiment and strategic/tactical variety; not finished production art or siege breadth.",
+  "push": false,
+  "merge": false,
+  "default_promotion": false
+}

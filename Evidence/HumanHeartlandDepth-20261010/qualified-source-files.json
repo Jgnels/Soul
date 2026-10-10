@@ -1,0 +1,407 @@
+{
+  "starting_head": "588d0db44ede6a255aa3f2cb80902aa9d6c10fec",
+  "source_files": [
+    {
+      "path": "Data/SettlementEnvironments/EnvironmentRegistry.json",
+      "sha256": "30321faa95499506f658f57d0105b008d306851664c7bb58d27f1801fbf3a25c"
+    },
+    {
+      "path": "Source/Soul/Private/SoulCampaignWorldActor.cpp",
+      "sha256": "cc5c62e91fd8ab874d866a5f02b1e99aab3b35be3bf8bcb071d66ad428f881b8"
+    },
+    {
+      "path": "Source/Soul/Private/SoulControlledCampaignAction.cpp",
+      "sha256": "dfcbfff2e7f32811c8d378ca802b4e5dfa27a7224b9b54cb018cca5fbb94c1e9"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestCampaignActor.cpp",
+      "sha256": "38df28da69e4466f69b446bfc2ade5a0127adee906a4d93b0b964a58d5ee562e"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestGameMode.cpp",
+      "sha256": "6010441013c0a574a6b2b28273f8c4b48b82e0a9c1414c2895dfc3d1138ea76d"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestHUD.cpp",
+      "sha256": "dfe6453f4d6ef62c780d1bca8ce31524a738e92dc73489fbe2d9e35b6b8164e2"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestPlayerController.cpp",
+      "sha256": "d12622473a4760dbc32efc9514869854d704e91e8198428d9ba29641d05f5d59"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "sha256": "39e012883218789ca39b4478b41905229fafb1a6e2f13c9691f23e1d2f2e16fd"
+    },
+    {
+      "path": "Source/Soul/Private/SoulFourFactionAlpha.cpp",
+      "sha256": "28b0529c934e8b12c7125b3f6163b29df0b7e131c4c396cb14d2a2a5de0e325e"
+    },
+    {
+      "path": "Source/Soul/Private/SoulHeartlandQualification.cpp",
+      "sha256": "743e09f37a7376bd58a653a5574cd0ede42a2d377b137edbbbfc4bac7945e318"
+    },
+    {
+      "path": "Source/Soul/Private/SoulPlaytestRegionActor.cpp",
+      "sha256": "5b4cdda377667bde2c0214e16ae0f4eb88565d3a3b58e876c148522cdeda080f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementBuildingActor.cpp",
+      "sha256": "90f27ad2b4a89e111bf02029fcb7f931bba8f55570cb1890b14e91426642eebe"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementEnvironmentRegistry.cpp",
+      "sha256": "95387fb49e4de1345de24f3a3833f5bac7f0ce908fd9d480e7701d04844d420d"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementPresentationController.cpp",
+      "sha256": "dc3fe15cf313eb6a83641e61685c50a7e0ae281495863e0f887806973a889929"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSettlementVisitGameMode.cpp",
+      "sha256": "04627817f3625b2581197effa9c78f5d1d1322d11963d848f1428c428144ac69"
+    },
+    {
+      "path": "Source/Soul/Private/SoulSixFactionCampaign.cpp",
+      "sha256": "ef6c1a321a487870f71f66f5da53768d8d3e2db4afcf448352ff3759cf267c57"
+    },
+    {
+      "path": "Source/Soul/Private/Tests/SoulHeartlandTests.cpp",
+      "sha256": "dfe47a5a93a555da814997ea8a0d96abdcb4805514789bd6f22c1e370ed15716"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestCampaignActor.h",
+      "sha256": "3df96260095fbeccd7e90c7836078798b8dff3c798c492723b1c7dafdc20494c"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestGameMode.h",
+      "sha256": "3593c73b29abd25b70a081fb82d9afab0048449c86620954b65f46988497da98"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestPlayerController.h",
+      "sha256": "04a30b6aa572d4e53f8c19a1656465c39f80830e732ff1291b7cd7ab3475ce60"
+    },
+    {
+      "path": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "sha256": "3ae572b5bca6272f6020420079a04b09e5a7a16611562f58aaf8dedc9fb47ee9"
+    },
+    {
+      "path": "Source/Soul/Public/SoulPlaytestRegionActor.h",
+      "sha256": "35ebe482d6017bf57e4bc4657a2f6e3afe250ec62e518412ef4008e5f5e3dafa"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementBuildingActor.h",
+      "sha256": "35ac3a619d82d6f24f544d36550e2ecb8141c94e2166a2e7cab96033d12f764a"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementEnvironmentRegistry.h",
+      "sha256": "0fedeff07eff6b67a8ae85fd1079573df5faa108e1046db0a05e91baaf21ae2a"
+    },
+    {
+      "path": "Source/Soul/Public/SoulSettlementVisitGameMode.h",
+      "sha256": "c42f3678cbed979053d9ed36c7c0cd09f3a0460f18503d43e51e09a76250c2fe"
+    },
+    {
+      "path": "Source/Soul/Soul.Build.cs",
+      "sha256": "613f5f5027ffb2942aff09f105fb1379d931dc0775fd9ccc7cb78530ce4e2e08"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulCampaignBattleBridge.cpp",
+      "sha256": "f7199e18facd2cc02899f20d67df4e4e6a33319d75fad4c2dacaeb94d9e0b576"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulCampaignBattleBridge.h",
+      "sha256": "a9af09b9e0d1c46b8c145a50883f16c3daddc06bd34fd80cfdf6e348c4ed72b1"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHUDTheme.h",
+      "sha256": "6f77bb5488229a238bd7a5f0fd2624d13de0688ef1af33a6b58844c5cb5c937b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleHUD.cpp",
+      "sha256": "249a11a3a59ee3a872986ace88904398a85fa3b615fe5efff85b388b2d1490f5"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattlePlayerActions.cpp",
+      "sha256": "c34d568ddd3a6b447341b0527bdc6cf372350784121e5d7d1cf273c2295c3495"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulHumanDefenseQualification.cpp",
+      "sha256": "ee3976cf867ecad05eb59f3ebb31902fbb8c4c8da93bba8134795baf295cbb9f"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp",
+      "sha256": "1c6d46466b51d1c7dae10080f5b7994cd8b8c9280cb44835774e25f479bbe865"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleArena.h",
+      "sha256": "2eb5ceed26ad56dc7ecd7c0c875cf3c85baa49b28afc05b9d9bf1b7f3c20765f"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulRealtimeBattleTactics.h",
+      "sha256": "5b0a1dbb18e144d7cee8c7d420d17188a323230d02faeae2963a91f1ae8054a2"
+    },
+    {
+      "path": "Tools/FourFactionAlpha/stage_binary_update.py",
+      "sha256": "cc389297917ab94b0b053abafa1403816590c83a3c6b8f6e22e6c6ceb7c458fb"
+    },
+    {
+      "path": "Tools/SettlementEnvironments/build_renderlod_miniature.py",
+      "sha256": "f6e4b97fb831260c5d840ea5fb5fdf14a4b144e8e56f90385a945219d61b6278"
+    },
+    {
+      "path": "Tools/qualify_soul_vertical.py",
+      "sha256": "e158d72733fa04441dc8e767ab8256b25f96398b0bd9254d6070f55987963b82"
+    },
+    {
+      "path": "Tools/ProductionContinuation/heartland_playtest.json",
+      "sha256": "b3db8af0aade22d5cf4653acca332e5c7185492695383ea9dbad8e26938112dc"
+    },
+    {
+      "path": "Tools/ProductionContinuation/play_heartland.py",
+      "sha256": "0a995396f2f765429e4ffd94d55947c9449aa91863dfc4f13e67bfab8ef1763e"
+    },
+    {
+      "path": "Data/UI/Kenney/LICENSE-Cursors.txt",
+      "sha256": "a134e52b4689ed8a57f170e0dacfcba5d64351cbd0858aa2e325b8486d0ca9d6"
+    },
+    {
+      "path": "Data/UI/Kenney/LICENSE-FantasyUI.txt",
+      "sha256": "f7185bbb59c1a5dec131621e76bddde6855035224119927bba21f3b0bbc3ca83"
+    },
+    {
+      "path": "Data/UI/Kenney/button.png",
+      "sha256": "dce6837aa55bcfcf5788b72b8e02c47a117ed94553ebdde12663054af1fc39eb"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-attack.png",
+      "sha256": "1f29786f6e0f15fe29804e4630a245bc19cb2cbc36c0a828e7d7088991127acf"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-busy.png",
+      "sha256": "9ac9cdc1e7780ad42dd4eeac12f5095014c3dfc07dfe129064510bd3e067071d"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-default.png",
+      "sha256": "c2c3bfa908aa2f9f5460a3ccc470f5af7ee8276a4cea6a2e38c4dba0821e304d"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-disabled.png",
+      "sha256": "9db3d75cacabe9fc66a2c104fc7b907cc772d9ceeb7ce8c71982309bf645a936"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-interact.png",
+      "sha256": "31b50dbdae2a8f9992ef7d93bb8df796115f1b0ec80b874d8bbbadbdbc85b934"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-move.png",
+      "sha256": "e1d37091ea5aee25418c96746a99a8103d52fe7844096335c179393d7b047154"
+    },
+    {
+      "path": "Data/UI/Kenney/cursor-select.png",
+      "sha256": "b1c618e5e0345088297dc66935f360315fae4a49cb2e6ea4e802d93217997c8c"
+    },
+    {
+      "path": "Data/UI/Kenney/modal.png",
+      "sha256": "850f5107445a80df2872e59192ba67267f3a6beb323a2a3682d0ec48ac945bc9"
+    },
+    {
+      "path": "Data/UI/Kenney/panel.png",
+      "sha256": "9b4c8a33075d876849f37c113f578ece74c19f406f2a092035f2ad8b495d2416"
+    },
+    {
+      "path": "Data/UI/Kenney/provenance.json",
+      "sha256": "e1e1a85827d4540bac6a9be2720180cac4401fea165a8dcb74846203b295491f"
+    },
+    {
+      "path": "Source/Soul/Private/SoulHeartlandDepthQualification.cpp",
+      "sha256": "8226669fcbc10ca644ca3fa9173eb547b17bbe95108c23b6806ef3c1e18f2018"
+    },
+    {
+      "path": "Source/Soul/Private/SoulHeartlandDiplomacy.cpp",
+      "sha256": "ba925389df909e43a74d16463f706e9bd33dabe240e8e30ca7265afdbae17697"
+    },
+    {
+      "path": "Source/Soul/Private/SoulHeartlandSites.cpp",
+      "sha256": "97ac7813332b755295f1a1ac9bf7bbd741a1c8cc69965ce67de540cb24888ea6"
+    },
+    {
+      "path": "Source/Soul/Private/SoulHeartlandSites.h",
+      "sha256": "9dc009f50c917ca7fbbd004963b8d23ff6451be11f7af961bf61f67682435e40"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulDiplomacy.cpp",
+      "sha256": "c74637c1cdb1d42d393a31a8afbbd06539fe96f23bc5e2b3fc7bbff6b1d5feba"
+    },
+    {
+      "path": "Source/SoulCore/Private/SoulHUDArt.cpp",
+      "sha256": "b670351874807029324d870191aae208ca51b78354faf3f661a49a3751592a04"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulDiplomacy.h",
+      "sha256": "cb215f023493058ed36fb381ccf501796cc49d89d33f019a67833d7009e18a44"
+    },
+    {
+      "path": "Source/SoulCore/Public/SoulHUDArt.h",
+      "sha256": "5b4862a4c6314bf8a2cc1b53aaf7526d0ddc1a19623af0e656e461eeb422081b"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleControl.cpp",
+      "sha256": "83271aadef7a789ccd278891d0eaec02e0fb7c06cf9240fa174aa89fd52ed0b7"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulBattleControlRules.cpp",
+      "sha256": "20c8709add05f8a326f51a90e0fdfce7e5714595c61aeabb2a88374eeaa28cdd"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulHeartlandBridgeBattle.cpp",
+      "sha256": "245a4ffe5426dc20c5d5aa2f5963a0d6311cea9ff1e2407e52a5a1e6427a934c"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/SoulHeartlandBridgeGeometry.cpp",
+      "sha256": "3dfe65862edae5e924b1deb8b7739a049d6a9c29ae64e8b15e136a1d0b625008"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulBattleControlTests.cpp",
+      "sha256": "3f5f80a2d86ae81a3fa2133ca5dd9c75ea6432d385a5fe1b147b41e51a36956a"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Private/Tests/SoulHeartlandBridgeTests.cpp",
+      "sha256": "80cb005fd4592b32bcac3be7ae93f022f3091f1427fc8ab0ad1daa7771acf4f8"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulBattleControlRules.h",
+      "sha256": "e6cfa4e50aac5fbbb33a4e845fd2b1ffbcd7c230d855a3091549ef0f91e216a3"
+    },
+    {
+      "path": "Source/SoulRealtimeBattle/Public/SoulHeartlandBridgeGeometry.h",
+      "sha256": "63e09cd710ba797f52b75e37ccbf00c41cdf241420a0eaa7a4e2cdb273ac7c63"
+    },
+    {
+      "path": "Tools/HeartlandDepth/analyze_gate_survey.py",
+      "sha256": "8597c74ff7f5d324446321a13e791fb80e29f35cf119f1525bcbcf71a4d0fff0"
+    },
+    {
+      "path": "Tools/HeartlandDepth/author_bridge_wrapper.py",
+      "sha256": "140fe6e8a0124f9cc1f0828a76265048215f51a16794241840332683859b5028"
+    },
+    {
+      "path": "Tools/HeartlandDepth/author_development_groups.py",
+      "sha256": "698a9ff027dccb428d01651791561cd1da3ce4de2b7510f4823530a17003f9e2"
+    },
+    {
+      "path": "Tools/HeartlandDepth/author_woodland_wrapper.py",
+      "sha256": "9c259a7b2c6566e3afc883970db6e0bdc5d2ff341d457db55feb4f98a76543eb"
+    },
+    {
+      "path": "Tools/HeartlandDepth/build_development_miniatures.py",
+      "sha256": "f475deba7ba15640c50ad35ba1e83d27032797eb4ceed25d70c3264dd218db41"
+    },
+    {
+      "path": "Tools/HeartlandDepth/build_review.py",
+      "sha256": "4b4183dd23debac114fb17f86938bf164179fdb9dab901a7f33f6c08bdd9db91"
+    },
+    {
+      "path": "Tools/HeartlandDepth/build_windmill.py",
+      "sha256": "c951d4d7216c6eef20ac9cc1b749f1c0759f75be6cc53537f5f21f02cfdd2a5c"
+    },
+    {
+      "path": "Tools/HeartlandDepth/collect_cook_boundary.py",
+      "sha256": "9e1b9543ba1748749aa3c3bb071cfe8967ebc1f13c375ffe7a40e75f6e7e8748"
+    },
+    {
+      "path": "Tools/HeartlandDepth/cook_depth.py",
+      "sha256": "89fbc6096922d258cc05551d789e21011745f84ed34aae2c49b6a1606b4fb7a1"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_bridge_collision.py",
+      "sha256": "9a97100a0b96887e3635b2e8e512261085400c6c0228f78c3b9d0afa67c9c153"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_campaign_crossing.py",
+      "sha256": "106ac3ff97321b97e5b20a571106fe8083510089042302cb7cef43081441ac00"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_clearing_trees.py",
+      "sha256": "0f80572256398025062089ae80c2f33fa8fc588e864c5e05a67c01b8be218a04"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_companion_street.py",
+      "sha256": "9009212cda61d1921c48efe611f75c8834a34cdf8dc0dabb2127481ee0389cf0"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_fortress.py",
+      "sha256": "59f1ac1c6c78b9f459079e0118f993ade0c7ecb37e7e026aa3bb9d47e2e6b46d"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_human_gate.py",
+      "sha256": "4e175b798dc5914602fe8d5053f4f8b8b2d83458fcaa3da76031ebfd48af0d77"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_woodland.py",
+      "sha256": "1c6fec8f30b6cf9a8cbbc1e050c0faf2a8410374570d2afc04c79a02016da8fd"
+    },
+    {
+      "path": "Tools/HeartlandDepth/inspect_woodland_entries.py",
+      "sha256": "7fd247c02068bd63d7a5909bdcaa1ab5b5c9ce05fb3f2c665a725ade4f25a8cb"
+    },
+    {
+      "path": "Tools/HeartlandDepth/measure_woodland_lanes.py",
+      "sha256": "c13e80aebbc3281e763e8a24095a9861bf9b85a989573372994022b70b31d0ea"
+    },
+    {
+      "path": "Tools/HeartlandDepth/prepare_woodland_runtime.py",
+      "sha256": "52344f582854de0f25206c66d92230e7c2a8002473736e9ea7af8369fe5c7cc8"
+    },
+    {
+      "path": "Tools/HeartlandDepth/qualify_depth.py",
+      "sha256": "6f433c77661ccc67f0e4cf90e63851422420c5bb7716ba58314f234594bf19c6"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_campaign_crossing.py",
+      "sha256": "947c020e8109d28f6692ba5cf063859c9831551910aabc16ad5c9fbbe3fa598a"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_clearing.py",
+      "sha256": "08b1982882ddd37d4777d71b53d9a1231feffcc15691476191ab342dd24c238f"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_clearing_final.py",
+      "sha256": "eadb99c40295cf6a07ea3094ee445820ed624569702e01034657a9baa7521cb3"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_clearing_r2.py",
+      "sha256": "2814a273fa909a7901d0058b4bf6d043eb06182638bec9a087cd00b40d8ba8ba"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_human_gate.py",
+      "sha256": "1a2675ece58d61a6ee794bbe6c72680208c7beb9301b04a3b3c9e0d3e8d14be8"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_woodland.py",
+      "sha256": "c29d801b4b92448f136070e877533212d782d7caa899b26fc9558d2ec6b86972"
+    },
+    {
+      "path": "Tools/HeartlandDepth/review_woodland_exposure.py",
+      "sha256": "3030db84a7c77d14358a9c30283b2362828575efdabfdd11c9cc0a95f9f43cca"
+    },
+    {
+      "path": "Tools/HeartlandDepth/seat_woodland_clearing.py",
+      "sha256": "b3207ab65b06853f329ab55a70dbc93c5cf854ee23aa745a9f0670cb49e49735"
+    },
+    {
+      "path": "Tools/HeartlandDepth/stage_assets.py",
+      "sha256": "c7a95ab54339a0afe4ef88fc67f9b12c1715558436daa24a82bf82065413198f"
+    }
+  ],
+  "inherited_preserved": true,
+  "licensed_unreal_payloads_committed": false,
+  "post_build_nonsemantic_changes": [
+    "Removed trailing empty EOF line from SoulBattleControl.cpp and SoulBattleControlRules.cpp; no C++ token changes.",
+    "Normalized review generator CRCRLF to LF; regenerated gallery.",
+    "Updated Heartland launcher receipt and evidence root; verified dry run and launcher tests."
+  ],
+  "whitespace_exceptions": [
+    "Kenney licenses retain exact archive bytes, including donor whitespace."
+  ]
+}

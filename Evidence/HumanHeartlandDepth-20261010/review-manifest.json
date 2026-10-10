@@ -1,0 +1,191 @@
+{
+  "summary": "Cooked Heartland depth candidate. New companies, visible development, named companion, strategic landmarks and differentiated battlefields. Capped functional proof is not performance qualification.",
+  "sections": [
+    {
+      "title": "Playable companies and the Kenney interface",
+      "note": "Actual 1280 x 800 cooked capture. Infantry, archers and Veteran Guard are paid companies with finite stock. Cavalry is not claimed.",
+      "figures": [
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Final_UI_1280x800.png",
+          "caption": "Three company roles, named companion assignment and 1/2/3-day construction controls."
+        }
+      ]
+    },
+    {
+      "title": "Three native city development groups",
+      "note": "The paid progression uses the same settlement authority for authored buildings and campaign miniature. These are role-assigned authored facades, not newly built specialist interiors.",
+      "figures": [
+        {
+          "path": "Local/cooked-depth-r1/User/Saved/Screenshots/Depth_Starting_Guild.png",
+          "caption": "Guild before construction."
+        },
+        {
+          "path": "Local/cooked-depth-r1/User/Saved/Screenshots/Depth_Starting_Barracks.png",
+          "caption": "Barracks before construction."
+        },
+        {
+          "path": "Local/cooked-depth-r1/User/Saved/Screenshots/Depth_Starting_Market.png",
+          "caption": "Market before construction."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Upgraded_Guild.png",
+          "caption": "Guild after paid construction."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Upgraded_Barracks.png",
+          "caption": "Barracks after paid construction."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Upgraded_Market.png",
+          "caption": "Market after paid construction."
+        }
+      ]
+    },
+    {
+      "title": "Campaign representation",
+      "note": "Both representations use the same saved building levels. Terrain and canonical anchors remain unchanged.",
+      "figures": [
+        {
+          "path": "Local/cooked-depth-r1/User/Saved/Screenshots/Depth_Starting_Miniature_UI.png",
+          "caption": "Starting campaign miniature."
+        },
+        {
+          "path": "Local/cooked-depth-r1/User/Saved/Screenshots/Depth_Upgraded_Miniature_UI.png",
+          "caption": "Upgraded campaign miniature and company roster."
+        }
+      ]
+    },
+    {
+      "title": "Rowan in the authored city",
+      "note": "City-only embodiment; Rowan does not yet fight or follow the field army.",
+      "figures": [
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Rowan_Assigned_Companion.png",
+          "caption": "Owned Knight body, native idle and explicit companion assignment."
+        }
+      ]
+    },
+    {
+      "title": "Strategic landmarks",
+      "note": "Owned windmill/shrine derivatives and modular quarry works. Gameplay remains the existing site authority. Art is provisional, particularly quarry composition.",
+      "figures": [
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Windmill_Strategic.png",
+          "caption": "Windmill at strategic scale."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Windmill_Close.png",
+          "caption": "Compiled authored windmill."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Quarry_Strategic.png",
+          "caption": "Old Quarry at strategic scale."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Quarry_Interaction_Close.png",
+          "caption": "Quarry works and the paid-resource interaction."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Shrine_Strategic.png",
+          "caption": "Shrine at strategic scale."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Shrine_Close.png",
+          "caption": "Owned shrine landmark."
+        }
+      ]
+    },
+    {
+      "title": "Woodland battle",
+      "note": "Forest Edge uses actual woodland trees, rocks and ground. Nonphysical procedural-authoring volumes no longer obstruct reinforcements. RBCombat resolves the fight; exact company survivors persist.",
+      "figures": [
+        {
+          "path": "Local/cooked-company-r3/User/Saved/Screenshots/Human_Defense_Control.png",
+          "caption": "Human companies in the forest, with distinct formation cards."
+        },
+        {
+          "path": "Local/cooked-company-r3/User/Saved/Screenshots/Heartland_Hero_Melee.png",
+          "caption": "Hero melee in the woodland."
+        }
+      ]
+    },
+    {
+      "title": "River crossing battle",
+      "note": "Southern Crossing has a measured physical deck, parapets and river walking boundary. Approach waypoints lead troops through the bridge mouth. A natural cooked result and F5/F9 passed; broader pathfinding remains provisional.",
+      "figures": [
+        {
+          "path": "Local/cooked-bridge-r3/User/Saved/Screenshots/Human_Defense_Control.png",
+          "caption": "The crossing constrains troop frontage."
+        },
+        {
+          "path": "Local/cooked-bridge-r3/User/Saved/Screenshots/Heartland_Hero_Melee.png",
+          "caption": "Hero and troops at the crossing."
+        },
+        {
+          "path": "Local/cooked-bridge-r3/User/Saved/Screenshots/Heartland_City_Battle_Return.png",
+          "caption": "Natural battle result returned to the campaign."
+        }
+      ]
+    },
+    {
+      "title": "Authored city approach and enemy commander",
+      "note": "The existing Human Capital outer approach remains a field battle. This is not Siege V0.",
+      "figures": [
+        {
+          "path": "Local/cooked-city-r1/User/Saved/Screenshots/Heartland_Hero_Melee.png",
+          "caption": "Actual Human Capital environment; exact Dwarf commander and existing combat authority."
+        }
+      ]
+    },
+    {
+      "title": "Siege feasibility inspection",
+      "note": "Inspection only. The actual authored gate is not proof of an implemented siege.",
+      "figures": [
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Human_Gate_Context.png",
+          "caption": "Native Human city gate context."
+        },
+        {
+          "path": "Local/cooked-review-r4/User/Saved/Screenshots/Depth_Human_Gate_Approach.png",
+          "caption": "Native gate approach used for physical route inspection."
+        }
+      ]
+    },
+    {
+      "title": "Diplomacy V0",
+      "note": "Cooked UI actions: two real 250-gold gifts, peace, a normal AI day, a non-aggression pact, explicit betrayal, then exact F9 restoration. Human-facing rules only; peace grants no military access.",
+      "figures": [
+        {
+          "path": "Local/cooked-diplomacy-r2/User/Saved/Screenshots/Depth_Diplomacy_Initial_Reasons.png",
+          "caption": "Initial refusal and itemized acceptance score."
+        },
+        {
+          "path": "Local/cooked-diplomacy-r2/User/Saved/Screenshots/Depth_Diplomacy_Peace.png",
+          "caption": "Peace purchased through real gifts and movement costs."
+        },
+        {
+          "path": "Local/cooked-diplomacy-r2/User/Saved/Screenshots/Depth_Diplomacy_Betrayal.png",
+          "caption": "Explicit treaty break records betrayal."
+        },
+        {
+          "path": "Local/cooked-diplomacy-r2/User/Saved/Screenshots/Depth_Diplomacy_Restored_Pact.png",
+          "caption": "F9 restores pact, treasury, movement and world state."
+        }
+      ]
+    },
+    {
+      "title": "Final build: mixed-company Human defense",
+      "note": "Human remains the tactical defender against a real Dwarf attack. The isolated fixture redistributes the existing 45 soldiers into 37 infantry, 4 archers and 4 guards. Natural victory returned 28 infantry, 4 archers and 0 guards; F5/F9 and cold restoration passed. This is the city outer approach, not a siege.",
+      "figures": [
+        {
+          "path": "Local/cooked-mixed-defense-r1/User/Saved/Screenshots/Human_Defense_Control.png",
+          "caption": "Human hero and three exact company roles defending the authored city approach."
+        },
+        {
+          "path": "Local/cooked-mixed-defense-r1/User/Saved/Screenshots/Heartland_City_Battle_Return.png",
+          "caption": "Natural result and surviving companies returned to the campaign."
+        }
+      ]
+    }
+  ]
+}
