@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "soul.ransom.scoring.v1",
+  "title": "Deterministic Ransom Valuation & Offer/Acceptance Scoring (V1)",
+  "lane": "04_PRISONERS_RANSOM_DIPLOMACY_V1",
+  "sourceSnapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "evidenceClass": "DESIGN PROPOSAL",
+
+  "determinismContract": {
+    "evidenceClass": "DESIGN PROPOSAL (mirrors VERIFIED FROM CURRENT SNAPSHOT diplomacy style)",
+    "rules": [
+      "NO RNG and NO seeds, matching FSoulDiplomacyRules::Evaluate (Source/SoulCore/Private/SoulDiplomacy.cpp:10-37, comment line 23: no hidden information or random roll).",
+      "Fixed-scale integer arithmetic only. All values are gold (int32) or permille scores (0..1000).",
+      "Pure function of: captured hero's Level/Kind, days held (day - CaptureDay), current diplomatic RelationPermille, stance, and treasuries. No hidden state.",
+      "Same inputs => same output on every machine and every reload. Placement: new SOULCORE_API FSoulRansomRules in SoulCore (sibling of FSoulDiplomacyRules), so it has zero engine/UObject dependency and is unit-testable headless like FSoulDiplomacyRules."
+    ]
+  },
+
+  "economicAnchors": {
+    "evidenceClass": "VERIFIED FROM CURRENT SNAPSHOT",
+    "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "values": {
+      "startingGold": {"value": 3000, "ref": "line 290"},
+      "dailyIncomeGold": {"value": 450, "ref": "line 290"},
+      "knightCostGold": {"value": 140, "ref": "line 292 (Pool.CostPerUnit gold)"},
+      "archerCostGold": {"value": 180, "ref": "line 307"},
+      "guardCostGold": {"value": 220, "ref": "line 307"},
+      "diplomaticGiftGold": {"value": 250, "ref": "FSoulDiplomacyRules Gift (SoulDiplomacy.cpp:34) + ExecuteDiplomacy transfer (SoulHeartlandDiplomacy.cpp:31,33)"},
+      "regionFirstCaptureRewardGold": {"value": 600, "ref": "ApplyBattleResult line 617"},
+      "encounterClearRewardGold": {"value": 250, "ref": "line 504"},
+      "secondHeroHireGold": {"value": 1200, "ref": "HireTavernHero line 671"},
+      "heroWinXp": {"value": 360, "ref": "ApplyBattleResult line 616"},
+      "experienceForLevelFormula": {"value": "(L-1)*L*125", "ref": "FSoulHeroRules::ExperienceForLevel (SoulHero.cpp:3-7)"}
+    },
+    "interpretation": "A hero is worth far more than a single unit (140-220g) and comparable in magnitude to a full re-hire (1200g). Ransom values below are calibrated so paying ransom is usually cheaper than re-growing/re-leveling a lost commander, but still a meaningful 2-6 day income hit (income is 450g/day)."
+  },
+
+  "ransomValuation": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "function": "FSoulRansomRules::ValueGold(heroLevel, heroKind, daysHeld, relationPermille) -> int32",
+    "formula": {
+      "base": 800,
+      "perLevel": 200,
+      "levelTerm": "perLevel * max(0, heroLevel - 1)",
+      "kindMultiplierPermille": {"Hero": 1000, "Paragon": 1500},
+      "subtotalBeforeKind": "base + levelTerm",
+      "afterKind": "subtotalBeforeKind * kindMultiplierPermille / 1000",
+      "captivityDecayPermille": "max(600, 1000 - min(daysHeld, 10) * 40)",
+      "comment_decay": "Longer captivity reduces the realistic ransom (captor's leverage erodes; owner may write the hero off). Floors at 600 permille (=60%) after 10 days held. Deterministic, bounded.",
+      "relationAdjustPermille": "clamp(1000 + relationPermille/4, 750, 1250)",
+      "comment_relation": "Warmer relations slightly lower the ask (goodwill); bitter enemies demand more. Bounded +/-25%.",
+      "final": "round( afterKind * captivityDecayPermille/1000 * relationAdjustPermille/1000 )",
+      "clamp": "clamp(final, 300, 100000)"
+    },
+    "workedExamples": [
+      {"heroLevel": 1, "kind": "Hero", "daysHeld": 0, "relationPermille": 0, "ValueGold": 1000, "note": "(800+0)*1.0 * 1.0 * 1.0"},
+      {"heroLevel": 3, "kind": "Hero", "daysHeld": 0, "relationPermille": 0, "ValueGold": 1200, "note": "(800+400)*1.0"},
+      {"heroLevel": 3, "kind": "Hero", "daysHeld": 5, "relationPermille": 0, "ValueGold": 960, "note": "1200 * 0.80 decay"},
+      {"heroLevel": 5, "kind": "Paragon", "daysHeld": 0, "relationPermille": 200, "ValueGold": 2520, "note": "(800+800)*1.5=2400 *1.0 *1.05 relation"},
+      {"heroLevel": 5, "kind": "Paragon", "daysHeld": 12, "relationPermille": -400, "ValueGold": 1296, "note": "2400 *0.60 floor *0.90 relation"}
+    ],
+    "integerOrderOfOperations": "Multiply before dividing by 1000 at each stage to keep deterministic integer rounding; document exact op order in code comment so Codex reproduces the worked examples byte-for-byte."
+  },
+
+  "captorOfferScoring": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "description": "When the OWNER proposes to pay ransom to free their captured hero, the captor AI decides accept/reject deterministically. Mirrors FSoulDiplomacyRules::Evaluate 0..1000 fixed-scale with 500 threshold.",
+    "function": "FSoulRansomRules::EvaluateRansomOffer(relation, offeredGold, valueGold, stance, day) -> FSoulDiplomaticDecision-shaped payload",
+    "components": {
+      "base": 350,
+      "payment_ratio": "clamp((offeredGold * 500) / max(1, valueGold) - 200, -400, 400)  // full-value offer ~ +300; low-ball offer negative",
+      "relation": "relationPermille / 4",
+      "war_premium": "stance==War ? -150 : 0  // at war, captor is more reluctant to free an enemy asset cheaply",
+      "staleness": "+min(daysHeld,10)*10  // captor more willing to offload over time"
+    },
+    "score": "clamp(base + payment_ratio + relation + war_premium + staleness, 0, 1000)",
+    "accepted": "score >= 500",
+    "reasonsStyle": "Human-readable explainable strings exactly like SoulDiplomacy.cpp Evaluate (e.g. 'Base 350; payment +300; relation +50; war -150; staleness +40. Score 590/1000; needs 500.').",
+    "note": "Player-vs-AI only in V1 (the player initiates). AI-captor acceptance is deterministic and fully previewable before the player commits, like PreviewDiplomacy."
+  },
+
+  "aiInitiatedRansomDemand": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "description": "When the AI holds the PLAYER's hero (Hero.Condition==Captured, CaptorFaction is an AI faction), the AI posts a standing ransom DEMAND the player may accept.",
+    "demandGold": "FSoulRansomRules::ValueGold(playerHeroLevel, kind, daysHeld, relation)  // identical valuation, symmetric",
+    "playerAcceptanceIsAlwaysLegalIfAffordable": "The player accepting a demand is a direct transaction (like Gift): costs demandGold + 1 movement; always 'accepted' by the captor by construction. Preview shows the exact gold and the resulting release location (see exchange_rules.md).",
+    "noCoercion": "No torture/execution/escalating-demand systems (explicitly out of scope per lane prompt). The demand is a flat, decaying number; refusing simply leaves the hero captured."
+  },
+
+  "boundsAndSafety": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "rules": [
+      "All gold figures clamped to [300, 100000] to stay inside save int validation envelope.",
+      "offeredGold must be <= owner treasury (checked at subsystem layer before Apply, mirroring Gift's 250-gold affordability gate in PreviewDiplomacy, SoulHeartlandDiplomacy.cpp:23).",
+      "Recipient-treasury overflow guard (MAX_int32-ransom) exactly like the Gift overflow guard (SoulHeartlandDiplomacy.cpp:23).",
+      "Scoring never reads hidden information: only persisted relation + public hero level/kind + day."
+    ]
+  }
+}

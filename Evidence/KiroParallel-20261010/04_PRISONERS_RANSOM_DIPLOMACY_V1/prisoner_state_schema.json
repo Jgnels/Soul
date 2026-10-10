@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "soul.prisoner.state.v1",
+  "title": "Soul Prisoner Lifecycle & Captured-Hero Ledger (V1)",
+  "lane": "04_PRISONERS_RANSOM_DIPLOMACY_V1",
+  "sourceSnapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "evidenceClass": "DESIGN PROPOSAL",
+  "designNotes": [
+    "DESIGN PROPOSAL unless a field is explicitly tagged VERIFIED FROM CURRENT SNAPSHOT.",
+    "This schema EXTENDS existing persisted hero fields. It does NOT create a second save authority.",
+    "VERIFIED FROM CURRENT SNAPSHOT: hero capture state already persists via USoulFounderPlaytestStateSubsystem (domain id 'Soul.Campaign', schema version 1) in Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp CaptureRBSaveDomain_Implementation (lines ~688-730) and RestoreRBSaveDomain_Implementation (lines ~731-903).",
+    "VERIFIED FROM CURRENT SNAPSHOT: the authoritative hero struct is FSoulHeroState in Source/SoulCore/Public/SoulHero.h (lines 14-30) with fields HeroId, Condition (ESoulHeroCondition{Healthy,Wounded,Captured}), RecoveryDays, CaptorFaction, CaptureRegion.",
+    "VERIFIED FROM CURRENT SNAPSHOT: there are exactly TWO persisted hero instances in the Heartland profile today: Hero (player human) and DwarfCommander (NPC). No hero array/registry exists. The ledger below is therefore a per-hero overlay, not a replacement container."
+  ],
+
+  "verifiedCurrentHeroStateFields": {
+    "evidenceClass": "VERIFIED FROM CURRENT SNAPSHOT",
+    "struct": "FSoulHeroState",
+    "file": "Source/SoulCore/Public/SoulHero.h:14-30",
+    "fields": {
+      "HeroId": "FName",
+      "Condition": "ESoulHeroCondition (Healthy=0, Wounded=1, Captured=2)",
+      "RecoveryDays": "int32 (wound clock; 3 on wound, 0 when captured)",
+      "CaptorFaction": "FName (NAME_None unless Captured)",
+      "CaptureRegion": "FName (NAME_None unless Captured)",
+      "Level": "int32",
+      "Experience": "int32"
+    },
+    "transitionFunction": "FSoulHeroRules::ApplyBattleInjury(FSoulHeroState&, bool Wounded, int32 ArmySurvivors, FName Opponent, FName Region) — Source/SoulCore/Private/SoulHero.cpp:54-62. Capture happens iff ArmySurvivors==0; otherwise Wounded with RecoveryDays=3.",
+    "recoveryFunction": "FSoulHeroRules::AdvanceRecovery(FSoulHeroState&) — Source/SoulCore/Private/SoulHero.cpp:63-68. GAP: ignores Captured entirely; there is no path out of Captured today.",
+    "savedCapturedInvariant": "VERIFIED FROM CURRENT SNAPSHOT — RestoreRBSaveDomain_Implementation enforces: a Captured hero must have RecoveryDays==0, a canonical captor != owning faction, and a valid CaptureRegion (SoulFounderPlaytestStateSubsystem.cpp ~lines 858-861 for Hero; ~lines 853-855 for DwarfCommander)."
+  },
+
+  "proposedAdditiveFields": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "placement": "Add as additive fields on FSoulHeroState (Source/SoulCore/Public/SoulHero.h). All default to the 'no active prisoner process' value so legacy saves and in-flight captures keep exact current behavior.",
+    "fields": {
+      "CaptureDay": {
+        "type": "int32",
+        "default": 0,
+        "meaning": "Economy.Day on which Condition became Captured. 0 == not captured / legacy. Drives ransom valuation decay and deterministic escape clock.",
+        "saveKey": "heartland_capture_day",
+        "invariant": "Captured => CaptureDay>0 && CaptureDay<=day; non-Captured => CaptureDay==0."
+      },
+      "RansomProcess": {
+        "type": "enum ESoulPrisonerProcess",
+        "values": ["None", "OfferOpen", "AgreedPendingPayment", "ExchangeProposed"],
+        "default": "None",
+        "meaning": "State of any active ransom/exchange negotiation for THIS captured hero. None for a non-captured hero.",
+        "saveKey": "heartland_prisoner_process",
+        "invariant": "RansomProcess!=None => Condition==Captured."
+      },
+      "RansomAskGold": {
+        "type": "int32",
+        "default": 0,
+        "meaning": "Deterministically computed gold figure the captor currently asks (captor's offer) OR that the owner has agreed to pay. Recomputed, never random. See ransom_scoring.json.",
+        "saveKey": "heartland_ransom_ask",
+        "invariant": "0 <= RansomAskGold <= 100000 (bounded like other save ints)."
+      },
+      "ExchangeCounterpartHeroId": {
+        "type": "FName",
+        "default": "NAME_None",
+        "meaning": "For a prisoner-exchange proposal: the HeroId of the other side's prisoner being offered in trade.",
+        "saveKey": "heartland_exchange_counterpart",
+        "invariant": "ExchangeCounterpartHeroId!=None => RansomProcess==ExchangeProposed."
+      }
+    }
+  },
+
+  "capturedHeroLedgerView": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "note": "A LEDGER VIEW is derived, not a new stored container, to avoid a second authority. It is computed on demand from the existing persisted heroes (Hero, DwarfCommander) by scanning for Condition==Captured. If/when Lane 3 introduces a hero registry, the same derivation iterates that registry instead.",
+    "derivation": "LedgerEntries = { for each persisted FSoulHeroState h where h.Condition==Captured: Entry(h) }",
+    "entry": {
+      "heroId": "FName (h.HeroId)",
+      "ownerFaction": "FName (implicit: 'humans' for Hero, 'dwarves' for DwarfCommander today; VERIFIED FROM CURRENT SNAPSHOT the owning faction is implicit, not a field) — see LOCAL RUNTIME-ASSET CHECK REQUIRED below",
+      "captorFaction": "FName (h.CaptorFaction)",
+      "captureRegion": "FName (h.CaptureRegion)",
+      "captureDay": "int32 (proposed h.CaptureDay)",
+      "heroValueTier": "enum {Standard, Commander, Paragon} derived from h.Kind and h.Level",
+      "process": "ESoulPrisonerProcess (proposed h.RansomProcess)",
+      "ransomAskGold": "int32 (proposed h.RansomAskGold)"
+    }
+  },
+
+  "ownerFactionResolution": {
+    "evidenceClass": "LOCAL RUNTIME-ASSET CHECK REQUIRED",
+    "problem": "FSoulHeroState has NO owning-faction field today (VERIFIED FROM CURRENT SNAPSHOT, SoulHero.h:14-30). Ownership is implicit via which subsystem field holds the hero (Hero=humans, DwarfCommander=dwarves).",
+    "v1Decision": "DESIGN PROPOSAL: do NOT add an owner field in V1. Resolve owner at the call site: player Hero => PlayerFaction (TEXT(\"humans\")), DwarfCommander => TEXT(\"dwarves\"). This matches the existing ApplyHeroInjury opponent-resolution pattern (SoulFounderPlaytestStateSubsystem.cpp ApplyBattleResult lambda, ~lines 564-577).",
+    "localCheckRequired": "If Lane 3 adds a general hero registry with an OwningFaction field, migrate the ledger derivation to read it. Flagged so Codex does not invent an owner field prematurely."
+  },
+
+  "saveContractDelta": {
+    "evidenceClass": "DESIGN PROPOSAL",
+    "domain": "Soul.Campaign (UNCHANGED authority)",
+    "schemaVersion": "Keep at 1. All new keys are OPTIONAL on read (HasField-guarded) so schema does not need to bump; mirrors how result_mana / result_siege were added as optional schema-1 fields (VERIFIED FROM CURRENT SNAPSHOT, SoulFounderPlaytestStateSubsystem.cpp ~lines 745-765).",
+    "newKeysUnderHeartlandBlock": [
+      "heartland_capture_day (int, default omitted/0)",
+      "heartland_prisoner_process (int enum, default omitted/0=None)",
+      "heartland_ransom_ask (int, default omitted/0)",
+      "heartland_exchange_counterpart (string FName, default omitted/'None')"
+    ],
+    "npcCommanderMirror": "Mirror the same four optional keys inside the existing 'heartland_dwarf_commander' object (SoulFounderPlaytestStateSubsystem.cpp ~lines 718-723).",
+    "legacyCompatibility": "Absent keys MUST restore to the None/0 defaults so pre-V1 checkpoints remain byte-stable through CaptureRBSaveDomain (same guarantee the diplomacy block already provides via CaptureDiplomacy early-return, SoulHeartlandDiplomacy.cpp:39).",
+    "adversarialValidation": "Restore MUST reject (atomic, no partial mutation) any snapshot where: process!=None but condition!=Captured; capture_day>day; ransom_ask out of [0,100000]; exchange_counterpart set but process!=ExchangeProposed. Reuse the existing 'validate into temporaries, mutate only if Valid' pattern (SoulFounderPlaytestStateSubsystem.cpp:731-903)."
+  }
+}
