@@ -1,0 +1,107 @@
+{
+  "$id": "soul/kiro-lane-02/faction_role_targets",
+  "title": "Per-faction AI army role targets (V0)",
+  "classification": "DESIGN_PROPOSAL",
+  "source_snapshot_commit": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "notes": [
+    "Role weights are permille of total troops and MUST sum to 1000.",
+    "min_role_counts are absolute minimums enforced before weight-closing (prevents all-one-role armies).",
+    "max_single_role_fraction_permille=650 is the anti-degeneracy ceiling for any one role.",
+    "Only four roles exist in ESoulUnitRole (Fighter/Ranged/SupportMagic/Apex); mapping is explicit.",
+    "Current AI factions ship only a single mono-unit pool (melee_line). The 'ranged'/'support'/'apex' weights are TARGETS that require MIG-2 (per-faction pools) before they can be met. Until MIG-2, the recruiter clamps to melee_line only and logs a 'role_pool_absent' reason — it must NOT silently pursue an impossible target.",
+    "Human founder values are grounded in VERIFIED runtime pool costs/stock so the AI pays the SAME prices the player does (parity requirement, VERIFIED in InitializeFourFactionAlpha which clones the human pool/cost/income to each AI faction).",
+    "Apex is intentionally rare and gated: at most 1 per army and only above a troop floor; it never substitutes for melee_line.",
+    "nature/dark are PASSIVE in the current four-faction game and are included only as inert future targets (NOT active recruiters). Do not activate them."
+  ],
+
+  "verified_runtime_anchors": {
+    "classification": "VERIFIED_FROM_CURRENT_SNAPSHOT",
+    "player_starting_gold": 3000,
+    "player_daily_income_gold": 450,
+    "human_knight_pool": {"available": 8, "weekly_growth": 4, "capacity": 24, "cost_gold": 140},
+    "human_archer_pool": {"available": 6, "weekly_growth": 2, "capacity": 12, "cost_gold": 180, "scope": "Heartland only"},
+    "human_guard_pool": {"available": 4, "weekly_growth": 2, "capacity": 12, "cost_gold": 220, "scope": "Heartland only, requires operational human.barracks L2"},
+    "alpha_ai_pool_seed": "Each AI faction receives a CLONE of the human_knight pool renamed to its own strategic unit (SoulFourFactionAlpha.cpp InitializeFourFactionAlpha). So dwarf/orc/viking each start with Available=8, WeeklyGrowth=4, Capacity=24, cost gold=140 of their mono-unit.",
+    "alpha_recruit_cap_per_action": 4,
+    "alpha_army_troop_soft_cap": 60,
+    "alpha_recruit_target_floor": "RunNextAlphaAction recruits while F.Army.TroopCount<30; urgent (<18) gets higher score."
+  },
+
+  "global_defaults": {
+    "max_single_role_fraction_permille": 650,
+    "apex_max_per_army": 1,
+    "apex_troop_floor": 20,
+    "support_magic_max_fraction_permille": 150,
+    "recruit_cap_per_action": 4,
+    "army_troop_soft_cap": 60
+  },
+
+  "factions": {
+    "humans": {
+      "status": "PLAYER + reference target",
+      "doctrine": "Balanced",
+      "role_weights_permille": {"melee_line": 580, "ranged": 300, "support_magic": 120, "apex": 0},
+      "min_role_counts": {"melee_line": 1, "ranged": 1},
+      "current_units_by_role": {"melee_line": ["human_knight", "human_guard"], "ranged": ["human_archer"], "support_magic": [], "apex": []},
+      "verified_strategic_unit": "human_knight (FSoulCampaignRules::AdmittedStrategicUnit)",
+      "asset_support_note": "VERIFIED_OWNED_ASSET_METADATA: owned 'Crimson Knight Warrior', 'Warrior', '92 Animations For Warrior', 'Weapon And Shield Animations'. Concrete /Game paths NOT asserted — LOCAL_RUNTIME_ASSET_CHECK_REQUIRED."
+    },
+
+    "dwarves": {
+      "status": "ACTIVE AI",
+      "doctrine": "Defensive",
+      "role_weights_permille": {"melee_line": 620, "ranged": 250, "support_magic": 130, "apex": 0},
+      "min_role_counts": {"melee_line": 1, "ranged": 1},
+      "current_units_by_role": {"melee_line": ["dwarf_warrior"], "ranged": [], "support_magic": [], "apex": []},
+      "verified_strategic_unit": "dwarf_warrior (FSoulCampaignRules::AdmittedStrategicUnit)",
+      "capital_region": "dwarf_hold (SoulFourFactionAlpha.cpp Capital())",
+      "blocked_by": "MIG-2 (no ranged/support pool exists for dwarves today; recruiter clamps to melee_line and logs role_pool_absent).",
+      "asset_support_note": "LOCAL_RUNTIME_ASSET_CHECK_REQUIRED: no dwarf-specific character product confirmed in catalog search; dwarf troop visuals are an open content dependency."
+    },
+
+    "orcs": {
+      "status": "ACTIVE AI",
+      "doctrine": "Aggressive",
+      "role_weights_permille": {"melee_line": 700, "ranged": 300, "support_magic": 0, "apex": 0},
+      "min_role_counts": {"melee_line": 1, "ranged": 0},
+      "current_units_by_role": {"melee_line": ["orc_hammer_warrior"], "ranged": [], "support_magic": [], "apex": []},
+      "verified_strategic_unit": "orc_hammer_warrior (FSoulCampaignRules::AdmittedStrategicUnit)",
+      "capital_region": "orc_camp (SoulFourFactionAlpha.cpp Capital())",
+      "note": "Orc melee weight sits at the 650 ceiling-friendly 700 TARGET but is clamped to max_single_role_fraction_permille=650 at execution unless min_role_counts for other roles are already met. Aggressive doctrine favors earlier/larger recruit pushes.",
+      "blocked_by": "MIG-2",
+      "asset_support_note": "LOCAL_RUNTIME_ASSET_CHECK_REQUIRED: 'Hammer-Medieval'/'Medieval Hammer' weapon props are owned (VERIFIED_OWNED_ASSET_METADATA) and consistent with orc_hammer_warrior theme, but no orc character body is confirmed. Weapon ownership is not a unit."
+    },
+
+    "vikings": {
+      "status": "ACTIVE AI",
+      "doctrine": "Aggressive",
+      "role_weights_permille": {"melee_line": 650, "ranged": 280, "support_magic": 70, "apex": 0},
+      "min_role_counts": {"melee_line": 1, "ranged": 1},
+      "current_units_by_role": {"melee_line": ["viking_axe_warrior"], "ranged": [], "support_magic": [], "apex": []},
+      "verified_strategic_unit": "viking_axe_warrior (FSoulCampaignRules::AdmittedStrategicUnit)",
+      "capital_region": "viking_harbour (SoulFourFactionAlpha.cpp Capital())",
+      "blocked_by": "MIG-2",
+      "asset_support_note": "VERIFIED_OWNED_ASSET_METADATA: owned 'Viking Warrior', 'Viking', 'Viking (Customized)', 'Norse Shield maiden', 'Viking Axe', 'Viking sword', plus Viking village kits. Of these, 'Spear And Shield Animations' and 'Viking Village Modular kit' show Imported=true. Concrete /Game paths NOT asserted — LOCAL_RUNTIME_ASSET_CHECK_REQUIRED."
+    },
+
+    "nature": {
+      "status": "PASSIVE / NEUTRAL — DO NOT ACTIVATE",
+      "doctrine": "Defensive (inert)",
+      "role_weights_permille": {"melee_line": 550, "ranged": 200, "support_magic": 150, "apex": 100},
+      "min_role_counts": {"melee_line": 1, "ranged": 0},
+      "current_units_by_role": {"melee_line": [], "ranged": [], "support_magic": [], "apex": ["nature_bear_warrior"]},
+      "verified_strategic_unit": "nature_bear_warrior (FSoulCampaignRules::AdmittedStrategicUnit)",
+      "note": "Included only as a future target to keep the schema complete. Nature does not recruit in the current four-faction game (LastAIReport: 'Nature and Dark remain neutral')."
+    },
+
+    "dark": {
+      "status": "PASSIVE / NEUTRAL — DO NOT ACTIVATE",
+      "doctrine": "Aggressive (inert)",
+      "role_weights_permille": {"melee_line": 600, "ranged": 250, "support_magic": 150, "apex": 0},
+      "min_role_counts": {"melee_line": 1, "ranged": 0},
+      "current_units_by_role": {"melee_line": [], "ranged": [], "support_magic": [], "apex": []},
+      "verified_strategic_unit": "NAME_None (FSoulCampaignRules::AdmittedStrategicUnit returns none for dark — VERIFIED)",
+      "note": "Dark has NO admitted strategic unit in the snapshot. It cannot be a recruiter target until a strategic unit is defined. Future-only."
+    }
+  }
+}

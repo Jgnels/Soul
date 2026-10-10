@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "soul/kiro-lane-02/ai_army_composition_schema",
+  "title": "Soul AI Army Composition & Recruitment V0 Schema",
+  "lane": "02_AI_ARMY_COMPOSITION_AND_RECRUITMENT",
+  "source_snapshot": {
+    "repo": "Jgnels/Soul",
+    "branch": "handoff/soul-kiro-20261010",
+    "commit": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+    "label": "VERIFIED FROM CURRENT SNAPSHOT (frozen source)"
+  },
+  "intent": "Deterministic, save-safe, explainable per-faction mixed-company recruitment and recovery authority that EXTENDS the existing FSoulCampaignRules / RunNextAlphaAction economy. It does NOT create a second economy, save, or combat authority.",
+  "classification_legend": {
+    "VERIFIED_FROM_CURRENT_SNAPSHOT": "Confirmed to exist in the frozen commit via direct file read.",
+    "VERIFIED_OWNED_ASSET_METADATA": "Confirmed in Jgnels/Copperlight-Asset-Catalog ownership records.",
+    "LOCAL_RUNTIME_ASSET_CHECK_REQUIRED": "Must be confirmed inside the local Unreal editor/runtime before relying on it.",
+    "DESIGN_PROPOSAL": "New design authored by this lane; not present in the snapshot."
+  },
+
+  "current_state_model": {
+    "classification": "VERIFIED_FROM_CURRENT_SNAPSHOT",
+    "army_struct": {
+      "name": "FSoulCampaignArmyState",
+      "file": "Source/SoulCore/Public/SoulCampaign.h",
+      "fields": ["ArmyId", "FactionId", "RegionId", "UnitId (single)", "TroopCount"],
+      "note": "Strategic army is MONO-UNIT: one UnitId per army plus an integer TroopCount. There is no per-role company breakdown at the campaign-army level today."
+    },
+    "recruitment_pool_struct": {
+      "name": "FSoulRecruitmentPool",
+      "file": "Source/SoulCore/Public/SoulCampaign.h",
+      "fields": ["UnitId", "Available", "WeeklyGrowth", "Capacity", "RequiredBuildingId", "CostPerUnit(TMap<FName,int32>)"],
+      "note": "Finite stock replenished weekly up to Capacity. Only resource key used in runtime is 'gold'."
+    },
+    "economy_struct": {
+      "name": "FSoulCampaignEconomy",
+      "file": "Source/SoulCore/Public/SoulCampaign.h",
+      "fields": ["Day", "MaxActionPoints", "ActionPoints", "Resources", "DailyIncome", "RecruitmentPools"]
+    },
+    "unit_role_enum": {
+      "name": "ESoulUnitRole",
+      "file": "Source/SoulCore/Public/SoulTypes.h",
+      "values": ["Fighter", "Ranged", "SupportMagic", "Apex"],
+      "note": "No distinct ShieldGuard / Cavalry / Shock role exists. 'human_guard', 'human_archer', etc. are content unit ids, not roles. Role lives on FSoulFactionUnitSlot and FSoulRegimentDefinition."
+    },
+    "faction_roster_struct": {
+      "name": "FSoulFactionDefinition / FSoulFactionUnitSlot",
+      "file": "Source/SoulCore/Public/SoulFaction.h",
+      "validation": "FSoulFactionRules::Validate requires exactly 7 core units = 4 Fighter + 1 Ranged + 1 Apex + 1 SupportMagic, exactly 1 quadruped body plan.",
+      "validation_file": "Source/SoulCore/Private/SoulFaction.cpp"
+    }
+  },
+
+  "role_taxonomy": {
+    "classification": "DESIGN_PROPOSAL",
+    "note": "V0 role tags are a thin additive classification layer over EXISTING unit ids. They do NOT replace ESoulUnitRole and do NOT require new content. Mapping to the shipped enum is explicit so the model stays deterministic.",
+    "roles": {
+      "melee_line": {
+        "maps_to_ESoulUnitRole": "Fighter",
+        "purpose": "Front-line staying power; the backbone of every company.",
+        "example_current_units": ["human_knight", "human_guard", "dwarf_warrior", "orc_hammer_warrior", "viking_axe_warrior"]
+      },
+      "ranged": {
+        "maps_to_ESoulUnitRole": "Ranged",
+        "purpose": "Standoff damage; punishes slow or unshielded enemies.",
+        "example_current_units": ["human_archer"]
+      },
+      "support_magic": {
+        "maps_to_ESoulUnitRole": "SupportMagic",
+        "purpose": "Force-multiplier; buffs/heals/debuffs. Scarce.",
+        "example_current_units": []
+      },
+      "apex": {
+        "maps_to_ESoulUnitRole": "Apex",
+        "purpose": "Single powerful body; capstone unit, hard-gated.",
+        "example_current_units": ["nature_bear_warrior"]
+      }
+    }
+  },
+
+  "ai_army_profile": {
+    "classification": "DESIGN_PROPOSAL",
+    "description": "Per-faction, per-army desired composition expressed as role weights (permille of total troops). The recruiter closes the gap between actual and target, bounded by stock, treasury, AP and anti-degeneracy caps.",
+    "object": {
+      "faction_id": "FName",
+      "army_id": "FName",
+      "target_total_troops": "int32 (soft cap; mirrors existing 60 cap in RunNextAlphaAction / 250 in CanRecruitHumanCompany)",
+      "role_weights_permille": {
+        "melee_line": "int32",
+        "ranged": "int32",
+        "support_magic": "int32",
+        "apex": "int32"
+      },
+      "min_role_counts": {
+        "melee_line": "int32 (>=1 enforced to prevent all-ranged/all-apex armies)",
+        "ranged": "int32"
+      },
+      "max_role_fraction_permille": {
+        "any_single_role": "int32 (default 650 — no army may be >65% one role; anti-degeneracy)"
+      },
+      "doctrine": "enum: Balanced | Aggressive | Defensive | SiegeFocused (adjusts weights, not a new authority)"
+    }
+  },
+
+  "recruitment_decision": {
+    "classification": "DESIGN_PROPOSAL",
+    "description": "Deterministic per-army recruitment step evaluated inside the existing turn (RunNextAlphaAction) or AdvanceEnemyAI, using only data already in FSoulFactionCampaignState.",
+    "inputs": [
+      "FSoulFactionCampaignState (Army + Economy) — EXISTS",
+      "Current role counts in the army — DESIGN (requires per-role company counts; see migration_required)",
+      "Enemy composition estimate from visible armies — EXISTS via ArmyCountAtRegion + FSoulWorldRules::IsVisible (count only; role unknown today)",
+      "Operational recruitment buildings — EXISTS via FSoulSettlementRules::IsOperational / FSoulTownRules",
+      "Treasury (Economy.Resources['gold']) — EXISTS",
+      "Pool stock (FSoulRecruitmentPool.Available) — EXISTS",
+      "Siege intent flag (CapitalThreat / adjacent enemy settlement) — EXISTS as local booleans in RunNextAlphaAction",
+      "Diplomacy stance via DiplomacyAllowsHostility — EXISTS"
+    ],
+    "output_action": {
+      "reuses_existing_type": "FSoulControlledCampaignAction",
+      "file": "Source/Soul/Public/SoulFounderPlaytestStateSubsystem.h",
+      "fields_used": ["FactionId", "ArmyId", "SourceRegion", "RecruitQuantity"],
+      "note": "RecruitQuantity>0 already routes through FSoulCampaignRules::Recruit (real gold deduction). V0 adds a UnitId selection so a mixed company is possible, which requires the migration below."
+    }
+  },
+
+  "migration_required": {
+    "classification": "DESIGN_PROPOSAL",
+    "items": [
+      {
+        "id": "MIG-1",
+        "title": "Multi-unit campaign army",
+        "problem": "FSoulCampaignArmyState has a single UnitId; RunNextAlphaAction recruits only F.Army.UnitId. Mixed companies are impossible without a per-unit troop map.",
+        "proposed_additive_change": "Add TMap<FName,int32> Companies to FSoulCampaignArmyState (keyed by UnitId). Keep legacy UnitId/TroopCount as a derived/compat view so existing save JSON and battle bridge still read. TroopCount := sum(Companies).",
+        "owning_authority": "Codex (main Unreal integration lane) — this lane must NOT edit Source/."
+      },
+      {
+        "id": "MIG-2",
+        "title": "Per-faction recruitment pools for AI factions",
+        "problem": "InitializeFourFactionAlpha gives each AI faction ONLY a single clone of the human core pool renamed to F.Army.UnitId (SoulFourFactionAlpha.cpp ~79-86). AI factions cannot recruit ranged/support at all today.",
+        "proposed_additive_change": "Seed each AI faction with the same role set it defends with (melee_line + ranged at minimum), using faction_role_targets.json."
+      },
+      {
+        "id": "MIG-3",
+        "title": "Observed enemy role mix",
+        "problem": "ArmyCountAtRegion returns a count only; role composition of a visible enemy army is not exposed. Composition counter-play is therefore blind today.",
+        "proposed_additive_change": "Expose a role-count summary for visible armies (respecting existing fog-of-war via FSoulWorldRules::IsVisible). If not visible, counter-play falls back to the faction's doctrine default (deterministic)."
+      }
+    ]
+  },
+
+  "recovery_model": {
+    "classification": "DESIGN_PROPOSAL",
+    "description": "Reinforcement/replenishment of damaged companies. CONFIRMED ABSENT in snapshot (balance_lab_tuning_ranges.json marks defeated_army_replacement_* as 'undefined').",
+    "rules_summary": "After a battle, surviving companies may be topped back up toward target only at an operational owned recruitment settlement, paying normal pool cost from treasury, bounded by pool stock, at a capped per-day fraction. Annihilated regiments do NOT retain veterancy (per balance-lab note). See anti_degeneracy_rules.md.",
+    "fields": {
+      "replacement_delay_days": {"source": "balance_lab_tuning_ranges.json", "runtime_value": "undefined", "proposed_default": 3, "range": [2, 4]},
+      "replacement_retinue_fraction_of_starting_strength_permille": {"source": "balance_lab_tuning_ranges.json", "runtime_value": "undefined", "proposed_default": 200, "range": [150, 250]},
+      "replacement_readiness_permille": {"source": "balance_lab_tuning_ranges.json", "runtime_value": "undefined", "proposed_default": 550, "range": [450, 700]},
+      "veterancy_preserved_on_annihilation": {"value": false, "authority": "balance_lab note: 'Do not preserve annihilated regiment veterancy by default.'"}
+    }
+  },
+
+  "determinism_contract": {
+    "classification": "DESIGN_PROPOSAL (built on VERIFIED mechanisms)",
+    "requirements": [
+      "No std::rand / FMath::Rand. Combat RNG stays caller-seeded via FRandomStream (VERIFIED: SoulCombat.h, SoulRetreat.h).",
+      "Tie-breaking must reuse the existing stable scheme: score, then static_cast<uint8>(Action), then FName::LexicalLess (VERIFIED: SoulStrategyAI.cpp BetterCandidate ~11-15) and the CRC-of-(target+faction+seed+day) tie-break (VERIFIED: SoulFourFactionAlpha.cpp Consider lambda).",
+      "All map iteration over factions/pools/regions must be sorted by FName (VERIFIED pattern: FNameLexicalLess used throughout RunNextAlphaAction).",
+      "No hidden mutable RNG stream that would desync on save/load (VERIFIED requirement: comment in RunNextAlphaAction Consider lambda)."
+    ]
+  }
+}
