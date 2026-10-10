@@ -1,0 +1,134 @@
+{
+  "artifact": "dependency_checklist",
+  "lane": "06_DWARF_VIKING_VISIT_INTEGRATION_PLAN",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "evidence_legend": {
+    "VCS": "verified from current snapshot",
+    "VOA": "verified owned asset metadata",
+    "LRC": "local runtime/asset check required (outranks cloud guesses)",
+    "DP": "design proposal"
+  },
+  "code_dependencies": [
+    {
+      "id": "D1",
+      "title": "Generic visit binder: remove human_capital walk gate",
+      "file": "Source/Soul/Private/SoulSettlementVisitGameMode.cpp",
+      "symbols": ["ASoulSettlementVisitGameMode::Tick (lines 113-127)", "StartWalking (245-279)", "RefreshCompanion (144-220)"],
+      "current_behaviour_VCS": "Walk only starts when SettlementId==\"human_capital\"; avatar + entry probes + companion (Rowan) are hardcoded Human/Paragon/Knight paths.",
+      "required_change_DP": "Replace human_capital string checks with a data-driven FSoulSettlementVisitProfile read (walkable flag, entry probe points, avatar mesh/anims, optional companion). Keep ALL physical ground/collision/sightline validation verbatim.",
+      "owner": "Codex / Unreal integration lane",
+      "blocking": ["dwarf_walkable", "viking_walkable"],
+      "risk": "medium"
+    },
+    {
+      "id": "D2",
+      "title": "Per-settlement development-scenario selection",
+      "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+      "symbols": ["InitializeScenario (lines 341-344)", "InitializeSettlementDevelopment (369-399)"],
+      "current_behaviour_VCS": "Development scenario is a compile-time literal: DA_Soul_HumanCapital_DevelopmentProof unless -SoulDwarfSettlementProof selects DA_Soul_DwarfHold_DevelopmentProof. Four-faction Heartland loads the Human proof regardless of which settlement the player owns.",
+      "required_change_DP": "Resolve the development scenario from the player's current settlement via a data-driven map {settlementId -> FSoftObjectPath}. Seed with the two existing literals; add dwarf_hold and viking_harbour rows.",
+      "owner": "Codex / campaign integration lane",
+      "blocking": ["dwarf_four_faction_visit", "viking_four_faction_visit"],
+      "risk": "high",
+      "note": "This is the single biggest code blocker to visiting a non-Human settlement in the real four-faction playtest."
+    },
+    {
+      "id": "D3",
+      "title": "FSoulSettlementVisitProfile struct + parse + accessor",
+      "file": "Source/Soul/Public/SoulSettlementEnvironmentRegistry.h + Source/Soul/Private/SoulSettlementEnvironmentRegistry.cpp (home A)",
+      "required_change_DP": "Add immutable struct, optional per-entry parse, and a getter the GameMode can read. No new subsystem. Validate /Game/ prefixes + existence as the registry already does for maps.",
+      "owner": "Codex",
+      "blocking": ["D1"],
+      "risk": "low"
+    }
+  ],
+  "data_dependencies": [
+    {
+      "id": "DD1",
+      "title": "Viking Harbour environment registry entry",
+      "file": "Data/SettlementEnvironments/EnvironmentRegistry.json",
+      "state_VCS": "ABSENT",
+      "required_DP": "Add viking_harbour entry (battle_enabled:false, visit_environment set, siege/arena null). See visit_registry_extensions.json.",
+      "risk": "low"
+    },
+    {
+      "id": "DD2",
+      "title": "Viking Harbour development-proof data asset",
+      "file": "Content/Soul/Data/Settlements/DA_Soul_VikingHarbour_DevelopmentProof.uasset (+ authoring JSON Data/SettlementEnvironments/VikingHarbourDevelopmentProof.json)",
+      "state_VCS": "ABSENT (only Human + Dwarf development proofs are committed)",
+      "required_DP": "Author with >=1 built building and exactly one building bound to service.tavern_hero (hard requirement enforced by InitializeSettlementDevelopment). Must pass USoulSettlementScenarioData::ValidateDefinition.",
+      "risk": "medium"
+    },
+    {
+      "id": "DD3",
+      "title": "Dwarf Hold development scenario already exists",
+      "file": "Content/Soul/Data/Settlements/DA_Soul_DwarfHold_DevelopmentProof.uasset",
+      "state_VCS": "PRESENT and committed; service.tavern_hero bound to dwarf.caravan_hall; passes the development requirement.",
+      "required_DP": "None for data; only needs D2 to be selectable in four-faction play.",
+      "risk": "none"
+    }
+  ],
+  "asset_dependencies": [
+    {
+      "id": "A1",
+      "title": "Dwarf authored visit map present locally",
+      "path": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+      "state": "LRC",
+      "evidence_VCS": "Referenced by registry + proofs; NOT in git (licensed-derived local content). Runtime proof DwarfHoldRuntimeProof.json claims visit/save/return already pass locally.",
+      "check": "Open locally; confirm it streams and contains a dwarf_hold ASoulTownViewAnchor + ASoulSettlementPresentationController.",
+      "risk": "medium"
+    },
+    {
+      "id": "A2",
+      "title": "Viking authored visit map",
+      "path": "/Game/Soul/Maps/Settlements/L_VikingHarbour_Authored",
+      "state": "DP + LRC (does not exist yet)",
+      "required": "Author from owned Water City + Viking Village + Harbor Kit; Soul-owned copy under /Game/Soul/. Place town-view anchor + presentation controller.",
+      "risk": "high"
+    },
+    {
+      "id": "A3",
+      "title": "Viking kits imported into Soul",
+      "state": "VOA (owned) + LRC (NOT imported into Soul; only into Copperlight-first-night-living-hearth)",
+      "products": ["Modular Viking Village", "Viking Village Modular kit", "Modular Water City Environment", "[Nanite] Medieval Harbor Kit", "Nordic Fishing Hut"],
+      "check": "Re-import into Soul under /Game/Soul/... pending licence; three catalog products ambiguously map to one /Game/Viking_village folder.",
+      "risk": "high"
+    },
+    {
+      "id": "A4",
+      "title": "DwarvenCitadel source ownership",
+      "state": "VOA-negative (uncorroborated) + LRC",
+      "evidence": "Soul proof claims Fab listing 836bcc0d / /Game/DwarvenCitadel, but it is absent from the Copperlight catalog. CastleTown (Human source) IS corroborated as owned 'Medieval Kingdom'.",
+      "check": "Verify Fab ownership/licence of DwarvenCitadel locally.",
+      "risk": "medium"
+    },
+    {
+      "id": "A5",
+      "title": "Walk avatar + idle/jog animations per faction",
+      "state": "VOA (characters owned) + LRC (rig/anim usability)",
+      "candidates": {"dwarf": "Dwarfs Pack character", "viking": "Viking Warrior / Viking (Customized)"},
+      "fallback_DP": "Reuse the Human Paragon Aurora avatar temporarily, or ship overview-only (bWalkable=false).",
+      "risk": "low"
+    }
+  ],
+  "cross_lane_conflicts": [
+    {
+      "lane": "Lane 5 (faction building trees)",
+      "relationship": "Lane 6 needs only ONE service.tavern_hero building per new settlement to make a visit legal; the full dwarf/viking building trees come from Lane 5. Use Lane 5's viking.* building ids for the Viking development proof to avoid id drift.",
+      "action": "Coordinate the Viking Jarl's-Great-Hall id and the single service.tavern_hero binding with Lane 5's viking_building_tree.json."
+    },
+    {
+      "lane": "Lane 7 (Siege V1)",
+      "relationship": "Lane 6 keeps Dwarf Hold and Viking Harbour visit-only (battle_enabled:false). Any dwarf/viking siege or field battle is Lane 7 / battle-variety, NOT this lane. Human Capital Siege V0 is frozen and untouched.",
+      "action": "Do not add arena_origin / siege data for dwarf_hold or viking_harbour in this lane."
+    },
+    {
+      "lane": "Campaign/four-faction integration",
+      "relationship": "D2 (scenario selection) must present dwarf_hold/viking_harbour ownership coherently with faction so CanVisit's Settlement.FactionId==PlayerFaction check passes.",
+      "action": "Confirm four-faction production scenario ownership of these seats."
+    }
+  ],
+  "non_blocking_but_recommended": [
+    "Add headless unit tests (SoulSettlementSaveTests / SoulSettlementDevelopmentTests style) asserting the Viking development scenario validates and that dwarf_hold/viking_harbour resolve service.tavern_hero. These run without the authored maps."
+  ]
+}

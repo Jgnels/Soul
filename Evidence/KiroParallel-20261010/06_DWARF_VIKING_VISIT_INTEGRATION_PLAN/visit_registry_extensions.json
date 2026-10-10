@@ -1,0 +1,121 @@
+{
+  "artifact": "visit_registry_extensions",
+  "lane": "06_DWARF_VIKING_VISIT_INTEGRATION_PLAN",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "branch": "kiro/dwarf-viking-visit-integration-plan-20261010",
+  "status": "DESIGN PROPOSAL. Not applied to runtime data. Shows the exact additive shapes the Codex/Unreal integration lane should write into Data/SettlementEnvironments/EnvironmentRegistry.json and the proposed FSoulSettlementVisitProfile.",
+  "evidence_legend": {
+    "VCS": "verified from current snapshot",
+    "VOA": "verified owned asset metadata (Copperlight catalog)",
+    "LRC": "local runtime/asset check required",
+    "DP": "design proposal"
+  },
+  "current_registry_entries_VCS": [
+    {"settlement_id": "human_capital", "battle_enabled": true, "visit_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored", "siege_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored", "walkable_today": true},
+    {"settlement_id": "dwarf_hold", "battle_enabled": false, "visit_environment": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored", "siege_environment": null, "walkable_today": false, "note": "overview-visit-capable once a town-view anchor is confirmed in the authored map [LRC]"},
+    {"settlement_id": "forest_edge", "battle_enabled": true, "visit_environment": null, "field_battle_environment": "/Game/Soul/Maps/Battles/L_Heartland_Woodland"},
+    {"settlement_id": "southern_crossing", "battle_enabled": true, "visit_environment": null, "field_battle_environment": "/Game/Soul/Maps/Battles/L_Heartland_RiverBridge"},
+    {"settlement_id": "viking_harbour", "present": false, "note": "ABSENT in snapshot; must be added [DP]"}
+  ],
+  "proposed_new_registry_entry_viking_harbour_DP": {
+    "settlement_id": "viking_harbour",
+    "faction": "vikings",
+    "settlement_type": "harbour",
+    "authored_environment_available": false,
+    "visit_environment": "/Game/Soul/Maps/Settlements/L_VikingHarbour_Authored",
+    "city_battle_environment": null,
+    "siege_environment": null,
+    "field_battle_environment": null,
+    "arena_origin": null,
+    "development_profile": "/Game/Soul/Data/Settlements/DA_Soul_VikingHarbour_DevelopmentProof",
+    "battle_enabled": false,
+    "note": "DESIGN PROPOSAL. Visit-only V0. authored_environment_available flips to true only after the Soul-owned L_VikingHarbour_Authored map is authored and verified locally [LRC]. Keep battle_enabled false so the registry loader does not require an arena_origin; siege remains forbidden for non-human_capital settlements by the current loader.",
+    "loader_compatibility_check_VCS": "With battle_enabled=false and siege_environment=null, SoulSettlementEnvironmentRegistry.cpp Load() requires no arena_origin and no siege_origin, so this row parses cleanly. visit_environment is not validated for /Game/Soul prefix by the registry loader itself; the /Game/Soul guard is enforced at visit time by CanVisit (SoulSettlementVisitGameMode.cpp:63-65) and VisitSettlement."
+  },
+  "proposed_visit_profile_struct_DP": {
+    "home_recommendation": "Add an optional visit_profile object per Environment Registry entry (home A), parsed into a new FSoulSettlementVisitProfile. Entry points are authored-map-space facts and belong beside the map binding.",
+    "FSoulSettlementVisitProfile": {
+      "walkable": "bool; default false; false => overview camera only (current Dwarf/Viking behaviour)",
+      "entry_probe_points": "array of [x,y,z] measured ground candidates in authored-map space; the GameMode line-traces each and spawns on the first physically clear point (ImpactNormal.Z > 0.75)",
+      "entry_facing_yaw": "float degrees",
+      "avatar": {
+        "mesh": "/Game/... skeletal mesh; empty => overview-only",
+        "idle_anim": "/Game/... UAnimationAsset",
+        "locomotion_anim": "/Game/... forward jog",
+        "max_walk_speed": 300.0,
+        "run_walk_speed": 500.0
+      },
+      "companion": {
+        "companion_id": "FName or None",
+        "mesh": "/Game/...",
+        "idle_anim": "/Game/...",
+        "label": "world nameplate text",
+        "requires_heartland": "bool; keeps Rowan behind the Heartland flag; new factions default false"
+      }
+    },
+    "validation_rules_DP": [
+      "Every /Game/... string must StartsWith('/Game/') and pass FPackageName existence before LoadObject (mirror SoulSettlementEnvironmentRegistry map validation).",
+      "walkable=true requires at least one entry_probe_point and a non-empty avatar.mesh; otherwise reject to overview-only rather than spawn nowhere.",
+      "A visit profile is immutable presentation input: it never changes ownership, encounter legality, or save truth."
+    ]
+  },
+  "proposed_visit_profiles_DP": {
+    "human_capital": {
+      "walkable": true,
+      "entry_probe_points": [[-4350, 2700, 0], [-3500, 2700, 0], [-5000, 1800, 0], [-9000, 21000, 0]],
+      "entry_facing_yaw": 90.0,
+      "avatar": {
+        "mesh": "/Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Aurora.Aurora",
+        "idle_anim": "/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Idle.Idle",
+        "locomotion_anim": "/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Fwd.Jog_Fwd",
+        "max_walk_speed": 300.0,
+        "run_walk_speed": 500.0
+      },
+      "companion": {
+        "companion_id": "human.rowan",
+        "mesh": "/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE4/Full_Mesh/SK_Knight_04_Full_01.SK_Knight_04_Full_01",
+        "idle_anim": "/Game/Knights_Pack/Demoscene_UE4/Animations/ThirdPersonIdle.ThirdPersonIdle",
+        "label": "Rowan | Companion",
+        "requires_heartland": true
+      },
+      "provenance": "VCS: these are the exact literals currently hardcoded in SoulSettlementVisitGameMode.cpp StartWalking()/RefreshCompanion(). This profile reproduces today's Human behaviour verbatim after the refactor."
+    },
+    "dwarf_hold": {
+      "walkable": false,
+      "entry_probe_points": [],
+      "avatar": {
+        "mesh": "",
+        "idle_anim": "",
+        "locomotion_anim": ""
+      },
+      "companion": {"companion_id": null},
+      "provenance": "DP + LRC: ship overview-only until a Dwarf gate/forecourt entry point is measured in L_DwarfHold_Authored. Candidate avatar: owned 'Dwarfs Pack' character [VOA, rig/anim LRC]."
+    },
+    "viking_harbour": {
+      "walkable": false,
+      "entry_probe_points": [],
+      "avatar": {
+        "mesh": "",
+        "idle_anim": "",
+        "locomotion_anim": ""
+      },
+      "companion": {"companion_id": null},
+      "provenance": "DP + LRC: no authored map yet. Ship overview-only. Candidate avatar: owned 'Viking Warrior' or 'Viking (Customized)' [VOA, rig/anim LRC]. Entry point measured on solid dock planking after the map exists."
+    }
+  },
+  "owned_viking_harbour_asset_candidates_VOA": [
+    {"product": "Modular Viking Village (Medieval Town, Medieval Village, Viking Village, Viking)", "fab_id": "9a2467f766654e4fb5f3da9875105bab", "listing": "a72879ea-577a-4125-bde8-25fdd51060cf", "owned": true, "imported_into_soul": "NO (imported only into Copperlight-first-night-living-hearth /Game/Viking_village) [LRC]"},
+    {"product": "Viking Village Modular kit", "fab_id": "ca87fe290bad4a2fb9548fc1b8ae7b87", "owned": true, "imported_into_soul": "NO [LRC]"},
+    {"product": "Modular Water City Environment (Water Village,Town,Seaside)", "fab_id": "cff1623a9db641e1bc2c0b948835b41d", "owned": true, "role": "harbour/water base"},
+    {"product": "[Nanite] Medieval Harbor Kit - Harbor Props (Docks, Harbor, Medieval Props)", "fab_id": "6e225753c9084660bee4194b873ddb9f", "owned": true, "role": "docks/piers"},
+    {"product": "Nordic Fishing Hut - Coastal Lakeside Cabin", "fab_id": "4698479bf1cf47209f541a29f1d3dfb5", "owned": true, "role": "shore dressing"},
+    {"product": "Viking Warrior", "owned": true, "role": "avatar/defender candidate"},
+    {"product": "Gislinge Viking Boat / Viking Longboat / Fishing Boat", "owned": true, "role": "foreground boats"}
+  ],
+  "dwarf_hold_source_asset_VOA": {
+    "product_name_claimed_by_soul": "/Game/DwarvenCitadel (Fab listing 836bcc0d-025f-437c-bc0c-42c8b644b0eb)",
+    "catalog_corroboration": "NOT FOUND in Copperlight catalog (products.json, raw/epic_library.json, founder_ownership.json, local_asset_admissions.json all negative)",
+    "human_capital_source_asset_VOA": "CastleTown listing 42d4a792 resolves to owned 'Medieval Kingdom (Medieval Castle, Medieval Town, Modular Castle, Castle)' (Owned=True, OWNERSHIP_CONFIRMED)",
+    "note": "DwarvenCitadel ownership is asserted by Soul's own proof data and a committed data asset but is uncorroborated by the asset catalog; flag for ownership verification [LRC]."
+  }
+}
