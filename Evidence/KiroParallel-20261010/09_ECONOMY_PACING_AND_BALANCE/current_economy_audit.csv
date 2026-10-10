@@ -1,0 +1,62 @@
+category,item,symbol_or_file,metric,exact_current_value,unit,label,notes
+treasury,player_starting_gold,SoulFounderPlaytestStateSubsystem.cpp:290,start_gold,3000,gold,VERIFIED FROM CURRENT SNAPSHOT,Economy.Resources["gold"]=3000 seeded only for the player founder economy
+treasury,player_daily_income,SoulFounderPlaytestStateSubsystem.cpp:290,income_per_day,450,gold/day,VERIFIED FROM CURRENT SNAPSHOT,Economy.DailyIncome["gold"]=450 flat; applied in FSoulCampaignRules::AdvanceDay
+treasury,ai_faction_starting_gold,SoulSixFactionCampaign.cpp:75,start_gold,3000,gold,VERIFIED FROM CURRENT SNAPSHOT,Faction.Economy.Resources["gold"] set equal to player gold; comment: "test forces/resources not approved balance or recruitment"
+treasury,ai_faction_daily_income,SoulSixFactionCampaign.cpp,income_per_day,0,gold/day,VERIFIED FROM CURRENT SNAPSHOT,AI DailyIncome map left empty; AdvanceDay(P.Value.Economy) adds nothing (line 645)
+treasury,ai_faction_recruitment_pools,SoulSixFactionCampaign.cpp,pool_count,0,pools,VERIFIED FROM CURRENT SNAPSHOT,AI factions receive no RecruitmentPools; they cannot spend gold or recruit
+action_economy,max_action_points_per_day,SoulCampaign.h:19,max_ap,3,ap/day,VERIFIED FROM CURRENT SNAPSHOT,FSoulCampaignEconomy.MaxActionPoints default 3; reset each AdvanceDay
+action_economy,normal_travel_movement_cost,balance_lab_tuning_ranges.json,ap_cost,8,movement_units,DESIGN PROPOSAL,current_mirror 8 is a BalanceLab mirror value PROPOSAL_ONLY_NOT_RUNTIME; no literal runtime per-move cost constant found in founder subsystem
+recruitment,human_knight_cost,SoulFounderPlaytestStateSubsystem.cpp:292,cost_per_unit,140,gold,VERIFIED FROM CURRENT SNAPSHOT,PlayerUnitId pool CostPerUnit["gold"]=140
+recruitment,human_knight_available,SoulFounderPlaytestStateSubsystem.cpp:291,start_available,8,units,VERIFIED FROM CURRENT SNAPSHOT,Pool.Available=8
+recruitment,human_knight_weekly_growth,SoulFounderPlaytestStateSubsystem.cpp:291,weekly_growth,4,units/week,VERIFIED FROM CURRENT SNAPSHOT,Pool.WeeklyGrowth=4; applied every 7 days ((Day-1)%7==0)
+recruitment,human_knight_capacity,SoulFounderPlaytestStateSubsystem.cpp:291,capacity,24,units,VERIFIED FROM CURRENT SNAPSHOT,Pool.Capacity=24
+recruitment,human_archer_cost,SoulFounderPlaytestStateSubsystem.cpp:307,cost_per_unit,180,gold,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only; CostPerUnit 180
+recruitment,human_archer_available,SoulFounderPlaytestStateSubsystem.cpp:307,start_available,6,units,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only
+recruitment,human_archer_weekly_growth,SoulFounderPlaytestStateSubsystem.cpp:307,weekly_growth,2,units/week,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only
+recruitment,human_archer_capacity,SoulFounderPlaytestStateSubsystem.cpp:307,capacity,12,units,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only
+recruitment,human_guard_cost,SoulFounderPlaytestStateSubsystem.cpp:307,cost_per_unit,220,gold,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only; CostPerUnit 220
+recruitment,human_guard_available,SoulFounderPlaytestStateSubsystem.cpp:307,start_available,4,units,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only
+recruitment,human_guard_weekly_growth,SoulFounderPlaytestStateSubsystem.cpp:307,weekly_growth,2,units/week,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only
+recruitment,human_guard_capacity,SoulFounderPlaytestStateSubsystem.cpp:307,capacity,12,units,VERIFIED FROM CURRENT SNAPSHOT,Heartland alpha only
+recruitment,dwarf_orc_viking_unit_costs,n/a,cost_per_unit,UNDEFINED,gold,LOCAL RUNTIME/ASSET CHECK REQUIRED,No per-faction recruitment pools or unit cost data exist for dwarves/orcs/vikings; AdmittedStrategicUnit maps identities only
+recruitment,troop_hard_cap,SoulFounderPlaytestStateSubsystem.cpp:116,max_player_troops,250,units,VERIFIED FROM CURRENT SNAPSHOT,GetPlayerTroopCount()>=250 blocks further recruitment admission
+building,human.tavern_cost,HeartlandDevelopment.json,gold,200,gold,VERIFIED FROM CURRENT SNAPSHOT,days 1; prereq human.keep; unlocks service.tavern_hero
+building,human.tavern_days,HeartlandDevelopment.json,build_days,1,days,VERIFIED FROM CURRENT SNAPSHOT,normal (1-day) construction
+building,human.arcane_hall_cost,HeartlandDevelopment.json,gold,300,gold,VERIFIED FROM CURRENT SNAPSHOT,days 1; prereq human.keep; unlocks spell.frost
+building,human.arcane_hall_days,HeartlandDevelopment.json,build_days,1,days,VERIFIED FROM CURRENT SNAPSHOT,normal (1-day)
+building,human.mage_academy_cost,HeartlandDevelopment.json,gold,600,gold,VERIFIED FROM CURRENT SNAPSHOT,days 2; prereq human.arcane_hall; unlocks spell.water
+building,human.mage_academy_days,HeartlandDevelopment.json,build_days,2,days,VERIFIED FROM CURRENT SNAPSHOT,significant (2-day)
+building,human.high_conclave_cost,HeartlandDevelopment.json,gold,900,gold,VERIFIED FROM CURRENT SNAPSHOT,days 3; prereq human.mage_academy; unlocks spell.air
+building,human.high_conclave_days,HeartlandDevelopment.json,build_days,3,days,VERIFIED FROM CURRENT SNAPSHOT,capstone (3-day)
+building,human.market_cost,HeartlandDevelopment.json,gold,400,gold,VERIFIED FROM CURRENT SNAPSHOT,days 2; max_level 2; unlocks economy.market
+building,human.market_days,HeartlandDevelopment.json,build_days,2,days,VERIFIED FROM CURRENT SNAPSHOT,significant (2-day)
+building,human.barracks_cost,HeartlandDevelopment.json,gold,500,gold,VERIFIED FROM CURRENT SNAPSHOT,days 2; max_level 2; unlocks recruitment.growth
+building,human.barracks_days,HeartlandDevelopment.json,build_days,2,days,VERIFIED FROM CURRENT SNAPSHOT,significant (2-day)
+building,build_cost_deduction,SoulTown.cpp FSoulTownRules::BeginConstruction,deduction,atomic_once,event,VERIFIED FROM CURRENT SNAPSHOT,CanAfford then deduct BuildCost once at construction start; no staged payment
+building,building_upkeep,n/a,upkeep_per_day,0,gold/day,VERIFIED FROM CURRENT SNAPSHOT,No per-day building maintenance cost exists anywhere
+building,repair_cost,SOUL_BALANCE_LAB_REPORT_20260920.md,repair_gold,0,gold,VERIFIED FROM CURRENT SNAPSHOT,Settlement repair is currently immediate and free at runtime
+building,operational_integrity_threshold,balance_lab_tuning_ranges.json,permille,500,permille,VERIFIED FROM CURRENT SNAPSHOT,IsOperational default threshold 500 permille
+building,simultaneous_construction_slots,balance_lab_tuning_ranges.json,slots,unbounded,slots,VERIFIED FROM CURRENT SNAPSHOT,current_runtime "unbounded_by_rule"; no concurrency cap
+site,heartland.windmill_income,HeartlandDevelopment.json,gold_per_use,100,gold,VERIFIED FROM CURRENT SNAPSHOT,region crossroads; effect gold; cost_ap 1; repeatable once/day while owned+occupied
+site,heartland.quarry_income,HeartlandDevelopment.json,gold_per_use,140,gold,VERIFIED FROM CURRENT SNAPSHOT,region old_quarry; effect gold; cost_ap 1; repeatable once/day
+site,heartland.shrine_income,HeartlandDevelopment.json,mana_per_use,20,mana,VERIFIED FROM CURRENT SNAPSHOT,region ancient_shrine; effect mana (not gold); cost_ap 1; blocked when hero mana full
+site,site_interaction_gate,SoulFounderPlaytestStateSubsystem.cpp:989,requirement,own+occupy,gate,VERIFIED FROM CURRENT SNAPSHOT,Site region must be owned by player and have >0 living troops; costs ActionCost AP
+site,ai_resource_region_gold,SoulStrategyAI.h FSoulStrategicRegion,gold_income,0,gold,VERIFIED FROM CURRENT SNAPSHOT,ResourceValue is an abstract AI scoring weight only; no gold is generated for AI
+site,lab_base_income,founder_assault_balance.json,gold_per_day,18,gold/day,DESIGN PROPOSAL,BALANCE_LAB_GLUE_NOT_CANONICAL lab parameter
+site,lab_resource_income,founder_assault_balance.json,gold_per_day,9,gold/day,DESIGN PROPOSAL,BALANCE_LAB_GLUE_NOT_CANONICAL per-resource-site lab parameter
+income_event,quest_region_capture_reward,SoulFounderPlaytestStateSubsystem.cpp:504,one_time_gold,250,gold,VERIFIED FROM CURRENT SNAPSHOT,Granted once per newly captured rewarded region via hero adventure action; also +140 hero XP
+income_event,siege_capital_capture_reward,SoulFounderPlaytestStateSubsystem.cpp:617,one_time_gold,600,gold,VERIFIED FROM CURRENT SNAPSHOT,Granted once on winning battle and capturing target region; also +360 hero XP
+income_event,market_l2_daily_bonus,SoulFounderPlaytestStateSubsystem.cpp:650,gold_per_day,100,gold/day,VERIFIED FROM CURRENT SNAPSHOT,Only if human.market Level>=2 and operational; Heartland profile only
+income_event,barracks_l2_weekly_pool_bonus,SoulFounderPlaytestStateSubsystem.cpp:653,units_per_week,2,units/week,VERIFIED FROM CURRENT SNAPSHOT,Only if human.barracks Level>=2 and operational; extra +2 knights to pool weekly
+hero,tavern_hero_hire_cost,SoulFounderPlaytestStateSubsystem.cpp:670,gold,1200,gold,VERIFIED FROM CURRENT SNAPSHOT,HireTavernHero gate: gold>=1200; one-time (bSecondHeroHired); requires operational tavern
+hero,hero_equipment_maintenance,n/a,gold,0,gold,VERIFIED FROM CURRENT SNAPSHOT,Heroes have no equipment/maintenance gold cost; they advance via XP/skill/mana only
+hero,hero_candidate_recruitment_cost,SoulHeroRecruitment.h FSoulHeroCandidate,gold,data_driven,gold,LOCAL RUNTIME/ASSET CHECK REQUIRED,FSoulHeroCandidate.RecruitmentCost checked via CanAfford then deducted atomically; concrete values are data/scenario-driven
+diplomacy,gift_cost,SoulDiplomacy.cpp,gold,0,gold,VERIFIED FROM CURRENT SNAPSHOT,Gift and all diplomatic actions operate on RelationPermille only; no resource cost
+diplomacy,ransom_value,n/a,gold,NONE,gold,VERIFIED FROM CURRENT SNAPSHOT,No ransom system exists in the snapshot (owned by Lane 4 design)
+army,army_upkeep,SoulLogistics.h,gold_per_day,0,gold/day,VERIFIED FROM CURRENT SNAPSHOT,No gold upkeep; logistics tracks SupplyPermille/ReadinessPermille/FatiguePermille only (non-gold attrition)
+siege,siege_attacker_supply_cost,balance_lab_tuning_ranges.json,permille_per_day,0,permille/day,VERIFIED FROM CURRENT SNAPSHOT,current_runtime 0; no attacker-side siege cost
+siege,siege_attacker_readiness_cost,balance_lab_tuning_ranges.json,permille_per_day,0,permille/day,VERIFIED FROM CURRENT SNAPSHOT,current_runtime 0
+siege,siege_defender_supply_loss,balance_lab_tuning_ranges.json,permille_per_day,70,permille/day,VERIFIED FROM CURRENT SNAPSHOT,current_runtime 70; the only live siege attrition value
+siege,siege_gold_cost,n/a,gold,0,gold,VERIFIED FROM CURRENT SNAPSHOT,Siege imposes no treasury cost; attrition is in permille supply/integrity only
+replacement,defeated_army_replacement_delay,balance_lab_tuning_ranges.json,days,undefined,days,LOCAL RUNTIME/ASSET CHECK REQUIRED,current_runtime "undefined"; first-order balance authority per lab note
+weekly_growth_rule,recruitment_pool_growth_cadence,SoulCampaign.cpp:40,trigger,(Day-1)%7==0,event,VERIFIED FROM CURRENT SNAPSHOT,Non-building-linked pools grow by WeeklyGrowth up to Capacity on days 1,8,15,22,29
