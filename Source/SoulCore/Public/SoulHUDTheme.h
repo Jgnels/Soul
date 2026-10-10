@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/Canvas.h"
+#include "Engine/Texture2D.h"
+#include "SoulHUDArt.h"
 #include "Engine/Engine.h"
 #include "GameFramework/HUD.h"
 #include "GameFramework/PlayerController.h"
@@ -12,15 +14,39 @@ struct FSoulHUDTheme
     AHUD& HUD;
     UCanvas& Canvas;
     float Scale, W, H;
+    bool bKenney=false;
+    FString CursorState=TEXT("default");
     FVector2D Mouse = FVector2D(-1,-1);
     const FLinearColor Ink{.91f,.87f,.74f,1}, Muted{.62f,.66f,.65f,1};
     const FLinearColor Gold{.72f,.51f,.23f,1}, Bright{1.f,.81f,.40f,1};
     const FLinearColor Back{.027f,.034f,.039f,.97f}, Edge{.29f,.24f,.16f,1};
     FSoulHUDTheme(AHUD& InHUD, UCanvas& InCanvas) : HUD(InHUD),Canvas(InCanvas)
     {
+        bKenney=SoulHUDArt::Enabled();
         Scale=FMath::Max(.5f,FMath::Min(Canvas.ClipX/1280.f,Canvas.ClipY/720.f));
         W=Canvas.ClipX/Scale; H=Canvas.ClipY/Scale;
         if(auto* PC=HUD.GetOwningPlayerController()) { PC->GetMousePosition(Mouse.X,Mouse.Y); Mouse/=Scale; }
+    }
+    ~FSoulHUDTheme()
+    {
+        auto* PC=HUD.GetOwningPlayerController();
+        if(!bKenney||!PC||!PC->bShowMouseCursor||Mouse.X<0||Mouse.Y<0)return;
+        if(auto* T=SoulHUDArt::Texture(*(TEXT("cursor-")+CursorState)))
+        {
+            PC->CurrentMouseCursor=EMouseCursor::None;
+            HUD.DrawTexture(T,Mouse.X*Scale,Mouse.Y*Scale,32*Scale,32*Scale,0,0,1,1,FLinearColor::White,BLEND_Translucent);
+        }
+    }
+    void NineSlice(UTexture2D* T,float X,float Y,float Width,float Height,float Corner,float SourceCorner,FLinearColor Tint)
+    {
+        if(!T)return;
+        const float C=FMath::Min(Corner,FMath::Min(Width,Height)*.45f);
+        const float SX[]={0,SourceCorner/float(T->GetSizeX()),1-SourceCorner/float(T->GetSizeX()),1};
+        const float SY[]={0,SourceCorner/float(T->GetSizeY()),1-SourceCorner/float(T->GetSizeY()),1};
+        const float DX[]={X,X+C,X+Width-C,X+Width},DY[]={Y,Y+C,Y+Height-C,Y+Height};
+        for(int32 J=0;J<3;++J)for(int32 I=0;I<3;++I)
+            HUD.DrawTexture(T,DX[I]*Scale,DY[J]*Scale,(DX[I+1]-DX[I])*Scale,(DY[J+1]-DY[J])*Scale,
+                SX[I],SY[J],SX[I+1]-SX[I],SY[J+1]-SY[J],Tint,BLEND_Translucent);
     }
     void Rect(float X,float Y,float Width,float Height,FLinearColor Color)
     { HUD.DrawRect(Color,X*Scale,Y*Scale,Width*Scale,Height*Scale); }
@@ -42,6 +68,12 @@ struct FSoulHUDTheme
         Rect(X+2,Y+3,Width,Height,FLinearColor(0,0,0,.38f));
         Rect(X,Y,Width,Height,Back);
         Rect(X+2,Y+2,Width-4,Height-4,Selected?FLinearColor(.105f,.095f,.062f,.96f):FLinearColor(.041f,.049f,.050f,.98f));
+        if(bKenney)
+        {
+            const bool Modal=Width>430&&Height>170;
+            if(auto* Art=SoulHUDArt::Texture(Height<=40?TEXT("button"):Modal?TEXT("modal"):TEXT("panel")))
+            {NineSlice(Art,X,Y,Width,Height,Modal?16:12,Modal?24:12,Selected?Bright:FLinearColor(.73f,.65f,.44f,1));return;}
+        }
         const FLinearColor Border=Selected?Gold:Edge;
         Line(X,Y,X+Width,Y,Border); Line(X,Y+Height,X+Width,Y+Height,Border);
         Line(X,Y,X,Y+Height,Border); Line(X+Width,Y,X+Width,Y+Height,Border);
@@ -52,8 +84,10 @@ struct FSoulHUDTheme
     bool Button(FName Id,const FString& Label,float X,float Y,float Width,float Height,bool Selected=false)
     {
         const bool Hover=Mouse.X>=X&&Mouse.X<=X+Width&&Mouse.Y>=Y&&Mouse.Y<=Y+Height;
+        if(Hover&&CursorState!=TEXT("busy"))CursorState=TEXT("select");
         Panel(X,Y,Width,Height,Selected||Hover);
-        FitText(Label,X+10,Y+(Height-13)*.5f,Width-20,Selected||Hover?Bright:Ink);
+        float TextW=0,TextH=0;Canvas.StrLen(GEngine->GetSmallFont(),Label,TextW,TextH);
+        FitText(Label,X+14,Y+(Height-TextH*1.15f)*.5f,Width-28,Selected||Hover?Bright:Ink);
         HUD.AddHitBox(FVector2D(X,Y)*Scale,FVector2D(Width,Height)*Scale,Id,true,10);
         return Hover;
     }

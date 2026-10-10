@@ -15,6 +15,8 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     FName EnemyFaction;
     FName PlayerUnitId;
     FName EnemyUnitId;
+    TMap<FName,int32> PlayerCompanies, EnemyCompanies; // Optional exact roster transport; no new authority.
+    static bool ValidCompanies(FName Faction,const TMap<FName,int32>& Companies,int32 Total);
     FName BattlefieldId;
     FSoulBattleContext BattleContext;
     FName MapPackage;
@@ -43,6 +45,7 @@ struct SOULCORE_API FSoulCampaignBattleResult
     FName TargetRegion;
     bool bPlayerWon = false;
     // Includes undeployed reserves: these are the surviving strategic pools.
+    TMap<FName,int32> PlayerCompanies, EnemyCompanies; // Surviving bodies plus undeployed reserves, by exact unit.
     int32 PlayerSurvivors = 0;
     int32 EnemySurvivors = 0;
     int32 PlayerReinforcements = 0;

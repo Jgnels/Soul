@@ -7,6 +7,7 @@
 #include "SoulSettlementBuildingActor.h"
 #include "SoulCampaignWorldActor.h"
 #include "SoulCampaignTerrain.h"
+#include "SoulHeartlandSites.h"
 #include "Misc/Parse.h"
 #include "Misc/CommandLine.h"
 #include "Components/StaticMeshComponent.h"
@@ -63,7 +64,34 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
                     Transform.AddToTranslation(Location);
                     SoulCampaignTerrain::MiniaturePlacement(RegionId,Transform);
                     AuthoredMiniature->SetActorTransform(Transform);
-                    if (!AuthoredMiniature->ConfigureMiniature(Scenario->MiniatureBaseMesh.LoadSynchronous(),
+                    UStaticMesh* Base=Scenario->MiniatureBaseMesh.LoadSynchronous();
+                    if(State->IsHeartlandEnabled() && RegionId==TEXT("human_capital"))
+                    {
+                        auto* DepthBase=LoadObject<UStaticMesh>(nullptr,TEXT("/Game/Soul/CampaignProxies/Heartland/SM_HumanCapital_Base_Depth_r1"));
+                        const TCHAR* Names[]={TEXT("ArcaneHall"),TEXT("Barracks"),TEXT("Market")};
+                        const FName Ids[]={TEXT("human.arcane_hall"),TEXT("human.barracks"),TEXT("human.market")};
+                        UStaticMesh* Pieces[3]={};bool Ready=DepthBase!=nullptr;
+                        for(int32 I=0;I<3;++I)
+                        {
+                            Pieces[I]=LoadObject<UStaticMesh>(nullptr,*FString::Printf(TEXT("/Game/Soul/CampaignProxies/Heartland/SM_HumanCapital_%s_Depth_r1"),Names[I]));
+                            Ready&=Pieces[I]!=nullptr;
+                        }
+                        if(Ready)
+                        {
+                            Base=DepthBase;
+                            for(int32 I=0;I<3;++I)
+                            {
+                                auto* Piece=GetWorld()->SpawnActor<ASoulSettlementBuildingActor>();
+                                if(!Piece)continue;
+                                Piece->SetOwner(this);Piece->SettlementId=Scenario->SettlementId;Piece->BuildingId=Ids[I];
+                                Piece->MinimumBuildingLevel=I==0?1:2;Piece->SetActorTransform(Transform);
+                                Piece->ConfigureMiniature(nullptr,Pieces[I],true);DevelopmentMiniatures.Add(Piece);
+                            }
+                            UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_DEVELOPMENT_MINIATURES groups=%d shared_state=1"),DevelopmentMiniatures.Num());
+                        }
+                        else UE_LOG(LogTemp,Error,TEXT("SOUL_HEARTLAND_DEVELOPMENT_MINIATURES missing_owned_derivative"));
+                    }
+                    if (!AuthoredMiniature->ConfigureMiniature(Base,
                         Scenario->MiniatureUpgradeMesh.LoadSynchronous()))
                     {
                         UE_LOG(LogTemp, Error, TEXT("SOUL_SETTLEMENT_MINIATURE_FAIL region=%s"), *RegionId.ToString());
@@ -84,12 +112,13 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
                     }
                 }
             }
+    const bool bHeartlandSite=DressHeartlandSite(this,RegionId);
     if(bAuthoredBinding)SoulCampaignTerrain::DressSettlementSurroundings(this,RegionId);
     const bool bProofRouteOnly = FParse::Param(FCommandLine::Get(), TEXT("SoulDwarfSettlementProof"))
         && (RegionId == TEXT("dwarf_forge_approach") || RegionId == TEXT("dwarf_snow_basin"));
     // These canonical nodes are route locations, not towns. The authored-city
     // qualification must not dress them with generic placeholder houses.
-    if(!bAuthoredBinding && !bProofRouteOnly && !SoulCampaignTerrain::DressRegion(this,RegionId))
+    if(!bAuthoredBinding && !bHeartlandSite && !bProofRouteOnly && !SoulCampaignTerrain::DressRegion(this,RegionId))
     {
     auto* Stone=Make(TEXT("Cube"),FLinearColor(.42f,.40f,.32f));
     auto* DarkStone=Make(TEXT("Cube"),FLinearColor(.20f,.23f,.22f));
@@ -170,7 +199,7 @@ void ASoulPlaytestRegionActor::Configure(FName InRegionId,const FString& Display
         && !FParse::Param(FCommandLine::Get(),TEXT("SoulDwarfSettlementProof"))
         && RegionId != TEXT("human_capital")
         && !FParse::Param(FCommandLine::Get(),TEXT("SoulPopulationBaseline"));
-    if(bRetainedPopulation)
+    if(bRetainedPopulation||bHeartlandSite)
     {
         // Fit the existing founder hit target to its visible settlement, before
         // standards, selection marks and garrisons add unrelated decoration.
@@ -242,6 +271,7 @@ void ASoulPlaytestRegionActor::SetVisualState(const FLinearColor& Color,bool bEx
 {
     SetActorHiddenInGame(!bExplored);
     if (AuthoredMiniature) AuthoredMiniature->SetActorHiddenInGame(!bExplored);
+    for(const auto& Piece:DevelopmentMiniatures)if(Piece)Piece->SetActorHiddenInGame(!bExplored);
     SetActorEnableCollision(bExplored);
     if(!bExplored)return;
     if(BannerMaterial)BannerMaterial->SetVectorParameterValue(TEXT("Tint"),bVisible?Color:FLinearColor(.22f,.25f,.27f));

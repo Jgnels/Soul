@@ -18,6 +18,11 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement")
     FName BuildingId;
 
+    // Optional upgrade wing: reads the existing building level; no extra save state.
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Soul|Settlement", meta=(ClampMin="1"))
+    int32 MinimumBuildingLevel = 1;
+
+
     UFUNCTION(BlueprintCallable, Category="Soul|Settlement")
     void ApplyConditionName(FName ConditionName);
 
@@ -32,7 +37,7 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     // A campaign representation uses the same state branches as a full city.
     // Both meshes must be owned deterministic derivatives; no geometry is generated here.
-    bool ConfigureMiniature(class UStaticMesh* BaseMesh, class UStaticMesh* UpgradeMesh);
+    bool ConfigureMiniature(class UStaticMesh* BaseMesh, class UStaticMesh* UpgradeMesh, bool bUpgradeOnly = false);
 
     // Level-instance / donor geometry already placed in the city map can be assigned here.
     // Soul toggles it from canonical settlement state; geometry does not own gameplay truth.

@@ -16,6 +16,7 @@ def digest(path):
 p=argparse.ArgumentParser();p.add_argument('--prior',type=Path,required=True);p.add_argument('--evidence-root',type=Path,required=True);p.add_argument('--run',required=True)
 p.add_argument('--compress-executable',action='store_true',help='Lossless NTFS compression of only the new private executable; retain the 8 GiB reserve.')
 p.add_argument('--heartland-data',action='store_true',help='Explicitly admit the two reviewed Heartland JSON definitions; no cooked assets or config changes.')
+p.add_argument('--heartland-ui',action='store_true',help='Admit only the exact licensed Kenney UI allowlist; hash every file and preserve provenance.')
 a=p.parse_args()
 E=a.evidence_root.resolve();prior=a.prior.resolve()
 assert E.is_relative_to(R/'Evidence') and prior.is_relative_to(R/'Evidence')
@@ -33,6 +34,9 @@ assert digest(profile)==old['cook_profile_compatibility']['current_profile_sha25
 assert all(digest(R/name)==value for name,value in old['config_before'].items()),'Source configuration differs from the verified sanitized stage'
 admitted_data={}
 heartland_paths={'Data/SettlementEnvironments/EnvironmentRegistry.json','Data/SettlementEnvironments/HeartlandDevelopment.json'} if a.heartland_data else set()
+ui_names={'panel.png','button.png','modal.png','cursor-default.png','cursor-select.png','cursor-move.png','cursor-attack.png','cursor-interact.png','cursor-disabled.png','cursor-busy.png','LICENSE-FantasyUI.txt','LICENSE-Cursors.txt','provenance.json'}
+ui_paths={'Data/UI/Kenney/'+n for n in ui_names} if a.heartland_ui else set()
+allowed_paths=heartland_paths|ui_paths
 checked=0
 for row in target['BuildProducts']+target['RuntimeDependencies']:
  if row.get('Type') not in {'DynamicLibrary','NonUFS'}:continue
@@ -42,14 +46,16 @@ for row in target['BuildProducts']+target['RuntimeDependencies']:
  elif path.startswith('$(EngineDir)/'):
   tail=path[len('$(EngineDir)/'):];relative=Path('Engine')/tail;source=Path('C:/Program Files/Epic Games/UE_5.8/Engine')/tail
  else:raise ValueError('Unrecognized runtime dependency root')
- if path.startswith('$(ProjectDir)/') and path[len('$(ProjectDir)/'):] in heartland_paths:
-  assert source.is_file();content=json.loads(source.read_text());assert content['schema']==1
-  admitted_data[relative.as_posix()]={'relative':relative.as_posix(),'source':str(source.relative_to(R)),'sha256':digest(source)}
+ if path.startswith('$(ProjectDir)/') and path[len('$(ProjectDir)/'):] in allowed_paths:
+  assert source.is_file()
+  if path[len('$(ProjectDir)/'):] in heartland_paths:
+   content=json.loads(source.read_text());assert content['schema']==1
+  admitted_data[relative.as_posix()]={'relative':relative.as_posix(),'source':source.relative_to(R).as_posix(),'sha256':digest(source)}
   continue
  assert source.is_file() and (oldroot/relative).is_file(),str(relative)
  assert digest(source)==digest(oldroot/relative),'Runtime dependency changed: '+str(relative)
  checked+=1
-assert len(admitted_data)==len(heartland_paths),'All requested data must be in the fresh target receipt'
+assert len(admitted_data)==len(allowed_paths),'All requested data must be in the fresh target receipt'
 base=json.loads((prior.parent/'prelinked-cooked-files.json').read_text())
 for row in base:assert digest(oldroot/row['relative'])==row['sha256'],row['relative']
 out=E/'Local'/a.run;assert not out.exists();out.mkdir(parents=True)
@@ -83,6 +89,7 @@ for source in files:
  if rel==exe_relative:
   if not a.compress_executable:shutil.copy2(fresh,to);copied+=1
  elif source.suffix.lower() in private_suffix:shutil.copy2(source,to);copied+=1
+ elif rel.as_posix() in admitted_data:shutil.copy2(source,to);copied+=1
  else:os.link(source,to);linked+=1
  if linked%1000==0:assert shutil.disk_usage(stage_root).free>=8*2**30
 for kind in ['UFS','NonUFS']:
@@ -90,7 +97,7 @@ for kind in ['UFS','NonUFS']:
 shutil.copy2(prior.parent/'prelinked-cooked-files.json',diagnostics/'prelinked-cooked-files.json')
 for row in admitted_data.values():
  to=dest/row['relative'];to.parent.mkdir(parents=True,exist_ok=True)
- assert to.resolve().is_relative_to(dest.resolve()) and (not to.exists() or to.suffix=='.json')
+ assert to.resolve().is_relative_to(dest.resolve()) and (not to.exists() or row['source'] in allowed_paths)
  shutil.copy2(R/row['source'],to);assert digest(to)==row['sha256']
 manifest=diagnostics/'UAT/Manifest_NonUFSFiles_Win64.txt'
 if admitted_data:

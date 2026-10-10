@@ -57,19 +57,31 @@ void ASoulFounderPlaytestGameMode::TickHeartlandQualification(float Seconds)
     {
         if(Elapsed<8)return;
         const FName Attacker=FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandCommanderQualification"))?FName(TEXT("dwarves")):FName(TEXT("orcs"));
+        FString Field; FParse::Value(FCommandLine::Get(),TEXT("SoulHeartlandField="),Field);
+        const FName Target=Field==TEXT("forest")?FName(TEXT("forest_edge")):Field==TEXT("bridge")?FName(TEXT("southern_crossing")):FName(TEXT("human_capital"));
+        const FName From=Field==TEXT("bridge")?FName(TEXT("orc_broken_bridge")):FName(TEXT("crossroads"));
+        const FName Map=Field==TEXT("forest")?FName(TEXT("/Game/Soul/Maps/Battles/L_Heartland_Woodland")):Field==TEXT("bridge")?FName(TEXT("/Game/Soul/Maps/Battles/L_Heartland_RiverBridge")):FName(TEXT("/Game/Soul/Maps/Settlements/L_HumanCapital_Authored"));
         if(State->LastBattleResult.EncounterId.IsNone())
         {
             if(bStarted)return;bStarted=true;FString Error;FSoulControlledCampaignAction Action;
-            if(!State->PrepareControlledAction(Attacker,FName(*(Attacker.ToString()+TEXT(".primary"))),TEXT("crossroads"),TEXT("human_capital"),Action,Error)
+            if(!State->PrepareControlledAction(Attacker,FName(*(Attacker.ToString()+TEXT(".primary"))),From,Target,Action,Error)
                 ||!State->ExecuteControlledAction(Action,Error)){UE_LOG(LogTemp,Error,TEXT("SOUL_HEARTLAND_ADMISSION %s"),*Error);Fail(TEXT("capital defense admission"));return;}
             const auto& D=State->PendingBattle;
-            if(D.MapPackage!=TEXT("/Game/Soul/Maps/Settlements/L_HumanCapital_Authored")||D.TacticalPlayerSide!=1){Fail(TEXT("wrong city or player side"));return;}
+            if(D.MapPackage!=Map||D.TacticalPlayerSide!=1){Fail(TEXT("wrong city or player side"));return;}
+            if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandMixedDefenseQualification"))&&D.EnemyCompanies.Num()!=3){Fail(TEXT("mixed defender roster admission"));return;}
+
             UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_CITY_BATTLE_BEGIN attacker=%s defender=humans map=%s origin=%s"),*Attacker.ToString(),*D.MapPackage.ToString(),*D.ArenaOrigin.ToString());
             UGameplayStatics::OpenLevel(this,D.MapPackage,true,TEXT("game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode"));return;
         }
         const auto& Result=State->LastBattleResult;
-        if(Result.TargetRegion!=TEXT("human_capital")||State->PlayerRegion!=TEXT("human_capital")||State->HasPendingBattle()
-           ||State->World.Regions.FindChecked(TEXT("human_capital")).OwnerFactionId!=(Result.bPlayerWon?Attacker:FName(TEXT("humans")))){Fail(TEXT("capital battle result/return"));return;}
+        if(Result.TargetRegion!=Target||State->PlayerRegion!=Target||State->HasPendingBattle()
+           ||State->World.Regions.FindChecked(Target).OwnerFactionId!=(Result.bPlayerWon?Attacker:FName(TEXT("humans")))){Fail(TEXT("capital battle result/return"));return;}
+        if(VisualStep==0&&FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandMixedDefenseQualification")))
+        {
+            if(Result.EnemyCompanies.Num()!=3){Fail(TEXT("missing defender company result"));return;}
+            for(const auto& Company:Result.EnemyCompanies)if(State->PlayerArmy.FindRef(Company.Key)!=Company.Value){Fail(TEXT("defender company casualties did not return exactly"));return;}
+            UE_LOG(LogTemp,Display,TEXT("SOUL_MIXED_DEFENSE_RESULT infantry=%d archers=%d guards=%d"),State->PlayerArmy.FindRef(TEXT("human_knight")),State->PlayerArmy.FindRef(TEXT("human_archer")),State->PlayerArmy.FindRef(TEXT("human_guard")));
+        }
         auto* PC=GetWorld()->GetFirstPlayerController();
         auto Key=[&](FKey K){PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Pressed,1));PC->InputKey(FInputKeyEventArgs::CreateSimulated(K,IE_Released,0));};
         FRBSaveDomainState Snapshot;FString Error;

@@ -27,6 +27,14 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     auto* C=FindCampaign(GetWorld());auto* Visit=GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>();
     auto* S=C?C->GetState():Visit?Visit->GetState():nullptr;if(!S)return;
     FSoulHUDTheme UI(*this,*Canvas);
+    if(S->bPersistenceBusy||S->IsAlphaTurnActive())UI.CursorState=TEXT("busy");
+    else if(C&&!C->HoveredRegion.IsNone())
+    {
+        const FName R=C->HoveredRegion;
+        UI.CursorState=R==S->PlayerRegion?TEXT("interact"):
+            !FSoulWorldRules::CanMove(S->World,S->PlayerRegion,R)||S->Economy.ActionPoints<=0||!S->DiplomacyAllowsHostility(S->PlayerFaction,S->World.Regions.FindChecked(R).OwnerFactionId)?TEXT("disabled"):
+            S->IsHostile(R)?TEXT("attack"):TEXT("move");
+    }
     const float Scale=UI.Scale,W=UI.W,H=UI.H;
     const FLinearColor Ink=UI.Ink,Muted=UI.Muted,Gold=UI.Bright,Back=UI.Back;
     auto Text=[&](const FString& T,float X,float Y,FLinearColor Color,float Size=1.f){UI.Text(T,X,Y,Color,Size*1.15f);};
@@ -79,19 +87,38 @@ void ASoulFounderPlaytestHUD::DrawHUD()
                 D.BuildingId==TEXT("human.mage_academy")?TEXT("Learns Water Ward / requires Arcane Hall"):
                 D.BuildingId==TEXT("human.high_conclave")?TEXT("Learns Air Tailwind / requires Mage Academy"):
                 D.BuildingId==TEXT("human.market")?TEXT("+100 gold each day"):
-                D.BuildingId==TEXT("human.barracks")?TEXT("+2 weekly recruit stock, up to the existing cap"):
+                D.BuildingId==TEXT("human.barracks")?TEXT("Unlocks Veteran Guard; +2 weekly stock"):
                 TEXT("Unlocks paid companion hiring");
             UI.FitText(Effect,Left+20,183+Row*43,407,Muted,.75f);++Row;
         }
-        Wrapped(TEXT("Aurora: Frost primary; Water / Air secondary. Fire / Lightning forbidden. Guild completion teaches existing spells. New building visuals pending."),Left+15,425,417,Muted,4);
+        Wrapped(TEXT("Aurora: Frost primary; Water / Air secondary. Fire / Lightning forbidden. Guild, veteran barracks and expanded market change the city."),Left+15,425,417,Muted,4);
     };
+    if(C&&C->bDiplomacyPanel)
+    {
+        UI.Panel(28,24,W-56,H-48,true);Panels.Add(FBox2D(FVector2D(28,24)*Scale,FVector2D(W-28,H-24)*Scale));Text(TEXT("DIPLOMACY / HUMAN HEARTLAND"),48,42,Gold,1.25f);
+        Button(TEXT("DiplomacyClose"),TEXT("Close [Esc]"),W-230,40,170);
+        int32 I=0;for(FName Id:{FName(TEXT("dwarves")),FName(TEXT("orcs")),FName(TEXT("vikings"))})
+            Button(FName(*(TEXT("DiplomacyFaction:")+Id.ToString())),Id.ToString().ToUpper(),48+I++*220,90,205);
+        const auto Relation=S->DiplomaticRelation(C->DiplomaticFaction);const auto Stance=FSoulDiplomacyRules::EffectiveStance(Relation,S->Economy.Day);
+        Text(FString::Printf(TEXT("%s | %s | relations %+d | gold %d | movement %d"),*C->DiplomaticFaction.ToString().ToUpper(),*FSoulDiplomacyRules::StanceName(Stance),Relation.RelationPermille,S->Economy.Resources.FindRef(TEXT("gold")),S->Economy.ActionPoints),48,137,Gold);
+        Text(Stance==ESoulDiplomaticStance::NonAggression?FString::Printf(TEXT("Pact through day %d inclusive; then peace. No military access."),Relation.PactUntilDay):TEXT("Peace blocks attacks and occupation in both directions; it grants no military access."),48,161,Muted);
+        const TCHAR* Names[]={TEXT("Declare war"),TEXT("Offer peace"),TEXT("3-day non-aggression pact"),TEXT("Gift 250 gold / +100 relation"),TEXT("Break pact / declare war")};
+        for(int32 A=0;A<5;++A)
+        {
+            const auto D=S->PreviewDiplomacy(C->DiplomaticFaction,static_cast<ESoulDiplomaticAction>(A));
+            const float Y=202+A*88;Button(FName(*FString::Printf(TEXT("DiplomacyAction:%d"),A)),Names[A],48,Y,325);
+            Wrapped(FString::Join(D.Reasons,TEXT(" ")),395,Y+3,W-450,D.bAccepted?Ink:Muted,4);
+        }
+        Wrapped(C->LastMessage,48,H-112,W-96,Gold,3);
+        return;
+    }
     if(Visit)
     {
         Panel(14,12,W-28,60);Text(TEXT("SETTLEMENT VISIT"),28,24,Gold,1.3f);
         Text(FString::Printf(TEXT("DAY %d   GOLD %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold"))),300,30,Ink);
         if(Visit->bManagePanel||!Visit->IsWalking())
         {
-        Panel(28,108,500,380);Development(45,126,465);HeartlandDevelopment();
+        Panel(28,108,500,S->IsHeartlandEnabled()?430:380);Development(45,126,465);HeartlandDevelopment();
         if(Visit->IsVisitReady())
         {
             Button(TEXT("BuildTavern"),TEXT("[U] Build ")+S->GetDevelopmentBuildingName(),45,212,465);
@@ -100,8 +127,11 @@ void ASoulFounderPlaytestHUD::DrawHUD()
             else Text(S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("Companion hiring locked"),45,290,Muted);
             Button(TEXT("Save"),TEXT("[F5] Save"),45,327,224);Button(TEXT("Load"),TEXT("[F9] Load"),282,327,228);
         }
-        Button(TEXT("Recruit"),TEXT("Recruit Eastern Knight / paid weekly pool"),45,364,465);
-        Button(TEXT("Return"),TEXT("[Esc] Return to campaign"),45,425,465);
+        if(S->IsHeartlandEnabled())
+        {int32 I=0;for(FName Id:S->AvailableHumanRoster()){const auto* P=S->Economy.RecruitmentPools.Find(Id);Button(FName(*(TEXT("Company:")+Id.ToString())),FString::Printf(TEXT("%s | %dg | stock %d | army %d"),Id==TEXT("human_archer")?TEXT("Archers"):Id==TEXT("human_guard")?TEXT("Veteran Guard"):TEXT("Infantry"),P?P->CostPerUnit.FindRef(TEXT("gold")):0,P?P->Available:0,S->PlayerArmy.FindRef(Id)),45,363+I++*31,465);}}
+        else Button(TEXT("Recruit"),TEXT("Recruit Eastern Knight / paid weekly pool"),45,364,465);
+        if(S->IsHeartlandEnabled()&&S->bSecondHeroHired)Button(TEXT("CompanionAssign"),S->CompanionStatus(),45,459,465);
+        Button(TEXT("Return"),TEXT("[Esc] Return to campaign"),45,S->IsHeartlandEnabled()?494:425,465);
         }
         else {Button(TEXT("Manage"),TEXT("[Tab] Manage settlement"),28,84,270);}
         Panel(14,H-98,W-28,84);Wrapped(Visit->LastMessage,28,H-86,W-56,Ink,2);
@@ -117,6 +147,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
 
     Button(TEXT("Company"),FString::Printf(TEXT("SELECT YOUR ARMY  %d  [Home]"),Army),W-557,26,266);
     Button(TEXT("EndDay"),S->Economy.ActionPoints>0?TEXT("Next day  [Space]"):TEXT("RESTORE MOVEMENT  [Space]"),W-279,26,253);
+    if(S->IsHeartlandEnabled()){Panel(W-557,76,174,31);Button(TEXT("Diplomacy"),TEXT("Diplomacy [L]"),W-556,77,172);}
     // A separate, persistent company label is selectable even beside a city.
     for(TActorIterator<ASoulCampaignWorldActor> It(GetWorld());It;++It)
     {
@@ -149,7 +180,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     else if(Explored)
     {
         const auto* Region=S->World.Regions.Find(Selected);
-        Text(C->IsCompanySelected()?FString::Printf(TEXT("ARMY SELECTED / %d MOVEMENT LEFT"),S->Economy.ActionPoints):(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT")),X+15,135,C->IsCompanySelected()?Gold:Muted);
+        Text(C->IsCompanySelected()?FString::Printf(TEXT("ARMY SELECTED / %d MOVEMENT LEFT"),S->Economy.ActionPoints):(Visible?(Region&&Region->OwnerFactionId==S->PlayerFaction?TEXT("YOUR TERRITORY"):S->IsHostile(Selected)?TEXT("HOSTILE TERRITORY"):Region&&!Region->OwnerFactionId.IsNone()?TEXT("AT PEACE / NO MILITARY ACCESS"):TEXT("OPEN COUNTRY")):TEXT("SURVEYED / BEYOND SIGHT")),X+15,135,C->IsCompanySelected()?Gold:Muted);
         Text(C->IsCompanySelected()?TEXT("Click a highlighted neighbouring place."):(Selected==S->PlayerRegion?TEXT("Your company is stationed here."):FSoulWorldRules::CanMove(S->World,S->PlayerRegion,Selected)?TEXT("Connected by a traversable road."):TEXT("Reach this place through its neighbours.")),X+15,162,Ink);
         if(C->IsCompanySelected())Text(TEXT("Each road move costs 1 movement."),X+15,185,Muted);
         else if(Visible&&S->IsSixFactionProfile())UI.FitText(S->ArmyInspectionAtRegion(Selected),X+15,185,282,Ink,.8f);
@@ -160,7 +191,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     if(C->IsFactionInspection()){}
     else if(C->IsBattleAvailable())
     {
-        if(S->PlayerArmy.FindRef(S->PlayerUnitId)<=0)Text(S->IsFourFactionAlpha()?TEXT("Routed: see recovery guidance."):TEXT("Recruit Knights at the capital first."),X+15,249,Gold);
+        if(S->GetPlayerTroopCount()<=0)Text(S->IsFourFactionAlpha()?TEXT("Routed: see recovery guidance."):TEXT("Recruit Knights at the capital first."),X+15,249,Gold);
         else if(S->Economy.ActionPoints<=0)Button(TEXT("BattleRest"),TEXT("Next day restores actions  [Space]"),X+15,237,282);
         else Button(TEXT("Battle"),TEXT("Commit 1 action to battle  [B]"),X+15,237,282);
     }
@@ -194,7 +225,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     Rect(14,H-36,W-28,28,Back);
     Text(TEXT("Home army / F selected focus / Q E orbit / PgUp Dn pitch / Wheel zoom / T manage / V visit / Space next day"),24,H-28,Muted);
     if(!S->LastPersistenceReport.IsEmpty()) { Rect(14,77,640,27,Back);Text(S->LastPersistenceReport.Replace(TEXT(" with RB Save"),TEXT("")),28,84,Muted); }
-    if(S->PlayerArmy.FindRef(S->PlayerUnitId)==0&&!C->IsTownPanelOpen())
+    if(S->GetPlayerTroopCount()==0&&!C->IsTownPanelOpen())
     {
         Panel(28,112,490,112);Text(TEXT("Routed company / recovery"),43,125,Gold);
         Wrapped(S->IsFourFactionAlpha()?S->HumanRecoveryGuidance():TEXT("Return to the capital: [T] opens town, [1] recruits Knights. [Space] restores travel actions."),43,150,460,Ink,4);
@@ -225,30 +256,32 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     if(C->IsTownPanelOpen())
     {
         HeartlandDevelopment();
-        const auto& Roster=USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
+        const auto& Roster=S->AvailableHumanRoster();
         const int32 RecruitCount=S->PlayerRegion==TEXT("human_capital")?Roster.Num():0;
         const float TavernY=190.f+RecruitCount*31.f;
+        const float CompanionSpace=S->IsHeartlandEnabled()&&S->bSecondHeroHired?36.f:0.f;
         const bool DevelopmentEnabled=S->IsSettlementDevelopmentEnabled();
-        Panel(28,112,454,TavernY-102.f+77.f+(DevelopmentEnabled?154.f:0.f));
+        Panel(28,112,454,TavernY-102.f+77.f+CompanionSpace+(DevelopmentEnabled?154.f:0.f));
         Text(C->DisplayName(S->PlayerRegion).ToUpper(),45,129,Gold,1.3f);
         Text(RecruitCount?TEXT("Recruit from the available weekly pools"):TEXT("Construction and companion services"),45,158,Muted);
         for(int32 I=0;I<RecruitCount;++I)
         {
             const auto* Pool=S->Economy.RecruitmentPools.Find(Roster[I]);
-            FString Name=Roster[I].ToString().Replace(TEXT("human_"),TEXT("")).Replace(TEXT("_"),TEXT(" "));
+            FString Name=Roster[I]==TEXT("human_archer")?TEXT("Archers"):Roster[I]==TEXT("human_guard")?TEXT("Veteran Guard"):Roster[I]==TEXT("human_knight")?TEXT("Infantry"):Roster[I].ToString();
             Button(FName(*FString::Printf(TEXT("Recruit%d"),I+1)),FString::Printf(TEXT("[%d] %s  %dg  pool %d  army %d"),I+1,*Name,Pool?Pool->CostPerUnit.FindRef(TEXT("gold")):0,Pool?Pool->Available:0,S->PlayerArmy.FindRef(Roster[I])),45,188+I*31,420);
         }
         if(DevelopmentEnabled&&!S->IsTavernOperational())Text(TEXT("Complete construction to unlock hiring"),45,TavernY+18,Muted);
         else Button(TEXT("Hire"),S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("[H] Hire companion  /  1200 gold"),45,TavernY+10,420);
+        if(S->IsHeartlandEnabled()&&S->bSecondHeroHired)Button(TEXT("CompanionAssign"),S->CompanionStatus(),45,TavernY+40,420);
         if(DevelopmentEnabled)
         {
-            Development(45,TavernY+51,420);
+            Development(45,TavernY+51+CompanionSpace,420);
             if(S->IsSettlementDevelopmentReady())
             {
-                Button(TEXT("BuildTavern"),TEXT("[U] Construct"),45,TavernY+125,201);
-                Button(TEXT("VisitSettlement"),TEXT("[V] Visit settlement"),254,TavernY+125,211);
+                Button(TEXT("BuildTavern"),TEXT("[U] Construct"),45,TavernY+125+CompanionSpace,201);
+                Button(TEXT("VisitSettlement"),TEXT("[V] Visit settlement"),254,TavernY+125+CompanionSpace,211);
             }
-            Text(TEXT("[F5] Save / [F9] Load / [T / Esc] Close town"),45,TavernY+167,Muted);
+            Text(TEXT("[F5] Save / [F9] Load / [T / Esc] Close town"),45,TavernY+167+CompanionSpace,Muted);
         }
         else Text(TEXT("[T / Esc] Return to the campaign"),45,TavernY+51.f,Muted);
     }
@@ -258,6 +291,16 @@ void ASoulFounderPlaytestHUD::NotifyHitBoxClick(FName BoxName)
     Super::NotifyHitBoxClick(BoxName);
     if(auto* Visit=GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()){Visit->HandleAction(BoxName);return;}
     auto* C=FindCampaign(GetWorld());if(!C)return;
+    if(BoxName==TEXT("Diplomacy")){C->ToggleDiplomacy();return;}
+    if(BoxName==TEXT("DiplomacyClose")){C->CancelPanel();return;}
+    if(C->bDiplomacyPanel)
+    {
+        const FString Name=BoxName.ToString();
+        if(Name.StartsWith(TEXT("DiplomacyFaction:"))){const FName F(*Name.Mid(FString(TEXT("DiplomacyFaction:")).Len()));if(C->GetState()->IsDiplomacyTarget(F))C->DiplomaticFaction=F;return;}
+        if(Name.StartsWith(TEXT("DiplomacyAction:"))){const int32 A=FCString::Atoi(*Name.Mid(FString(TEXT("DiplomacyAction:")).Len()));if(A>=0&&A<=4)C->GetState()->ExecuteDiplomacy(C->DiplomaticFaction,static_cast<ESoulDiplomaticAction>(A),C->LastMessage);return;}
+        return;
+    }
+    if(BoxName==TEXT("CompanionAssign")){C->GetState()->AssignHeartlandCompanion(!C->GetState()->bCompanionAssigned);return;}
     if(BoxName==TEXT("WorkSite")){C->GetState()->InteractHeartlandSite(C->LastMessage);return;}
     if(BoxName.ToString().StartsWith(TEXT("Develop:"))){C->GetState()->BeginSettlementConstruction(FName(*BoxName.ToString().Mid(8)),C->LastMessage);return;}
     if(BoxName==TEXT("EndDay")||BoxName==TEXT("BattleRest"))C->EndDay();

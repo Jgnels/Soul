@@ -180,7 +180,7 @@ bool USoulRealtimeArenaGroupDriver::HostAreOpponents_Implementation(
     FRBHostIdentity A, FRBHostIdentity B) const
 {
     const auto* Host = ArenaHost(this);
-    return Host && Host->AreOpponents(A, B);
+    return Host && Host->CanDriverEngage(GroupIndex, A, B);
 }
 
 bool USoulRealtimeArenaGroupDriver::HostHasAmmunition_Implementation(
@@ -238,7 +238,7 @@ void ASoulRealtimeArenaPlayerController::SetupInputComponent()
     const TPair<FKey,FName> PadBindings[]={
         {EKeys::Gamepad_Special_Right,TEXT("Pause")},{EKeys::Gamepad_Special_Left,TEXT("Camera")},
         {EKeys::Gamepad_RightShoulder,TEXT("NextFormation")},{EKeys::Gamepad_LeftShoulder,TEXT("All")},
-        {EKeys::Gamepad_DPad_Up,TEXT("Advance")},{EKeys::Gamepad_DPad_Down,TEXT("Fallback")},
+        {EKeys::Gamepad_DPad_Up,TEXT("Follow")},{EKeys::Gamepad_DPad_Down,TEXT("Fallback")},
         {EKeys::Gamepad_DPad_Left,TEXT("Hold")},{EKeys::Gamepad_DPad_Right,TEXT("Charge")},
         {EKeys::Gamepad_LeftThumbstick,TEXT("Focus")},{EKeys::Gamepad_RightThumbstick,TEXT("View")},
         {EKeys::Gamepad_FaceButton_Left,TEXT("NextSpell")},{EKeys::Gamepad_FaceButton_Top,TEXT("Cast")},
@@ -1202,6 +1202,33 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             }
         }
     }
+    if(GetWorld()->GetOutermost()->GetName()==TEXT("/Game/Soul/Maps/Battles/L_Heartland_Woodland"))
+    {
+        // The authored foliage-generation brush is not tactical architecture.
+        // Native probes found it intercepting floor/sweep queries throughout the
+        // clearing. Disable only this authoring class in this world instance.
+        int32 AuthoringVolumes=0;
+        for(TActorIterator<AActor> It(GetWorld());It;++It)
+            if(It->GetClass()->GetFName()==TEXT("ProceduralFoliageVolume"))
+            {It->SetActorEnableCollision(false);++AuthoringVolumes;}
+        UE_LOG(LogTemp,Display,TEXT("SOUL_WOODLAND_AUTHORING_VOLUMES collision_disabled=%d terrain_trees_rocks_unchanged=1"),AuthoringVolumes);
+        // Keep reviewed fixed luminance; reduce the cooked sunlit-body clipping by one stop.
+        // The donor's +1.1 exposure bias washes out bodies in the cooked renderer.
+        // This transient high-priority volume neither saves nor changes donor art.
+        if(auto* Review=GetWorld()->SpawnActor<APostProcessVolume>())
+        {
+            Review->bUnbound=true;Review->Priority=1000;Review->BlendWeight=1;
+            Review->Tags.Add(TEXT("Soul.Runtime.AuthoredExposureNormalized"));
+            auto& P=Review->Settings;
+            const auto* Extended=IConsoleManager::Get().FindConsoleVariable(TEXT("r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange"));
+            const float Bound=Extended&&Extended->GetInt()!=0?0.f:1.f;
+            P.bOverride_AutoExposureMinBrightness=P.bOverride_AutoExposureMaxBrightness=true;
+            P.AutoExposureMinBrightness=P.AutoExposureMaxBrightness=Bound;
+            P.bOverride_AutoExposureBias=true;P.AutoExposureBias=-1;
+            P.bOverride_MotionBlurAmount=true;P.MotionBlurAmount=0;
+            UE_LOG(LogTemp,Display,TEXT("SOUL_WOODLAND_PRESENTATION exposure_bound=%g bias=-1 motion_blur=0 source_unchanged=1"),Bound);
+        }
+    }
     if (bMapOnly)
     {
         SetupBattleCamera();
@@ -1236,6 +1263,7 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
             PlayerVisualFaction = Encounter->PlayerFaction;
             PlayerVisualUnitId = Encounter->PlayerUnitId;
+            CampaignCompanies[0]=Encounter->PlayerCompanies;CampaignCompanies[1]=Encounter->EnemyCompanies;
             EnemyVisualFaction = Encounter->EnemyFaction;
             EnemyVisualUnitId = Encounter->EnemyUnitId;
             EnemyVisualRegion = Encounter->TargetRegion;
@@ -1374,7 +1402,7 @@ bool ASoulRealtimeArenaGameMode::SetupArena()
     }
     if (bExternalEnvironment && !SetupBattlefieldBounds())
         return false;
-    if (!SpawnArmy(0) || !SpawnArmy(1) || !SetupDrivers())
+    if (!SpawnArmy(0) || !SpawnArmy(1) || !SeparateBattleHeroesFromFormations() || !SetupDrivers())
         return false;
 
     if (!bProof && !bAutobattle && PlayerHero)
@@ -1434,7 +1462,7 @@ bool ASoulRealtimeArenaGameMode::SetupBattlefieldBounds()
         AddWall(FVector(0, BattlefieldHalfY + BattlefieldWallThickness, 0), FVector(BattlefieldHalfX + 200.0f, BattlefieldWallThickness, BattlefieldWallHalfHeight)) &&
         AddWall(FVector(0, -BattlefieldHalfY - BattlefieldWallThickness, 0), FVector(BattlefieldHalfX + 200.0f, BattlefieldWallThickness, BattlefieldWallHalfHeight));
     UE_LOG(LogTemp, Display, TEXT("SOUL_RT_BOUNDS_SETUP: halfX=%.0f halfY=%.0f walls=%d"), BattlefieldHalfX, BattlefieldHalfY, BattlefieldBounds.Num());
-    return bReady && BattlefieldBounds.Num() == 4;
+    return bReady && BattlefieldBounds.Num() == 4 && (!IsHeartlandBridgeBattle() || SetupHeartlandBridgeCollision());
 }
 
 void ASoulRealtimeArenaGameMode::TrackBattlefieldExtent()
@@ -1454,6 +1482,43 @@ void ASoulRealtimeArenaGameMode::TrackBattlefieldExtent()
 bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
 {
     int32 Remaining = FMath::Min(ActiveCap, StrategicBodies[Side]);
+    if (!CampaignCompanies[Side].IsEmpty())
+    {
+        // Allocate the active cap fairly, then keep each exact company in its
+        // own command group. Paid archers must not become a mixed melee card.
+        const TArray<FName> Ids={TEXT("human_knight"),TEXT("human_archer"),TEXT("human_guard")};
+        TMap<FName,int32> Counts;
+        for(int32 N=0;N<Remaining;++N)
+        {
+            FName Best;int32 Lowest=MAX_int32;
+            for(FName Id:Ids)if(Counts.FindRef(Id)<CampaignCompanies[Side].FindRef(Id)&&Counts.FindRef(Id)<Lowest)
+                {Best=Id;Lowest=Counts.FindRef(Id);}
+            if(Best.IsNone())return false;
+            ++Counts.FindOrAdd(Best);
+        }
+        const float Direction=Side==0?1.f:-1.f;
+        int32 Slot=0;
+        for(FName Id:Ids)
+        {
+            int32 CompanyRemaining=Counts.FindRef(Id);
+            while(CompanyRemaining>0)
+            {
+            const int32 Count=FMath::Min(CompanyRemaining,FRBCombatGroup::MaximumMembers);
+            const bool Archer=Id==TEXT("human_archer");
+            const auto CompanyRole=Archer?ESoulRealtimeFormationRole::Ranged:Id==TEXT("human_guard")?ESoulRealtimeFormationRole::Guard:ESoulRealtimeFormationRole::Line;
+            const FVector Anchor=ArenaOrigin+FVector(-Direction*(Archer?2120.f:1500.f),Direction*(Slot++-1)*650.f,100.f);
+            if(!SpawnFormation(Side,CompanyRole,Count,Anchor,Id))return false;
+            FSoulBattleFormationState State;State.GroupIndex=Groups.Num()-1;State.Side=Side;
+            State.Kind=Archer?ESoulBattleFormationKind::MissileSupport:ESoulBattleFormationKind::FrontLine;
+            State.SpawnAnchor=Anchor;State.TacticalAnchor=Anchor+FVector(Direction*650,0,0);
+            State.InitialBodies=State.PreviousAlive=Count;
+            State.DisplayName=Archer?TEXT("Heartland Archers"):Id==TEXT("human_guard")?TEXT("Veteran Guard"):TEXT("Heartland Infantry");
+            TacticalFormations.Add(State);
+            CompanyRemaining-=Count;
+            }
+        }
+        return true;
+    }
     const int32 GroupCount = FMath::Clamp(
         FMath::DivideAndRoundUp(Remaining, 7), 1, 5);
 
@@ -1539,7 +1604,7 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     int32 Side,
     ESoulRealtimeFormationRole FormationRole,
     int32 Count,
-    const FVector& Anchor)
+    const FVector& Anchor, FName ExactCompany)
 {
     if (Count <= 0 || Count > FRBCombatGroup::MaximumMembers)
         return false;
@@ -1592,6 +1657,13 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
         else if (FormationRole == ESoulRealtimeFormationRole::Shock && I == 1 &&
                  (Side == 0 || UsesEvilVisualRoster()))
             MemberRole = ESoulRealtimeFormationRole::Breaker;
+        SpawningCompany=ExactCompany.IsNone()?NextCampaignCompany(Side):ExactCompany;
+        if(!CampaignCompanies[Side].IsEmpty())
+        {
+            if(SpawningCompany.IsNone())return false;
+            MemberRole=SpawningCompany==TEXT("human_archer")?ESoulRealtimeFormationRole::Ranged:
+                SpawningCompany==TEXT("human_guard")?ESoulRealtimeFormationRole::Guard:ESoulRealtimeFormationRole::Line;
+        }
         // Reserve one existing active slot for the player even in small armies.
         // A separate command formation is optional; an embodied camera is not.
         const bool bPlayer =
@@ -2014,6 +2086,28 @@ UAnimationAsset* ASoulRealtimeArenaGameMode::ResolveVisualDeath(
     return Path ? LoadObject<UAnimationAsset>(nullptr, Path) : nullptr;
 }
 
+FName ASoulRealtimeArenaGameMode::NextCampaignCompany(int32 Side) const
+{
+    if(CampaignCompanies[Side].IsEmpty())return NAME_None;
+    // Stable interleaving lets small active caps expose every recruited company.
+    FName Best;int32 BestDeployed=MAX_int32;
+    for(FName Id:{FName(TEXT("human_knight")),FName(TEXT("human_archer")),FName(TEXT("human_guard"))})
+    {
+        int32 Deployed=0;for(const auto& C:Combatants)if(C.Side==Side&&C.CampaignCompany==Id)++Deployed;
+        if(Deployed<CampaignCompanies[Side].FindRef(Id)&&Deployed<BestDeployed){Best=Id;BestDeployed=Deployed;}
+    }
+    return Best;
+}
+TMap<FName,int32> ASoulRealtimeArenaGameMode::SurvivingCampaignCompanies(int32 Side,bool Defeated) const
+{
+    auto Result=CampaignCompanies[Side];
+    for(auto& P:Result)
+    {
+        if(Defeated){P.Value=0;continue;}
+        for(const auto& C:Combatants)if(C.Side==Side&&C.CampaignCompany==P.Key&&C.Health<=0)--P.Value;
+    }
+    return Result;
+}
 bool ASoulRealtimeArenaGameMode::UsesControlledExactInfantry() const
 {
     return bCampaignBattle && ((!PlayerVisualFaction.IsNone() && PlayerVisualFaction!=TEXT("humans")) || UsesNatureCampaignRoster(1));
@@ -2050,6 +2144,8 @@ bool ASoulRealtimeArenaGameMode::UsesVikingCampaignRoster(int32 Side) const
 }
 ESoulRealtimeFormationRole ASoulRealtimeArenaGameMode::CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const
 {
+    if(Side>=0&&Side<=1&&!CampaignCompanies[Side].IsEmpty()&&CampaignFactionForSide(Side)==TEXT("humans")
+        &&(Requested==ESoulRealtimeFormationRole::Line||Requested==ESoulRealtimeFormationRole::Guard||Requested==ESoulRealtimeFormationRole::Ranged||Requested==ESoulRealtimeFormationRole::Hero))return Requested;
     if(Requested==ESoulRealtimeFormationRole::Hero&&NonPlayerHeroId==TEXT("dwarf_king_commander")&&CampaignFactionForSide(Side)==NonPlayerHeroFaction)return Requested;
     if (!bAutobattle && ControlledSide==1 && Side==ControlledSide && Requested==ESoulRealtimeFormationRole::Hero && CampaignFactionForSide(Side)==TEXT("humans")) return Requested;
     return (UsesControlledExactInfantry()||UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side)||UsesNatureCampaignRoster(Side))?ESoulRealtimeFormationRole::Line:Requested;
@@ -2091,6 +2187,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Data.Id = FGuid::NewGuid();
     Data.Side = Side;
     Data.Role = FormationRole;
+    Data.CampaignCompany=SpawningCompany;
     Data.Health = bKraken ? 360.0f :
         (bElephant ? 320.0f : RoleHealth(FormationRole));
     // Give a small physical army time to maneuver and the player time to react.
@@ -2241,7 +2338,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         if(Data.bNonPlayerHero)UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_COMMANDER id=%s faction=%s mesh=%s idle=%s role=Hero uses_existing_slot=1"),*NonPlayerHeroId.ToString(),*NonPlayerHeroFaction.ToString(),*Mesh->GetPathName(),*Idle->GetPathName());
         if (bCampaignBattle && !Data.bNonPlayerHero)
             UE_LOG(LogTemp,Display,TEXT("SOUL_EXACT_ROSTER_BODY side=%d faction=%s unit=%s index=%d mesh=%s role=%s health=%.1f"),
-                Side,*CampaignFactionForSide(Side).ToString(),*CampaignUnitForSide(Side).ToString(),NewIndex,*Mesh->GetPathName(),*RoleLabel(FormationRole),Data.Health);
+                Side,*CampaignFactionForSide(Side).ToString(),*(Data.CampaignCompany.IsNone()?CampaignUnitForSide(Side):Data.CampaignCompany).ToString(),NewIndex,*Mesh->GetPathName(),*RoleLabel(FormationRole),Data.Health);
         if(UsesVikingCampaignRoster(Side))
             UE_LOG(LogTemp,Display,TEXT("SOUL_VIKING_ROSTER_BODY index=%d faction=vikings unit=viking_axe_warrior mesh=%s idle=%s role=%s health=%.1f group=%d scale=%s facing=%s"),NewIndex,*Mesh->GetPathName(),*Idle->GetPathName(),*RoleLabel(FormationRole),Data.Health,GroupIndex,*Visual->GetRelativeScale3D().ToCompactString(),*Visual->GetRelativeRotation().ToCompactString());
         if(UsesOrcCampaignRoster(Side))
@@ -2391,6 +2488,7 @@ bool ASoulRealtimeArenaGameMode::SetupDrivers()
             ? TacticalFormations[StateIndex].Kind : ESoulBattleFormationKind::FrontLine;
         Driver->FormationSpacing = Kind == ESoulBattleFormationKind::Strike ? 350.0f :
             Kind == ESoulBattleFormationKind::MissileSupport ? 175.0f : 135.0f;
+        if(IsHeartlandBridgeBattle())Driver->FormationSpacing=90.f;
         Driver->SightDistance = 6200.0f;
         Driver->bAllowDirectSteering = true;
         Driver->RegisterComponent();
@@ -2477,7 +2575,10 @@ bool ASoulRealtimeArenaGameMode::ChooseReinforcementAnchor(
     const float X = Side == 0
         ? -BattlefieldHalfX + 600.0f
         : BattlefieldHalfX - 600.0f;
-    const float YOptions[] = {-1400.0f, 0.0f, 1400.0f};
+    const bool Woodland=GetWorld()->GetOutermost()->GetName()==TEXT("/Game/Soul/Maps/Battles/L_Heartland_Woodland");
+    // Use the three physically measured clearing lanes, not the demo's rocks
+    // at the generic field's 14m flank entry. Safety checks remain unchanged.
+    const TArray<float> YOptions=Woodland?TArray<float>{0.f,-650.f,650.f}:TArray<float>{-1400.f,0.f,1400.f};
 
     FVector FriendlyCenter = ArenaOrigin;
     int32 FriendlyGroups = 0;
@@ -2526,7 +2627,7 @@ bool ASoulRealtimeArenaGameMode::ChooseReinforcementAnchor(
 }
 
 bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
-    int32 Side, int32 Count, const FVector& ArrivalAnchor)
+    int32 Side, int32 Count, const FVector& ArrivalAnchor, FName ExactCompany)
 {
     if (Side < 0 || Side > 1 ||
         Count <= 0 || Count > FRBCombatGroup::MaximumMembers)
@@ -2545,17 +2646,36 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
             PlayerHero = PreviousHero.Get();
         }
     };
-    if (!SpawnFormation(
-            Side,
-            ESoulRealtimeFormationRole::Line,
-            Count,
-            ArrivalAnchor))
-        return false;
+    if(!CampaignCompanies[Side].IsEmpty() && ExactCompany.IsNone())
+    {
+        const TArray<FName> Ids={TEXT("human_knight"),TEXT("human_archer"),TEXT("human_guard")};
+        TMap<FName,int32> Deployed,WaveCounts;
+        for(const auto& C:Combatants)if(C.Side==Side)++Deployed.FindOrAdd(C.CampaignCompany);
+        for(int32 N=0;N<Count;++N)
+        {
+            FName Best;int32 Fewest=MAX_int32;
+            for(FName Id:Ids)if(Deployed.FindRef(Id)<CampaignCompanies[Side].FindRef(Id)&&Deployed.FindRef(Id)<Fewest)
+                {Best=Id;Fewest=Deployed.FindRef(Id);}
+            if(Best.IsNone())return false;
+            ++Deployed.FindOrAdd(Best);++WaveCounts.FindOrAdd(Best);
+        }
+        int32 Lane=0,Companies=0;for(FName Id:Ids)if(WaveCounts.FindRef(Id)>0)++Companies;
+        for(FName Id:Ids)if(const int32 Bodies=WaveCounts.FindRef(Id);Bodies>0)
+        {
+            FVector Entry=ArrivalAnchor;Entry.Y=FMath::Clamp(Entry.Y+(Lane++-(Companies-1)*.5f)*650.f,ArenaOrigin.Y-BattlefieldHalfY+600.f,ArenaOrigin.Y+BattlefieldHalfY-600.f);
+            if(!SpawnReinforcementWave(Side,Bodies,Entry,Id))return false;
+        }
+        bSpawnCommitted=true;return true;
+    }
+    const auto ArrivalRole=ExactCompany==TEXT("human_archer")?ESoulRealtimeFormationRole::Ranged:
+        ExactCompany==TEXT("human_guard")?ESoulRealtimeFormationRole::Guard:ESoulRealtimeFormationRole::Line;
+    if (!SpawnFormation(Side,ArrivalRole,Count,ArrivalAnchor,ExactCompany))return false;
 
     // Arrivals walk in from the edge but retain the established frontline's
     // identity and player order. Avoid accumulating one tiny UI group per wave.
     for(auto& Existing:TacticalFormations)
     {
+        if(!ExactCompany.IsNone())break; // Exact-company arrivals keep homogeneous command groups.
         if(Existing.Side!=Side || Existing.Kind!=ESoulBattleFormationKind::FrontLine ||
             Existing.bRouting || AliveInGroup(Existing.GroupIndex)<=0) continue;
         FRBCombatGroup Candidate;
@@ -2599,7 +2719,8 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     FSoulBattleFormationState Tactical;
     Tactical.GroupIndex = NewGroupIndex;
     Tactical.Side = Side;
-    Tactical.Kind = ESoulBattleFormationKind::FrontLine;
+    Tactical.Kind = ArrivalRole==ESoulRealtimeFormationRole::Ranged?ESoulBattleFormationKind::MissileSupport:ESoulBattleFormationKind::FrontLine;
+    if(!ExactCompany.IsNone())Tactical.DisplayName=ExactCompany==TEXT("human_archer")?TEXT("Heartland Archers"):ExactCompany==TEXT("human_guard")?TEXT("Veteran Guard"):TEXT("Heartland Infantry");
     Tactical.SpawnAnchor = ArrivalAnchor;
     Tactical.TacticalAnchor = ArrivalAnchor +
         FVector(Side == 0 ? 700.0f : -700.0f, 0, 0);
@@ -2617,8 +2738,9 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     if (!Driver) return false;
     AddInstanceComponent(Driver);
     Driver->GroupIndex = NewGroupIndex;
-    Driver->FormationSpacing = 135.0f;
-    Driver->SightDistance = 6200.0f;
+    Driver->FormationSpacing = IsHeartlandBridgeBattle()?90.f:135.0f;
+    if(IsHeartlandBridgeBattle())Driver->FormationSpacing=90.f;
+        Driver->SightDistance = 6200.0f;
     Driver->bAllowDirectSteering = true;
     Driver->RegisterComponent();
     Drivers.Add(Driver);
@@ -2858,7 +2980,7 @@ bool ASoulRealtimeArenaGameMode::CommitMeleeImpact(
     const bool bAccepted = VictimBinding->ReceiveProducedImpact(
         Evidence, Hit, Direction, Attacker, Error);
     AttackerBinding->EndNativeAttackContact();
-    if(bAccepted && AttackerData.bPlayerHero && FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification")))
+    if(bAccepted && AttackerData.bPlayerHero && (FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification"))||FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandCompanyBattle"))))
     {
         UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_HERO_MELEE accepted=1 authority=RBCombat attacker=%s victim=%s"),*GetNameSafe(Attacker),*GetNameSafe(HitActor));
         FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Heartland_Hero_Melee.png"),true,false);
@@ -3041,6 +3163,12 @@ void ASoulRealtimeArenaGameMode::CommandSelectedAllies(
             Anchor = EnemyLocation;
         else if (Order == ERBHostGroupOrder::FallBack)
             Anchor = Center - Facing * 650.0f;
+        else if(Order==ERBHostGroupOrder::Follow)
+        {
+            if(!IsValid(PlayerHero)||PlayerHealth()<=0)continue;
+            Anchor=PlayerHero->GetActorLocation()-PlayerHero->GetActorForwardVector()*350+FVector(0,(State.GroupIndex%3-1)*220,0);
+            if(!IsDirectGroundRouteClear(GetWorld(),Center,Anchor))continue;
+        }
         if (IssueFormationOrder(
                 State.GroupIndex, Order, Anchor, Facing, true))
             ++Changed;
@@ -3050,7 +3178,8 @@ void ASoulRealtimeArenaGameMode::CommandSelectedAllies(
     switch (Order)
     {
         case ERBHostGroupOrder::Hold: Label = TEXT("HOLD"); break;
-        case ERBHostGroupOrder::Advance: Label = TEXT("ADVANCE"); break;
+        case ERBHostGroupOrder::Advance: Label = TEXT("MOVE"); break;
+        case ERBHostGroupOrder::Follow: Label = TEXT("FOLLOW"); break;
         case ERBHostGroupOrder::Charge: Label = TEXT("CHARGE"); break;
         case ERBHostGroupOrder::FallBack: Label = TEXT("FALL BACK"); break;
         default: break;
@@ -3535,7 +3664,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (PC->WasInputKeyJustPressed(EKeys::Tab)) SelectNextAlliedFormation();
     if (PC->WasInputKeyJustPressed(EKeys::R)) ReturnSelectedAlliesToAI();
     if (PC->WasInputKeyJustPressed(EKeys::H)) CommandSelectedAllies(ERBHostGroupOrder::Hold);
-    if (PC->WasInputKeyJustPressed(EKeys::V)) CommandSelectedAllies(ERBHostGroupOrder::Advance);
+    if (PC->WasInputKeyJustPressed(EKeys::V)) CommandSelectedAllies(ERBHostGroupOrder::Follow);
     if (PC->WasInputKeyJustPressed(EKeys::G)) CommandSelectedAllies(ERBHostGroupOrder::Charge);
     if (PC->WasInputKeyJustPressed(EKeys::B)) CommandSelectedAllies(ERBHostGroupOrder::FallBack);
     if (PC->WasInputKeyJustPressed(EKeys::F)) CommandSelectedAllies(ERBHostGroupOrder::Face);
@@ -3939,12 +4068,17 @@ bool ASoulRealtimeArenaGameMode::IssueFormationOrder(
         TacticalFormations[StateIndex].Kind==ESoulBattleFormationKind::FrontLine)
         Drivers[GroupIndex]->FormationSpacing=Order==ERBHostGroupOrder::Hold || Order==ERBHostGroupOrder::Face ? 115.f :
             Order==ERBHostGroupOrder::Charge ? 165.f : 135.f;
+    if(IsHeartlandBridgeBattle())Drivers[GroupIndex]->FormationSpacing=90.f;
     if (TacticalFormations.IsValidIndex(StateIndex))
     {
         TacticalFormations[StateIndex].TacticalAnchor = Anchor;
         if (bManual)
-            TacticalFormations[StateIndex].ManualOverrideUntil =
-                TNumericLimits<float>::Max(); // Explicit [R] returns this formation to AI.
+        {
+            auto& State=TacticalFormations[StateIndex];State.ManualOverrideUntil=TNumericLimits<float>::Max();
+            State.ManualOrder=Order;State.ManualAnchor=Anchor;State.ManualFacing=Facing.IsNearlyZero()?FVector::ForwardVector:Facing;
+            if(Order==ERBHostGroupOrder::Follow&&IsValid(PlayerHero))State.FollowOffset=Anchor-PlayerHero->GetActorLocation();
+            ResetFormationMotion(GroupIndex);
+        }
     }
     ++SpatialOrders;
     return true;
@@ -4096,6 +4230,7 @@ void ASoulRealtimeArenaGameMode::TickFormationTactics()
 {
     UpdateFormationMorale();
     RefreshBattlePhase();
+    RefreshManualOrders();
 
     bool bFrontEngaged[2] = {false, false};
     int32 LivingFronts[2] = {0, 0};
@@ -4360,6 +4495,8 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         Result.EncounterId = Pending->EncounterId;
         Result.TargetRegion = Pending->TargetRegion;
         Result.bPlayerWon = bWon;
+        Result.PlayerCompanies=SurvivingCampaignCompanies(0,bSideMoraleDefeated[0]);
+        Result.EnemyCompanies=SurvivingCampaignCompanies(1,bSideMoraleDefeated[1]);
         Result.PlayerSurvivors = PlayerSurvivors;
         Result.EnemySurvivors = EnemySurvivors;
         Result.PlayerReinforcements = ReinforcementWaves[0];

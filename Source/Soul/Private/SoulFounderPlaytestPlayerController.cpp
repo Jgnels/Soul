@@ -52,6 +52,7 @@ void ASoulFounderPlaytestPlayerController::SetupInputComponent()
     InputComponent->BindKey(EKeys::Seven, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::Number7);
     InputComponent->BindKey(EKeys::SpaceBar, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::EndDay);
     InputComponent->BindKey(EKeys::T, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ToggleTown);
+    InputComponent->BindKey(EKeys::L, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::ToggleDiplomacy);
     InputComponent->BindKey(EKeys::H, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::HireHero);
     InputComponent->BindKey(EKeys::U, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::BuildTavern);
     InputComponent->BindKey(EKeys::V, IE_Pressed, this, &ASoulFounderPlaytestPlayerController::VisitSettlement);
@@ -164,3 +165,5 @@ void ASoulFounderPlaytestPlayerController::PlayerTick(float DeltaSeconds)
     if(GetHitResultUnderCursor(ECC_Visibility,false,Hit)) if(auto* R=Cast<ASoulPlaytestRegionActor>(Hit.GetActor()))if(!R->IsHidden())Hover=R->RegionId;
     C->HoveredRegion=Hover;
 }
+
+void ASoulFounderPlaytestPlayerController::ToggleDiplomacy(){if(auto* C=GetCampaign())C->ToggleDiplomacy();}

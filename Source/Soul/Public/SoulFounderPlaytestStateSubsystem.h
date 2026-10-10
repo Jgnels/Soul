@@ -8,6 +8,8 @@
 #include "SoulMemory.h"
 #include "SoulWorld.h"
 #include "SoulHeartlandContent.h"
+#include "SoulDiplomacy.h"
+#include "Dom/JsonObject.h"
 #include "SoulSettlementEnvironmentRegistry.h"
 #include "SoulFounderPlaytestStateSubsystem.generated.h"
 
@@ -30,6 +32,15 @@ public:
     void InitializeScenario();
     bool MovePlayerTo(FName TargetRegion);
     bool IsHostile(FName Region) const;
+    bool DiplomacyAllowsHostility(FName Attacker,FName Defender) const;
+    bool IsDiplomacyTarget(FName Faction) const;
+    FSoulDiplomaticRelation DiplomaticRelation(FName Faction) const;
+    FSoulDiplomaticDecision PreviewDiplomacy(FName Faction,ESoulDiplomaticAction Action) const;
+    bool ExecuteDiplomacy(FName Faction,ESoulDiplomaticAction Action,FString& Message);
+    void CaptureDiplomacy(FJsonObject& Root) const;
+    bool ValidateDiplomacy(const FJsonObject& Root,int32 Day,TMap<FName,FSoulDiplomaticRelation>& Out,FString& Error) const;
+    TMap<FName,FSoulDiplomaticRelation> HumanRelations; // Existing Soul.Campaign RBSave domain.
+
     bool HasHostileGarrison(FName Region) const;
     bool BuildBattleDescriptor(FName TargetRegion, FSoulCampaignBattleDescriptor& Out, FString& Error) const;
     bool BeginBattle(FName TargetRegion, int32 QualificationActiveCap = 0);
@@ -40,6 +51,9 @@ public:
     bool Recruit(FName UnitId);
     bool ChooseSkill(FName SkillId);
     bool HireTavernHero();
+    bool AssignHeartlandCompanion(bool Assigned);
+    bool bCompanionAssigned=false;
+    FString CompanionStatus() const;
     // The explicit proof binds an existing settlement authority; definitions are immutable inputs.
     bool InitializeSettlementDevelopment(class USoulSettlementScenarioData* Scenario,
         class USoulSettlementStateSubsystem* Authority, FString& OutError);
@@ -84,6 +98,9 @@ public:
     FSoulCampaignBattleDescriptor PendingBattle;
     FSoulCampaignBattleResult LastBattleResult;
     static const TArray<FName>& HumanPlaytestRoster();
+    const TArray<FName>& AvailableHumanRoster() const;
+    int32 GetPlayerTroopCount() const;
+    bool CanRecruitHumanCompany(FName Id) const;
     FString BuildSummary() const;
     bool IsFourFactionAlpha() const { return bFourFactionAlpha; }
     bool IsHeartlandEnabled() const { return bHeartlandEnabled; }

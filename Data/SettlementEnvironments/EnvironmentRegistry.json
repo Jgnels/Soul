@@ -33,13 +33,49 @@
       "development_profile": "/Game/Soul/Data/Settlements/DA_Soul_DwarfHold_DevelopmentProof",
       "battle_enabled": false,
       "note": "Preserved authored proof; Alpha approach admission unset."
+    },
+    {
+      "settlement_id": "forest_edge",
+      "faction": "humans",
+      "settlement_type": "forest_woodland",
+      "authored_environment_available": true,
+      "visit_environment": null,
+      "city_battle_environment": null,
+      "siege_environment": null,
+      "field_battle_environment": "/Game/Soul/Maps/Battles/L_Heartland_Woodland",
+      "arena_origin": [
+        -9000,
+        -9000,
+        -87.0749478874734
+      ],
+      "development_profile": null,
+      "battle_enabled": true,
+      "note": "Approved Forest_village authored woodland in a Soul-owned copy. Four canopy trees removed inside the measured clearing; native rock/tree collision retained. Runtime qualification required before stage admission."
+    },
+    {
+      "settlement_id": "southern_crossing",
+      "faction": "humans",
+      "settlement_type": "river_bridge",
+      "authored_environment_available": true,
+      "visit_environment": null,
+      "city_battle_environment": null,
+      "siege_environment": null,
+      "field_battle_environment": "/Game/Soul/Maps/Battles/L_Heartland_RiverBridge",
+      "arena_origin": [
+        -110853.5755318,
+        4792.067853,
+        150
+      ],
+      "development_profile": null,
+      "battle_enabled": true,
+      "note": "River-valley connector represented by a Soul-owned copy of the existing Human stone crossing. Representative field recipe, not literal Southern Crossing terrain. Measured 28m deck and native river boundary constrain infantry; frozen campaign map unchanged. Runtime qualification required."
     }
   ],
   "encounter_classes": {
     "settlement": "exact registered settlement first",
-    "bridge": null,
+    "bridge": "southern_crossing: representative native stone bridge field recipe",
     "ford_river": null,
-    "forest_woodland": null,
+    "forest_woodland": "forest_edge: exact owned woodland clearing; native tree/rock collision",
     "mountain_pass": "existing dragon_pass recipe (provisional)",
     "open_field": "existing admitted field fallback"
   }

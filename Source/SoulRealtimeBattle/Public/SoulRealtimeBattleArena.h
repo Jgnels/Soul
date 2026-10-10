@@ -71,6 +71,7 @@ struct FSoulRealtimeArenaCombatant
     int32 Arrows = 0;
     int32 GroupIndex = INDEX_NONE;
     FName FormationId;
+    FName CampaignCompany; // Exact source company for casualty accounting.
     bool bRanged = false;
     bool bPlayerHero = false;
     bool bNonPlayerHero = false;
@@ -120,6 +121,9 @@ class SOULREALTIMEBATTLE_API USoulRealtimeArenaGroupDriver
 public:
     int32 GroupIndex = INDEX_NONE;
     int32 AlliedTargets = 0;
+protected:
+    virtual bool ReadGroup(FRBCombatGroup& Out) const override;
+public:
 
     virtual bool HostReadGroup_Implementation(
         FRBHostGroup& Out) const override;
@@ -188,6 +192,12 @@ public:
     bool HasAmmunition(
         FRBHostIdentity Identity, FName Item) const;
     bool ReadGroup(int32 GroupIndex, FRBHostGroup& Out) const;
+    bool IsBattleHero(int32 I) const;
+    bool ReadDriveGroup(int32 GroupIndex,FRBCombatGroup& Out) const;
+    bool CanDriverEngage(int32 GroupIndex,FRBHostIdentity Person,FRBHostIdentity Other) const;
+    bool SeparateBattleHeroesFromFormations();
+    void RefreshManualOrders();
+    bool ResetFormationMotion(int32 GroupIndex);
     bool ReadParticipation(
         FRBHostIdentity Identity, FRBHostParticipation& Out) const;
     bool AreOpponents(FRBHostIdentity A, FRBHostIdentity B) const;
@@ -248,6 +258,10 @@ private:
     friend class ASoulBattleSpellProjectile;
     friend class FSoulMagicProjectileAuthorityTest;
     friend class FSoulFormationSelectionTest;
+    friend struct FSoulBattleControlTestFixture;
+    friend class FSoulBattleControlSelectionTest;
+    friend class FSoulBattleControlOrdersTest;
+    friend class FSoulHeartlandCompanySpawnTest;
     friend class FSoulSpellReadinessTest;
     bool LaunchMagicProjectile(int32 Caster,int32 Target,const FGuid& CastId,float Damage);
     void ResolveMagicProjectile(ASoulBattleSpellProjectile* Projectile,const FHitResult& Hit);
@@ -349,7 +363,7 @@ private:
         int32 Side,
         ESoulRealtimeFormationRole FormationRole,
         int32 Count,
-        const FVector& Anchor);
+        const FVector& Anchor, FName ExactCompany = NAME_None);
     bool SpawnCombatant(
         int32 Side,
         ESoulRealtimeFormationRole FormationRole,
@@ -360,9 +374,11 @@ private:
     bool RefreshDriverRepresentations();
     void SetupReinforcementState();
     void TickReinforcements();
-    bool SpawnReinforcementWave(int32 Side, int32 Count, const FVector& ArrivalAnchor);
+    bool SpawnReinforcementWave(int32 Side, int32 Count, const FVector& ArrivalAnchor, FName ExactCompany = NAME_None);
     void RollbackSpawnedFormation(int32 FirstCombatant, int32 FirstGroup, int32 FirstDriver);
     bool SetupBattlefieldBounds();
+    bool IsHeartlandBridgeBattle() const;
+    bool SetupHeartlandBridgeCollision();
     void TrackBattlefieldExtent();
     FVector ResolveSpawnLocation(const FVector& Desired) const;
     USkeletalMesh* ResolveVisualMesh(
@@ -374,6 +390,10 @@ private:
     UAnimationAsset* ResolveVisualDeath(
         int32 Side, ESoulRealtimeFormationRole FormationRole) const;
     bool UsesEvilVisualRoster() const;
+    TMap<FName,int32> CampaignCompanies[2];
+    FName SpawningCompany;
+    FName NextCampaignCompany(int32 Side) const;
+    TMap<FName,int32> SurvivingCampaignCompanies(int32 Side,bool Defeated) const;
     bool UsesControlledExactInfantry() const;
     FName CampaignFactionForSide(int32 Side) const;
     FName CampaignUnitForSide(int32 Side) const;

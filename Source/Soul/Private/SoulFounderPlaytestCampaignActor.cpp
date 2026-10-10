@@ -45,7 +45,7 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
         if(State->IsSixFactionProfile())
             LastMessage=FString::Printf(TEXT("%s at %s. Survivors: %d attackers / %d defenders. Your company: %d."),
                 Result.bPlayerWon?TEXT("Attackers won"):TEXT("Defenders won"),*DisplayName(Result.TargetRegion),
-                Result.PlayerSurvivors,Result.EnemySurvivors,State->PlayerArmy.FindRef(State->PlayerUnitId));
+                Result.PlayerSurvivors,Result.EnemySurvivors,State->GetPlayerTroopCount());
         else
             LastMessage=FString::Printf(TEXT("%s at %s. %d soldiers remain. [Space] restores travel actions."),
                 Result.bPlayerWon?TEXT("Victory"):TEXT("Defeat"),*DisplayName(Result.TargetRegion),Result.PlayerSurvivors);
@@ -116,7 +116,7 @@ void ASoulFounderPlaytestCampaignActor::RefreshRegionVisuals()
             State->World, ViewFaction(), Pair.Key);
         const bool bLegalDestination = bCompanySelected &&
             Pair.Key != State->PlayerRegion &&
-            FSoulWorldRules::CanMove(State->World, State->PlayerRegion, Pair.Key);
+            FSoulWorldRules::CanMove(State->World, State->PlayerRegion, Pair.Key) && State->DiplomacyAllowsHostility(State->PlayerFaction,State->World.Regions.FindChecked(Pair.Key).OwnerFactionId);
         Pair.Value->SetVisualState(
             RegionColor(Pair.Key),
             bVisible,
@@ -154,6 +154,7 @@ void ASoulFounderPlaytestCampaignActor::SelectCompany()
 
 void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 {
+    if(bDiplomacyPanel)return;
     if (!State || bTownPanelOpen) return;
     if(State->IsAlphaTurnActive()){LastMessage=TEXT("Wait for the other factions to finish their turns.");return;}
     if (!FSoulWorldRules::IsExplored(State->World, ViewFaction(), RegionId)) return;
@@ -167,6 +168,8 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
         return;
     }
     SelectedRegion = RegionId;
+    if(bCompanySelected && !State->DiplomacyAllowsHostility(State->PlayerFaction,State->World.Regions.FindChecked(RegionId).OwnerFactionId))
+    {LastMessage=TEXT("Peace/treaty: no military access. Use Diplomacy to change relations before entering this territory.");RefreshRegionVisuals();return;}
     SelectedBattleRegion = NAME_None;
     bBattlePromptOpen = false;
     if (RegionId == State->PlayerRegion)
@@ -200,7 +203,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     {LastMessage=TEXT("Nature and Dark are nonbelligerent in this alpha.");return;}
     if (State->HasHostileGarrison(RegionId))
     {
-        if(State->IsFourFactionAlpha() && State->PlayerArmy.FindRef(State->PlayerUnitId)==0)
+        if(State->IsFourFactionAlpha() && State->GetPlayerTroopCount()==0)
         {LastMessage=State->HumanRecoveryGuidance();return;}
         SelectedBattleRegion = RegionId;
         bBattlePromptOpen = true;
@@ -212,7 +215,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
     const int32 BeforeLevel = State->Hero.Level;
     if (!State->MovePlayerTo(RegionId))
     {
-        if(State->IsFourFactionAlpha() && State->PlayerArmy.FindRef(State->PlayerUnitId)==0 && State->Economy.ActionPoints>0)
+        if(State->IsFourFactionAlpha() && State->GetPlayerTroopCount()==0 && State->Economy.ActionPoints>0)
         {LastMessage=State->HumanRecoveryGuidance();return;}
         LastMessage = State->Economy.ActionPoints <= 0
             ? TEXT("No action points. Press Space to end the day.")
@@ -237,6 +240,7 @@ void ASoulFounderPlaytestCampaignActor::HandleRegionClicked(FName RegionId)
 
 void ASoulFounderPlaytestCampaignActor::EndDay()
 {
+    bDiplomacyPanel=false;
     if (!State) return;
     const int32 PreviousDay = State->Economy.Day;
     State->AdvanceDay();
@@ -255,7 +259,7 @@ bool ASoulFounderPlaytestCampaignActor::IsSkillChoiceOpen() const
 {
     // Town number keys must perform the recruitment action displayed by the panel.
     // Unspent skill choices remain available when the panel closes.
-    return State && !bTownPanelOpen && State->Hero.UnspentSkillPoints > 0;
+    return State && !bTownPanelOpen && !bDiplomacyPanel && State->Hero.UnspentSkillPoints > 0;
 }
 
 bool ASoulFounderPlaytestCampaignActor::IsBattleAvailable() const
@@ -266,6 +270,7 @@ bool ASoulFounderPlaytestCampaignActor::IsBattleAvailable() const
 
 void ASoulFounderPlaytestCampaignActor::HandleNumberKey(int32 Index)
 {
+    if(bDiplomacyPanel)return;
     if (!State) return;
 
     if (IsSkillChoiceOpen() && Index >= 1 && Index <= 3)
@@ -283,9 +288,9 @@ void ASoulFounderPlaytestCampaignActor::HandleNumberKey(int32 Index)
         return;
     }
 
-    if (bTownPanelOpen && Index >= 1 && Index <= USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster().Num())
+    if (bTownPanelOpen && Index >= 1 && Index <= State->AvailableHumanRoster().Num())
     {
-        const TArray<FName>& Roster = USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
+        const TArray<FName>& Roster = State->AvailableHumanRoster();
         const FName UnitId = Roster[Index - 1];
         if (State->Recruit(UnitId))
         {
@@ -301,6 +306,7 @@ void ASoulFounderPlaytestCampaignActor::HandleNumberKey(int32 Index)
 
 void ASoulFounderPlaytestCampaignActor::HireTavernHero()
 {
+    if(bDiplomacyPanel)return;
     if (!State || !bTownPanelOpen) return;
     if (State->HireTavernHero())
     {
@@ -317,6 +323,7 @@ void ASoulFounderPlaytestCampaignActor::HireTavernHero()
 
 void ASoulFounderPlaytestCampaignActor::BuildTavern()
 {
+    if(bDiplomacyPanel)return;
     if (!State || !bTownPanelOpen || !State->IsSettlementDevelopmentEnabled()) return;
     if (State->BeginSettlementConstruction(State->GetTavernBuildingId(), LastMessage))
         LastMessage = State->GetDevelopmentBuildingName() + TEXT(" construction started. Advance the day to make progress.");
@@ -324,6 +331,7 @@ void ASoulFounderPlaytestCampaignActor::BuildTavern()
 
 void ASoulFounderPlaytestCampaignActor::VisitSettlement()
 {
+    if(bDiplomacyPanel)return;
     if (!State || !State->IsSettlementDevelopmentEnabled()) return;
     if (!ASoulSettlementVisitGameMode::CanVisit(State, LastMessage)) return;
     const FString Map = State->GetSettlementScenario()->OwnedEnvironmentMap.ToSoftObjectPath().GetLongPackageName();
@@ -332,6 +340,7 @@ void ASoulFounderPlaytestCampaignActor::VisitSettlement()
 
 void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()
 {
+    bDiplomacyPanel=false;
     if(State && State->IsFourFactionAlpha() && !State->CanOpenHumanSettlementServices(LastMessage))
     {bTownPanelOpen=false;return;}
     if (!State || State->PlayerRegion != State->GetDevelopmentRegion())
@@ -350,6 +359,7 @@ void ASoulFounderPlaytestCampaignActor::ToggleTownPanel()
 
 void ASoulFounderPlaytestCampaignActor::CancelPanel()
 {
+    bDiplomacyPanel=false;
     bTownPanelOpen = false;
     bBattlePromptOpen = false;
     bCompanySelected = false;
@@ -359,6 +369,7 @@ void ASoulFounderPlaytestCampaignActor::CancelPanel()
 
 void ASoulFounderPlaytestCampaignActor::StartBattle()
 {
+    if(bDiplomacyPanel)return;
     if(State&&State->IsSixFactionProfile())
     {
         FSoulCampaignBattleDescriptor Descriptor;FString Error;
@@ -397,7 +408,7 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
             State->IsSixFactionProfile()?TEXT("attackers"):TEXT("allied"),Result.PlayerSurvivors,
             State->IsSixFactionProfile()?TEXT("defenders"):TEXT("enemy"),Result.EnemySurvivors));
     }
-    if (State->PlayerArmy.FindRef(State->PlayerUnitId) == 0)
+    if (State->GetPlayerTroopCount() == 0)
         Lines.Add(TEXT("Army lost: return to Human Capital and press T, then 1 to recruit. Space restores actions."));
     if (bBattlePromptOpen && IsBattleAvailable())
         Lines.Add(FString::Printf(TEXT("Selected: %s | %d defenders including reserves | B commits 1 action"),
@@ -410,7 +421,7 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
     {
         Lines.Add(TEXT("SKILL POINT: [1] Command  [2] Adventure  [3] Magic"));
         Lines.Add(FString::Printf(
-            TEXT("Ranks — Command %d/2 | Adventure %d/2 | Magic %d/2"),
+            TEXT("Ranks â€” Command %d/2 | Adventure %d/2 | Magic %d/2"),
             State->Hero.Skills.FindRef(TEXT("Command")),
             State->Hero.Skills.FindRef(TEXT("Adventure")),
             State->Hero.Skills.FindRef(TEXT("Magic"))));
@@ -418,8 +429,8 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
 
     if (bTownPanelOpen)
     {
-        Lines.Add(TEXT("HUMAN CAPITAL — finite recruitment pools"));
-        const TArray<FName>& Roster = USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
+        Lines.Add(TEXT("HUMAN CAPITAL â€” finite recruitment pools"));
+        const TArray<FName>& Roster = State->AvailableHumanRoster();
         for (int32 Index = 0; Index < Roster.Num(); ++Index)
         {
             const FSoulRecruitmentPool* Pool = State->Economy.RecruitmentPools.Find(Roster[Index]);
@@ -432,7 +443,7 @@ TArray<FString> ASoulFounderPlaytestCampaignActor::BuildHudLines() const
                 ArmyCount));
         }
         Lines.Add(FString::Printf(
-            TEXT("[H] Tavern hero — %s"),
+            TEXT("[H] Tavern hero â€” %s"),
             State->bSecondHeroHired ? TEXT("HIRED") : TEXT("1200 gold")));
     }
     return Lines;
@@ -461,3 +472,10 @@ void ASoulFounderPlaytestCampaignActor::Tick(float Seconds)
 }
 
 FName ASoulFounderPlaytestCampaignActor::CurrentRegion() const { return State ? State->PlayerRegion : NAME_None; }
+
+void ASoulFounderPlaytestCampaignActor::ToggleDiplomacy()
+{
+ if(!State||!State->IsHeartlandEnabled())return;
+ const bool Open=!bDiplomacyPanel;CancelPanel();bDiplomacyPanel=Open;
+ LastMessage=Open?TEXT("Diplomacy: accepted actions cost 1 movement. Peace gives no military access."):TEXT("Back to adventure map.");
+}

@@ -44,6 +44,9 @@ struct FSoulBattleFormationState
     int32 PreviousAlive = 0;
     int32 MoralePermille = 1000;
     float ManualOverrideUntil = -1.0f;
+    ERBHostGroupOrder ManualOrder=ERBHostGroupOrder::Hold;
+    FVector ManualAnchor=FVector::ZeroVector,ManualFacing=FVector::ForwardVector,FollowOffset=FVector::ZeroVector;
+    FString DisplayName;
     float RoutingSeconds = 0.0f;
     float RallyGraceUntil = -1.0f;
     int32 FlankStage = 0;

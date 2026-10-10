@@ -107,7 +107,7 @@ bool USoulFounderPlaytestStateSubsystem::InspectFactionArmy(FName Id,FSoulFactio
     if(!bInitialized||!bSixFactionProfile||!FSoulCampaignRules::CanonicalFactions().Contains(Id))return false;
     if(Id==PlayerFaction)
     {
-        Out.Army={TEXT("humans.primary"),PlayerFaction,PlayerRegion,PlayerUnitId,PlayerArmy.FindRef(PlayerUnitId)};
+        Out.Army={TEXT("humans.primary"),PlayerFaction,PlayerRegion,PlayerUnitId,GetPlayerTroopCount()};
         Out.Economy=Economy;return true;
     }
     const auto* F=OtherFactionStates.Find(Id);if(!F)return false;Out=*F;return true;
@@ -115,14 +115,14 @@ bool USoulFounderPlaytestStateSubsystem::InspectFactionArmy(FName Id,FSoulFactio
 int32 USoulFounderPlaytestStateSubsystem::ArmyCountAtRegion(FName Region) const
 {
     if(!bSixFactionProfile)return EnemyArmies.FindRef(Region);
-    if(Region==PlayerRegion && PlayerArmy.FindRef(PlayerUnitId)>0)return PlayerArmy.FindRef(PlayerUnitId);
+    if(Region==PlayerRegion && GetPlayerTroopCount()>0)return GetPlayerTroopCount();
     for(const auto& P:OtherFactionStates)if(P.Value.Army.RegionId==Region && P.Value.Army.TroopCount>0)return P.Value.Army.TroopCount;
     return 0;
 }
 FName USoulFounderPlaytestStateSubsystem::ArmyUnitAtRegion(FName Region) const
 {
     if(!bSixFactionProfile)return EnemyUnitId;
-    if(Region==PlayerRegion && PlayerArmy.FindRef(PlayerUnitId)>0)return PlayerUnitId;
+    if(Region==PlayerRegion && GetPlayerTroopCount()>0)return PlayerUnitId;
     for(const auto& P:OtherFactionStates)if(P.Value.Army.RegionId==Region && P.Value.Army.TroopCount>0)return P.Value.Army.UnitId;
     return NAME_None;
 }
@@ -144,6 +144,7 @@ bool USoulFounderPlaytestStateSubsystem::MoveFactionArmy(FName Id,FName Target,F
     if(!bSixFactionProfile||!bInitialized||HasPendingBattle()||bPersistenceBusy){Error=TEXT("Campaign is not ready.");return false;}
     if(Id==PlayerFaction){const bool Ok=MovePlayerTo(Target);Error=Ok?TEXT(""):TEXT("Player movement rejected.");return Ok;}
     auto* F=OtherFactionStates.Find(Id);const auto* Destination=World.Regions.Find(Target);
+    if(Destination&&!DiplomacyAllowsHostility(Id,Destination->OwnerFactionId)){Error=TEXT("REJECT_TREATY_NO_MILITARY_ACCESS");return false;}
     const bool EmptyWithdrawal=bFourFactionAlpha&&F&&Destination&&F->Army.TroopCount==0&&Destination->OwnerFactionId==Id;
     if(!F||!Destination||(F->Army.TroopCount<=0&&!EmptyWithdrawal)||!FSoulWorldRules::CanMove(World,F->Army.RegionId,Target)
         ||(!Destination->OwnerFactionId.IsNone()&&Destination->OwnerFactionId!=Id
@@ -213,6 +214,9 @@ bool USoulFounderPlaytestStateSubsystem::ValidateSixFactionRestore(const FJsonOb
     FString PlayerLocation;int32 PlayerCount=0;const TSharedPtr<FJsonObject>* PlayerUnits=nullptr;
     if(!Root.TryGetStringField(TEXT("player_region"),PlayerLocation)||!OutWorld.Regions.Contains(FName(*PlayerLocation))
         ||!Root.TryGetObjectField(TEXT("army"),PlayerUnits)||!Number(**PlayerUnits,TEXT("human_knight"),PlayerCount))return false;
+    if(bHeartlandEnabled)for(const TCHAR* Id:{TEXT("human_archer"),TEXT("human_guard")})
+    {int32 N=0;if((*PlayerUnits)->HasField(Id)){if(!Number(**PlayerUnits,Id,N)||N>250)return false;PlayerCount+=N;}}
+    if(PlayerCount>250)return false;
     if(PlayerCount>0&&OutWorld.Regions.FindChecked(FName(*PlayerLocation)).OwnerFactionId!=PlayerFaction)return false;
     if(PlayerCount>0)Occupied.Add(FName(*PlayerLocation));
     int32 PlayerDay=0;if(!Number(Root,TEXT("day"),PlayerDay))return false;

@@ -34,6 +34,7 @@ private:
     void Number7();
     void EndDay();
     void ToggleTown();
+    void ToggleDiplomacy();
     void HireHero();
     void BuildTavern();
     void VisitSettlement();

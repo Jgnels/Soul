@@ -1,5 +1,6 @@
-#include "InputKeyEventArgs.h"
 #include "SoulSettlementVisitGameMode.h"
+#include "Components/TextRenderComponent.h"
+#include "InputKeyEventArgs.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "Engine/LevelStreaming.h"
@@ -88,6 +89,7 @@ void ASoulSettlementVisitGameMode::RefreshPresentation()
     if (!State || !State->GetSettlementScenario()) return;
     for (TActorIterator<ASoulSettlementPresentationController> It(GetWorld()); It; ++It)
         if (It->SettlementId == State->GetSettlementScenario()->SettlementId) It->RefreshSettlementPresentation();
+    RefreshCompanion();
     ObservedDevelopmentRevision = State->SettlementDevelopmentRevision;
     ObservedLoadRevision = State->CampaignLoadRevision;
 }
@@ -103,6 +105,11 @@ void ASoulSettlementVisitGameMode::Tick(float Seconds)
         {bReturnRequested=false;UGameplayStatics::OpenLevel(this,State->CampaignMap,true,TEXT("game=/Script/Soul.SoulFounderPlaytestGameMode"));return;}
     }
     if(!LastFailure.IsEmpty())return;
+    if(Walker&&!Companion&&State->bSecondHeroHired&&IsStreamingReady())
+    {
+        CompanionRetryTime+=Seconds;
+        if(CompanionRetryTime>=1){CompanionRetryTime=0;RefreshCompanion();}
+    }
     TickWalking(Seconds);
     if(bCameraReady&&!Walker&&CameraWaitSeconds<30&&State->GetDevelopmentRegion()==TEXT("human_capital"))
     {CameraWaitSeconds+=Seconds;if(FMath::FloorToInt(CameraWaitSeconds)!=FMath::FloorToInt(CameraWaitSeconds-Seconds)&&StartWalking())LastMessage=TEXT("WASD walk | RMB + mouse look | Shift run | Tab manage | Esc return.");}
@@ -169,6 +176,8 @@ void ASoulSettlementVisitGameMode::HandleAction(FName Action)
     else if (Action == TEXT("Hire"))
         LastMessage = State->HireTavernHero() ? TEXT("Tavern companion hired.")
             : TEXT("Hiring requires an operational tavern, 1200 gold and an available companion.");
+    else if(Action==TEXT("CompanionAssign")){State->AssignHeartlandCompanion(!State->bCompanionAssigned);LastMessage=State->CompanionStatus();}
+    else if(Action.ToString().StartsWith(TEXT("Company:"))){LastMessage=State->Recruit(FName(*Action.ToString().Mid(8)))?TEXT("Paid recruit joined your company."):TEXT("Requires operational barracks (level 2 for guards), stock, gold and movement.");}
     else if(Action==TEXT("Recruit")) LastMessage=State->Recruit(TEXT("human_knight"))?TEXT("A paid Eastern Knight joined your company."):TEXT("Recruitment requires an owned capital, available pool, gold and movement.");
     else if (Action == TEXT("Save")) State->SaveCampaign();
     else if (Action == TEXT("Load")) State->LoadCampaign();
@@ -184,6 +193,55 @@ bool ASoulSettlementVisitGameMode::IsStreamingReady() const
     return true;
 }
 
+void ASoulSettlementVisitGameMode::RefreshCompanion()
+{
+    if(!State||!State->IsHeartlandEnabled()||!Walker||!IsStreamingReady())return;
+    if(!State->bSecondHeroHired){if(Companion){Companion->Destroy();Companion=nullptr;}return;}
+    if(Companion)
+    {
+        if(auto* Label=Companion->FindComponentByClass<UTextRenderComponent>())
+            Label->SetText(FText::FromString(State->bCompanionAssigned?TEXT("Rowan | Companion"):TEXT("Rowan | Unassigned")));
+        return;
+    }
+    auto* Mesh=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/Knights_Pack/Meshes/Knight_04/Mesh_UE4/Full_Mesh/SK_Knight_04_Full_01.SK_Knight_04_Full_01"));
+    auto* Idle=LoadObject<UAnimationAsset>(nullptr,TEXT("/Game/Knights_Pack/Demoscene_UE4/Animations/ThirdPersonIdle.ThirdPersonIdle"));
+    if(!Mesh||!Idle)return;
+    // A successful simple capsule spawn is insufficient against authored walls
+    // whose visible geometry differs from simple collision. Use the actual
+    // nearby street and a complex standing-volume sweep before committing.
+    FCollisionObjectQueryParams Objects;Objects.AddObjectTypesToQuery(ECC_WorldStatic);
+    FCollisionQueryParams Q(SCENE_QUERY_STAT(SoulCompanionStreet),true);Q.AddIgnoredActor(Walker);
+    FVector Ground;bool Clear=false;
+    for(const FVector2D Offset:{FVector2D(250,120),FVector2D(450,120),FVector2D(600,100),FVector2D(400,350),FVector2D(0,350),FVector2D(-200,350),FVector2D(0,650),FVector2D(0,1000),FVector2D(-500,500),FVector2D(500,1000),FVector2D(-700,700),FVector2D(650,-350)})
+    {
+        const FVector Spot=Walker->GetActorLocation()+FVector(Offset,0);FHitResult Floor,Body;
+        if(!GetWorld()->LineTraceSingleByObjectType(Floor,Spot+FVector(0,0,400),Spot-FVector(0,0,800),Objects,Q)||Floor.ImpactNormal.Z<.75f)continue;
+        if(GetWorld()->SweepSingleByObjectType(Body,Floor.ImpactPoint+FVector(0,0,55),Floor.ImpactPoint+FVector(0,0,160),FQuat::Identity,Objects,FCollisionShape::MakeSphere(45),Q))continue;
+        // Standing sweeps may begin inside a late streamed mesh. Require a
+        // clear view from the player and at least one short open street sightline.
+        const FVector Eye=Floor.ImpactPoint+FVector(0,0,123);FHitResult Sight;
+        if(GetWorld()->LineTraceSingleByObjectType(Sight,Walker->GetActorLocation()+FVector(0,0,50),Eye,Objects,Q))continue;
+        bool OpenStreet=false;
+        for(int32 I=0;I<8;++I)
+            if(!GetWorld()->LineTraceSingleByObjectType(Sight,Eye,Eye+FRotator(0,I*45,0).RotateVector(FVector(380,0,100)),Objects,Q)){OpenStreet=true;break;}
+        if(!OpenStreet)continue;
+        Ground=Floor.ImpactPoint;Clear=true;break;
+    }
+    if(!Clear)return;
+    FActorSpawnParameters P;P.SpawnCollisionHandlingOverride=ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+    const FRotator Greeting(0,(Walker->GetActorLocation()-Ground).Rotation().Yaw,0);
+    Companion=GetWorld()->SpawnActor<ACharacter>(ACharacter::StaticClass(),Ground+FVector(0,0,88),Greeting,P);
+    if(!Companion)return;
+    Companion->Tags.Add(TEXT("Soul.Companion.Rowan"));Companion->GetMesh()->SetSkeletalMesh(Mesh);
+    Companion->GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    Companion->GetMesh()->SetRelativeLocation(FVector(0,0,-88));Companion->GetMesh()->SetRelativeRotation(FRotator(0,-90,0));Companion->GetMesh()->PlayAnimation(Idle,true);
+    auto* Label=NewObject<UTextRenderComponent>(Companion);Label->SetupAttachment(Companion->GetRootComponent());
+    Companion->AddInstanceComponent(Label);Label->SetRelativeLocation(FVector(0,0,130));
+    Label->SetRelativeRotation(FRotator::ZeroRotator);Label->SetHorizontalAlignment(EHTA_Center);
+    Label->SetWorldSize(18);Label->SetTextRenderColor(FColor(240,214,155));
+    Label->SetText(FText::FromString(State->bCompanionAssigned?TEXT("Rowan | Companion"):TEXT("Rowan | Unassigned")));Label->RegisterComponent();
+    UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_COMPANION_VISIBLE id=human.rowan assigned=%d location=%s"),State->bCompanionAssigned,*Companion->GetActorLocation().ToString());
+}
 bool ASoulSettlementVisitGameMode::StartWalking()
 {
     auto* PC=GetWorld()->GetFirstPlayerController();if(!PC)return false;
@@ -213,6 +271,7 @@ bool ASoulSettlementVisitGameMode::StartWalking()
     Arm->TargetArmLength=340;Arm->SocketOffset=FVector(0,45,80);Arm->bUsePawnControlRotation=true;Arm->RegisterComponent();
     auto* Camera=NewObject<UCameraComponent>(Walker);Camera->SetupAttachment(Arm,USpringArmComponent::SocketName);Camera->SetFieldOfView(70);Camera->RegisterComponent();
     PC->Possess(Walker);PC->SetControlRotation(FRotator(-12,90,0));PC->SetViewTarget(Walker);
+    RefreshCompanion();
     UE_LOG(LogTemp,Display,TEXT("SOUL_CITY_WALK_READY map=%s entry=%s mesh=%s"),*GetWorld()->GetOutermost()->GetName(),*Walker->GetActorLocation().ToString(),*Mesh->GetPathName());return true;
 }
 void ASoulSettlementVisitGameMode::TickWalking(float Seconds)
@@ -226,6 +285,7 @@ void ASoulSettlementVisitGameMode::TickWalking(float Seconds)
     Walker->AddMovementInput(Basis.GetUnitAxis(EAxis::X),(PC->IsInputKeyDown(EKeys::W)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::S)?1.f:0.f));
     Walker->AddMovementInput(Basis.GetUnitAxis(EAxis::Y),(PC->IsInputKeyDown(EKeys::D)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::A)?1.f:0.f));
     Walker->GetCharacterMovement()->MaxWalkSpeed=PC->IsInputKeyDown(EKeys::LeftShift)?500:300;
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandDepthQualification"))){TickDepthVisitQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandVisitLoadQualification")))
     {
         const float Before=WalkingProofTime;WalkingProofTime+=Seconds;

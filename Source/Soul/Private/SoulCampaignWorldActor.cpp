@@ -395,9 +395,9 @@ void ASoulCampaignWorldActor::SetPartyWalking(bool Walking)
 void ASoulCampaignWorldActor::RefreshKnowledge()
 {
     if(!State)return;
-    if(Soldiers) Soldiers->SetVisibility(State->PlayerArmy.FindRef(State->PlayerUnitId)>0,true);
+    if(Soldiers) Soldiers->SetVisibility(State->GetPlayerTroopCount()>0,true);
     for(int32 I=1;I<PartyFigures.Num();++I)
-        PartyFigures[I]->SetVisibility(State->PlayerArmy.FindRef(State->PlayerUnitId)>0);
+        PartyFigures[I]->SetVisibility(State->GetPlayerTroopCount()>0);
     FString Signature;
     TArray<FName> Keys;Locations().GetKeys(Keys);Keys.Sort(FNameLexicalLess());
     for(FName Id:Keys)Signature+=FString::Printf(TEXT("%d%d"),FSoulWorldRules::IsExplored(State->World,State->PlayerFaction,Id),FSoulWorldRules::IsVisible(State->World,State->PlayerFaction,Id));

@@ -152,7 +152,7 @@ def parser():
     p.add_argument("--project", type=Path, required=True)
     p.add_argument("--stage", choices=[f"G{i}" for i in range(7)], required=True)
     p.add_argument("--map-url", default=None)
-    p.add_argument("--resolution", choices=["1280x720", "1920x1080"], default="1280x720")
+    p.add_argument("--resolution", choices=["1280x720", "1280x800", "1920x1080"], default="1280x720")
     p.add_argument("--max-fps", type=int, default=30, help="0 for uncapped campaign qualification")
     p.add_argument("--ue-arg", action="append", default=[])
     p.add_argument("--expected-active-units", type=int, default=0)

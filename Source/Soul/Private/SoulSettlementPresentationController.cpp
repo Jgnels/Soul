@@ -92,7 +92,7 @@ bool ASoulSettlementPresentationController::RefreshSettlementPresentation()
         {
             BuildingActor->ApplyConditionName(TEXT("Unbuilt"));
         }
-        else if (Integrity >= 0)
+        else if (Integrity >= 0 && BuildingActor->MinimumBuildingLevel<=1)
         {
             BuildingActor->ApplyIntegrity(
                 Integrity,

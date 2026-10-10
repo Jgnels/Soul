@@ -1,3 +1,4 @@
+#include "SoulHeartlandBridgeGeometry.h"
 #include "SoulRealtimeBattleArena.h"
 #include "RBMagicSpellDefinition.h"
 #include "Particles/ParticleSystem.h"
@@ -189,6 +190,7 @@ void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
     if(Action==TEXT("Move")) { if(bHeroSelected){Status=TEXT("Hero selected: use WASD. Select a troop card to issue formation orders.");return;} bPlaceFormationOrder=true; SelectedSpellSlot=INDEX_NONE; Status=TEXT("Click clear ground to move selected formations. RMB cancels."); return; }
     if(Action==TEXT("All")) { bHeroSelected=false;bSelectAllAllies=true; SelectedAlliedFormation=INDEX_NONE; Status=TEXT("All troops selected; hero excluded"); return; }
     if(Action==TEXT("AI")) { ReturnSelectedAlliesToAI(); return; }
+    if(Action==TEXT("Follow")) CommandSelectedAllies(ERBHostGroupOrder::Follow);
     if(Action==TEXT("Hold")) CommandSelectedAllies(ERBHostGroupOrder::Hold);
     if(Action==TEXT("Advance")) CommandSelectedAllies(ERBHostGroupOrder::Advance);
     if(Action==TEXT("Charge")) CommandSelectedAllies(ERBHostGroupOrder::Charge);
@@ -265,6 +267,8 @@ bool ASoulRealtimeArenaGameMode::IsDirectGroundRouteClear(
 {
     if(!World || From.ContainsNaN() || To.ContainsNaN() || !FMath::IsFinite(Radius) || Radius<=0 ||
         FVector::Dist2D(From,To)>10000) return false;
+    const auto* Host=World->GetAuthGameMode<ASoulRealtimeArenaGameMode>();
+    if(Host&&Host->IsHeartlandBridgeBattle()&&SoulHeartlandBridge::CrossesWater(From-Host->ArenaOrigin,To-Host->ArenaOrigin))return false;
     FCollisionObjectQueryParams Objects;
     Objects.AddObjectTypesToQuery(ECC_WorldStatic);
     FCollisionQueryParams Query(SCENE_QUERY_STAT(SoulGroundCorridor),false);

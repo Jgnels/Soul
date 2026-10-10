@@ -167,6 +167,7 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
                 FName R=Queue[I];const auto& Node=World.Regions.FindChecked(R);const int32 Depth=D[R];
                 // Passive owners are static in this profile; explored passive land is not a frontier.
                 if(!Node.OwnerFactionId.IsNone() && Node.OwnerFactionId!=Id && !IsAlphaActiveFaction(Node.OwnerFactionId))continue;
+                if(FSoulWorldRules::IsVisible(World,Id,R)&&!DiplomacyAllowsHostility(Id,Node.OwnerFactionId))continue;
                 if(Supply && Node.OwnerFactionId!=Id)continue;
                 if(FSoulWorldRules::IsVisible(World,Id,R) && !Node.OwnerFactionId.IsNone() && Node.OwnerFactionId!=Id
                     && F.Army.TroopCount*100<ArmyCountAtRegion(R)*85)continue;
@@ -183,6 +184,7 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
                     // A proposed forward step must find its objective without first doubling back.
                     if(N==F.Army.RegionId || D.Contains(N)||!FSoulWorldRules::IsExplored(World,Id,N))continue;
                     const auto& Next=World.Regions.FindChecked(N);
+                    if(FSoulWorldRules::IsVisible(World,Id,N)&&!DiplomacyAllowsHostility(Id,Next.OwnerFactionId))continue;
                     if(FSoulWorldRules::IsVisible(World,Id,N) && !Next.OwnerFactionId.IsNone() && Next.OwnerFactionId!=Id && !IsAlphaActiveFaction(Next.OwnerFactionId))continue;
                     D.Add(N,Depth+1);Queue.Add(N);
                 }
@@ -194,7 +196,7 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
             if(FSoulWorldRules::IsVisible(World,Id,N))
             {
                 const auto& R=World.Regions.FindChecked(N);
-                CapitalThreat|=!R.OwnerFactionId.IsNone()&&R.OwnerFactionId!=Id&&IsAlphaActiveFaction(R.OwnerFactionId)&&ArmyCountAtRegion(N)>0;
+                CapitalThreat|=!R.OwnerFactionId.IsNone()&&R.OwnerFactionId!=Id&&IsAlphaActiveFaction(R.OwnerFactionId)&&DiplomacyAllowsHostility(Id,R.OwnerFactionId)&&ArmyCountAtRegion(N)>0;
             }
         TArray<FName> Ns=Here->Neighbors;Ns.Sort(FNameLexicalLess());
         for(FName N:Ns)
@@ -204,6 +206,7 @@ void USoulFounderPlaytestStateSubsystem::RunNextAlphaAction()
             if(F.Army.TroopCount==0 && R.OwnerFactionId!=Id)continue; // Withdrawal cannot capture or initiate combat.
             if(!R.OwnerFactionId.IsNone()&&!IsAlphaActiveFaction(R.OwnerFactionId))continue;
             const bool Hostile=!R.OwnerFactionId.IsNone()&&R.OwnerFactionId!=Id;
+            if(Hostile&&!DiplomacyAllowsHostility(Id,R.OwnerFactionId))continue;
             const int32 Defenders=Hostile?ArmyCountAtRegion(N):0;
             if(Hostile&&Defenders>0&&F.Army.TroopCount*100<Defenders*85)continue;
             FSoulControlledCampaignAction A;

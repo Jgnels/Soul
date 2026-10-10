@@ -14,17 +14,18 @@ import unreal
 # RECIPE_PATH is an explicit Soul-owned local recipe supplied to the live call.
 root = Path(unreal.Paths.convert_relative_path_to_full(unreal.Paths.project_dir()))
 recipe_path = Path(RECIPE_PATH).resolve()
-assert recipe_path.is_relative_to(root/'Evidence/SettlementEnvironmentPlan-20261005')
+allowed_roots=[root/'Evidence/SettlementEnvironmentPlan-20261005',root/'Evidence/HumanHeartlandDepth-20261010']
+assert any(recipe_path.is_relative_to(p) for p in allowed_roots)
 recipe = json.loads(recipe_path.read_text(encoding='utf-8-sig'))
 MINIATURE_STATE = recipe['state']
 assert MINIATURE_STATE in ('base', 'upgrade')
 source = (root/recipe['source']).resolve()
-assert source.is_relative_to(root/'Evidence/SettlementEnvironmentPlan-20261005')
+assert any(source.is_relative_to(p) for p in allowed_roots)
 data = json.loads(source.read_text(encoding='utf-8-sig'))
 package = recipe['package']
 assert package.startswith('/Game/Soul/CampaignProxies/') and '..' not in package
 receipt = (root/recipe['receipt']).resolve()
-assert receipt.is_relative_to(root/'Evidence/SettlementEnvironmentPlan-20261005')
+assert any(receipt.is_relative_to(p) for p in allowed_roots)
 bounds = recipe.get('bounds', [-1000000,1000000]*3)
 assert len(bounds) == 6
 budget_override = recipe['triangle_budget']

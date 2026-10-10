@@ -28,6 +28,9 @@ public:
     void BuildTavern();
     void VisitSettlement();
     void ToggleTownPanel();
+    void ToggleDiplomacy();
+    bool bDiplomacyPanel=false;
+    FName DiplomaticFaction=TEXT("dwarves");
     void StartBattle();
     void CastTailwind();
     void CancelPanel();

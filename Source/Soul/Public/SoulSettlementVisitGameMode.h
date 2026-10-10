@@ -32,10 +32,15 @@ private:
     uint32 ObservedDevelopmentRevision = MAX_uint32, ObservedLoadRevision = MAX_uint32;
     void RefreshPresentation();
     bool StartWalking();
+    void RefreshCompanion();
+    UPROPERTY() TObjectPtr<class ACharacter> Companion;
     void TickWalking(float Seconds);
+    void TickDepthVisitQualification(float Seconds);
+    UPROPERTY() TObjectPtr<class ACameraActor> DepthProofCamera;
     UPROPERTY() TObjectPtr<class ACharacter> Walker;
     UPROPERTY() TObjectPtr<class UAnimationAsset> WalkIdle;
     UPROPERTY() TObjectPtr<class UAnimationAsset> WalkJog;
     bool bWalkingAnimation=false;
+    float CompanionRetryTime = 0;
     float WalkingProofTime=0;FVector WalkingProofOrigin=FVector::ZeroVector;
 };

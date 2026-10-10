@@ -26,8 +26,8 @@ bool FSoulSettlementEnvironmentRegistry::Load(TMap<FName,FSoulSettlementEnvironm
         const TArray<TSharedPtr<FJsonValue>>* A=nullptr;
         if(B.bBattleEnabled)
         {
-            if(!B.bAuthoredAvailable||!B.CityBattleEnvironment.StartsWith(TEXT("/Game/Soul/"))||!O->TryGetArrayField(TEXT("arena_origin"),A)||A->Num()!=3)
-            {Error=TEXT("Enabled city battle requires an owned map and measured origin.");return false;}
+            if(!B.bAuthoredAvailable||!B.BattleEnvironment().StartsWith(TEXT("/Game/Soul/"))||!O->TryGetArrayField(TEXT("arena_origin"),A)||A->Num()!=3)
+            {Error=TEXT("Enabled encounter requires an owned map and measured origin.");return false;}
             for(const auto& N:*A)if(N->Type!=EJson::Number||!FMath::IsFinite(N->AsNumber())){Error=TEXT("Invalid city battle origin.");return false;}
             B.ArenaOrigin=FVector((*A)[0]->AsNumber(),(*A)[1]->AsNumber(),(*A)[2]->AsNumber());
         }

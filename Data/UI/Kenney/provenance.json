@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "creator": "Kenney",
+  "license": "CC0",
+  "transformation": "none; exact selected archive bytes",
+  "files": [
+    {
+      "archive": "kenney_fantasy-ui-borders.zip",
+      "entry": "PNG/Default/Border/panel-border-002.png",
+      "file": "panel.png",
+      "sha256": "9b4c8a33075d876849f37c113f578ece74c19f406f2a092035f2ad8b495d2416"
+    },
+    {
+      "archive": "kenney_fantasy-ui-borders.zip",
+      "entry": "PNG/Default/Border/panel-border-014.png",
+      "file": "button.png",
+      "sha256": "dce6837aa55bcfcf5788b72b8e02c47a117ed94553ebdde12663054af1fc39eb"
+    },
+    {
+      "archive": "kenney_fantasy-ui-borders.zip",
+      "entry": "PNG/Double/Border/panel-border-002.png",
+      "file": "modal.png",
+      "sha256": "850f5107445a80df2872e59192ba67267f3a6beb323a2a3682d0ec48ac945bc9"
+    },
+    {
+      "archive": "kenney_fantasy-ui-borders.zip",
+      "entry": "License.txt",
+      "file": "LICENSE-FantasyUI.txt",
+      "sha256": "f7185bbb59c1a5dec131621e76bddde6855035224119927bba21f3b0bbc3ca83"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/pointer_a.png",
+      "file": "cursor-default.png",
+      "sha256": "c2c3bfa908aa2f9f5460a3ccc470f5af7ee8276a4cea6a2e38c4dba0821e304d"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/gauntlet_point.png",
+      "file": "cursor-select.png",
+      "sha256": "b1c618e5e0345088297dc66935f360315fae4a49cb2e6ea4e802d93217997c8c"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/boot.png",
+      "file": "cursor-move.png",
+      "sha256": "e1d37091ea5aee25418c96746a99a8103d52fe7844096335c179393d7b047154"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/tool_sword_a.png",
+      "file": "cursor-attack.png",
+      "sha256": "1f29786f6e0f15fe29804e4630a245bc19cb2cbc36c0a828e7d7088991127acf"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/door_enter.png",
+      "file": "cursor-interact.png",
+      "sha256": "31b50dbdae2a8f9992ef7d93bb8df796115f1b0ec80b874d8bbbadbdbc85b934"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/cursor_disabled.png",
+      "file": "cursor-disabled.png",
+      "sha256": "9db3d75cacabe9fc66a2c104fc7b907cc772d9ceeb7ce8c71982309bf645a936"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "PNG/Outline/Default/busy_hourglass.png",
+      "file": "cursor-busy.png",
+      "sha256": "9ac9cdc1e7780ad42dd4eeac12f5095014c3dfc07dfe129064510bd3e067071d"
+    },
+    {
+      "archive": "kenney_cursor-pack.zip",
+      "entry": "License.txt",
+      "file": "LICENSE-Cursors.txt",
+      "sha256": "a134e52b4689ed8a57f170e0dacfcba5d64351cbd0858aa2e325b8486d0ca9d6"
+    }
+  ]
+}

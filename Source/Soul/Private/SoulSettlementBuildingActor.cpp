@@ -32,9 +32,9 @@ ASoulSettlementBuildingActor::ASoulSettlementBuildingActor()
     ShowOnly(nullptr);
 }
 
-bool ASoulSettlementBuildingActor::ConfigureMiniature(UStaticMesh* BaseMesh, UStaticMesh* UpgradeMesh)
+bool ASoulSettlementBuildingActor::ConfigureMiniature(UStaticMesh* BaseMesh, UStaticMesh* UpgradeMesh, bool bUpgradeOnly)
 {
-    if (!BaseMesh || !UpgradeMesh || GetInstanceComponents().Num() != 0) return false;
+    if ((!BaseMesh && !bUpgradeOnly) || !UpgradeMesh || GetInstanceComponents().Num() != 0) return false;
     auto AddMesh = [&](UStaticMesh* Mesh, USceneComponent* Branch)
     {
         auto* Component = NewObject<UStaticMeshComponent>(this);
@@ -46,7 +46,7 @@ bool ASoulSettlementBuildingActor::ConfigureMiniature(UStaticMesh* BaseMesh, USt
         AddInstanceComponent(Component);
         Component->RegisterComponent();
     };
-    AddMesh(BaseMesh, SceneRoot);
+    if(BaseMesh)AddMesh(BaseMesh, SceneRoot);
     AddMesh(UpgradeMesh, IntactRoot);
     bFollowSettlementState = true;
     SetActorTickEnabled(true);
@@ -129,6 +129,15 @@ void ASoulSettlementBuildingActor::ShowOnly(USceneComponent* VisibleRoot)
 
 void ASoulSettlementBuildingActor::ApplyConditionName(FName ConditionName)
 {
+    if(MinimumBuildingLevel>1 && GetWorld() && GetWorld()->IsGameWorld())
+    {
+        auto* GI=GetWorld()->GetGameInstance();
+        const auto* State=GI?GI->GetSubsystem<USoulSettlementStateSubsystem>():nullptr;
+        const auto* Town=State?State->FindSettlement(SettlementId):nullptr;
+        const auto* Building=Town?Town->Buildings.Find(BuildingId):nullptr;
+        if(!Building || Building->Level<MinimumBuildingLevel)ConditionName=TEXT("Unbuilt");
+    }
+
     if (ConditionName == TEXT("Building") || ConditionName == TEXT("Repairing"))
     {
         ShowOnly(ConstructionRoot);

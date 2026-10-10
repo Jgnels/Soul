@@ -1,5 +1,5 @@
 {
-  "stage_receipt": "Evidence/HumanHeartland-20261009/Local/stage-heartland-r3/Diagnostics/receipt.json",
+  "stage_receipt": "Evidence/HumanHeartlandDepth-20261010/Local/stage-depth-r8/Diagnostics/receipt.json",
   "default_fps": 30,
-  "note": "Separate Heartland playtest; prior FourFactionAlpha saves unchanged. 30 FPS cap, 85 C hard cutoff. City functional test peaked at 84 C even at 10 FPS; sustained performance remains unqualified. F5 saves; Continue restores the last F5 checkpoint."
+  "note": "Heartland depth: infantry/archers/guards, visible Rowan and city development, strategic sites, forest/bridge battles and Diplomacy [L]. 30 FPS default; 85 C hard cutoff. Capped functional proofs reached 82 C; sustained 30 FPS safety is not qualified. F5 saves; Continue restores the last F5 checkpoint. Use this build for saves containing diplomacy."
 }

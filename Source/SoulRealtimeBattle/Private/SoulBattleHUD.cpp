@@ -20,6 +20,8 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     const auto* Host = GetWorld()->GetAuthGameMode<ASoulRealtimeArenaGameMode>();
     if (!Host || !Canvas) return;
     FSoulHUDTheme UI(*this,*Canvas);
+    UI.CursorState=Host->bCampaignAutoResolve?TEXT("busy"):Host->bPlaceFormationOrder?TEXT("move"):
+        Host->SelectedSpellSlot>=0?TEXT("attack"):TEXT("default");
     const float W=UI.W,H=UI.H;
     if(Host->bCampaignAutoResolve)
     {
@@ -190,7 +192,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
                     Health+=Unit.Health;Maximum+=Unit.MaxHealth;
                     if(Unit.bRanged) Arrows+=Unit.Arrows;
                 }
-            Tooltip=Host->AlliedFormationSummary(Slot)+TEXT(". ");
+            Tooltip=(Formation.DisplayName.IsEmpty()?FString():Formation.DisplayName+TEXT(". "))+Host->AlliedFormationSummary(Slot)+TEXT(". ");
             for(int32 RoleIndex=0;RoleIndex<8;++RoleIndex)
                 if(Members[RoleIndex]) Tooltip+=FString::Printf(TEXT("%d %s. "),Members[RoleIndex],*Host->RoleLabel(static_cast<ESoulRealtimeFormationRole>(RoleIndex)));
             Tooltip+=FString::Printf(TEXT("Health %.0f%%. %d arrows. Click to select; Home focuses."),
@@ -198,7 +200,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         }
         const int32 Alive=Host->AliveInGroup(Formation.GroupIndex);
         const FLinearColor Color=Alive ? Selected?UI.Bright:UI.Ink : UI.Muted;
-        const float CX=X+CardW*.5f,CY=Y+23;
+        const float CX=X+CardW*.5f,CY=Y+27;
         if(Formation.Kind==ESoulBattleFormationKind::FrontLine)
         {
             for(int32 Soldier=-1;Soldier<=1;++Soldier)
@@ -230,15 +232,21 @@ void ASoulRealtimeArenaHUD::DrawHUD()
             UI.Line(CX-8,CY+10,CX-13,CY+16,UI.Gold,3);
         }
         else UI.Emblem(6,CX,CY,14,Color);
-        UI.Text(FString::Printf(TEXT("F%d"),Slot+1),X+5,Y+4,UI.Muted,.9f);
+        FString CardTitle=FString::Printf(TEXT("F%d"),Slot+1);
+        for(const auto& Unit:Host->Combatants)if(Unit.GroupIndex==Formation.GroupIndex&&!Unit.CampaignCompany.IsNone())
+        {
+            CardTitle+=Unit.CampaignCompany==TEXT("human_archer")?TEXT(" ARCH"):
+                Unit.CampaignCompany==TEXT("human_guard")?TEXT(" GUARD"):TEXT(" INF");break;
+        }
+        UI.FitText(CardTitle,X+5,Y+3,CardW-10,UI.Muted,.85f);
         UI.Text(FString::FromInt(Alive),X+CardW-22,Y+30,Color,1.1f);
         UI.Bar(X+6,Y+46,CardW-12,Formation.MoralePermille/1000.f,Formation.bRouting?Enemy:Ally);
         ++Slot;
     }
-    static const TCHAR* Actions[]={TEXT("All"),TEXT("Move"),TEXT("Hold"),TEXT("Advance"),TEXT("Charge"),TEXT("Fallback"),TEXT("Face"),TEXT("AI")};
-    static const TCHAR* Labels[]={TEXT("All"),TEXT("Move"),TEXT("Hold H"),TEXT("Advance V"),TEXT("Charge G"),TEXT("Back B"),TEXT("Face F"),TEXT("AI R")};
+    static const TCHAR* Actions[]={TEXT("All"),TEXT("Move"),TEXT("Hold"),TEXT("Follow"),TEXT("Charge"),TEXT("Fallback"),TEXT("Face"),TEXT("AI")};
+    static const TCHAR* Labels[]={TEXT("All"),TEXT("Move"),TEXT("Hold H"),TEXT("Follow V"),TEXT("Charge G"),TEXT("Back B"),TEXT("Face F"),TEXT("AI R")};
     static const TCHAR* Hints[]={TEXT("Select every surviving friendly formation."),TEXT("Select, then click clear ground for the formation destination."),
-        TEXT("Brace on this ground in tighter ranks. Infantry guard nearby threats and do not chase."),TEXT("Approach the enemy while keeping ranks together."),
+        TEXT("Brace on this ground in tighter ranks. Infantry guard nearby threats and do not chase."),TEXT("Follow your commander while retaining a separate troop formation."),
         TEXT("Commit to contact. Troops may break ranks to pursue."),TEXT("Withdraw toward a safe position."),
         TEXT("Face the threat without advancing."),TEXT("Return selected formations to their commander.")};
     const float OrderW=(ArmyWidth-28)/8.f;

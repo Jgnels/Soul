@@ -1,3 +1,4 @@
+#include "SoulHeartlandBridgeGeometry.h"
 #include "SoulRealtimeBattleArena.h"
 #include "GameFramework/Character.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -25,7 +26,7 @@ void ASoulRealtimeArenaGameMode::TickHumanDefenseQualification()
     }
     // The isolated Heartland fixture demonstrates the ordinary player melee input.
     // Only movement/aim/input are automated: collision and RBCombat decide every hit.
-    if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification")) && bDefenseControlChecked
+    if((FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification"))||FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandCompanyBattle"))) && bDefenseControlChecked
         && !bFinished && PlayerHero && PlayerHealth()>0 && BattleElapsed>6)
     {
         if(bTacticalCameraActive)ToggleBattleCamera();
@@ -34,13 +35,31 @@ void ASoulRealtimeArenaGameMode::TickHumanDefenseQualification()
         {const double D=FVector::DistSquared2D(PlayerHero->GetActorLocation(),Actors[I]->GetActorLocation());if(D<Distance){Distance=D;Nearest=I;}}
         if(Nearest!=INDEX_NONE)
         {
-            const FVector Direction=(Actors[Nearest]->GetActorLocation()-PlayerHero->GetActorLocation()).GetSafeNormal2D();
+            FVector Goal=Actors[Nearest]->GetActorLocation(),Via;
+            if(IsHeartlandBridgeBattle()&&SoulHeartlandBridge::Approach(PlayerHero->GetActorLocation()-ArenaOrigin,Goal-ArenaOrigin,Via))Goal=ArenaOrigin+Via;
+            const FVector Direction=(Goal-PlayerHero->GetActorLocation()).GetSafeNormal2D();
             auto* PC=GetWorld()->GetFirstPlayerController();PC->SetControlRotation(Direction.Rotation());PlayerHero->SetActorRotation(Direction.Rotation());
             if(Distance>180*180)PlayerHero->AddMovementInput(Direction,1);
             static TWeakObjectPtr<ASoulRealtimeArenaGameMode> LastHost;static float LastAttack=0;
             if(LastHost.Get()!=this){LastHost=this;LastAttack=0;}
             if(Distance<320*320&&BattleElapsed-LastAttack>1.6f)
             {LastAttack=BattleElapsed;PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Pressed,1));PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Released,0));}
+        }
+    }
+    if(Alpha && IsHeartlandBridgeBattle() && !bFinished)
+    {
+        static TWeakObjectPtr<ASoulRealtimeArenaGameMode> LastBridge;
+        static float LastDiagnostic=0;
+        if(LastBridge.Get()!=this){LastBridge=this;LastDiagnostic=0;}
+        if(BattleElapsed-LastDiagnostic>=30)
+        {
+            LastDiagnostic=BattleElapsed;
+            for(int32 I=0;I<Actors.Num();++I)if(Actors[I]&&Combatants[I].Health>0)
+            {
+                FRBCombatGroup Drive;ReadDriveGroup(Combatants[I].GroupIndex,Drive);
+                UE_LOG(LogTemp,Display,TEXT("SOUL_BRIDGE_PHYSICAL side=%d unit=%d hp=%.1f local=%s anchor=%s"),
+                    Combatants[I].Side,I,Combatants[I].Health,*(Actors[I]->GetActorLocation()-ArenaOrigin).ToCompactString(),*(Drive.Anchor-ArenaOrigin).ToCompactString());
+            }
         }
     }
     if((!Defense&&!Alpha) || bDefenseControlChecked || bAutobattle) return;

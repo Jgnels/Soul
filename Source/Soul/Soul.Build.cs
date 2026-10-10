@@ -35,6 +35,8 @@ public class Soul : ModuleRules
             }
             if (Target.Name == "SoulComposition")
             {
+                foreach (string Art in new[] { "LICENSE-Cursors.txt", "LICENSE-FantasyUI.txt", "button.png", "cursor-attack.png", "cursor-busy.png", "cursor-default.png", "cursor-disabled.png", "cursor-interact.png", "cursor-move.png", "cursor-select.png", "modal.png", "panel.png", "provenance.json" })
+                    RuntimeDependencies.Add("$(ProjectDir)/Data/UI/Kenney/" + Art, StagedFileType.NonUFS);
                 // The isolated cook enables this content plugin. Its module is
                 // editor-only, but the runtime mount still needs its descriptor.
                 RuntimeDependencies.Add("$(EngineDir)/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin", StagedFileType.NonUFS);

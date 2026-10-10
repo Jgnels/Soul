@@ -114,7 +114,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             UE_LOG(LogTemp,Error,TEXT("SOUL_PLAYTEST_CONTINUE_FAILED: %s; existing save preserved."),*State->LastPersistenceReport);
             FPlatformMisc::RequestExitWithStatus(false,1);return;
         }
-        UE_LOG(LogTemp,Display,TEXT("SOUL_PLAYTEST_CONTINUE_PASS day=%d region=%s troops=%d"),State->Economy.Day,*State->PlayerRegion.ToString(),State->PlayerArmy.FindRef(State->PlayerUnitId));
+        UE_LOG(LogTemp,Display,TEXT("SOUL_PLAYTEST_CONTINUE_PASS day=%d region=%s troops=%d"),State->Economy.Day,*State->PlayerRegion.ToString(),State->GetPlayerTroopCount());
     }
     if(State && State->IsFourFactionAlpha() && !State->bPersistenceBusy && FPlatformTime::Seconds()>=AlphaNextActionTime)
     {
@@ -125,6 +125,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             UGameplayStatics::OpenLevel(this,State->PendingBattle.MapPackage,true,TEXT("game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode"));return;
         }
     }
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandDepthQualification"))){if(!bDone)TickHeartlandDepthQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandQualification"))){if(!bDone)TickHeartlandQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaQualification"))){if(!bDone)TickFourFactionAlphaQualification(Seconds);return;}
     FString ControlledAttacker;
@@ -241,7 +242,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
         {
             bRecoveryAttempted=true;
             const FName FirstEncounter=State->LastBattleResult.EncounterId;
-            bool Correct=!State->LastBattleResult.bPlayerWon && State->PlayerArmy.FindRef(State->PlayerUnitId)==0;
+            bool Correct=!State->LastBattleResult.bPlayerWon && State->GetPlayerTroopCount()==0;
             Campaign->EndDay();Campaign->HandleRegionClicked(TEXT("crossroads"));Campaign->HandleRegionClicked(TEXT("human_capital"));
             const auto* Pool=State->Economy.RecruitmentPools.Find(State->PlayerUnitId);
             const int32 Available=Pool?Pool->Available:0;
@@ -249,7 +250,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             const int32 Cost=Pool?Pool->CostPerUnit.FindRef(TEXT("gold")):0;
             Campaign->ToggleTownPanel();
             for(int32 I=0;I<3;++I)Campaign->HandleNumberKey(1);
-            Correct=Correct && State->PlayerRegion==TEXT("human_capital") && State->PlayerArmy.FindRef(State->PlayerUnitId)==3
+            Correct=Correct && State->PlayerRegion==TEXT("human_capital") && State->GetPlayerTroopCount()==3
                 && Pool && Pool->Available==Available-3 && State->Economy.Resources.FindRef(TEXT("gold"))==Gold-3*Cost;
             Campaign->CancelPanel();Campaign->EndDay();
             Campaign->HandleRegionClicked(TEXT("crossroads"));Campaign->HandleRegionClicked(TEXT("river_ford"));Campaign->HandleRegionClicked(TEXT("orc_watch"));
@@ -329,7 +330,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             for(auto& Pair:State->EnemyArmies)Pair.Value=FMath::Max(1,Count);
         if(FParse::Value(FCommandLine::Get(),TEXT("SoulActivePerSide="),Count))State->ActiveCapPerSide=FMath::Clamp(Count,1,35);
         UE_LOG(LogTemp,Display,TEXT("SOUL_CAMPAIGN_QUALIFICATION_SETUP pools=%d/%d cap=%d"),
-            State->PlayerArmy.FindRef(State->PlayerUnitId),State->EnemyArmies.FindRef(FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof"))?FName(TEXT("viking_snow_pass")):FName(TEXT("orc_watch"))),State->ActiveCapPerSide);
+            State->GetPlayerTroopCount(),State->EnemyArmies.FindRef(FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof"))?FName(TEXT("viking_snow_pass")):FName(TEXT("orc_watch"))),State->ActiveCapPerSide);
         if(FParse::Param(FCommandLine::Get(),TEXT("SoulVikingMatchupProof")))
             Campaign->HandleRegionClicked(TEXT("viking_snow_pass"));
         else
@@ -367,7 +368,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             && State->ResolvedEncounters.Contains(Result.EncounterId)
             && State->PlayerRegion==ExpectedRegion && Territory
             && Territory->OwnerFactionId==(Result.bPlayerWon?State->PlayerFaction:State->EnemyFaction)
-            && State->PlayerArmy.FindRef(State->PlayerUnitId)==Result.PlayerSurvivors
+            && State->GetPlayerTroopCount()==Result.PlayerSurvivors
             && State->EnemyArmies.FindRef(Target)==Result.EnemySurvivors
             && State->Hero.Mana==Result.PlayerManaRemaining;
         if(!Correct)

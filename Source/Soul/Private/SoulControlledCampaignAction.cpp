@@ -28,6 +28,7 @@ bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FNam
         return Reject(TEXT("REJECT_DESTINATION_OWNER"));
     if (!FSoulWorldRules::CanMove(World, Source, Target)) return Reject(TEXT("REJECT_NONADJACENT"));
     const bool Hostile = !Destination->OwnerFactionId.IsNone() && Destination->OwnerFactionId != Id;
+    if(Hostile&&!DiplomacyAllowsHostility(Id,Destination->OwnerFactionId))return Reject(TEXT("REJECT_TREATY_NO_MILITARY_ACCESS"));
     if(bFourFactionAlpha && (!IsAlphaActiveFaction(Id) || (Hostile&&!IsAlphaActiveFaction(Destination->OwnerFactionId))))
         return Reject(TEXT("REJECT_ALPHA_PASSIVE_FACTION"));
     if(bFourFactionAlpha && Id==PlayerFaction && IsAlphaTurnActive())return Reject(TEXT("REJECT_AI_TURN_ACTIVE"));
@@ -46,7 +47,7 @@ bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FNam
             && Recipe->Id==TEXT("dragon_graveyard") && Recipe->MapPackage==BattleMap && Recipe->ArenaOrigin==BattleOrigin;
         const auto* City=EnvironmentRegistry.Find(Target);
         const bool RegisteredCity=bHeartlandEnabled&&City&&City->bBattleEnabled
-            &&Encounter.MapPackage==FName(*City->CityBattleEnvironment)&&Encounter.ArenaOrigin==City->ArenaOrigin;
+            &&Encounter.MapPackage==FName(*City->BattleEnvironment())&&Encounter.ArenaOrigin==City->ArenaOrigin;
         if (!RegisteredCity && (!Recipe || (!AlphaFieldFallback && !Recipe->Biomes.Contains(Encounter.BattleContext.Biome)
             && !Recipe->Landforms.Contains(Encounter.BattleContext.Landform)
             && !Recipe->Features.Contains(Encounter.BattleContext.Feature))))
@@ -120,7 +121,7 @@ bool USoulFounderPlaytestStateSubsystem::BuildFactionBattleDescriptor(FName Id, 
     const auto* Region=World.Regions.Find(Target);
     if (!bInitialized || !bSixFactionProfile || bPersistenceBusy || HasPendingBattle() || !Region
         || !InspectFactionArmy(Id,Attacker) || Attacker.Army.TroopCount<=0
-        || Region->OwnerFactionId==Id || Region->OwnerFactionId.IsNone()
+        || Region->OwnerFactionId==Id || Region->OwnerFactionId.IsNone() || !DiplomacyAllowsHostility(Id,Region->OwnerFactionId)
         || !InspectFactionArmy(Region->OwnerFactionId,Defender) || Defender.Army.RegionId!=Target || Defender.Army.TroopCount<=0
         || !FSoulWorldRules::CanMove(World,Attacker.Army.RegionId,Target))
     { Error=TEXT("REJECT_INVALID_HOSTILE_FORCES_OR_EDGE"); return false; }
