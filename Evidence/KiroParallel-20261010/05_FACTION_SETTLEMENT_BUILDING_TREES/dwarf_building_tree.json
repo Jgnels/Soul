@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "lane": "05_FACTION_SETTLEMENT_BUILDING_TREES",
+  "faction_id": "dwarves",
+  "label": "DESIGN PROPOSAL",
+  "authoring_target": "USoulSettlementScenarioData DataAsset + parallel Data/SettlementEnvironments/DwarfHoldDevelopment.json (mirrors HeartlandDevelopment.json schema=1)",
+  "settlement_id": "dwarf_hold",
+  "region_id": "dwarf_hold",
+  "world_settlement_slot": "city.dwarf_hold",
+  "concept": "Vertical mountain forge-city. Civic spine is already proven in Data/SettlementEnvironments/DwarfHoldDevelopmentProof.json (dwarf.kings_hall / dwarf.gates / dwarf.great_forge / dwarf.mine built; dwarf.caravan_hall as the service.tavern_hero development). This tree EXTENDS that proof; it does not rename it.",
+  "provenance": {
+    "verified_from_current_snapshot": [
+      "dwarf.kings_hall, dwarf.gates, dwarf.great_forge, dwarf.mine, dwarf.caravan_hall exist as building IDs in Data/SettlementEnvironments/DwarfHoldDevelopmentProof.json (built-state seed + one development definition).",
+      "AdmittedStrategicUnit(dwarves) == dwarf_warrior (Source/SoulCore/Private/SoulCampaign.cpp:12).",
+      "dwarf_hold registered in Data/SettlementEnvironments/EnvironmentRegistry.json faction=dwarves, authored_environment_available=true, visit/city_battle = /Game/Soul/Maps/Settlements/L_DwarfHold_Authored, battle_enabled=false (Alpha approach unset).",
+      "settlement_blueprints.json already enumerates the 7 recruit + 5 civic Dwarf structures used as the design seed."
+    ],
+    "verified_owned_asset_metadata": [
+      "Modular Legendary Forge (fab_bf013eb27085437f9c071cf318019c26, Macbry) = CONFIRMED_OWNED, HIGH confidence, era=industrial, functions crafting/construction/metallurgy (Copperlight ai_index/products/fab-bf013eb27085437f9c071cf318019c26-modular-legendary-forge.md). Local evidence: None (not yet imported).",
+      "Dwarfs Pack (fab_d66ca56809bd45eea37280a055826b51, Bugrimov Maksim) = CONFIRMED_OWNED, HIGH ownership but LOW semantic confidence, Visual Review TIER 3 (needs visual pass before signature art).",
+      "Dwarf troop meshes already wired in runtime: /Game/Dwarf_Pack/Bedvar/Mesh/SK_Dwarf_Bedvar_Full and /Game/Dwarf_Pack/Broddi/Mesh/SK_Dwarf_BroddI_Full (Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp:1852,1861; Source/SoulRealtimeBattle/Private/SoulBattlefieldArt.cpp:78) and listed in Data/CampaignComposition/PackageProfile.json."
+    ],
+    "local_runtime_asset_check_required": [
+      "The DwarfHoldDevelopmentProof.json source_environment /Game/DwarvenCitadel/Maps/DwarvenCitadel is NOT present as a Copperlight-cataloged owned product (grep of Copperlight returns zero DwarvenCitadel references). Its ownership/local availability must be confirmed in the actual Unreal project before any physical manifestation claim. See physical_manifestation_map.md CONTRADICTION-D1.",
+      "Whether Modular Legendary Forge is imported into the Soul project content root (Copperlight local evidence = None).",
+      "Mesh/socket/collision/nav for any new authored building group inside L_DwarfHold_Authored."
+    ]
+  },
+  "resources_model": {
+    "note": "SoulCore BuildCost is TMap<FName,int32>. Current proof uses only 'gold'. Dwarf-flavoured 'ore' is a DESIGN PROPOSAL additive resource key; it is save-safe (serialized generically) but is NOT yet produced anywhere, so initial trees keep gold-only costs with ore shown as a future-optional column. LOCAL CHECK: no 'ore' income source exists in current snapshot.",
+    "primary": "gold",
+    "proposed_secondary": "ore (future; produced by dwarf.mine effect, see effects)"
+  },
+  "founder_timing_rule": {
+    "normal": 1,
+    "significant": 2,
+    "capstone": 3,
+    "enforcement_reference": "Heartland loader rejects BuildDays outside 1-3 (Source/Soul/Private/SoulHeartlandContent.cpp). Mirror this clamp in a DwarfHold loader. SoulCore itself only clamps BuildDays>=1 (FSoulBuildingDefinition / BeginConstruction)."
+  },
+  "buildings": [
+    {
+      "id": "dwarf.kings_hall",
+      "display_name": "King's Hall",
+      "category": "civic",
+      "tier": "seed",
+      "founder_timing": "seed",
+      "days": 0,
+      "cost": { "gold": 0 },
+      "prerequisites": [],
+      "max_level": 1,
+      "unlocks": ["control.settlement", "service.hero_services"],
+      "effect_summary": "Settlement control + hero services anchor. Pre-built in the proof (level 1). Root of the prerequisite DAG, analogous to human.keep.",
+      "manifestation_ref": "inner hold / Caravan Hall cutaway interior",
+      "status": "VERIFIED FROM CURRENT SNAPSHOT (exists as built seed)"
+    },
+    {
+      "id": "dwarf.gates",
+      "display_name": "Mountain Gate",
+      "category": "fortification",
+      "tier": "seed",
+      "founder_timing": "seed",
+      "days": 0,
+      "cost": { "gold": 0 },
+      "prerequisites": ["dwarf.kings_hall"],
+      "max_level": 1,
+      "unlocks": ["siege.defense"],
+      "effect_summary": "Siege defense gate. Pre-built seed. Couples to FSoulSettlementState.WallIntegrityPermille / FortificationLevel.",
+      "manifestation_ref": "authored gate (proof confirms deterministic-scale authored gate present)",
+      "status": "VERIFIED FROM CURRENT SNAPSHOT (exists as built seed)"
+    },
+    {
+      "id": "dwarf.great_forge",
+      "display_name": "Great Forge",
+      "category": "economy",
+      "tier": "seed",
+      "founder_timing": "seed",
+      "days": 0,
+      "cost": { "gold": 0 },
+      "prerequisites": ["dwarf.kings_hall"],
+      "max_level": 2,
+      "unlocks": ["economy.upgrades", "effect.equipment_upgrade"],
+      "effect_summary": "Production/upgrades centerpiece (Legendary Forge). Pre-built seed at level 1; level 2 is a DESIGN PROPOSAL upgrade (significant) that enables equipment upgrades + ore refinement.",
+      "manifestation_ref": "Legendary Forge centerpiece (fab_bf013eb27085437f9c071cf318019c26)",
+      "status": "VERIFIED FROM CURRENT SNAPSHOT (seed) + DESIGN PROPOSAL (level 2)"
+    },
+    {
+      "id": "dwarf.mine",
+      "display_name": "Deep Mine",
+      "category": "economy",
+      "tier": "seed",
+      "founder_timing": "seed",
+      "days": 0,
+      "cost": { "gold": 0 },
+      "prerequisites": ["dwarf.kings_hall"],
+      "max_level": 2,
+      "unlocks": ["economy.ore_income"],
+      "effect_summary": "Ore/gold income. Pre-built seed. Mirrors the human.market economy slot. Level 2 (significant, DESIGN PROPOSAL) raises income (parallels the +100 gold/day human.market L2 branch in SoulFounderPlaytestStateSubsystem::AdvanceDay).",
+      "manifestation_ref": "mountain/forge tunnel composition",
+      "status": "VERIFIED FROM CURRENT SNAPSHOT (seed) + DESIGN PROPOSAL (level 2 income)"
+    },
+    {
+      "id": "dwarf.caravan_hall",
+      "display_name": "Caravan Hall",
+      "category": "civic",
+      "tier": "normal",
+      "founder_timing": "normal",
+      "days": 1,
+      "cost": { "gold": 200 },
+      "prerequisites": ["dwarf.kings_hall"],
+      "max_level": 1,
+      "unlocks": ["service.tavern_hero", "economy.trade"],
+      "effect_summary": "Dwarf equivalent of the Human tavern hero-hire service. Carries unlock service.tavern_hero so the EXISTING generic FindUniqueServiceDefinition(service.tavern_hero) path (Source/Soul/Private/SoulSettlementScenarioData.cpp) and IsTavernOperational() light up WITHOUT new code. Proof currently authors build_days=2; this tree sets days=1 (normal) per lane founder-timing rule and flags the discrepancy (see HANDOFF unknown U-D2).",
+      "manifestation_ref": "outer works",
+      "status": "VERIFIED FROM CURRENT SNAPSHOT (building exists as development definition) + DESIGN PROPOSAL (days normalization)"
+    },
+    {
+      "id": "dwarf.stoneguard_hall",
+      "display_name": "Stoneguard Hall",
+      "category": "military",
+      "tier": "significant",
+      "founder_timing": "significant",
+      "days": 2,
+      "cost": { "gold": 500 },
+      "prerequisites": ["dwarf.kings_hall"],
+      "max_level": 2,
+      "unlocks": ["recruitment.dwarf_warrior", "recruitment.growth"],
+      "effect_summary": "Core fighter recruitment dwelling. Gates recruitment of dwarf_warrior via FSoulRecruitmentPool.RequiredBuildingId = dwarf.stoneguard_hall (parallels human.barracks). Level 2 adds +weekly growth (mirror of human.barracks L2 +2/wk branch).",
+      "recruitment_binding": { "unit_id": "dwarf_warrior", "role": "Fighter", "required_building_level": 1, "elite_at_level": 2 },
+      "manifestation_ref": "Forge modular hall (Dwarf_Pack Bedvar/Broddi meshes supply the troops)",
+      "status": "DESIGN PROPOSAL"
+    },
+    {
+      "id": "dwarf.crossbow_workshop",
+      "display_name": "Crossbow Workshop",
+      "category": "military",
+      "tier": "significant",
+      "founder_timing": "significant",
+      "days": 2,
+      "cost": { "gold": 450 },
+      "prerequisites": ["dwarf.stoneguard_hall"],
+      "max_level": 1,
+      "unlocks": ["recruitment.dwarf_crossbow"],
+      "effect_summary": "Ranged recruitment dwelling (parallels human.archery_range). Gates a dwarf ranged unit.",
+      "recruitment_binding": { "unit_id": "dwarf_crossbow", "role": "Ranged", "required_building_level": 1, "unit_status": "LOCAL RUNTIME-ASSET CHECK REQUIRED (dwarf ranged mesh/roster not confirmed in current snapshot; only dwarf_warrior is wired)" },
+      "manifestation_ref": "workshop architecture + crossbow dressing",
+      "status": "DESIGN PROPOSAL"
+    },
+    {
+      "id": "dwarf.hammer_hall",
+      "display_name": "Hammer Hall",
+      "category": "military",
+      "tier": "significant",
+      "founder_timing": "significant",
+      "days": 2,
+      "cost": { "gold": 600 },
+      "prerequisites": ["dwarf.great_forge", "dwarf.stoneguard_hall"],
+      "max_level": 1,
+      "unlocks": ["recruitment.dwarf_hammer"],
+      "effect_summary": "Heavy fighter dwelling. Requires the Great Forge (thematic: forged heavy arms). Gates a heavy dwarf unit (Broddi hammer archetype already has a mesh).",
+      "recruitment_binding": { "unit_id": "dwarf_hammer_guard", "role": "Fighter", "required_building_level": 1, "unit_status": "LOCAL RUNTIME-ASSET CHECK REQUIRED" },
+      "manifestation_ref": "forge-side barracks hall (/Game/Dwarf_Pack/Broddi)",
+      "status": "DESIGN PROPOSAL"
+    },
+    {
+      "id": "dwarf.rune_forge",
+      "display_name": "Rune Forge",
+      "category": "magic",
+      "tier": "significant",
+      "founder_timing": "significant",
+      "days": 2,
+      "cost": { "gold": 600 },
+      "prerequisites": ["dwarf.great_forge"],
+      "max_level": 1,
+      "unlocks": ["spell.earth", "service.rune_services"],
+      "effect_summary": "Magic/support building. Dwarf signature school is Earth/Rune (DESIGN PROPOSAL; Human analogue is the arcane_hall -> frost chain). Would bind a dwarf hero spell via the same RequiredBuilding mechanism as HeartlandDevelopment.json 'spells'. Earth school id is a proposal; actual Magic.Spell.* tag must be confirmed against the owned magic tag set (LOCAL CHECK).",
+      "manifestation_ref": "interior forge + lava/smoke FX",
+      "status": "DESIGN PROPOSAL"
+    },
+    {
+      "id": "dwarf.kings_guard_hall",
+      "display_name": "King's Guard Hall",
+      "category": "military",
+      "tier": "capstone",
+      "founder_timing": "capstone",
+      "days": 3,
+      "cost": { "gold": 900 },
+      "prerequisites": ["dwarf.hammer_hall", "dwarf.caravan_hall"],
+      "max_level": 1,
+      "unlocks": ["recruitment.dwarf_kings_guard", "effect.garrison_bonus"],
+      "effect_summary": "Elite recruitment capstone. Deep prerequisite chain (hammer_hall -> stoneguard_hall -> kings_hall) enforces the full-tree investment. Capstone timing = 3 days.",
+      "recruitment_binding": { "unit_id": "dwarf_kings_guard", "role": "Fighter", "required_building_level": 1, "unit_status": "LOCAL RUNTIME-ASSET CHECK REQUIRED" },
+      "manifestation_ref": "inner-hold modular hall",
+      "status": "DESIGN PROPOSAL"
+    },
+    {
+      "id": "dwarf.dragon_eyrie",
+      "display_name": "Mountain Dragon Eyrie",
+      "category": "beast",
+      "tier": "capstone",
+      "founder_timing": "capstone",
+      "days": 3,
+      "cost": { "gold": 1200 },
+      "prerequisites": ["dwarf.kings_guard_hall", "dwarf.rune_forge"],
+      "max_level": 1,
+      "unlocks": ["recruitment.dwarf_mountain_dragon"],
+      "effect_summary": "Apex beast dwelling (settlement_blueprints.json marks this COMPOSITE / no new model). Deepest capstone; requires both elite and magic branches. Apex unit availability is a hard LOCAL CHECK (no dwarf apex mesh confirmed; current roster wires only dwarf_warrior).",
+      "recruitment_binding": { "unit_id": "dwarf_mountain_dragon", "role": "Apex", "required_building_level": 1, "unit_status": "LOCAL RUNTIME-ASSET CHECK REQUIRED (apex pipeline unverified)" },
+      "manifestation_ref": "upper mountain exterior / custom perch composition (COMPOSITE)",
+      "status": "DESIGN PROPOSAL"
+    }
+  ],
+  "dag_validation": {
+    "note": "All prerequisites reference ids present in this tree; no cycles. Satisfies USoulSettlementScenarioData::ValidateDefinition (unique ids, prereqs present/non-self/non-repeated, DAG, MaxLevel>=1, BuildDays>=1, nonnegative costs, unique unlock ids per building).",
+    "roots": ["dwarf.kings_hall"],
+    "longest_chain": ["dwarf.kings_hall", "dwarf.stoneguard_hall", "dwarf.hammer_hall", "dwarf.kings_guard_hall", "dwarf.dragon_eyrie"]
+  },
+  "unknowns": [
+    "U-D1: /Game/DwarvenCitadel ownership not in Copperlight catalog (CONTRADICTION).",
+    "U-D2: proof authors dwarf.caravan_hall build_days=2 but lane founder-timing says civic service = normal (1). Needs founder decision.",
+    "U-D3: only dwarf_warrior is a wired strategic unit; dwarf_crossbow / dwarf_hammer_guard / dwarf_kings_guard / dwarf_mountain_dragon are roster proposals requiring a real unit id + mesh.",
+    "U-D4: 'ore' resource and dwarf Earth/Rune spell school are proposals with no current producer/tag."
+  ]
+}
