@@ -34,6 +34,9 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
         && PlayerStrategicCount > 0 && EnemyStrategicCount > 0
         && ActiveCapPerSide > 0 && ActiveCapPerSide <= 35
         && TacticalPlayerSide >= 0 && TacticalPlayerSide <= 1
+        && (NonPlayerHeroId.IsNone()?NonPlayerHeroFaction.IsNone():
+            (NonPlayerHeroId==TEXT("dwarf_king_commander") && NonPlayerHeroFaction==TEXT("dwarves")
+                && (PlayerFaction==NonPlayerHeroFaction||EnemyFaction==NonPlayerHeroFaction)))
         && PlayerMana >= 0
         && SupportsExactPair(PlayerFaction, PlayerUnitId, EnemyFaction, EnemyUnitId);
 }

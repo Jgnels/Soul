@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "buildings": [
+    {
+      "id": "human.tavern",
+      "name": "Tavern",
+      "days": 1,
+      "gold": 200,
+      "prerequisites": [
+        "human.keep"
+      ],
+      "unlocks": [
+        "service.tavern_hero"
+      ],
+      "max_level": 1
+    },
+    {
+      "id": "human.arcane_hall",
+      "name": "Arcane Hall",
+      "days": 1,
+      "gold": 300,
+      "prerequisites": [
+        "human.keep"
+      ],
+      "unlocks": [
+        "spell.frost"
+      ],
+      "max_level": 1
+    },
+    {
+      "id": "human.mage_academy",
+      "name": "Mage Academy",
+      "days": 2,
+      "gold": 600,
+      "prerequisites": [
+        "human.arcane_hall"
+      ],
+      "unlocks": [
+        "spell.water"
+      ],
+      "max_level": 1
+    },
+    {
+      "id": "human.high_conclave",
+      "name": "High Conclave",
+      "days": 3,
+      "gold": 900,
+      "prerequisites": [
+        "human.mage_academy"
+      ],
+      "unlocks": [
+        "spell.air"
+      ],
+      "max_level": 1
+    },
+    {
+      "id": "human.market",
+      "name": "Expanded Market",
+      "days": 2,
+      "gold": 400,
+      "prerequisites": [
+        "human.keep"
+      ],
+      "unlocks": [
+        "economy.market"
+      ],
+      "max_level": 2
+    },
+    {
+      "id": "human.barracks",
+      "name": "Veteran Barracks",
+      "days": 2,
+      "gold": 500,
+      "prerequisites": [
+        "human.keep"
+      ],
+      "unlocks": [
+        "recruitment.growth"
+      ],
+      "max_level": 2
+    }
+  ],
+  "hero_affinity": {
+    "hero_id": "human_founder_hero",
+    "primary": "Frost",
+    "secondary": [
+      "Water",
+      "Air"
+    ],
+    "forbidden": [
+      "Fire",
+      "Lightning"
+    ]
+  },
+  "spells": [
+    {
+      "id": "Magic.Spell.Ice.Blizzard",
+      "school": "Frost",
+      "building": "human.arcane_hall"
+    },
+    {
+      "id": "Magic.Spell.Water.TidalWard",
+      "school": "Water",
+      "building": "human.mage_academy"
+    },
+    {
+      "id": "Magic.Spell.Air.Tailwind",
+      "school": "Air",
+      "building": "human.high_conclave"
+    }
+  ],
+  "sites": [
+    {
+      "region": "crossroads",
+      "id": "heartland.windmill",
+      "name": "Crossroads Windmill",
+      "effect": "gold",
+      "amount": 100,
+      "cost_ap": 1
+    },
+    {
+      "region": "old_quarry",
+      "id": "heartland.quarry",
+      "name": "Old Quarry",
+      "effect": "gold",
+      "amount": 140,
+      "cost_ap": 1
+    },
+    {
+      "region": "ancient_shrine",
+      "id": "heartland.shrine",
+      "name": "Ancient Shrine",
+      "effect": "mana",
+      "amount": 20,
+      "cost_ap": 1
+    }
+  ],
+  "art_status": "Tavern uses existing native visible state. New guild/market/barracks levels are gameplay-only until approved authored groups are mapped. Site art is not admitted by this file."
+}

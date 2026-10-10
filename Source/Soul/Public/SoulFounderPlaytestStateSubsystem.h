@@ -7,6 +7,8 @@
 #include "SoulHero.h"
 #include "SoulMemory.h"
 #include "SoulWorld.h"
+#include "SoulHeartlandContent.h"
+#include "SoulSettlementEnvironmentRegistry.h"
 #include "SoulFounderPlaytestStateSubsystem.generated.h"
 
 // Ephemeral proposal only: never serialized and never campaign authority.
@@ -65,8 +67,10 @@ public:
     FSoulWorldState World;
     FSoulCommanderState EnemyCommander;
     FString LastAIReport, LastPersistenceReport;
+    int32 PendingSaveDay=0; FName PendingSaveRegion; // Receipt only; never gameplay authority.
     FSoulCampaignEconomy Economy;
     FSoulHeroState Hero;
+    FSoulHeroState DwarfCommander; // Heartland-only commander, persisted by the existing campaign domain.
     FName PlayerRegion, EnemyRegion;
     FName PlayerFaction = TEXT("humans"), EnemyFaction = TEXT("dwarves");
     FName PlayerUnitId = TEXT("human_knight"), EnemyUnitId = TEXT("dwarf_warrior");
@@ -82,6 +86,14 @@ public:
     static const TArray<FName>& HumanPlaytestRoster();
     FString BuildSummary() const;
     bool IsFourFactionAlpha() const { return bFourFactionAlpha; }
+    bool IsHeartlandEnabled() const { return bHeartlandEnabled; }
+    FSoulHeartlandContent HeartlandContent;
+    int32 HeartlandConstructionDay=0;
+    TMap<FName,int32> HeartlandSiteDays;
+    bool InteractHeartlandSite(FString& OutMessage);
+    void RefreshHeartlandSpellLearning();
+    void ConfigureHeartlandMagic(FSoulCampaignBattleDescriptor& Out) const;
+    bool ApplySettlementEnvironment(FSoulCampaignBattleDescriptor& Out,FString& Error) const;
     bool IsAlphaTurnActive() const { return bFourFactionAlpha && AlphaNextFaction<3; }
     bool IsAlphaActiveFaction(FName Id) const;
     FName FindOwnedRecruitmentDestination(FName Faction) const;
@@ -107,6 +119,8 @@ private:
     // Human state stays in the existing founder fields, never mirrored here.
     // All factions use this existing Soul.Campaign RBSave provider.
     bool bFourFactionAlpha = false;
+    bool bHeartlandEnabled = false;
+    TMap<FName,FSoulSettlementEnvironmentBinding> EnvironmentRegistry;
     int32 AlphaNextFaction = 3, AlphaSeed = 1701, AlphaTurnDay = 0;
     void InitializeFourFactionAlpha();
     void AppendAlphaBattleRecap(const FSoulCampaignBattleResult& Result);

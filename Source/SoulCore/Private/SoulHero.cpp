@@ -50,3 +50,19 @@ void FSoulHeroRules::RestoreMana(FSoulHeroState& Hero, int32 Amount)
 {
     Hero.Mana = FMath::Clamp(Hero.Mana + FMath::Max(0, Amount), 0, FMath::Max(0, Hero.MaxMana));
 }
+
+void FSoulHeroRules::ApplyBattleInjury(FSoulHeroState& Hero, bool Wounded, int32 ArmySurvivors, FName Opponent, FName Region)
+{
+    if(Hero.Condition==ESoulHeroCondition::Captured||(!Wounded&&Hero.Condition!=ESoulHeroCondition::Wounded))return;
+    if(Hero.Condition==ESoulHeroCondition::Wounded&&ArmySurvivors>0)return; // Do not restart an existing recovery clock.
+    Hero.Condition=ArmySurvivors>0?ESoulHeroCondition::Wounded:ESoulHeroCondition::Captured;
+    Hero.RecoveryDays=ArmySurvivors>0?3:0;
+    Hero.CaptorFaction=ArmySurvivors>0?NAME_None:Opponent;
+    Hero.CaptureRegion=ArmySurvivors>0?NAME_None:Region;
+}
+void FSoulHeroRules::AdvanceRecovery(FSoulHeroState& Hero)
+{
+    if(Hero.Condition!=ESoulHeroCondition::Wounded)return;
+    Hero.RecoveryDays=FMath::Max(0,Hero.RecoveryDays-1);
+    if(Hero.RecoveryDays==0)Hero.Condition=ESoulHeroCondition::Healthy;
+}

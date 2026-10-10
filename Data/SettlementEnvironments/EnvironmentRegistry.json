@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "policy": "Presentation only. SoulCore owns legal encounters and outcomes. Unset means unavailable, never a guessed environment.",
+  "entries": [
+    {
+      "settlement_id": "human_capital",
+      "faction": "humans",
+      "settlement_type": "capital",
+      "authored_environment_available": true,
+      "visit_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
+      "city_battle_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
+      "siege_environment": null,
+      "field_battle_environment": null,
+      "arena_origin": [
+        -9000,
+        21000,
+        400
+      ],
+      "development_profile": "/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof",
+      "battle_enabled": true,
+      "note": "Existing qualified land approach of complete city. Field combat; no full siege mechanics claimed."
+    },
+    {
+      "settlement_id": "dwarf_hold",
+      "faction": "dwarves",
+      "settlement_type": "hold",
+      "authored_environment_available": true,
+      "visit_environment": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+      "city_battle_environment": "/Game/Soul/Maps/Settlements/L_DwarfHold_Authored",
+      "siege_environment": null,
+      "field_battle_environment": null,
+      "arena_origin": null,
+      "development_profile": "/Game/Soul/Data/Settlements/DA_Soul_DwarfHold_DevelopmentProof",
+      "battle_enabled": false,
+      "note": "Preserved authored proof; Alpha approach admission unset."
+    }
+  ],
+  "encounter_classes": {
+    "settlement": "exact registered settlement first",
+    "bridge": null,
+    "ford_river": null,
+    "forest_woodland": null,
+    "mountain_pass": "existing dragon_pass recipe (provisional)",
+    "open_field": "existing admitted field fallback"
+  }
+}

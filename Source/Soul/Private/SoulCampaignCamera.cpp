@@ -2,6 +2,8 @@
 #include "Engine/World.h"
 #include "Camera/CameraComponent.h"
 #include "SoulCampaignWorldActor.h"
+#include "SoulFounderPlaytestCampaignActor.h"
+#include "EngineUtils.h"
 #include "SoulCampaignTerrain.h"
 #include "GameFramework/PlayerController.h"
 #include "InputCoreTypes.h"
@@ -30,9 +32,9 @@ float ASoulCampaignCamera::GetMinimumDistance() const {return SoulCampaignTerrai
 float ASoulCampaignCamera::GetMaximumDistance() const {return SoulCampaignTerrain::Composition()?22000.f:SoulCampaignTerrain::Mesa()?9000.f:MaxDistance;}
 float ASoulCampaignCamera::ViewPitch(float ViewDistance) const
 {
-    if(SoulCampaignTerrain::Composition())return ViewDistance<=18000.f?
+    if(SoulCampaignTerrain::Composition())return FMath::Clamp(InspectionPitchOffset+(ViewDistance<=18000.f?
         FMath::Lerp(40.f,78.f,FMath::Clamp((ViewDistance-1800.f)/50000.f,0.f,1.f)):
-        FMath::Lerp(52.312f,55.f,FMath::Clamp((ViewDistance-18000.f)/202000.f,0.f,1.f));
+        FMath::Lerp(52.312f,55.f,FMath::Clamp((ViewDistance-18000.f)/202000.f,0.f,1.f))),35.f,75.f);
     return SoulCampaignTerrain::Enabled()?FMath::Lerp(38.f,48.f,FMath::Clamp((ViewDistance-MinDistance)/3500.f,0.f,1.f)):48.f;
 }
 FBox2D ASoulCampaignCamera::RenderBounds(float ViewDistance) const
@@ -104,7 +106,7 @@ void ASoulCampaignCamera::Pan(FVector2D Direction, float DeltaSeconds)
     TargetFocus.Y = FMath::Clamp(TargetFocus.Y,-Bounds.Y,Bounds.Y);
 }
 void ASoulCampaignCamera::Orbit(float Direction, float DeltaSeconds)
-{ TargetYaw = FMath::Clamp(TargetYaw + Direction * DeltaSeconds * 40.f, -135.f, -45.f); }
+{ TargetYaw = SoulCampaignTerrain::Composition()?FRotator::NormalizeAxis(TargetYaw + Direction * DeltaSeconds * 40.f):FMath::Clamp(TargetYaw + Direction * DeltaSeconds * 40.f, -135.f, -45.f); }
 void ASoulCampaignCamera::Focus(FVector Location)
 {
     TargetFocus = FVector(Location.X/SoulCampaignTerrain::Scale(),Location.Y/SoulCampaignTerrain::Scale(),Location.Z/SoulCampaignTerrain::Scale()+100);
@@ -128,6 +130,12 @@ void ASoulCampaignCamera::Tick(float DeltaSeconds)
     const float Pitch=ViewPitch(Distance);
     if (auto* PC = GetWorld()->GetFirstPlayerController())
     {
+        if(SoulCampaignTerrain::Composition())
+        {
+            InspectionPitchOffset=FMath::Clamp(InspectionPitchOffset+((PC->IsInputKeyDown(EKeys::PageUp)?1.f:0.f)-(PC->IsInputKeyDown(EKeys::PageDown)?1.f:0.f))*25.f*FMath::Min(DeltaSeconds,.1f),-15.f,30.f);
+            if(PC->WasInputKeyJustPressed(EKeys::F))for(TActorIterator<ASoulFounderPlaytestCampaignActor> It(GetWorld());It;++It)
+                if(const FVector* P=ASoulCampaignWorldActor::Locations().Find(It->GetSelectedRegion())){Focus(*P);break;}
+        }
         FVector2D Input(0,0);
         Input.X = (PC->IsInputKeyDown(EKeys::D)?1.f:0.f) - (PC->IsInputKeyDown(EKeys::A)?1.f:0.f);
         Input.Y = (PC->IsInputKeyDown(EKeys::W)?1.f:0.f) - (PC->IsInputKeyDown(EKeys::S)?1.f:0.f);
@@ -158,7 +166,7 @@ void ASoulCampaignCamera::Tick(float DeltaSeconds)
     }
     FocusPoint = FMath::VInterpTo(FocusPoint,TargetFocus,DeltaSeconds,7.f);
     Distance = FMath::FInterpTo(Distance,TargetDistance,DeltaSeconds,7.f);
-    Yaw = FMath::FInterpTo(Yaw,TargetYaw,DeltaSeconds,7.f);
+    Yaw = FMath::RInterpTo(FRotator(0,Yaw,0),FRotator(0,TargetYaw,0),DeltaSeconds,7.f).Yaw;
     const FRotator View(-Pitch,Yaw,0);
     FVector Position = FocusPoint - View.Vector() * Distance;
     Position.Z = FMath::Max(Position.Z, ASoulCampaignWorldActor::HeightAt(Position.X*Scale,Position.Y*Scale)/Scale + 450.f);

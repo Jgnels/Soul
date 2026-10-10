@@ -19,5 +19,9 @@ def verify_manifest_presence(stage_receipt: Path, stage: Path):
         path=(stage/row['relative']).resolve()
         if not path.is_relative_to(stage) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=row['sha256']:
             raise ValueError('Additive cooked package changed or missing: '+row['relative'])
+    for row in receipt.get('admitted_project_data',[]):
+        count+=1;path=(stage/row['relative']).resolve()
+        if not path.is_relative_to(stage) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=row['sha256']:
+            raise ValueError('Admitted project data changed or missing: '+row['relative'])
     if not count:raise ValueError('Empty stage manifests')
     return count

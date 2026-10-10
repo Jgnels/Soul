@@ -42,8 +42,13 @@ void ASoulFounderPlaytestCampaignActor::BeginPlay()
     if(!State->LastBattleResult.EncounterId.IsNone())
     {
         const auto& Result=State->LastBattleResult;
-        LastMessage=FString::Printf(TEXT("%s at %s. %d soldiers remain. [Space] restores travel actions."),
-            State->IsSixFactionProfile()?(Result.bPlayerWon?TEXT("Attacker victory"):TEXT("Attacker defeat")):(Result.bPlayerWon?TEXT("Victory"):TEXT("Defeat")),*DisplayName(Result.TargetRegion),Result.PlayerSurvivors);
+        if(State->IsSixFactionProfile())
+            LastMessage=FString::Printf(TEXT("%s at %s. Survivors: %d attackers / %d defenders. Your company: %d."),
+                Result.bPlayerWon?TEXT("Attackers won"):TEXT("Defenders won"),*DisplayName(Result.TargetRegion),
+                Result.PlayerSurvivors,Result.EnemySurvivors,State->PlayerArmy.FindRef(State->PlayerUnitId));
+        else
+            LastMessage=FString::Printf(TEXT("%s at %s. %d soldiers remain. [Space] restores travel actions."),
+                Result.bPlayerWon?TEXT("Victory"):TEXT("Defeat"),*DisplayName(Result.TargetRegion),Result.PlayerSurvivors);
     }
     WorldPresentation = GetWorld()->SpawnActor<ASoulCampaignWorldActor>();
     WorldPresentation->Build(State);
@@ -319,7 +324,7 @@ void ASoulFounderPlaytestCampaignActor::BuildTavern()
 
 void ASoulFounderPlaytestCampaignActor::VisitSettlement()
 {
-    if (!State || !bTownPanelOpen || !State->IsSettlementDevelopmentEnabled()) return;
+    if (!State || !State->IsSettlementDevelopmentEnabled()) return;
     if (!ASoulSettlementVisitGameMode::CanVisit(State, LastMessage)) return;
     const FString Map = State->GetSettlementScenario()->OwnedEnvironmentMap.ToSoftObjectPath().GetLongPackageName();
     UGameplayStatics::OpenLevel(this, FName(*Map), true, TEXT("game=/Script/Soul.SoulSettlementVisitGameMode"));

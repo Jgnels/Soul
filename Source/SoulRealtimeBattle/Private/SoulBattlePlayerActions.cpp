@@ -71,6 +71,7 @@ FString ASoulRealtimeArenaGameMode::SpellBlockReason(int32 Slot,bool bAllowPause
 {
     const auto* Spell=BattleSpells.IsValidIndex(Slot) ? BattleSpells[Slot].Get() : nullptr;
     if(!Spell || Spell->bStrategicOnly) return TEXT("Spell unavailable");
+    if(bRestrictPlayerSpells&&!AllowedPlayerSpells.Contains(Spell->SpellTag.GetTagName()))return TEXT("Affinity / Mage Guild locked");
     if(bFinished) return TEXT("Battle resolved");
     if(PlayerHealth()<=0) return TEXT("Hero fallen");
     const float Cooldown=SpellCooldowns.FindRef(Spell->SpellTag.GetTagName());
@@ -113,6 +114,12 @@ void ASoulRealtimeArenaGameMode::SelectPlayerSpell(int32 Slot)
         TEXT("Tailwind ready: click battlefield to hasten your army. RMB cancels.");
     if(bBattlePaused) Status=TEXT("Spell readied. Resume [P], then click to cast. No mana spent.");
 }
+bool ASoulRealtimeArenaGameMode::IsUnitSelected(int32 I) const
+{
+    if(!Combatants.IsValidIndex(I)||Combatants[I].Side!=ControlledSide)return false;
+    const auto& U=Combatants[I];
+    return U.bPlayerHero?bHeroSelected:(!bHeroSelected&&(bSelectAllAllies||U.GroupIndex==SelectedAlliedFormation));
+}
 void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
 {
     if(bCampaignAutoResolve)return; // The Human observer cannot command either AI army.
@@ -133,6 +140,9 @@ void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
         return;
     }
     if(Action==TEXT("Pause")) { ToggleBattlePause(); return; }
+    if(Action==TEXT("Hero"))
+    { if(!bCampaignHeroAvailable){Status=TEXT("Hero unavailable: command your troops from the tactical view.");return;} bHeroSelected=true;bSelectAllAllies=false;SelectedAlliedFormation=INDEX_NONE;bPlaceFormationOrder=false;SelectedSpellSlot=INDEX_NONE;
+      if(bTacticalCameraActive)ToggleBattleCamera();Status=TEXT("HERO ONLY: WASD move | LMB sword attack | RMB block | C tactical view");return; }
     if(Action==TEXT("Camera")) { ToggleBattleCamera(); return; }
     if(Action==TEXT("View")) { ToggleFirstPersonCamera(); return; }
     if(Action==TEXT("Focus"))
@@ -164,7 +174,8 @@ void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
         if(bPlaceFormationOrder) { Status=TEXT("Choose clear ground for the formation waypoint."); return; }
         if(Combatants[I].Side==ControlledSide)
         {
-            bSelectAllAllies=false;
+            if(Combatants[I].bPlayerHero){HandleBattleAction(TEXT("Hero"));return;}
+            bHeroSelected=false;bSelectAllAllies=false;
             SelectedAlliedFormation=Combatants[I].GroupIndex;
             Status=TEXT("Formation selected. Choose Move, Hold, Advance, Charge or Fall back.");
         }
@@ -175,8 +186,8 @@ void ASoulRealtimeArenaGameMode::HandleBattleAction(FName Action)
     if(Name.StartsWith(TEXT("Formation"))) { SelectAlliedFormationSlot(FCString::Atoi(*Name.Mid(9))); return; }
     if(Name.StartsWith(TEXT("BookSpell"))) { SelectPlayerSpell(FCString::Atoi(*Name.Mid(9))); return; }
     if(Name.StartsWith(TEXT("Spell"))) { SelectPlayerSpell(FCString::Atoi(*Name.Mid(5))); return; }
-    if(Action==TEXT("Move")) { bPlaceFormationOrder=true; SelectedSpellSlot=INDEX_NONE; Status=TEXT("Click clear ground to move selected formations. RMB cancels."); return; }
-    if(Action==TEXT("All")) { bSelectAllAllies=true; SelectedAlliedFormation=INDEX_NONE; Status=TEXT("All allied formations selected"); return; }
+    if(Action==TEXT("Move")) { if(bHeroSelected){Status=TEXT("Hero selected: use WASD. Select a troop card to issue formation orders.");return;} bPlaceFormationOrder=true; SelectedSpellSlot=INDEX_NONE; Status=TEXT("Click clear ground to move selected formations. RMB cancels."); return; }
+    if(Action==TEXT("All")) { bHeroSelected=false;bSelectAllAllies=true; SelectedAlliedFormation=INDEX_NONE; Status=TEXT("All troops selected; hero excluded"); return; }
     if(Action==TEXT("AI")) { ReturnSelectedAlliesToAI(); return; }
     if(Action==TEXT("Hold")) CommandSelectedAllies(ERBHostGroupOrder::Hold);
     if(Action==TEXT("Advance")) CommandSelectedAllies(ERBHostGroupOrder::Advance);

@@ -47,6 +47,14 @@ bool FSoulFormationSelectionTest::RunTest(const FString&)
     Host->bFinished=true;
     Host->HandleGamepadAction(TEXT("NextFormation"));
     TestEqual(TEXT("Resolved battle rejects new controller combat actions"),Host->SelectedAlliedFormation,2);
+    Host->bFinished=false;
+    FSoulRealtimeArenaCombatant Hero;Hero.Side=0;Hero.Health=100;Hero.GroupIndex=1;Hero.bPlayerHero=true;Host->Combatants.Add(Hero);
+    Host->SelectAlliedFormationSlot(1);
+    TestTrue(TEXT("Troop selected"),Host->IsUnitSelected(1));
+    TestFalse(TEXT("Hero sharing group is not selected with troops"),Host->IsUnitSelected(3));
+    Host->HandleBattleAction(TEXT("All"));TestFalse(TEXT("All troops excludes hero"),Host->IsUnitSelected(3));
+    Host->HandleBattleAction(TEXT("Hero"));TestTrue(TEXT("Hero only selection"),Host->IsUnitSelected(3));
+    TestFalse(TEXT("Hero selection excludes troop"),Host->IsUnitSelected(1));
     World->DestroyWorld(false);
     return true;
 }

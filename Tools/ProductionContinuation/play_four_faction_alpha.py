@@ -9,6 +9,7 @@ SESSIONS = R / 'Saved/CompositionPlaytest/FourFactionAlpha/HumanSessions'
 CURRENT = SESSIONS / 'current-session.json'
 CONFIG = Path(__file__).with_name('four_faction_playtest.json')
 SLOT = Path('Saved/RBSave/Domains/Soul.Composition3500.FourFactionAlpha.domain.rbsave')
+HEARTLAND = False
 
 def current_session():
     if not CURRENT.is_file(): return None
@@ -43,7 +44,7 @@ def main():
     cap = args.playtest_fps or config['default_fps']
     if cap not in (30,40): raise ValueError('Playtest cap must be 30 or 40 FPS.')
     if not args.new and not args.resume:
-        print('\nSOUL - FOUR-FACTION HUMAN PLAYTEST')
+        print('\nSOUL - HUMAN HEARTLAND' if HEARTLAND else '\nSOUL - FOUR-FACTION HUMAN PLAYTEST')
         print('N: NEW campaign (keeps every older session)')
         print('C: CONTINUE current session from its last F5 save')
         print(f'FPS: {cap}. Target option: --playtest-fps 40; safe option: --playtest-fps 30.')
@@ -56,7 +57,7 @@ def main():
     user = choose_session(args.new)
     print('Verifying the current cooked build and campaign assets...', flush=True)
     plan = play_candidate.prepare(R/config['stage_receipt'],False,args.minutes,
-        alpha=True,evidence_root=E,playtest_fps=cap,user_directory=user,continue_campaign=args.resume)
+        alpha=True,heartland=HEARTLAND,evidence_root=E,playtest_fps=cap,user_directory=user,continue_campaign=args.resume)
     if args.dry_run:
         print(json.dumps(plan,indent=2)); return 0
     sys.path.insert(0,str(R/'Tools'))

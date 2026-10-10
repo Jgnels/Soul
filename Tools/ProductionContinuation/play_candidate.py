@@ -7,9 +7,10 @@ from stage_manifest import verify_manifest_presence
 R=Path(__file__).resolve().parents[2];E=R/'Evidence/ProductionContinuation-20261008'
 def digest(p):
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
-def prepare(stage_receipt:Path,human:bool,minutes:int,*,orc:bool=False,six:bool=False,viking:bool=False,alpha:bool=False,evidence_root:Path=E,playtest_fps:int|None=None,user_directory:Path|None=None,continue_campaign:bool=False):
+def prepare(stage_receipt:Path,human:bool,minutes:int,*,orc:bool=False,six:bool=False,viking:bool=False,alpha:bool=False,heartland:bool=False,evidence_root:Path=E,playtest_fps:int|None=None,user_directory:Path|None=None,continue_campaign:bool=False):
  evidence_root=evidence_root.resolve()
  if not evidence_root.is_relative_to((R/"Evidence").resolve()):raise ValueError("Evidence must remain inside the Soul workspace.")
+ if heartland and not alpha:raise ValueError('Heartland requires the existing FourFactionAlpha authority.')
  if sum([human,orc,six,viking,alpha])>1:raise ValueError("Choose only one isolated campaign profile.")
  if playtest_fps is not None and (not alpha or playtest_fps not in (30,40)):raise ValueError('Human playtest requires FourFactionAlpha and a 30 or 40 FPS cap.')
  if not 1<=minutes<=(120 if playtest_fps else 30):raise ValueError('Review duration is bounded; human playtest allows up to 120 minutes.')
@@ -20,6 +21,9 @@ def prepare(stage_receipt:Path,human:bool,minutes:int,*,orc:bool=False,six:bool=
  if not receipt.get('pass') or receipt.get('promotion') or receipt.get('archive_created'):raise ValueError('Require the verified local-only candidate stage.')
  stage=Path(receipt['stage'])/'Windows'
  manifest_files=verify_manifest_presence(stage_receipt,stage)
+ if heartland:
+  required={'Soul/Data/SettlementEnvironments/EnvironmentRegistry.json','Soul/Data/SettlementEnvironments/HeartlandDevelopment.json'}
+  if not required <= {row['relative'] for row in receipt.get('admitted_project_data',[])}:raise ValueError('This stage has not admitted Heartland data.')
  exe=stage/'Soul/Binaries/Win64/SoulComposition.exe'
  if digest(exe)!=receipt['binary_sha256']:raise ValueError('The staged executable differs from its verified build.')
  isolation_path=stage_receipt.parent/'isolation-verification.json'
@@ -40,9 +44,9 @@ def prepare(stage_receipt:Path,human:bool,minutes:int,*,orc:bool=False,six:bool=
    if digest(stage/row['relative'])!=row['sha256']:raise ValueError('Candidate cooked asset changed: '+row['relative'])
    checked+=1
  if not checked:raise ValueError('Candidate map/asset hashes were not found in the stage receipt.')
- profile='FourFactionAlpha' if alpha else 'SixFactionProof' if six else 'VikingProof' if viking else 'OrcProof' if orc else 'HumanProof' if human else 'Founder';user=R/'Saved/CompositionPlaytest'/profile
+ profile='HeartlandAlpha' if heartland else 'FourFactionAlpha' if alpha else 'SixFactionProof' if six else 'VikingProof' if viking else 'OrcProof' if orc else 'HumanProof' if human else 'Founder';user=R/'Saved/CompositionPlaytest'/profile
  if user_directory is not None:
-  user=user_directory.resolve();sessions=(R/'Saved/CompositionPlaytest/FourFactionAlpha/HumanSessions').resolve()
+  user=user_directory.resolve();sessions=(R/'Saved/CompositionPlaytest'/('HeartlandAlpha' if heartland else 'FourFactionAlpha')/'HumanSessions').resolve()
   if not alpha or not user.is_relative_to(sessions) or user==sessions:raise ValueError('Human sessions must stay inside their isolated session directory.')
  stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ');output=evidence_root/'Local'/('manual-play-'+profile.lower()+'-'+stamp)
  if output.exists():raise ValueError('Choose a fresh playtest timestamp.')
@@ -52,6 +56,7 @@ def prepare(stage_receipt:Path,human:bool,minutes:int,*,orc:bool=False,six:bool=
  if six:flags.append('-SoulSixFactionProof')
  if viking:flags.append('-SoulVikingMatchupProof')
  if alpha:flags.append('-SoulFourFactionAlpha')
+ if heartland:flags.append('-SoulHeartland')
  if continue_campaign:flags.append('-SoulContinueCampaign')
  if playtest_fps:flags.remove('-nosound')
  cap=playtest_fps or 20

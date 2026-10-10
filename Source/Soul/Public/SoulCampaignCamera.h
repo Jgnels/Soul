@@ -32,4 +32,5 @@ private:
     FVector FocusPoint = FVector(-1000,-250,100), TargetFocus = FocusPoint;
     float Distance = 7500.f, TargetDistance = Distance;
     float Yaw = -90.f, TargetYaw = Yaw;
+    float InspectionPitchOffset=0;
 };

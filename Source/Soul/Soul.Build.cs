@@ -40,6 +40,8 @@ public class Soul : ModuleRules
                 RuntimeDependencies.Add("$(EngineDir)/Plugins/Runtime/HDRIBackdrop/HDRIBackdrop.uplugin", StagedFileType.NonUFS);
                 foreach (string File in new[]
                 {
+                    "Data/SettlementEnvironments/EnvironmentRegistry.json",
+                    "Data/SettlementEnvironments/HeartlandDevelopment.json",
                     "Data/CampaignComposition/presentation.json",
                     "Data/CampaignComposition/RuntimeProof.json",
                     "Data/CampaignComposition/HumanRuntimeProof.json",

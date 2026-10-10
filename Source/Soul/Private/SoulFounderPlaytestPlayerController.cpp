@@ -126,8 +126,8 @@ void ASoulFounderPlaytestPlayerController::Number4() { if (auto* C = GetCampaign
 void ASoulFounderPlaytestPlayerController::Number5() { if (auto* C = GetCampaign()) C->HandleNumberKey(5); }
 void ASoulFounderPlaytestPlayerController::Number6() { if (auto* C = GetCampaign()) C->HandleNumberKey(6); }
 void ASoulFounderPlaytestPlayerController::Number7() { if (auto* C = GetCampaign()) C->HandleNumberKey(7); }
-void ASoulFounderPlaytestPlayerController::EndDay() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("EndDay")); else if (auto* C = GetCampaign()) C->EndDay(); }
-void ASoulFounderPlaytestPlayerController::ToggleTown() { if (auto* C = GetCampaign()) C->ToggleTownPanel(); }
+void ASoulFounderPlaytestPlayerController::EndDay() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) { if(V->bManagePanel)V->HandleAction(TEXT("EndDay")); } else if (auto* C = GetCampaign()) C->EndDay(); }
+void ASoulFounderPlaytestPlayerController::ToggleTown() { if(auto* V=GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>())V->HandleAction(TEXT("Manage"));else if (auto* C = GetCampaign()) C->ToggleTownPanel(); }
 void ASoulFounderPlaytestPlayerController::HireHero() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("Hire")); else if (auto* C = GetCampaign()) C->HireTavernHero(); }
 void ASoulFounderPlaytestPlayerController::BuildTavern() { if (auto* V = GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()) V->HandleAction(TEXT("BuildTavern")); else if (auto* C = GetCampaign()) C->BuildTavern(); }
 void ASoulFounderPlaytestPlayerController::VisitSettlement() { if (auto* C = GetCampaign()) C->VisitSettlement(); }

@@ -31,7 +31,7 @@ bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FNam
     if(bFourFactionAlpha && (!IsAlphaActiveFaction(Id) || (Hostile&&!IsAlphaActiveFaction(Destination->OwnerFactionId))))
         return Reject(TEXT("REJECT_ALPHA_PASSIVE_FACTION"));
     if(bFourFactionAlpha && Id==PlayerFaction && IsAlphaTurnActive())return Reject(TEXT("REJECT_AI_TURN_ACTIVE"));
-    const int32 Cost = !Hostile && Id == PlayerFaction && Hero.Skills.FindRef(TEXT("Adventure")) >= 2 ? 0 : 1;
+    const int32 Cost = !Hostile && Id == PlayerFaction && FSoulHeroRules::IsAvailable(Hero) && Hero.Skills.FindRef(TEXT("Adventure")) >= 2 ? 0 : 1;
     // Evaluate the same spend rule against a copy; admission never debits live state.
     auto Funds = F.Economy;
     if (!FSoulCampaignRules::SpendAction(Funds, Cost)) return Reject(TEXT("REJECT_INSUFFICIENT_AP"));
@@ -44,9 +44,12 @@ bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FNam
         // Earlier controlled qualification profiles keep their strict geography requirement.
         const bool AlphaFieldFallback=bFourFactionAlpha && Recipe && Recipe->bPlayable
             && Recipe->Id==TEXT("dragon_graveyard") && Recipe->MapPackage==BattleMap && Recipe->ArenaOrigin==BattleOrigin;
-        if (!Recipe || (!AlphaFieldFallback && !Recipe->Biomes.Contains(Encounter.BattleContext.Biome)
+        const auto* City=EnvironmentRegistry.Find(Target);
+        const bool RegisteredCity=bHeartlandEnabled&&City&&City->bBattleEnabled
+            &&Encounter.MapPackage==FName(*City->CityBattleEnvironment)&&Encounter.ArenaOrigin==City->ArenaOrigin;
+        if (!RegisteredCity && (!Recipe || (!AlphaFieldFallback && !Recipe->Biomes.Contains(Encounter.BattleContext.Biome)
             && !Recipe->Landforms.Contains(Encounter.BattleContext.Landform)
-            && !Recipe->Features.Contains(Encounter.BattleContext.Feature)))
+            && !Recipe->Features.Contains(Encounter.BattleContext.Feature))))
             return Reject(TEXT("REJECT_NO_GEOGRAPHIC_APPROACH"));
         if (!BattleBridge.IsValid() || BattleBridge->GetPendingEncounter())
             return Reject(TEXT("REJECT_BATTLE_BRIDGE_UNAVAILABLE"));
@@ -136,6 +139,8 @@ bool USoulFounderPlaytestStateSubsystem::BuildFactionBattleDescriptor(FName Id, 
     { Out.TacticalPlayerSide=1; Out.PlayerMana=Hero.Mana; }
     Out.ActiveCapPerSide=ActiveCapPerSide;Out.EncounterOrdinal=EncounterOrdinal+1;
     Out.EncounterId=FName(*FString::Printf(TEXT("encounter.%d.%d.%s.%s"),Attacker.Economy.Day,Out.EncounterOrdinal,*Out.SourceRegion.ToString(),*Target.ToString()));
+    if(!ApplySettlementEnvironment(Out,Error))return false;
+    ConfigureHeartlandMagic(Out);
     if (!Out.IsValid()) { Error=TEXT("REJECT_INVALID_EXACT_DESCRIPTOR"); return false; }
     Error.Reset();return true;
 }

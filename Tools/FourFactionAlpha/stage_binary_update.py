@@ -15,6 +15,7 @@ def digest(path):
 
 p=argparse.ArgumentParser();p.add_argument('--prior',type=Path,required=True);p.add_argument('--evidence-root',type=Path,required=True);p.add_argument('--run',required=True)
 p.add_argument('--compress-executable',action='store_true',help='Lossless NTFS compression of only the new private executable; retain the 8 GiB reserve.')
+p.add_argument('--heartland-data',action='store_true',help='Explicitly admit the two reviewed Heartland JSON definitions; no cooked assets or config changes.')
 a=p.parse_args()
 E=a.evidence_root.resolve();prior=a.prior.resolve()
 assert E.is_relative_to(R/'Evidence') and prior.is_relative_to(R/'Evidence')
@@ -30,6 +31,8 @@ target=json.loads(target_path.read_text(encoding='utf-8-sig'))
 profile=R/'Data/CampaignComposition/PackageProfile.json'
 assert digest(profile)==old['cook_profile_compatibility']['current_profile_sha256'],'Asset/data boundary changed; use normal staging/cook admission'
 assert all(digest(R/name)==value for name,value in old['config_before'].items()),'Source configuration differs from the verified sanitized stage'
+admitted_data={}
+heartland_paths={'Data/SettlementEnvironments/EnvironmentRegistry.json','Data/SettlementEnvironments/HeartlandDevelopment.json'} if a.heartland_data else set()
 checked=0
 for row in target['BuildProducts']+target['RuntimeDependencies']:
  if row.get('Type') not in {'DynamicLibrary','NonUFS'}:continue
@@ -39,9 +42,14 @@ for row in target['BuildProducts']+target['RuntimeDependencies']:
  elif path.startswith('$(EngineDir)/'):
   tail=path[len('$(EngineDir)/'):];relative=Path('Engine')/tail;source=Path('C:/Program Files/Epic Games/UE_5.8/Engine')/tail
  else:raise ValueError('Unrecognized runtime dependency root')
+ if path.startswith('$(ProjectDir)/') and path[len('$(ProjectDir)/'):] in heartland_paths:
+  assert source.is_file();content=json.loads(source.read_text());assert content['schema']==1
+  admitted_data[relative.as_posix()]={'relative':relative.as_posix(),'source':str(source.relative_to(R)),'sha256':digest(source)}
+  continue
  assert source.is_file() and (oldroot/relative).is_file(),str(relative)
  assert digest(source)==digest(oldroot/relative),'Runtime dependency changed: '+str(relative)
  checked+=1
+assert len(admitted_data)==len(heartland_paths),'All requested data must be in the fresh target receipt'
 base=json.loads((prior.parent/'prelinked-cooked-files.json').read_text())
 for row in base:assert digest(oldroot/row['relative'])==row['sha256'],row['relative']
 out=E/'Local'/a.run;assert not out.exists();out.mkdir(parents=True)
@@ -80,6 +88,18 @@ for source in files:
 for kind in ['UFS','NonUFS']:
  name='Manifest_'+kind+'Files_Win64.txt';shutil.copy2(prior.parent/'UAT'/name,diagnostics/'UAT'/name)
 shutil.copy2(prior.parent/'prelinked-cooked-files.json',diagnostics/'prelinked-cooked-files.json')
+for row in admitted_data.values():
+ to=dest/row['relative'];to.parent.mkdir(parents=True,exist_ok=True)
+ assert to.resolve().is_relative_to(dest.resolve()) and (not to.exists() or to.suffix=='.json')
+ shutil.copy2(R/row['source'],to);assert digest(to)==row['sha256']
+manifest=diagnostics/'UAT/Manifest_NonUFSFiles_Win64.txt'
+if admitted_data:
+ lines=manifest.read_text(encoding='utf-8-sig').splitlines()
+ names={line.split('\t')[0].replace('\\','/') for line in lines}
+ for row in admitted_data.values():
+  if row['relative'] not in names:lines.append(row['relative']+'\t'+datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S'))
+ manifest.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+
 receipt=dict(old)
 receipt.update(stage=str(stage),stage_root=str(stage_root),stage_kind='loose_verified_payload_fresh_binary_local_only',
  prior_stage_receipt=str(prior),binary_sha256=binary,started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -89,6 +109,7 @@ receipt.update(stage=str(stage),stage_root=str(stage_root),stage_kind='loose_ver
  promotion=False,archive_created=False,packaged_runtime_qualified=False,
  prior_executable_preserved=digest(oldroot/exe_relative)==old['binary_sha256'],
  fresh_executable_matches=digest(dest/exe_relative)==binary,external_remover_diagnosed=False)
+receipt['admitted_project_data']=list(admitted_data.values())
 receipt['durable_stage_outside_temp']=True
 receipt['private_executable_compression']=compression
 receipt['pass']=False

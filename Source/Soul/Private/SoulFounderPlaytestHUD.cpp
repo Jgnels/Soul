@@ -65,11 +65,33 @@ void ASoulFounderPlaytestHUD::DrawHUD()
             :S->IsTavernOperational()?TEXT("Companion hiring is available."):TEXT("Complete construction to unlock companion hiring.");
         UI.FitText(Progress,AtX,AtY+46,Width,Muted);
     };
+    auto HeartlandDevelopment=[&]()
+    {
+        if(!S->IsHeartlandEnabled()||!S->IsSettlementDevelopmentReady())return;
+        const auto* Scenario=S->GetSettlementScenario();const auto* Authority=GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>();const auto* Town=Authority->FindSettlement(Scenario->SettlementId);
+        const float Left=W-475;Panel(Left,108,447,415);Text(TEXT("HEARTLAND DEVELOPMENT"),Left+15,121,Gold);
+        int32 Row=0;for(const auto& D:Scenario->DevelopmentDefinitions)
+        {
+            const auto* B=Town?Town->Buildings.Find(D.BuildingId):nullptr;
+            const FString Label=FString::Printf(TEXT("%s | %dg / %dd | %s"),*D.DisplayName.ToString(),D.BuildCost.FindRef(TEXT("gold")),D.BuildDays,B&&B->Condition==ESoulBuildingCondition::Building?*FString::Printf(TEXT("%dd left"),B->ConstructionDaysRemaining):B&&B->Level>=D.MaxLevel?TEXT("complete"):TEXT("build"));
+            Button(FName(*(TEXT("Develop:")+D.BuildingId.ToString())),Label,Left+15,154+Row*43,417);
+            const TCHAR* Effect=D.BuildingId==TEXT("human.arcane_hall")?TEXT("Learns Frost Blizzard"):
+                D.BuildingId==TEXT("human.mage_academy")?TEXT("Learns Water Ward / requires Arcane Hall"):
+                D.BuildingId==TEXT("human.high_conclave")?TEXT("Learns Air Tailwind / requires Mage Academy"):
+                D.BuildingId==TEXT("human.market")?TEXT("+100 gold each day"):
+                D.BuildingId==TEXT("human.barracks")?TEXT("+2 weekly recruit stock, up to the existing cap"):
+                TEXT("Unlocks paid companion hiring");
+            UI.FitText(Effect,Left+20,183+Row*43,407,Muted,.75f);++Row;
+        }
+        Wrapped(TEXT("Aurora: Frost primary; Water / Air secondary. Fire / Lightning forbidden. Guild completion teaches existing spells. New building visuals pending."),Left+15,425,417,Muted,4);
+    };
     if(Visit)
     {
         Panel(14,12,W-28,60);Text(TEXT("SETTLEMENT VISIT"),28,24,Gold,1.3f);
         Text(FString::Printf(TEXT("DAY %d   GOLD %d"),S->Economy.Day,S->Economy.Resources.FindRef(TEXT("gold"))),300,30,Ink);
-        Panel(28,108,500,340);Development(45,126,465);
+        if(Visit->bManagePanel||!Visit->IsWalking())
+        {
+        Panel(28,108,500,380);Development(45,126,465);HeartlandDevelopment();
         if(Visit->IsVisitReady())
         {
             Button(TEXT("BuildTavern"),TEXT("[U] Build ")+S->GetDevelopmentBuildingName(),45,212,465);
@@ -78,7 +100,10 @@ void ASoulFounderPlaytestHUD::DrawHUD()
             else Text(S->bSecondHeroHired?TEXT("Tavern companion hired"):TEXT("Companion hiring locked"),45,290,Muted);
             Button(TEXT("Save"),TEXT("[F5] Save"),45,327,224);Button(TEXT("Load"),TEXT("[F9] Load"),282,327,228);
         }
-        Button(TEXT("Return"),TEXT("[Esc] Return to campaign"),45,394,465);
+        Button(TEXT("Recruit"),TEXT("Recruit Eastern Knight / paid weekly pool"),45,364,465);
+        Button(TEXT("Return"),TEXT("[Esc] Return to campaign"),45,425,465);
+        }
+        else {Button(TEXT("Manage"),TEXT("[Tab] Manage settlement"),28,84,270);}
         Panel(14,H-98,W-28,84);Wrapped(Visit->LastMessage,28,H-86,W-56,Ink,2);
         if(!S->LastPersistenceReport.IsEmpty())Wrapped(S->LastPersistenceReport,28,H-45,W-56,Muted,1);
         return;
@@ -147,10 +172,27 @@ void ASoulFounderPlaytestHUD::DrawHUD()
         else Button(TEXT("Town"),TEXT("Settlement services  [T]"),X+15,237,282);
     }
     else Button(TEXT("Focus"),TEXT("Select your army  [Home]"),X+15,237,282);
+    if(!C->IsTownPanelOpen()&&!C->IsFactionInspection()&&S->PlayerRegion==S->GetDevelopmentRegion())
+    {
+        FString Why;if(ASoulSettlementVisitGameMode::CanVisit(S,Why))
+        {Panel(X,300,312,85);Button(TEXT("VisitSettlement"),TEXT("[V] Enter and walk around city"),X+15,310,282);Button(TEXT("TownDirect"),TEXT("[T] Manage / recruit"),X+15,348,282);}
+    }
+    if(S->IsHeartlandEnabled()&&!C->IsTownPanelOpen())
+        if(const auto* Site=S->HeartlandContent.Sites.FindByPredicate([&](const auto& A){return A.Region==S->PlayerRegion;}))
+        {
+            Panel(X,405,312,80);UI.FitText(Site->Name,X+15,417,282,Gold);
+            if(S->HeartlandSiteDays.FindRef(Site->Id)==S->Economy.Day)
+                UI.FitText(TEXT("Collected today; available tomorrow"),X+15,447,282,Muted);
+            else Button(TEXT("WorkSite"),FString::Printf(TEXT("Collect +%d %s / %d move"),Site->Amount,*Site->Effect.ToString(),Site->ActionCost),X+15,445,282);
+        }
+    if(S->IsHeartlandEnabled()&&S->Hero.Condition!=ESoulHeroCondition::Healthy)
+    {Panel(28,510,600,65);Wrapped(S->Hero.Condition==ESoulHeroCondition::Captured
+        ?FString::Printf(TEXT("Aurora CAPTURED by %s at %s. Unavailable; rescue/ransom not implemented."),*S->Hero.CaptorFaction.ToString(),*C->DisplayName(S->Hero.CaptureRegion))
+        :FString::Printf(TEXT("Aurora WOUNDED: %d days recovery. No hero bonuses, magic, siege or diplomacy."),S->Hero.RecoveryDays),43,521,565,Gold,3);}
     Panel(14,H-85,W-28,42);
     Wrapped(C->LastMessage,28,H-74,W-56,Ink,2);
     Rect(14,H-36,W-28,28,Back);
-    Text(TEXT("[HOME] select army  /  Click highlighted destination  /  [SPACE] next day  /  WASD pan  /  Wheel zoom  /  [T] town  /  [B] battle"),24,H-28,Muted);
+    Text(TEXT("Home army / F selected focus / Q E orbit / PgUp Dn pitch / Wheel zoom / T manage / V visit / Space next day"),24,H-28,Muted);
     if(!S->LastPersistenceReport.IsEmpty()) { Rect(14,77,640,27,Back);Text(S->LastPersistenceReport.Replace(TEXT(" with RB Save"),TEXT("")),28,84,Muted); }
     if(S->PlayerArmy.FindRef(S->PlayerUnitId)==0&&!C->IsTownPanelOpen())
     {
@@ -160,10 +202,11 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     if(!S->LastBattleResult.EncounterId.IsNone())
     {
         const auto& R=S->LastBattleResult;
-        Panel(X,305,312,83);
-        Text(S->IsSixFactionProfile()?(R.bPlayerWon?TEXT("ATTACKERS WON"):TEXT("DEFENDERS WON")):(R.bPlayerWon?TEXT("VICTORY"):TEXT("DEFEAT")),X+15,319,Gold);
-        Text(C->DisplayName(R.TargetRegion),X+15,341,Ink);
-        Text(FString::Printf(TEXT("Survivors: %d %s / %d %s"),R.PlayerSurvivors,S->IsSixFactionProfile()?TEXT("attackers"):TEXT("allied"),R.EnemySurvivors,S->IsSixFactionProfile()?TEXT("defenders"):TEXT("hostile")),X+15,363,Muted);
+        const float ResultY=S->IsHeartlandEnabled()&&S->PlayerRegion==S->GetDevelopmentRegion()?398.f:305.f;
+        Panel(X,ResultY,312,83);
+        Text(S->IsSixFactionProfile()?(R.bPlayerWon?TEXT("ATTACKERS WON"):TEXT("DEFENDERS WON")):(R.bPlayerWon?TEXT("VICTORY"):TEXT("DEFEAT")),X+15,ResultY+14,Gold);
+        Text(C->DisplayName(R.TargetRegion),X+15,ResultY+36,Ink);
+        Text(FString::Printf(TEXT("Survivors: %d %s / %d %s"),R.PlayerSurvivors,S->IsSixFactionProfile()?TEXT("attackers"):TEXT("allied"),R.EnemySurvivors,S->IsSixFactionProfile()?TEXT("defenders"):TEXT("hostile")),X+15,ResultY+58,Muted);
     }
     if(C->IsSkillChoiceOpen())
     {
@@ -181,6 +224,7 @@ void ASoulFounderPlaytestHUD::DrawHUD()
     }
     if(C->IsTownPanelOpen())
     {
+        HeartlandDevelopment();
         const auto& Roster=USoulFounderPlaytestStateSubsystem::HumanPlaytestRoster();
         const int32 RecruitCount=S->PlayerRegion==TEXT("human_capital")?Roster.Num():0;
         const float TavernY=190.f+RecruitCount*31.f;
@@ -214,8 +258,10 @@ void ASoulFounderPlaytestHUD::NotifyHitBoxClick(FName BoxName)
     Super::NotifyHitBoxClick(BoxName);
     if(auto* Visit=GetWorld()->GetAuthGameMode<ASoulSettlementVisitGameMode>()){Visit->HandleAction(BoxName);return;}
     auto* C=FindCampaign(GetWorld());if(!C)return;
+    if(BoxName==TEXT("WorkSite")){C->GetState()->InteractHeartlandSite(C->LastMessage);return;}
+    if(BoxName.ToString().StartsWith(TEXT("Develop:"))){C->GetState()->BeginSettlementConstruction(FName(*BoxName.ToString().Mid(8)),C->LastMessage);return;}
     if(BoxName==TEXT("EndDay")||BoxName==TEXT("BattleRest"))C->EndDay();
-    else if(BoxName==TEXT("Town"))C->ToggleTownPanel();
+    else if(BoxName==TEXT("Town")||BoxName==TEXT("TownDirect"))C->ToggleTownPanel();
     else if(BoxName==TEXT("Battle"))C->StartBattle();
     else if(BoxName==TEXT("Hire"))C->HireTavernHero();
     else if(BoxName==TEXT("BuildTavern"))C->BuildTavern();

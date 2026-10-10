@@ -41,6 +41,20 @@ class ReviewLaunchBoundary(unittest.TestCase):
    self.assertNotIn('--ue-arg=-SoulAlphaQualification',plan['command'])
   for args in [dict(six=True,viking=True),dict(six=True,orc=True),dict(viking=True,human=True),dict(alpha=True,six=True)]:
    with self.assertRaises(ValueError):self.plan(**args)
+ def test_heartland_requires_admitted_data_and_separate_session(self):
+  with self.assertRaisesRegex(ValueError,'Heartland data'):self.plan(alpha=True,heartland=True)
+  d=json.loads(self.receipt.read_text());d['admitted_project_data']=[]
+  for name in ['EnvironmentRegistry','HeartlandDevelopment']:
+   relative='Soul/Data/SettlementEnvironments/'+name+'.json';path=self.file(relative,b'{"schema":1}')
+   d['admitted_project_data'].append({'relative':relative,'sha256':launch.digest(path)})
+  self.receipt.write_text(json.dumps(d))
+  user=self.root/'Saved/CompositionPlaytest/HeartlandAlpha/HumanSessions/Jeff-test'
+  plan=self.plan(alpha=True,heartland=True,playtest_fps=30,user_directory=user)
+  self.assertEqual(plan['save_slot'],'Soul.Composition3500.HeartlandAlpha')
+  self.assertIn('--ue-arg=-SoulHeartland',plan['command']);self.assertFalse(plan['automatic_inputs'])
+  with self.assertRaisesRegex(ValueError,'isolated session'):self.plan(alpha=True,heartland=True,user_directory=self.root/'Saved/CompositionPlaytest/FourFactionAlpha/HumanSessions/old')
+  self.file('Soul/Data/SettlementEnvironments/HeartlandDevelopment.json',b'changed')
+  with self.assertRaisesRegex(ValueError,'project data changed'):self.plan(alpha=True,heartland=True)
  def test_binary_change_rejected(self):
   self.file('Soul/Binaries/Win64/SoulComposition.exe',b'different')
   with self.assertRaisesRegex(ValueError,'executable'):self.plan()

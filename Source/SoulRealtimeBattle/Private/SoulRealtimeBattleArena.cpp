@@ -764,6 +764,8 @@ bool ASoulRealtimeArenaGameMode::CanCastMagic(
     FString& OutError) const
 {
     OutError.Reset();
+    if(bRestrictPlayerSpells&&!AllowedPlayerSpells.Contains(Spell.SpellTag.GetTagName()))
+    {OutError=TEXT("Spell unavailable to this hero: affinity or Mage Guild learning required.");return false;}
     if(!Request.CastId.IsValid() || CommittedMagicCasts.Contains(Request.CastId))
     { OutError=TEXT("Cast identity is invalid or already committed."); return false; }
     if (bFinished || bBattlePaused || !PlayerHero || Spell.bStrategicOnly)
@@ -1241,6 +1243,8 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             bCampaignAutoResolve = Encounter->bAutoResolve;
             bAutobattle = bAutobattle || Encounter->bAutoResolve;
             PlayerMana = static_cast<float>(Encounter->PlayerMana);
+            bCampaignHeroAvailable=Encounter->bPlayerHeroAvailable;NonPlayerHeroId=Encounter->NonPlayerHeroId;NonPlayerHeroFaction=Encounter->NonPlayerHeroFaction;
+            bRestrictPlayerSpells=Encounter->bRestrictPlayerSpells;AllowedPlayerSpells=Encounter->AllowedPlayerSpells;
             // Automatic casting belongs to explicit qualification. Normal play
             // uses the existing [1] input and must not spend mana on its own.
             bTacticalMagic = bTacticalMagic || bQualification;
@@ -1332,7 +1336,7 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
         ToggleBattleCamera();
         Status = TEXT("DEPLOYMENT PAUSED - click a formation and an order, then Resume");
     }
-    if (bAutobattle || !PlayerHero) SetupBattleCamera();
+    if (bAutobattle || !PlayerHero) {SetupBattleCamera();if(!bAutobattle&&!PlayerHero)bTacticalCameraActive=true;}
     UE_LOG(LogTemp, Display,
         TEXT("SOUL_RT_ARENA_SETUP: actors=%d groups=%d proof=%d external=%d visuals=%d origin=%s"),
         Combatants.Num(), Groups.Num(), bProof,
@@ -1591,8 +1595,10 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
         // Reserve one existing active slot for the player even in small armies.
         // A separate command formation is optional; an embodied camera is not.
         const bool bPlayer =
-            !bProof && !bAutobattle && Side == ControlledSide && !PlayerHero && I == 0;
+            !bProof && !bAutobattle && bCampaignHeroAvailable && Side == ControlledSide && !PlayerHero && I == 0;
         if (bPlayer) MemberRole = ESoulRealtimeFormationRole::Hero;
+        else if(!NonPlayerHeroId.IsNone()&&CampaignFactionForSide(Side)==NonPlayerHeroFaction
+            &&!Combatants.ContainsByPredicate([](const auto& C){return C.bNonPlayerHero;}))MemberRole=ESoulRealtimeFormationRole::Hero;
         if (!SpawnCombatant(
                 Side, MemberRole, GroupIndex, Location, bPlayer))
             return false;
@@ -2044,6 +2050,7 @@ bool ASoulRealtimeArenaGameMode::UsesVikingCampaignRoster(int32 Side) const
 }
 ESoulRealtimeFormationRole ASoulRealtimeArenaGameMode::CampaignFormationRole(int32 Side,ESoulRealtimeFormationRole Requested) const
 {
+    if(Requested==ESoulRealtimeFormationRole::Hero&&NonPlayerHeroId==TEXT("dwarf_king_commander")&&CampaignFactionForSide(Side)==NonPlayerHeroFaction)return Requested;
     if (!bAutobattle && ControlledSide==1 && Side==ControlledSide && Requested==ESoulRealtimeFormationRole::Hero && CampaignFactionForSide(Side)==TEXT("humans")) return Requested;
     return (UsesControlledExactInfantry()||UsesOrcCampaignRoster(Side)||UsesVikingCampaignRoster(Side)||UsesNatureCampaignRoster(Side))?ESoulRealtimeFormationRole::Line:Requested;
 }
@@ -2096,6 +2103,7 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     Data.GroupIndex = GroupIndex;
     Data.bRanged = FormationRole == ESoulRealtimeFormationRole::Ranged;
     Data.bPlayerHero = bPlayer;
+    Data.bNonPlayerHero=!bPlayer&&FormationRole==ESoulRealtimeFormationRole::Hero&&!NonPlayerHeroId.IsNone()&&CampaignFactionForSide(Side)==NonPlayerHeroFaction;
     Data.Movement = ResolveMovementArchetype(Side, FormationRole);
     const int32 NewIndex = Combatants.Add(Data);
 
@@ -2230,7 +2238,8 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
         Visual->RefreshBoneTransforms();
         Visual->UpdateComponentToWorld();
         EquipVisualWeapons(Actor, Side, FormationRole);
-        if (bCampaignBattle)
+        if(Data.bNonPlayerHero)UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_COMMANDER id=%s faction=%s mesh=%s idle=%s role=Hero uses_existing_slot=1"),*NonPlayerHeroId.ToString(),*NonPlayerHeroFaction.ToString(),*Mesh->GetPathName(),*Idle->GetPathName());
+        if (bCampaignBattle && !Data.bNonPlayerHero)
             UE_LOG(LogTemp,Display,TEXT("SOUL_EXACT_ROSTER_BODY side=%d faction=%s unit=%s index=%d mesh=%s role=%s health=%.1f"),
                 Side,*CampaignFactionForSide(Side).ToString(),*CampaignUnitForSide(Side).ToString(),NewIndex,*Mesh->GetPathName(),*RoleLabel(FormationRole),Data.Health);
         if(UsesVikingCampaignRoster(Side))
@@ -2849,6 +2858,11 @@ bool ASoulRealtimeArenaGameMode::CommitMeleeImpact(
     const bool bAccepted = VictimBinding->ReceiveProducedImpact(
         Evidence, Hit, Direction, Attacker, Error);
     AttackerBinding->EndNativeAttackContact();
+    if(bAccepted && AttackerData.bPlayerHero && FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification")))
+    {
+        UE_LOG(LogTemp,Display,TEXT("SOUL_HEARTLAND_HERO_MELEE accepted=1 authority=RBCombat attacker=%s victim=%s"),*GetNameSafe(Attacker),*GetNameSafe(HitActor));
+        FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Heartland_Hero_Melee.png"),true,false);
+    }
     if (bAccepted && !bProof)
     {
         Status = FString::Printf(
@@ -2861,6 +2875,7 @@ bool ASoulRealtimeArenaGameMode::CommitMeleeImpact(
 
 void ASoulRealtimeArenaGameMode::SelectNextAlliedFormation()
 {
+    bHeroSelected=false;
     TArray<int32> AlliedGroups;
     for (const FSoulBattleFormationState& State : TacticalFormations)
         if (State.Side == ControlledSide && AliveInGroup(State.GroupIndex) > 0)
@@ -2895,6 +2910,7 @@ void ASoulRealtimeArenaGameMode::SelectNextAlliedFormation()
 
 void ASoulRealtimeArenaGameMode::SelectAlliedFormationSlot(int32 Slot)
 {
+    bHeroSelected=false;
     int32 CurrentSlot = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
     {
@@ -2998,6 +3014,7 @@ void ASoulRealtimeArenaGameMode::ToggleFirstPersonCamera()
 void ASoulRealtimeArenaGameMode::CommandSelectedAllies(
     ERBHostGroupOrder Order)
 {
+    if(bHeroSelected){Status=TEXT("Hero selected: WASD controls the hero. Select a formation first.");return;}
     int32 Changed = 0;
     int32 Eligible = 0;
     for (const FSoulBattleFormationState& State : TacticalFormations)
@@ -3447,7 +3464,6 @@ void ASoulRealtimeArenaGameMode::TickMagic(float Seconds)
 
 void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
 {
-    if (!PlayerHero) return;
     APlayerController* PC = GetWorld()->GetFirstPlayerController();
     if (!PC) return;
 
@@ -3505,6 +3521,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
     if (bTacticalCameraActive && PC->IsInputKeyDown(EKeys::LeftShift) &&
         !OverUI && PC->WasInputKeyJustPressed(EKeys::RightMouseButton)) MoveSelectedToPointer();
 
+    if (PC->WasInputKeyJustPressed(EKeys::J))HandleBattleAction(TEXT("Hero"));
     if (PC->WasInputKeyJustPressed(EKeys::C))
         ToggleBattleCamera();
     if (PC->WasInputKeyJustPressed(EKeys::X))
@@ -3559,6 +3576,7 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
         CameraPosition.Z = FMath::Max(CameraPosition.Z, ResolveSpawnLocation(CameraPosition).Z + 180.0);
         TacticalCamera->SetActorLocationAndRotation(CameraPosition, TacticalRotation);
     }
+    if(!PlayerHero)return; // Formation commands/camera above remain available when the commander is wounded/captured.
     const FRotator YawRotation(
         0, PC->GetControlRotation().Yaw, 0);
     const FVector Forward =
@@ -4348,6 +4366,8 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         Result.EnemyReinforcements = ReinforcementWaves[1];
         Result.MagicCasts = MagicCasts;
         Result.PlayerManaRemaining = FMath::FloorToInt(FMath::Max(0.0f, PlayerMana));
+        Result.bNonPlayerHeroWounded=Combatants.ContainsByPredicate([](const auto& C){return C.bNonPlayerHero&&C.Health<=0;});
+        Result.bTacticalHeroWounded=!Pending->bAutoResolve&&Pending->bPlayerHeroAvailable&&PlayerHealth()<=0.f;
         if (!Bridge->ResolveEncounter(Result)) { FinishProof(false, TEXT("Campaign rejected battle result")); return; }
         bFinished = true;
         if (Spatial) Spatial->Shutdown();

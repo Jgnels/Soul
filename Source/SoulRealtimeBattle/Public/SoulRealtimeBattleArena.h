@@ -73,6 +73,7 @@ struct FSoulRealtimeArenaCombatant
     FName FormationId;
     bool bRanged = false;
     bool bPlayerHero = false;
+    bool bNonPlayerHero = false;
     float MeleeCooldown = 0.0f;
     float PendingMeleeSeconds = 0.0f;
     FRBHostIdentity PendingMeleeTarget;
@@ -308,6 +309,10 @@ private:
     bool bQualification = false;
     bool bTacticalMagic = false;
     bool bCampaignBattle = false;
+    bool bCampaignHeroAvailable=true;
+    FName NonPlayerHeroId,NonPlayerHeroFaction;
+    bool bRestrictPlayerSpells=false;
+    TSet<FName> AllowedPlayerSpells;
     int32 ActiveCap = 5;
     int32 StrategicBodies[2] = {5, 5};
     float BattleElapsed = 0.0f;
@@ -320,6 +325,8 @@ private:
     ESoulBattlePhase BattlePhase = ESoulBattlePhase::Deployment;
     int32 SelectedAlliedFormation = INDEX_NONE;
     bool bSelectAllAllies = true;
+    bool bHeroSelected = false;
+    bool IsUnitSelected(int32 Index) const;
     bool bBattlePaused = false;
     bool bControlDiagnostics = false;
     bool bReadabilityProof = false;

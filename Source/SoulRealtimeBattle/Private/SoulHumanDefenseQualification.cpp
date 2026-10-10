@@ -7,6 +7,8 @@
 #include "Misc/Parse.h"
 #include "Misc/Paths.h"
 #include "UnrealClient.h"
+#include "GameFramework/PlayerController.h"
+#include "InputKeyEventArgs.h"
 
 // Qualification drives the same command handlers as the tactical HUD. Never changes damage/results.
 void ASoulRealtimeArenaGameMode::TickHumanDefenseQualification()
@@ -20,6 +22,26 @@ void ASoulRealtimeArenaGameMode::TickHumanDefenseQualification()
         UE_LOG(LogTemp,Display,TEXT("SOUL_ALPHA_AUTOBATTLE_CONTROL pass=%d player_commands_rejected=1"),Safe);
         if(!Safe){FinishProof(false,TEXT("AI-only battle accepted Human commands"));return;}
         FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Alpha_AI_Battle.png"),true,false);
+    }
+    // The isolated Heartland fixture demonstrates the ordinary player melee input.
+    // Only movement/aim/input are automated: collision and RBCombat decide every hit.
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification")) && bDefenseControlChecked
+        && !bFinished && PlayerHero && PlayerHealth()>0 && BattleElapsed>6)
+    {
+        if(bTacticalCameraActive)ToggleBattleCamera();
+        int32 Nearest=INDEX_NONE;double Distance=MAX_dbl;
+        for(int32 I=0;I<Actors.Num();++I)if(Actors[I]&&Combatants[I].Side!=ControlledSide&&Combatants[I].Health>0)
+        {const double D=FVector::DistSquared2D(PlayerHero->GetActorLocation(),Actors[I]->GetActorLocation());if(D<Distance){Distance=D;Nearest=I;}}
+        if(Nearest!=INDEX_NONE)
+        {
+            const FVector Direction=(Actors[Nearest]->GetActorLocation()-PlayerHero->GetActorLocation()).GetSafeNormal2D();
+            auto* PC=GetWorld()->GetFirstPlayerController();PC->SetControlRotation(Direction.Rotation());PlayerHero->SetActorRotation(Direction.Rotation());
+            if(Distance>180*180)PlayerHero->AddMovementInput(Direction,1);
+            static TWeakObjectPtr<ASoulRealtimeArenaGameMode> LastHost;static float LastAttack=0;
+            if(LastHost.Get()!=this){LastHost=this;LastAttack=0;}
+            if(Distance<320*320&&BattleElapsed-LastAttack>1.6f)
+            {LastAttack=BattleElapsed;PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Pressed,1));PC->InputKey(FInputKeyEventArgs::CreateSimulated(EKeys::LeftMouseButton,IE_Released,0));}
+        }
     }
     if((!Defense&&!Alpha) || bDefenseControlChecked || bAutobattle) return;
     if(bBattlePaused) ToggleBattlePause();

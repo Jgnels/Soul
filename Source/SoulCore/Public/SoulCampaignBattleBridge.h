@@ -28,6 +28,11 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     int32 TacticalPlayerSide = 0;
     bool bAutoResolve = false;
     int32 PlayerMana = 80;
+    bool bPlayerHeroAvailable=true;
+    FName NonPlayerHeroId; // Exact admitted commander; absent means no commander substitution.
+    FName NonPlayerHeroFaction;
+    bool bRestrictPlayerSpells=false;
+    TSet<FName> AllowedPlayerSpells; // Derived immutable hero/development admission, not a second spell authority.
     static bool SupportsExactPair(FName Attacker, FName AttackerUnit, FName Defender, FName DefenderUnit);
     bool IsValid() const;
 };
@@ -44,6 +49,8 @@ struct SOULCORE_API FSoulCampaignBattleResult
     int32 EnemyReinforcements = 0;
     int32 MagicCasts = 0;
     int32 PlayerManaRemaining = 0;
+    bool bNonPlayerHeroWounded=false;
+    bool bTacticalHeroWounded=false; // Reported from the actual RBCombat-controlled hero, never inferred from troop loss.
     bool IsValidFor(const FSoulCampaignBattleDescriptor& Encounter) const;
 };
 

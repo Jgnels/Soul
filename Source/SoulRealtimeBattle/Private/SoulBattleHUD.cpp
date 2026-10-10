@@ -37,6 +37,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         const auto& Unit = Host->Combatants[I];
         ACharacter* Actor = Host->Actors.IsValidIndex(I) ? Host->Actors[I].Get() : nullptr;
         if (!IsValid(Actor) || Unit.Health<=0 || Actor->IsHidden()) continue;
+        if(Unit.bNonPlayerHero){FVector2D At;if(GetOwningPlayerController()->ProjectWorldLocationToScreen(Actor->GetActorLocation()+FVector(0,0,150),At,true))UI.Text(TEXT("DWARF COMMANDER"),At.X/UI.Scale-65,At.Y/UI.Scale-20,UI.Gold,.8f);}
         if (Unit.bPlayerHero && Host->bFirstPersonCamera && !Host->bTacticalCameraActive) continue;
         const auto& Bounds = Actor->GetMesh()->Bounds;
         FVector P = Project(Bounds.Origin+FVector(0,0,Bounds.BoxExtent.Z+24));
@@ -48,7 +49,7 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         UI.Line(P.X-5,P.Y-4,P.X,P.Y+1,Team,2);
         UI.Line(P.X,P.Y+1,P.X+5,P.Y-4,Team,2);
         if(Unit.Side==1-Host->ControlledSide) UI.Line(P.X-5,P.Y-6,P.X+5,P.Y-6,Team,2);
-        if(Unit.Side==Host->ControlledSide && (Host->bSelectAllAllies || Unit.GroupIndex==Host->SelectedAlliedFormation))
+        if(Host->IsUnitSelected(I))
         {
             UI.Bar(P.X-13,P.Y-13,26,Unit.Health/FMath::Max(1.f,Unit.MaxHealth),Team);
         }
@@ -248,8 +249,8 @@ void ASoulRealtimeArenaHUD::DrawHUD()
     ShieldUI(TEXT("HeroPanel"),W-446,H-120,434,54);
     UI.Text(FString::Printf(TEXT("HERO  %.0f HP"),Host->PlayerHealth()),W-434,H-111,UI.Ink);
     UI.Text(FString::Printf(TEXT("MANA  %.0f"),Host->PlayerManaValue()),W-278,H-111,FLinearColor(.36f,.70f,1));
-    UI.FitText(Host->bTacticalCameraActive?TEXT("Commander view"):TEXT("Hero view"),W-434,H-90,260,UI.Muted,1.f);
-    UI.Button(TEXT("Focus"),TEXT("Focus [Home]"),W-140,H-109,116,30);
+    UI.FitText(Host->bTacticalCameraActive?TEXT("[J] Hero: sword / block"):TEXT("LMB sword | RMB block | C command"),W-434,H-90,285,UI.Muted,1.f);
+    UI.Button(TEXT("Hero"),TEXT("Hero [J]"),W-140,H-109,116,30);
 
     int32 HoverSpell=INDEX_NONE;
     for(int32 I=0;I<5;++I)

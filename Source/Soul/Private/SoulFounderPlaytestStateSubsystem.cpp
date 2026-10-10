@@ -7,6 +7,7 @@
 #include "Engine/GameInstance.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
+#include "Misc/PackageName.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "RBSaveSubsystem.h"
@@ -271,6 +272,7 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
     Economy=FSoulCampaignEconomy(); Economy.Resources.Add(TEXT("gold"),3000); Economy.DailyIncome.Add(TEXT("gold"),450);
     FSoulRecruitmentPool Pool; Pool.UnitId=PlayerUnitId; Pool.Available=8; Pool.WeeklyGrowth=4;Pool.Capacity=24;
     Pool.CostPerUnit.Add(TEXT("gold"),140); Economy.RecruitmentPools.Add(Pool.UnitId,Pool);
+    DwarfCommander=FSoulHeroState();DwarfCommander.HeroId=TEXT("dwarf_king_commander");
     Hero=FSoulHeroState();Hero.HeroId=TEXT("human_founder_hero"); Hero.UnspentSkillPoints=1;Hero.MaxMana=80;Hero.Mana=80;
     Hero.KnownSpells.Add(TEXT("Magic.Spell.Fire.Firebolt"));
     LastAIReport=EnemyFaction==TEXT("orcs")?TEXT("Orc garrisons hold their regions; strategic reserves feed the active battle."):TEXT("Dwarf garrisons hold their regions; strategic reserves feed the active battle.");
@@ -279,6 +281,22 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
         FString Error;
         if(!InitializeSixFactionState(*Starts,*Config,Error)){UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_SIX_FACTION_FAIL %s"),*Error);return;}
     }
+    bHeartlandEnabled=bAlphaRequested&&FParse::Param(FCommandLine::Get(),TEXT("SoulHeartland"));
+    if(bHeartlandEnabled)
+    {
+        SixFactionSaveSlot=TEXT("Soul.Composition3500.HeartlandAlpha");Hero.KnownSpells.Reset();
+        if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandBattleQualification")))
+        {
+            // Isolated encounter START fixture only; never changes a running playtest or its save slot.
+            const bool Commander=FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandCommanderQualification"));
+            SixFactionSaveSlot+=Commander?TEXT(".CommanderProof"):TEXT(".CityBattleProof");
+            const FName Attacker=Commander?FName(TEXT("dwarves")):FName(TEXT("orcs"));
+            OtherFactionStates.FindChecked(Attacker).Army.RegionId=TEXT("crossroads");
+            FSoulWorldRules::Capture(World,TEXT("crossroads"),Attacker);
+            FSoulWorldRules::RefreshVision(World,Attacker,TEXT("crossroads"));
+        }
+        FString Error;if(!FSoulSettlementEnvironmentRegistry::Load(EnvironmentRegistry,Error)){UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_HEARTLAND_FAIL %s"),*Error);return;}
+    }
     FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);bInitialized=true;
     if (bComposition || bAuthoredEnvironmentProof || FParse::Param(FCommandLine::Get(), TEXT("SoulSettlementDevelopmentProof")))
     {
@@ -286,6 +304,11 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
         auto* DevelopmentScenario = LoadObject<USoulSettlementScenarioData>(nullptr,
             bDwarfEnvironmentProof ? TEXT("/Game/Soul/Data/Settlements/DA_Soul_DwarfHold_DevelopmentProof")
                 : TEXT("/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof"));
+        if(bHeartlandEnabled&&DevelopmentScenario)
+        {
+            DevelopmentScenario=DuplicateObject<USoulSettlementScenarioData>(DevelopmentScenario,this);
+            if(!FSoulHeartlandContent::Load(DevelopmentScenario,HeartlandContent,Error)){bInitialized=false;UE_LOG(LogSoulCampaign,Error,TEXT("SOUL_HEARTLAND_FAIL %s"),*Error);return;}
+        }
         if (!InitializeSettlementDevelopment(DevelopmentScenario, GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>(), Error))
             UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_SETTLEMENT_DEVELOPMENT_UNREADY %s"), *Error);
     }
@@ -353,8 +376,10 @@ bool USoulFounderPlaytestStateSubsystem::BeginSettlementConstruction(FName Build
         || !Region || Region->OwnerFactionId != PlayerFaction || !Settlement
         || Settlement->FactionId != PlayerFaction || Settlement->RegionId != PlayerRegion || !Definition)
     { OutError = TEXT("Construction requires the owned current settlement, a defined building and no active battle or save operation."); return false; }
+    if(bHeartlandEnabled&&HeartlandConstructionDay==Economy.Day){OutError=TEXT("One new construction decision per settlement per day. Advance the day first.");return false;}
     if (!FSoulTownRules::BeginConstruction(Economy, *Settlement, Definition->ToDefinition()))
     { OutError = TEXT("Construction prerequisites, resources or building level do not permit this upgrade."); return false; }
+    if(bHeartlandEnabled)HeartlandConstructionDay=Economy.Day;
     ++SettlementDevelopmentRevision;
     OutError.Reset();
     return true;
@@ -417,7 +442,7 @@ bool USoulFounderPlaytestStateSubsystem::MovePlayerTo(FName Target)
     if (!bInitialized||HasPendingBattle()||bPersistenceBusy||HasHostileGarrison(Target)
         ||(IsHostile(Target)&&PlayerArmy.FindRef(PlayerUnitId)<=0)
         ||!FSoulWorldRules::CanMove(World,PlayerRegion,Target)) return false;
-    if (!FSoulCampaignRules::SpendAction(Economy,Hero.Skills.FindRef(TEXT("Adventure"))>=2?0:1)) return false;
+    if (!FSoulCampaignRules::SpendAction(Economy,FSoulHeroRules::IsAvailable(Hero)&&Hero.Skills.FindRef(TEXT("Adventure"))>=2?0:1)) return false;
     PlayerRegion=Target;FSoulWorldRules::RefreshVision(World,PlayerFaction,Target);
     if (World.Regions.FindChecked(Target).OwnerFactionId!=PlayerFaction)
     {
@@ -446,6 +471,8 @@ bool USoulFounderPlaytestStateSubsystem::BuildBattleDescriptor(FName Target,FSou
     Out.PlayerMana = Hero.Mana;
     Out.ActiveCapPerSide=ActiveCapPerSide;Out.EncounterOrdinal=EncounterOrdinal+1;
     Out.EncounterId=FName(*FString::Printf(TEXT("encounter.%d.%d.%s.%s"),Economy.Day,Out.EncounterOrdinal,*PlayerRegion.ToString(),*Target.ToString()));
+    if(!ApplySettlementEnvironment(Out,Error))return false;
+    ConfigureHeartlandMagic(Out);
     if(!Out.IsValid())
     {
         Error=FString::Printf(TEXT("Unsupported exact battle binding: %s/%s versus %s/%s. No roster substitution."),
@@ -470,11 +497,26 @@ bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
 bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBattleResult& R)
 {
     if (!HasPendingBattle() || ResolvedEncounters.Contains(R.EncounterId) || !R.IsValidFor(PendingBattle)) return false;
+    auto ApplyHeroInjury=[&]()
+    {
+        if(!bHeartlandEnabled)return;
+        if(PendingBattle.PlayerFaction==TEXT("dwarves")||PendingBattle.EnemyFaction==TEXT("dwarves"))
+        {
+            const bool DwarfAttacks=PendingBattle.PlayerFaction==TEXT("dwarves");
+            FSoulHeroRules::ApplyBattleInjury(DwarfCommander,R.bNonPlayerHeroWounded,DwarfAttacks?R.PlayerSurvivors:R.EnemySurvivors,
+                DwarfAttacks?PendingBattle.EnemyFaction:PendingBattle.PlayerFaction,PendingBattle.TargetRegion);
+        }
+        if(PendingBattle.bAutoResolve)return;
+        const bool HumanAttacks=PendingBattle.PlayerFaction==PlayerFaction;
+        FSoulHeroRules::ApplyBattleInjury(Hero,R.bTacticalHeroWounded,HumanAttacks?R.PlayerSurvivors:R.EnemySurvivors,
+            HumanAttacks?PendingBattle.EnemyFaction:PendingBattle.PlayerFaction,PendingBattle.TargetRegion);
+    };
     if (bSixFactionProfile && PendingBattle.PlayerFaction!=PlayerFaction)
     {
         auto* Attacker=OtherFactionStates.Find(PendingBattle.PlayerFaction);
         auto* Defender=PendingBattle.EnemyFaction==PlayerFaction?nullptr:OtherFactionStates.Find(PendingBattle.EnemyFaction);
         if (!Attacker || (PendingBattle.EnemyFaction!=PlayerFaction && !Defender)) return false;
+        ApplyHeroInjury();
         Attacker->Army.TroopCount=R.PlayerSurvivors;
         if (Defender) Defender->Army.TroopCount=R.EnemySurvivors;
         else
@@ -494,6 +536,7 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
         AppendAlphaBattleRecap(R);
         LastBattleResult=R;ResolvedEncounters.Add(R.EncounterId);PendingBattle=FSoulCampaignBattleDescriptor();return true;
     }
+    ApplyHeroInjury();
     PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;
     if(bSixFactionProfile)OtherFactionStates.FindChecked(PendingBattle.EnemyFaction).Army.TroopCount=R.EnemySurvivors;
     else EnemyArmies.FindOrAdd(PendingBattle.TargetRegion)=R.EnemySurvivors;
@@ -532,8 +575,18 @@ void USoulFounderPlaytestStateSubsystem::AdvanceDay()
         if(bFourFactionAlpha && World.Regions.FindChecked(SettlementScenario->RegionId).OwnerFactionId!=PlayerFaction) Settlement=nullptr;
     }
     FSoulCampaignRules::AdvanceDay(Economy);
+    if(bHeartlandEnabled){FSoulHeroRules::AdvanceRecovery(Hero);FSoulHeroRules::AdvanceRecovery(DwarfCommander);}
     if(bSixFactionProfile)for(auto& P:OtherFactionStates)FSoulCampaignRules::AdvanceDay(P.Value.Economy);
     if (Settlement) { FSoulSettlementRules::AdvanceDay(*Settlement); ++SettlementDevelopmentRevision; }
+    if(bHeartlandEnabled&&Settlement)
+    {
+        const auto* Market=Settlement->Buildings.Find(TEXT("human.market"));
+        if(Market&&Market->Level>=2&&FSoulSettlementRules::IsOperational(*Settlement,TEXT("human.market")))Economy.Resources.FindOrAdd(TEXT("gold"))+=100;
+        const auto* Barracks=Settlement->Buildings.Find(TEXT("human.barracks"));
+        if(Barracks&&Barracks->Level>=2&&FSoulSettlementRules::IsOperational(*Settlement,TEXT("human.barracks"))&&(Economy.Day-1)%7==0)
+            if(auto* Pool=Economy.RecruitmentPools.Find(PlayerUnitId))Pool->Available=FMath::Min(Pool->Capacity,Pool->Available+2);
+        RefreshHeartlandSpellLearning();
+    }
     Hero.Mana=FMath::Min(Hero.MaxMana,Hero.Mana+6);AdvanceEnemyAI();
 }
 void USoulFounderPlaytestStateSubsystem::AdvanceEnemyAI()
@@ -579,6 +632,13 @@ bool USoulFounderPlaytestStateSubsystem::CaptureRBSaveDomain_Implementation(FRBS
     TMap<FName,int32> Result={{TEXT("player"),LastBattleResult.PlayerSurvivors},{TEXT("enemy"),LastBattleResult.EnemySurvivors},{TEXT("player_waves"),LastBattleResult.PlayerReinforcements},{TEXT("enemy_waves"),LastBattleResult.EnemyReinforcements},{TEXT("magic"),LastBattleResult.MagicCasts}};
     Root->SetObjectField(TEXT("result"),IntMap(Result));
     Root->SetNumberField(TEXT("result_mana"), LastBattleResult.PlayerManaRemaining);
+    if(bHeartlandEnabled){Root->SetNumberField(TEXT("heartland_construction_day"),HeartlandConstructionDay);Root->SetObjectField(TEXT("heartland_site_days"),IntMap(HeartlandSiteDays));Root->SetNumberField(TEXT("heartland_hero_condition"),static_cast<int32>(Hero.Condition));Root->SetNumberField(TEXT("heartland_recovery_days"),Hero.RecoveryDays);Root->SetStringField(TEXT("heartland_captor"),Hero.CaptorFaction.ToString());Root->SetStringField(TEXT("heartland_capture_region"),Hero.CaptureRegion.ToString());}
+    if(bHeartlandEnabled)
+    {
+        auto NPC=MakeShared<FJsonObject>();NPC->SetNumberField(TEXT("condition"),static_cast<int32>(DwarfCommander.Condition));
+        NPC->SetNumberField(TEXT("recovery"),DwarfCommander.RecoveryDays);NPC->SetStringField(TEXT("captor"),DwarfCommander.CaptorFaction.ToString());
+        NPC->SetStringField(TEXT("region"),DwarfCommander.CaptureRegion.ToString());Root->SetObjectField(TEXT("heartland_dwarf_commander"),NPC);
+    }
     if(bSixFactionProfile)CaptureSixFactionState(*Root);
     FString Json;if(!FJsonSerializer::Serialize(Root,TJsonWriterFactory<>::Create(&Json)))return false;
     Out=FRBSaveDomainState();Out.DomainId=GetRBSaveDomainId_Implementation();Out.SchemaVersion=1;
@@ -676,7 +736,29 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
             && (RestoredTurnDay==Day || (Day==1 && RestoredTurnDay==0 && RestoredCursor==3))
             && ReadNonNegativeInt(*Root,TEXT("alpha_seed"),RestoredSeed)&&RestoredSeed<=1000000
             && Root->TryGetStringField(TEXT("alpha_recap"),RestoredRecap)&&RestoredRecap.Len()<=4096;
+    int32 BuildDay=0;TMap<FName,int32> SiteDays;
+    int32 HeroCondition=0,Recovery=0,NPCCondition=0,NPCRecovery=0;FString Captor,CaptureRegion,NPCCaptor,NPCRegion;
+    if(bHeartlandEnabled)
+    {
+        Valid &= ReadNonNegativeInt(*Root,TEXT("heartland_construction_day"),BuildDay)&&BuildDay<=Day&&ReadIntMap(*Root,TEXT("heartland_site_days"),SiteDays);
+        for(const auto& P:SiteDays)Valid &= P.Value<=Day&&HeartlandContent.Sites.ContainsByPredicate([&](const auto& S){return S.Id==P.Key;});
+        Valid &= ReadNonNegativeInt(*Root,TEXT("heartland_hero_condition"),HeroCondition)&&HeroCondition<=2
+            &&ReadNonNegativeInt(*Root,TEXT("heartland_recovery_days"),Recovery)&&Recovery<=3
+            &&Root->TryGetStringField(TEXT("heartland_captor"),Captor)&&Root->TryGetStringField(TEXT("heartland_capture_region"),CaptureRegion);
+        const TSharedPtr<FJsonObject>* NPC=nullptr;
+        if(!Root->TryGetObjectField(TEXT("heartland_dwarf_commander"),NPC)){Error=TEXT("Heartland commander state missing.");return false;}
+        Valid &= ReadNonNegativeInt(**NPC,TEXT("condition"),NPCCondition)&&NPCCondition<=2
+            &&ReadNonNegativeInt(**NPC,TEXT("recovery"),NPCRecovery)&&NPCRecovery<=3
+            &&(*NPC)->TryGetStringField(TEXT("captor"),NPCCaptor)&&(*NPC)->TryGetStringField(TEXT("region"),NPCRegion);
+        Valid &= NPCCondition==2?(NPCRecovery==0&&FSoulCampaignRules::CanonicalFactions().Contains(FName(*NPCCaptor))&&FName(*NPCCaptor)!=TEXT("dwarves")&&World.Regions.Contains(FName(*NPCRegion)))
+            :(FName(*NPCCaptor).IsNone()&&FName(*NPCRegion).IsNone()&&(NPCCondition==0?NPCRecovery==0:NPCRecovery>0));
+        const bool Captured=HeroCondition==static_cast<int32>(ESoulHeroCondition::Captured);
+        Valid &= Captured?(Recovery==0&&FSoulCampaignRules::CanonicalFactions().Contains(FName(*Captor))&&FName(*Captor)!=PlayerFaction&&World.Regions.Contains(FName(*CaptureRegion)))
+            :(FName(*Captor).IsNone()&&FName(*CaptureRegion).IsNone()&&(HeroCondition==0?Recovery==0:Recovery>0));
+
+    }
     if(!Valid){Error=TEXT("Campaign snapshot failed validation.");return false;}
+    if(bHeartlandEnabled){DwarfCommander.Condition=static_cast<ESoulHeroCondition>(NPCCondition);DwarfCommander.RecoveryDays=NPCRecovery;DwarfCommander.CaptorFaction=FName(*NPCCaptor);DwarfCommander.CaptureRegion=FName(*NPCRegion);HeartlandConstructionDay=BuildDay;HeartlandSiteDays=MoveTemp(SiteDays);Hero.Condition=static_cast<ESoulHeroCondition>(HeroCondition);Hero.RecoveryDays=Recovery;Hero.CaptorFaction=FName(*Captor);Hero.CaptureRegion=FName(*CaptureRegion);}
     if(bFourFactionAlpha){AlphaNextFaction=RestoredCursor;AlphaSeed=RestoredSeed;AlphaTurnDay=RestoredTurnDay;LastAIReport=MoveTemp(RestoredRecap);}
     if(bSixFactionProfile){World=MoveTemp(RestoredWorld);OtherFactionStates=MoveTemp(RestoredFactions);}
     for(auto& P:World.Regions)P.Value.OwnerFactionId=FName(*(*Owners)->GetStringField(P.Key.ToString()));
@@ -712,6 +794,7 @@ void USoulFounderPlaytestStateSubsystem::SaveCampaign()
 {
     if(!SaveSubsystem.IsValid()||bPersistenceBusy||HasPendingBattle())return;
     bPersistenceBusy=true;bLastSaveSucceeded=false;
+    PendingSaveDay=Economy.Day;PendingSaveRegion=PlayerRegion;
     FRBSaveOperationDelegate Done;Done.BindDynamic(this,&USoulFounderPlaytestStateSubsystem::OnCampaignSaved);
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE_SCOPE domains=Soul.Campaign,Soul.Settlements"));
     SaveSubsystem->SaveSelectedDomainsAsync(GetCampaignSaveSlotName(),CampaignSaveDomains,Done);
@@ -725,10 +808,10 @@ void USoulFounderPlaytestStateSubsystem::LoadCampaign()
 }
 void USoulFounderPlaytestStateSubsystem::OnCampaignSaved(const FRBSaveOperationResult& R)
 {
-    bPersistenceBusy=false;bLastSaveSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?TEXT("Campaign saved with RB Save."):R.Message;
+    bPersistenceBusy=false;bLastSaveSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?FString::Printf(TEXT("F5 saved: day %d at %s. Later travel requires another F5."),PendingSaveDay,*PendingSaveRegion.ToString()):R.Message;
     const FString SavedPath = SaveSubsystem.IsValid()
         ? SaveSubsystem->GetDomainSlotPath(GetCampaignSaveSlotName()) : R.ArtifactPath;
-    UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE success=%d path=%s message=%s"),R.bSuccess,*SavedPath,*R.Message);
+    UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_SAVE success=%d path=%s message=%s day=%d region=%s"),R.bSuccess,*SavedPath,*R.Message,PendingSaveDay,*PendingSaveRegion.ToString());
 }
 void USoulFounderPlaytestStateSubsystem::OnCampaignLoaded(const FRBSaveOperationResult& R)
 {
@@ -741,6 +824,54 @@ void USoulFounderPlaytestStateSubsystem::OnCampaignLoaded(const FRBSaveOperation
             UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_SETTLEMENT_DEVELOPMENT_UNREADY %s"), *SettlementDevelopmentError);
         ++SettlementDevelopmentRevision;
     }
-    bPersistenceBusy=false;bLastLoadSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?TEXT("Campaign reloaded with RB Save."):R.Message;
+    bPersistenceBusy=false;bLastLoadSucceeded=R.bSuccess;LastPersistenceReport=R.bSuccess?FString::Printf(TEXT("Loaded F5: day %d at %s."),Economy.Day,*PlayerRegion.ToString()):R.Message;
     UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_CAMPAIGN_LOAD success=%d region=%s knights=%d xp=%d"),R.bSuccess,*PlayerRegion.ToString(),PlayerArmy.FindRef(PlayerUnitId),Hero.Experience);
+}
+
+bool USoulFounderPlaytestStateSubsystem::ApplySettlementEnvironment(FSoulCampaignBattleDescriptor& Out,FString& Error) const
+{
+    if(!bHeartlandEnabled)return true;
+    const auto* Binding=EnvironmentRegistry.Find(Out.TargetRegion);
+    if(!Binding||!Binding->bBattleEnabled)return true;
+    if(!FPackageName::DoesPackageExist(Binding->CityBattleEnvironment)){Error=TEXT("Registered city battlefield is missing; generic substitution rejected.");return false;}
+    Out.MapPackage=FName(*Binding->CityBattleEnvironment);Out.ArenaOrigin=Binding->ArenaOrigin;
+    Out.BattlefieldId=FName(*(Out.TargetRegion.ToString()+TEXT("_authored_approach")));
+    Out.BattleContext.bSettlementNearby=true;return true;
+}
+void USoulFounderPlaytestStateSubsystem::RefreshHeartlandSpellLearning()
+{
+    if(!bHeartlandEnabled||!IsSettlementDevelopmentReady())return;
+    const auto* Town=SettlementAuthority->FindSettlement(GetDevelopmentRegion());if(!Town||World.Regions.FindChecked(GetDevelopmentRegion()).OwnerFactionId!=PlayerFaction)return;
+    for(const auto& Spell:HeartlandContent.Spells)
+        if(HeartlandContent.AllowsSchool(Spell.School)&&FSoulSettlementRules::IsOperational(*Town,Spell.RequiredBuilding))FSoulHeroRules::LearnSpell(Hero,Spell.Id);
+}
+void USoulFounderPlaytestStateSubsystem::ConfigureHeartlandMagic(FSoulCampaignBattleDescriptor& Out) const
+{
+    if(!bHeartlandEnabled)return;
+    if((Out.PlayerFaction==TEXT("dwarves")||Out.EnemyFaction==TEXT("dwarves"))&&FSoulHeroRules::IsAvailable(DwarfCommander))
+    {Out.NonPlayerHeroId=DwarfCommander.HeroId;Out.NonPlayerHeroFaction=TEXT("dwarves");}
+    if(Out.bAutoResolve)return;
+    Out.bPlayerHeroAvailable=FSoulHeroRules::IsAvailable(Hero);
+    Out.bRestrictPlayerSpells=true;
+    if(!Out.bPlayerHeroAvailable)return;
+    for(const auto& Spell:HeartlandContent.Spells)
+        if(HeartlandContent.AllowsSchool(Spell.School)&&Hero.KnownSpells.Contains(Spell.Id))Out.AllowedPlayerSpells.Add(Spell.Id);
+}
+bool USoulFounderPlaytestStateSubsystem::InteractHeartlandSite(FString& Message)
+{
+    auto Reject=[&](const TCHAR* Why){Message=Why;return false;};
+    if(!bHeartlandEnabled||HasPendingBattle()||bPersistenceBusy||IsAlphaTurnActive())return Reject(TEXT("Finish the active turn, battle or save first."));
+    const auto* Site=HeartlandContent.Sites.FindByPredicate([&](const auto& S){return S.Region==PlayerRegion;});
+    const auto* Region=World.Regions.Find(PlayerRegion);
+    if(!Site||!Region||Region->OwnerFactionId!=PlayerFaction||PlayerArmy.FindRef(PlayerUnitId)<=0)return Reject(TEXT("Your living company must occupy the owned site."));
+    if(HeartlandSiteDays.FindRef(Site->Id)==Economy.Day)return Reject(TEXT("This site's benefit has already been collected today."));
+    if(Site->Effect==TEXT("mana")&&!FSoulHeroRules::IsAvailable(Hero))return Reject(TEXT("Your hero is unavailable; no action spent."));
+    if(Site->Effect==TEXT("mana")&&Hero.Mana>=Hero.MaxMana)return Reject(TEXT("Your mana is already full. No action spent."));
+    if(Site->Effect==TEXT("gold")&&Economy.Resources.FindRef(TEXT("gold"))>MAX_int32-Site->Amount)return Reject(TEXT("Resource capacity reached."));
+    if(!FSoulCampaignRules::SpendAction(Economy,Site->ActionCost))return Reject(TEXT("Not enough movement to work this site. Rest until tomorrow."));
+    const int32 Before=Site->Effect==TEXT("mana")?Hero.Mana:Economy.Resources.FindRef(TEXT("gold"));
+    if(Site->Effect==TEXT("mana"))FSoulHeroRules::RestoreMana(Hero,Site->Amount);else Economy.Resources.FindOrAdd(TEXT("gold"))+=Site->Amount;
+    HeartlandSiteDays.Add(Site->Id,Economy.Day);
+    const int32 After=Site->Effect==TEXT("mana")?Hero.Mana:Economy.Resources.FindRef(TEXT("gold"));
+    Message=FString::Printf(TEXT("%s: +%d %s. Available again tomorrow; %d movement spent."),*Site->Name,After-Before,*Site->Effect.ToString(),Site->ActionCost);return true;
 }

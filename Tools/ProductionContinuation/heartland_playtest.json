@@ -1,0 +1,5 @@
+{
+  "stage_receipt": "Evidence/HumanHeartland-20261009/Local/stage-heartland-r3/Diagnostics/receipt.json",
+  "default_fps": 30,
+  "note": "Separate Heartland playtest; prior FourFactionAlpha saves unchanged. 30 FPS cap, 85 C hard cutoff. City functional test peaked at 84 C even at 10 FPS; sustained performance remains unqualified. F5 saves; Continue restores the last F5 checkpoint."
+}
