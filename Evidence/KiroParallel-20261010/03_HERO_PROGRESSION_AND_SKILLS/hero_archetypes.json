@@ -1,0 +1,109 @@
+{
+  "$note": "Soul Lane 3 — Hero archetypes. All archetypes are DESIGN PROPOSAL. Each binds a hero HeroId to a progression doctrine via a read-only data table (FSoulHeroArchetypeTable); no new runtime struct field required. Archetypes bias STARTING skills and recommended domains; they do NOT hard-lock the TMap<FName,int32> Skills — a player may still invest cross-domain. Compatible with current four-faction game and the Hero/Paragon kind distinction (VERIFIED: ESoulHeroKind in SoulHero.h).",
+  "snapshot_sha": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "verified_current_heroes": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "human_founder_hero": {
+      "source": "SoulFounderPlaytestStateSubsystem.cpp InitializeScenario",
+      "start": "Level 1, UnspentSkillPoints 1, MaxMana 80, Mana 80, KnownSpells {Magic.Spell.Fire.Firebolt} (Firebolt is RESET in Heartland profile), affinity Frost/primary from HeartlandDevelopment.json",
+      "display_name_in_companion_text": "Aurora (party leader) — see CompanionStatus()"
+    },
+    "dwarf_king_commander": {"source": "DwarfCommander FSoulHeroState; Heartland non-player commander; gates siege via CanCommandSiege"},
+    "rowan": {"source": "CompanionStatus(): 'Rowan' is the hireable tavern companion ('human_founder_hero' is Aurora; Rowan is the second hero)."}
+  },
+
+  "design_constraints": {
+    "label": "DESIGN PROPOSAL",
+    "count": "4-6 archetypes per shared-rule guidance; this lane defines 6, mapped to the six skill domains so every domain has a natural owner.",
+    "no_routine_permadeath": "Archetypes never introduce permanent death on wound/capture; death is out of scope (Lane 4 owns prisoner lifecycle).",
+    "deterministic": "Starting kits are fixed per archetype id; no RNG."
+  },
+
+  "archetypes": [
+    {
+      "id": "warlord",
+      "label": "DESIGN PROPOSAL",
+      "display": "Warlord",
+      "primary_domain": "command",
+      "secondary_domain": "martial",
+      "fantasy": "Front-line banner-bearer who makes an army fight above its weight.",
+      "start_skills": {"command.rally": 1},
+      "recommended_path": ["command.rally", "command.hold_the_line", "martial.duelist"],
+      "assignment_fit": ["ArmyCompanion", "IndependentCommander"],
+      "kind_fit": ["Hero", "Paragon"],
+      "example_binding_candidates": ["human_founder_hero (if played martial)", "dwarf_king_commander"]
+    },
+    {
+      "id": "champion",
+      "label": "DESIGN PROPOSAL",
+      "display": "Champion",
+      "primary_domain": "martial",
+      "secondary_domain": "command",
+      "fantasy": "Personal killing power; duels enemy heroes and apex units.",
+      "start_skills": {"martial.duelist": 1},
+      "recommended_path": ["martial.duelist", "martial.bulwark", "command.rally"],
+      "assignment_fit": ["ArmyCompanion", "IndependentCommander"],
+      "kind_fit": ["Hero", "Paragon"]
+    },
+    {
+      "id": "magus",
+      "label": "DESIGN PROPOSAL",
+      "display": "Magus",
+      "primary_domain": "magic",
+      "secondary_domain": "command",
+      "fantasy": "Battlefield spellcaster governed by mana and Mage-Guild/affinity learning.",
+      "start_skills": {"magic.attunement": 1},
+      "legacy_alias_satisfied": "magic.attunement == legacy 'Magic' skill (VERIFIED: ChooseSkill grants +10 MaxMana).",
+      "recommended_path": ["magic.attunement", "magic.channeling", "magic.focus"],
+      "assignment_fit": ["ArmyCompanion", "IndependentCommander"],
+      "kind_fit": ["Hero", "Paragon"],
+      "example_binding_candidates": ["human_founder_hero (Aurora; Frost-affinity magus)"]
+    },
+    {
+      "id": "pathfinder",
+      "label": "DESIGN PROPOSAL",
+      "display": "Pathfinder",
+      "primary_domain": "logistics",
+      "secondary_domain": "martial",
+      "fantasy": "Fast strategic mover; stretches action points and supply.",
+      "start_skills": {"logistics.pathfinder": 1},
+      "legacy_alias_satisfied": "logistics.pathfinder == legacy 'Adventure' skill (VERIFIED: ChooseSkill grants +1 Max/Current AP; MovePlayerTo rank>=2 => free strategic move).",
+      "recommended_path": ["logistics.pathfinder", "logistics.forced_march", "logistics.quartermaster"],
+      "assignment_fit": ["ArmyCompanion", "IndependentCommander"],
+      "kind_fit": ["Hero", "Paragon"]
+    },
+    {
+      "id": "envoy",
+      "label": "DESIGN PROPOSAL",
+      "display": "Envoy",
+      "primary_domain": "diplomacy",
+      "secondary_domain": "stewardship",
+      "fantasy": "Court operator; improves diplomacy outcomes and ransom/exchange leverage (hands off to Lane 4).",
+      "start_skills": {"diplomacy.envoy": 1},
+      "recommended_path": ["diplomacy.envoy", "diplomacy.negotiator", "stewardship.steward"],
+      "assignment_fit": ["ArmyCompanion", "Governor"],
+      "kind_fit": ["Hero", "Paragon"],
+      "gate_note": "VERIFIED: CanPerformDiplomacy requires Healthy. Diplomacy skill effects only apply while hero IsAvailable."
+    },
+    {
+      "id": "steward",
+      "label": "DESIGN PROPOSAL",
+      "display": "Steward",
+      "primary_domain": "stewardship",
+      "secondary_domain": "logistics",
+      "fantasy": "Settlement developer; accelerates construction and economy when assigned as Governor.",
+      "start_skills": {"stewardship.builder": 1},
+      "recommended_path": ["stewardship.builder", "stewardship.steward", "logistics.quartermaster"],
+      "assignment_fit": ["Governor", "ArmyCompanion"],
+      "kind_fit": ["Hero", "Paragon"],
+      "v": "Governor effects are V2; in V0/V1 the steward still provides army-side logistics value as a companion."
+    }
+  ],
+
+  "archetype_table_contract": {
+    "label": "DESIGN PROPOSAL",
+    "proposed_struct": "FSoulHeroArchetypeDef { FName ArchetypeId; FName PrimaryDomain; FName SecondaryDomain; TMap<FName,int32> StartSkills; TArray<FName> AssignmentFit; }",
+    "proposed_table": "FSoulHeroArchetypeTable (loaded from Data/, read-only). Keyed hero->archetype mapping lives beside hero candidate data (parallels FSoulHeroCandidate in SoulHeroRecruitment.h).",
+    "no_save_impact": "Archetype is recomputed from HeroId at load; nothing archetype-specific is serialized. This keeps the Soul.Campaign schema at v1."
+  }
+}

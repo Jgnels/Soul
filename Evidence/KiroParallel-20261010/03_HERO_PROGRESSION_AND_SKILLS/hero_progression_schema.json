@@ -1,0 +1,114 @@
+{
+  "$schema_note": "Soul Lane 3 — Hero XP / Levels / Skills / Classes / Companion Roles. Deterministic, save-friendly, additive over the CURRENT frozen snapshot 2c3a9055d71a87ed3ed8b8abf08503efa1218f7c. This document describes the DATA CONTRACT only; see HANDOFF.md for exact source symbols. Labels: VERIFIED = reads from current snapshot, PROPOSAL = additive design not yet in code.",
+  "snapshot_authority": {
+    "repo": "Jgnels/Soul",
+    "source_branch": "handoff/soul-kiro-20261010",
+    "expected_sha": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+    "verified_sha_resolves": true,
+    "lane": "03_HERO_PROGRESSION_AND_SKILLS"
+  },
+
+  "VERIFIED_current_hero_state_struct": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "struct": "FSoulHeroState",
+    "file": "Source/SoulCore/Public/SoulHero.h",
+    "fields": {
+      "HeroId": "FName — stable content id",
+      "Condition": "ESoulHeroCondition {Healthy,Wounded,Captured} default Healthy",
+      "RecoveryDays": "int32 default 0",
+      "CaptorFaction": "FName",
+      "CaptureRegion": "FName",
+      "Kind": "ESoulHeroKind {Hero,Paragon} default Hero",
+      "Level": "int32 default 1",
+      "Experience": "int32 default 0",
+      "UnspentSkillPoints": "int32 default 0",
+      "Mana": "int32 default 0",
+      "MaxMana": "int32 default 0",
+      "Skills": "TMap<FName,int32> rank by skill id",
+      "KnownSpells": "TSet<FName>",
+      "ArtifactSlots": "TArray<FName> (declared, currently UNUSED by any rule or save path — see unknowns)"
+    }
+  },
+
+  "VERIFIED_current_rules": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "file": "Source/SoulCore/Private/SoulHero.cpp",
+    "class": "FSoulHeroRules",
+    "experience_for_level_formula": "ExperienceForLevel(L) = (max(1,L)-1) * max(1,L) * 125",
+    "level_thresholds_cumulative_xp": {
+      "1": 0, "2": 250, "3": 750, "4": 1500, "5": 2500, "6": 3750, "7": 5250, "8": 7000, "9": 9000, "10": 11250
+    },
+    "add_experience": "Adds amount (ignored if <=0); loops while Experience >= ExperienceForLevel(Level+1), each loop: ++Level, ++UnspentSkillPoints; returns bLeveled.",
+    "spend_skill_point": "SpendSkillPoint(Hero,SkillId,MaxRank=3): requires UnspentSkillPoints>0 and non-None id; Rank=Skills.FindOrAdd(SkillId); fails if Rank>=max(1,MaxRank); else ++Rank,--UnspentSkillPoints.",
+    "learn_spell": "LearnSpell adds once; duplicate rejected.",
+    "spend_mana": "SpendMana clamps cost>=0; fails if Mana<cost else Mana-=cost.",
+    "restore_mana": "RestoreMana clamps to [0,max(0,MaxMana)].",
+    "apply_battle_injury": "Wounded with survivors -> Condition=Wounded, RecoveryDays=3 (never restarts an existing wound clock); 0 survivors -> Condition=Captured, RecoveryDays=0, CaptorFaction=Opponent, CaptureRegion=Region. Captured heroes are not re-injured.",
+    "advance_recovery": "Only Wounded decays; RecoveryDays-- and at 0 -> Healthy. Captured does NOT auto-recover (lives in Lane 4 prisoner lifecycle)."
+  },
+
+  "VERIFIED_current_availability_gates": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "IsAvailable": "Condition==Healthy",
+    "CanCommandSiege": "== IsAvailable",
+    "CanPerformDiplomacy": "== IsAvailable",
+    "note": "Wounded and Captured heroes cannot command sieges, perform diplomacy, or (per subsystem) reduce AP via Adventure skill."
+  },
+
+  "VERIFIED_current_xp_sources_subsystem": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "sources": [
+      {"event": "capture_region_without_battle", "symbol": "MovePlayerTo", "xp": 140, "once_per_region": true, "gated_by": "RewardedRegions set (anti-farm)"},
+      {"event": "win_battle", "symbol": "ApplyBattleResult", "xp": 360, "note": "only on R.bPlayerWon"}
+    ],
+    "mana_daily_regen": {"symbol": "AdvanceDay", "amount": 6, "clamp": "min(MaxMana, Mana+6)"},
+    "mana_site_restore": {"symbol": "InteractHeartlandSite", "effect": "mana", "amount_from_data": 20, "data_file": "Data/SettlementEnvironments/HeartlandDevelopment.json", "guard": "rejected if Mana>=MaxMana"}
+  },
+
+  "VERIFIED_current_skill_ids": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "subsystem_ChooseSkill_recognized": {
+      "Adventure": "ChooseSkill: Economy.MaxActionPoints++ and ActionPoints++. Separately MovePlayerTo: if Skills.Adventure>=2 and hero IsAvailable, strategic move costs 0 AP.",
+      "Magic": "ChooseSkill: Hero.MaxMana += 10; Hero.Mana += 10."
+    },
+    "subsystem_skill_cap_passed": 2,
+    "test_only_skill_id": "war_magic (used in SoulMechanicsTests.cpp FSoulHeroProgressionTest, default MaxRank=3)",
+    "note": "ChooseSkill forwards MaxRank=2 explicitly; FSoulHeroRules default is 3. There are currently only TWO gameplay-wired skills (Adventure, Magic). This lane's domain model is a PROPOSAL that MUST remain backward compatible with these two ids."
+  },
+
+  "PROPOSAL_hero_progression_schema_v0": {
+    "label": "DESIGN PROPOSAL",
+    "principle": "Add NO new struct. Reuse FSoulHeroState.Skills (TMap<FName,int32>) with namespaced skill ids and FSoulHeroState.Kind-driven archetype binding by data, not by code branching. Keep deterministic, integer-only, save round-trippable through the existing Soul.Campaign JSON domain.",
+    "level_cap": {"value": 10, "rationale": "Keeps curve meaningful across a 30-day campaign (Lane 9); L10 cumulative XP 11250 ~= 31 region captures or ~31 battle wins. Avoids giant perk trees per shared rules."},
+    "skill_point_grant": "1 per level (UNCHANGED from AddExperience). At cap 10 => 9 lifetime points after start (plus any start bonus).",
+    "skill_rank_cap_default": {"value": 3, "note": "FSoulHeroRules default already 3. PROPOSAL: domains below use rank cap 3; the subsystem's hard-coded ChooseSkill MaxRank=2 should be widened to the per-skill cap authored in data (see HANDOFF implementation order)."},
+    "skill_id_namespace": "domain.skill, lowercase dot-delimited, stable forever (e.g. command.rally, martial.duelist, magic.attunement, logistics.forced_march, diplomacy.envoy, stewardship.builder). 'Adventure' and 'Magic' retained as LEGACY ALIASES mapped to logistics.pathfinder and magic.attunement respectively so existing saves and tests never break.",
+    "legacy_alias_map": {
+      "Adventure": "logistics.pathfinder",
+      "Magic": "magic.attunement"
+    },
+    "determinism": "No RNG in progression. All level-ups, point grants and skill effects are pure functions of (Experience, Skills, Level). Battle RNG stays in RBCombat; progression consumes only post-battle authoritative results."
+  },
+
+  "PROPOSAL_additive_fields": {
+    "label": "DESIGN PROPOSAL",
+    "note": "If ANY new field is added to FSoulHeroState it MUST be optional in the save JSON with a safe default, mirroring how hero_kind/result_mana are treated as optional-with-default in RestoreRBSaveDomain (see SoulCampaignManaTests legacy test). Preferred: add ZERO new struct fields in V0 by encoding archetype and assignment role as skill-map/data lookups.",
+    "preferred_zero_field_v0": {
+      "archetype": "Derived from data table keyed by HeroId (FSoulHeroArchetypeTable, read-only content). Not stored on the hero; recomputed on load. No save impact.",
+      "assignment_role": "PROPOSAL field 'FName AssignmentRole' ONLY if Independent Commander / Governor ship. V0 can represent companion-vs-independent purely with existing bCompanionAssigned bool in the subsystem. Governor is V2."
+    },
+    "if_assignment_role_added": {
+      "field": "FName AssignmentRole (default NAME_None == ArmyCompanion)",
+      "save_key": "hero_assignment (optional string; absent => ArmyCompanion)",
+      "schema_version_bump": "NOT required if treated as optional-with-default per existing legacy-tolerance pattern; a bump to schema v2 is only required if a field becomes mandatory."
+    }
+  },
+
+  "assignment_roles": {
+    "label": "DESIGN PROPOSAL",
+    "ArmyCompanion": {"v": "V0", "verified_hook": "bCompanionAssigned in subsystem; CompanionStatus() text", "effect": "Hero travels with and fights inside an army; contributes command/martial/magic in RBCombat as the player/non-player hero."},
+    "IndependentCommander": {"v": "V1", "effect": "Hero leads its own small army; uses CanCommandSiege gate; can be wounded/captured independently.", "requires": "army-ownership binding that does not yet exist for player heroes (see unknowns)."},
+    "Governor": {"v": "V2", "effect": "Hero assigned to a settlement region; passive stewardship bonus (e.g. +gold/day or -build-days) via settlement authority. Must route through existing Soul.Settlements authority, never a second economy authority."}
+  }
+}

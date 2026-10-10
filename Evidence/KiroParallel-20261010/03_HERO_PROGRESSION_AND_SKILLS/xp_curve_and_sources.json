@@ -1,0 +1,106 @@
+{
+  "$note": "Soul Lane 3 — XP curve + sources + anti-farming. Separates VERIFIED current values from PROPOSAL additions. All integer, deterministic. Snapshot 2c3a9055d71a87ed3ed8b8abf08503efa1218f7c.",
+
+  "VERIFIED_curve": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "formula": "ExperienceForLevel(L) = (max(1,L)-1) * max(1,L) * 125",
+    "file": "Source/SoulCore/Private/SoulHero.cpp :: FSoulHeroRules::ExperienceForLevel",
+    "cumulative_thresholds": {
+      "L1": 0, "L2": 250, "L3": 750, "L4": 1500, "L5": 2500,
+      "L6": 3750, "L7": 5250, "L8": 7000, "L9": 9000, "L10": 11250,
+      "L11": 13750, "L12": 16500
+    },
+    "delta_to_next_level": {
+      "1->2": 250, "2->3": 500, "3->4": 750, "4->5": 1000, "5->6": 1250,
+      "6->7": 1500, "7->8": 1750, "8->9": 2000, "9->10": 2250
+    },
+    "skill_point_per_level": 1,
+    "note": "Quadratic curve. Early levels fast, late levels slow — matches 'avoid giant perk trees' and a bounded 30-day campaign."
+  },
+
+  "VERIFIED_sources": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+    "entries": [
+      {"id": "region_capture_bloodless", "symbol": "MovePlayerTo", "xp": 140, "anti_farm": "RewardedRegions set — paid ONCE per region ever", "notes": "Also +250 gold once."},
+      {"id": "battle_victory", "symbol": "ApplyBattleResult (R.bPlayerWon)", "xp": 360, "anti_farm": "ResolvedEncounters set — each encounter id resolves once; +600 gold once per newly held region.", "notes": "Only the Human player hero (Aurora) currently receives XP. DwarfCommander receives none."}
+    ]
+  },
+
+  "PROPOSAL_sources_v0": {
+    "label": "DESIGN PROPOSAL",
+    "principle": "Keep existing two sources authoritative; ADD only deterministic, one-shot or diminishing sources so grinding is never optimal. All new XP flows through FSoulHeroRules::AddExperience, never a parallel accumulator.",
+    "entries": [
+      {
+        "id": "battle_victory_scaled",
+        "replaces": "flat 360",
+        "proposal": "XP = base(360) scaled by a bounded difficulty factor from the authoritative result, clamped. Suggested: 360 + clamp( (EnemyStrategicCount - PlayerStrategicCount) * 10, -120, +240 ). Uses only descriptor/result counts already present (PlayerStrategicCount, EnemyStrategicCount, PlayerSurvivors, EnemySurvivors). Deterministic.",
+        "anti_farm": "Still gated by ResolvedEncounters (one-shot per encounter)."
+      },
+      {
+        "id": "battle_loss_consolation",
+        "proposal": "Small fixed XP on a LOST but survived battle (e.g. 60) so a wounded-but-alive hero still progresses slowly, discouraging save-scum reloads. Zero on capture.",
+        "anti_farm": "Gated by ResolvedEncounters."
+      },
+      {
+        "id": "siege_capstone",
+        "proposal": "One-time bonus XP (e.g. +500) when a hero commanded a successful siege resolution (R.bSiege && R.bPlayerWon && hero was commander). Uses existing siege result fields.",
+        "anti_farm": "Keyed by (hero, settlement) so the same hold cannot be re-sieged for XP; recapture churn yields diminishing returns (see anti_farming)."
+      },
+      {
+        "id": "strategic_site_first_use",
+        "proposal": "Tiny XP (e.g. +40) the FIRST time a hero works a strategic site (windmill/quarry/shrine). Reuses InteractHeartlandSite + a per-site 'first worked by hero' flag.",
+        "anti_farm": "One-shot per site via the existing HeartlandSiteDays cooldown map plus a first-use set."
+      },
+      {
+        "id": "diplomacy_success",
+        "proposal": "Small XP (e.g. +80) on a successful diplomatic action executed by an Envoy-assigned hero. Hooks ExecuteDiplomacy (Lane 4/Diplomacy V1 coordination).",
+        "anti_farm": "Per-faction-per-action-type one-shot; repeated identical actions give nothing."
+      }
+    ]
+  },
+
+  "anti_farming": {
+    "label": "DESIGN PROPOSAL (built on VERIFIED one-shot gates)",
+    "verified_mechanisms": [
+      "RewardedRegions (region capture reward paid once)",
+      "ResolvedEncounters (each battle result applied once)",
+      "HeartlandSiteDays cooldown (site cannot be worked twice same day)"
+    ],
+    "proposed_mechanisms": [
+      {
+        "id": "diminishing_recapture",
+        "rule": "XP for capturing a region decays per re-capture of the SAME region id by the same faction within the campaign: payout = base >> min(recaptures, 3) (i.e. 140, 70, 35, 17, floor). Prevents capture/lose/recapture churn farming (coordinated with Lane 2 anti-degeneracy)."
+      },
+      {
+        "id": "no_mana_xp",
+        "rule": "Spending/regaining mana grants NO XP. Casting is not an XP source — prevents spell-spam farming."
+      },
+      {
+        "id": "no_self_battle_xp",
+        "rule": "Controlled/AI-vs-AI encounters resolved for non-player factions (bSixFactionProfile branch) grant the player hero no XP. VERIFIED: current code only calls AddExperience(Hero,...) on the real Human path."
+      },
+      {
+        "id": "level_cap_hard_stop",
+        "rule": "At Level 10 (PROPOSAL cap) AddExperience still accumulates Experience but grants no further skill points once UnspentSkillPoints logic reaches the cap. Mirrors veterancy saturation (FSoulVeterancy saturates XP at MAX_int32 without inventing a sixth rank)."
+      }
+    ]
+  },
+
+  "worked_examples": {
+    "label": "DESIGN PROPOSAL projection using VERIFIED curve + VERIFIED sources",
+    "conservative_player_30d": {
+      "assumption": "~8 region captures (140 ea) + ~6 battle wins (360 ea)",
+      "xp": "8*140 + 6*360 = 1120 + 2160 = 3280",
+      "reached_level": "L5 (2500) approaching L6 (3750)",
+      "skill_points_available": "~4-5"
+    },
+    "war_heavy_player_30d": {
+      "assumption": "~15 captures + ~15 wins + 1 siege(+500)",
+      "xp": "15*140 + 15*360 + 500 = 2100 + 5400 + 500 = 8000",
+      "reached_level": "L8 (7000) approaching L9 (9000)",
+      "skill_points_available": "~7-8"
+    },
+    "note": "Confirms L10 cap is a stretch goal within 30 days; most heroes finish a campaign at L5-L8. Feeds Lane 9 balance model."
+  }
+}
