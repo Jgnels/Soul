@@ -9,6 +9,7 @@
 #include "RBMagicAuthority.h"
 #include "SoulRealtimeBattleRules.h"
 #include "SoulRealtimeBattleTactics.h"
+#include "SoulSiege.h"
 #include "SoulRealtimeBattleArena.generated.h"
 
 struct FRBProjectileLaunch;
@@ -185,6 +186,8 @@ public:
     static bool TraceMeleeContact(ACharacter* Attacker, ACharacter* Intended,
         float Reach, FHitResult& OutHit);
     bool CommitHit(const FRBHostHit& Hit, FString& Error);
+    bool IsSiegeGate(FRBHostIdentity Identity) const;
+    bool CanDamageSiegeGate(FRBHostIdentity Identity) const;
     bool SpendResources(FRBHostIdentity Identity,
         FName WeaponId, FName Item, int32 Quantity,
         float Effort, FString& Error);
@@ -261,6 +264,7 @@ private:
     friend struct FSoulBattleControlTestFixture;
     friend class FSoulBattleControlSelectionTest;
     friend class FSoulBattleControlOrdersTest;
+    friend class FSoulSiegeGateOrdersTest;
     friend class FSoulHeartlandCompanySpawnTest;
     friend class FSoulSpellReadinessTest;
     bool LaunchMagicProjectile(int32 Caster,int32 Target,const FGuid& CastId,float Damage);
@@ -313,6 +317,30 @@ private:
     void ToggleBattleCamera();
     void ToggleFirstPersonCamera();
     void FinishBattle();
+    bool bSiege = false;
+    FSoulSiegeState SiegeState;
+    FGuid SiegeGateId;
+    UPROPERTY() TObjectPtr<AActor> SiegeGateActor;
+    UPROPERTY() TObjectPtr<USoulRealtimeArenaBinding> SiegeGateBinding;
+    FVector SiegeGateBase=FVector::ZeroVector;
+    FVector SiegeForward=FVector::ForwardVector;
+    FVector SiegeSide=FVector::RightVector;
+    FVector SiegeObjective=FVector::ZeroVector;
+    bool SetupSiege();
+    bool CommitSiegeHit(const FRBHostHit& Hit,FString& Error);
+    bool PerformGateMelee(int32 AttackerIndex);
+    bool CommitGateMelee(int32 AttackerIndex);
+    void OpenSiegeGate();
+    void TickSiege(float Seconds);
+    void TickSiegeQualification();
+    bool SiegeDriveGroup(int32 GroupIndex,FRBCombatGroup& Out) const;
+    FVector SiegeDeployment(int32 Side,int32 Group) const;
+    int32 SiegeProofStage=0;
+    double SiegeProofNext=0;
+    int32 SiegeHitCount=0;
+    bool bSiegeTroopsEntered=false;
+    double SiegeReportNext=0;
+    bool bSiegeEntered=false;
     bool bMapOnly = false;
     bool bAutobattle = false;
     bool bCampaignAutoResolve = false;

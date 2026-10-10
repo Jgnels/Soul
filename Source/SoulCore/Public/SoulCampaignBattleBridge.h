@@ -22,6 +22,10 @@ struct SOULCORE_API FSoulCampaignBattleDescriptor
     FName MapPackage;
     FName ReturnMapPackage;
     FVector ArenaOrigin = FVector::ZeroVector;
+    // Siege transport reuses the existing battle bridge; world geometry is registry-owned.
+    bool bSiege = false;
+    int32 SiegeGateIntegrity = 0;
+    int32 SiegeGateMaximum = 0;
     int32 PlayerStrategicCount = 0;
     int32 EnemyStrategicCount = 0;
     int32 ActiveCapPerSide = 5;
@@ -44,6 +48,9 @@ struct SOULCORE_API FSoulCampaignBattleResult
     FName EncounterId;
     FName TargetRegion;
     bool bPlayerWon = false;
+    bool bSiege = false;
+    bool bCourtyardCaptured = false;
+    int32 SiegeGateRemaining = 0;
     // Includes undeployed reserves: these are the surviving strategic pools.
     TMap<FName,int32> PlayerCompanies, EnemyCompanies; // Surviving bodies plus undeployed reserves, by exact unit.
     int32 PlayerSurvivors = 0;

@@ -68,7 +68,7 @@ bool FHeartlandEnvironmentTest::RunTest(const FString&){
  TestEqual(TEXT("measured authored approach"),D.ArenaOrigin,FVector(-9000,21000,400));
  TMap<FName,FSoulSettlementEnvironmentBinding> Registry;
  TestTrue(TEXT("registry parses"),FSoulSettlementEnvironmentRegistry::Load(Registry,E));
- TestTrue(TEXT("unimplemented siege remains unset"),Registry.FindChecked(TEXT("human_capital")).SiegeEnvironment.IsEmpty());
+ TestEqual(TEXT("siege explicitly binds the actual capital"),Registry.FindChecked(TEXT("human_capital")).SiegeEnvironment,FString(TEXT("/Game/Soul/Maps/Settlements/L_HumanCapital_Authored")));
  D.TargetRegion=TEXT("forest_edge");
  TestTrue(TEXT("woodland field binding exists"),F.S->ApplySettlementEnvironment(D,E));
  TestEqual(TEXT("woodland never substitutes the city or generic field"),D.MapPackage,FName(TEXT("/Game/Soul/Maps/Battles/L_Heartland_Woodland")));

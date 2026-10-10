@@ -106,7 +106,7 @@ bool USoulRealtimeArenaBinding::HostIdentityExists_Implementation(
     FRBHostIdentity Identity) const
 {
     const auto* Host = ArenaHost(this);
-    return Host && Host->Index(Identity) != INDEX_NONE;
+    return Host && (Host->Index(Identity) != INDEX_NONE || Host->IsSiegeGate(Identity));
 }
 bool USoulRealtimeArenaBinding::HostReadEquippedWeapon_Implementation(
     FRBHostIdentity Identity, FRBHostWeapon& Out) const
@@ -152,7 +152,8 @@ bool USoulRealtimeArenaBinding::HostCanAct_Implementation(
 bool USoulRealtimeArenaBinding::HostCanReceiveDamage_Implementation(
     FRBHostIdentity Identity) const
 {
-    return HostCanAct(Identity);
+    const auto* Host=ArenaHost(this);
+    return Host && (Host->IsSiegeGate(Identity)?Host->CanDamageSiegeGate(Identity):Host->CanAct(Identity));
 }
 
 bool USoulRealtimeArenaBinding::HostHasEligibleGuardEquipment_Implementation(
@@ -429,6 +430,7 @@ bool ASoulRealtimeArenaGameMode::CanAct(
 bool ASoulRealtimeArenaGameMode::CommitHit(
     const FRBHostHit& Hit, FString& Error)
 {
+    if(IsSiegeGate(Hit.Victim))return CommitSiegeHit(Hit,Error);
     const int32 A = Index(Hit.Attacker);
     const int32 V = Index(Hit.Victim);
     if (bFinished || bBattlePaused || A == INDEX_NONE || V == INDEX_NONE || A == V ||
@@ -1258,6 +1260,8 @@ void ASoulRealtimeArenaGameMode::InitializeLoadedArena()
             // Campaign battles are embodied unless an explicit qualification or
             // -SoulAutobattle run requested the observer commander.
             ArenaOrigin = Encounter->ArenaOrigin;
+            bSiege=Encounter->bSiege;
+            if(bSiege){SiegeState=FSoulSiegeRules::Begin({});SiegeState.GateMaximumIntegrity=Encounter->SiegeGateMaximum;SiegeState.GateIntegrityPermille=Encounter->SiegeGateIntegrity;}
             ActiveCap = Encounter->ActiveCapPerSide;
             StrategicBodies[0] = Encounter->PlayerStrategicCount;
             StrategicBodies[1] = Encounter->EnemyStrategicCount;
@@ -1402,6 +1406,7 @@ bool ASoulRealtimeArenaGameMode::SetupArena()
     }
     if (bExternalEnvironment && !SetupBattlefieldBounds())
         return false;
+    if(bSiege&&!SetupSiege())return false;
     if (!SpawnArmy(0) || !SpawnArmy(1) || !SeparateBattleHeroesFromFormations() || !SetupDrivers())
         return false;
 
@@ -1506,11 +1511,11 @@ bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
             const int32 Count=FMath::Min(CompanyRemaining,FRBCombatGroup::MaximumMembers);
             const bool Archer=Id==TEXT("human_archer");
             const auto CompanyRole=Archer?ESoulRealtimeFormationRole::Ranged:Id==TEXT("human_guard")?ESoulRealtimeFormationRole::Guard:ESoulRealtimeFormationRole::Line;
-            const FVector Anchor=ArenaOrigin+FVector(-Direction*(Archer?2120.f:1500.f),Direction*(Slot++-1)*650.f,100.f);
+            const FVector Anchor=bSiege?SiegeDeployment(Side,Slot++):ArenaOrigin+FVector(-Direction*(Archer?2120.f:1500.f),Direction*(Slot++-1)*650.f,100.f);
             if(!SpawnFormation(Side,CompanyRole,Count,Anchor,Id))return false;
             FSoulBattleFormationState State;State.GroupIndex=Groups.Num()-1;State.Side=Side;
             State.Kind=Archer?ESoulBattleFormationKind::MissileSupport:ESoulBattleFormationKind::FrontLine;
-            State.SpawnAnchor=Anchor;State.TacticalAnchor=Anchor+FVector(Direction*650,0,0);
+            State.SpawnAnchor=Anchor;State.TacticalAnchor=bSiege?Anchor+SiegeForward*(Direction*650):Anchor+FVector(Direction*650,0,0);
             State.InitialBodies=State.PreviousAlive=Count;
             State.DisplayName=Archer?TEXT("Heartland Archers"):Id==TEXT("human_guard")?TEXT("Veteran Guard"):TEXT("Heartland Infantry");
             TacticalFormations.Add(State);
@@ -1556,7 +1561,7 @@ bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
             ESoulBattleFormationKind::CommandReserve};
     }
 
-    if (UsesControlledExactInfantry())
+    if (UsesControlledExactInfantry()||bSiege)
     {
         Roles.Init(ESoulRealtimeFormationRole::Line,GroupCount);
         Kinds.Init(ESoulBattleFormationKind::FrontLine,GroupCount);
@@ -1579,7 +1584,7 @@ bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
         }
         if (UsesControlledExactInfantry())
             Lateral=(G-(GroupCount-1)*.5f)*650.f;
-        const FVector Anchor = ArenaOrigin + FVector(
+        const FVector Anchor = bSiege?SiegeDeployment(Side,G):ArenaOrigin + FVector(
             BaseX - Direction * Rearward, Direction * Lateral, 100.0f);
         if (!SpawnFormation(Side, Roles[G], Count, Anchor))
             return false;
@@ -1589,7 +1594,7 @@ bool ASoulRealtimeArenaGameMode::SpawnArmy(int32 Side)
         State.Side = Side;
         State.Kind = Kinds[G];
         State.SpawnAnchor = Anchor;
-        State.TacticalAnchor = Anchor + FVector(Direction * 650.0f, 0, 0);
+        State.TacticalAnchor = bSiege?Anchor+SiegeForward*(Direction*650):Anchor + FVector(Direction * 650.0f, 0, 0);
         if (Kinds[G] == ESoulBattleFormationKind::Strike)
             State.TacticalAnchor.Y += (Side == 0 ? 1.0f : -1.0f) * 350.0f;
         State.InitialBodies = Count;
@@ -1635,7 +1640,8 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
     Core.Facing = Side == 0
         ? FVector::ForwardVector : -FVector::ForwardVector;
 
-    const int32 Columns = FMath::Min(4, Count);
+    if(bSiege)Core.Facing=Side==0?SiegeForward:-SiegeForward;
+    const int32 Columns = FMath::Min(bSiege?2:4, Count);
     const float Spacing = FormationRole == ESoulRealtimeFormationRole::Shock ? 350.0f :
         FormationRole == ESoulRealtimeFormationRole::Ranged ? 175.0f : 135.0f;
     for (int32 I = 0; I < Count; ++I)
@@ -1647,6 +1653,7 @@ bool ASoulRealtimeArenaGameMode::SpawnFormation(
         FVector Location = Anchor;
         Location.X += (Side == 0 ? -1.0f : 1.0f) * Row * Spacing;
         Location.Y += (Side == 0 ? 1.0f : -1.0f) * (Col - Center) * Spacing;
+        if(bSiege)Location=Anchor+SiegeForward*((Side==0?-1.f:1.f)*Row*105.f)+SiegeSide*((Col-Center)*95.f);
         // A formation owns the tactical job; specialist members keep their own
         // combat and locomotion identity inside it. The strike element therefore
         // fields an aerial apex and, for the evil roster, a low-profile beast
@@ -1750,13 +1757,18 @@ FVector ASoulRealtimeArenaGameMode::ResolveSpawnLocation(
     {
         if (Existing) Query.AddIgnoredActor(Existing);
     }
-    const FVector Start = Desired + FVector(0, 0, 8000.0);
+    const FVector Start = bSiege?FVector(Desired.X,Desired.Y,SiegeGateBase.Z+180):Desired + FVector(0, 0, 8000.0);
     const FVector End = Desired - FVector(0, 0, 12000.0);
-    if (GetWorld()->LineTraceSingleByChannel(
-            Hit, Start, End, ECC_Visibility, Query))
+    FCollisionObjectQueryParams GroundObjects;
+    GroundObjects.AddObjectTypesToQuery(ECC_WorldStatic);
+    // Authored walkway pieces may ignore Visibility but are real collision floors.
+    // Siege deployment must seat on that deck rather than landscape below it.
+    const bool GroundHit=bSiege
+        ? GetWorld()->LineTraceSingleByObjectType(Hit,Start,End,GroundObjects,Query)
+        : GetWorld()->LineTraceSingleByChannel(Hit,Start,End,ECC_Visibility,Query);
+    if (GroundHit)
     {
-        return FVector(
-            Desired.X, Desired.Y, Hit.ImpactPoint.Z + 96.0);
+        return FVector(Desired.X, Desired.Y, Hit.ImpactPoint.Z + 96.0);
     }
 
     UE_LOG(LogTemp, Warning,
@@ -2207,8 +2219,9 @@ bool ASoulRealtimeArenaGameMode::SpawnCombatant(
     FActorSpawnParameters Params;
     Params.SpawnCollisionHandlingOverride =
         ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-    const FRotator Facing(0, Side == 0 ? 0.0f : 180.0f, 0);
+    const FRotator Facing=bSiege?(Side==0?SiegeForward:-SiegeForward).Rotation():FRotator(0, Side == 0 ? 0.0f : 180.0f, 0);
     const FVector SpawnLocation = ResolveSpawnLocation(Location);
+    if(bSiege)UE_LOG(LogTemp,Display,TEXT("SOUL_SIEGE_DEPLOY side=%d company=%s position=%s"),Side,*Data.CampaignCompany.ToString(),*SpawnLocation.ToCompactString());
     ACharacter* Actor = GetWorld()->SpawnActor<ACharacter>(
         ACharacter::StaticClass(), SpawnLocation, Facing, Params);
     if (!Actor) return false;
@@ -2488,7 +2501,7 @@ bool ASoulRealtimeArenaGameMode::SetupDrivers()
             ? TacticalFormations[StateIndex].Kind : ESoulBattleFormationKind::FrontLine;
         Driver->FormationSpacing = Kind == ESoulBattleFormationKind::Strike ? 350.0f :
             Kind == ESoulBattleFormationKind::MissileSupport ? 175.0f : 135.0f;
-        if(IsHeartlandBridgeBattle())Driver->FormationSpacing=90.f;
+        if(IsHeartlandBridgeBattle()||bSiege)Driver->FormationSpacing=90.f;
         Driver->SightDistance = 6200.0f;
         Driver->bAllowDirectSteering = true;
         Driver->RegisterComponent();
@@ -2572,6 +2585,7 @@ void ASoulRealtimeArenaGameMode::SetupReinforcementState()
 bool ASoulRealtimeArenaGameMode::ChooseReinforcementAnchor(
     int32 Side, FVector& OutAnchor) const
 {
+    if(bSiege){OutAnchor=SiegeDeployment(Side,2);return true;}
     const float X = Side == 0
         ? -BattlefieldHalfX + 600.0f
         : BattlefieldHalfX - 600.0f;
@@ -2662,7 +2676,7 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
         int32 Lane=0,Companies=0;for(FName Id:Ids)if(WaveCounts.FindRef(Id)>0)++Companies;
         for(FName Id:Ids)if(const int32 Bodies=WaveCounts.FindRef(Id);Bodies>0)
         {
-            FVector Entry=ArrivalAnchor;Entry.Y=FMath::Clamp(Entry.Y+(Lane++-(Companies-1)*.5f)*650.f,ArenaOrigin.Y-BattlefieldHalfY+600.f,ArenaOrigin.Y+BattlefieldHalfY-600.f);
+            FVector Entry=ArrivalAnchor;if(bSiege)Entry=SiegeDeployment(Side,2+Lane++);else Entry.Y=FMath::Clamp(Entry.Y+(Lane++-(Companies-1)*.5f)*650.f,ArenaOrigin.Y-BattlefieldHalfY+600.f,ArenaOrigin.Y+BattlefieldHalfY-600.f);
             if(!SpawnReinforcementWave(Side,Bodies,Entry,Id))return false;
         }
         bSpawnCommitted=true;return true;
@@ -2738,9 +2752,8 @@ bool ASoulRealtimeArenaGameMode::SpawnReinforcementWave(
     if (!Driver) return false;
     AddInstanceComponent(Driver);
     Driver->GroupIndex = NewGroupIndex;
-    Driver->FormationSpacing = IsHeartlandBridgeBattle()?90.f:135.0f;
-    if(IsHeartlandBridgeBattle())Driver->FormationSpacing=90.f;
-        Driver->SightDistance = 6200.0f;
+    Driver->FormationSpacing = (IsHeartlandBridgeBattle()||bSiege)?90.f:135.0f;
+    Driver->SightDistance = 6200.0f;
     Driver->bAllowDirectSteering = true;
     Driver->RegisterComponent();
     Drivers.Add(Driver);
@@ -2857,6 +2870,7 @@ void ASoulRealtimeArenaGameMode::ObserveDecision(
 bool ASoulRealtimeArenaGameMode::PerformMelee(
     int32 AttackerIndex, FRBHostIdentity IntendedTarget)
 {
+    if(IsSiegeGate(IntendedTarget))return PerformGateMelee(AttackerIndex);
     const int32 TargetIndex = Index(IntendedTarget);
     if (bBattlePaused || !Combatants.IsValidIndex(AttackerIndex) ||
         TargetIndex == INDEX_NONE || !AreOpponents(IdentityAt(AttackerIndex), IntendedTarget))
@@ -2920,6 +2934,7 @@ bool ASoulRealtimeArenaGameMode::TraceMeleeContact(
 bool ASoulRealtimeArenaGameMode::CommitMeleeImpact(
     int32 AttackerIndex, FRBHostIdentity IntendedTarget)
 {
+    if(IsSiegeGate(IntendedTarget))return CommitGateMelee(AttackerIndex);
     const int32 IntendedIndex = Index(IntendedTarget);
     if (!Combatants.IsValidIndex(AttackerIndex) ||
         IntendedIndex == INDEX_NONE ||
@@ -2959,6 +2974,7 @@ bool ASoulRealtimeArenaGameMode::CommitMeleeImpact(
 
     const FRBHostIdentity Victim =
         FRBHostIdentity::From(VictimBinding->GetCombatant());
+    if(IsSiegeGate(Victim))return CommitGateMelee(AttackerIndex);
     if (!AreOpponents(IdentityAt(AttackerIndex), Victim))
         return false;
 
@@ -3759,8 +3775,8 @@ void ASoulRealtimeArenaGameMode::PlayerTick(float Seconds)
         }
         if (Best != INDEX_NONE)
             PerformMelee(PlayerIndex, IdentityAt(Best));
-        else
-            Status = TEXT("No enemy in melee arc");
+        else if(!bSiege || !PerformGateMelee(PlayerIndex))
+            Status = TEXT("No enemy or assault gate in melee reach");
     }
 
 }
@@ -3827,7 +3843,7 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
         return;
     }
     if (bReadabilityProof) TickReadabilityProof();
-    TickHumanDefenseQualification();
+    if(bSiege)TickSiegeQualification();else TickHumanDefenseQualification();
     // Camera inspection remains available after resolution as well as during pause.
     if (!bAutobattle && !Combatants.IsEmpty()) PlayerTick(Seconds);
     TickCombatPresentation(bBattlePaused ? 0.f : Seconds);
@@ -3933,6 +3949,8 @@ void ASoulRealtimeArenaGameMode::Tick(float Seconds)
     if (bFinished) return; // A failed reserve transaction must not proceed to result publication.
     TrackBattlefieldExtent();
     TickSpatialOrders(Seconds);
+    if(bSiege)TickSiege(Seconds);
+    if(bFinished)return;
     TickBattleResolution(Seconds);
     if (bFinished) return;
 }
@@ -4068,7 +4086,7 @@ bool ASoulRealtimeArenaGameMode::IssueFormationOrder(
         TacticalFormations[StateIndex].Kind==ESoulBattleFormationKind::FrontLine)
         Drivers[GroupIndex]->FormationSpacing=Order==ERBHostGroupOrder::Hold || Order==ERBHostGroupOrder::Face ? 115.f :
             Order==ERBHostGroupOrder::Charge ? 165.f : 135.f;
-    if(IsHeartlandBridgeBattle())Drivers[GroupIndex]->FormationSpacing=90.f;
+    if(IsHeartlandBridgeBattle()||bSiege)Drivers[GroupIndex]->FormationSpacing=90.f;
     if (TacticalFormations.IsValidIndex(StateIndex))
     {
         TacticalFormations[StateIndex].TacticalAnchor = Anchor;
@@ -4481,6 +4499,8 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         FinishProof(false, TEXT("Battle resolved without required PBIL query and RB Combat order participation"));
         return;
     }
+    if(bSiege&&FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeQualification")))
+        FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir()/TEXT("Screenshots/Siege_Battle_Result.png"),true,false);
     const bool bHumanWon = ControlledSide == 0 ? bWon : EnemySurvivors > 0 && PlayerSurvivors == 0;
     BattleResultLabel = bHumanWon
         ? (bSideMoraleDefeated[1-ControlledSide] ? TEXT("VICTORY / ENEMY ROUTED") : TEXT("VICTORY"))
@@ -4495,6 +4515,7 @@ void ASoulRealtimeArenaGameMode::FinishBattle()
         Result.EncounterId = Pending->EncounterId;
         Result.TargetRegion = Pending->TargetRegion;
         Result.bPlayerWon = bWon;
+        Result.bSiege=bSiege;Result.SiegeGateRemaining=bSiege?SiegeState.GateIntegrityPermille:0;Result.bCourtyardCaptured=bSiege&&SiegeState.bVictory;
         Result.PlayerCompanies=SurvivingCampaignCompanies(0,bSideMoraleDefeated[0]);
         Result.EnemyCompanies=SurvivingCampaignCompanies(1,bSideMoraleDefeated[1]);
         Result.PlayerSurvivors = PlayerSurvivors;

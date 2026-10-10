@@ -16,6 +16,7 @@ private:
     void TickFourFactionAlphaQualification(float Seconds);
     void TickHeartlandQualification(float Seconds);
     void TickHeartlandDepthQualification(float Seconds);
+    void TickSiegeQualification(float Seconds);
     double AlphaProofNextTime = 0;
     void TickCompositionTraversal(float Seconds);
     void TickSixFactionQualification(float Seconds);

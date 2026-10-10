@@ -52,6 +52,8 @@ bool FSoulCampaignBattleDescriptor::IsValid() const
                 && (PlayerFaction==NonPlayerHeroFaction||EnemyFaction==NonPlayerHeroFaction)))
         && ValidCompanies(PlayerFaction,PlayerCompanies,PlayerStrategicCount)
         && ValidCompanies(EnemyFaction,EnemyCompanies,EnemyStrategicCount)
+        && (!bSiege || (TargetRegion==TEXT("human_capital") && SiegeGateMaximum>=100 && SiegeGateMaximum<=1300
+            && SiegeGateIntegrity>=0 && SiegeGateIntegrity<=SiegeGateMaximum))
         && PlayerMana >= 0
         && SupportsExactPair(PlayerFaction, PlayerUnitId, EnemyFaction, EnemyUnitId);
 }
@@ -77,6 +79,10 @@ bool FSoulCampaignBattleResult::IsValidFor(const FSoulCampaignBattleDescriptor& 
         && ValidSurvivors(Encounter.EnemyCompanies,EnemyCompanies,EnemySurvivors)
         && Encounter.IsValid() && EncounterId == Encounter.EncounterId
         && TargetRegion == Encounter.TargetRegion
+        && bSiege == Encounter.bSiege
+        && (bSiege ? (SiegeGateRemaining>=0 && SiegeGateRemaining<=Encounter.SiegeGateIntegrity
+            && (!bCourtyardCaptured || (SiegeGateRemaining==0 && bPlayerWon)))
+            : (!bCourtyardCaptured && SiegeGateRemaining==0))
         && PlayerSurvivors >= 0 && PlayerSurvivors <= Encounter.PlayerStrategicCount
         && EnemySurvivors >= 0 && EnemySurvivors <= Encounter.EnemyStrategicCount
         && PlayerReinforcements >= 0 && EnemyReinforcements >= 0 && MagicCasts >= 0

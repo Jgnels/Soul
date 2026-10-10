@@ -31,6 +31,25 @@ void ASoulRealtimeArenaHUD::DrawHUD()
         UI.Text(TEXT("Armies fight automatically. You will return to the campaign when the battle ends."),28,74,FLinearColor::White);
         return;
     }
+    if(Host->bSiege)
+    {
+        UI.Panel(14,112,450,78);UI.Text(TEXT("HUMAN CAPITAL - SIEGE"),26,120,UI.Gold);
+        UI.Text(FString::Printf(TEXT("Gate: %d%%  |  %s"),100*Host->SiegeState.GateIntegrityPermille/FMath::Max(1,Host->SiegeState.GateMaximumIntegrity),Host->SiegeState.GateIntegrityPermille>0?TEXT("Attack the portcullis"):TEXT("Enter and hold the courtyard")),26,144,UI.Bright,.9f);
+        UI.Text(FString::Printf(TEXT("Courtyard: %d%%  |  Attackers %d  Defenders %d"),Host->SiegeState.CourtyardControlMillis/150,Host->AliveForSide(0),Host->AliveForSide(1)),26,167,UI.Bright,.9f);
+    }
+    if(Host->bSiege && Host->SiegeState.GateIntegrityPermille==0 && !Host->bFinished)
+    {
+        const FLinearColor Objective=Host->SiegeState.GateIntegrityPermille>0?UI.Muted:UI.Gold;
+        for(int32 I=0;I<32;++I)
+        {
+            const float A=2*PI*I/32,B=2*PI*(I+1)/32;
+            const FVector P=Project(Host->SiegeObjective+FVector(FMath::Cos(A)*420,FMath::Sin(A)*420,24));
+            const FVector Q=Project(Host->SiegeObjective+FVector(FMath::Cos(B)*420,FMath::Sin(B)*420,24));
+            if(P.Z>0&&Q.Z>0)UI.Line(P.X/UI.Scale,P.Y/UI.Scale,Q.X/UI.Scale,Q.Y/UI.Scale,Objective,2);
+        }
+        const FVector P=Project(Host->SiegeObjective+FVector(0,0,150));
+        if(P.Z>0)UI.Text(TEXT("COURTYARD"),P.X/UI.Scale-38,P.Y/UI.Scale,Objective,.8f);
+    }
     const FLinearColor Ally(.2f,.78f,.86f), Enemy(.88f,.30f,.18f);
     FString Tooltip;
     // Subordinate, shape-distinct allegiance markers. Health uses combat authority.

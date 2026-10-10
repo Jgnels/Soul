@@ -284,4 +284,40 @@ bool FSoulHeartlandCompanySpawnTest::RunTest(const FString&)
     TestEqual(TEXT("Deployment never changes survivor totals"),H->SurvivingCampaignCompanies(0,false).FindRef(TEXT("human_archer")),3);
     return true;
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSoulSiegeGateOrdersTest,
+    "Soul.RealtimeBattle.Control.SiegeGateOrders",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FSoulSiegeGateOrdersTest::RunTest(const FString&)
+{
+    FSoulBattleControlTestFixture F;auto* H=F.Host;if(!H)return false;
+    const int32 Hero=F.Body(0,FVector(-800,0,96),true,true);
+    const int32 Troop=F.Body(0,FVector(-650,0,96));
+    const int32 Enemy=F.Body(1,FVector(800,0,96));
+    const int32 G=F.Group(0,{Hero,Troop},FVector(-650,0,96));
+    const int32 D=F.Group(1,{Enemy},FVector(800,0,96));
+    H->bSiege=true;H->SiegeGateBase=FVector::ZeroVector;H->SiegeForward=FVector::ForwardVector;
+    H->SiegeObjective=FVector(950,0,0);H->SiegeState=FSoulSiegeRules::Begin({});
+    if(!H->SeparateBattleHeroesFromFormations()||!H->SetupDrivers())return false;
+    FRBCombatGroup Drive;
+    H->IssueFormationOrder(G,ERBHostGroupOrder::Hold,FVector(-650,0,96),FVector::ForwardVector,true);
+    H->ReadDriveGroup(G,Drive);TestTrue(TEXT("siege does not erase HOLD"),Drive.Command==ERBGroupCommand::Hold);
+    H->IssueFormationOrder(G,ERBHostGroupOrder::Advance,FVector(-400,0,96),FVector::ForwardVector,true);
+    H->ReadDriveGroup(G,Drive);TestTrue(TEXT("valid outside MOVE remains exact"),Drive.Anchor.Equals(FVector(-400,0,96)));
+    H->IssueFormationOrder(G,ERBHostGroupOrder::Charge,FVector(950,0,96),FVector::ForwardVector,true);
+    const auto UserOrder=H->Groups[G];
+    H->ReadDriveGroup(G,Drive);TestTrue(TEXT("closed assault stops before gate"),Drive.Command==ERBGroupCommand::Advance&&Drive.Anchor.X<0);
+    TestFalse(TEXT("no attacks through intact portcullis"),H->CanDriverEngage(G,H->IdentityAt(Troop),H->IdentityAt(Enemy)));
+    H->SiegeState.GateIntegrityPermille=0;
+    H->ReadDriveGroup(G,Drive);TestTrue(TEXT("breached waypoint clears arrival radius and aperture"),Drive.Command==ERBGroupCommand::Advance&&Drive.Anchor.X>=400);
+    H->Actors[Troop]->SetActorLocation(FVector(250,0,96));
+    H->ReadDriveGroup(G,Drive);TestTrue(TEXT("inside troops regain native pursuit"),Drive.Command==ERBGroupCommand::Charge);
+    TestTrue(TEXT("adapter leaves player order and destination intact"),H->Groups[G].Order==UserOrder.Order&&H->Groups[G].Anchor==UserOrder.Anchor);
+    H->SiegeState.GateIntegrityPermille=1000;
+    H->IssueFormationOrder(D,ERBHostGroupOrder::Charge,FVector(-450,0,96),-FVector::ForwardVector,false);
+    H->ReadDriveGroup(D,Drive);TestTrue(TEXT("defenders hold inside closed gate"),Drive.Command==ERBGroupCommand::Hold&&Drive.Anchor.X>0);
+    H->IssueFormationOrder(D,ERBHostGroupOrder::Advance,FVector(550,0,96),-FVector::ForwardVector,true);
+    H->ReadDriveGroup(D,Drive);TestTrue(TEXT("interior defender MOVE remains available"),Drive.Command==ERBGroupCommand::Advance&&Drive.Anchor.X==550);
+    return true;
+}
+
 #endif

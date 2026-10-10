@@ -47,7 +47,8 @@ bool USoulFounderPlaytestStateSubsystem::ValidateControlledAction(FName Id, FNam
             && Recipe->Id==TEXT("dragon_graveyard") && Recipe->MapPackage==BattleMap && Recipe->ArenaOrigin==BattleOrigin;
         const auto* City=EnvironmentRegistry.Find(Target);
         const bool RegisteredCity=bHeartlandEnabled&&City&&City->bBattleEnabled
-            &&Encounter.MapPackage==FName(*City->BattleEnvironment())&&Encounter.ArenaOrigin==City->ArenaOrigin;
+            && (Encounter.bSiege ? (!City->SiegeEnvironment.IsEmpty()&&Encounter.MapPackage==FName(*City->SiegeEnvironment)&&Encounter.ArenaOrigin==City->SiegeOrigin)
+                : (Encounter.MapPackage==FName(*City->BattleEnvironment())&&Encounter.ArenaOrigin==City->ArenaOrigin));
         if (!RegisteredCity && (!Recipe || (!AlphaFieldFallback && !Recipe->Biomes.Contains(Encounter.BattleContext.Biome)
             && !Recipe->Landforms.Contains(Encounter.BattleContext.Landform)
             && !Recipe->Features.Contains(Encounter.BattleContext.Feature))))

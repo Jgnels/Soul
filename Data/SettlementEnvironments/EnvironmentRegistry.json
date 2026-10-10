@@ -9,7 +9,7 @@
       "authored_environment_available": true,
       "visit_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
       "city_battle_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
-      "siege_environment": null,
+      "siege_environment": "/Game/Soul/Maps/Settlements/L_HumanCapital_Authored",
       "field_battle_environment": null,
       "arena_origin": [
         -9000,
@@ -18,7 +18,12 @@
       ],
       "development_profile": "/Game/Soul/Data/Settlements/DA_Soul_HumanCapital_DevelopmentProof",
       "battle_enabled": true,
-      "note": "Existing qualified land approach of complete city. Field combat; no full siege mechanics claimed."
+      "note": "Native gate siege is isolated behind SoulSiegeV0 until physical qualification. Existing outer field approach remains unchanged.",
+      "siege_origin": [
+        5376.5919,
+        1390.9534,
+        1050
+      ]
     },
     {
       "settlement_id": "dwarf_hold",

@@ -31,6 +31,13 @@ bool FSoulSettlementEnvironmentRegistry::Load(TMap<FName,FSoulSettlementEnvironm
             for(const auto& N:*A)if(N->Type!=EJson::Number||!FMath::IsFinite(N->AsNumber())){Error=TEXT("Invalid city battle origin.");return false;}
             B.ArenaOrigin=FVector((*A)[0]->AsNumber(),(*A)[1]->AsNumber(),(*A)[2]->AsNumber());
         }
+        if(!B.SiegeEnvironment.IsEmpty())
+        {
+            if(B.SettlementId!=TEXT("human_capital")||!B.bBattleEnabled||!B.SiegeEnvironment.StartsWith(TEXT("/Game/Soul/"))||!O->TryGetArrayField(TEXT("siege_origin"),A)||A->Num()!=3)
+            {Error=TEXT("Siege requires explicit native gate origin and owned Human Capital map.");return false;}
+            for(const auto& N:*A)if(N->Type!=EJson::Number||!FMath::IsFinite(N->AsNumber())){Error=TEXT("Invalid siege origin.");return false;}
+            B.SiegeOrigin=FVector((*A)[0]->AsNumber(),(*A)[1]->AsNumber(),(*A)[2]->AsNumber());
+        }
         if(Parsed.Contains(B.SettlementId)){Error=TEXT("Duplicate settlement environment.");return false;}
         Parsed.Add(B.SettlementId,MoveTemp(B));
     }

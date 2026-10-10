@@ -125,6 +125,7 @@ void ASoulFounderPlaytestGameMode::Tick(float Seconds)
             UGameplayStatics::OpenLevel(this,State->PendingBattle.MapPackage,true,TEXT("game=/Script/SoulRealtimeBattle.SoulRealtimeArenaGameMode"));return;
         }
     }
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeQualification"))){if(!bDone)TickSiegeQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandDepthQualification"))){if(!bDone)TickHeartlandDepthQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulHeartlandQualification"))){if(!bDone)TickHeartlandQualification(Seconds);return;}
     if(FParse::Param(FCommandLine::Get(),TEXT("SoulAlphaQualification"))){if(!bDone)TickFourFactionAlphaQualification(Seconds);return;}

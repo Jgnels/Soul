@@ -84,6 +84,7 @@ bool ASoulRealtimeArenaGameMode::ReadDriveGroup(int32 GroupIndex, FRBCombatGroup
         if(SoulHeartlandBridge::Approach(GroupCenter(GroupIndex)-ArenaOrigin,Out.Anchor-ArenaOrigin,Waypoint))
         {Out.Command=ERBGroupCommand::Advance;Out.Anchor=ArenaOrigin+Waypoint;Out.Facing=(Out.Anchor-GroupCenter(GroupIndex)).GetSafeNormal2D();}
     }
+    if(bSiege&&!SiegeDriveGroup(GroupIndex,Out))return false;
     return Out.IsValid();
 }
 
@@ -108,12 +109,13 @@ bool ASoulRealtimeArenaGameMode::CanDriverEngage(int32 GroupIndex,
             SoulHeartlandBridge::Approach(Actors[I]->GetActorLocation()-ArenaOrigin,Actors[Target]->GetActorLocation()-ArenaOrigin,Waypoint)
             && FVector::Dist2D(Actors[I]->GetActorLocation(),Actors[Target]->GetActorLocation())>280)return false;
     }
+    if(bSiege && SiegeState.GateIntegrityPermille>0)return false;
     const int32 S = FindFormationState(GroupIndex);
     const bool Manual = TacticalFormations.IsValidIndex(S) &&
         TacticalFormations[S].ManualOverrideUntil > BattleElapsed && !TacticalFormations[S].bRouting;
     // A manually charged company must still fight a contact reached on the deck,
     // even while its movement snapshot is temporarily an entrance waypoint.
-    if(IsHeartlandBridgeBattle() && Manual && TacticalFormations[S].ManualOrder==ERBHostGroupOrder::Charge)
+    if((IsHeartlandBridgeBattle() || (bSiege&&SiegeState.GateIntegrityPermille==0)) && Manual && TacticalFormations[S].ManualOrder==ERBHostGroupOrder::Charge)
     {
         const int32 Target=Index(Other);
         if(Actors.IsValidIndex(Target)&&Actors[Target]&&FVector::Dist2D(Actors[I]->GetActorLocation(),Actors[Target]->GetActorLocation())<=280)return true;

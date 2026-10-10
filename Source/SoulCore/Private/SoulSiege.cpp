@@ -4,6 +4,7 @@ FSoulSiegeState FSoulSiegeRules::Begin(const FSoulSiegePreparation& Preparation)
 {
     FSoulSiegeState State;
     State.GateIntegrityPermille = Preparation.bReinforcedGate ? 1300 : 1000;
+    State.GateMaximumIntegrity = State.GateIntegrityPermille;
     State.bMagicWardActive = Preparation.bMagicalWard;
     State.bArmoryActive = Preparation.bAmmoStores;
     State.bGatehouseActive = true;
@@ -64,4 +65,21 @@ void FSoulSiegeRules::AdvanceLayer(FSoulSiegeState& State)
         case ESoulSiegeLayer::Resolved:
             break;
     }
+}
+
+bool FSoulSiegeRules::ApplyGateDamage(FSoulSiegeState& State, int32 Damage)
+{
+    if (Damage<=0 || Damage>100000 || State.GateIntegrityPermille<=0 || State.bVictory) return false;
+    State.GateIntegrityPermille=FMath::Max(0,State.GateIntegrityPermille-Damage);
+    if(State.GateIntegrityPermille==0){State.bGatehouseActive=false;OpenBreach(State);State.Layer=ESoulSiegeLayer::InnerSettlement;}
+    return true;
+}
+bool FSoulSiegeRules::AdvanceCourtyard(FSoulSiegeState& State,int32 Millis,int32 Attackers,int32 Defenders)
+{
+    if(Millis<=0||Millis>1000||Attackers<0||Defenders<0||State.bVictory||State.GateIntegrityPermille>0||State.WallBreaches<=0)return false;
+    if(Attackers>0&&Defenders==0)State.CourtyardControlMillis=FMath::Min(15000,State.CourtyardControlMillis+Millis);
+    else if(Attackers==0)State.CourtyardControlMillis=FMath::Max(0,State.CourtyardControlMillis-Millis);
+    // A living defender contests; the clock never advances through opposition.
+    if(State.CourtyardControlMillis==15000)CaptureObjective(State,ESoulSiegeObjective::Keep);
+    return State.bVictory;
 }

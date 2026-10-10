@@ -37,6 +37,8 @@ struct FSoulSiegeState
     int32 EncirclementDays = 0;
     int32 DefenderSupplyPermille = 1000;
     int32 GateIntegrityPermille = 1000;
+    int32 GateMaximumIntegrity = 1000;
+    int32 CourtyardControlMillis = 0;
     int32 WallBreaches = 0;
     bool bMagicWardActive = false;
     bool bArmoryActive = true;
@@ -54,4 +56,7 @@ public:
     static void CaptureObjective(FSoulSiegeState& State, ESoulSiegeObjective Objective);
     static void OpenBreach(FSoulSiegeState& State);
     static void AdvanceLayer(FSoulSiegeState& State);
+    // Real-time adapter supplies only RB-accepted damage and physical occupancy.
+    static bool ApplyGateDamage(FSoulSiegeState& State, int32 AcceptedDamage);
+    static bool AdvanceCourtyard(FSoulSiegeState& State, int32 Millis, int32 Attackers, int32 Defenders);
 };

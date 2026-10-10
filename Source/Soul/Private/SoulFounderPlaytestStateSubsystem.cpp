@@ -349,6 +349,21 @@ void USoulFounderPlaytestStateSubsystem::InitializeScenario()
         if (!InitializeSettlementDevelopment(DevelopmentScenario, GetGameInstance()->GetSubsystem<USoulSettlementStateSubsystem>(), Error))
             UE_LOG(LogSoulCampaign, Error, TEXT("SOUL_SETTLEMENT_DEVELOPMENT_UNREADY %s"), *Error);
     }
+    // Isolated start fixture: seed the existing authored settlement first, then
+    // declare an enemy occupation before any player action or save is allowed.
+    if(bHeartlandEnabled&&(FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeQualification"))||FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeFixture"))))
+    {
+        SixFactionSaveSlot+=FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeQualification"))?TEXT(".SiegeV0Proof"):TEXT(".SiegeV0Playtest");
+        const int32 Total=GetPlayerTroopCount();
+        if(Total>=9)PlayerArmy={{TEXT("human_knight"),Total-8},{TEXT("human_archer"),4},{TEXT("human_guard"),4}}; // Reviewed mixed-company START fixture; total unchanged.
+        if(FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeQualification"))&&FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeOutnumbered")))
+        {PlayerArmy={{TEXT("human_knight"),9},{TEXT("human_archer"),0},{TEXT("human_guard"),0}};SixFactionSaveSlot+=TEXT(".Outnumbered");}
+        PlayerRegion=TEXT("crossroads");FSoulWorldRules::Capture(World,PlayerRegion,PlayerFaction);
+        auto& Defender=OtherFactionStates.FindChecked(TEXT("dwarves"));Defender.Army.RegionId=TEXT("human_capital");
+        FSoulWorldRules::Capture(World,Defender.Army.RegionId,TEXT("dwarves"));
+        FSoulWorldRules::RefreshVision(World,TEXT("dwarves"),Defender.Army.RegionId);
+        FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);
+    }
 }
 
 bool USoulFounderPlaytestStateSubsystem::InitializeSettlementDevelopment(
@@ -535,6 +550,17 @@ bool USoulFounderPlaytestStateSubsystem::BeginBattle(FName Target,int32 Cap)
 bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBattleResult& R)
 {
     if (!HasPendingBattle() || ResolvedEncounters.Contains(R.EncounterId) || !R.IsValidFor(PendingBattle)) return false;
+    auto ApplySiegeAftermath=[&]()
+    {
+        if(!R.bSiege||!SettlementAuthority.IsValid())return;
+        auto* Town=SettlementAuthority->FindSettlement(PendingBattle.TargetRegion);if(!Town)return;
+        FSoulSiegeAftermath Damage;
+        const int32 Remaining=R.SiegeGateRemaining*1000/PendingBattle.SiegeGateMaximum;
+        Damage.WallDamagePermille=FMath::Max(0,Town->WallIntegrityPermille-Remaining);
+        if(R.SiegeGateRemaining==0)Damage.ScarIds.Add(TEXT("human.gate.breached"));
+        SettlementAuthority->ApplySiegeAftermath(PendingBattle.TargetRegion,Damage);++SettlementDevelopmentRevision;
+        UE_LOG(LogSoulCampaign,Display,TEXT("SOUL_SIEGE_AFTERMATH gate=%d wallIntegrity=%d capturedObjective=%d existing_save_domain=Soul.Settlements"),R.SiegeGateRemaining,Town->WallIntegrityPermille,R.bCourtyardCaptured);
+    };
     auto ApplyHeroInjury=[&]()
     {
         if(!bHeartlandEnabled)return;
@@ -554,7 +580,7 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
         auto* Attacker=OtherFactionStates.Find(PendingBattle.PlayerFaction);
         auto* Defender=PendingBattle.EnemyFaction==PlayerFaction?nullptr:OtherFactionStates.Find(PendingBattle.EnemyFaction);
         if (!Attacker || (PendingBattle.EnemyFaction!=PlayerFaction && !Defender)) return false;
-        ApplyHeroInjury();
+        ApplySiegeAftermath();ApplyHeroInjury();
         Attacker->Army.TroopCount=R.PlayerSurvivors;
         if (Defender) Defender->Army.TroopCount=R.EnemySurvivors;
         else
@@ -575,7 +601,7 @@ bool USoulFounderPlaytestStateSubsystem::ApplyBattleResult(const FSoulCampaignBa
         AppendAlphaBattleRecap(R);
         LastBattleResult=R;ResolvedEncounters.Add(R.EncounterId);PendingBattle=FSoulCampaignBattleDescriptor();return true;
     }
-    ApplyHeroInjury();
+    ApplySiegeAftermath();ApplyHeroInjury();
     if(!PendingBattle.PlayerCompanies.IsEmpty())PlayerArmy=R.PlayerCompanies;
     else PlayerArmy.FindOrAdd(PendingBattle.PlayerUnitId)=R.PlayerSurvivors;
     if(bSixFactionProfile)OtherFactionStates.FindChecked(PendingBattle.EnemyFaction).Army.TroopCount=R.EnemySurvivors;
@@ -682,6 +708,12 @@ bool USoulFounderPlaytestStateSubsystem::CaptureRBSaveDomain_Implementation(FRBS
     TMap<FName,int32> Result={{TEXT("player"),LastBattleResult.PlayerSurvivors},{TEXT("enemy"),LastBattleResult.EnemySurvivors},{TEXT("player_waves"),LastBattleResult.PlayerReinforcements},{TEXT("enemy_waves"),LastBattleResult.EnemyReinforcements},{TEXT("magic"),LastBattleResult.MagicCasts}};
     Root->SetObjectField(TEXT("result"),IntMap(Result));
     Root->SetNumberField(TEXT("result_mana"), LastBattleResult.PlayerManaRemaining);
+    if(LastBattleResult.bSiege)
+    {
+        Root->SetBoolField(TEXT("result_siege"),true);
+        Root->SetNumberField(TEXT("result_siege_gate"),LastBattleResult.SiegeGateRemaining);
+        Root->SetBoolField(TEXT("result_siege_courtyard"),LastBattleResult.bCourtyardCaptured);
+    }
     if(bHeartlandEnabled){Root->SetBoolField(TEXT("heartland_companion_assigned"),bCompanionAssigned);Root->SetNumberField(TEXT("heartland_construction_day"),HeartlandConstructionDay);Root->SetObjectField(TEXT("heartland_site_days"),IntMap(HeartlandSiteDays));Root->SetNumberField(TEXT("heartland_hero_condition"),static_cast<int32>(Hero.Condition));Root->SetNumberField(TEXT("heartland_recovery_days"),Hero.RecoveryDays);Root->SetStringField(TEXT("heartland_captor"),Hero.CaptorFaction.ToString());Root->SetStringField(TEXT("heartland_capture_region"),Hero.CaptureRegion.ToString());}
     if(bHeartlandEnabled)
     {
@@ -712,6 +744,7 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
     TSet<FName> Rewarded,Resolved,Explored,Spells;
     FString Region,Enemy,PF,EF,ResultId,ResultTarget;
     int32 Day=0,AP=0,MaxAP=0,Ordinal=0,ResultMana=0,HeroKind=0;bool Won=false,Hired=false,ResultWon=false;
+    bool ResultSiege=false,ResultCourtyard=false;int32 ResultGate=0;
     const TSharedPtr<FJsonObject>* Owners=nullptr;
     bool Valid=Root->TryGetStringField(TEXT("player_region"),Region)&&Root->TryGetStringField(TEXT("enemy_region"),Enemy)
         &&World.Regions.Contains(FName(*Region))&&World.Regions.Contains(FName(*Enemy))
@@ -742,6 +775,16 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
         if (Root->HasField(TEXT("result_mana")))
             Valid &= ReadNonNegativeInt(*Root, TEXT("result_mana"), ResultMana);
         Valid &= ResultMana <= Numbers.FindRef(TEXT("max_mana"));
+        // Optional schema-1 receipt; older field checkpoints remain unchanged.
+        // Partial or contradictory siege metadata is rejected before authority mutates.
+        if(Root->HasField(TEXT("result_siege"))||Root->HasField(TEXT("result_siege_gate"))||Root->HasField(TEXT("result_siege_courtyard")))
+        {
+            Valid &= Root->TryGetBoolField(TEXT("result_siege"),ResultSiege)&&ResultSiege
+                &&ReadNonNegativeInt(*Root,TEXT("result_siege_gate"),ResultGate)&&ResultGate<=1300
+                &&Root->TryGetBoolField(TEXT("result_siege_courtyard"),ResultCourtyard)
+                &&FName(*ResultTarget)==TEXT("human_capital")&&!FName(*ResultId).IsNone()
+                &&(!ResultCourtyard||(ResultWon&&ResultGate==0));
+        }
         Valid &= Numbers.Num()==5&&Numbers.Contains(TEXT("level"))&&Numbers.Contains(TEXT("xp"))&&Numbers.Contains(TEXT("points"))&&Numbers.Contains(TEXT("mana"))&&Numbers.Contains(TEXT("max_mana"))
             &&Numbers.FindRef(TEXT("level"))>0&&Numbers.FindRef(TEXT("mana"))<=Numbers.FindRef(TEXT("max_mana"))
             &&Result.Num()==5&&Result.Contains(TEXT("player"))&&Result.Contains(TEXT("enemy"))&&Result.Contains(TEXT("player_waves"))&&Result.Contains(TEXT("enemy_waves"))&&Result.Contains(TEXT("magic"));
@@ -834,6 +877,7 @@ bool USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation(cons
     LastBattleResult.PlayerSurvivors=Result[TEXT("player")];LastBattleResult.EnemySurvivors=Result[TEXT("enemy")];
     LastBattleResult.PlayerReinforcements=Result[TEXT("player_waves")];LastBattleResult.EnemyReinforcements=Result[TEXT("enemy_waves")];LastBattleResult.MagicCasts=Result[TEXT("magic")];
     LastBattleResult.PlayerManaRemaining = ResultMana;
+    LastBattleResult.bSiege=ResultSiege;LastBattleResult.SiegeGateRemaining=ResultGate;LastBattleResult.bCourtyardCaptured=ResultCourtyard;
     World.KnowledgeByFaction.FindOrAdd(PlayerFaction).ExploredRegions=MoveTemp(Explored);FSoulWorldRules::RefreshVision(World,PlayerFaction,PlayerRegion);
     Error.Reset();return true;
 }
@@ -896,6 +940,21 @@ bool USoulFounderPlaytestStateSubsystem::ApplySettlementEnvironment(FSoulCampaig
     const auto* Binding=EnvironmentRegistry.Find(Out.TargetRegion);
     if(!Binding||!Binding->bBattleEnabled)return true;
     if(!FPackageName::DoesPackageExist(Binding->BattleEnvironment())){Error=TEXT("Registered battlefield is missing; generic substitution rejected.");return false;}
+    const auto* Town=SettlementAuthority.IsValid()?SettlementAuthority->FindSettlement(Out.TargetRegion):nullptr;
+    if(FParse::Param(FCommandLine::Get(),TEXT("SoulSiegeV0"))&&!Binding->SiegeEnvironment.IsEmpty()&&Town&&Town->FortificationLevel>0)
+    {
+        if((Out.PlayerFaction==PlayerFaction&&!FSoulHeroRules::CanCommandSiege(Hero))
+            ||(Out.PlayerFaction==TEXT("dwarves")&&!FSoulHeroRules::CanCommandSiege(DwarfCommander)))
+        {Error=TEXT("A wounded or captured commander cannot initiate a siege.");return false;}
+        if(!FPackageName::DoesPackageExist(Binding->SiegeEnvironment)){Error=TEXT("Registered siege map missing.");return false;}
+        Out.bSiege=true;Out.MapPackage=FName(*Binding->SiegeEnvironment);Out.ArenaOrigin=Binding->SiegeOrigin;
+        Out.BattlefieldId=TEXT("human_capital_gate_siege");Out.BattleContext.bSettlementNearby=true;
+        if(Out.PlayerFaction==PlayerFaction)Out.PlayerCompanies=PlayerArmy;
+        if(Out.EnemyFaction==PlayerFaction)Out.EnemyCompanies=PlayerArmy;
+        Out.SiegeGateMaximum=Town->FortificationLevel>=2?1300:1000;
+        Out.SiegeGateIntegrity=FMath::Clamp(Town->WallIntegrityPermille,0,1000)*Out.SiegeGateMaximum/1000;
+        return true;
+    }
     Out.MapPackage=FName(*Binding->BattleEnvironment());Out.ArenaOrigin=Binding->ArenaOrigin;
     Out.BattlefieldId=FName(*(Out.TargetRegion.ToString()+(Binding->IsFieldEncounter()?TEXT("_field"):TEXT("_authored_approach"))));
     Out.BattleContext.bSettlementNearby=!Binding->IsFieldEncounter();return true;
