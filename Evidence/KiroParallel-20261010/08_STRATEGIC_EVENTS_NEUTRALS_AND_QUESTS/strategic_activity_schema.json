@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "generated": "2026-10-10",
+  "lane": "08_STRATEGIC_EVENTS_NEUTRALS_AND_QUESTS",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "authority_label": "DESIGN PROPOSAL",
+  "intent": "Deterministic, data-driven schema for the next adventure-map activity layer beyond windmill/quarry/shrine. Mirrors the existing FSoulHeartlandSite + HeartlandDevelopment.json pattern so Codex can extend the single campaign authority (USoulFounderPlaytestStateSubsystem) additively rather than build a second site/quest system.",
+  "non_goals": [
+    "No second Save authority (extend the existing Soul.Campaign RBSave domain, schema 1).",
+    "No second combat/diplomacy authority (route all resolution through the existing campaign battle bridge and SoulDiplomacyRules).",
+    "No invented /Game paths or asset ownership (all presentation is gameplay-only until a LOCAL RUNTIME-ASSET CHECK admits an owned mesh).",
+    "No geography redesign (uses the existing 36-region soul_world_overmap region ids verbatim).",
+    "Do not reopen Human Capital replacement, Titan/R10, terrain bakeoffs."
+  ],
+
+  "verified_current_anchors": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT",
+    "site_struct": "FSoulHeartlandSite in Source/Soul/Public/SoulHeartlandContent.h (fields: Id, Region, Effect, Name, Amount, ActionCost).",
+    "site_loader": "FSoulHeartlandContent::Load in Source/Soul/Private/SoulHeartlandContent.cpp (reads Data/SettlementEnvironments/HeartlandDevelopment.json 'sites' array; validates Effect in {gold,mana}, Amount>=1, ActionCost>=1).",
+    "site_collection": "USoulFounderPlaytestStateSubsystem::InteractHeartlandSite (Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp:983) with per-day throttle TMap<FName,int32> HeartlandSiteDays (header line 109).",
+    "turn_tick": "USoulFounderPlaytestStateSubsystem::AdvanceDay (SoulFounderPlaytestStateSubsystem.cpp:630); low-level FSoulCampaignRules::AdvanceDay in SoulCampaign.cpp (line ~48 decl).",
+    "world_model": "FSoulRegionState/FSoulWorldState in Source/SoulCore/Public/SoulWorld.h (Id, OwnerFactionId, Biome, Landform, Feature, Neighbors, RoadNeighbors, ApproachFromNeighbor, bSettlement). No coordinate field at runtime; (x,y) is data-only.",
+    "region_data": "36 regions in Data/soul_world_overmap_v1_20260922.json 'nodes'; ownership/neutral overlay in Data/soul_campaign_start_states_v1_20260922.json scenario six_faction_sandbox_candidate (neutral_regions[24], value_site_candidates, neutral_minor_sites, region_control control_class).",
+    "rng_convention": "FRandomStream seeded from FCrc::StrCrc32(*Id.ToString()) (e.g. SoulCampaignTerrain.cpp:1019); permille rolls via Rng.RandRange(0,999) (SoulCombat).",
+    "save_domain": "URBSaveSubsystem / IRBSaveDomainProvider domain 'Soul.Campaign' schema 1. Additive capture at SoulFounderPlaytestStateSubsystem.cpp:717 (heartland_* fields incl. heartland_site_days), restore at line 843.",
+    "diplomacy": "FSoulDiplomacyRules + subsystem TMap<FName,FSoulDiplomaticRelation> HumanRelations (RelationPermille, Stance War/Peace/NonAggression).",
+    "memory": "FSoulMemoryRules::RecordPlaceLoss / PlaceReclaimBonus keyed on PlaceId (region/site id); commanders only, per AGENTS.md.",
+    "ai": "FSoulStrategyAI::Choose over FSoulStrategicRegion.ResourceValue + ESoulStrategyAction {Hold,Recover,DefendOwnedRegion,CaptureResourceRegion,AttackVisibleArmy,SeizeExposedRegion,SiegeSettlement}. AI has NO awareness of Heartland sites today."
+  },
+
+  "id_conventions": {
+    "activity_site_id": "activity.<kind>.<region_or_qualifier>  e.g. activity.ruins.coastal_ruins",
+    "activity_kind_id": "activity.<kind>  e.g. activity.watchtower (a kind/template id, distinct from an instance id)",
+    "event_id": "event.<family>.<name>  e.g. event.war.border_raid",
+    "quest_id": "quest.<arc>.<step>  e.g. quest.clear_the_march.1",
+    "region_id": "existing snake_case region ids from soul_world_overmap nodes ONLY (never invented).",
+    "note": "Mirrors existing dot-namespaced content ids (heartland.windmill, human.tavern, Magic.Spell.Ice.Blizzard)."
+  },
+
+  "enums": {
+    "activity_kind": {
+      "label": "DESIGN PROPOSAL",
+      "values": [
+        "ruins",            "fort",            "watchtower",
+        "caravan",          "resource_convoy", "mercenary_camp",
+        "monster_den",      "neutral_garrison","cave",
+        "artifact_cache",   "shrine",          "crossing",
+        "resource_node"
+      ],
+      "notes": "windmill/quarry are 'resource_node'; existing shrine maps to 'shrine'. Three current Heartland sites remain under their current authority and are re-expressed here only for continuity, not re-authored."
+    },
+    "activity_state": {
+      "label": "DESIGN PROPOSAL",
+      "values": ["dormant", "available", "contested", "cleared", "depleted", "exhausted_today", "expired"],
+      "state_machine": {
+        "dormant": "defined but not yet discoverable (fog / prerequisite not met).",
+        "available": "discoverable and interactable this day.",
+        "contested": "occupied by a hostile neutral garrison or monster den; requires a battle before interaction.",
+        "cleared": "hostile occupant removed; one-shot sites become 'depleted' after reward is taken.",
+        "depleted": "one-shot reward already taken; no further benefit (persists in save).",
+        "exhausted_today": "recurring site already collected this campaign Day (mirrors HeartlandSiteDays throttle).",
+        "expired": "time-limited activity (caravan/convoy/event) whose window closed."
+      }
+    },
+    "interaction_mode": {
+      "values": ["collect", "clear_then_collect", "escort", "intercept", "garrison_hold", "investigate", "toll"],
+      "notes": "collect == existing InteractHeartlandSite flow. clear_then_collect routes through the existing campaign battle bridge first."
+    },
+    "reward_kind": {
+      "values": ["gold", "mana", "recruitment_pool", "hero_xp", "relic_item", "diplomacy_relation", "vision_reveal", "recovery", "none"],
+      "verified_today": ["gold", "mana"],
+      "label_note": "Only gold and mana are VERIFIED FROM CURRENT SNAPSHOT as site effects. All other reward_kind values are DESIGN PROPOSAL and require the named systems (recruitment pools exist in FSoulCampaignEconomy.RecruitmentPools; hero xp exists on FSoulHeroState; relic_item has NO owning item authority yet -> LOCAL RUNTIME-ASSET CHECK REQUIRED before admitting)."
+    },
+    "risk_class": {
+      "values": ["none", "low", "moderate", "high", "severe"],
+      "mapping_to_combat": "risk_class only sizes the hostile occupant for clear_then_collect / intercept; actual resolution uses the existing battle bridge, never a synthetic combat model."
+    },
+    "ai_interest_class": {
+      "values": ["ignore", "opportunistic", "contested_priority", "defend_if_owned"],
+      "notes": "Feeds FSoulStrategicRegion.ResourceValue weighting; see ai_site_interest.md."
+    }
+  },
+
+  "activity_site_definition": {
+    "label": "DESIGN PROPOSAL",
+    "description": "Authoring record for one map-activity instance. Superset of FSoulHeartlandSite: every existing field is preserved so the current three sites remain expressible; new fields are additive and default to inert values so old data loads unchanged.",
+    "fields": {
+      "id":            { "type": "string", "required": true,  "convention": "activity.<kind>.<region>" },
+      "kind":          { "type": "enum:activity_kind", "required": true },
+      "region":        { "type": "string", "required": true,  "constraint": "MUST be an existing soul_world_overmap node id." },
+      "name":          { "type": "string", "required": true,  "maps_to": "FSoulHeartlandSite.Name" },
+      "interaction":   { "type": "enum:interaction_mode", "required": true },
+      "action_cost":   { "type": "int", "required": true, "min": 0, "maps_to": "FSoulHeartlandSite.ActionCost", "note": "0 allowed for pure escort/combat triggers that spend movement elsewhere." },
+      "recurring":     { "type": "bool", "default": false, "note": "true -> uses the per-day throttle like current sites; false -> one-shot, becomes 'depleted'." },
+      "reward": {
+        "type": "object",
+        "fields": {
+          "kind":   { "type": "enum:reward_kind", "required": true },
+          "amount": { "type": "int", "default": 0, "maps_to": "FSoulHeartlandSite.Amount" },
+          "resource_id": { "type": "string", "default": "gold", "note": "key into FSoulCampaignEconomy.Resources; only 'gold' is live today." },
+          "payload_id":  { "type": "string|null", "default": null, "note": "for relic_item/recruitment_pool/spell unlock; null until an owning authority admits it." }
+        }
+      },
+      "risk": {
+        "type": "object",
+        "fields": {
+          "risk_class": { "type": "enum:risk_class", "default": "none" },
+          "occupant_faction": { "type": "string|null", "default": null, "note": "NAME_None style neutral; sizes the clear battle via existing bridge." },
+          "occupant_strength_permille": { "type": "int", "default": 0, "note": "scales the hostile stack; BALANCE_PENDING." }
+        }
+      },
+      "availability": {
+        "type": "object",
+        "fields": {
+          "requires_region_owned": { "type": "bool", "default": true, "note": "mirrors current InteractHeartlandSite ownership gate; false for neutral/clear sites." },
+          "requires_living_company": { "type": "bool", "default": true, "note": "mirrors current GetPlayerTroopCount()>0 gate." },
+          "earliest_day": { "type": "int", "default": 1 },
+          "window_days": { "type": "int|null", "default": null, "note": "null = permanent; integer = time-limited (caravan/convoy/event) -> state 'expired' after." },
+          "prerequisite_quest": { "type": "string|null", "default": null }
+        }
+      },
+      "ai_interest": {
+        "type": "object",
+        "fields": {
+          "interest_class": { "type": "enum:ai_interest_class", "default": "ignore" },
+          "resource_value_bonus": { "type": "int", "default": 0, "note": "added to FSoulStrategicRegion.ResourceValue for the hosting region." }
+        }
+      },
+      "memory_hook": {
+        "type": "object",
+        "optional": true,
+        "fields": {
+          "place_id": { "type": "string", "note": "defaults to region id; drives FSoulMemoryRules::PlaceReclaimBonus." },
+          "on_loss_memory": { "type": "bool", "default": false }
+        }
+      },
+      "presentation": {
+        "type": "object",
+        "label_note": "GAMEPLAY-ONLY until a LOCAL RUNTIME-ASSET CHECK admits an owned mesh. No /Game path is asserted here.",
+        "fields": {
+          "art_status": { "type": "string", "default": "gameplay_only_pending_local_check" },
+          "candidate_owned_pack": { "type": "string|null", "default": null, "note": "VERIFIED OWNED ASSET METADATA reference only; see owned_asset_candidates.json. Never a /Game path." }
+        }
+      }
+    },
+    "backward_compat": {
+      "statement": "An existing FSoulHeartlandSite {Id,Region,Effect,Name,Amount,ActionCost} is exactly: {id:Id, kind:'resource_node'|'shrine', region:Region, name:Name, interaction:'collect', action_cost:ActionCost, recurring:true, reward:{kind:Effect, amount:Amount, resource_id:'gold'}}. The loader can keep reading the three Heartland sites unchanged and additionally read an 'activities' array; no existing data is rewritten."
+    }
+  },
+
+  "persistence_contract": {
+    "label": "DESIGN PROPOSAL (extends VERIFIED save authority)",
+    "domain": "Soul.Campaign",
+    "schema_version": 1,
+    "additive_fields": {
+      "activity_site_days": "TMap<FName,int32> (site id -> last-collected Day). EXACT mirror of existing heartland_site_days serialization pattern (IntMap, validate value<=Day and id known).",
+      "activity_site_states": "TMap<FName,uint8> (site id -> activity_state). Only persist non-default (not 'available'); absent key = default. Tolerant restore.",
+      "quest_progress": "TMap<FName,int32> (quest id -> step index). Absent = not started.",
+      "campaign_event_seed": "int32, default 1701 analogue (reuse the existing AlphaSeed precedent; persisted and validated <= 1,000,000).",
+      "fired_events_by_day": "optional ring/log TMap<FName,int32> for anti-spam dedupe (event id -> last fired Day)."
+    },
+    "rule": "Add these inside the existing CaptureRBSaveDomain_Implementation (SoulFounderPlaytestStateSubsystem.cpp:717 region) and RestoreRBSaveDomain_Implementation (line 843 region). Keep SchemaVersion==1 and tolerant of missing keys so pre-feature saves load. Do NOT register a new IRBSaveDomainProvider."
+  },
+
+  "determinism_contract": {
+    "label": "DESIGN PROPOSAL",
+    "seed_formula": "FRandomStream Rng(static_cast<int32>(FCrc::StrCrc32(*EventOrSiteId.ToString()) ^ (campaign_event_seed * 2654435761u) ^ static_cast<uint32>(Economy.Day)));",
+    "rationale": "Combines a stable content id (per RNG convention at SoulCampaignTerrain.cpp:1019), a persisted campaign seed, and the current Day so results are reproducible across save/load and identical across machines.",
+    "tie_breaks": "On equal scores, order by stable id (FNameLexicalLess) then by region id, matching the stable tie-break rule in AGENTS.md.",
+    "no_spam_rule": "At most N events may be eligible per Day (default N=1 at start of campaign, scaling with owned-region count). Eligibility is evaluated once per AdvanceDay after FSoulCampaignRules::AdvanceDay increments Day; fired_events_by_day prevents re-fire."
+  },
+
+  "integration_points": {
+    "label": "DESIGN PROPOSAL (targets are VERIFIED anchors)",
+    "data_load": "Extend FSoulHeartlandContent::Load (or add a sibling loader FSoulActivityContent::Load) to read an 'activities' array and an event pool file; reuse the subsystem ReadData(RelativePath,OutJson) helper.",
+    "collection": "Generalize USoulFounderPlaytestStateSubsystem::InteractHeartlandSite into InteractActivitySite(FName SiteId, FString& Msg): same gating lambda pattern, switch on interaction mode (collect == current path; clear_then_collect raises a battle via the existing bridge before reward).",
+    "tick": "Insert EvaluateStrategicEvents(Rng) call inside AdvanceDay() immediately after FSoulCampaignRules::AdvanceDay(Economy) and before AdvanceEnemyAI(); gated by bHeartlandEnabled || bSixFactionProfile.",
+    "ai": "After event evaluation, apply activity ai_interest.resource_value_bonus onto the FSoulStrategicRegion.ResourceValue the strategy snapshot builds (see ai_site_interest.md).",
+    "diplomacy": "War/trader/refugee events call FSoulDiplomacyRules::Apply or nudge RelationPermille on an entry of HumanRelations.",
+    "memory": "Site-loss / reclaim events call FSoulMemoryRules::RecordPlaceLoss / read PlaceReclaimBonus with PlaceId = region id."
+  },
+
+  "explicit_unknowns": [
+    "LOCAL RUNTIME-ASSET CHECK REQUIRED: whether any owned ruin/tower/cave/den mesh is actually imported into the Soul.uproject /Game tree (catalog shows Imported:false for all; imported_unreal_summary.json is for a DIFFERENT project).",
+    "LOCAL RUNTIME-ASSET CHECK REQUIRED: whether neutral/monster occupant stacks can be instantiated through the existing battle bridge without a new combat authority (bridge accepts a FSoulCampaignBattleDescriptor; occupant roster source is unverified).",
+    "DESIGN PROPOSAL unknown: there is NO item/relic authority in the snapshot, so reward_kind:relic_item cannot be admitted until one exists (coordinate with hero/economy lanes).",
+    "BALANCE_PENDING: all amounts, risk strengths, event probabilities, and window_days are placeholders pending Lane 9 economy model."
+  ]
+}

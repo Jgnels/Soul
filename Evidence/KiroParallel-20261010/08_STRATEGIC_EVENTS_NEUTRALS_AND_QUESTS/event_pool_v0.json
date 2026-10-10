@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "generated": "2026-10-10",
+  "lane": "08_STRATEGIC_EVENTS_NEUTRALS_AND_QUESTS",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "authority_label": "DESIGN PROPOSAL",
+  "intent": "A small, deterministic, seeded regional-event pool evaluated once per campaign Day inside AdvanceDay(). Designed to create reasons to move and to make the map feel alive WITHOUT spam, invented systems, or a second save/combat/diplomacy authority.",
+
+  "determinism": {
+    "label": "DESIGN PROPOSAL",
+    "evaluation_hook": "USoulFounderPlaytestStateSubsystem::AdvanceDay (SoulFounderPlaytestStateSubsystem.cpp:630), immediately AFTER FSoulCampaignRules::AdvanceDay(Economy) increments Economy.Day and BEFORE AdvanceEnemyAI().",
+    "seed_formula": "FRandomStream Rng(FCrc::StrCrc32(*EventId.ToString()) ^ (campaign_event_seed*2654435761u) ^ (uint32)Economy.Day); // matches SoulCampaignTerrain.cpp:1019 convention",
+    "max_events_per_day": "start 1; scale +1 per 6 owned regions (cap 3). Prevents spam; evaluated deterministically in stable id order.",
+    "dedupe": "fired_events_by_day (TMap<FName,int32>) prevents the same event firing twice within its cooldown; persisted in the Soul.Campaign save blob.",
+    "tie_break": "equal eligibility -> lower stable event id wins, then lower region id (AGENTS.md stable tie-break)."
+  },
+
+  "trigger_grammar": {
+    "label": "DESIGN PROPOSAL",
+    "fields": {
+      "earliest_day": "int, event cannot fire before this Day.",
+      "cooldown_days": "int, minimum days between two firings of the same event.",
+      "base_chance_permille": "int 0..1000, rolled via Rng.RandRange(0,999) < base_chance_permille (same permille convention as SoulCombat).",
+      "requires": "list of boolean predicates over VERIFIED campaign state (owned_region_count, has_neutral_neighbor, at_war_with_any, treasury_gold, hero_available).",
+      "scope_region": "how the target region is chosen: owned_frontier | neutral_adjacent | road_edge | any_owned."
+    }
+  },
+
+  "effect_grammar": {
+    "label": "DESIGN PROPOSAL - every effect maps to a VERIFIED existing authority",
+    "effects": {
+      "spawn_activity": "injects a transient activity_site (schema: strategic_activity_schema.json) with window_days; expires automatically.",
+      "modify_relation": "FSoulDiplomacyRules::Apply OR nudge RelationPermille on an entry of HumanRelations (VERIFIED).",
+      "grant_resource": "Economy.Resources.FindOrAdd(resource_id)+=amount (VERIFIED path used by InteractHeartlandSite).",
+      "grow_pool": "Economy.RecruitmentPools[id].Available += amount, clamped to Capacity (VERIFIED pattern in AdvanceDay barracks bonus).",
+      "record_memory": "FSoulMemoryRules::RecordPlaceLoss(place_id) (VERIFIED).",
+      "raise_threat": "add to the FSoulStrategicRegion.Threat/ResourceValue the AI snapshot reads (see ai_site_interest.md).",
+      "reveal_vision": "FSoulWorldRules::RefreshVision for the player faction around a region (VERIFIED)."
+    }
+  },
+
+  "events": [
+    {
+      "id": "event.war.border_raid",
+      "family": "war",
+      "name": "Border Raid",
+      "earliest_day": 8,
+      "cooldown_days": 5,
+      "base_chance_permille": 200,
+      "requires": ["at_war_with_any", "has_neutral_neighbor"],
+      "scope_region": "owned_frontier",
+      "effects": [
+        { "kind": "raise_threat", "amount": 150, "target": "scope_region" },
+        { "kind": "record_memory", "place_id": "scope_region" }
+      ],
+      "player_prompt": "Raiders strike {region}. Defend it or lose standing.",
+      "detour_reason": "Forces a defensive reposition; makes frontier holding meaningful. No damage is auto-applied; it raises AI threat and seeds commander memory only.",
+      "ai_relevance": "The owning AI faction's DefendOwnedRegion score rises for {region}."
+    },
+    {
+      "id": "event.trader.caravan_passing",
+      "family": "trader",
+      "name": "Merchant Caravan",
+      "earliest_day": 4,
+      "cooldown_days": 4,
+      "base_chance_permille": 250,
+      "requires": ["treasury_gold>=0"],
+      "scope_region": "road_edge",
+      "effects": [
+        {
+          "kind": "spawn_activity",
+          "activity": {
+            "id": "activity.caravan.transient",
+            "kind": "caravan",
+            "interaction": "escort",
+            "action_cost": 1,
+            "recurring": false,
+            "reward": { "kind": "gold", "amount": 160, "resource_id": "gold" },
+            "risk": { "risk_class": "low", "occupant_faction": null, "occupant_strength_permille": 350 },
+            "availability": { "requires_region_owned": false, "requires_living_company": true, "window_days": 3 },
+            "ai_interest": { "interest_class": "opportunistic", "resource_value_bonus": 70 }
+          }
+        }
+      ],
+      "player_prompt": "A merchant caravan on the {region} road offers payment for escort (3 days).",
+      "detour_reason": "Time-limited positive-sum opportunity along RoadNeighbors; the escort reward is paid if the player (or a protective garrison) is adjacent when the window closes.",
+      "ai_relevance": "Opportunistic AI may intercept the caravan for the same gold (contested)."
+    },
+    {
+      "id": "event.war.resource_convoy",
+      "family": "war",
+      "name": "Enemy Resource Convoy",
+      "earliest_day": 10,
+      "cooldown_days": 6,
+      "base_chance_permille": 180,
+      "requires": ["at_war_with_any"],
+      "scope_region": "neutral_adjacent",
+      "effects": [
+        {
+          "kind": "spawn_activity",
+          "activity": {
+            "id": "activity.resource_convoy.transient",
+            "kind": "resource_convoy",
+            "interaction": "intercept",
+            "action_cost": 1,
+            "recurring": false,
+            "reward": { "kind": "gold", "amount": 200, "resource_id": "gold" },
+            "risk": { "risk_class": "moderate", "occupant_faction": null, "occupant_strength_permille": 600 },
+            "availability": { "requires_region_owned": false, "requires_living_company": true, "window_days": 2 }
+          }
+        }
+      ],
+      "player_prompt": "An enemy supply convoy crosses {region}. Intercept within 2 days.",
+      "detour_reason": "Raiding an enemy convoy denies them income and rewards the raider; pairs the war state with a positive map objective.",
+      "ai_relevance": "If the convoy survives, the owning AI gains the gold instead (grant_resource to AI treasury)."
+    },
+    {
+      "id": "event.refugee.displaced_village",
+      "family": "refugee",
+      "name": "Displaced Villagers",
+      "earliest_day": 6,
+      "cooldown_days": 7,
+      "base_chance_permille": 150,
+      "requires": ["has_neutral_neighbor"],
+      "scope_region": "neutral_adjacent",
+      "effects": [
+        { "kind": "grow_pool", "id": "human_knight", "amount": 1, "condition": "if_player_shelters" },
+        { "kind": "modify_relation", "delta_permille": 40, "condition": "if_player_shelters", "note": "small goodwill with the nearest same-biome faction" }
+      ],
+      "player_prompt": "Refugees from {region} seek shelter. Accept them (recruits + goodwill) or decline.",
+      "detour_reason": "A low-stakes moral/strategic choice that feeds recruitment and diplomacy; declining has no penalty (keeps Nature/Dark passivity compatible).",
+      "ai_relevance": "Sheltering refugees in a frontier region slightly raises its Value in the AI snapshot."
+    },
+    {
+      "id": "event.neutral.den_stirs",
+      "family": "neutral",
+      "name": "The Den Stirs",
+      "earliest_day": 7,
+      "cooldown_days": 8,
+      "base_chance_permille": 120,
+      "requires": ["has_uncleared_monster_den"],
+      "scope_region": "any_owned",
+      "effects": [
+        { "kind": "raise_threat", "amount": 120, "target": "nearest_den_region" }
+      ],
+      "player_prompt": "Beasts from a nearby den grow bold near {region}.",
+      "detour_reason": "Gives an uncleared monster_den (e.g. activity.monster_den.forest_edge) a nagging consequence, nudging the player to clear it. Deterministic and self-limiting (fires only while a den is uncleared).",
+      "ai_relevance": "Raises Threat near the den so the AI deprioritises expansion there until cleared."
+    },
+    {
+      "id": "event.trader.market_boom",
+      "family": "trader",
+      "name": "Market Boom",
+      "earliest_day": 5,
+      "cooldown_days": 6,
+      "base_chance_permille": 160,
+      "requires": ["owns_market_building"],
+      "scope_region": "any_owned",
+      "effects": [
+        { "kind": "grant_resource", "resource_id": "gold", "amount": 120 }
+      ],
+      "player_prompt": "Trade flourishes; your market earns a windfall (+120 gold).",
+      "detour_reason": "Rewards economic investment (the human.market building) with an occasional bonus; no detour required, but reinforces the build-vs-expand tradeoff from Lane 9.",
+      "ai_relevance": "none (economy flavour)."
+    }
+  ],
+
+  "anti_degeneracy": {
+    "label": "DESIGN PROPOSAL",
+    "rules": [
+      "max_events_per_day cap prevents event spam.",
+      "cooldown_days prevents a single event dominating a seed line.",
+      "No event auto-damages the player or auto-captures regions; combat only occurs through the existing battle bridge when the player chooses to engage a spawned activity.",
+      "Declining any choice-event is always safe (compatible with Nature/Dark passivity and low-aggression play).",
+      "All randomness is seeded; replaying the same save produces identical events (save/load determinism)."
+    ]
+  },
+
+  "explicit_unknowns": [
+    "LOCAL RUNTIME-ASSET CHECK REQUIRED: whether a transient caravan/convoy can be presented as a moving actor along RoadNeighbors; today only the data/state layer is designed. Fallback: a region-pinned icon with no travel animation.",
+    "Predicate 'if_player_shelters' needs a one-click campaign choice UI; the current founder HUD has site-interaction buttons but no event-choice modal (coordinate with the Unreal integration lane).",
+    "base_chance_permille values are BALANCE_PENDING (Lane 9).",
+    "Whether modify_relation should target a specific faction or the nearest same-biome faction is a DESIGN PROPOSAL pending Diplomacy V1 (Lane 4)."
+  ]
+}

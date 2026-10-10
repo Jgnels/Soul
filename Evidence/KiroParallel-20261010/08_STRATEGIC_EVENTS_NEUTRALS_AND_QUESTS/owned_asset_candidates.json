@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "generated": "2026-10-10",
+  "lane": "08_STRATEGIC_EVENTS_NEUTRALS_AND_QUESTS",
+  "authority_label": "VERIFIED OWNED ASSET METADATA (ownership only) + LOCAL RUNTIME-ASSET CHECK REQUIRED (import/presence in Soul)",
+  "source_catalog": "Jgnels/Copperlight-Asset-Catalog @ clone 2026-10-10 (catalog/products.json)",
+
+  "critical_caveat": "The catalog establishes STOREFRONT OWNERSHIP only. For every item below the catalog reports Imported=false; catalog/imported_unreal_summary.json describes a DIFFERENT project (Copperlight-building-crafting-foundation / Lineage.uproject), NOT Soul.uproject. Therefore NO /Game path is asserted here. The only verified in-Soul /Game asset packs are those already in Data/environment_asset_bindings.json (Medieval_Megapack, Viking_Village, JustBStudios/Water_City). Any use of the packs below requires a LOCAL RUNTIME-ASSET CHECK (open Soul in the editor, confirm import into /Game, confirm mesh/anim/collision/nav).",
+
+  "already_admitted_in_soul": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT (real /Game paths in Data/environment_asset_bindings.json)",
+    "packs": [
+      "/Game/Medieval_Megapack/** (human settlement; Tavern, Forge, Market stand, Building prefabs, PL_Fortress_Day base map)",
+      "/Game/Viking_Village/** (viking houses, archery targets)",
+      "/Game/JustBStudios/Water_City/** (viking great/shield/mead halls, piers)"
+    ],
+    "lane8_reuse": "Watchtower/fort/crossing presentation can likely reuse Medieval_Megapack fortress/gatehouse/tower pieces that are ALREADY in-project — this is the lowest-risk art path and needs only a visual composition check, not a new import."
+  },
+
+  "owned_candidates_for_activity_kinds": [
+    {
+      "activity_kind": "ruins",
+      "owned_products": [
+        { "name": "Fantasy Ruins", "publisher": "LAYA DESIGN", "owned": true, "locally_available": true, "imported": true, "note": "Imported flag true in catalog BUT into the OTHER project; Soul import UNVERIFIED." },
+        { "name": "Elite Landscapes: Coastal Ruins", "publisher": "Velarion", "owned": true, "locally_available": true, "imported": false },
+        { "name": "Dark Ruins Megascans Sample", "publisher": "Quixel Megascans", "owned": true, "locally_available": false, "imported": false },
+        { "name": "CryptForge (Modular Dungeon, Crypt, Catacombs, Underground Ruins)", "publisher": "Hivemind", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "Elite Landscapes: Coastal Ruins for activity.ruins.coastal_ruins (biome match: coast); Fantasy Ruins for activity.ruins.northwest_march."
+    },
+    {
+      "activity_kind": "fort / watchtower",
+      "owned_products": [
+        { "name": "Modular Castle (Medieval Castle, Fortress)", "publisher": "Hivemind", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Ravenhold: Modular Medieval Castle, Fortress & Dungeon Megapack", "publisher": "Hivemind", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Military Base Megapack (Outpost)", "publisher": "Hivemind", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "PREFER already-in-Soul Medieval_Megapack fortress/tower pieces for watchtower (north_pass). Ravenhold/Modular Castle only if a dedicated watchtower mesh is needed AND imported."
+    },
+    {
+      "activity_kind": "caravan / resource_convoy",
+      "owned_products": [
+        { "name": "Medieval Supply Wagon - Market Transport cart", "publisher": "3DreaMax Studio", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Wooden Cart", "publisher": "Nichgon", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Wooden Cart", "publisher": "Forge-Echo Studio", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "Medieval Supply Wagon for the transient caravan/convoy icon/mesh. LOCAL CHECK: no travel/anim pipeline is assumed; fallback is a static region-pinned icon."
+    },
+    {
+      "activity_kind": "treasure / artifact (reward VFX only, NOT an item authority)",
+      "owned_products": [
+        { "name": "Medieval Props Vol. 4 - Wooden Chests (Lootable)", "publisher": "Yarrawah Interactive", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Hoard : coin stack", "publisher": "Netheris Studio", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Basic Treasure Coins", "publisher": "REAL DEDICATED", "owned": true, "locally_available": false, "imported": false },
+        { "name": "2D Icons - Reward Chest Pack", "publisher": "LayerLab", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "Chest/coin meshes dress a cleared ruins/cave reward moment; the REWARD is still only gold (VERIFIED). These assets do not create an item system."
+    },
+    {
+      "activity_kind": "cave",
+      "owned_products": [
+        { "name": "Caves and Dungeons", "publisher": "Sonus Novum", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Fantasy Cave Environment Set", "publisher": "Denys Rutkovskyi", "owned": true, "locally_available": false, "imported": false },
+        { "name": "Crystal Cave", "publisher": "LAYA DESIGN", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "Any for activity.cave.old_quarry interior if a walkable cave is ever authored; V0 needs only an exterior mouth marker."
+    },
+    {
+      "activity_kind": "monster_den (occupant)",
+      "owned_products": [
+        { "name": "Creeping Creatures Pack", "publisher": "Bugrimov Maksim", "owned": true, "locally_available": false, "imported": false },
+        { "name": "10 Creatures (Pack)", "publisher": "Bugrimov Maksim", "owned": true, "locally_available": false, "imported": false },
+        { "name": "41 Animations For Monsters", "publisher": "Bugrimov Maksim", "owned": true, "locally_available": false, "imported": false },
+        { "name": "56 Animations For Creatures", "publisher": "Bugrimov Maksim", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "Creature mesh + the matching animation packs for a neutral den occupant. HIGH-RISK LOCAL CHECK: skeletal mesh + anim retarget + collision + nav must be verified before this occupant can appear in a battle through the existing bridge."
+    },
+    {
+      "activity_kind": "mercenary_camp (NPC)",
+      "owned_products": [
+        { "name": "RPG Mercenary Character", "publisher": "Artem Dubinin's Projects", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "A visible recruitable mercenary NPC at the crossroads camp (compatible with the AGENTS.md 'taverns may host physically present recruitable heroes' pattern)."
+    },
+    {
+      "activity_kind": "shrine / statue dressing",
+      "owned_products": [
+        { "name": "Lost Shrine", "publisher": "LAYA DESIGN", "owned": true, "locally_available": false, "imported": false },
+        { "name": "PBR Statues", "publisher": "Bugrimov Maksim", "owned": true, "locally_available": false, "imported": false },
+        { "name": "KE Statues - Lite", "publisher": "KE 3D Assets", "owned": true, "locally_available": false, "imported": false }
+      ],
+      "best_fit": "Dressing for future neutral shrine (mountain_shrine). Existing ancient_shrine site keeps its current presentation."
+    }
+  ],
+
+  "blocked_or_missing": {
+    "watchtower_dedicated_mesh": "Only 2 'tower/watchtower' catalog matches and 0 owned -> no dedicated watchtower product owned; reuse Medieval_Megapack towers.",
+    "bandit_product": "0 catalog matches for bandit/brigand -> no dedicated bandit asset; a mercenary/soldier mesh must stand in.",
+    "item_relic_authority": "No owned product creates an item/relic SYSTEM; treasure assets are cosmetic only. reward_kind:relic_item stays BLOCKED."
+  },
+
+  "procurement_stance": "No purchases proposed. Every best_fit is an ALREADY-OWNED product. Preferred path is reusing packs already imported into Soul (Medieval_Megapack et al.) to minimise new-import risk."
+}

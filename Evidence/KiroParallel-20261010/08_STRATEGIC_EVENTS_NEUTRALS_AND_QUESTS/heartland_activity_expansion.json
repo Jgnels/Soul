@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "generated": "2026-10-10",
+  "lane": "08_STRATEGIC_EVENTS_NEUTRALS_AND_QUESTS",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "authority_label": "DESIGN PROPOSAL",
+  "conforms_to": "strategic_activity_schema.json (activity_site_definition)",
+  "region_authority": "All region ids verified against Data/soul_world_overmap_v1_20260922.json 'nodes'. No invented regions.",
+
+  "existing_sites_restated": {
+    "label": "VERIFIED FROM CURRENT SNAPSHOT (restated in new schema; NOT re-authored)",
+    "note": "These three remain under FSoulHeartlandSite / HeartlandDevelopment.json. Shown only to prove backward-compat mapping.",
+    "items": [
+      { "id": "heartland.windmill", "kind": "resource_node", "region": "crossroads",     "name": "Crossroads Windmill", "interaction": "collect", "action_cost": 1, "recurring": true, "reward": { "kind": "gold", "amount": 100, "resource_id": "gold" } },
+      { "id": "heartland.quarry",   "kind": "resource_node", "region": "old_quarry",     "name": "Old Quarry",          "interaction": "collect", "action_cost": 1, "recurring": true, "reward": { "kind": "gold", "amount": 140, "resource_id": "gold" } },
+      { "id": "heartland.shrine",   "kind": "shrine",        "region": "ancient_shrine", "name": "Ancient Shrine",       "interaction": "collect", "action_cost": 1, "recurring": true, "reward": { "kind": "mana", "amount": 20 } }
+    ]
+  },
+
+  "activities": [
+    {
+      "id": "activity.watchtower.north_pass",
+      "kind": "watchtower",
+      "region": "north_pass",
+      "name": "North Pass Watchtower",
+      "placement_rationale": "node north_pass: mountain/pass/narrow_pass -> a chokepoint controlling movement between Heartland and Orc badlands. Natural watchtower.",
+      "interaction": "clear_then_collect",
+      "action_cost": 1,
+      "recurring": false,
+      "reward": { "kind": "vision_reveal", "amount": 0, "resource_id": "gold", "payload_id": null },
+      "risk": { "risk_class": "low", "occupant_faction": null, "occupant_strength_permille": 400 },
+      "availability": { "requires_region_owned": false, "requires_living_company": true, "earliest_day": 1, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "opportunistic", "resource_value_bonus": 60 },
+      "memory_hook": { "place_id": "north_pass", "on_loss_memory": false },
+      "presentation": { "art_status": "gameplay_only_pending_local_check", "candidate_owned_pack": null },
+      "detour_reason": "Clearing grants persistent vision over adjacent neutral regions (reduces fog ambush risk); first cheap 'why leave the capital' hook on Days 1-7."
+    },
+    {
+      "id": "activity.ruins.coastal_ruins",
+      "kind": "ruins",
+      "region": "coastal_ruins",
+      "name": "Coastal Ruins",
+      "placement_rationale": "node coastal_ruins: coast/valley_hill/ruins AND is already listed in six_faction_sandbox_candidate.neutral_minor_sites. Canonical ruins site.",
+      "interaction": "clear_then_collect",
+      "action_cost": 1,
+      "recurring": false,
+      "reward": { "kind": "gold", "amount": 220, "resource_id": "gold", "payload_id": null },
+      "risk": { "risk_class": "moderate", "occupant_faction": null, "occupant_strength_permille": 650 },
+      "availability": { "requires_region_owned": false, "requires_living_company": true, "earliest_day": 3, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "opportunistic", "resource_value_bonus": 90 },
+      "memory_hook": { "place_id": "coastal_ruins", "on_loss_memory": false },
+      "presentation": { "art_status": "gameplay_only_pending_local_check", "candidate_owned_pack": "Fantasy Ruins (LAYA DESIGN) OR Elite Landscapes: Coastal Ruins (Velarion) - OWNED, LocallyAvailable=true per catalog; import to Soul UNVERIFIED" },
+      "detour_reason": "One-shot treasure cache behind a moderate neutral guard; midgame gold spike that rewards an army detachment."
+    },
+    {
+      "id": "activity.ruins.northwest_march",
+      "kind": "ruins",
+      "region": "northwest_march",
+      "name": "Northwest March Ruins",
+      "placement_rationale": "node northwest_march: temperate/rolling_plain/trade_road AND listed in neutral_minor_sites. A ruined waystation on a trade road.",
+      "interaction": "investigate",
+      "action_cost": 1,
+      "recurring": false,
+      "reward": { "kind": "hero_xp", "amount": 1, "resource_id": "gold", "payload_id": null },
+      "risk": { "risk_class": "low", "occupant_faction": null, "occupant_strength_permille": 300 },
+      "availability": { "requires_region_owned": false, "requires_living_company": true, "earliest_day": 2, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "ignore", "resource_value_bonus": 20 },
+      "memory_hook": { "place_id": "northwest_march", "on_loss_memory": false },
+      "presentation": { "art_status": "gameplay_only_pending_local_check", "candidate_owned_pack": null },
+      "detour_reason": "Lore/XP site; cheap early hero progression that does not require a full battle (investigate, not clear)."
+    },
+    {
+      "id": "activity.monster_den.forest_edge",
+      "kind": "monster_den",
+      "region": "forest_edge",
+      "name": "Forest Edge Beast Den",
+      "placement_rationale": "node forest_edge: forest/woodland/grove, adjacent to the Heartland and a value_site_candidate (timber). Natural beast lair blocking a timber site.",
+      "interaction": "clear_then_collect",
+      "action_cost": 1,
+      "recurring": false,
+      "reward": { "kind": "recruitment_pool", "amount": 2, "resource_id": "gold", "payload_id": "human_knight" },
+      "risk": { "risk_class": "moderate", "occupant_faction": null, "occupant_strength_permille": 700 },
+      "availability": { "requires_region_owned": false, "requires_living_company": true, "earliest_day": 4, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "contested_priority", "resource_value_bonus": 110 },
+      "memory_hook": { "place_id": "forest_edge", "on_loss_memory": true },
+      "presentation": { "art_status": "gameplay_only_pending_local_check", "candidate_owned_pack": "Creeping Creatures Pack / 10 Creatures (Bugrimov Maksim) - OWNED; import to Soul UNVERIFIED. LOCAL RUNTIME-ASSET CHECK REQUIRED for a usable monster skeletal mesh+anim." },
+      "detour_reason": "Clearing the den unlocks a value timber site AND seeds a small recruitment pool; links economy and recruitment lanes."
+    },
+    {
+      "id": "activity.cave.old_quarry",
+      "kind": "cave",
+      "region": "old_quarry",
+      "name": "Collapsed Mine Shaft",
+      "placement_rationale": "node old_quarry: temperate/ridge/resource; already hosts heartland.quarry. A deeper cave beneath the quarry (one-shot) sits beside the recurring quarry site WITHOUT altering it.",
+      "interaction": "investigate",
+      "action_cost": 2,
+      "recurring": false,
+      "reward": { "kind": "gold", "amount": 300, "resource_id": "gold", "payload_id": null },
+      "risk": { "risk_class": "moderate", "occupant_faction": null, "occupant_strength_permille": 550 },
+      "availability": { "requires_region_owned": true, "requires_living_company": true, "earliest_day": 6, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "defend_if_owned", "resource_value_bonus": 70 },
+      "memory_hook": { "place_id": "old_quarry", "on_loss_memory": false },
+      "presentation": { "art_status": "gameplay_only_pending_local_check", "candidate_owned_pack": "Caves and Dungeons / Fantasy Cave Environment Set / CryptForge - OWNED; import UNVERIFIED" },
+      "detour_reason": "Demonstrates two activities co-located on one region (recurring quarry + one-shot cave) without a schema conflict; rewards holding the region long enough to invest 2 AP."
+    },
+    {
+      "id": "activity.crossing.river_ford",
+      "kind": "crossing",
+      "region": "river_ford",
+      "name": "River Ford Toll Post",
+      "placement_rationale": "node river_ford: temperate/valley/river_crossing. Existing river-crossing battle geography; a controllable toll crossing fits the authored bridge content.",
+      "interaction": "toll",
+      "action_cost": 0,
+      "recurring": true,
+      "reward": { "kind": "gold", "amount": 40, "resource_id": "gold", "payload_id": null },
+      "risk": { "risk_class": "none", "occupant_faction": null, "occupant_strength_permille": 0 },
+      "availability": { "requires_region_owned": true, "requires_living_company": true, "earliest_day": 1, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "defend_if_owned", "resource_value_bonus": 50 },
+      "memory_hook": { "place_id": "river_ford", "on_loss_memory": false },
+      "presentation": { "art_status": "uses_existing_river_bridge_geometry", "candidate_owned_pack": null },
+      "detour_reason": "Passive recurring income (like windmill) tied to holding a strategic crossing already modelled for battle; reinforces 'control the map, not just cities'. action_cost 0 because the value is in holding the region, not a daily action."
+    },
+    {
+      "id": "activity.mercenary_camp.crossroads",
+      "kind": "mercenary_camp",
+      "region": "crossroads",
+      "name": "Crossroads Free Company",
+      "placement_rationale": "node crossroads: temperate/rolling_plain/crossroads; a trade/traffic hub already hosting the windmill. Mercenaries gather where roads meet.",
+      "interaction": "collect",
+      "action_cost": 1,
+      "recurring": true,
+      "reward": { "kind": "recruitment_pool", "amount": 1, "resource_id": "gold", "payload_id": "human_knight" },
+      "risk": { "risk_class": "none", "occupant_faction": null, "occupant_strength_permille": 0 },
+      "availability": { "requires_region_owned": true, "requires_living_company": true, "earliest_day": 5, "window_days": null, "prerequisite_quest": null },
+      "ai_interest": { "interest_class": "defend_if_owned", "resource_value_bonus": 65 },
+      "memory_hook": { "place_id": "crossroads", "on_loss_memory": false },
+      "presentation": { "art_status": "gameplay_only_pending_local_check", "candidate_owned_pack": "RPG Mercenary Character (Artem Dubinin) - OWNED; import UNVERIFIED" },
+      "detour_reason": "A paid, gated recruitment top-up outside the capital barracks; recurring but costs gold-at-collect (handled in InteractActivitySite) so it is not free pool growth. Ties recruitment lane into the map layer."
+    }
+  ],
+
+  "time_limited_examples": {
+    "label": "DESIGN PROPOSAL - caravan/convoy are event-spawned, not fixed; see event_pool_v0.json",
+    "note": "Caravans and resource convoys are generated as transient activities by the event system with a window_days value, then expire. They are NOT authored as permanent entries here to avoid map clutter and to keep deterministic spawn under the event seed."
+  },
+
+  "coverage_matrix": {
+    "label": "DESIGN PROPOSAL - which activity_kind lands in which Heartland-reachable region",
+    "ruins": ["coastal_ruins", "northwest_march"],
+    "watchtower": ["north_pass"],
+    "monster_den": ["forest_edge"],
+    "cave": ["old_quarry"],
+    "crossing": ["river_ford"],
+    "mercenary_camp": ["crossroads"],
+    "shrine": ["ancient_shrine (existing)", "mountain_shrine (future, neutral)"],
+    "resource_node": ["crossroads (windmill, existing)", "old_quarry (quarry, existing)"],
+    "deferred_kinds": {
+      "fort": "best on a settlement-adjacent neutral; defer until Lane 6/7 define Dwarf Hold / siege depth.",
+      "caravan": "event-spawned (see event_pool_v0.json), travels along RoadNeighbors edges.",
+      "resource_convoy": "event-spawned; intercept interaction.",
+      "neutral_garrison": "maps onto neutral_regions holding; defer to Lane 2 AI composition.",
+      "artifact_cache": "blocked: no item/relic authority in snapshot."
+    }
+  },
+
+  "explicit_unknowns": [
+    "LOCAL RUNTIME-ASSET CHECK REQUIRED for every candidate_owned_pack: catalog Imported flag is false; presence inside Soul.uproject /Game is UNVERIFIED. Treat all presentation as gameplay-only until an editor check admits a mesh.",
+    "reward_kind recruitment_pool uses human_knight as payload_id because that is the VERIFIED PlayerUnitId; other factions' pool ids need Lane 2 confirmation.",
+    "BALANCE_PENDING on every amount/strength/earliest_day (defer to Lane 9).",
+    "Region ownership gates assume the founder/six-faction human start; non-human starts need the equivalent faction substitution."
+  ]
+}
