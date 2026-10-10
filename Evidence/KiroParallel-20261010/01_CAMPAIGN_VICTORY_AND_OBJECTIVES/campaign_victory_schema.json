@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "artifact": "campaign_victory_schema",
+  "lane": "01_CAMPAIGN_VICTORY_AND_OBJECTIVES",
+  "generated": "2026-10-10",
+  "status": "DESIGN_PROPOSAL",
+  "source_snapshot": {
+    "repo": "Jgnels/Soul",
+    "branch": "handoff/soul-kiro-20261010",
+    "commit": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c"
+  },
+  "authority_notes": [
+    "VERIFIED FROM CURRENT SNAPSHOT: No campaign-level victory/lose/quest system exists today. The only win flag is FSoulSiegeState.bVictory (SoulCore/Public/SoulSiege.h), scoped to one siege. FSoulObjectiveRules/FSoulBattleObjective (SoulCore/Public/SoulObjectives.h) are tactical/hex-battle only.",
+    "VERIFIED FROM CURRENT SNAPSHOT: Region ownership is the single mutation point FSoulWorldRules::Capture(FSoulWorldState&, RegionId, NewOwner) in SoulCore/Private/SoulWorld.cpp, invoked from USoulFounderPlaytestStateSubsystem::ApplyBattleResult (SoulFounderPlaytestStateSubsystem.cpp).",
+    "VERIFIED FROM CURRENT SNAPSHOT: Canonical factions = FSoulCampaignRules::CanonicalFactions() -> humans,dwarves,orcs,vikings,nature,dark (SoulCore/Private/SoulCampaign.cpp). Factions are FName IDs; there is no faction enum.",
+    "VERIFIED FROM CURRENT SNAPSHOT: 36-region world graph is data-seeded from Data/soul_world_overmap_v1_20260922.json (nodes=36). Canonical campaign-start ownership = Data/soul_campaign_start_state_v1_20260922.json (12 starting possessions, 24 neutral, 2 neutral minor settlements). Founder micro slice = 9 regions, Human vs Orc, locked.",
+    "DESIGN PROPOSAL: This schema defines the shape of a NEW canonical FSoulVictoryRules evaluator and its serialized state inside the EXISTING Soul.Campaign RBSave domain. It does NOT create a second save/combat/diplomacy authority.",
+    "LOCAL RUNTIME/ASSET CHECK REQUIRED: HUD/banner presentation of objectives and victory uses owned 2D icon packs (see asset_binding section); runtime import of those packs is not confirmed from the cloud."
+  ],
+  "design_constants": {
+    "integer_scale_note": "All thresholds use integers or permille/millis as mandated by AGENTS.md. No floats.",
+    "determinism_note": "Victory/loss evaluation must be a pure function of serialized campaign state at a well-defined tick (end of ApplyBattleResult and end of AdvanceDay). No RNG, no wall-clock.",
+    "canonical_factions": ["humans", "dwarves", "orcs", "vikings", "nature", "dark"],
+    "playable_victory_factions": ["humans", "dwarves", "orcs", "vikings"],
+    "passive_factions": ["nature", "dark"],
+    "passive_faction_contract": "VERIFIED FROM CURRENT SNAPSHOT (AdvanceEnemyAI): nature/dark are not driven by autonomous strategic AI in the live loop. DESIGN PROPOSAL: they remain non-victory-seeking obstacle/flavour factions. They can be conquered (counts toward domination) and can hold strategic sites, but they never pursue a victory approach and never trigger an AI-win loss state for the player unless they capture the player's seat in battle (same rule as any faction)."
+  },
+  "victory_evaluation_hooks": {
+    "primary_evaluation_points": [
+      {
+        "symbol": "USoulFounderPlaytestStateSubsystem::ApplyBattleResult",
+        "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+        "when": "immediately AFTER FSoulWorldRules::Capture mutates ownership and rewards are applied",
+        "evaluates": ["military_domination", "economic_site_control (region/site deltas)", "seat capture loss state"]
+      },
+      {
+        "symbol": "USoulFounderPlaytestStateSubsystem::AdvanceDay",
+        "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp",
+        "when": "AFTER FSoulCampaignRules::AdvanceDay, settlement AdvanceDay, hero recovery, other-faction economies advance",
+        "evaluates": ["alliance_federation (sustained-days conditions)", "magical_supremacy (sustained-days)", "economic_site_control (sustained-days)", "endgame escalation timers", "recovery grace timers"]
+      }
+    ],
+    "result_storage": {
+      "symbol": "USoulFounderPlaytestStateSubsystem (new members)",
+      "fields": [
+        "FSoulCampaignVictoryState CampaignVictory; // live evaluated state, serialized in Soul.Campaign",
+        "note: schema_version in GetRBSaveSchemaVersion_Implementation must bump from 1 -> 2"
+      ]
+    }
+  },
+  "FSoulVictoryApproach_enum_proposal": {
+    "symbol": "ESoulVictoryApproach (new, SoulCore/Public/SoulCampaignVictory.h)",
+    "values": [
+      "None",
+      "MilitaryDomination",
+      "AllianceFederation",
+      "MagicalSupremacy",
+      "EconomicSiteControl",
+      "LastRealmStanding"
+    ],
+    "justification_for_fifth_approach": "LastRealmStanding (seat-elimination) is justified because it is the natural terminal of domination without requiring 100% region sweep, and because the data model already distinguishes faction SEATS (control_class=starting_possession, seat_region in start state) from ordinary regions. It gives a decisive, verifiable end that AI and player share. See campaign_progression_v0_v2.md 'Why five approaches'."
+  },
+  "victory_conditions": [
+    {
+      "id": "military_domination",
+      "approach": "MilitaryDomination",
+      "label": "Military Domination",
+      "intent": "Hold an overwhelming share of the 36-region map and the enemy seats.",
+      "parameters_v0_founder_slice": {
+        "note": "Founder micro slice (9 regions) uses the already-shipped condition: capture orc_camp (enemy_primary_region). This is VERIFIED behaviour today via ApplyBattleResult capturing the target region; V0 only adds an explicit flag read, not new mechanics.",
+        "region_target_id": "orc_camp",
+        "win_rule": "player owns enemy_primary_region"
+      },
+      "parameters_v1_six_faction": {
+        "owned_region_share_permille": 600,
+        "require_all_rival_seats_captured": true,
+        "rival_seats_source": "Data/soul_campaign_start_state_v1_20260922.json factions[*].seat_region for every faction with any starting_possession != player",
+        "sustained_days": 0,
+        "comment": "Owning 60 permille of 36 = 22 regions AND holding every rival seat. Nature/dark seats count if those factions still own them."
+      },
+      "parameters_v2": {
+        "owned_region_share_permille": 550,
+        "require_all_hostile_seats_captured": true,
+        "allow_vassal_seats_to_count": true,
+        "sustained_days": 3,
+        "comment": "V2 lets federated/vassal seats count as controlled, lowering the raw-conquest bar when diplomacy is used."
+      },
+      "state_inputs": ["FSoulWorldState.Regions[*].OwnerFactionId", "seat_region set from start state", "FSoulDiplomaticRelation stance (V2 vassal/federation)"]
+    },
+    {
+      "id": "alliance_federation",
+      "approach": "AllianceFederation",
+      "label": "Alliance / Federation",
+      "intent": "Bind the surviving playable realms into a durable federation under the player rather than conquering them.",
+      "requires_diplomacy_v1": true,
+      "parameters_v1": {
+        "status": "DESIGN PROPOSAL depends on Lane 4 Diplomacy V1 / vassalage; V0 ships this as LOCKED/visible-but-unavailable.",
+        "federated_relation_min_permille": 750,
+        "federated_stance": "Peace",
+        "min_federated_playable_factions": 3,
+        "require_no_hostile_playable_faction": true,
+        "sustained_days": 10,
+        "comment": "At least 3 playable factions (incl. player) at Peace with RelationPermille >= 750 continuously for 10 days, and no playable faction at War with the player. nature/dark are excluded from the federation count (passive)."
+      },
+      "parameters_v2": {
+        "federated_relation_min_permille": 700,
+        "min_federated_playable_factions": 3,
+        "sustained_days": 7,
+        "allow_vassal_as_federated": true
+      },
+      "state_inputs": ["HumanRelations : TMap<FName,FSoulDiplomaticRelation>", "FSoulDiplomacyRules::EffectiveStance", "OtherFactionStates survival"],
+      "dependency": "Lane 4 (prisoners/Diplomacy V1). This condition MUST read the same HumanRelations ledger; it must NOT create a second diplomacy authority."
+    },
+    {
+      "id": "magical_supremacy",
+      "approach": "MagicalSupremacy",
+      "label": "Magical Supremacy",
+      "intent": "Dominate the arcane layer: control the shrines/arcane sites and field a maxed arcane settlement + high-tier mage hero.",
+      "parameters_v1": {
+        "require_owned_arcane_sites_min": 2,
+        "arcane_site_region_ids": ["ancient_shrine", "nature_shrine", "mountain_shrine"],
+        "arcane_site_source": "Data/soul_world_overmap_v1_20260922.json nodes where feature in [ancient_shrine, shrine]",
+        "require_operational_arcane_building": true,
+        "arcane_building_ids_by_faction": {
+          "humans": "human.witch_collegium",
+          "dwarves": "dwarf.rune_forge",
+          "orcs": "orc.shaman_court",
+          "vikings": "viking.shaman_lodge"
+        },
+        "require_hero_level_min": 8,
+        "require_hero_known_spells_min": 6,
+        "sustained_days": 7,
+        "comment": "Hero level/spells read from FSoulHeroState (Level, KnownSpells). Arcane building operational via FSoulSettlementRules::IsOperational. Shrine control via region ownership."
+      },
+      "parameters_v2": {
+        "require_owned_arcane_sites_min": 3,
+        "require_hero_level_min": 10,
+        "require_hero_known_spells_min": 8,
+        "sustained_days": 5
+      },
+      "state_inputs": ["FSoulWorldState region ownership (shrine regions)", "FSoulSettlementRules::IsOperational(arcane building)", "FSoulHeroState.Level", "FSoulHeroState.KnownSpells", "FSoulHeartlandContent.PrimarySchool/SecondarySchools"]
+    },
+    {
+      "id": "economic_site_control",
+      "approach": "EconomicSiteControl",
+      "label": "Economic / Site Control",
+      "intent": "Win through sustained economic dominance: hold the strategic resource/trade sites and a maxed market/mine network, accumulate a treasury threshold.",
+      "parameters_v1": {
+        "require_owned_strategic_sites_min": 4,
+        "strategic_site_region_ids": ["old_quarry", "dwarf_high_quarry", "northwest_march", "coastal_ruins", "crossroads", "river_ford"],
+        "strategic_site_source": "overmap nodes with feature in [quarry, resource, crossroads, trade_road, river_crossing] + neutral_minor_settlements from start state",
+        "require_operational_market": true,
+        "market_building_ids_by_faction": {
+          "humans": "human.market",
+          "dwarves": "dwarf.mine",
+          "orcs": "orc.spoils_market",
+          "vikings": "viking.market"
+        },
+        "require_treasury_gold_min": 8000,
+        "sustained_days": 7,
+        "comment": "VERIFIED FROM CURRENT SNAPSHOT: treasury is Economy.Resources['gold']; human.market L>=2 operational grants +100 gold/day today (AdvanceDay). Gold threshold is DESIGN PROPOSAL pending Lane 9 economy model."
+      },
+      "parameters_v2": {
+        "require_owned_strategic_sites_min": 5,
+        "require_treasury_gold_min": 12000,
+        "sustained_days": 5,
+        "depends_on": "Lane 9 recommended_costs_and_income.csv for the final gold threshold and site income values"
+      },
+      "state_inputs": ["FSoulWorldState region ownership (strategic site regions)", "Economy.Resources['gold']", "FSoulSettlementRules::IsOperational(market/mine)", "HeartlandSiteDays (site interaction history)"],
+      "dependency": "Lane 8 (strategic sites) for the authoritative site list; Lane 9 (economy) for gold/income thresholds. Do NOT hard-code the site list here beyond what overmap features already prove."
+    },
+    {
+      "id": "last_realm_standing",
+      "approach": "LastRealmStanding",
+      "label": "Last Realm Standing",
+      "intent": "Terminal domination: every rival playable faction has lost its seat (eliminated).",
+      "parameters_v1": {
+        "require_all_rival_playable_seats_lost": true,
+        "rival_scope": "playable_victory_factions minus player",
+        "passive_factions_ignored": true,
+        "sustained_days": 0,
+        "comment": "A playable faction is 'eliminated' when it owns zero of its original starting_possessions AND zero other regions. nature/dark are ignored for this condition (passive)."
+      },
+      "parameters_v2": {
+        "allow_vassalized_as_not_standing": true,
+        "comment": "V2: a fully vassalized playable faction counts as not standing (removed as a rival), enabling a diplomacy-assisted terminal."
+      },
+      "state_inputs": ["FSoulWorldState region ownership", "starting_possessions per faction from start state", "FSoulDiplomaticRelation (V2 vassal)"]
+    }
+  ],
+  "loss_conditions": [
+    {
+      "id": "seat_eliminated",
+      "label": "Capital Lost",
+      "rule": "Player owns zero regions among the player's starting_possessions AND zero other regions.",
+      "recoverable": true,
+      "recovery": "see recovery_states.capital_recovery_grace",
+      "state_inputs": ["FSoulWorldState region ownership", "player starting_possessions"]
+    },
+    {
+      "id": "hero_permanent_loss",
+      "label": "Hero Lost",
+      "rule": "DESIGN PROPOSAL: NOT a hard loss. Per baseline (hero wound/capture solved) and Lane 3 'avoid routine permanent death', a captured/wounded primary hero is a setback, never an instant game over. Only becomes a loss trigger if hero is Captured AND player seat is also eliminated (compound).",
+      "recoverable": true,
+      "state_inputs": ["FSoulHeroState.Condition", "seat ownership"]
+    },
+    {
+      "id": "rival_military_domination",
+      "label": "A Rival Has Won",
+      "rule": "Any rival playable faction meets military_domination OR last_realm_standing against the field including the player's seat captured. DESIGN PROPOSAL: not active in V0 because AdvanceEnemyAI is inert; becomes meaningful only once strategic AI (Lane 2) drives expansion.",
+      "recoverable": false,
+      "state_inputs": ["FSoulWorldState region ownership", "seat sets"]
+    }
+  ],
+  "recovery_states": {
+    "capital_recovery_grace": {
+      "trigger": "seat_eliminated loss condition becomes true",
+      "grace_days": 5,
+      "rule": "On seat loss, enter RECOVERY. Player retains hero(es) and any field army. If the player recaptures ANY region (not necessarily the original seat) within grace_days, RECOVERY clears and campaign continues. If grace_days elapse with zero owned regions, the loss becomes final.",
+      "state": "FSoulCampaignVictoryState.RecoveryDeadlineDay (int32, 0 = not in recovery)",
+      "comment": "Keeps parity with hero wound/capture recovery already modeled via FSoulHeroRules::AdvanceRecovery."
+    },
+    "hero_recovery": {
+      "note": "VERIFIED FROM CURRENT SNAPSHOT: FSoulHeroRules::AdvanceRecovery already decrements RecoveryDays each AdvanceDay for Wounded/Captured heroes. Victory layer only READS Hero.Condition; it does not re-implement recovery."
+    }
+  },
+  "campaign_victory_state_serialization": {
+    "symbol": "FSoulCampaignVictoryState (new, SoulCore/Public/SoulCampaignVictory.h)",
+    "serialized_in_domain": "Soul.Campaign",
+    "schema_version_bump": "GetRBSaveSchemaVersion_Implementation: 1 -> 2",
+    "capture_location": "USoulFounderPlaytestStateSubsystem::CaptureRBSaveDomain_Implementation adds a 'victory' JSON object",
+    "restore_location": "USoulFounderPlaytestStateSubsystem::RestoreRBSaveDomain_Implementation reads 'victory'; absent => default (back-compat with schema 1 saves)",
+    "fields": [
+      {"name": "ActiveApproachMask", "type": "int32 (bitmask of ESoulVictoryApproach)", "meaning": "approaches currently enabled for this scenario"},
+      {"name": "AchievedApproach", "type": "int32 (ESoulVictoryApproach)", "meaning": "0 if none achieved"},
+      {"name": "AchievedDay", "type": "int32"},
+      {"name": "RecoveryDeadlineDay", "type": "int32", "meaning": "0 if not in recovery"},
+      {"name": "ProgressByApproach", "type": "TMap<int32,int32> (approach -> permille progress)", "meaning": "0..1000 for HUD rings"},
+      {"name": "SustainStartDayByApproach", "type": "TMap<int32,int32>", "meaning": "day a sustained condition first became true; 0 if currently false"},
+      {"name": "EndgameEscalationDay", "type": "int32", "meaning": "day endgame modifiers activated; 0 if not escalated"}
+    ],
+    "json_shape_example": {
+      "victory": {
+        "active_mask": 31,
+        "achieved": 0,
+        "achieved_day": 0,
+        "recovery_deadline_day": 0,
+        "endgame_escalation_day": 0,
+        "progress": {"1": 450, "2": 0, "3": 120, "4": 300, "5": 0},
+        "sustain_start": {"3": 0, "4": 14}
+      }
+    }
+  },
+  "asset_binding": {
+    "objective_and_victory_hud": {
+      "classification": "VERIFIED OWNED ASSET METADATA (ownership) + LOCAL RUNTIME/ASSET CHECK REQUIRED (runtime import)",
+      "owned_products": [
+        {"name": "2D Icons - Casual Icon Pack", "publisher": "LayerLab", "catalog_id": "founder_explicit_20260916_016", "evidence": "founder_ownership.json OWNERSHIP_CONFIRMED"},
+        {"name": "2D Icons - Reward Chest Pack", "publisher": "LayerLab", "catalog_id": "founder_explicit_20260916_019", "evidence": "founder_ownership.json OWNERSHIP_CONFIRMED"},
+        {"name": "Modern Casual Ui Pack", "publisher": "34IB Studio", "catalog_id": "founder_explicit_20260916_018", "evidence": "founder_ownership.json OWNERSHIP_CONFIRMED"}
+      ],
+      "baseline_ui": "Kenney UI/cursors are in the solved baseline (shared rules). Objective/victory widgets should extend the existing Kenney-themed HUD (SoulHUDArt.h/SoulHUDTheme.h), not introduce a new UI stack.",
+      "no_invented_paths": "No /Game/... paths asserted. Icon-to-objective mapping is deferred to the integration lane after a LOCAL asset-registry check confirms import."
+    }
+  }
+}

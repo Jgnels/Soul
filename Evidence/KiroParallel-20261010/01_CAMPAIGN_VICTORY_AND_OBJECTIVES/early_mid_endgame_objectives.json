@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "artifact": "early_mid_endgame_objectives",
+  "lane": "01_CAMPAIGN_VICTORY_AND_OBJECTIVES",
+  "generated": "2026-10-10",
+  "status": "DESIGN_PROPOSAL",
+  "source_snapshot": {
+    "repo": "Jgnels/Soul",
+    "commit": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c"
+  },
+  "notes": [
+    "DESIGN PROPOSAL. Objectives are soft guidance goals, NOT hard gates. They structure the player's first 20 days and feed HUD prompts; failing a non-win objective never ends the game.",
+    "VERIFIED FROM CURRENT SNAPSHOT: day/AP economy = FSoulCampaignEconomy (Day starts 1, MaxActionPoints=3). AdvanceDay grows pools weekly ((Day-1)%7==0). All day numbers below respect that 7-day cadence.",
+    "VERIFIED FROM CURRENT SNAPSHOT: founder slice regions = human_capital, crossroads, old_quarry, river_ford, forest_edge, ancient_shrine, orc_watch, north_pass, orc_camp (Data/soul_world_overmap_v1_20260922.json founder_slice).",
+    "LOCAL RUNTIME/ASSET CHECK REQUIRED: whether all six-faction seat settlements are walkable/visitable is NOT a Lane 1 claim (see Lane 6). Objective text that assumes a walkable Dwarf Hold / Viking Harbour is gated on that lane.",
+    "objective_completion is evaluated in the SAME two hooks as victory (ApplyBattleResult, AdvanceDay) by a pure FSoulCampaignObjectiveRules::EvaluateGoal reading serialized state."
+  ],
+  "objective_kinds": {
+    "comment": "Campaign objective kinds are DISTINCT from the tactical ESoulObjectiveKind in SoulObjectives.h (EliminateEnemy/HoldHexes/etc). Proposed new enum ESoulCampaignGoalKind in SoulCore/Public/SoulCampaignObjectives.h.",
+    "values": [
+      "OwnRegion",
+      "OwnRegionCount",
+      "OwnStrategicSite",
+      "ReachHeroLevel",
+      "ConstructBuilding",
+      "RecruitCompanyCount",
+      "AccumulateGold",
+      "WinBattles",
+      "WinSiege",
+      "EstablishDiplomaticStance",
+      "SurviveToDay",
+      "AchieveVictoryApproach"
+    ]
+  },
+  "phases": {
+    "early_days_1_7": {
+      "intent": "Onboarding. Teach move/encounter/recruit/develop/visit. One clear carrot per core system. Deterministic, no spam.",
+      "goals": [
+        {
+          "id": "obj.e1.secure_frontier",
+          "kind": "OwnRegionCount",
+          "label": "Secure the Frontier",
+          "params": {"min_owned_regions": 3},
+          "target_day_hint": 3,
+          "founder_slice_mapping": "own human_capital + crossroads + one neutral (old_quarry/river_ford/forest_edge)",
+          "teaches": "strategic movement + hostile-entry encounter resolution",
+          "reward_proposal": {"gold": 200, "note": "DESIGN PROPOSAL; final value Lane 9"}
+        },
+        {
+          "id": "obj.e2.first_blood",
+          "kind": "WinBattles",
+          "label": "First Blood",
+          "params": {"min_wins": 1},
+          "target_day_hint": 2,
+          "teaches": "RBCombat battle loop + ApplyBattleResult region capture",
+          "verified_hook": "VERIFIED: bBattleWon set in ApplyBattleResult; +600 gold first-time reward per region already exists."
+        },
+        {
+          "id": "obj.e3.muster",
+          "kind": "RecruitCompanyCount",
+          "label": "Raise a Company",
+          "params": {"min_companies": 2},
+          "target_day_hint": 4,
+          "teaches": "finite recruitment pools (FSoulCampaignRules::Recruit) at the capital",
+          "constraint": "VERIFIED: recruit only when PlayerRegion==human_capital and owned (Recruit() guard)."
+        },
+        {
+          "id": "obj.e4.lay_foundations",
+          "kind": "ConstructBuilding",
+          "label": "Lay the Foundations",
+          "params": {"building_any_of": ["human.market", "human.barracks", "human.tavern"], "min_level": 1},
+          "target_day_hint": 5,
+          "teaches": "settlement development + founder 1/2/3-day build timing (FSoulSettlementRules::BeginConstruction)",
+          "verified_hook": "VERIFIED: BeginSettlementConstruction / FSoulSettlementRules::AdvanceDay drive construction."
+        },
+        {
+          "id": "obj.e5.touch_the_arcane",
+          "kind": "OwnStrategicSite",
+          "label": "Touch the Arcane",
+          "params": {"site_region_any_of": ["ancient_shrine"], "or_interact": true},
+          "target_day_hint": 7,
+          "teaches": "strategic sites (FSoulHeartlandSite / InteractHeartlandSite) + magic affinity hook",
+          "note": "Satisfied by owning ancient_shrine OR a recorded HeartlandSiteDays interaction."
+        }
+      ],
+      "onboarding_victory_hint": "Surface the enabled victory approaches on the HUD by day 3 with 0 progress rings, so the player learns the win menu early."
+    },
+    "midgame_days_8_20": {
+      "intent": "Open the strategic decision space: expansion vs development, diplomacy vs war, which victory approach to commit to.",
+      "goals": [
+        {
+          "id": "obj.m1.breakout",
+          "kind": "OwnRegionCount",
+          "label": "Breakout",
+          "params": {"min_owned_regions": 6},
+          "target_day_hint": 12,
+          "six_faction_mapping": "expand from 2 starting possessions toward safe_expansion_targets + one rival frontier region"
+        },
+        {
+          "id": "obj.m2.take_a_site",
+          "kind": "OwnStrategicSite",
+          "label": "Command the Trade",
+          "params": {"strategic_site_region_min": 2, "site_pool": ["old_quarry", "crossroads", "river_ford", "northwest_march", "coastal_ruins"]},
+          "target_day_hint": 14,
+          "feeds_approach": "EconomicSiteControl"
+        },
+        {
+          "id": "obj.m3.hero_ascendant",
+          "kind": "ReachHeroLevel",
+          "label": "Hero Ascendant",
+          "params": {"min_hero_level": 5, "min_known_spells": 3},
+          "target_day_hint": 15,
+          "feeds_approach": "MagicalSupremacy",
+          "verified_hook": "VERIFIED: Hero.Level/KnownSpells via FSoulHeroRules; ApplyBattleResult awards +360 XP/win."
+        },
+        {
+          "id": "obj.m4.open_relations",
+          "kind": "EstablishDiplomaticStance",
+          "label": "Open Relations",
+          "params": {"stance": "NonAggression_or_Peace", "min_factions": 1},
+          "target_day_hint": 16,
+          "feeds_approach": "AllianceFederation",
+          "verified_hook": "VERIFIED: ExecuteDiplomacy / FSoulDiplomacyRules::Apply mutate HumanRelations.",
+          "dependency": "Richer alliance scoring is Lane 4."
+        },
+        {
+          "id": "obj.m5.first_siege_prep",
+          "kind": "WinSiege",
+          "label": "Crack a Wall",
+          "params": {"min_sieges_won": 1},
+          "target_day_hint": 20,
+          "feeds_approach": "MilitaryDomination",
+          "verified_hook": "VERIFIED: FSoulSiegeState.bVictory; Human Capital Siege V0 is the reference. Do NOT change Siege V0 (Lane 7 owns Siege V1).",
+          "constraint": "LOCAL RUNTIME/ASSET CHECK REQUIRED for any siege target beyond human_capital."
+        }
+      ]
+    },
+    "endgame_days_21_plus": {
+      "intent": "Escalate pressure so games converge. Commit to one victory approach; the world pushes back.",
+      "escalation_model": {
+        "trigger_day_default": 21,
+        "trigger_alt": "any faction (player or rival) crosses 400 permille region share",
+        "escalation_effects": [
+          {
+            "id": "esc.unrest",
+            "type": "DESIGN PROPOSAL",
+            "effect": "Occupied non-homeland regions (owner != homeland_affinity) accrue an unrest flag that reduces their income contribution. Discourages infinite shallow conquest; rewards consolidation or diplomacy.",
+            "state_input": "region homeland_affinity from Data/soul_campaign_start_state_v1_20260922.json vs OwnerFactionId"
+          },
+          {
+            "id": "esc.rival_rally",
+            "type": "DESIGN PROPOSAL (depends Lane 2)",
+            "effect": "Surviving rival playable factions receive a one-time recruitment/readiness bonus the first day the leader crosses 400 permille, so a runaway leader faces a stiffer final push.",
+            "dependency": "Lane 2 recruitment; inert until strategic AI drives armies."
+          },
+          {
+            "id": "esc.site_contest",
+            "type": "DESIGN PROPOSAL (depends Lane 8)",
+            "effect": "Strategic/arcane sites spawn seeded defender/raider events once escalation is active, making site-control and magical-supremacy approaches contested rather than passive holds."
+          }
+        ]
+      },
+      "goals": [
+        {
+          "id": "obj.end.commit",
+          "kind": "AchieveVictoryApproach",
+          "label": "Claim Your Destiny",
+          "params": {"any_enabled_approach": true},
+          "note": "The capstone objective: satisfy any enabled victory condition from campaign_victory_schema.json."
+        },
+        {
+          "id": "obj.end.survive",
+          "kind": "SurviveToDay",
+          "label": "Hold the Line",
+          "params": {"survive_to_day": 60},
+          "note": "Soft stalemate guard: if no faction wins by day 60, surface a 'score victory' summary (region+site+hero+treasury weighted). DESIGN PROPOSAL; scoring weights pending Lane 9."
+        }
+      ]
+    }
+  },
+  "founder_slice_v0_track": {
+    "note": "VERIFIED FROM CURRENT SNAPSHOT: the shipped founder micro is a 30-60 min Human-vs-Orc campaign ending at orc_camp. V0 maps exactly these objectives, no new mechanics:",
+    "ordered": [
+      {"day_hint": 2, "goal": "obj.e2.first_blood"},
+      {"day_hint": 4, "goal": "obj.e3.muster"},
+      {"day_hint": 5, "goal": "obj.e4.lay_foundations"},
+      {"day_hint": 7, "goal": "obj.e1.secure_frontier (own 3 of the 9 slice regions)"},
+      {"day_hint": 10, "goal": "capture orc_watch (gateway)"},
+      {"day_hint": "variable", "goal": "military_domination V0 = capture orc_camp -> WIN"}
+    ]
+  }
+}
