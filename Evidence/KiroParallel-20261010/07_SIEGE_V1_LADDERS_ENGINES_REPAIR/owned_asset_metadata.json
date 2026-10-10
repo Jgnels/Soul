@@ -1,0 +1,71 @@
+{
+  "schema": "soul.siege_v1.owned_asset_metadata.v1",
+  "lane": "07_SIEGE_V1_LADDERS_ENGINES_REPAIR",
+  "catalog_repo": "Jgnels/Copperlight-Asset-Catalog",
+  "catalog_branch": "main",
+  "catalog_source_file": "catalog/products.json",
+  "disclaimer": "VERIFIED OWNED ASSET METADATA (VOA) reflects the catalog's recorded ownership (Owned/OwnedConfidence) and local presence (LocallyAvailable/Imported) ONLY. Ownership in the catalog is NOT a claim the asset is locally present, imported, license-cleared for shipping, or compatible with Soul's rig/map. All LicenseStatus values are UNKNOWN in the catalog. No purchase is recommended. No /Game path is invented.",
+  "siege_critical_owned": [
+    {
+      "role": "ladder_climb_animation",
+      "product_name": "Free Ladder Animation Set",
+      "publisher": "BPG",
+      "source_platform": "Fab",
+      "source_product_id": "5ab22a0887864fdb8d717bdcf7bfec6b",
+      "owned": true, "owned_confidence": "HIGH",
+      "locally_available": null, "imported": false,
+      "license_status": "UNKNOWN", "provenance": "OWNERSHIP_CONFIRMED",
+      "lane_use": "Phase C ladder climb clips, IF they retarget to the RB skeletal rig (LRC C-ANIM-1). Rule-only fallback required if not.",
+      "caveats": ["Not confirmed locally downloaded.", "Not imported.", "Rig retarget unverified (LRC)."]
+    },
+    {
+      "role": "ranged_engine_catapult",
+      "product_name": "Medieval Mangonel \u2013 Catapult Siege Weapon",
+      "publisher": "3DreaMax Studio",
+      "source_platform": "Fab",
+      "owned": true, "owned_confidence": "HIGH",
+      "locally_available": false, "imported": false,
+      "license_status": "UNKNOWN", "provenance": "OWNERSHIP_CONFIRMED",
+      "lane_use": "Phase E3 single ranged engine of its class. Recommend as THE catapult; do not also plan trebuchet.",
+      "caveats": ["Not locally present.", "Not imported.", "New projectile+wall-segment damage model needed regardless of mesh (LRC)."]
+    },
+    {
+      "role": "ranged_engine_alt_defer",
+      "product_name": "Ballista Mounted Crossbow \u2013 Game-Ready Prop",
+      "publisher": "Fab Tree Studio",
+      "source_platform": "Fab",
+      "owned": true, "owned_confidence": "HIGH",
+      "locally_available": false, "imported": false,
+      "license_status": "UNKNOWN", "provenance": "OWNERSHIP_CONFIRMED",
+      "lane_use": "Secondary ranged engine; DEFER. Keep ONE ranged engine class in V1."
+    },
+    {
+      "role": "defensive_spikes_barricade_candidate",
+      "product_name": "Medieval Defense Spikes Fences Walls Low-poly 3D model",
+      "publisher": "Ag72",
+      "source_platform": "Fab",
+      "owned": true, "owned_confidence": "HIGH",
+      "locally_available": false, "imported": false,
+      "license_status": "UNKNOWN",
+      "lane_use": "Candidate mesh for FSoulSiegePreparation::bDefenderBarricades inner-line obstacle (Phase D). Mesh != functionality; barricade slowdown is a rule."
+    }
+  ],
+  "fortification_kit_candidates_owned": [
+    {"product_name": "Ravenhold: Modular Medieval Castle, Fortress & Dungeon Megapack", "publisher": "Hivemind", "source_product_id": "313593e1b9c74b928b13d97ac6b4bb30", "owned": true, "locally_available": null, "imported": false, "lane_use": "Ruined-wall/breach-grammar + possible ram/tower kitbash; blueprints doc cites Ravenhold ruined pieces for persistent breach grammar."},
+    {"product_name": "Modular Castle (Medieval Castle, Medieval Town, Medieval Fortress, Castle)", "publisher": "Hivemind", "source_product_id": "6d9352d40acf4a2c8f68113d924944b8", "owned": true, "locally_available": null, "imported": false, "lane_use": "Castle/wall segment donor family."},
+    {"product_name": "Medieval Kingdom (Medieval Castle, Medieval Town, Modular Castle, Castle)", "publisher": "Hivemind", "source_product_id": "879a536feaa0407d88d5cf92f68b9add", "owned": true, "locally_available": true, "imported": false, "local_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\ModularM43deebcc3fd4V1", "file_count": 10674, "lane_use": "Large owned castle/town kit (locally in VaultCache); candidate wall/battlement/gate geometry."},
+    {"product_name": "Fantasy Medieval Castle Kit", "publisher": "Denys Rutkovskyi", "source_product_id": "7cbbe9f4405d4ba7b8576a4d07c206f8", "owned": true, "locally_available": null, "imported": false, "lane_use": "Alternate castle kit."}
+  ],
+  "current_gate_donor_resolution": {
+    "label": "LRC",
+    "soul_gate_mesh_path": "/Game/CastleTown/Static_Mesh/Castle_Kit/Buildings/Castle_Gate/SM_Portcullis.SM_Portcullis",
+    "catalog_finding": "The /Game/CastleTown content root is recorded in Copperlight-Asset-Catalog/catalog/imported_unreal_summary.json as a LOCAL imported Unreal content root in the project 'Copperlight-first-night-living-hearth' (path C:\\Users\\jgnel\\Documents\\Unreal Projects\\...\\Content\\CastleTown). It is NOT matched to any named Fab product in products.json.",
+    "implication": "The exact Fab-product identity/ownership of the castle kit that provides SM_Portcullis is UNRESOLVED in the catalog. Do NOT invent ownership for /Game/CastleTown. The Soul siege map L_HumanCapital_Authored is Soul-owned content under /Game/Soul and is not catalogued. Any wall/ladder/battlement geometry resolution against the authored map is LRC."
+  },
+  "no_purchase_recommended": true,
+  "explicit_unknowns": [
+    "License clearance for shipping is UNKNOWN for every catalog asset (all LicenseStatus=UNKNOWN).",
+    "Local presence/import for the ladder animation, mangonel, ballista and spikes is false/null (not confirmed on disk).",
+    "The castle kit providing the current gate (SM_Portcullis) is an unresolved local import, not a confirmed Fab product."
+  ]
+}

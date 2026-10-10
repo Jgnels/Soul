@@ -1,0 +1,142 @@
+{
+  "schema": "soul.siege_v1.siege_engine_requirements.v1",
+  "lane": "07_SIEGE_V1_LADDERS_ENGINES_REPAIR",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "evidence_label_legend": {
+    "VCS": "VERIFIED FROM CURRENT SNAPSHOT",
+    "VOA": "VERIFIED OWNED ASSET METADATA",
+    "LRC": "LOCAL RUNTIME/ASSET CHECK REQUIRED",
+    "DP": "DESIGN PROPOSAL"
+  },
+  "keystone_enabler": {
+    "id": "ENGINE-B1",
+    "title": "Transport FSoulSiegePreparation through the campaign battle bridge",
+    "label": "DP",
+    "statement": "Add preparation to FSoulCampaignBattleDescriptor and feed FSoulSiegeRules::Begin(Prep) instead of Begin({}).",
+    "verified_gap": {
+      "label": "VCS",
+      "detail": "SoulRealtimeBattleArena.cpp:1264 constructs SiegeState=FSoulSiegeRules::Begin({}) then overrides only GateMaximum/GateIntegrity from Encounter->SiegeGateMaximum/SiegeGateIntegrity (SoulFounderPlaytestStateSubsystem.cpp:954-955). bLadders/bBatteringRam/bSiegeTower/bWallBreach/bReinforcedGate/bAmmoStores/bMagicalWard are all left default. The descriptor (SoulCampaignBattleBridge.h) carries bSiege + gate ints but NO preparation."
+    },
+    "why_keystone": "Every engine and the ladder vector are gated on their preparation boolean being populated. Without B1, each engine would need its own ad-hoc transport (a second authority). B1 is the single clean seam.",
+    "acceptance": [
+      "Descriptor serializes preparation; result/save unaffected (reuse existing Soul.Settlements + campaign domains).",
+      "Round-trips through F5/F9 like the existing optional siege-result summary fields (SoulFounderPlaytestStateSubsystem.cpp:711-714,880).",
+      "Default (no prep) reproduces exact V0 behavior — regression-locked."
+    ]
+  },
+  "engines": [
+    {
+      "id": "ENGINE-RAM",
+      "name": "Battering ram",
+      "preparation_flag": "FSoulSiegePreparation::bBatteringRam (VCS declared, unused)",
+      "feasibility": "HIGH / LOWEST RISK",
+      "label": "DP",
+      "rationale_vcs": "Reuses the existing, qualified gate-damage path FSoulSiegeRules::ApplyGateDamage + CommitSiegeHit/CommitGateMelee. A ram is conceptually a high-damage, multi-crew melee contact on the SAME portcullis target V0 already damages. CanAssaultWalls already returns true for bBatteringRam.",
+      "design": [
+        "Deployable ASoulSiegeRamActor crewed by N attackers; produces large accepted AcceptedDamage per contact vs the gate (bounded, finite, replay-protected via AcceptedContacts like V0).",
+        "Ram advances the SAME GateIntegrityPermille; at zero reuses OpenSiegeGate.",
+        "Ram is destructible/haltable by defenders (fire/ranged) so it is not a guaranteed win."
+      ],
+      "assets": {
+        "label": "LRC",
+        "note": "No catalogued product is named 'battering ram'. A ram mesh may be sourceable from an owned medieval/castle kit (Ravenhold / Modular Castle / Fantasy Medieval Castle Kit, all VOA owned) OR authored simply. Mesh source is LRC; the RULE does not depend on a specific mesh."
+      },
+      "local_checks": ["ENGINE-NAV-1", "ENGINE-COL-1", "ENGINE-ANIM-1"],
+      "unknowns": ["Ram crew pathing to the measured gate base in the authored map (LRC)."]
+    },
+    {
+      "id": "ENGINE-CATAPULT",
+      "name": "Catapult / Mangonel (recommend ONE engine of this class)",
+      "preparation_flag": "none existing; needs a new bounded prep field OR reuse bWallBreach as 'ranged breach capability'",
+      "feasibility": "MEDIUM / NEW PROJECTILE+DAMAGE MODEL RISK",
+      "label": "DP",
+      "rationale": "Delivers ranged gate/wall damage from the outer field, producing breaches (feeds wall-breach vector B2 and defender depth D). Introduces a projectile arc + wall-SEGMENT damage model that does not exist for walls today (gate damage exists; segment damage in-battle does not).",
+      "owned_asset": {
+        "label": "VOA",
+        "product_name": "Medieval Mangonel \u2013 Catapult Siege Weapon",
+        "publisher": "3DreaMax Studio",
+        "source_platform": "Fab",
+        "owned": true,
+        "owned_confidence": "HIGH",
+        "locally_available": false,
+        "imported": false,
+        "catalog_record": "Copperlight-Asset-Catalog/catalog/products.json",
+        "recommendation": "Use the OWNED mangonel as the single engine of this class. Do NOT also plan trebuchet + ballista + catapult; one ranged engine keeps the new projectile/segment-damage model to one qualification pass."
+      },
+      "related_owned_assets": [
+        {"label": "VOA", "product_name": "Ballista Mounted Crossbow \u2013 Game-Ready Prop", "publisher": "Fab Tree Studio", "owned": true, "locally_available": false, "note": "Alternative/secondary ranged engine; defer. Keep ONE ranged engine for V1."}
+      ],
+      "existing_projectile_hooks": {
+        "label": "VCS",
+        "detail": "A projectile/ranged path exists for archers: URBCombatRangedComponent + PresentBowLaunch + FRBProjectileLaunch + ASoulBattleSpellProjectile (SoulRealtimeBattleArena.h/.cpp). A mangonel projectile could extend this rather than invent a new projectile authority."
+      },
+      "design": [
+        "Static-ish engine at an outer-field emplacement; fires an arcing projectile at the gate or a wall segment.",
+        "Gate hit reuses ApplyGateDamage; wall-segment hit needs a NEW in-battle wall-segment integrity model (see ENGINE-WALLSEG).",
+        "Bounded rate of fire + finite ammo (tie to bAmmoStores semantics or a prep count)."
+      ],
+      "local_checks": ["ENGINE-NAV-1", "ENGINE-COL-1", "ENGINE-ANIM-1", "ENGINE-VFX-1"],
+      "unknowns": [
+        "Is the mangonel locally downloaded/importable? (VOA: owned, not local, not imported.)",
+        "Projectile arc tuning against the authored map scale (LRC).",
+        "Wall-segment destructible authoring in L_HumanCapital_Authored (LRC)."
+      ]
+    },
+    {
+      "id": "ENGINE-WALLSEG",
+      "name": "In-battle wall-segment damage model (shared dependency for catapult + wall breach)",
+      "feasibility": "MEDIUM",
+      "label": "DP",
+      "rationale_vcs": "ASoulFortificationSegmentActor already models Intact/Damaged/Breached/Repair visual branches (SoulFortificationSegmentActor.cpp) and FSoulSettlementState has WallIntegrityPermille + DamageWalls/RepairWalls (SoulSettlement.cpp). BUT in-battle wall damage currently ONLY exists for the gate; the segment actor's breach visual is driven ONLY by the TOWN-VIEW presentation controller (SoulSettlementPresentationController.cpp:109-123), always with bRepairing=false. There is no in-battle wall-segment integrity.",
+      "design": [
+        "Add a per-segment integrity to FSoulSiegeState (NOT a new authority): extend WallBreaches/OpenBreach to track which segment breached.",
+        "A segment reaching zero opens a physical passage (feature B2) and advances ESoulSiegeLayer::Walls.",
+        "On resolve, feed the breach to FSoulSiegeAftermath.ScarIds so the breach persists in the town view (existing path)."
+      ],
+      "local_checks": ["ENGINE-COL-1"],
+      "unknowns": ["Which authored wall actors in L_HumanCapital_Authored can carry a breach state + nav behind them (LRC)."]
+    },
+    {
+      "id": "ENGINE-TOWER",
+      "name": "Siege tower",
+      "preparation_flag": "FSoulSiegePreparation::bSiegeTower (VCS declared, unused)",
+      "feasibility": "LOW / HIGHEST RISK — plan last",
+      "label": "DP",
+      "rationale": "A mobile high platform that delivers a column of troops onto the wall-top. It is the single most demanding item: it needs mobile collision, a deploy/dock animation, a bridge-drop, AND the same authored wall-top standable nav that ladders need. CanAssaultWalls already honors bSiegeTower.",
+      "design": [
+        "Deployable ASoulSiegeTowerActor that pathes to a wall face (reusing the measured-approach discipline of SiegeDeployment/route survey).",
+        "On dock, drops a ramp to the wall-top landing (same landing requirement as LADDER-R3).",
+        "Troops traverse the ramp onto the wall-top; defenders contest (Phase D)."
+      ],
+      "assets": {"label": "LRC", "note": "No catalogued 'siege tower' product. Tower mesh likely authored or kitbashed from owned castle kits (VOA). Mesh is not functionality."},
+      "local_checks": ["ENGINE-NAV-1", "ENGINE-COL-1", "ENGINE-ANIM-1", "LADDER-NAV-1(wall-top)"],
+      "depends_on": ["ENGINE-B1", "ladder wall-top (LADDER-R2)", "defender depth D"],
+      "unknowns": [
+        "Mobile-object pathing + collision across the authored approach (the V0 route survey already found an authored bridge deck gap near the gate — SiegeDeployment comment — a wide tower could re-trigger that; LRC).",
+        "Ramp-to-wall-top docking transform (LRC)."
+      ]
+    }
+  ],
+  "reinforced_gate_and_support": {
+    "label": "VCS",
+    "detail": "DEFENDER-side preparation already works end to end: bReinforcedGate -> GateMaximum 1300 (SoulSiege.cpp Begin) and the campaign already sets SiegeGateMaximum=1300 at FortificationLevel>=2 (SoulFounderPlaytestStateSubsystem.cpp:954). bAmmoStores/bMagicalWard set bArmoryActive/bMagicWardActive in Begin but have no runtime consumer yet.",
+    "proposal": "V1 should give bAmmoStores (defender ranged resupply) and bMagicalWard (reduce incoming engine/magic effect) real runtime effect, so defender preparation is symmetric with attacker engines."
+  },
+  "local_validation_ids": {
+    "ENGINE-NAV-1": "Engine/crew pathing to its emplacement or wall face in L_HumanCapital_Authored, including the known authored bridge-deck gap near the gate.",
+    "ENGINE-COL-1": "Engine collision solid; mobile engines do not clip walls; wall-segment breach collision opens a real passage.",
+    "ENGINE-ANIM-1": "Operate/fire/dock animations present and retargeted; rule-only fallback if not.",
+    "ENGINE-VFX-1": "Projectile/impact VFX present; rule correctness independent of VFX."
+  },
+  "feasibility_ranking_summary": [
+    "1. Battering ram (ENGINE-RAM): reuses qualified gate-damage path. SHIP FIRST among engines.",
+    "2. Catapult/Mangonel (ENGINE-CATAPULT) + wall-segment model (ENGINE-WALLSEG): owned asset, new projectile+segment risk, ONE engine of this class only.",
+    "3. Siege tower (ENGINE-TOWER): highest nav/collision/animation risk, depends on real wall-top. QUALIFY LAST."
+  ],
+  "explicit_unknowns": [
+    "FSoulSiegePreparation is never transported today; B1 is unbuilt (VCS). All engine prep flags are latent.",
+    "No in-battle wall-segment damage exists; only the gate takes battle damage (VCS).",
+    "Mangonel + ballista are owned but not locally present/imported (VOA).",
+    "Authored map wall-top + breachable segments + mobile-engine pathing are all unproven (LRC)."
+  ]
+}

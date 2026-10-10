@@ -1,0 +1,59 @@
+{
+  "schema": "soul.siege_v1.verified_references.v1",
+  "lane": "07_SIEGE_V1_LADDERS_ENGINES_REPAIR",
+  "source_repo": "Jgnels/Soul",
+  "source_branch": "handoff/soul-kiro-20261010",
+  "source_commit": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "note": "Every reference below was read directly from the frozen snapshot. Line numbers are from this commit; symbols are stable anchors if lines shift.",
+  "siege_rules_core": [
+    {"label": "VCS", "symbol": "FSoulSiegePreparation", "file": "Source/SoulCore/Public/SoulSiege.h", "fact": "Declares bLadders,bBatteringRam,bSiegeTower,bWallBreach,bDefenderBarricades,bReinforcedGate,bAmmoStores,bMagicalWard. The V1 enabler struct."},
+    {"label": "VCS", "symbol": "FSoulSiegeState", "file": "Source/SoulCore/Public/SoulSiege.h", "fact": "GateIntegrityPermille/GateMaximumIntegrity, CourtyardControlMillis, WallBreaches, CapturedObjectives, ward/armory/gatehouse flags, ESoulSiegeLayer Layer."},
+    {"label": "VCS", "symbol": "FSoulSiegeRules::Begin", "file": "Source/SoulCore/Private/SoulSiege.cpp", "fact": "GateIntegrity=1300 if bReinforcedGate else 1000; bMagicWardActive=bMagicalWard; bArmoryActive=bAmmoStores. bLadders/ram/tower have NO effect in Begin."},
+    {"label": "VCS", "symbol": "FSoulSiegeRules::CanAssaultWalls", "file": "Source/SoulCore/Private/SoulSiege.cpp", "fact": "Returns true if flying OR ladders OR siege tower OR wall breach OR battering ram. The commit gate for wall assault."},
+    {"label": "VCS", "symbol": "FSoulSiegeRules::ApplyGateDamage", "file": "Source/SoulCore/Private/SoulSiege.cpp", "fact": "Bounded 1..100000; at 0 sets bGatehouseActive=false, OpenBreach, Layer=InnerSettlement. Reused by ram/catapult-gate."},
+    {"label": "VCS", "symbol": "FSoulSiegeRules::AdvanceCourtyard", "file": "Source/SoulCore/Private/SoulSiege.cpp", "fact": "Requires gate==0 && WallBreaches>0; 15000ms uncontested capture; living defender contests; empty attacker decays. Victory capture model."},
+    {"label": "VCS", "symbol": "FSoulSiegeRules::AdvanceLayer", "file": "Source/SoulCore/Private/SoulSiege.cpp", "fact": "OuterField->Walls->InnerSettlement->Keep. Only gate/breach path drives it today."}
+  ],
+  "realtime_siege": [
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::SetupSiege", "file": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp", "fact": "Finds the single native /Game/CastleTown/.../SM_Portcullis, measures floor via line trace, lowers gate to threshold (fail-closed on drop out of [-350,20]), ground capsule route survey (fail on misses/blocks), closed-gate blocks a human capsule. Fail-closed discipline model."},
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::CommitSiegeHit", "file": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp", "fact": "Rejects ranged attackers (Combatants[A].bRanged), requires exact impact within reach+100, replay-protected via AcceptedContacts. Gate damage is melee-only in V0."},
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::CommitGateMelee / PerformGateMelee", "file": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp", "fact": "Accepted-contact melee against the gate via RBCombat binding. Model for ram contact traversal."},
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::OpenSiegeGate", "file": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp", "fact": "At integrity 0 hides + disables collision on ONLY the portcullis; walls/gatehouse/donor untouched."},
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::TickSiege", "file": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp", "fact": "Bounded RVO window near aperture, counts attackers/defenders in the courtyard ring, drives AdvanceCourtyard. Doorway throughput + capture logic."},
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::SiegeDriveGroup / SiegeDeployment", "file": "Source/SoulRealtimeBattle/Private/SoulHumanCapitalSiege.cpp", "fact": "Side/approach waypoint logic; defender holds behind closed gate; comment notes an authored bridge-deck gap that stranded a rear slot (mobile-engine pathing risk)."},
+    {"label": "VCS", "symbol": "ASoulRealtimeArenaGameMode::BeginPlay siege init", "file": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp", "line": 1264, "fact": "SiegeState=FSoulSiegeRules::Begin({}) then only GateMaximum/GateIntegrity set from descriptor. Preparation NOT transported (the B1 gap)."},
+    {"label": "VCS", "symbol": "Profile() ranged reach", "file": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp", "line": 398, "fact": "Ranged bow reach 2600; archers exist for defender ranged defense (Phase D)."}
+  ],
+  "campaign_bridge_and_subsystem": [
+    {"label": "VCS", "symbol": "FSoulCampaignBattleDescriptor", "file": "Source/SoulCore/Public/SoulCampaignBattleBridge.h", "fact": "Transport struct: bSiege, SiegeGateIntegrity, SiegeGateMaximum, companies, map/return packages, ArenaOrigin. NO preparation fields today — extend here for B1."},
+    {"label": "VCS", "symbol": "FSoulCampaignBattleResult", "file": "Source/SoulCore/Public/SoulCampaignBattleBridge.h", "fact": "bSiege, bCourtyardCaptured, SiegeGateRemaining, survivors/reserves, hero wounded flags. Siege result contract."},
+    {"label": "VCS", "symbol": "USoulFounderPlaytestStateSubsystem::ApplySettlementEnvironment", "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp", "line": 944, "fact": "Gates siege behind -SoulSiegeV0 + FortificationLevel>0 + eligible commander; sets bSiege, siege map, SiegeGateMaximum (1300 at level>=2), SiegeGateIntegrity from WallIntegrityPermille. BattlefieldId=human_capital_gate_siege."},
+    {"label": "VCS", "symbol": "USoulFounderPlaytestStateSubsystem siege aftermath", "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp", "line": 555, "fact": "On resolve computes WallDamagePermille from SiegeGateRemaining and adds scar human.gate.breached at gate zero; calls FSoulSiegeAftermathRules::Apply path."},
+    {"label": "VCS", "symbol": "siege result save fields", "file": "Source/Soul/Private/SoulFounderPlaytestStateSubsystem.cpp", "line": 711, "fact": "Optional backward-compatible result_siege/result_siege_gate/result_siege_courtyard fields; the save round-trip pattern to mirror for preparation + repair."}
+  ],
+  "settlement_and_repair": [
+    {"label": "VCS", "symbol": "FSoulSettlementState", "file": "Source/SoulCore/Public/SoulSettlement.h", "fact": "WallIntegrityPermille, Buildings map, PermanentScars, FortificationLevel."},
+    {"label": "VCS", "symbol": "FSoulSettlementRules::DamageWalls/RepairWalls", "file": "Source/SoulCore/Private/SoulSettlement.cpp", "fact": "DamageWalls adds permanent scar; RepairWalls is instant+free+scar-blind (the stub V1 must cost/time)."},
+    {"label": "VCS", "symbol": "FSoulSettlementRules::DamageBuilding/RepairBuilding", "file": "Source/SoulCore/Private/SoulSettlement.cpp", "fact": "Building integrity+condition; RepairBuilding instant+free; a Ruined building is NOT rejected by RepairBuilding."},
+    {"label": "VCS", "symbol": "FSoulSettlementRules::AdvanceDay", "file": "Source/SoulCore/Private/SoulSettlement.cpp", "fact": "Only ticks construction countdown; NO repair-over-time. Extend for timed repair jobs."},
+    {"label": "VCS", "symbol": "ESoulBuildingCondition", "file": "Source/SoulCore/Public/SoulSettlement.h", "fact": "Unbuilt/Building/Intact/Damaged/Ruined. NO Repairing member, yet presentation controller string-compares 'Repairing'."},
+    {"label": "VCS", "symbol": "FSoulSiegeAftermathRules::Apply", "file": "Source/SoulCore/Private/SoulSiegeAftermath.cpp", "fact": "Maps siege WallDamagePermille + building damage + ScarIds into settlement state via Damage* + PermanentScars."},
+    {"label": "VCS", "symbol": "ASoulFortificationSegmentActor::ApplyWallState", "file": "Source/Soul/Private/SoulFortificationSegmentActor.cpp", "fact": "Intact/Damaged/Breached/Repair visual branches; RepairRoot/RepairActors scaffolding branch exists."},
+    {"label": "VCS", "symbol": "SoulSettlementPresentationController wall drive", "file": "Source/Soul/Private/SoulSettlementPresentationController.cpp", "line": 108, "fact": "Reads GetWallIntegrity + scars; ALWAYS calls ApplyWallState(..., bRepairing=false) -> the RepairRoot scaffolding branch is dead."}
+  ],
+  "ai": [
+    {"label": "VCS", "symbol": "FSoulStrategyAI::Evaluate(SiegeSettlement)", "file": "Source/SoulCore/Private/SoulStrategyAI.cpp", "line": 173, "fact": "Legality: adjacent settlement, readiness>=600, Strength*100 >= Garrison*70; additive score; reasons adjacent_enemy_settlement/siege_force_ratio_acceptable. NO preparation concept."},
+    {"label": "VCS", "symbol": "FSoulStrategyAI::Choose", "file": "Source/SoulCore/Private/SoulStrategyAI.cpp", "line": 205, "fact": "Deterministic best-of-seven with lexical tie-break. Extend Actions[] with PrepareSiege."},
+    {"label": "VCS", "symbol": "FSoulMemoryRules::RivalBias", "file": "Source/SoulCore/Private/SoulMemory.cpp", "fact": "Reused anti-recapture-churn bias (already used by AttackVisibleArmy)."}
+  ],
+  "data_and_tests": [
+    {"label": "VCS", "file": "Data/city_siege_blueprints.json", "fact": "Per-city siege layers/approaches/objectives + rules: objectives_must_be_physical, no_mid_battle_construction, no_pocket_ladders, repair scars may remain. Human approaches: main_road/side_wall/flying; objectives: gatehouse/forge/witch_collegium/keep."},
+    {"label": "VCS", "file": "Data/SettlementEnvironments/EnvironmentRegistry.json", "fact": "human_capital siege_environment=/Game/Soul/Maps/Settlements/L_HumanCapital_Authored; siege_origin [5376.59,1390.95,1050] matches gate base. Other cities siege_environment=null."},
+    {"label": "VCS", "file": "Source/SoulCore/Private/Tests/SoulGateAssaultTests.cpp", "fact": "Soul.Core.Siege.GateAssaultV0: gate strength, closed-gate no-capture, damage bounds, breach!=win, courtyard contest/decay/capture, wounded/captured cannot siege."},
+    {"label": "VCS", "file": "Source/Soul/Private/Tests/SoulSiegeCampaignTests.cpp", "fact": "Soul.Integration.SiegeV0.AdmissionAndResults: fortification gating, commander rejection, atomic malformed result/save rejection, exact F5/F9 + fresh-process restore, defender-victory capture."},
+    {"label": "VCS", "file": "Source/Soul/Private/SoulHumanCapitalSiegeQualification.cpp", "fact": "Cooked -SoulSiegeV0 -SoulSiegeQualification phase machine + -SoulSiegeColdRestore; fail-closed on wrong ownership/restore. Runtime acceptance pattern."},
+    {"label": "VCS", "file": "Evidence/HumanCapitalSiege-20261010/HANDOFF.md", "fact": "V0 qualified; known limits explicitly list no ladders/engines/wall-top combat, crowded doorway, one gate/one objective, no gate repair, no rescue/ransom, no mid-battle save. 'Next action': improve the one assault on founder feedback before adding ladders/engines."},
+    {"label": "VCS", "file": "Evidence/HumanCapitalSiege-20261010/gate-diagnosis.json", "fact": "Native gate base (5376.59,1390.95,1050); runtime drop -261.03; inside dir ~ (0.689,-0.724); capsule route PASS cooked; only portcullis adapted."},
+    {"label": "VCS", "file": "Docs/FACTION_CITY_AND_SIEGE_PLAN_20260920.md", "fact": "Shared rule: one canonical settlement, four presentations, shared damage state; breached wall remains breached; repair restores function before scar fully disappears; ladders/siege mechanisms are keep-interactive traversal pieces; interior interaction scope locked."}
+  ]
+}

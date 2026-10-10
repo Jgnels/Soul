@@ -1,0 +1,144 @@
+{
+  "schema": "soul.siege_v1.ladder_requirements.v1",
+  "lane": "07_SIEGE_V1_LADDERS_ENGINES_REPAIR",
+  "source_snapshot": "2c3a9055d71a87ed3ed8b8abf08503efa1218f7c",
+  "evidence_label_legend": {
+    "VCS": "VERIFIED FROM CURRENT SNAPSHOT",
+    "VOA": "VERIFIED OWNED ASSET METADATA",
+    "LRC": "LOCAL RUNTIME/ASSET CHECK REQUIRED",
+    "DP": "DESIGN PROPOSAL"
+  },
+  "principle": "A ladder is a traversal RULE (nav + collision + socket + animation + accepted-contact climb), NOT a static mesh. Deployed object, physically climbed. No pocket ladders; no mid-battle construction.",
+  "existing_hooks": {
+    "preparation_flag": {
+      "label": "VCS",
+      "symbol": "FSoulSiegePreparation::bLadders",
+      "file": "Source/SoulCore/Public/SoulSiege.h",
+      "status": "DECLARED, TEST-ADJACENT, UNUSED AT RUNTIME",
+      "note": "FSoulSiegeRules::CanAssaultWalls() already returns true when bLadders is set (Source/SoulCore/Private/SoulSiege.cpp). But the arena constructs siege with FSoulSiegeRules::Begin({}) (SoulRealtimeBattleArena.cpp:1264), so bLadders is never populated. V1 must transport it (feature B1)."
+    },
+    "wall_layer_enum": {
+      "label": "VCS",
+      "symbol": "ESoulSiegeLayer::Walls",
+      "file": "Source/SoulCore/Public/SoulSiege.h",
+      "note": "AdvanceLayer defines OuterField->Walls->InnerSettlement->Keep but only the gate/breach path drives it today. A ladder that reaches the wall-top should advance to ::Walls."
+    },
+    "ranged_defender": {
+      "label": "VCS",
+      "symbol": "ESoulRealtimeFormationRole::Ranged",
+      "file": "Source/SoulRealtimeBattle/Private/SoulRealtimeBattleArena.cpp:398,1512-1520",
+      "note": "Archers exist (bow reach 2600). They are the natural ranged counter to climbers. CommitSiegeHit rejects bRanged from the gate (line ~ CommitSiegeHit), so ladders give melee a route that ranged can suppress."
+    },
+    "owned_ladder_animation": {
+      "label": "VOA",
+      "product_name": "Free Ladder Animation Set",
+      "publisher": "BPG",
+      "source_platform": "Fab",
+      "source_product_id": "5ab22a0887864fdb8d717bdcf7bfec6b",
+      "owned": true,
+      "owned_confidence": "HIGH",
+      "locally_available": null,
+      "imported": false,
+      "catalog_record": "Copperlight-Asset-Catalog/catalog/products.json",
+      "note": "Owned per catalog; NOT confirmed locally present or imported. Climb animation suitability vs Soul's RB character rig is LRC."
+    }
+  },
+  "requirements": [
+    {
+      "id": "LADDER-R1",
+      "title": "Deployable ladder actor (not a decorative mesh)",
+      "label": "DP",
+      "statement": "A placeable ASoulSiegeLadderActor that an attacker preparation (bLadders) brings onto the field at authored deploy anchors near a wall segment. Mirrors ASoulFortificationSegmentActor's authored-anchor pattern.",
+      "acceptance": [
+        "Ladder exists physically before any climb (no pocket ladder, no mid-battle construction).",
+        "Ladder count is bounded by preparation, not infinite.",
+        "Ladder actor carries SettlementId + WallSegmentId linkage like ASoulFortificationSegmentActor carries SettlementId/SegmentId."
+      ],
+      "local_checks": ["LADDER-NAV-1", "LADDER-COL-1", "LADDER-SOCKET-1"]
+    },
+    {
+      "id": "LADDER-R2",
+      "title": "Authored wall-top standable nav island",
+      "label": "LRC",
+      "statement": "The battlement surface of L_HumanCapital_Authored must be walkable (navmesh or authored path) and wide enough for a Soul combat capsule (capsule ~ 40 radius / 90 half-height per siege sweeps in SoulHumanCapitalSiege.cpp).",
+      "blocking": true,
+      "rationale": "VCS: V0 only navigates the ground approach and the gate aperture. No wall-top navigation is proven. Ladders deliver ZERO value if there is nowhere to climb to. This is the single highest-risk unknown for ladders.",
+      "local_checks": ["LADDER-NAV-1"]
+    },
+    {
+      "id": "LADDER-R3",
+      "title": "Ladder-top attach socket / landing transform",
+      "label": "LRC",
+      "statement": "A deterministic landing transform where a climber transitions from ladder to wall-top, analogous to the measured SiegeGateBase+offset transforms V0 computes.",
+      "acceptance": [
+        "Landing transform is measured from authored geometry at setup, fail-closed if missing (mirror SetupSiege's SOUL_SIEGE_SETUP_FAIL discipline).",
+        "No hard-coded /Game paths; resolve from the authored map actors present at runtime."
+      ],
+      "local_checks": ["LADDER-SOCKET-1", "LADDER-COL-1"]
+    },
+    {
+      "id": "LADDER-R4",
+      "title": "Accepted-contact climb traversal",
+      "label": "DP",
+      "statement": "Climbing is a bounded traversal with a start gate (unit at ladder base, side==attacker, not ranged, ladder intact) and an end state (unit arrives at LADDER-R3 landing). Model after PerformGateMelee/CommitGateMelee's contact discipline, not a teleport.",
+      "acceptance": [
+        "A climber is interruptible: killed/shoved mid-climb returns to ground or dies (see LADDER-R6).",
+        "Climb occupies the ladder; a bounded number of simultaneous climbers per ladder.",
+        "Climb does not disable collision globally; local avoidance handling mirrors the bounded RVO window used at the gate aperture (TickSiege)."
+      ],
+      "local_checks": ["LADDER-ANIM-1", "LADDER-COL-1"]
+    },
+    {
+      "id": "LADDER-R5",
+      "title": "Climb animation integration",
+      "label": "LRC",
+      "statement": "Use the owned Free Ladder Animation Set (VOA) climb clips through the existing visual-animation resolution path (ResolveVisualAnimation/PlayAnimation in SoulRealtimeBattleArena.cpp) IF the clips retarget to Soul's RB skeletal rig.",
+      "acceptance": [
+        "If retarget fails or clips are not locally present, fall back to a non-animated but still rule-correct climb (functionality != mesh): the climb RULE must pass even if the fancy animation does not.",
+        "No claim of a working ladder is made from the mesh/animation existing in the catalog alone."
+      ],
+      "local_checks": ["LADDER-ANIM-1"]
+    },
+    {
+      "id": "LADDER-R6",
+      "title": "Defender counter: shove-off / ranged suppression",
+      "label": "DP",
+      "statement": "A defender on the wall (Phase D) can push a ladder off or an archer can suppress climbers, giving the ladder a real cost. Advances AdvanceLayer to ::Walls only when the wall-top is actually held.",
+      "depends_on": ["LADDER-R2", "defender_depth(D1,D2,D3)"],
+      "acceptance": [
+        "Shove-off removes climbers currently on that ladder (returns to ground / casualty by existing rout semantics, no synthetic kills).",
+        "A contested wall-top does not advance the layer, mirroring AdvanceCourtyard's 'living defender contests' rule."
+      ]
+    },
+    {
+      "id": "LADDER-R7",
+      "title": "Preparation + transport wiring",
+      "label": "DP",
+      "statement": "bLadders is set by campaign siege preparation (Phase F), transported via FSoulCampaignBattleDescriptor, and passed to FSoulSiegeRules::Begin(Prep).",
+      "depends_on": ["feature_B1_preparation_transport"],
+      "acceptance": [
+        "No ladders spawn when bLadders is false.",
+        "CanAssaultWalls already honors bLadders (VCS) — reuse, do not duplicate."
+      ]
+    }
+  ],
+  "local_validation_ids": {
+    "LADDER-NAV-1": "Wall-top navmesh/path exists and is capsule-wide in L_HumanCapital_Authored (BLOCKING).",
+    "LADDER-COL-1": "Ladder + wall-top collision is solid; climb does not fall through or clip; aperture-style bounded avoidance works.",
+    "LADDER-SOCKET-1": "Deterministic ladder-base deploy anchor and ladder-top landing transform are measurable from authored actors, fail-closed if absent.",
+    "LADDER-ANIM-1": "Free Ladder Animation Set clips are locally present AND retarget to the RB rig; else rule-only fallback."
+  },
+  "explicit_unknowns": [
+    "Does L_HumanCapital_Authored have ANY walkable battlement? (LRC, BLOCKING for all ladder value.)",
+    "Is the Free Ladder Animation Set locally downloaded and import-compatible with Soul's RB skeleton? (VOA says owned, not local, not imported.)",
+    "Wall segment heights at the authored capital are unknown; ladder length / climb duration cannot be specified until measured in-editor (LRC).",
+    "No owned product in the catalog is named for the /Game/CastleTown kit that provides the current SM_Portcullis; ladder-and-wall mesh source for the authored map is Soul-owned content, not a catalogued Fab product (LRC)."
+  ],
+  "anti_requirements": [
+    "No pocket/instant ladders.",
+    "No teleport-to-wall climb.",
+    "No global collision disable during climb.",
+    "No second siege/combat authority; extend FSoulSiegeState/FSoulSiegePreparation only.",
+    "No invented /Game paths; resolve authored actors at runtime and fail closed."
+  ]
+}
