@@ -1,0 +1,50 @@
+{
+  "target_receipt": "Binaries\\Win64\\SoulComposition.target",
+  "receipt_sha256": "16c32dbc8b7ff8763c74da1079dcbe2070c2162d588b8267f16799a4d41cc4c9",
+  "target_name": "SoulComposition",
+  "required_additional_files": {
+    "Data/CampaignComposition/presentation.json": true,
+    "Data/CampaignComposition/RuntimeProof.json": true,
+    "Data/CampaignComposition/HumanRuntimeProof.json": true,
+    "Data/CampaignCompositionLocal/Composition_3500_r2.r16": true,
+    "Data/CampaignComposition/OrcRuntimeProof.json": true,
+    "Data/CampaignComposition/SixFactionRuntimeProof.json": true,
+    "Data/CampaignComposition/VikingRuntimeProof.json": true
+  },
+  "rejected_payloads_staged": [],
+  "runtime_dependency_count": 1127,
+  "candidate_runtime_dependencies": [
+    {
+      "Path": "$(ProjectDir)/Data/CampaignCompositionLocal/Composition_3500_r2.r16",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/HumanRuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/OrcRuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/RuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/SixFactionRuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/VikingRuntimeProof.json",
+      "Type": "NonUFS"
+    },
+    {
+      "Path": "$(ProjectDir)/Data/CampaignComposition/presentation.json",
+      "Type": "NonUFS"
+    }
+  ],
+  "default_target_unchanged": true,
+  "full_package_qualified": false,
+  "hdri_content_descriptor_staged": true,
+  "pass": true
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "run": "cooked-walk-r2",
+    "executable_sha256": "6553e005d92b9cc5b92c443536ba870cd37413b68e67b8c5c7b2a0b137c9f93f",
+    "completion_marker": "SOUL_HEARTLAND_PASS",
+    "pass": true,
+    "elapsed_seconds": 235.05,
+    "peak_gpu_c": 84.0,
+    "invalid_vram_samples": 0,
+    "kind": "10 FPS capped functional; not performance"
+  },
+  {
+    "run": "cooked-cold-r2",
+    "executable_sha256": "6553e005d92b9cc5b92c443536ba870cd37413b68e67b8c5c7b2a0b137c9f93f",
+    "completion_marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+    "pass": true,
+    "elapsed_seconds": 91.7,
+    "peak_gpu_c": 61.0,
+    "invalid_vram_samples": 0,
+    "kind": "10 FPS capped functional; not performance"
+  },
+  {
+    "run": "cooked-commander-r1",
+    "executable_sha256": "6553e005d92b9cc5b92c443536ba870cd37413b68e67b8c5c7b2a0b137c9f93f",
+    "completion_marker": "SOUL_HEARTLAND_CITY_BATTLE_PASS",
+    "pass": true,
+    "elapsed_seconds": 308.03,
+    "peak_gpu_c": 78.0,
+    "invalid_vram_samples": 10,
+    "kind": "10 FPS capped functional; not performance"
+  },
+  {
+    "run": "cooked-commander-cold-r1",
+    "executable_sha256": "6553e005d92b9cc5b92c443536ba870cd37413b68e67b8c5c7b2a0b137c9f93f",
+    "completion_marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+    "pass": true,
+    "elapsed_seconds": 91.72,
+    "peak_gpu_c": 66.0,
+    "invalid_vram_samples": 0,
+    "kind": "10 FPS capped functional; not performance"
+  },
+  {
+    "run": "cooked-visit-restore-r1",
+    "executable_sha256": "15153d2a617bb105aa4b7a52620e96474ca6c42dc3704118c90fb0c81e72fe92",
+    "completion_marker": "SOUL_HEARTLAND_VISIT_RESTORE_PASS",
+    "pass": true,
+    "elapsed_seconds": 159.03,
+    "peak_gpu_c": 66.0,
+    "invalid_vram_samples": 0,
+    "kind": "10 FPS capped functional; not performance"
+  },
+  {
+    "run": "cooked-commander-final",
+    "executable_sha256": "57072718b033eaa119ee5c5a48bb9b8b1a558811247194e19cf9ce1565a6aef9",
+    "completion_marker": "SOUL_HEARTLAND_CITY_BATTLE_PASS",
+    "pass": true,
+    "elapsed_seconds": 328.89,
+    "peak_gpu_c": 74.0,
+    "invalid_vram_samples": 0,
+    "kind": "10 FPS capped functional; not performance"
+  },
+  {
+    "run": "cooked-commander-cold-final",
+    "executable_sha256": "57072718b033eaa119ee5c5a48bb9b8b1a558811247194e19cf9ce1565a6aef9",
+    "completion_marker": "SOUL_CAMPAIGN_COLD_LOAD_PASS",
+    "pass": true,
+    "elapsed_seconds": 91.81,
+    "peak_gpu_c": 67.0,
+    "invalid_vram_samples": 0,
+    "kind": "10 FPS capped functional; not performance"
+  }
+]

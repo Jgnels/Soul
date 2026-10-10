@@ -1,0 +1,81 @@
+{
+  "utc": "2026-10-10T05:12:20.998830+00:00",
+  "starting_head": "8b2ce9c9bf3a1c0cf58773cc12fa3a85b3e6facb",
+  "ending_head_receipt": "final-head.txt",
+  "branch": "codex/soul-bannerlord-campaign-map-20260929",
+  "statuses": {
+    "remote_save_location": "PASS",
+    "capital_orbit": "PASS",
+    "capital_walkable_visit": "PASS",
+    "capital_correct_battle_environment": "PASS",
+    "hero_normal_attack": "PASS",
+    "hero_formation_selection": "PASS",
+    "enemy_hero": "PASS",
+    "hero_wound_capture_state": "PASS",
+    "mage_guild_foundation": "PASS",
+    "hero_affinity": "PASS",
+    "human_building_tree": "PARTIAL",
+    "multi_role_recruitment": "FAIL_NOT_IMPLEMENTED",
+    "sites_implemented": 3,
+    "sites_new_visuals": 0,
+    "location_aware_battlefields": "PARTIAL",
+    "formation_order_reliability": "PARTIAL",
+    "closer_to_requested_product": "PARTIAL"
+  },
+  "stage": "C:\\Users\\Jeff\\AppData\\Local\\Soul\\CampaignAlphas\\FourFactionAlpha-nfj9niis\\Stage",
+  "stage_receipt": "Local/stage-heartland-r3/Diagnostics/receipt.json",
+  "executable_sha256": "57072718b033eaa119ee5c5a48bb9b8b1a558811247194e19cf9ce1565a6aef9",
+  "fresh_asset_cook": false,
+  "fresh_builds": [
+    "SoulEditor r9",
+    "SoulComposition r3"
+  ],
+  "generic_Soul_build_run": false,
+  "native_tests": {
+    "Heartland": 5,
+    "FourFactionAlpha": 7,
+    "StableFormationSlots": 1,
+    "CameraAndSelection": 1
+  },
+  "source_launcher_tests": 19,
+  "native_timing": "r8 tested gameplay; r9/r3 only correct post-battle text; final cooked battle/restore tests r3",
+  "launcher": "Tools/ProductionContinuation/play_heartland.cmd",
+  "save_profile": "Soul.Composition3500.HeartlandAlpha",
+  "human_sessions": "Saved/CompositionPlaytest/HeartlandAlpha/HumanSessions",
+  "default_fps_cap": 30,
+  "thermal_cutoff_c": 85,
+  "performance_qualified": false,
+  "highest_capped_functional_gpu_c": 84.0,
+  "invalid_vram_samples": 10,
+  "preservation": {
+    "pass": true,
+    "files": 602,
+    "full_receipt": "Local/preservation-final.json",
+    "sha256": "2ce920665054f6554582e1264571016c54e20be1e4af794ebf5c9290ea6cceba"
+  },
+  "natural_battle_markers": [
+    "[2026.10.10-05.05.40:644][765]LogTemp: Display: SOUL_AUTHORED_BATTLE_LOAD_READY seconds=69.82 levels=160",
+    "[2026.10.10-05.05.41:132][765]LogTemp: Display: SOUL_HEARTLAND_COMMANDER id=dwarf_king_commander faction=dwarves mesh=/Game/Dwarf_Pack/King/Mesh/SK_Dwarf_King_Full.SK_Dwarf_King_Full idle=/Game/Dwarf_Pack/Animations/1With_Weapon/Anim_Warrior_Idle.Anim_Warrior_Idle role=Hero uses_existing_slot=1",
+    "[2026.10.10-05.05.54:865][785]LogTemp: Display: SOUL_HUMAN_DEFENSE_CONTROL: pass=1 side=1 hero=Aurora possessed=1 humanManual=3 enemyManual=0 mana=80 casts=0",
+    "[2026.10.10-05.07.43:291][800]LogSoulCampaign: Display: SOUL_CONTROLLED_RESULT attacker=dwarves defender=humans region=crossroads owner=humans victory=0 survivors=0/23",
+    "[2026.10.10-05.09.16:985][543]LogTemp: Display: SOUL_HEARTLAND_CITY_BATTLE_PASS natural_result=1 attacker_won=0 survivors=0/23 return=1 F5=1 F9=1"
+  ],
+  "captured_enemy_commander": {
+    "condition": 2,
+    "recovery": 0,
+    "captor": "humans",
+    "region": "human_capital"
+  },
+  "visual_review": "visual-review.html",
+  "source_boundary": "source-boundary.json",
+  "default_map_promoted": false,
+  "donor_or_map_edits": false,
+  "push_or_merge": false,
+  "final_human_injury": {
+    "heartland_hero_condition": 1,
+    "heartland_recovery_days": 3,
+    "heartland_captor": "None",
+    "heartland_capture_region": "None"
+  },
+  "implementation_commit": "ef7a909ba7e43675585e488e26a71811d54b48bb"
+}
